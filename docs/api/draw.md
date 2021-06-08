@@ -1,0 +1,597 @@
+#![](../images/luxe-dark.svg){width="96em"}
+
+# `luxe` API (`2021.0.3`)  
+
+
+---
+
+## `luxe: draw` module
+
+- [Draw](#draw)   
+- [LineCap](#linecap)   
+- [LineJoin](#linejoin)   
+- [PathStyle](#pathstyle)   
+
+---
+
+### Draw
+`:::js import "luxe: draw" for Draw`
+> Draw is a service API that offers drawing to a context (canvas) in an efficient way.
+Things like lines, circles, paths and so on are what it provides. _The terms canvas and context
+will be used interchangeably._ 
+
+It is important to note that
+`Draw` is a [commit](../../guide/concepts#commit) based API. A brief tutorial 
+on using it can be found here: [2D drawing tutorial](../../tutorial/basics/drawing-2d).
+
+`Draw` can be used to draw game content with, but is also a great tool for debug visualization.
+Many problems are a lot clearer when their details are drawn in the world, which Draw is very useful for.
+
+The context can be drawn to once or updated frequently. For example you might draw a grid to the context,
+and then leave it there which is a very efficient way to draw many lines.
+
+- [create](#Draw.create)(**set**: `Any`)
+- [destroy](#Draw.destroy)(**context**: `Any`)
+- [valid](#Draw.valid)(**context**: `Any`)
+- [clear](#Draw.clear)(**context**: `Any`)
+- [commit](#Draw.commit)(**context**: `Any`)
+- [rect](#Draw.rect+8)(**context**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **w**: `Any`, **h**: `Any`, **angle**: `Any`, **style**: `Any`)
+- [rect_detailed](#Draw.rect_detailed+10)(**context**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **w**: `Any`, **h**: `Any`, **angle**: `Any`, **radius**: `Any`, **smoothness**: `Any`, **style**: `Any`)
+- [quad](#Draw.quad+8)(**context**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **w**: `Any`, **h**: `Any`, **angle**: `Any`, **color**: `Any`)
+- [ring](#Draw.ring+10)(**context**: `Any`, **ox**: `Any`, **oy**: `Any`, **oz**: `Any`, **rx**: `Any`, **ry**: `Any`, **start_angle**: `Any`, **end_angle**: `Any`, **smoothness**: `Any`, **style**: `Any`)
+- [ring](#Draw.ring+7)(**context**: `Any`, **ox**: `Any`, **oy**: `Any`, **oz**: `Any`, **radius**: `Any`, **smoothness**: `Any`, **style**: `Any`)
+- [circle](#Draw.circle+7)(**context**: `Any`, **ox**: `Any`, **oy**: `Any`, **oz**: `Any`, **radius**: `Any`, **smoothness**: `Any`, **color**: `Any`)
+- [circle](#Draw.circle+10)(**context**: `Any`, **ox**: `Any`, **oy**: `Any`, **oz**: `Any`, **rx**: `Any`, **ry**: `Any`, **start_angle**: `Any`, **end_angle**: `Any`, **smoothness**: `Any`, **color**: `Any`)
+- [line](#Draw.line+7)(**context**: `Any`, **x1**: `Any`, **y1**: `Any`, **x2**: `Any`, **y2**: `Any`, **z**: `Any`, **style**: `Any`)
+- [path](#Draw.path+4)(**context**: `Any`, **points**: `Any`, **style**: `Any`, **closed**: `Any`)
+- [text](#Draw.text+12)(**context**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **w**: `Any`, **h**: `Any`, **string**: `Any`, **size**: `Any`, **font**: `Any`, **color**: `Any`, **align**: `Any`, **align_vertical**: `Any`)
+- [text](#Draw.text+10)(**context**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **string**: `Any`, **size**: `Any`, **font**: `Any`, **color**: `Any`, **align**: `Any`, **align_vertical**: `Any`)
+- [image](#Draw.image+8)(**context**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **w**: `Any`, **h**: `Any`, **angle**: `Any`, **material**: `Any`)
+- [image](#Draw.image+10)(**context**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **w**: `Any`, **h**: `Any`, **angle**: `Any`, **color**: `Any`, **uv**: `Any`, **material**: `Any`)
+- [cross](#Draw.cross+7)(**context**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **radius**: `Any`, **angle**: `Any`, **style**: `Any`)
+
+<hr/>
+<endpoint module="luxe: draw" class="Draw" signature="create(set : Any)"></endpoint>
+<signature id="Draw.create">Draw.create(**set**: `Any`)
+<a class="headerlink" href="#Draw.create" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js DrawContext`
+> Creates a new drawing context to draw with.
+> The `set` passed in is a `RenderSet`, which you normally get from a `World` via `World.render_set(world)`.
+> This would place the canvas in the world to be rendered at the same time, as part of the world.   
+```js
+var canvas = Draw.create(World.render_set(app.world))
+```
+
+<endpoint module="luxe: draw" class="Draw" signature="destroy(context : Any)"></endpoint>
+<signature id="Draw.destroy">Draw.destroy(**context**: `Any`)
+<a class="headerlink" href="#Draw.destroy" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Destroy a previously created context.   
+```js
+var canvas = Draw.create(World.render_set(app.world))
+...
+Draw.destroy(canvas)
+```
+
+<endpoint module="luxe: draw" class="Draw" signature="valid(context : Any)"></endpoint>
+<signature id="Draw.valid">Draw.valid(**context**: `Any`)
+<a class="headerlink" href="#Draw.valid" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
+> Returns true if the context is valid (and hasn't been destroyed).   
+```js
+var canvas = Draw.create(World.render_set(app.world))
+var canvas = Draw.create(World.render_set(app.world))
+System.print(Draw.valid(canvas)) //true
+Draw.destroy(canvas)
+System.print(Draw.valid(canvas)) //false
+```
+
+<endpoint module="luxe: draw" class="Draw" signature="clear(context : Any)"></endpoint>
+<signature id="Draw.clear">Draw.clear(**context**: `Any`)
+<a class="headerlink" href="#Draw.clear" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Clears the context of any drawn content.
+> This clears both committed and uncommitted data.   
+```js
+Draw.clear(draw)
+```
+
+<endpoint module="luxe: draw" class="Draw" signature="commit(context : Any)"></endpoint>
+<signature id="Draw.commit">Draw.commit(**context**: `Any`)
+<a class="headerlink" href="#Draw.commit" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Commit the content that has been drawn to the context.
+> 
+> When using the Draw API, you can submit a bunch of drawing to happen,
+> but it won't show up until it is committed. 
+> 
+> You can think of the draw calls as a queue, commit will process 
+> that queue, and the canvas contents will be updated. The content
+> will stay there until commit is called again. 
+> 
+> Calling commit with nothing in the queue will clear the contents (see also `Draw.clear`).   
+```js
+var canvas = Draw.create(World.render_set(app.world))
+//draw a red box rotated 45 degrees
+Draw.quad(canvas, 0, 0, 0, 100, 100, 45, [1, 0, 0, 1])
+Draw.commit(canvas)
+```
+
+<endpoint module="luxe: draw" class="Draw" signature="rect(context : Any, x : Any, y : Any, z : Any, w : Any, h : Any, angle : Any, style : Any)"></endpoint>
+<signature id="Draw.rect+8">Draw.rect(**context**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **w**: `Any`, **h**: `Any`, **angle**: `Any`, **style**: `Any`)
+<a class="headerlink" href="#Draw.rect+8" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Draws a rectangle **outline** using `style` (`PathStyle`) at `x`,`y`, with depth `z`, with width of `w` and height of `h`.
+> The rectangle will be rotated `angle` degrees.   
+```js
+var depth = 0
+var angle = 45
+var style = PathStyle.new()
+    style.color = [1,0,0,1]
+    style.thickness = 2
+Draw.rect(canvas, 0, 0, depth, 100, 100, angle, style)
+```
+
+<endpoint module="luxe: draw" class="Draw" signature="rect_detailed(context : Any, x : Any, y : Any, z : Any, w : Any, h : Any, angle : Any, radius : Any, smoothness : Any, style : Any)"></endpoint>
+<signature id="Draw.rect_detailed+10">Draw.rect_detailed(**context**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **w**: `Any`, **h**: `Any`, **angle**: `Any`, **radius**: `Any`, **smoothness**: `Any`, **style**: `Any`)
+<a class="headerlink" href="#Draw.rect_detailed+10" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Draws a detailed rectangle **outline** using `style` (`PathStyle`) at `x`,`y`, with depth `z`, with width of `w` and height of `h`.
+> The rectangle will be rotated `angle` degrees. 
+> 
+> "Detailed" means that the corners can be configured using the `radius` and `smoothness` values.
+> This allows drawing rounded rectangles, rectangles with inverted rounded corners, and with flat corners.
+> The radius controls the amount inset from the edges. With a smoothness of 0, the corners will be angled/flat.
+> 
+> **Note** this is broken since y+ up, and needs fixing.   
+```js
+var depth = 0
+var angle = 0
+var style = PathStyle.new()
+var radius = [16, 16, 16, 16]
+var smoothness = [2, 2, 2, 2]
+Draw.rect_detailed(_ctx, 64, 64, depth, 256, 128, angle, radius, smoothness, style)
+```
+
+<endpoint module="luxe: draw" class="Draw" signature="quad(context : Any, x : Any, y : Any, z : Any, w : Any, h : Any, angle : Any, color : Any)"></endpoint>
+<signature id="Draw.quad+8">Draw.quad(**context**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **w**: `Any`, **h**: `Any`, **angle**: `Any`, **color**: `Any`)
+<a class="headerlink" href="#Draw.quad+8" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Draws a **solid** rectangle using `color` at `x`,`y`, with depth `z`, with width of `w` and height of `h`.
+> The rectangle will be rotated `angle` degrees.   
+```js
+//draw a black solid rectangle
+var depth = 0
+var angle = 45
+Draw.quad(canvas, 0, 0, depth, 100, 100, angle, [0,0,0,1])
+```
+
+<endpoint module="luxe: draw" class="Draw" signature="ring(context : Any, ox : Any, oy : Any, oz : Any, rx : Any, ry : Any, start_angle : Any, end_angle : Any, smoothness : Any, style : Any)"></endpoint>
+<signature id="Draw.ring+10">Draw.ring(**context**: `Any`, **ox**: `Any`, **oy**: `Any`, **oz**: `Any`, **rx**: `Any`, **ry**: `Any`, **start_angle**: `Any`, **end_angle**: `Any`, **smoothness**: `Any`, **style**: `Any`)
+<a class="headerlink" href="#Draw.ring+10" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Draw a circle **outline** at `ox`,`oy` at depth `oz`. `rx` and `ry` control separate radius values
+> for x and y axis, to draw an ellipse.
+> 
+> `start_angle` and `end_angle` specify in degrees allow drawing
+> an open arc, instead of a closed circle. A closed circle has `start_angle` as `0` and `end_angle` as `360`.
+> These angles match "the unit circle" in mathematics, where 0 is to the right, and 90 is pointing up.
+> 
+> :todo: `smoothness` controls how smooth the circle will be.   
+```js
+var depth = 0
+var start_angle = 0
+var end_angle = 270
+var smoothness = 2
+var style = PathStyle.new()
+Draw.ring(canvas, 128, 128, depth, 32, 16, start_angle, end_angle, smoothness, style)
+```
+
+<endpoint module="luxe: draw" class="Draw" signature="ring(context : Any, ox : Any, oy : Any, oz : Any, radius : Any, smoothness : Any, style : Any)"></endpoint>
+<signature id="Draw.ring+7">Draw.ring(**context**: `Any`, **ox**: `Any`, **oy**: `Any`, **oz**: `Any`, **radius**: `Any`, **smoothness**: `Any`, **style**: `Any`)
+<a class="headerlink" href="#Draw.ring+7" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> :todo: desc   
+```js
+//:todo: example
+```
+
+<endpoint module="luxe: draw" class="Draw" signature="circle(context : Any, ox : Any, oy : Any, oz : Any, radius : Any, smoothness : Any, color : Any)"></endpoint>
+<signature id="Draw.circle+7">Draw.circle(**context**: `Any`, **ox**: `Any`, **oy**: `Any`, **oz**: `Any`, **radius**: `Any`, **smoothness**: `Any`, **color**: `Any`)
+<a class="headerlink" href="#Draw.circle+7" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Draw a **solid** circle at `ox`,`oy` at depth `oz`, using `color` and `radius` in size.
+> :todo: `smoothness` controls how smooth the circle will be.   
+```js
+var depth = 0
+var smoothness = 2
+Draw.circle(canvas, 128, 128, depth, 32, smoothness, [1,0,0,1])
+```
+
+<endpoint module="luxe: draw" class="Draw" signature="circle(context : Any, ox : Any, oy : Any, oz : Any, rx : Any, ry : Any, start_angle : Any, end_angle : Any, smoothness : Any, color : Any)"></endpoint>
+<signature id="Draw.circle+10">Draw.circle(**context**: `Any`, **ox**: `Any`, **oy**: `Any`, **oz**: `Any`, **rx**: `Any`, **ry**: `Any`, **start_angle**: `Any`, **end_angle**: `Any`, **smoothness**: `Any`, **color**: `Any`)
+<a class="headerlink" href="#Draw.circle+10" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Draw a **solid** circle at `ox`,`oy` at depth `oz`. `rx` and `ry` control separate radius values
+> for x and y axis, to draw an ellipse.
+> 
+> `start_angle` and `end_angle` specify in degrees allow drawing
+> an open area, like a pie chart (or pacman) instead of a closed circle. A closed circle has `start_angle` as `0` and `end_angle` as `360`.
+> These angles match "the unit circle" in mathematics, where 0 is to the right, and 90 is pointing up.
+> 
+> :todo: `smoothness` controls how smooth the circle will be.   
+```js
+var depth = 0
+var start_angle = 0
+var end_angle = 270
+var smoothness = 2
+var style = PathStyle.new()
+Draw.circle(canvas, 128, 128, depth, 32, 16, start_angle, end_angle, smoothness, style)
+```
+
+<endpoint module="luxe: draw" class="Draw" signature="line(context : Any, x1 : Any, y1 : Any, x2 : Any, y2 : Any, z : Any, style : Any)"></endpoint>
+<signature id="Draw.line+7">Draw.line(**context**: `Any`, **x1**: `Any`, **y1**: `Any`, **x2**: `Any`, **y2**: `Any`, **z**: `Any`, **style**: `Any`)
+<a class="headerlink" href="#Draw.line+7" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Draw a line from `x1`,`y1` to `x2`,`y2` at depth `z` using `style` (`PathStyle`).   
+```js
+var depth = 0
+var style = PathStyle.new()
+Draw.line(canvas, 0,0, 100,100, depth, style)
+```
+
+<endpoint module="luxe: draw" class="Draw" signature="path(context : Any, points : Any, style : Any, closed : Any)"></endpoint>
+<signature id="Draw.path+4">Draw.path(**context**: `Any`, **points**: `Any`, **style**: `Any`, **closed**: `Any`)
+<a class="headerlink" href="#Draw.path+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Draw a path consisting of a list of points. 
+> 
+> If `closed` is true it is expected that the first and last point in `points`
+> have the same positions. 
+> 
+> `points` is a `List` of `[x, y]` or `[x,y,z]` points. 
+> If `z` is not specified for a point it will be 0. 
+> Note that this is a 2D drawing function atm, so different z values may not be what you expect.   
+```js
+var style = PathStyle.new()
+var points = [
+  [0,0],
+  [100,100],
+  [120,50],
+  [0,0]
+]
+Draw.path(canvas, points, style, true)
+```
+
+<endpoint module="luxe: draw" class="Draw" signature="text(context : Any, x : Any, y : Any, z : Any, w : Any, h : Any, string : Any, size : Any, font : Any, color : Any, align : Any, align_vertical : Any)"></endpoint>
+<signature id="Draw.text+12">Draw.text(**context**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **w**: `Any`, **h**: `Any`, **string**: `Any`, **size**: `Any`, **font**: `Any`, **color**: `Any`, **align**: `Any`, **align_vertical**: `Any`)
+<a class="headerlink" href="#Draw.text+12" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Draw the specified `string` at `x`,`y` and depth `z`. `w` and `h` specify the bounds for the text, bottom left origin, y going up. 
+> The `size` specifies the text size, and `color` the color. `font` is (currently) a string 
+> value for the font asset id, i.e `"luxe: font/lato"`. `align` and `align_vertical` control alignment within the bounds, 
+> using the `TextAlign` enums such as `TextAlign.left`.   
+```js
+var depth = 0
+var size = 24
+var red = [1,0,0,1]
+Draw.text(canvas, 32, 32, depth, 100, 32, "hello", size, "luxe: font/lato", red, TextAlign.center, TextAlign.bottom)
+```
+
+<endpoint module="luxe: draw" class="Draw" signature="text(context : Any, x : Any, y : Any, z : Any, string : Any, size : Any, font : Any, color : Any, align : Any, align_vertical : Any)"></endpoint>
+<signature id="Draw.text+10">Draw.text(**context**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **string**: `Any`, **size**: `Any`, **font**: `Any`, **color**: `Any`, **align**: `Any`, **align_vertical**: `Any`)
+<a class="headerlink" href="#Draw.text+10" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Draw the specified `string` at `x`,`y` and depth `z`. 
+> The `size` specifies the text size, and `color` the color. `font` is (currently) a string 
+> value for the font asset id, i.e `"luxe: font/lato"`. `align` and `align_vertical` control alignment relative to the specified position, 
+> using the `TextAlign` enums such as `TextAlign.left`.   
+```js
+var depth = 0
+var size = 24
+var red = [1,0,0,1]
+Draw.text(canvas, 32, 32, depth, "hello", size, "luxe: font/lato", red, TextAlign.center, TextAlign.bottom)
+```
+
+<endpoint module="luxe: draw" class="Draw" signature="image(context : Any, x : Any, y : Any, z : Any, w : Any, h : Any, angle : Any, material : Any)"></endpoint>
+<signature id="Draw.image+8">Draw.image(**context**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **w**: `Any`, **h**: `Any`, **angle**: `Any`, **material**: `Any`)
+<a class="headerlink" href="#Draw.image+8" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Draw an image with the specified `material` at `x`,`y` and depth `z`. 
+> The image will be rotated by `angle` degrees.   
+```js
+var depth = 0
+var angle = 30
+var material = Assets.material("luxe: material/logo.sprite")
+Draw.image(canvas, 128, 128, depth, 64, 64, angle, material)
+```
+
+<endpoint module="luxe: draw" class="Draw" signature="image(context : Any, x : Any, y : Any, z : Any, w : Any, h : Any, angle : Any, color : Any, uv : Any, material : Any)"></endpoint>
+<signature id="Draw.image+10">Draw.image(**context**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **w**: `Any`, **h**: `Any`, **angle**: `Any`, **color**: `Any`, **uv**: `Any`, **material**: `Any`)
+<a class="headerlink" href="#Draw.image+10" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Draw an image with the specified `material` at `x`,`y` and depth `z`. 
+> The image will be rotated by `angle` degrees. 
+> 
+> The `uv` value specifies a fixed rectangle like `[left, top, right, bottom]` in the `0..1` range,
+> where `[0,0,1,1]` is the default and displays the full image. 
+> A `uv` value of `[0.5, 0, 1, 0.5]` would draw the top right corner of the image only.
+> A `uv` value of `[0, 0, 4, 4]` would tile the image 4 times _(as long as the material has a repeat mode for the image)._   
+```js
+var depth = 0
+var angle = 30
+var material = Assets.material("luxe: material/logo.sprite")
+var uv = [0, 0.5, 0, 1] //bottom right
+Draw.image(canvas, 128, 128, depth, 64, 64, angle, uv, material)
+```
+
+<endpoint module="luxe: draw" class="Draw" signature="cross(context : Any, x : Any, y : Any, z : Any, radius : Any, angle : Any, style : Any)"></endpoint>
+<signature id="Draw.cross+7">Draw.cross(**context**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **radius**: `Any`, **angle**: `Any`, **style**: `Any`)
+<a class="headerlink" href="#Draw.cross+7" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> :todo: desc   
+```js
+//:todo: example
+```
+
+### LineCap
+`:::js import "luxe: draw" for LineCap`
+> The end of a line is called a "cap", when drawing paths, this determines the type of cap that a line will have. :todo: images
+
+- [butt](#LineCap.butt)
+- [round](#LineCap.round)
+- [square](#LineCap.square)
+- [from_string](#LineCap.from_string)(**value**: `Any`)
+
+<hr/>
+<endpoint module="luxe: draw" class="LineCap" signature="butt"></endpoint>
+<signature id="LineCap.butt">LineCap.butt
+<a class="headerlink" href="#LineCap.butt" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js LineCap`
+> This cap is as if there was no cap, the line is just ended. The default.   
+```js
+var style = PathStyle.new()
+    style.cap = LineCap.butt
+```
+
+<endpoint module="luxe: draw" class="LineCap" signature="round"></endpoint>
+<signature id="LineCap.round">LineCap.round
+<a class="headerlink" href="#LineCap.round" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js LineCap`
+> A round cap is a half circle at the end of the line.   
+```js
+var style = PathStyle.new()
+    style.cap = LineCap.round
+```
+
+<endpoint module="luxe: draw" class="LineCap" signature="square"></endpoint>
+<signature id="LineCap.square">LineCap.square
+<a class="headerlink" href="#LineCap.square" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js LineCap`
+> A square cap is a square at the end of the line.   
+```js
+var style = PathStyle.new()
+    style.cap = LineCap.square
+```
+
+<endpoint module="luxe: draw" class="LineCap" signature="from_string(value : Any)"></endpoint>
+<signature id="LineCap.from_string">LineCap.from_string(**value**: `Any`)
+<a class="headerlink" href="#LineCap.from_string" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js LineCap`
+> Convert a string to a LineCap value.   
+```js
+System.print(LineCap.round == LineCap.from_string("round")) //true
+```
+
+### LineJoin
+`:::js import "luxe: draw" for LineJoin`
+> When drawing a path, a series of lines will be drawn and joined together.
+The join of each connection can be configured when drawing paths using `LineJoin`.
+:todo: images
+
+- [bevel](#LineJoin.bevel)
+- [round](#LineJoin.round)
+- [miter](#LineJoin.miter)
+- [from_string](#LineJoin.from_string)(**value**: `Any`)
+
+<hr/>
+<endpoint module="luxe: draw" class="LineJoin" signature="bevel"></endpoint>
+<signature id="LineJoin.bevel">LineJoin.bevel
+<a class="headerlink" href="#LineJoin.bevel" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js LineJoin`
+> The default join is a bevel, which is a flat join.   
+```js
+var style = PathStyle.new()
+    style.join = LineJoin.bevel
+```
+
+<endpoint module="luxe: draw" class="LineJoin" signature="round"></endpoint>
+<signature id="LineJoin.round">LineJoin.round
+<a class="headerlink" href="#LineJoin.round" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js LineJoin`
+> A round join is a semi circle that makes the corner rounded.   
+```js
+var style = PathStyle.new()
+    style.join = LineJoin.round
+```
+
+<endpoint module="luxe: draw" class="LineJoin" signature="miter"></endpoint>
+<signature id="LineJoin.miter">LineJoin.miter
+<a class="headerlink" href="#LineJoin.miter" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js LineJoin`
+> A miter join is a sharp triangle join that has a limit value (which falls back to bevel).   
+```js
+var style = PathStyle.new()
+    style.join = LineJoin.miter
+    style.miter_limit = 8
+```
+
+<endpoint module="luxe: draw" class="LineJoin" signature="from_string(value : Any)"></endpoint>
+<signature id="LineJoin.from_string">LineJoin.from_string(**value**: `Any`)
+<a class="headerlink" href="#LineJoin.from_string" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Convert a string to a LineJoin value.   
+```js
+System.print(LineJoin.round == LineJoin.from_string("round")) //true
+```
+
+### PathStyle
+`:::js import "luxe: draw" for PathStyle`
+> When drawing a path, a style is used to configure what it looks like.
+For example the line thickness, color, cap and join settings.
+
+- [color](#PathStyle.color)
+- [color](#PathStyle.color=)=(value : Any)
+- [thickness](#PathStyle.thickness)
+- [thickness](#PathStyle.thickness=)=(value : Any)
+- [feather](#PathStyle.feather)
+- [feather](#PathStyle.feather=)=(value : Any)
+- [cap](#PathStyle.cap)
+- [cap](#PathStyle.cap=)=(value : Any)
+- [join](#PathStyle.join)
+- [join](#PathStyle.join=)=(value : Any)
+- [miter_limit](#PathStyle.miter_limit)
+- [miter_limit](#PathStyle.miter_limit=)=(value : Any)
+- [new](#PathStyle.new)()
+
+<hr/>
+<endpoint module="luxe: draw" class="PathStyle" signature="color"></endpoint>
+<signature id="PathStyle.color">PathStyle.color
+<a class="headerlink" href="#PathStyle.color" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Color`
+> Returns the color of the path style.   
+```js
+var style = PathStyle.new()
+var color = style.color //the default color
+```
+
+<endpoint module="luxe: draw" class="PathStyle" signature="color=(value : Any)"></endpoint>
+<signature id="PathStyle.color=">PathStyle.color=(value : Any)
+<a class="headerlink" href="#PathStyle.color=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Set the color for the style.   
+```js
+var style = PathStyle.new()
+style.color = [0, 0, 0, 1] //black
+```
+
+<endpoint module="luxe: draw" class="PathStyle" signature="thickness"></endpoint>
+<signature id="PathStyle.thickness">PathStyle.thickness
+<a class="headerlink" href="#PathStyle.thickness" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Num`
+> Returns the thickness of the path style.   
+```js
+var style = PathStyle.new()
+System.print(style.thickness) //1
+```
+
+<endpoint module="luxe: draw" class="PathStyle" signature="thickness=(value : Any)"></endpoint>
+<signature id="PathStyle.thickness=">PathStyle.thickness=(value : Any)
+<a class="headerlink" href="#PathStyle.thickness=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Set the thickness of the path style.   
+```js
+var style = PathStyle.new()
+style.thickness = 4
+```
+
+<endpoint module="luxe: draw" class="PathStyle" signature="feather"></endpoint>
+<signature id="PathStyle.feather">PathStyle.feather
+<a class="headerlink" href="#PathStyle.feather" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Num`
+> Returns the feather value for the path style. 
+> Note: not used much at the moment.   
+```js
+var style = PathStyle.new()
+var feather = style.feather
+```
+
+<endpoint module="luxe: draw" class="PathStyle" signature="feather=(value : Any)"></endpoint>
+<signature id="PathStyle.feather=">PathStyle.feather=(value : Any)
+<a class="headerlink" href="#PathStyle.feather=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Set the feather value for the path style. 
+> Note: not used much at the moment.   
+```js
+var style = PathStyle.new()
+style.feather = 2
+```
+
+<endpoint module="luxe: draw" class="PathStyle" signature="cap"></endpoint>
+<signature id="PathStyle.cap">PathStyle.cap
+<a class="headerlink" href="#PathStyle.cap" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js LineCap`
+> Returns the `LineCap` type for the path style.   
+```js
+var style = PathStyle.new()
+var cap = style.cap
+```
+
+<endpoint module="luxe: draw" class="PathStyle" signature="cap=(value : Any)"></endpoint>
+<signature id="PathStyle.cap=">PathStyle.cap=(value : Any)
+<a class="headerlink" href="#PathStyle.cap=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Set the `LineCap` type for the path style.   
+```js
+var style = PathStyle.new()
+style.cap = LineCap.round
+```
+
+<endpoint module="luxe: draw" class="PathStyle" signature="join"></endpoint>
+<signature id="PathStyle.join">PathStyle.join
+<a class="headerlink" href="#PathStyle.join" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js LineJoin`
+> Returns the `LineJoin` type for the path style.   
+```js
+var style = PathStyle.new()
+var join = style.join
+```
+
+<endpoint module="luxe: draw" class="PathStyle" signature="join=(value : Any)"></endpoint>
+<signature id="PathStyle.join=">PathStyle.join=(value : Any)
+<a class="headerlink" href="#PathStyle.join=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Set the `LineJoin` type for the path style.   
+```js
+var style = PathStyle.new()
+style.cap = LineJoin.round
+```
+
+<endpoint module="luxe: draw" class="PathStyle" signature="miter_limit"></endpoint>
+<signature id="PathStyle.miter_limit">PathStyle.miter_limit
+<a class="headerlink" href="#PathStyle.miter_limit" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Num`
+> Returns the miter limit for the path style.
+> Only relevant if the `join` type is `LineJoin.miter`.   
+```js
+var style = PathStyle.new()
+var limit = style.miter_limit
+```
+
+<endpoint module="luxe: draw" class="PathStyle" signature="miter_limit=(value : Any)"></endpoint>
+<signature id="PathStyle.miter_limit=">PathStyle.miter_limit=(value : Any)
+<a class="headerlink" href="#PathStyle.miter_limit=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Set the miter limit for the path style.
+> Only relevant if the `join` type is `LineJoin.miter`.   
+```js
+var style = PathStyle.new()
+style.miter_limit = 8
+```
+
+<endpoint module="luxe: draw" class="PathStyle" signature="new()"></endpoint>
+<signature id="PathStyle.new">PathStyle.new()
+<a class="headerlink" href="#PathStyle.new" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js PathStyle`
+> Create a new `PathStyle` instance.   
+```js
+var style = PathStyle.new()
+style.color = [1,0,0,1]
+style.thickness = 2
+style.join = LineJoin.round
+//use style
+//...
+style.thickness = 1
+//use style again...
+```
+

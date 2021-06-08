@@ -1,0 +1,534 @@
+#![](../images/luxe-dark.svg){width="96em"}
+
+# `luxe` API (`2021.0.3`)  
+
+
+---
+
+## `luxe: assets` module
+
+- [Assets](#assets)   
+- [Strings](#strings)   
+
+---
+
+### Assets
+`:::js import "luxe: assets" for Assets`
+> The `Assets` services is how you access loaded assets, and query if an asset is loaded.
+The primary use for this at the moment is the accessors like `Assets.image`, and finding out 
+if an asset is loaded via `Assets.has_image`. 
+
+Note that the asset system is a work in progress and is not final. 
+There are several accessors missing, for example, fonts are often referenced 
+as a string, not via `Assets.font("fonts/name")`. Later, all assets will be unified into this form as intended.
+
+Also, they're supposed to be able to reload dynamically, many can't currently. And remember the input
+to the asset system is compiled assets, not the assets themselves. 
+
+Finally, there are functions in the API that shouldn't be used directly (they aren't listed here.)
+
+- [image](#Assets.image)(**id**: `Any`)
+- [bytes](#Assets.bytes)(**id**: `Any`)
+- [material](#Assets.material)(**id**: `Any`)
+- [atlas](#Assets.atlas)(**id**: `Any`)
+- [font_page](#Assets.font_page+2)(**id**: `Any`, **page**: `Any`)
+- [lx](#Assets.lx)(**id**: `Any`)
+- [unload_shader_library](#Assets.unload_shader_library)(**id**: `Any`)
+- [has_shader_library](#Assets.has_shader_library)(**id**: `Any`)
+- [unload_image](#Assets.unload_image)(**id**: `Any`)
+- [has_image](#Assets.has_image)(**id**: `Any`)
+- [unload_material_basis](#Assets.unload_material_basis)(**id**: `Any`)
+- [has_material_basis](#Assets.has_material_basis)(**id**: `Any`)
+- [has_font](#Assets.has_font)(**id**: `Any`)
+- [compile_font](#Assets.compile_font+6)(**from**: `Any`, **to**: `Any`, **ranges**: `Any`, **page_w**: `Any`, **glyph_w**: `Any`, **verbose**: `Any`)
+- [unload_material](#Assets.unload_material)(**id**: `Any`)
+- [has_material](#Assets.has_material)(**id**: `Any`)
+- [unload_bytes](#Assets.unload_bytes)(**id**: `Any`)
+- [has_bytes](#Assets.has_bytes)(**id**: `Any`)
+- [unload_settings](#Assets.unload_settings)(**id**: `Any`)
+- [has_settings](#Assets.has_settings)(**id**: `Any`)
+- [load_atlas](#Assets.load_atlas+2)(**id**: `Any`, **path**: `Any`)
+- [unload_atlas](#Assets.unload_atlas)(**id**: `Any`)
+- [has_atlas](#Assets.has_atlas)(**id**: `Any`)
+- [get_atlas](#Assets.get_atlas)(**id**: `Any`)
+- [load_physics](#Assets.load_physics+2)(**id**: `Any`, **path**: `Any`)
+- [unload_physics](#Assets.unload_physics)(**id**: `Any`)
+- [has_physics](#Assets.has_physics)(**id**: `Any`)
+- [unload_prototype](#Assets.unload_prototype)(**id**: `Any`)
+- [has_prototype](#Assets.has_prototype)(**id**: `Any`)
+- [unload_scene](#Assets.unload_scene)(**id**: `Any`)
+- [has_scene](#Assets.has_scene)(**id**: `Any`)
+- [has_input](#Assets.has_input)(**id**: `Any`)
+- [unload_anim](#Assets.unload_anim)(**id**: `Any`)
+- [has_anim](#Assets.has_anim)(**id**: `Any`)
+- [unload_mesh](#Assets.unload_mesh)(**id**: `Any`)
+- [has_mesh](#Assets.has_mesh)(**id**: `Any`)
+- [unload_tiles](#Assets.unload_tiles)(**id**: `Any`)
+- [has_tiles](#Assets.has_tiles)(**id**: `Any`)
+- [unload_ui](#Assets.unload_ui)(**id**: `Any`)
+- [has_ui](#Assets.has_ui)(**id**: `Any`)
+- [has_modifier](#Assets.has_modifier)(**id**: `Any`)
+- [unload_input](#Assets.unload_input)(**id**: `Any`)
+
+<hr/>
+<endpoint module="luxe: assets" class="Assets" signature="image(id : Any)"></endpoint>
+<signature id="Assets.image">Assets.image(**id**: `Any`)
+<a class="headerlink" href="#Assets.image" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Image`
+> Return a loaded image by id.   
+```js
+var image = Assets.image("image/player")
+System.print("width: %(Image.get_width(image))")
+```
+
+<endpoint module="luxe: assets" class="Assets" signature="bytes(id : Any)"></endpoint>
+<signature id="Assets.bytes">Assets.bytes(**id**: `Any`)
+<a class="headerlink" href="#Assets.bytes" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js String`
+> Returns the data stored as bytes. 
+> A Wren `String` is also a byte sequence, used via `string.bytes`.
+> 
+> **Note** That unlike other assets, bytes are stored by name _with_ extension.
+> For example if you put a file called `data/hello.txt` in your project,
+> you would access it via `var data = Assets.bytes("data/hello.txt")`.
+> 
+> This is because the extension might be meaningful to the user of the bytes,
+> for example loading an image based on png vs jpg extension would be impossible
+> if we don't know the extension of the data. Because bytes are "opaque", as in, 
+> we don't care what they store, we just store them for you to access, we keep the extension.   
+```js
+var text = Assets.bytes("data/hello.txt")
+System.print(text) //prints the contents of the file (the contents at compile time).
+```
+
+<endpoint module="luxe: assets" class="Assets" signature="material(id : Any)"></endpoint>
+<signature id="Assets.material">Assets.material(**id**: `Any`)
+<a class="headerlink" href="#Assets.material" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Material`
+> Returns a loaded material by id.   
+```js
+var material = Assets.material("material/player")
+Sprite.set_material(player, material)
+```
+
+<endpoint module="luxe: assets" class="Assets" signature="atlas(id : Any)"></endpoint>
+<signature id="Assets.atlas">Assets.atlas(**id**: `Any`)
+<a class="headerlink" href="#Assets.atlas" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> :todo: desc   
+```js
+//:todo: example
+```
+
+<endpoint module="luxe: assets" class="Assets" signature="font_page(id : Any, page : Any)"></endpoint>
+<signature id="Assets.font_page+2">Assets.font_page(**id**: `Any`, **page**: `Any`)
+<a class="headerlink" href="#Assets.font_page+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Image`
+> Returns the image for a particular page in a font. `page` is an index (starting at 0).
+> 
+> For example, if the font has several glyphs and stores 2 pages,
+> we can see what the pages contain using this function and assigning the image somewhere visible.   
+```js
+var image = Assets.font_page("fonts/lato", 0)
+```
+
+<endpoint module="luxe: assets" class="Assets" signature="lx(id : Any)"></endpoint>
+<signature id="Assets.lx">Assets.lx(**id**: `Any`)
+<a class="headerlink" href="#Assets.lx" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Map`
+> Returns the LX parsed representation of a `bytes` asset.
+> This is convenience for `Assets.bytes` followed by `LX.parse`.
+> Returns null if the asset isn't found, or if parsing failed.
+> 
+> See `Assets.bytes`, as bytes require an extension.   
+```js
+//assuming our data contains { speaker="sara" message="follow me." }
+var dialog = Assets.lx("dialog/hello.lx")
+var speaker = dialog["speaker"]
+var message = dialog["message"]
+System.print("%(speaker): %(message)")
+```
+
+<endpoint module="luxe: assets" class="Assets" signature="unload_shader_library(id : Any)"></endpoint>
+<signature id="Assets.unload_shader_library">Assets.unload_shader_library(**id**: `Any`)
+<a class="headerlink" href="#Assets.unload_shader_library" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Unloads the shader library with the given id.   
+```js
+Assets.unload_shader_library("assets/shaders")
+```
+
+<endpoint module="luxe: assets" class="Assets" signature="has_shader_library(id : Any)"></endpoint>
+<signature id="Assets.has_shader_library">Assets.has_shader_library(**id**: `Any`)
+<a class="headerlink" href="#Assets.has_shader_library" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
+> Returns true if a shader library with this id is loaded, or false otherwise.   
+```js
+var exists = Assets.has_shader_library("assets/shaders")
+```
+
+<endpoint module="luxe: assets" class="Assets" signature="unload_image(id : Any)"></endpoint>
+<signature id="Assets.unload_image">Assets.unload_image(**id**: `Any`)
+<a class="headerlink" href="#Assets.unload_image" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Unloads the image with the given id.   
+```js
+Assets.unload_image("image/player")
+```
+
+<endpoint module="luxe: assets" class="Assets" signature="has_image(id : Any)"></endpoint>
+<signature id="Assets.has_image">Assets.has_image(**id**: `Any`)
+<a class="headerlink" href="#Assets.has_image" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Image`
+> Returns true if an image with this id is loaded, or false otherwise.   
+```js
+var exists = Assets.has_image("image/player")
+```
+
+<endpoint module="luxe: assets" class="Assets" signature="unload_material_basis(id : Any)"></endpoint>
+<signature id="Assets.unload_material_basis">Assets.unload_material_basis(**id**: `Any`)
+<a class="headerlink" href="#Assets.unload_material_basis" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Unloads the material basis with the given id.   
+```js
+Assets.unload_material_basis("basis/example")
+```
+
+<endpoint module="luxe: assets" class="Assets" signature="has_material_basis(id : Any)"></endpoint>
+<signature id="Assets.has_material_basis">Assets.has_material_basis(**id**: `Any`)
+<a class="headerlink" href="#Assets.has_material_basis" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
+> Returns true if a material basis with this id is loaded, or false otherwise.   
+```js
+var exists = Assets.has_material_basis("basis/example")
+```
+
+<endpoint module="luxe: assets" class="Assets" signature="has_font(id : Any)"></endpoint>
+<signature id="Assets.has_font">Assets.has_font(**id**: `Any`)
+<a class="headerlink" href="#Assets.has_font" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
+> Returns true if a font with this id is loaded, or false otherwise.   
+```js
+var exists = Assets.has_font("font/lato")
+```
+
+<endpoint module="luxe: assets" class="Assets" signature="compile_font(from : Any, to : Any, ranges : Any, page_w : Any, glyph_w : Any, verbose : Any)"></endpoint>
+<signature id="Assets.compile_font+6">Assets.compile_font(**from**: `Any`, **to**: `Any`, **ranges**: `Any`, **page_w**: `Any`, **glyph_w**: `Any`, **verbose**: `Any`)
+<a class="headerlink" href="#Assets.compile_font+6" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> :todo: desc   
+```js
+//:todo: example
+```
+
+<endpoint module="luxe: assets" class="Assets" signature="unload_material(id : Any)"></endpoint>
+<signature id="Assets.unload_material">Assets.unload_material(**id**: `Any`)
+<a class="headerlink" href="#Assets.unload_material" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Unloads the material with the given id.   
+```js
+Assets.unload_material_basis("material/player")
+```
+
+<endpoint module="luxe: assets" class="Assets" signature="has_material(id : Any)"></endpoint>
+<signature id="Assets.has_material">Assets.has_material(**id**: `Any`)
+<a class="headerlink" href="#Assets.has_material" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
+> Returns true if a material with this id is loaded, or false otherwise.   
+```js
+var exists = Assets.has_material("material/player")
+```
+
+<endpoint module="luxe: assets" class="Assets" signature="unload_bytes(id : Any)"></endpoint>
+<signature id="Assets.unload_bytes">Assets.unload_bytes(**id**: `Any`)
+<a class="headerlink" href="#Assets.unload_bytes" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
+> Unloads the bytes with the given id.   
+```js
+Assets.unload_bytes("data/hello.txt")
+```
+
+<endpoint module="luxe: assets" class="Assets" signature="has_bytes(id : Any)"></endpoint>
+<signature id="Assets.has_bytes">Assets.has_bytes(**id**: `Any`)
+<a class="headerlink" href="#Assets.has_bytes" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
+> Returns true if a bytes asset with this id is loaded, or false otherwise.   
+```js
+var exists = Assets.has_bytes("data/hello.txt")
+```
+
+<endpoint module="luxe: assets" class="Assets" signature="unload_settings(id : Any)"></endpoint>
+<signature id="Assets.unload_settings">Assets.unload_settings(**id**: `Any`)
+<a class="headerlink" href="#Assets.unload_settings" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Unloads the settings with the given id.   
+```js
+Assets.unload_settings("settings/area1")
+```
+
+<endpoint module="luxe: assets" class="Assets" signature="has_settings(id : Any)"></endpoint>
+<signature id="Assets.has_settings">Assets.has_settings(**id**: `Any`)
+<a class="headerlink" href="#Assets.has_settings" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
+> Returns true if a settings asset with this id is loaded, or false otherwise.   
+```js
+var exists = Assets.has_settings("settings/area1")
+```
+
+<endpoint module="luxe: assets" class="Assets" signature="load_atlas(id : Any, path : Any)"></endpoint>
+<signature id="Assets.load_atlas+2">Assets.load_atlas(**id**: `Any`, **path**: `Any`)
+<a class="headerlink" href="#Assets.load_atlas+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> :todo: desc   
+```js
+//:todo: example
+```
+
+<endpoint module="luxe: assets" class="Assets" signature="unload_atlas(id : Any)"></endpoint>
+<signature id="Assets.unload_atlas">Assets.unload_atlas(**id**: `Any`)
+<a class="headerlink" href="#Assets.unload_atlas" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> :todo: desc   
+```js
+//:todo: example
+```
+
+<endpoint module="luxe: assets" class="Assets" signature="has_atlas(id : Any)"></endpoint>
+<signature id="Assets.has_atlas">Assets.has_atlas(**id**: `Any`)
+<a class="headerlink" href="#Assets.has_atlas" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> :todo: desc   
+```js
+//:todo: example
+```
+
+<endpoint module="luxe: assets" class="Assets" signature="get_atlas(id : Any)"></endpoint>
+<signature id="Assets.get_atlas">Assets.get_atlas(**id**: `Any`)
+<a class="headerlink" href="#Assets.get_atlas" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> :todo: desc   
+```js
+//:todo: example
+```
+
+<endpoint module="luxe: assets" class="Assets" signature="load_physics(id : Any, path : Any)"></endpoint>
+<signature id="Assets.load_physics+2">Assets.load_physics(**id**: `Any`, **path**: `Any`)
+<a class="headerlink" href="#Assets.load_physics+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> :todo: desc   
+```js
+//:todo: example
+```
+
+<endpoint module="luxe: assets" class="Assets" signature="unload_physics(id : Any)"></endpoint>
+<signature id="Assets.unload_physics">Assets.unload_physics(**id**: `Any`)
+<a class="headerlink" href="#Assets.unload_physics" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> :todo: desc   
+```js
+//:todo: example
+```
+
+<endpoint module="luxe: assets" class="Assets" signature="has_physics(id : Any)"></endpoint>
+<signature id="Assets.has_physics">Assets.has_physics(**id**: `Any`)
+<a class="headerlink" href="#Assets.has_physics" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> :todo: desc   
+```js
+//:todo: example
+```
+
+<endpoint module="luxe: assets" class="Assets" signature="unload_prototype(id : Any)"></endpoint>
+<signature id="Assets.unload_prototype">Assets.unload_prototype(**id**: `Any`)
+<a class="headerlink" href="#Assets.unload_prototype" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Unloads the prototype with the given id.   
+```js
+Assets.unload_prototype("proto/tree")
+```
+
+<endpoint module="luxe: assets" class="Assets" signature="has_prototype(id : Any)"></endpoint>
+<signature id="Assets.has_prototype">Assets.has_prototype(**id**: `Any`)
+<a class="headerlink" href="#Assets.has_prototype" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
+> Returns true if a prototype with this id is loaded, or false otherwise.   
+```js
+var exists = Assets.has_prototype("proto/tree")
+```
+
+<endpoint module="luxe: assets" class="Assets" signature="unload_scene(id : Any)"></endpoint>
+<signature id="Assets.unload_scene">Assets.unload_scene(**id**: `Any`)
+<a class="headerlink" href="#Assets.unload_scene" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Unloads the scene with the given id.   
+```js
+ssets.unload_scene("scene/area1")
+```
+
+<endpoint module="luxe: assets" class="Assets" signature="has_scene(id : Any)"></endpoint>
+<signature id="Assets.has_scene">Assets.has_scene(**id**: `Any`)
+<a class="headerlink" href="#Assets.has_scene" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
+> Returns true if a scene with this id is loaded, or false otherwise.   
+```js
+var exists = Assets.has_scene("scene/area1")
+```
+
+<endpoint module="luxe: assets" class="Assets" signature="has_input(id : Any)"></endpoint>
+<signature id="Assets.has_input">Assets.has_input(**id**: `Any`)
+<a class="headerlink" href="#Assets.has_input" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
+> Returns true if an input asset with this id is loaded, or false otherwise.   
+```js
+var exists = Assets.has_input("input/player")
+```
+
+<endpoint module="luxe: assets" class="Assets" signature="unload_anim(id : Any)"></endpoint>
+<signature id="Assets.unload_anim">Assets.unload_anim(**id**: `Any`)
+<a class="headerlink" href="#Assets.unload_anim" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Unloads the animation with the given id.   
+```js
+Assets.unload_anim("anim/jump")
+```
+
+<endpoint module="luxe: assets" class="Assets" signature="has_anim(id : Any)"></endpoint>
+<signature id="Assets.has_anim">Assets.has_anim(**id**: `Any`)
+<a class="headerlink" href="#Assets.has_anim" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
+> Returns true if an animation with this id is loaded, or false otherwise.   
+```js
+var exists = Assets.has_anim("anim/jump")
+```
+
+<endpoint module="luxe: assets" class="Assets" signature="unload_mesh(id : Any)"></endpoint>
+<signature id="Assets.unload_mesh">Assets.unload_mesh(**id**: `Any`)
+<a class="headerlink" href="#Assets.unload_mesh" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Unloads the mesh with the given id.   
+```js
+Assets.unload_mesh("mesh/cube")
+```
+
+<endpoint module="luxe: assets" class="Assets" signature="has_mesh(id : Any)"></endpoint>
+<signature id="Assets.has_mesh">Assets.has_mesh(**id**: `Any`)
+<a class="headerlink" href="#Assets.has_mesh" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
+> Returns true if a mesh with this id is loaded, or false otherwise.   
+```js
+var exists = Assets.has_mesh("mesh/cube")
+```
+
+<endpoint module="luxe: assets" class="Assets" signature="unload_tiles(id : Any)"></endpoint>
+<signature id="Assets.unload_tiles">Assets.unload_tiles(**id**: `Any`)
+<a class="headerlink" href="#Assets.unload_tiles" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Unloads the tilemap with the given id.   
+```js
+Assets.unload_tiles("tiles/caves")
+```
+
+<endpoint module="luxe: assets" class="Assets" signature="has_tiles(id : Any)"></endpoint>
+<signature id="Assets.has_tiles">Assets.has_tiles(**id**: `Any`)
+<a class="headerlink" href="#Assets.has_tiles" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
+> Returns true if a tilemap with this id is loaded, or false otherwise.   
+```js
+var exists = Assets.has_tiles("tiles/caves")
+```
+
+<endpoint module="luxe: assets" class="Assets" signature="unload_ui(id : Any)"></endpoint>
+<signature id="Assets.unload_ui">Assets.unload_ui(**id**: `Any`)
+<a class="headerlink" href="#Assets.unload_ui" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Unloads the ui asset with the given id.   
+```js
+Assets.unload_ui("ui/menu")
+```
+
+<endpoint module="luxe: assets" class="Assets" signature="has_ui(id : Any)"></endpoint>
+<signature id="Assets.has_ui">Assets.has_ui(**id**: `Any`)
+<a class="headerlink" href="#Assets.has_ui" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
+> Returns true if a ui asset with this id is loaded, or false otherwise.   
+```js
+var exists = Assets.has_ui("ui/menu")
+```
+
+<endpoint module="luxe: assets" class="Assets" signature="has_modifier(id : Any)"></endpoint>
+<signature id="Assets.has_modifier">Assets.has_modifier(**id**: `Any`)
+<a class="headerlink" href="#Assets.has_modifier" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
+> Returns true if a modifier with this id is loaded, or false otherwise.   
+```js
+var exists = Assets.has_modifier("moddifier/player")
+```
+
+<endpoint module="luxe: assets" class="Assets" signature="unload_input(id : Any)"></endpoint>
+<signature id="Assets.unload_input">Assets.unload_input(**id**: `Any`)
+<a class="headerlink" href="#Assets.unload_input" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Unloads the input asset with the given id.   
+```js
+Assets.unload_input("input/player")
+```
+
+### Strings
+`:::js import "luxe: assets" for Strings`
+> When dealing with data like assets, storing a string directly can take up a lot of space.
+Instead, what we can do is store the strings once, in a shared place, and then reference that string later.
+
+At runtime, strings can also be more expensive than is ideal (like needing to iterate the characters individually, or taking up more memory).
+
+In both cases, what we store instead of a string is a _string id_, which is just a number.
+
+Comparing two numbers, looking up numbers in an array or map and so on, it's _much_ faster with a number than to
+store the string itself. Operating on numbers is both faster and simpler, and has a fixed size in memory.
+This is commonly called "string interning".
+
+In luxe, the `Strings` class is how you interact with the strings available to your game.
+For example, `var name_id = Entity.get_name(entity)` will return a _string id_, not a string.
+To get the string, you can use `var name = Strings.get(name_id)`.
+Note that if the name is unknown to `Strings`, it will return null, so handle that appropriately.
+
+To add a string, use `Strings.add("string")`.
+
+For debugging strings, if you look inside `.luxe/luxe.strings.lx`, 
+this lists all the strings your assets reference, and what their key is.
+
+```js
+//Assuming this string hasn't been added before:
+System.print( Strings.get("hello") ) //prints null
+var key = Strings.add("hello") //key is 1335831723
+System.print( Strings.get("hello") ) //prints 'hello'
+```
+
+- [add](#Strings.add)(**value**: `Any`)
+- [get](#Strings.get)(**key**: `Any`)
+
+<hr/>
+<endpoint module="luxe: assets" class="Strings" signature="add(value : Any)"></endpoint>
+<signature id="Strings.add">Strings.add(**value**: `Any`)
+<a class="headerlink" href="#Strings.add" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Num`
+> Adds a string to the `Strings` service and returns the key.   
+```js
+System.print(Strings.add("hello")) //prints 1335831723
+```
+
+<endpoint module="luxe: assets" class="Strings" signature="get(key : Any)"></endpoint>
+<signature id="Strings.get">Strings.get(**key**: `Any`)
+<a class="headerlink" href="#Strings.get" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js String`
+> Return the value associated with the given key.
+> This will return null if the string is not found.   
+```js
+var name_id = Entity.get_name(entity)
+var name = Strings.get(name_id)
+if(name) {
+  System.print("entity name is %(name)")
+} else {
+  System.print("entity name is not known (or it has no name)")
+}
+```
+
