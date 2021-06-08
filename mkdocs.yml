@@ -82,8 +82,6 @@ extra_css:
   - css/extra.css
 markdown_extensions:
   - admonition
-  - codehilite:
-      guess_lang: False
   - toc:
       permalink: True
   - footnotes
@@ -100,6 +98,8 @@ markdown_extensions:
   - pymdownx.mark
   - pymdownx.smartsymbols
   - pymdownx.superfences
+  - pymdownx.highlight:
+      linenums_style: pymdownx-inline
   - pymdownx.tasklist:
       custom_checkbox: True
   - pymdownx.tilde
