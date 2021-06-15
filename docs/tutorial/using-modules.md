@@ -289,3 +289,5 @@ With that, we can see the debug visualizations for physics, and you can slow dow
 
 ## next up
 
+In the next step we'll use collision callbacks to pick up the jar, 
+make the jar follow the player around and keep track of the state the jar is in.

@@ -21,6 +21,8 @@ nav:
       - curve animation : tutorial/curve-animation.md
       - create a prototype : tutorial/create-a-prototype.md
       - using modules : tutorial/using-modules.md
+      - collision callbacks : tutorial/collision-callbacks.md
+      - transform link : tutorial/transform-link.md
     - manual: 
       - overview: manual/overview.md
       - wip:
