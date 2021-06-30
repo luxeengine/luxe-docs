@@ -50,6 +50,8 @@ For the **image asset**, we're gonna make `image/player.idle` the name.
 The image asset actually already exists in the project outline but we'll overwrite it, 
 so select the existing file and confirm when asked to overwrite (you'll also see a warning on the `create` button).
 
+For the **pixel art** field, we want it to be enabled, since our game is pixel art.
+
 For the **material asset**, we're gonna make `material/player.idle` the name.
 In both cases, we can navigate to the folder, and type the name without an extension and the editor will do the rest.
 

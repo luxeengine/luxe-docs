@@ -23,6 +23,7 @@ nav:
       - using modules : tutorial/using-modules.md
       - collision callbacks : tutorial/collision-callbacks.md
       - transform link : tutorial/transform-link.md
+      - 'wrap up part #1' : tutorial/wrap-up-part-1.md
     - manual: 
       - overview: manual/overview.md
       - wip:

@@ -264,3 +264,124 @@ collect_jar() {
 } //collect_jar
 ```
 
+!!! tip "run the game and collect the jar"
+
+<video preload="auto" autoplay controls="" loop="loop" style="max-width:100%; width:auto; margin:auto; display:block;">  
+  <source src="../../images/tutorial/intro/transform-link-0.mp4" type="video/mp4"></source>
+</video>
+
+### fading the symbols
+
+Currently the symbols on the jar are always visible. 
+Instead, we want to set those to invisible in the prototype, and then fade them in when the jar is collected.
+
+Again inside `collect_jar()` at the end, we'll play the fade animation on the symbol:
+
+```js hl_lines="10 11"
+collect_jar() {
+  
+  ...
+
+    //Make the jar bounce a little up and down
+  var bob = Anim.play(_jar, "anim/bob")
+  Anim.set_rate(_jar, bob, 0.5)
+
+    //Fade the symbol on the jar in, so we can see it
+  var symbol = Prototype.get_named(_jar, "visual.symbol")
+  Anim.play(symbol, "anim/fade")
+
+} //collect_jar
+```
+
+In the luxe editor, open the prototype from the world context, and set the Sprite color value to `1 1 1 0` on the `visual.symbol` entity.
+
+![](../images/tutorial/intro/transform-link-1.png){: loading=lazy }
+
+This will mean the symbols aren't visible when creating the jar, but will fade in when we collect the jar.
+
+<video preload="auto" autoplay controls="" loop="loop" style="max-width:100%; width:auto; margin:auto; display:block;">  
+  <source src="../../images/tutorial/intro/transform-link-2.mp4" type="video/mp4"></source>
+</video>
+
+### fixing the offset
+
+You'll notice that when the player faces either direction and collects the jar, the offset is correct.
+When the player moves and faces the other direction, it becomes offset on the wrong side.
+
+To fix that there's two things to consider. The first is that the jar overlap code is still running
+while we're holding the jar, which we don't want. We'll add a simple check to `on_jar_overlap` to prevent that.
+
+Because the state enum value is just a number, we can use `>` to skip the overlap code when not in the `none` or `pickupable` state.
+
+```js hl_lines="4"
+on_jar_overlap(event, other) {
+
+  if(other != _player) return
+  if(_jar_state > State.pickupable) return
+
+  ...
+
+} //on_jar_overlap
+```
+
+Now we can add some new code that runs every frame to keep the jar in place.
+We'll start by making a helper method that returns true if the player is holding the jar.
+This will use simple checks:
+
+```js
+should_jar_follow_player() {
+  if(_jar_state == State.collecting) return true
+  if(_jar_state == State.in_hand_locked) return true
+  if(_jar_state == State.in_hand_unlockable) return true
+  if(_jar_state == State.in_hand_unlocked) return true
+  if(_jar_state == State.in_hand_openable) return true
+  return false
+}
+```
+
+We'll create a method called `update_jar`, and call it from `tick`.
+
+There's a few things: we don't want to access the jar if it doesn't exist yet.
+This is what `Entity.valid(entity: Entity)` is for.
+
+Then we check if we should follow the player. 
+
+And finally, we set the x position. We only set x because the y position
+is being changed by the bob animation, and we don't want it to be changed from here.
+
+```js hl_lines="21"
+update_jar() {
+
+    //Don't do anything with no jar
+  if(Entity.valid(_jar) == false) return
+    //Don't do anything if we're not holding the jar
+  if(should_jar_follow_player() == false) return
+
+    //offset the position of the jar based 
+    //on the direction the player is facing
+  var offset = -16
+  if(Sprite.get_flip_h(_player)) offset = 16
+  Transform.set_pos_x(_jar, offset)
+
+} //update_jar
+
+tick(delta) {
+
+  if(!_player) return
+
+  update_interaction()
+  update_jar()
+
+  ...
+
+} //tick
+```
+
+<video preload="auto" autoplay controls="" loop="loop" style="max-width:100%; width:auto; margin:auto; display:block;">  
+  <source src="../../images/tutorial/intro/transform-link-3.mp4" type="video/mp4"></source>
+</video>
+
+## next up
+
+In the next steps we'll start to wrap up the gameplay using everything we've already learnt, adding a fade in,
+interacting with the terminals and exiting the level.

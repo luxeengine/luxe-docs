@@ -9,7 +9,7 @@
 
 ## that floating player...
 
-Previously when we made out player we set it to center screen. This made sense when it was on
+Previously when we made our player we set it to center screen. This made sense when it was on
 a black background suspended in the void, but now that we have a background it would make sense
 to put them on the ground where they're expected to be.
 

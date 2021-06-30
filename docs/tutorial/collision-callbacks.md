@@ -197,6 +197,24 @@ setup_jar() {
 }
 ```
 
+We also want to reset the jar state when we create a jar. Inside `create_jar` set the `_jar_state` field to `State.none`:
+
+
+```js hl_lines="6"
+create_jar() {
+
+  if(_jar) Entity.destroy(_jar)
+
+  _jar = Prototype.create(_world, "prototype/jar", "jar")
+  _jar_state = State.none
+
+  ...
+
+} //create_jar
+```
+
+## jar overlap states
+
 Inside `on_jar_overlap` we're gonna update the `_jar_state` based on whether we're in range or not.
 If the overlap callback event is `begin` or `overlap`, it means we're close enough to pick up the jar.
 

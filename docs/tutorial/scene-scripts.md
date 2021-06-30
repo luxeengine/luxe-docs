@@ -251,17 +251,9 @@ class Scene {
 
     _world = world
     
-    setup_terminals()
+    System.print("hello")
 
   } //new
-
-  setup_terminals() {
-
-  }
-
-  scramble_terminals() {
-
-  }
 
   tick(delta) {
 
