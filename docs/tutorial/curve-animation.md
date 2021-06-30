@@ -13,6 +13,10 @@ Previously we made a sprite frame animation, but now we're going to make a sprit
 The `Sprite: Values` track type allows us to animate properties of the Sprite modifier directly, like 
 the origin, color or size. 
 
+!!! note ""
+    The default channel to animate for a Sprite values track is `color.a`, the alpha/opacity of the Sprite.
+    Currently you can't configure the channel, but when you can it will be show in the track settings. 
+
 Many animation tracks are based on curves, including this one, so we're gonna do a quick tour of the curve animation.
 
 !!! note ""
@@ -298,7 +302,7 @@ fade(entity, direction) {
 
 Then we need to call it from our `update_terminals` method:
 
-```js hl_lines="11 13"
+```js hl_lines="13 15"
 update_terminals() {
   
   var range = 48
