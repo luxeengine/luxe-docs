@@ -1,6 +1,6 @@
 ![](../images/luxe-dark.svg){width="96em"}
 
-# scene scripts
+# curve animation
 
 !!! example "outcome"
     In this step we'll see how to create an animation with a curve
@@ -98,7 +98,7 @@ construct new(world) {
 
 Since this part of the game is fairly simple, we don't need to use collision or anything, we can instead use a simple distance check.
 
-For each terminal, check if the player is within range of a certain distance, and mark the terminal as active. We'll create a new method called `update_terminals(delta)`, which is where we'll add this. 
+For each terminal, check if the player is within range of a certain distance, and mark the terminal as active. We'll create a new method called `update_terminals()`, which is where we'll add this. 
 
 We'll call it from the `tick` method as well, and while we're there, add a check to make sure we don't update if the player is not found (for example, in the editor).
 

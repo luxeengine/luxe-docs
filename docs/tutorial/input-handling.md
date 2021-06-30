@@ -126,16 +126,18 @@ class Game is Ready {
 
 There's two main forms of interacting with the `Input` system.
 
-In each case, you can use the direct key or mouse values, or you can bind several keys to named events, 
+You can use the direct key or mouse values, or you can bind several keys to named events, 
 like making a single event called `"jump"` that's bound to gamepad, keyboard and mouse.
 Named events are good for accessibility since they can be remapped, and provide multiple defaults. 
 
-Typically you'd want to use events only, but for debugging and prototyping it can be convenient to query directly.
+Typically you'd want to use events, but for debugging and prototyping it can be convenient to query directly. 
+
+There are two ways to get input information from luxe:
 
 - input queries - good for prototypes and reactive input (query changes frequently)
-- event based callbacks - good for general purpose use where input is connected once
+- input callbacks - good for general purpose use where input is connected once
 
-For this tutorial, we'll use the query version for now.
+For this tutorial, we'll use the query version for now but we'll use named input events later in the tutorial.
 
 !!! note ""
     There's a wip refactor of input events that makes them nicer to use. For now we'll use the direct approach.
@@ -174,7 +176,7 @@ tick(delta) {
 } //tick
 ```
 
-??? summary "event based callbacks"
+??? summary "input callbacks"
     We can also connect a callback function to a particular type of event
     and the `Input` system will notify us when that type has occurred.
     The `InputType` has various events for mouse, keys and gamepad.

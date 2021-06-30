@@ -98,7 +98,7 @@ create_jar() {
     //fetch the collider entity from the jar prototype
   var collider = Prototype.get_named(_jar, "collider.collect")
     //listen for collisions with the jar
-  Arcade.add_collision_callback(_jar) {|entity, other, state, normal, overlap|
+  Arcade.add_collision_callback(collider) {|entity, other, state, normal, overlap|
     on_jar_overlap(event, other)
   }
 
@@ -108,7 +108,7 @@ create_jar() {
 We'll add `on_jar_overlap` and inside it, we'll just print the information from the collisions.
 
 !!! note ""
-    The Strings.get is a bit akward, but when you get strings back from the engine like a name, 
+    The Strings.get is a bit awkward, but when you get strings back from the engine like a name, 
     at the moment you need to ask for the actual string, since what it returned is a hashed value (number) 
     that represents the string. 
 
@@ -201,6 +201,10 @@ Inside `on_jar_overlap` we're gonna update the `_jar_state` based on whether we'
 If the overlap callback event is `begin` or `overlap`, it means we're close enough to pick up the jar.
 
 We'll set the jar state to `pickupable` when we're not in range, and `collectable` when we're in range.
+
+!!! note ""
+    If it's just on the ground, it's a pickup, but we can't collect it just yet. Once we're in range it can be collected.
+    This is the distinction between the two!
 
 ```js
 on_jar_overlap(event, other) {

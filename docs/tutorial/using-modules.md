@@ -208,7 +208,7 @@ Next we're gonna add physics to it so that it flies into the screen.
 !!! note "workflow issue"
     The ideal workflow would be to configure the jar prototype in the editor.
     Because you currently can't configure the root entity in a prototype, 
-    we'll have to put the configuration in the code.
+    we'll have to put the configuration in the code. This will be fixed soon.
 
 To make the jar a physics object, we attach an Arcade modifier as before.
 We'll set the properties for the physics object here too.
