@@ -205,6 +205,7 @@ This class will hold various names, but for now we have a few values we know abo
  - `visible` - the one we're adding
  - `terminal` - which we used to fetch the terminals
  - `player` - which we used to fetch the player
+ - `firefly` - which we used to find firelies
 
 A `static` method in a class is called on the class itself, in other words, you use `Name.visible` to access the method. The method returns a _constant_ value, it's returning a string directly to use. 
 
@@ -214,6 +215,7 @@ class Name {
   static visible    { "visible" }
   static terminal   { "terminal" }
   static player     { "player" }
+  static firefly    { "firefly" }
 }
 ```
 
@@ -262,6 +264,7 @@ class Name {
   static visible    { "visible" }
   static terminal   { "terminal" }
   static player     { "player" }
+  static firefly    { "firefly" }
 }
 
 class Fade {
