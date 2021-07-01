@@ -25,6 +25,7 @@ nav:
       - transform link : tutorial/transform-link.md
       - animation events : tutorial/animation-events.md
       - scheduled functions : tutorial/scheduled-functions.md
+      - fading in & out : tutorial/fading-out.md
     - manual: 
       - overview: manual/overview.md
       - wip:

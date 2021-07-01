@@ -442,3 +442,7 @@ They have just enough variation to behave slightly different with low effort.
 <video preload="auto" autoplay controls="" loop="loop" style="max-width:100%; width:auto; margin:auto; display:block;">  
   <source src="../../images/tutorial/intro/create-firefly-0.mp4" type="video/mp4"></source>
 </video>
+
+## next up
+
+In the final step, we're going to use existing assets to make the door interactive so we can exit the area once we have 3 fireflies.
