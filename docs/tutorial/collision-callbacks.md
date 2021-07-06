@@ -19,7 +19,7 @@ We'll also import an enum for a type of shape from the same place, and one for t
 ```js hl_lines="3"
 import "outline/app" for App
 import "modifier/move" for Move
-import "arcade: modifier/arcade" for Arcade, ShapeType
+import "arcade: modifier/arcade" for Arcade, ShapeType, CollisionEvent
 ```
 
 !!! note ""
@@ -98,9 +98,10 @@ create_jar() {
     //fetch the collider entity from the jar prototype
   var collider = Prototype.get_named(_jar, "collider.collect")
     //listen for collisions with the jar
-  Arcade.add_collision_callback(collider) {|entity, other, state, normal, overlap|
+  Arcade.add_collision_callback(collider) {|entity, other, event, normal, overlap|
     on_jar_overlap(event, other)
   }
+
 
 } //create_jar
 ```
