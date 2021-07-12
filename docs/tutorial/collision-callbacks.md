@@ -13,18 +13,11 @@
 In order for the player to be able to collide with the jar collider, we need to add a collider to the player as well.
 The player is created in code, so we'll add some code in the `create_player` method in `game.wren`.
 
-Before we can use the `Arcade` modifier though, we need to import it, we can do this at the top of the file. 
-We'll also import an enum for a type of shape from the same place, and one for the type of collision event.
+Like before, we need to import the arcade modifier at the top of the file.
 
-```js hl_lines="3"
-import "outline/app" for App
-import "modifier/move" for Move
-import "arcade: modifier/arcade" for Arcade, ShapeType, CollisionEvent
+```js
+import "arcade: modifier/arcade" for Arcade, ShapeType
 ```
-
-!!! note ""
-    Import and assets from modules are specified in the form of `module: file` or `module: folder/file`.
-    so `arcade: modifier/arcade` is a file called `arcade.wren`, inside a `modifier` folder in the `arcade` module.
 
 Now we can use the Arcade class to create the collider on the player. Same as usual, we attach it with `create`.
 
@@ -231,7 +224,7 @@ on_jar_overlap(event, other) {
   if(other != _player) return
 
     //if it's a begin or overlap, we can interact with the jar
-  var can_interact = state != CollisionEvent.end
+  var can_interact = event != CollisionEvent.end
 
     //pickupable means it's on the floor but we're not in range, 
     //e.g we can go pick it up. collectable is when we're in range

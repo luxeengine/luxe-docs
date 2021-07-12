@@ -205,10 +205,18 @@ Next we're gonna add physics to it so that it flies into the screen.
 
 ## jar physics
 
-!!! note "workflow issue"
-    The ideal workflow would be to configure the jar prototype in the editor.
-    Because you currently can't configure the root entity in a prototype, 
-    we'll have to put the configuration in the code. This will be fixed soon.
+Before we can use the `Arcade` modifier in code, we need to import it, we can do this at the top of the `area1.wren` file. 
+We'll also import an enum for a type of shape from the same place, and one for the type of collision event.
+
+!!! note ""
+    Import and assets from modules are specified in the form of `module: file` or `module: folder/file`.
+    so `arcade: modifier/arcade` is a file called `arcade.wren`, inside a `modifier` folder in the `arcade` module.
+
+```js hl_lines="3"
+import "outline/app" for App
+import "modifier/move" for Move
+import "arcade: modifier/arcade" for Arcade, ShapeType, CollisionEvent
+```
 
 To make the jar a physics object, we attach an Arcade modifier as before.
 We'll set the properties for the physics object here too.
@@ -216,6 +224,11 @@ We'll set the properties for the physics object here too.
 Finally, we'll use the random number generator to generate a random velocity.
 We want the jar to fly upward a little bit, and to the right, so we set a starting velocity
 from random numbers in that range. This just adds a small amount of variation.
+
+!!! note "workflow issue"
+    The ideal workflow would be to configure the jar prototype in the editor.
+    Because you currently can't configure the root entity in a prototype, 
+    we'll have to put the configuration in the code. This will be fixed soon.
 
 ```js hl_lines="11 12 13 14 15 16 18 19 20"
 create_jar() {
