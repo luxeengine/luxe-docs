@@ -1,71 +1,15 @@
 #![](../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2021.0.4`)  
+# `luxe` API (`2021.0.5`)  
 
 
 ---
 
 ## `luxe: ui/button` module
 
-- [EditorControl](#editorcontrol)   
 - [UIButton](#uibutton)   
 
 ---
-
-### EditorControl
-`:::js import "luxe: ui/button" for EditorControl`
-> no docs found
-
-- [display](#EditorControl.display)
-- [panel](#EditorControl.panel)
-- [new](#EditorControl.new+2)(**editor**: `Any`, **prefix**: `Any`)
-- [create](#EditorControl.create)(**ui**: `Any`)
-- [duplicate](#EditorControl.duplicate+2)(**ui**: `Any`, **source**: `Any`)
-- [update_view](#EditorControl.update_view+2)(**control**: `Any`, **prefix**: `Any`)
-- [create_events](#EditorControl.create_events)(**prefix**: `Any`)
-
-<hr/>
-<endpoint module="luxe: ui/button" class="EditorControl" signature="display"></endpoint>
-<signature id="EditorControl.display">EditorControl.display
-<a class="headerlink" href="#EditorControl.display" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: ui/button" class="EditorControl" signature="panel"></endpoint>
-<signature id="EditorControl.panel">EditorControl.panel
-<a class="headerlink" href="#EditorControl.panel" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: ui/button" class="EditorControl" signature="new(editor : Any, prefix : Any)"></endpoint>
-<signature id="EditorControl.new+2">EditorControl.new(**editor**: `Any`, **prefix**: `Any`)
-<a class="headerlink" href="#EditorControl.new+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js EditorControl`
-> no docs found   
-
-<endpoint module="luxe: ui/button" class="EditorControl" signature="create(ui : Any)"></endpoint>
-<signature id="EditorControl.create">EditorControl.create(**ui**: `Any`)
-<a class="headerlink" href="#EditorControl.create" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: ui/button" class="EditorControl" signature="duplicate(ui : Any, source : Any)"></endpoint>
-<signature id="EditorControl.duplicate+2">EditorControl.duplicate(**ui**: `Any`, **source**: `Any`)
-<a class="headerlink" href="#EditorControl.duplicate+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: ui/button" class="EditorControl" signature="update_view(control : Any, prefix : Any)"></endpoint>
-<signature id="EditorControl.update_view+2">EditorControl.update_view(**control**: `Any`, **prefix**: `Any`)
-<a class="headerlink" href="#EditorControl.update_view+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: ui/button" class="EditorControl" signature="create_events(prefix : Any)"></endpoint>
-<signature id="EditorControl.create_events">EditorControl.create_events(**prefix**: `Any`)
-<a class="headerlink" href="#EditorControl.create_events" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
 
 ### UIButton
 `:::js import "luxe: ui/button" for UIButton`

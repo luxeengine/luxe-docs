@@ -1,6 +1,6 @@
 #![](../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2021.0.4`)  
+# `luxe` API (`2021.0.5`)  
 
 
 ---
@@ -37,6 +37,7 @@
 - [commit](#Draw.commit)(**context**: `Any`)
 - [rect](#Draw.rect+8)(**context**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **w**: `Any`, **h**: `Any`, **angle**: `Any`, **style**: `Any`)
 - [rect_detailed](#Draw.rect_detailed+10)(**context**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **w**: `Any`, **h**: `Any`, **angle**: `Any`, **radius**: `Any`, **smoothness**: `Any`, **style**: `Any`)
+- [quad_detailed](#Draw.quad_detailed+10)(**context**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **w**: `Any`, **h**: `Any`, **angle**: `Any`, **radius**: `Any`, **smoothness**: `Any`, **color**: `Any`)
 - [quad](#Draw.quad+8)(**context**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **w**: `Any`, **h**: `Any`, **angle**: `Any`, **color**: `Any`)
 - [ring](#Draw.ring+10)(**context**: `Any`, **ox**: `Any`, **oy**: `Any`, **oz**: `Any`, **rx**: `Any`, **ry**: `Any`, **start_angle**: `Any`, **end_angle**: `Any`, **smoothness**: `Any`, **style**: `Any`)
 - [ring](#Draw.ring+7)(**context**: `Any`, **ox**: `Any`, **oy**: `Any`, **oz**: `Any`, **radius**: `Any`, **smoothness**: `Any`, **style**: `Any`)
@@ -147,7 +148,7 @@
 > This allows drawing rounded rectangles, rectangles with inverted rounded corners, and with flat corners.
 > The radius controls the amount inset from the edges. With a smoothness of 0, the corners will be angled/flat.
 > 
-> **Note** this is broken since y+ up, and needs fixing.
+> The order is `[bottom left, bottom right, top right, top left]` for radius + smoothness.
 > 
 >   ```js
 >   var depth = 0
@@ -156,6 +157,28 @@
 >   var radius = [16, 16, 16, 16]
 >   var smoothness = [2, 2, 2, 2]
 >   Draw.rect_detailed(_ctx, 64, 64, depth, 256, 128, angle, radius, smoothness, style)
+>   ```   
+
+<endpoint module="luxe: draw" class="Draw" signature="quad_detailed(context : Any, x : Any, y : Any, z : Any, w : Any, h : Any, angle : Any, radius : Any, smoothness : Any, color : Any)"></endpoint>
+<signature id="Draw.quad_detailed+10">Draw.quad_detailed(**context**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **w**: `Any`, **h**: `Any`, **angle**: `Any`, **radius**: `Any`, **smoothness**: `Any`, **color**: `Any`)
+<a class="headerlink" href="#Draw.quad_detailed+10" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Draws a detailed rectangle using `color` at `x`,`y`, with depth `z`, with width of `w` and height of `h`.
+> The rectangle will be rotated `angle` degrees. 
+> 
+> "Detailed" means that the corners can be configured using the `radius` and `smoothness` values.
+> This allows drawing rounded rectangles, rectangles with inverted rounded corners, and with flat corners.
+> The radius controls the amount inset from the edges. With a smoothness of 0, the corners will be angled/flat.
+> 
+> The order is `[bottom left, bottom right, top right, top left]` for radius + smoothness.
+> 
+>   ```js
+>   var depth = 0
+>   var angle = 0
+>   var color = [0,0,0,1]
+>   var radius = [16, 16, 16, 16]
+>   var smoothness = [2, 2, 2, 2]
+>   Draw.quad_detailed(_ctx, 64, 64, depth, 256, 128, angle, radius, smoothness, color)
 >   ```   
 
 <endpoint module="luxe: draw" class="Draw" signature="quad(context : Any, x : Any, y : Any, z : Any, w : Any, h : Any, angle : Any, color : Any)"></endpoint>
