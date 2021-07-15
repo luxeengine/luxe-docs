@@ -390,4 +390,4 @@ if(Input.mouse_state_released(MouseButton.left)) {
 
 ## next up
 
-Im the next step, we'll learn to animate things using the `Anim` modifier.
+In the next step, we'll learn to animate things using the `Anim` modifier.

@@ -185,4 +185,4 @@ We'll use that as a convenience to move the Entity to the middle of the screen.
 
 ## next up
 
-Im the next step, we'll look at creating an Entity and attaching modifiers using the editor.
+In the next step, we'll look at creating an Entity and attaching modifiers using the editor.

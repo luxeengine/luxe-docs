@@ -238,4 +238,4 @@ create_player() {
 
 ## next up
 
-Im the next step, we'll fix the player floating in the sky, and add some basic camera follow behaviour.
+In the next step, we'll fix the player floating in the sky, and add some basic camera follow behaviour.

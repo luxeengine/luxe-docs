@@ -532,4 +532,4 @@ With that all done, you'll also notice the camera starts off screen and zooms ov
 
 ## next up
 
-Im the next step, we'll start with the gameplay of interacting with the terminals and learn another way to fetch entities from the world.
+In the next step, we'll start with the gameplay of interacting with the terminals and learn another way to fetch entities from the world.
