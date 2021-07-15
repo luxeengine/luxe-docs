@@ -1,5 +1,13 @@
 # luxe editor release notes
 
+#### 2021.0.5
+
+- Values / Tags - fix enter key being stolen 
+- Anim - fix loading creating duplicate tracks
+- Anim - add transform track settings to editor
+- Anim - add sprite value track settings
+- World - fix assumptions of project-local paths in world editor, so scenes in modules can be edited
+
 #### 2021.0.4
 
 - luxe 2021.0.4 compatability

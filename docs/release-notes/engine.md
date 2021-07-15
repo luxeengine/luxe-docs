@@ -1,5 +1,13 @@
 # luxe release notes
 
+## 2021.0.5
+
+- latest SDL - 2.0.14
+- latest emsdk - 2.0.25
+- Draw - fix rect_detailed for y+ up and clamped radius
+- Draw - add rect detailed example/test to sample
+- LX - fix bug serializing vectors of bool
+
 ## 2021.0.4
 
 - Fix Assets class being special, so now it gets proper completion
