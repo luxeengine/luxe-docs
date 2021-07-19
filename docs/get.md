@@ -22,6 +22,8 @@ If you plan to use the editor, you should install it:
 Currently the primary supported IDE is [Code](https://code.visualstudio.com/).   
 It's a free cross platform editor with great support for custom extensions.
 
+Download and install Code from the above link for your platform.
+
 To install support for luxe, open the extensions panel.   
 This can be found via the menu or the side bar.
 

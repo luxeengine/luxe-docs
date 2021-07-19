@@ -18,6 +18,8 @@ and introduce them by implementing a point-and-click style experience.
 Note that there's an intro to the [Wren programming language](../../guide/wren-primer) 
 which luxe uses. It may be useful in getting familiar with Wren when coming from other languages.  
 
+[Make sure you have code completion running in the Code editor.](../../guide/workflow#code-completion)
+
 ## outcome 
 
 The end result is that you have an overview of the various tools that

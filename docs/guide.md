@@ -87,20 +87,23 @@ When making your game, all these assets are converted (_compiled_) into content 
 
 ### Running a project
 
-**From the luxe editor**   
+**Running via the luxe editor or code editor**   
 
-The play icon on the top right corner of the UI will run the game.
-You can also press ++cmd+p++ / ++ctrl+p++ to run the game (from the world editor only atm).
+You can learn how to run the project via code and via the luxe editor from [this page in the tutorial]((../tutorial/create-and-run-a-project/#running-the-project-via-code)).
 
-!!! warning 
-    You can simulate the loaded scenes in the editor by pressing ++p++, but note that play in editor support is experimental/early.
-
-**From a code/text editor**   
-
-You can run your project [from your editor of choice](#). From the editor, in the project context, select "editor/ide setup..." which will explain how to use the plugins for sublime text or vscode. 
 
 **Running from a command line**   
+
 You can also run your project from a terminal using `luxe run` from inside the project folder. 
+
+A shortcut is installed to the last installed version of luxe at `<home>/.luxe/bin/luxe`. 
+
+!!! note "setting the shortcut version"
+    You can set the version using the launcher, by right clicking on an installed version of the engine.
+    The tools + settings page also has an option to set to an explicit path (e.g dev build mode).
+
+mac + linux: `~/.luxe/bin/luxe run`
+windows: `c:\Users\<USER>\.luxe\bin\luxe run`
 
 ## Workflow
 

@@ -13,6 +13,45 @@ Wren is very easy to learn, but is familiar if you're used to C#, lua or js.
 
 <h4><a target="_blank" href="http://wren.io">Read the Wren documentation</a></h4>
 
+This [Wren primer](../wren-primer) is a quick introduction if you're familiar with other languages.
+
+### code completion
+
+luxe supports code completion and other IDE features through vs code ([get vscode here](../../get#installing-ide-support)).
+
+!!! tip ""
+    The implementation is a work in progress. Some APIs don't complete (`Input` + `IO`).
+    Not all classes have documentation yet. As time goes on more and more stuff will have docs
+    and type annotations.
+
+<video preload="auto" autoplay controls="" loop="loop" style="max-width:100%; width:auto; margin:auto; display:block;">  
+  <source src="../../images/guide/completion.mp4" type="video/mp4"></source>
+</video>
+
+The completion works when the **luxe agent** is installed and running. 
+
+**To install the agent**, open the luxe launcher:
+
+  - on the **modules** page
+  - find and install the **luxe-agent** module
+
+!!! note ""
+    The version of the luxe agent is less important. Just use the latest one.
+
+**To run the agent**, open the luxe launcher:
+
+  - on the **tools + settings** page
+  - wait a bit, and click **run agent**
+
+!!! note ""
+    Later vscode will automatically run the agent. At the moment it's manual.
+    The agent is a regular applicaton, it's written in luxe itself.
+    You can run it manually, make it run automatically on system start and so on.
+
+Once running, you can test it by typing `Sprite.` in vscode in a project.
+
+![](../images/guide/completion.png){: loading=lazy }
+
 ---
 
 ## game lifecycle
@@ -76,11 +115,13 @@ Using parcels gives you a lot of control but with a very simple workflow, and se
     Parcels are compiled into a single data file, making it easier to distribute your game content with the game.
 
 ### The entry parcel
-The default behaviour in luxe is that **the entry parcel is automatic**. You don't have to do anything for it to work, it will loads all of the assets inside of your project folder for you. This allows you to focus on making your game without worrying about it.
+The default behaviour in luxe is that **the entry parcel is automatic**. You don't have to do anything for it to work, it will load all of the assets inside of your project folder for you. This allows you to focus on making your game without worrying about it.
 
 **For most smaller games all of your content and assets can be loaded here without any trouble**.
 
 !!! summary "Manually controlled parcels"
+    At the moment, you can't load parcels manually.
+
     For bigger games, the entry parcel is typically where you'd store a splash screen and any essentials before the game loads the rest itself. Your project has a `parcel` setting, which is specifically for when the game starts up. This parcel is loaded first, before you get control, and means that any assets in this parcel are ready when your game starts. 
 
     From there, the game can load other parcels and assets as it needs.
@@ -92,7 +133,6 @@ If your project has a file called `.luxeignore` in it, you can ignore folders an
 *.md
 some_folder/
 ```
-
 
 ---
 
