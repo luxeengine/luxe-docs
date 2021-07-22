@@ -77,7 +77,7 @@ The new window that opens is your game running in standalone mode.
 ## Running the project via code
 
 !!! note ""
-    make sure you have the [luxe vscode extension installed](../../../get#installing-ide-support) 
+    make sure you have the [luxe vscode extension installed](../../get#installing-ide-support) 
 
 The first step is to **open a folder**, using the _Open Folder_ button or _File_ menu.
 Select the project folder you just created. 
