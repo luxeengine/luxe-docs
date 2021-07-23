@@ -63,6 +63,42 @@ class Game is Ready {
 The exciting result:
 ![](../images/tutorial/intro/display-a-sprite-0.png){: loading=lazy }
 
+## removing the logo
+
+The tutorial outline includes a logo that follows the mouse, 
+mostly because showing a blank screen is hard to tell if things are working as expected.
+
+We're not gonna need that going forward, so let's remove it. It's inside the `tick` method.
+Delete the highlighted section of code!
+
+```js hl_lines="5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20"
+
+...
+
+tick(delta) {
+
+  if(_logo == null) {
+
+    _logo = Entity.create(app.ui, "logo")
+    Transform.create(_logo)
+    Transform.set_pos(_logo, app.width/2, app.height/2, 0)
+    Sprite.create(_logo, Assets.material("luxe: material/logo.sprite"), 128, 128)
+
+  } else {
+
+    var pos = Camera.screen_point_to_world(
+                app.ui_camera, 
+                Input.mouse_x(),
+                Input.mouse_y())
+    Transform.set_pos(_logo, pos.x, pos.y, 0)
+
+  } //if logo
+
+  ...
+  
+} //tick
+```
+
 ## World, Entity, Modifier ...
 
 In the [intro guide](../../../guide), the concept of an Entity was described.

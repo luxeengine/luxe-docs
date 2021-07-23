@@ -48,6 +48,36 @@ Once you select an outline, a folder selection dialog will be presented so you c
 Once created, the new project will be listed at the top of the projects page.
 From here you can open the folder using the folder icon, or click the project to open it in the editor.
 
+## Running the project via code
+
+!!! note ""
+    make sure you have the [luxe vscode extension installed](../../get#installing-ide-support) 
+
+The first step is to **open a folder**, using the _Open Folder_ button or _File_ menu.
+Select the project folder you just created. 
+
+![](../images/tutorial/intro/run-via-code-0.png){: loading=lazy }
+
+Once open, you should see the project files on the side bar, such as `game.wren`, `project.luxe` and so on.
+Click the `game.wren` file to open it, this is where our game begins.
+
+![](../images/tutorial/intro/run-via-code-1.png){: loading=lazy }
+
+Now we can run the game via Tasks - using the `Terminal -> Run Build Task ...` **menu item**.
+The project is configured that the default build task is to run the game.
+
+!!! note ""
+    Take note of the 'Run Build Task...' keyboard shortcut in the menu (usually `ctrl/cmd + shift + B`).   
+    It can be much faster to iterate via the keyboard shortcut.
+
+![](../images/tutorial/intro/run-via-code-2.png){: loading=lazy }
+
+The game window should pop up with the standalone game.
+
+!!! note ""
+    The first time you run a project might take a few seconds
+    to show, but every time after that should be quick.
+
 ## Running the project via the editor
 
 !!! note ""
@@ -73,33 +103,3 @@ The new window that opens is your game running in standalone mode.
     Quit the game to return to the editor window.
 
 ![](../images/tutorial/intro/run-via-editor-2.png){: loading=lazy }
-
-## Running the project via code
-
-!!! note ""
-    make sure you have the [luxe vscode extension installed](../../get#installing-ide-support) 
-
-The first step is to **open a folder**, using the _Open Folder_ button or _File_ menu.
-Select the project folder you just created. 
-
-![](../images/tutorial/intro/run-via-code-0.png){: loading=lazy }
-
-Once open, you should see the project files on the side bar, such as `game.wren`, `project.luxe` and so on.
-Click the `game.wren` file to open it, this is where our game begins.
-
-![](../images/tutorial/intro/run-via-code-1.png){: loading=lazy }
-
-Now we can run the game via Tasks - using the `Terminal -> Run Build Task ...` menu item.
-The project is configured that the default build task is to run the game.
-
-!!! note ""
-    Take note of the 'Run Build Task...' keyboard shortcut in the menu (usually `ctrl/cmd + shift + B`).   
-    It can be much faster to iterate via the keyboard shortcut.
-
-![](../images/tutorial/intro/run-via-code-2.png){: loading=lazy }
-
-The game window should pop up with the standalone game.
-
-!!! note ""
-    The first time you run a project might take a few seconds
-    to show, but every time after that should be quick.
