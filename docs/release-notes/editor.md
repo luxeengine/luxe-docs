@@ -1,5 +1,11 @@
 # luxe editor release notes
 
+#### 2021.0.6
+
+- remove Str.lower on paths removing cross platform behaviour
+- remove create asset options from asset lists (use import menu)
+- fix tab behaviours for several things
+
 #### 2021.0.5
 
 - Values / Tags - fix enter key being stolen 

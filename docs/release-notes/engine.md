@@ -1,5 +1,12 @@
 # luxe release notes
 
+## 2021.0.6
+
+- mac; fixes for build deployment target (now 10.13)
+- Str.path normalizes drive letters for windows paths
+- outline; fix tutorial background sleep, add logo for clarity
+- UI; control; move tab concerns to control level so it works everywhere
+
 ## 2021.0.5
 
 - latest SDL - 2.0.14
