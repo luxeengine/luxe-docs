@@ -286,7 +286,7 @@ class Game is Ready {
       //get the material for the player from the Assets
     var material = Assets.material("material/player")
       //attach a Sprite to the entity to display it
-    Sprite.create(player, material, 64, 128)
+    Sprite.create(player, material, 58, 136)
       //attach a Transform to the entity to position it
     Transform.create(player)
       //set the position to the center of the screen

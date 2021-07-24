@@ -181,7 +181,7 @@ Our material id is `material/player`, which refers to a material file in our pro
     //get the material for the player from the Assets
   var material = Assets.material("material/player")
     //attach a Sprite to the entity to display it
-  Sprite.create(player, material, 64, 128)
+  Sprite.create(player, material, 58, 136)
 ```
 
 !!! tip "run the game to see the sprite"
@@ -205,7 +205,7 @@ We can then change the position via `Transform.set_pos(entity: Entity, x: Num, y
     //get the material for the player from the Assets
   var material = Assets.material("material/player")
     //attach a Sprite to the entity to display it
-  Sprite.create(player, material, 64, 128)
+  Sprite.create(player, material, 58, 136)
     //attach a Transform to the entity to position it
   Transform.create(player)
     //set the position to the center of the screen
