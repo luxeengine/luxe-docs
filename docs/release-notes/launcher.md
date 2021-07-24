@@ -3,8 +3,7 @@
 ## 0.0.16
 
 - fix linux: remove Str.lower on paths (obviously) breaking across platforms
-
-## 0.0.15
+- fix default antialiasing being too high (breaks on linux sometimes)
 
 ## 0.0.14
 
