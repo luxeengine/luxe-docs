@@ -1,6 +1,6 @@
 #![](../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2021.0.5`)  
+# `luxe` API (`2021.0.6`)  
 
 
 ---
@@ -29,7 +29,6 @@
 - [set_align_vertical](#UIText.set_align_vertical+2)(**control**: `Any`, **align**: `Any`)
 - [get_align_vertical](#UIText.get_align_vertical)(**control**: `Any`)
 - [select_all](#UIText.select_all)(**control**: `Any`)
-- [set_tab](#UIText.set_tab+2)(**control**: `Control`, **other**: `Control`)
 - [invalidate](#UIText.invalidate+2)(**control**: `Control`, **change_before**: `String`)
 
 <hr/>
@@ -114,12 +113,6 @@
 <endpoint module="luxe: ui/text" class="UIText" signature="select_all(control : Any)"></endpoint>
 <signature id="UIText.select_all">UIText.select_all(**control**: `Any`)
 <a class="headerlink" href="#UIText.select_all" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: ui/text" class="UIText" signature="set_tab(control : Control, other : Control)"></endpoint>
-<signature id="UIText.set_tab+2">UIText.set_tab(**control**: `Control`, **other**: `Control`)
-<a class="headerlink" href="#UIText.set_tab+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 

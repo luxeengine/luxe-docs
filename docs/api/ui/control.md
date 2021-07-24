@@ -1,6 +1,6 @@
 #![](../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2021.0.5`)  
+# `luxe` API (`2021.0.6`)  
 
 
 ---
@@ -46,6 +46,8 @@
 - [set_allow_input](#Control.set_allow_input+2)(**control**: `Any`, **allow**: `Any`)
 - [get_allow_keys](#Control.get_allow_keys)(**control**: `Any`)
 - [set_allow_keys](#Control.set_allow_keys+2)(**control**: `Any`, **allow**: `Any`)
+- [get_allow_tab](#Control.get_allow_tab)(**control**: `Any`)
+- [set_allow_tab](#Control.set_allow_tab+2)(**control**: `Any`, **allow**: `Any`)
 - [get_visible](#Control.get_visible)(**control**: `Any`)
 - [set_visible](#Control.set_visible+2)(**control**: `Any`, **visible**: `Any`)
 - [get_disabled](#Control.get_disabled)(**control**: `Any`)
@@ -257,6 +259,18 @@
 <endpoint module="luxe: ui/control" class="Control" signature="set_allow_keys(control : Any, allow : Any)"></endpoint>
 <signature id="Control.set_allow_keys+2">Control.set_allow_keys(**control**: `Any`, **allow**: `Any`)
 <a class="headerlink" href="#Control.set_allow_keys+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: ui/control" class="Control" signature="get_allow_tab(control : Any)"></endpoint>
+<signature id="Control.get_allow_tab">Control.get_allow_tab(**control**: `Any`)
+<a class="headerlink" href="#Control.get_allow_tab" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: ui/control" class="Control" signature="set_allow_tab(control : Any, allow : Any)"></endpoint>
+<signature id="Control.set_allow_tab+2">Control.set_allow_tab(**control**: `Any`, **allow**: `Any`)
+<a class="headerlink" href="#Control.set_allow_tab+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
