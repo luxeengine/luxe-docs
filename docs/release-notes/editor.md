@@ -1,5 +1,17 @@
 # luxe editor release notes
 
+#### 2021.0.7
+
+- Fix regression from imports added in 2021.0.6, paths should work as intended
+- Fix duplicate options added when clicking import repeatedly #52
+- Fix anim view stealing focus when switching contexts #48
+- Fix path lowercase behaviour in more places e.g #53
+- UI; double click setting added `engine.runtime.input.rapid_press_interval`
+- UI; double click time default increased to 0.45s (was 0.2s)
+- Anim; Sprite Value Track now exposes uv.horizontal/uv.vertical
+- Anim; Sprite Value Track now exposes uv.left/uv.right/uv.top/uv.bottom
+- Material previews for sprite based materials render as 2D images
+
 #### 2021.0.6
 
 - remove Str.lower on paths removing cross platform behaviour

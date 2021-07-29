@@ -1,5 +1,13 @@
 # luxe release notes
 
+## 2021.0.7
+
+- Fix regression from imports added in 2021.0.6, paths should work as intended
+- UI; double click setting added `engine.runtime.input.rapid_press_interval`
+- UI; double click time default increased to 0.45s (was 0.2s)
+- Anim; Sprite Value Track now exposes uv.horizontal/uv.vertical
+- Anim; Sprite Value Track now exposes uv.left/uv.right/uv.top/uv.bottom
+
 ## 2021.0.6
 
 - mac; fixes for build deployment target (now 10.13)

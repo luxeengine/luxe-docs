@@ -1,5 +1,9 @@
 # luxe launcher release notes
 
+## 0.0.17
+
+- fix crash when leaving tools + settings page too quickly
+
 ## 0.0.16
 
 - fix linux: remove Str.lower on paths (obviously) breaking across platforms
