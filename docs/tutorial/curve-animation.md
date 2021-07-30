@@ -81,6 +81,8 @@ If you press and hold `ctrl/cmd` and click, it will create a new keyframe. If yo
 
 !!! tip "switch to the code to continue"
 
+Inside our `area1.wren` file, we'll be adding some code to the `Scene` class we have there.
+
 What we're going to do is make it so that when the player walks nearby a terminal, it fades in, and when they move away it fades out.
 
 ### accessing the player 
