@@ -303,4 +303,4 @@ class Game is Ready {
 
 ## next up
 
-In the next step, we'll go back to our code and load the scene into the game.
+In the next step, we'll look at implementing some input to make the game interactive.
