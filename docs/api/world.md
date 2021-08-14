@@ -1723,20 +1723,35 @@
 <endpoint module="luxe: world" class="Entity" signature="create(world : Any)"></endpoint>
 <signature id="Entity.create">Entity.create(**world**: `Any`)
 <a class="headerlink" href="#Entity.create" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+<span class='api_ret'>returns</span> `:::js Entity`
+> Creates a new `entity` in the given `world`.
+>
+>   ```js
+>   var player = Entity.create(app.world)
+>   ```  
 
 <endpoint module="luxe: world" class="Entity" signature="create(world : Any, name : Any)"></endpoint>
 <signature id="Entity.create+2">Entity.create(**world**: `Any`, **name**: `Any`)
 <a class="headerlink" href="#Entity.create+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+<span class='api_ret'>returns</span> `:::js Entity`
+> Creates a new `entity` in the given `world` with the specified `String` name.
+>
+>   ```js
+>   var player = Entity.create(app.world, "Player")
+>   ```  
 
 <endpoint module="luxe: world" class="Entity" signature="valid(entity : Any)"></endpoint>
 <signature id="Entity.valid">Entity.valid(**entity**: `Any`)
 <a class="headerlink" href="#Entity.valid" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+<span class='api_ret'>returns</span> `:::js Bool`
+> Checks if a variable references a valid `entity`.
+> 
+>   ```js
+>   var player = Entity.get_named(app.world, "player")
+>   if (Entity.valid(player)) {
+>   	System.print("Got the player entity!")
+>   }
+>   ```  
 
 <endpoint module="luxe: world" class="Entity" signature="get_world(entity : Any)"></endpoint>
 <signature id="Entity.get_world">Entity.get_world(**entity**: `Any`)
@@ -1753,26 +1768,46 @@
 <endpoint module="luxe: world" class="Entity" signature="get_named(world : Any, name : Any)"></endpoint>
 <signature id="Entity.get_named+2">Entity.get_named(**world**: `Any`, **name**: `Any`)
 <a class="headerlink" href="#Entity.get_named+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+<span class='api_ret'>returns</span> `:::js Entity`
+> Get the first `entity` from the given `world` with the name `name`.
+> 
+>   ```js
+>   var player = Entity.get_named(app.world, "player")
+>   ```   
 
 <endpoint module="luxe: world" class="Entity" signature="get_named_all(world : Any, name : Any)"></endpoint>
 <signature id="Entity.get_named_all+2">Entity.get_named_all(**world**: `Any`, **name**: `Any`)
 <a class="headerlink" href="#Entity.get_named_all+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+<span class='api_ret'>returns</span> `:::js List`
+> Get a list of all `entities` from the given `world` with the name `name`.
+> 
+>   ```js
+>   var healthKits = Entity.get_named_all(app.world, "healthKit")
+>   System.print("There are %(healthKits.count) health kits!")
+>   ```   
 
 <endpoint module="luxe: world" class="Entity" signature="get_name(entity : Any)"></endpoint>
 <signature id="Entity.get_name">Entity.get_name(**entity**: `Any`)
 <a class="headerlink" href="#Entity.get_name" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+<span class='api_ret'>returns</span> `:::js String`
+> Get the name of a given `entity`
+> 
+>   ```js
+>   System.print("Hello, my name is %(Entity.get_name(enemyTrooper))!")
+>   // prints "Hello, my name is Frances!"
+>   ```   
 
 <endpoint module="luxe: world" class="Entity" signature="set_name(entity : Any, name : Any)"></endpoint>
 <signature id="Entity.set_name+2">Entity.set_name(**entity**: `Any`, **name**: `Any`)
 <a class="headerlink" href="#Entity.set_name+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+<span class='api_ret'>returns</span> `:::js None`
+> Set the name of a given `entity`
+> 
+>   ```js
+>   Entity.set_name(enemyTrooper, "Franny")
+>   System.print("But you can just call me %(Entity.get_name(enemyTrooper))!")
+>   // prints "But you can just cann me Franny!"
+>   ```   
 
 <endpoint module="luxe: world" class="Entity" signature="get_uuid(entity : Any)"></endpoint>
 <signature id="Entity.get_uuid">Entity.get_uuid(**entity**: `Any`)
@@ -1789,8 +1824,8 @@
 <endpoint module="luxe: world" class="Entity" signature="destroy(entity : Any)"></endpoint>
 <signature id="Entity.destroy">Entity.destroy(**entity**: `Any`)
 <a class="headerlink" href="#Entity.destroy" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+<span class='api_ret'>returns</span> `:::js None`
+> Destroys an entity from the world.   
 
 ### Layer
 `:::js import "luxe: world" for Layer`
