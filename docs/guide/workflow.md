@@ -38,15 +38,14 @@ The completion works when the **luxe agent** is installed and running.
 !!! note ""
     The version of the luxe agent is less important. Just use the latest one.
 
-**To run the agent**, open the luxe launcher:
+**VS Code automatically runs the agent**, if it can, and as long as a version is installed.
 
-  - on the **tools + settings** page
-  - wait a bit, and click **run agent**
-
-!!! note ""
-    Later vscode will automatically run the agent. At the moment it's manual.
+!!! note ""    
     The agent is a regular applicaton, it's written in luxe itself.
     You can run it manually, make it run automatically on system start and so on.
+    You can also run it via the launcher:
+        - on the **tools + settings** page
+        - wait a bit, and click **run agent**
 
 Once running, you can test it by typing `Sprite.` in vscode in a project.
 
