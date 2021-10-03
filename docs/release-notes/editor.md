@@ -1,5 +1,18 @@
 # luxe editor release notes
 
+#### 2021.0.8
+
+- Open Prototype will switch to already open prototypes
+- Fix anim crashes when creating anims in a prototype world
+- Fix wacky enter/exit outline expansion behaviour
+  - World; hold shift while hovered in outline to expand
+- Fix crashes from changing values on spawned prototypes
+- Fix crash when cancelling several actions in omni
+- Fix ui focus not working when omni is closed
+- Fix "add track" repeatedly adding options to omni
+- Fix crash on clicking cancel on the asset import view
+- World; camera; some fixes to capture behaviour
+
 #### 2021.0.7
 
 - Fix regression from imports added in 2021.0.6, paths should work as intended

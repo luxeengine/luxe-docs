@@ -1,5 +1,25 @@
 # luxe release notes
 
+## 2021.0.8
+
+- materials; add error when specifying a missing input to a basis for debugging
+- render; add `Render.valid_text(text)`
+- render; cache render passes by id to avoid create materials infinitely
+- astar; add a second infinite loop guard for rare edge case (couldn't find why)
+- window; don't sleep at all if background time is set to 0
+- ui; control; add get/set_enabled
+- ui; disable "last line doesn't justify" behaviour of layout
+- web; fix emscripten preload cache being aggressive
+- draw; draw text returns render text object as intended
+- draw; fix circles going one step too many
+- IO; add `IO.date_and_time()` for printing current time
+- fix crash when removing a tick from inside a tick
+- fix assert on Entity.set_name when name isn't a string
+- potential fix for unicode names being weird on windows
+- io; return "web" for IO.os() on web target
+- tiles; error when trying to create a tile without a Tiles modifier
+- world; prototype now errors when asking on non prototypes
+
 ## 2021.0.7
 
 - Fix regression from imports added in 2021.0.6, paths should work as intended
