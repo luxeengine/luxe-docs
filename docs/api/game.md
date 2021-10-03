@@ -1,6 +1,6 @@
 #![](../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2021.0.7`)  
+# `luxe` API (`2021.0.8`)  
 
 
 ---
@@ -149,7 +149,7 @@
 <signature id="Frame.end">Frame.end(**fn**: `Any`)
 <a class="headerlink" href="#Frame.end" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js None`
-> **Once off**. Queue a function to be called at the end of the next frame,
+> **Once off**. Queue a function to be called at the end of the current frame,
 > after all sections.
 > 
 >   ```js

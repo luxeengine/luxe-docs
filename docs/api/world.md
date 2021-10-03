@@ -1,6 +1,6 @@
 #![](../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2021.0.7`)  
+# `luxe` API (`2021.0.8`)  
 
 
 ---
@@ -1706,37 +1706,52 @@
 `:::js import "luxe: world" for Entity`
 > no docs found
 
-- [create](#Entity.create)(**world**: `Any`)
-- [create](#Entity.create+2)(**world**: `Any`, **name**: `Any`)
-- [valid](#Entity.valid)(**entity**: `Any`)
+- [create](#Entity.create)(**world**: `World`)
+- [create](#Entity.create+2)(**world**: `World`, **name**: `String`)
+- [valid](#Entity.valid)(**entity**: `Entity`)
 - [get_world](#Entity.get_world)(**entity**: `Any`)
 - [get](#Entity.get)(**uuid**: `Any`)
-- [get_named](#Entity.get_named+2)(**world**: `Any`, **name**: `Any`)
-- [get_named_all](#Entity.get_named_all+2)(**world**: `Any`, **name**: `Any`)
-- [get_name](#Entity.get_name)(**entity**: `Any`)
-- [set_name](#Entity.set_name+2)(**entity**: `Any`, **name**: `Any`)
+- [get_named](#Entity.get_named+2)(**world**: `World`, **name**: `String`)
+- [get_named_all](#Entity.get_named_all+2)(**world**: `World`, **name**: `String`)
+- [get_name](#Entity.get_name)(**entity**: `Entity`)
+- [set_name](#Entity.set_name+2)(**entity**: `Entity`, **name**: `String`)
 - [get_uuid](#Entity.get_uuid)(**entity**: `Any`)
 - [set_uuid](#Entity.set_uuid+2)(**entity**: `Any`, **uuid_string**: `Any`)
 - [destroy](#Entity.destroy)(**entity**: `Any`)
 
 <hr/>
-<endpoint module="luxe: world" class="Entity" signature="create(world : Any)"></endpoint>
-<signature id="Entity.create">Entity.create(**world**: `Any`)
+<endpoint module="luxe: world" class="Entity" signature="create(world : World)"></endpoint>
+<signature id="Entity.create">Entity.create(**world**: `World`)
 <a class="headerlink" href="#Entity.create" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+<span class='api_ret'>returns</span> `:::js Entity`
+> Creates a new `entity` in the given `world`.
+> 
+>   ```js
+>   var player = Entity.create(app.world)
+>   ```   
 
-<endpoint module="luxe: world" class="Entity" signature="create(world : Any, name : Any)"></endpoint>
-<signature id="Entity.create+2">Entity.create(**world**: `Any`, **name**: `Any`)
+<endpoint module="luxe: world" class="Entity" signature="create(world : World, name : String)"></endpoint>
+<signature id="Entity.create+2">Entity.create(**world**: `World`, **name**: `String`)
 <a class="headerlink" href="#Entity.create+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+<span class='api_ret'>returns</span> `:::js Entity`
+> Creates a new `entity` in the given `world` with the specified `String` name.
+> 
+>   ```js
+>   var player = Entity.create(app.world, "player")
+>   ```   
 
-<endpoint module="luxe: world" class="Entity" signature="valid(entity : Any)"></endpoint>
-<signature id="Entity.valid">Entity.valid(**entity**: `Any`)
+<endpoint module="luxe: world" class="Entity" signature="valid(entity : Entity)"></endpoint>
+<signature id="Entity.valid">Entity.valid(**entity**: `Entity`)
 <a class="headerlink" href="#Entity.valid" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+<span class='api_ret'>returns</span> `:::js Bool`
+> Checks if the given variable references a valid `entity`.
+> 
+>   ```js
+>   var player = Entity.get_named(app.world, "player")
+>   if (Entity.valid(player)) {
+>     System.print("Got the player entity!")
+>   }
+>   ```   
 
 <endpoint module="luxe: world" class="Entity" signature="get_world(entity : Any)"></endpoint>
 <signature id="Entity.get_world">Entity.get_world(**entity**: `Any`)
@@ -1750,29 +1765,49 @@
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
-<endpoint module="luxe: world" class="Entity" signature="get_named(world : Any, name : Any)"></endpoint>
-<signature id="Entity.get_named+2">Entity.get_named(**world**: `Any`, **name**: `Any`)
+<endpoint module="luxe: world" class="Entity" signature="get_named(world : World, name : String)"></endpoint>
+<signature id="Entity.get_named+2">Entity.get_named(**world**: `World`, **name**: `String`)
 <a class="headerlink" href="#Entity.get_named+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+<span class='api_ret'>returns</span> `:::js Entity`
+> Get the first `entity` from the given `world` with the name `name`.
+> 
+>   ```js
+>   var player = Entity.get_named(app.world, "player")
+>   ```   
 
-<endpoint module="luxe: world" class="Entity" signature="get_named_all(world : Any, name : Any)"></endpoint>
-<signature id="Entity.get_named_all+2">Entity.get_named_all(**world**: `Any`, **name**: `Any`)
+<endpoint module="luxe: world" class="Entity" signature="get_named_all(world : World, name : String)"></endpoint>
+<signature id="Entity.get_named_all+2">Entity.get_named_all(**world**: `World`, **name**: `String`)
 <a class="headerlink" href="#Entity.get_named_all+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+<span class='api_ret'>returns</span> `:::js List`
+> Get a list of all `entities` from the given `world` with the name `name`.
+> 
+>   ```js
+>   var ferns = Entity.get_named_all(app.world, "fern")
+>   System.print("There are %(ferns.count) ferns in this forest!")
+>   ```   
 
-<endpoint module="luxe: world" class="Entity" signature="get_name(entity : Any)"></endpoint>
-<signature id="Entity.get_name">Entity.get_name(**entity**: `Any`)
+<endpoint module="luxe: world" class="Entity" signature="get_name(entity : Entity)"></endpoint>
+<signature id="Entity.get_name">Entity.get_name(**entity**: `Entity`)
 <a class="headerlink" href="#Entity.get_name" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+<span class='api_ret'>returns</span> `:::js String`
+> Get the name of a given `entity`
+> 
+>   ```js
+>   System.print("Hello, my name is %(Entity.get_name(traveler))!")
+>   // prints "Hello, my name is Frances!"
+>   ```   
 
-<endpoint module="luxe: world" class="Entity" signature="set_name(entity : Any, name : Any)"></endpoint>
-<signature id="Entity.set_name+2">Entity.set_name(**entity**: `Any`, **name**: `Any`)
+<endpoint module="luxe: world" class="Entity" signature="set_name(entity : Entity, name : String)"></endpoint>
+<signature id="Entity.set_name+2">Entity.set_name(**entity**: `Entity`, **name**: `String`)
 <a class="headerlink" href="#Entity.set_name+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> Set the name of a given `entity`
+> 
+>   ```js
+>   Entity.set_name(traveler, "Franny")
+>   System.print("But you can just call me %(Entity.get_name(traveler))!")
+>   // prints "But you can just call me Franny!"
+>   ```   
 
 <endpoint module="luxe: world" class="Entity" signature="get_uuid(entity : Any)"></endpoint>
 <signature id="Entity.get_uuid">Entity.get_uuid(**entity**: `Any`)

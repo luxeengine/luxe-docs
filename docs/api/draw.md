@@ -1,6 +1,6 @@
 #![](../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2021.0.7`)  
+# `luxe` API (`2021.0.8`)  
 
 
 ---
@@ -254,8 +254,7 @@
 >   var start_angle = 0
 >   var end_angle = 270
 >   var smoothness = 2
->   var style = PathStyle.new()
->   Draw.circle(canvas, 128, 128, depth, 32, 16, start_angle, end_angle, smoothness, style)
+>   Draw.circle(canvas, 128, 128, depth, 32, 16, start_angle, end_angle, smoothness, Color.black)
 >   ```   
 
 <endpoint module="luxe: draw" class="Draw" signature="line(context : Any, x1 : Any, y1 : Any, x2 : Any, y2 : Any, z : Any, style : Any)"></endpoint>

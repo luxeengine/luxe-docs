@@ -1,6 +1,6 @@
 #![](../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2021.0.7`)  
+# `luxe` API (`2021.0.8`)  
 
 
 ---
@@ -1126,11 +1126,40 @@
 `:::js import "luxe: render" for LayerPass`
 > no docs found
 
+- [id](#LayerPass.id)
+- [id](#LayerPass.id=)=(v : Any)
+- [new](#LayerPass.new)(**pass**: `Any`)
+- [queue](#LayerPass.queue)(**path**: `Any`)
 - [new](#LayerPass.new+2)(**path**: `Any`, **pass**: `Any`)
 - [create_dest](#LayerPass.create_dest)(**pass**: `Any`)
+- [update_material](#LayerPass.update_material)(**desc**: `Any`)
 - [create_material](#LayerPass.create_material)(**pass**: `Any`)
 
 <hr/>
+<endpoint module="luxe: render" class="LayerPass" signature="id"></endpoint>
+<signature id="LayerPass.id">LayerPass.id
+<a class="headerlink" href="#LayerPass.id" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="LayerPass" signature="id=(v : Any)"></endpoint>
+<signature id="LayerPass.id=">LayerPass.id=(v : Any)
+<a class="headerlink" href="#LayerPass.id=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="LayerPass" signature="new(pass : Any)"></endpoint>
+<signature id="LayerPass.new">LayerPass.new(**pass**: `Any`)
+<a class="headerlink" href="#LayerPass.new" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js LayerPass`
+> no docs found   
+
+<endpoint module="luxe: render" class="LayerPass" signature="queue(path : Any)"></endpoint>
+<signature id="LayerPass.queue">LayerPass.queue(**path**: `Any`)
+<a class="headerlink" href="#LayerPass.queue" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
 <endpoint module="luxe: render" class="LayerPass" signature="new(path : Any, pass : Any)"></endpoint>
 <signature id="LayerPass.new+2">LayerPass.new(**path**: `Any`, **pass**: `Any`)
 <a class="headerlink" href="#LayerPass.new+2" title="Permanent link">¶</a></signature>
@@ -1140,6 +1169,12 @@
 <endpoint module="luxe: render" class="LayerPass" signature="create_dest(pass : Any)"></endpoint>
 <signature id="LayerPass.create_dest">LayerPass.create_dest(**pass**: `Any`)
 <a class="headerlink" href="#LayerPass.create_dest" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="LayerPass" signature="update_material(desc : Any)"></endpoint>
+<signature id="LayerPass.update_material">LayerPass.update_material(**desc**: `Any`)
+<a class="headerlink" href="#LayerPass.update_material" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
@@ -2933,6 +2968,7 @@
 - [destroy_index_buffer](#Render.destroy_index_buffer)(**index_buffer**: `Any`)
 - [create_text](#Render.create_text+5)(**material**: `Any`, **default_size**: `Any`, **default_font**: `Any`, **default_color**: `Any`, **render_set**: `Any`)
 - [destroy_text](#Render.destroy_text)(**text**: `Any`)
+- [valid_text](#Render.valid_text)(**text**: `Any`)
 - [text_attr_clear](#Render.text_attr_clear)(**text**: `Any`)
 - [text_set_text_buffer](#Render.text_set_text_buffer+2)(**text**: `Any`, **string**: `Any`)
 - [text_set_attr](#Render.text_set_attr+5)(**text**: `Any`, **start**: `Any`, **length**: `Any`, **key**: `Any`, **value**: `Any`)
@@ -3278,6 +3314,12 @@
 <endpoint module="luxe: render" class="Render" signature="destroy_text(text : Any)"></endpoint>
 <signature id="Render.destroy_text">Render.destroy_text(**text**: `Any`)
 <a class="headerlink" href="#Render.destroy_text" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="Render" signature="valid_text(text : Any)"></endpoint>
+<signature id="Render.valid_text">Render.valid_text(**text**: `Any`)
+<a class="headerlink" href="#Render.valid_text" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 

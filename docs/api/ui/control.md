@@ -1,6 +1,6 @@
 #![](../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2021.0.7`)  
+# `luxe` API (`2021.0.8`)  
 
 
 ---
@@ -52,6 +52,8 @@
 - [set_visible](#Control.set_visible+2)(**control**: `Any`, **visible**: `Any`)
 - [get_disabled](#Control.get_disabled)(**control**: `Any`)
 - [set_disabled](#Control.set_disabled+2)(**control**: `Any`, **disabled**: `Any`)
+- [get_enabled](#Control.get_enabled)(**control**: `Any`)
+- [set_enabled](#Control.set_enabled+2)(**control**: `Any`, **enabled**: `Any`)
 - [get_clip](#Control.get_clip)(**control**: `Any`)
 - [set_clip](#Control.set_clip+2)(**control**: `Any`, **clip**: `Any`)
 - [get_nodes](#Control.get_nodes)(**control**: `Any`)
@@ -295,6 +297,18 @@
 <endpoint module="luxe: ui/control" class="Control" signature="set_disabled(control : Any, disabled : Any)"></endpoint>
 <signature id="Control.set_disabled+2">Control.set_disabled(**control**: `Any`, **disabled**: `Any`)
 <a class="headerlink" href="#Control.set_disabled+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: ui/control" class="Control" signature="get_enabled(control : Any)"></endpoint>
+<signature id="Control.get_enabled">Control.get_enabled(**control**: `Any`)
+<a class="headerlink" href="#Control.get_enabled" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: ui/control" class="Control" signature="set_enabled(control : Any, enabled : Any)"></endpoint>
+<signature id="Control.set_enabled+2">Control.set_enabled(**control**: `Any`, **enabled**: `Any`)
+<a class="headerlink" href="#Control.set_enabled+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
