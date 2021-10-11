@@ -1,6 +1,6 @@
 #![](../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2021.0.8`)  
+# `luxe` API (`2021.0.9`)  
 
 
 ---
@@ -2302,6 +2302,10 @@
 - [blending](#PassLayerDesc.blending=)=(v : Any)
 - [depth_test](#PassLayerDesc.depth_test)
 - [depth_test](#PassLayerDesc.depth_test=)=(v : Any)
+- [depth_write](#PassLayerDesc.depth_write)
+- [depth_write](#PassLayerDesc.depth_write=)=(v : Any)
+- [depth_compare](#PassLayerDesc.depth_compare)
+- [depth_compare](#PassLayerDesc.depth_compare=)=(v : Any)
 
 <hr/>
 <endpoint module="luxe: render" class="PassLayerDesc" signature="new()"></endpoint>
@@ -2439,6 +2443,30 @@
 <endpoint module="luxe: render" class="PassLayerDesc" signature="depth_test=(v : Any)"></endpoint>
 <signature id="PassLayerDesc.depth_test=">PassLayerDesc.depth_test=(v : Any)
 <a class="headerlink" href="#PassLayerDesc.depth_test=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="PassLayerDesc" signature="depth_write"></endpoint>
+<signature id="PassLayerDesc.depth_write">PassLayerDesc.depth_write
+<a class="headerlink" href="#PassLayerDesc.depth_write" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="PassLayerDesc" signature="depth_write=(v : Any)"></endpoint>
+<signature id="PassLayerDesc.depth_write=">PassLayerDesc.depth_write=(v : Any)
+<a class="headerlink" href="#PassLayerDesc.depth_write=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="PassLayerDesc" signature="depth_compare"></endpoint>
+<signature id="PassLayerDesc.depth_compare">PassLayerDesc.depth_compare
+<a class="headerlink" href="#PassLayerDesc.depth_compare" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="PassLayerDesc" signature="depth_compare=(v : Any)"></endpoint>
+<signature id="PassLayerDesc.depth_compare=">PassLayerDesc.depth_compare=(v : Any)
+<a class="headerlink" href="#PassLayerDesc.depth_compare=" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 

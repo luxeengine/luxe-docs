@@ -1,5 +1,10 @@
 # luxe editor release notes
 
+#### 2021.0.9
+
+- Fix crash from previewing an animation (Dolichomps)
+- Fix preview camera being upside down in 2D (voidberg)
+
 #### 2021.0.8
 
 - Open Prototype will switch to already open prototypes

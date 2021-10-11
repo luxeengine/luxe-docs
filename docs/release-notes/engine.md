@@ -1,5 +1,11 @@
 # luxe release notes
 
+## 2021.0.9
+
+- render; allow setting depth_write/depth_compare for a pass layer
+- render; fix rendering to array textures
+- world; ui; error on cancelling events without a ui attached
+
 ## 2021.0.8
 
 - materials; add error when specifying a missing input to a basis for debugging
