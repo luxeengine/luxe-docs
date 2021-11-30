@@ -7,7 +7,7 @@
 
 To get started, we're going to [open the project in the code editor](../create-and-run-a-project#running-the-project-via-code).
 And like in the linked guide, we're going to open the `game.wren` file, which is our game's entry point.
-The `game.wren` file contains a `ready` function, which is where we'll make our changes.
+The `game.wren` file contains two functions, namely `ready` and `tick`. This is where we'll make our changes.
 
 ```js
 class Game is Ready {
@@ -17,10 +17,27 @@ class Game is Ready {
     super("ready!")
 
     app = App.new()
+    
+    System.print("render size: %(app.width) x %(app.height) @ %(app.scale)x")
 
+    _logo = Entity.create(app.world, "sprite")
+    Transform.create(_logo)
+    Transform.set_pos(_logo, app.width/2, app.height/2, 0)
+    Sprite.create(_logo, Assets.material("luxe: material/logo"), 128, 128)
   } //ready
   
-  ...
+  tick(delta) {
+
+    var pos = Camera.screen_point_to_world(app.camera, Input.mouse_x(), Input.mouse_y())
+    //Transform.set_pos(_logo, pos.x, pos.y, 0)
+
+    if(Input.key_state_released(Key.escape)) {
+      IO.shutdown()
+    }
+
+    app.color.r = app.color.g = app.color.b = (IO.timestamp()/20 % 1)
+
+  } //tick
 
 } //Game
 ```
@@ -30,11 +47,8 @@ class Game is Ready {
 Let's try a small change to see something happen. The project outline provides 
 us with the `app.color` property that we can set to change the background color.
 
-The highlighted lines below show the code added to change the background color to black.
+The highlighted line in `ready` below show the code added to change the background color to black.
 Add the line to your ready function as shown below.
-
-!!! tip "run the game to see the color change"
-    Feel free to experiment with the color value to see how it responds.
 
 ```js hl_lines="10"
 class Game is Ready {
@@ -45,7 +59,7 @@ class Game is Ready {
 
     app = App.new()
     
-      //set the background color to black
+    //set the background color to black
     app.color = [0, 0, 0, 1]
 
   } //ready
@@ -60,6 +74,27 @@ class Game is Ready {
     for [`red`, `green`, `blue`, `alpha`] in that order, and are values between 0 and 1.
     Pure red that's half transparent would be `[1, 0, 0, 0.5]` and white would be `[1, 1, 1, 1]`.
 
+However, we also have to comment out a line in `tick` to make sure our change isn't immediately overriden when we run the game.
+The line to comment out is highlighted below.
+
+```js hl_lines="10"
+tick(delta) {
+
+    var pos = Camera.screen_point_to_world(app.camera, Input.mouse_x(), Input.mouse_y())
+    //Transform.set_pos(_logo, pos.x, pos.y, 0)
+
+    if(Input.key_state_released(Key.escape)) {
+      IO.shutdown()
+    }
+
+    //app.color.r = app.color.g = app.color.b = (IO.timestamp()/20 % 1)
+
+  } //tick
+```
+
+!!! tip "run the game to see the color change"
+    Feel free to experiment with the color value in the `ready` function to see how it responds.
+
 The exciting result:
 ![](../images/tutorial/intro/display-a-sprite-0.png){: loading=lazy }
 
@@ -68,35 +103,37 @@ The exciting result:
 The tutorial outline includes a logo that follows the mouse, 
 mostly because showing a blank screen is hard to tell if things are working as expected.
 
-We're not gonna need that going forward, so let's remove it. It's inside the `tick` method.
+We're not gonna need that going forward, so let's remove it. We have to delete some lines inside the `ready` and `tick` functions to achieve this.
 Delete the highlighted section of code!
 
-```js hl_lines="5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20"
+```js hl_lines="9 10 11 12 19"
+construct ready() {
 
-...
+  super("ready!")
+
+  app = App.new()
+  
+  System.print("render size: %(app.width) x %(app.height) @ %(app.scale)x")
+
+  _logo = Entity.create(app.world, "sprite")
+  Transform.create(_logo)
+  Transform.set_pos(_logo, app.width/2, app.height/2, 0)
+  Sprite.create(_logo, Assets.material("luxe: material/logo"), 128, 128)
+  app.color = [0,0,0,1]
+} //ready
 
 tick(delta) {
 
-  if(_logo == null) {
-
-    _logo = Entity.create(app.ui, "logo")
-    Transform.create(_logo)
-    Transform.set_pos(_logo, app.width/2, app.height/2, 0)
-    Sprite.create(_logo, Assets.material("luxe: material/logo.sprite"), 128, 128)
-
-  } else {
-
-    var pos = Camera.screen_point_to_world(
-                app.ui_camera, 
-                Input.mouse_x(),
-                Input.mouse_y())
+    var pos = Camera.screen_point_to_world(app.camera, Input.mouse_x(), Input.mouse_y())
     Transform.set_pos(_logo, pos.x, pos.y, 0)
 
-  } //if logo
+    if(Input.key_state_released(Key.escape)) {
+      IO.shutdown()
+    }
 
-  ...
-  
-} //tick
+    //app.color.r = app.color.g = app.color.b = (IO.timestamp()/20 % 1)
+
+  } //tick
 ```
 
 ## World, Entity, Modifier ...
