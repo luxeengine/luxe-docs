@@ -1,5 +1,64 @@
 # luxe release notes
 
+## 2021.0.10
+
+UI.set_layout_mode
+
+- Project; add `postdeploy()` hook in project.luxe (for web build templates)
+- Input; add `set_mouse_pos(x: Num, y: Num)`
+- Input; add `set_mouse_visible(state: Bool)`
+- Draw; add initial `path3D(context, points, style)` for 3D lines
+- Draw; add alpha to `PathStyle`
+- Color; fix bug in hsv conversion (ronja)
+- Color; add `hex_color(color: Color, include_alpha: Bool)` to get hex int from color (ronja)
+- Build; fix asset extensions causing issues with non-luxe assets with the same extension
+- Build; Mesh; fix compiler error when trying to report a mesh error
+- Build; Mesh; fix material imports from assets (for later importing)
+- World; Mesh; add initial instanced flag for automatic mesh instancing
+- World; optimize transform change event sets from allocating every time
+- Render; optimize image input setting in backend
+- Render; optimize render passes a bunch
+- Render; add "replace tags" to material basis for direct pipeline control 
+- Render; add `engine.render.metrics.gpu` setting, exposing the opengl GPU timer
+- Runtime; fix crash when things queue something during shutdown
+- Runtime; emit `engine.ready` for scripts opting into ready from elsewhere
+- Runtime; add `debug` section in frame after `visual`, before `end`
+- Runtime; logs are rotated for log.txt, log.1.txt etc instead of overwriting each time
+- Runtime; fix tick functions being rearranged
+- Runtime; exposed logs to user facing code for display
+- Release; disable windows console window in release builds
+- IO; regex now allows 32 groups/sub matches (was 16)
+- IO; fix missing image_failure_reason() endpoint
+- IO; work on UV backed process API, not finished
+- UI; add wip `luxe: ui/field/number` for consistent number fields with precision radial
+- UI; add wip `luxe: ui/field/vector` for consistent float2/3/4 fields using number fields
+- UI; add wip `luxe: ui/field/choice` a filtered dropdown list (wip name)
+- UI; add wip `luxe: ui/field/path` a path selector field
+- UI; display control + id + type below mouse in debug vis
+- UI; add `UI.mouse_to_canvas(ui: Entity, x: Num, y: Num)` for Input -> UI conversion
+- UI; add `UI.set_debug_mode(mode: UIDebugMode)` for individual debug vis
+- UI; Panel; add missing `UIPanel.get_color(panel: Control)` API
+- UI; add missing `UI.has(entity: Entity)` API
+- UI; optimize UI drawing creating a new material each time, reuses them
+- UI; make layout part of the UI system itself, and allow partial layouts
+- UI; layout now contains UIContain.vfit and UIContain.hfit to explicitly ensure size to children
+- UI; fix children_at_point behaviour for controls outside of parent
+- UI; fix marked control not getting reset when leaving canvas (nihilocrat)
+- UI; fix text change events sending previous text as well
+- UI; fix text double click time counting when unfocused
+- UI; fix invalid ui crashing the events processing (e.g destroy a ui from an event)
+- UI; redo checkbox visual behaviour
+- UI; add quad_detailed to ui draw
+- Lists; remove_where now returns the value like the rest of wren (non breaking change)
+- API; remove old `luxe: array` - replace with `luxe: containers`
+- API; remove old `luxe: geometry`, no longer used (moved to old lines sample)
+- Wren; fix blank wren files erroring as not found
+- Wren; fix missing debug info for class locations (ronja)
+- Wren; work on exposing the debugger, use `--wren-debugger` to enable
+- Wren; work on vm level profiling built in (not exposed yet)
+- internal; fix imgui implementation (not exposed yet)
+- internal; significant work on the new blocks (not user facing yet)
+
 ## 2021.0.9
 
 - render; allow setting depth_write/depth_compare for a pass layer

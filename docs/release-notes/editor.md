@@ -1,5 +1,26 @@
 # luxe editor release notes
 
+#### 2021.0.10
+
+- Editor; context switcher now looks interactable
+- Editor; add initial debug view (shows log). `alt + backtick`
+- Editor; replace all file save/open dialogs with a consistent UIPath field
+- Project; when loading, show error/don't crash if project is missing dependencies 
+- Tiles; fix shortcuts being consumed by omni 
+- World; add delete section button to omni 
+- World; anim; display save notifications for animations 
+- World; anim; delete track/s button inside track settings
+- World; fix shortcuts being consumed by omni 
+- World; fix 3d camera being miles away from origin, now fits 1 unit
+- World; fix 3d camera losing control when entering omni
+- Camera; when modifiers are held (alt/ctrl/shift) wheel doesn't zoom
+- Tiles; fix `shift+mouse wheel` scroll changing paint depth
+- UI; use flex layout mode for UI going forward
+- UI; checkbox style refactored across the editor
+- UI; fix glitching controls bug
+- add first pass of hex grid shader (ronja)
+- Add color picker (ronja)
+
 #### 2021.0.9
 
 - Fix crash from previewing an animation (Dolichomps)
