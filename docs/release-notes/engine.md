@@ -1,8 +1,37 @@
 # luxe release notes
 
+## 2022.0.1
+
+- Wren; fix some script compiler errors when tabs are present, and other minor bugs
+- Mesh; fix some build errors creating new errors
+- Mesh; fix texture parsing creating errors 
+- UI; add missing UIImage.get_color
+- UI; add missing UIButton.get_render_text
+- UI; fix weird clipping issue (caused by compiler inlining)
+- UI; fix recursive events bug causing sliders to explode
+- IO; fix processes sharing stdio handles causing a crash 
+
 ## 2021.0.10
 
-UI.set_layout_mode
+#### wren changes
+
+The way errors are handled and printed by the engine/language now allow vscode to _correctly_
+jump to the right line when alt clicked in the terminal. Additionally, only the actual error
+is promoted to a "problem" in the Problem tab, rather than every line of the callstack. 
+
+#### completion stuff
+
+Ronja has been hard at work making the experience in vscode better for completion.
+They're rewritten it to be able to handle inheritance, not randomly silently fail over time,
+and a whole lot more. 
+
+There's at least a dozen fixes, make sure you grab the latest agent version when it's available.
+
+#### render changes
+
+A lot of work has been going into improving meshes workflow, like automatic instancing and various features.
+These are most useful in 3D but it's worth noting that if you're using 3D and run into issues please report them.
+There are parts still undocumented too, since they're new/potentially volatile. If you wanna use them, you know where to ask!
 
 - Project; add `postdeploy()` hook in project.luxe (for web build templates)
 - Input; add `set_mouse_pos(x: Num, y: Num)`
@@ -11,6 +40,8 @@ UI.set_layout_mode
 - Draw; add alpha to `PathStyle`
 - Color; fix bug in hsv conversion (ronja)
 - Color; add `hex_color(color: Color, include_alpha: Bool)` to get hex int from color (ronja)
+- Color; add `Color.pink` for the luxe pink color
+- Math; add `Math.approx` for comparing float numbers
 - Build; fix asset extensions causing issues with non-luxe assets with the same extension
 - Build; Mesh; fix compiler error when trying to report a mesh error
 - Build; Mesh; fix material imports from assets (for later importing)
@@ -30,6 +61,7 @@ UI.set_layout_mode
 - IO; regex now allows 32 groups/sub matches (was 16)
 - IO; fix missing image_failure_reason() endpoint
 - IO; work on UV backed process API, not finished
+- UI; add `UI.set_layout_mode(mode: UILayoutMode)` to opt into flex layout
 - UI; add wip `luxe: ui/field/number` for consistent number fields with precision radial
 - UI; add wip `luxe: ui/field/vector` for consistent float2/3/4 fields using number fields
 - UI; add wip `luxe: ui/field/choice` a filtered dropdown list (wip name)
@@ -38,6 +70,7 @@ UI.set_layout_mode
 - UI; add `UI.mouse_to_canvas(ui: Entity, x: Num, y: Num)` for Input -> UI conversion
 - UI; add `UI.set_debug_mode(mode: UIDebugMode)` for individual debug vis
 - UI; Panel; add missing `UIPanel.get_color(panel: Control)` API
+- UI; Slider; now emits change/commit events for drag vs release 
 - UI; add missing `UI.has(entity: Entity)` API
 - UI; optimize UI drawing creating a new material each time, reuses them
 - UI; make layout part of the UI system itself, and allow partial layouts
@@ -52,10 +85,13 @@ UI.set_layout_mode
 - Lists; remove_where now returns the value like the rest of wren (non breaking change)
 - API; remove old `luxe: array` - replace with `luxe: containers`
 - API; remove old `luxe: geometry`, no longer used (moved to old lines sample)
+- Wren; make error messages line up when using tabs (ronja)
 - Wren; fix blank wren files erroring as not found
 - Wren; fix missing debug info for class locations (ronja)
 - Wren; work on exposing the debugger, use `--wren-debugger` to enable
 - Wren; work on vm level profiling built in (not exposed yet)
+- Wren; add line + module to runtime errors
+- Wren; change how stacks + errors are reported for vscode
 - internal; fix imgui implementation (not exposed yet)
 - internal; significant work on the new blocks (not user facing yet)
 

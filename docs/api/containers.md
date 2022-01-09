@@ -1,6 +1,6 @@
 #![](../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2021.0.9`)  
+# `luxe` API (`2022.0.1`)  
 
 
 ---
@@ -160,13 +160,13 @@
 > Uses `Lists.index_of_where` to find the index, so the callback 
 > msut return true if the values are equal or false if not.
 > 
-> Returns true if the value was removed, false if it wasn't found.
+> Returns the value if it was removed, or null if it wasn't found.
 > 
 >   ```js
 >   var list = [1,2,3]
 >   var fn = Fn.new {|value, other| value == other }
->   Lists.remove_where(list, 3, fn)  //true
->   Lists.remove_where(list, 6, fn)  //false
+>   Lists.remove_where(list, 3, fn)  //3
+>   Lists.remove_where(list, 6, fn)  //null
 >   System.print(list)               //[1,2]
 >   ```   
 

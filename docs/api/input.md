@@ -1,6 +1,6 @@
 #![](../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2021.0.9`)  
+# `luxe` API (`2022.0.1`)  
 
 
 ---
@@ -655,7 +655,9 @@
 - [mouse_y](#Input.mouse_y)()
 - [mouse_x_rel](#Input.mouse_x_rel)()
 - [mouse_y_rel](#Input.mouse_y_rel)()
-- [set_mouse_capture](#Input.set_mouse_capture)(**state**: `Any`)
+- [set_mouse_pos](#Input.set_mouse_pos+2)(**x**: `Num`, **y**: `Num`)
+- [set_mouse_visible](#Input.set_mouse_visible)(**state**: `Bool`)
+- [set_mouse_capture](#Input.set_mouse_capture)(**state**: `Bool`)
 - [get_mouse_capture](#Input.get_mouse_capture)()
 - [gamepad_state_down](#Input.gamepad_state_down+2)(**gamepad**: `Any`, **button**: `Any`)
 - [gamepad_state_pressed](#Input.gamepad_state_pressed+2)(**gamepad**: `Any`, **button**: `Any`)
@@ -1045,8 +1047,20 @@
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
-<endpoint module="luxe: input" class="Input" signature="set_mouse_capture(state : Any)"></endpoint>
-<signature id="Input.set_mouse_capture">Input.set_mouse_capture(**state**: `Any`)
+<endpoint module="luxe: input" class="Input" signature="set_mouse_pos(x : Num, y : Num)"></endpoint>
+<signature id="Input.set_mouse_pos+2">Input.set_mouse_pos(**x**: `Num`, **y**: `Num`)
+<a class="headerlink" href="#Input.set_mouse_pos+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: input" class="Input" signature="set_mouse_visible(state : Bool)"></endpoint>
+<signature id="Input.set_mouse_visible">Input.set_mouse_visible(**state**: `Bool`)
+<a class="headerlink" href="#Input.set_mouse_visible" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: input" class="Input" signature="set_mouse_capture(state : Bool)"></endpoint>
+<signature id="Input.set_mouse_capture">Input.set_mouse_capture(**state**: `Bool`)
 <a class="headerlink" href="#Input.set_mouse_capture" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   

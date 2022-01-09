@@ -1,6 +1,6 @@
 #![](../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2021.0.9`)  
+# `luxe` API (`2022.0.1`)  
 
 
 ---
@@ -60,6 +60,8 @@
 - [lerp_angle](#Math.lerp_angle+3)(**a**: `Any`, **b**: `Any`, **t**: `Any`)
 - [weighted_avg](#Math.weighted_avg+3)(**value**: `Any`, **target**: `Any`, **slowness**: `Any`)
 - [within_range](#Math.within_range+3)(**value**: `Any`, **start_range**: `Any`, **end_range**: `Any`)
+- [approx](#Math.approx+2)(**one**: `Num`, **other**: `Num`)
+- [approx](#Math.approx+3)(**one**: `Num`, **other**: `Num`, **epsilon**: `Num`)
 - [wrap_angle](#Math.wrap_angle)(**degrees**: `Any`)
 - [wrap_angle](#Math.wrap_angle+3)(**degrees**: `Any`, **lower**: `Any`, **upper**: `Any`)
 - [wrap_radians](#Math.wrap_radians+3)(**radians**: `Any`, **lower**: `Any`, **upper**: `Any`)
@@ -338,6 +340,18 @@
 <signature id="Math.within_range+3">Math.within_range(**value**: `Any`, **start_range**: `Any`, **end_range**: `Any`)
 <a class="headerlink" href="#Math.within_range+3" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: math" class="Math" signature="approx(one : Num, other : Num)"></endpoint>
+<signature id="Math.approx+2">Math.approx(**one**: `Num`, **other**: `Num`)
+<a class="headerlink" href="#Math.approx+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
+> no docs found   
+
+<endpoint module="luxe: math" class="Math" signature="approx(one : Num, other : Num, epsilon : Num)"></endpoint>
+<signature id="Math.approx+3">Math.approx(**one**: `Num`, **other**: `Num`, **epsilon**: `Num`)
+<a class="headerlink" href="#Math.approx+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
 > no docs found   
 
 <endpoint module="luxe: math" class="Math" signature="wrap_angle(degrees : Any)"></endpoint>

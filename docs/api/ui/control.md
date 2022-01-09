@@ -1,6 +1,6 @@
 #![](../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2021.0.9`)  
+# `luxe` API (`2022.0.1`)  
 
 
 ---
@@ -70,6 +70,10 @@
 - [child_add](#Control.child_add+2)(**control**: `Any`, **child**: `Any`)
 - [child_remove](#Control.child_remove+2)(**control**: `Any`, **child**: `Any`)
 - [children_bounds](#Control.children_bounds+2)(**control**: `Any`, **into**: `Any`)
+- [set_behave](#Control.set_behave+2)(**control**: `Control`, **behave**: `UIBehave`)
+- [set_contain](#Control.set_contain+2)(**control**: `Control`, **contain**: `UIContain`)
+- [set_margin](#Control.set_margin+5)(**control**: `Control`, **left**: `Num`, **top**: `Num`, **right**: `Num`, **bottom**: `Num`)
+- [get_margin](#Control.get_margin)(**control**: `Control`)
 - [set_render](#Control.set_render+2)(**control**: `Any`, **fn**: `Any`)
 - [set_events](#Control.set_events+2)(**control**: `Any`, **fn**: `Any`)
 - [unset_events](#Control.unset_events+2)(**control**: `Any`, **id**: `Any`)
@@ -405,6 +409,30 @@
 <endpoint module="luxe: ui/control" class="Control" signature="children_bounds(control : Any, into : Any)"></endpoint>
 <signature id="Control.children_bounds+2">Control.children_bounds(**control**: `Any`, **into**: `Any`)
 <a class="headerlink" href="#Control.children_bounds+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: ui/control" class="Control" signature="set_behave(control : Control, behave : UIBehave)"></endpoint>
+<signature id="Control.set_behave+2">Control.set_behave(**control**: `Control`, **behave**: `UIBehave`)
+<a class="headerlink" href="#Control.set_behave+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: ui/control" class="Control" signature="set_contain(control : Control, contain : UIContain)"></endpoint>
+<signature id="Control.set_contain+2">Control.set_contain(**control**: `Control`, **contain**: `UIContain`)
+<a class="headerlink" href="#Control.set_contain+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: ui/control" class="Control" signature="set_margin(control : Control, left : Num, top : Num, right : Num, bottom : Num)"></endpoint>
+<signature id="Control.set_margin+5">Control.set_margin(**control**: `Control`, **left**: `Num`, **top**: `Num`, **right**: `Num`, **bottom**: `Num`)
+<a class="headerlink" href="#Control.set_margin+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: ui/control" class="Control" signature="get_margin(control : Control)"></endpoint>
+<signature id="Control.get_margin">Control.get_margin(**control**: `Control`)
+<a class="headerlink" href="#Control.get_margin" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 

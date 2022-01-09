@@ -1,6 +1,6 @@
 #![](../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2021.0.9`)  
+# `luxe` API (`2022.0.1`)  
 
 
 ---
@@ -80,7 +80,7 @@
 <endpoint module="luxe: semver" class="Comparator" signature="create(comp : Any, loose : Any)"></endpoint>
 <signature id="Comparator.create+2">Comparator.create(**comp**: `Any`, **loose**: `Any`)
 <a class="headerlink" href="#Comparator.create+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
+<span class='api_ret'>returns</span> `:::js Comparator`
 > no docs found   
 
 <endpoint module="luxe: semver" class="Comparator" signature="inverted()"></endpoint>
@@ -269,7 +269,7 @@
 <endpoint module="luxe: semver" class="SemVer" signature="create(version : Any, loose : Any)"></endpoint>
 <signature id="SemVer.create+2">SemVer.create(**version**: `Any`, **loose**: `Any`)
 <a class="headerlink" href="#SemVer.create+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
+<span class='api_ret'>returns</span> `:::js SemVer`
 > no docs found   
 
 <endpoint module="luxe: semver" class="SemVer" signature="format()"></endpoint>
@@ -806,7 +806,7 @@
 <endpoint module="luxe: semver" class="SemVerRange" signature="create(range : Any, loose : Any)"></endpoint>
 <signature id="SemVerRange.create+2">SemVerRange.create(**range**: `Any`, **loose**: `Any`)
 <a class="headerlink" href="#SemVerRange.create+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
+<span class='api_ret'>returns</span> `:::js SemVerRange`
 > no docs found   
 
 <endpoint module="luxe: semver" class="SemVerRange" signature="format()"></endpoint>

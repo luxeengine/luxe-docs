@@ -1,6 +1,6 @@
 #![](../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2021.0.9`)  
+# `luxe` API (`2022.0.1`)  
 
 
 ---
@@ -20,6 +20,7 @@
 - [remove](#UIList.remove+2)(**list**: `Any`, **control**: `Any`)
 - [clear](#UIList.clear+2)(**list**: `Any`, **uiclear_action**: `Any`)
 - [refresh](#UIList.refresh)(**list**: `Any`)
+- [set_flex_width](#UIList.set_flex_width+2)(**list**: `Any`, **state**: `Any`)
 - [set_percent](#UIList.set_percent+3)(**list**: `Any`, **vertical**: `Any`, **horizontal**: `Any`)
 - [set_percent_v](#UIList.set_percent_v+2)(**list**: `Any`, **vertical**: `Any`)
 - [set_percent_h](#UIList.set_percent_h+2)(**list**: `Any`, **horizontal**: `Any`)
@@ -64,6 +65,12 @@
 <endpoint module="luxe: ui/list" class="UIList" signature="refresh(list : Any)"></endpoint>
 <signature id="UIList.refresh">UIList.refresh(**list**: `Any`)
 <a class="headerlink" href="#UIList.refresh" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: ui/list" class="UIList" signature="set_flex_width(list : Any, state : Any)"></endpoint>
+<signature id="UIList.set_flex_width+2">UIList.set_flex_width(**list**: `Any`, **state**: `Any`)
+<a class="headerlink" href="#UIList.set_flex_width+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 

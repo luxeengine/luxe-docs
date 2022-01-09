@@ -1,6 +1,6 @@
 #![](../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2021.0.9`)  
+# `luxe` API (`2022.0.1`)  
 
 
 ---
@@ -16,7 +16,7 @@
 `:::js import "luxe: game" for Frame`
 > Access to the frame and game loop. 
 > At the moment, the loop contains fixed sections,
-> `begin` -> `init` -> `sim` -> `visual` -> `end`.
+> `begin` -> `init` -> `sim` -> `visual` -> `debug` -> `end`.
 > 
 > Functions can be hooked into sections of the frame using `before`,
 > `after` or `on` ordering.
@@ -27,6 +27,7 @@
 - [init](#Frame.init)
 - [sim](#Frame.sim)
 - [visual](#Frame.visual)
+- [debug](#Frame.debug)
 - [end](#Frame.end)
 - [queue](#Frame.queue)(**fn**: `Any`)
 - [next](#Frame.next)(**fn**: `Any`)
@@ -89,6 +90,17 @@
 > 
 >   ```js
 >   Frame.on(Frame.visual) {|delta| ... }
+>   ```   
+
+<endpoint module="luxe: game" class="Frame" signature="debug"></endpoint>
+<signature id="Frame.debug">Frame.debug
+<a class="headerlink" href="#Frame.debug" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js String`
+> An enum value for the `debug` section in the loop.
+> The `debug` part of the loop can perform debug related tasks before the end of the frame and rendering is submitted.
+> 
+>   ```js
+>   Frame.on(Frame.debug) {|delta| ... }
 >   ```   
 
 <endpoint module="luxe: game" class="Frame" signature="end"></endpoint>
@@ -286,13 +298,13 @@
 <endpoint module="luxe: game" class="Ready" signature="ready()"></endpoint>
 <signature id="Ready.ready">Ready.ready()
 <a class="headerlink" href="#Ready.ready" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
+<span class='api_ret'>returns</span> `:::js Ready`
 > Called via `super()` inside your `ready` function. Must be called.   
 
 <endpoint module="luxe: game" class="Ready" signature="ready(message : Any)"></endpoint>
 <signature id="Ready.ready">Ready.ready(**message**: `Any`)
 <a class="headerlink" href="#Ready.ready" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
+<span class='api_ret'>returns</span> `:::js Ready`
 > Called via `super(message)` inside your `ready` function. Must be called.   
 
 <endpoint module="luxe: game" class="Ready" signature="tick(delta : Any)"></endpoint>

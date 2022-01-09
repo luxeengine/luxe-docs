@@ -1,6 +1,6 @@
 #![](../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2021.0.9`)  
+# `luxe` API (`2022.0.1`)  
 
 
 ---
@@ -18,6 +18,7 @@
 - [Image](#image)   
 - [ImageDesc](#imagedesc)   
 - [ImageType](#imagetype)   
+- [ImageUsage](#imageusage)   
 - [IndexType](#indextype)   
 - [LayerCompute](#layercompute)   
 - [LayerPass](#layerpass)   
@@ -29,6 +30,7 @@
 - [MaterialInputBlock](#materialinputblock)   
 - [MaterialInputImage](#materialinputimage)   
 - [MaterialInputType](#materialinputtype)   
+- [MaterialReplace](#materialreplace)   
 - [PassLayerDesc](#passlayerdesc)   
 - [PixelFormat](#pixelformat)   
 - [Primitive](#primitive)   
@@ -868,6 +870,8 @@
 - [array_length](#ImageDesc.array_length=)=(v : Any)
 - [sample_count](#ImageDesc.sample_count)
 - [sample_count](#ImageDesc.sample_count=)=(v : Any)
+- [usage](#ImageDesc.usage)
+- [usage](#ImageDesc.usage=)=(v : Any)
 - [new](#ImageDesc.new)()
 
 <hr/>
@@ -979,6 +983,18 @@
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
+<endpoint module="luxe: render" class="ImageDesc" signature="usage"></endpoint>
+<signature id="ImageDesc.usage">ImageDesc.usage
+<a class="headerlink" href="#ImageDesc.usage" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="ImageDesc" signature="usage=(v : Any)"></endpoint>
+<signature id="ImageDesc.usage=">ImageDesc.usage=(v : Any)
+<a class="headerlink" href="#ImageDesc.usage=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
 <endpoint module="luxe: render" class="ImageDesc" signature="new()"></endpoint>
 <signature id="ImageDesc.new">ImageDesc.new()
 <a class="headerlink" href="#ImageDesc.new" title="Permanent link">¶</a></signature>
@@ -1065,6 +1081,61 @@
 <endpoint module="luxe: render" class="ImageType" signature="name(value : Any)"></endpoint>
 <signature id="ImageType.name">ImageType.name(**value**: `Any`)
 <a class="headerlink" href="#ImageType.name" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+### ImageUsage
+`:::js import "luxe: render" for ImageUsage`
+> no docs found
+
+- [unknown](#ImageUsage.unknown)
+- [shader_read](#ImageUsage.shader_read)
+- [shader_write](#ImageUsage.shader_write)
+- [shader_read_write](#ImageUsage.shader_read_write)
+- [render_target](#ImageUsage.render_target)
+- [pixel_format_view](#ImageUsage.pixel_format_view)
+- [stream](#ImageUsage.stream)
+
+<hr/>
+<endpoint module="luxe: render" class="ImageUsage" signature="unknown"></endpoint>
+<signature id="ImageUsage.unknown">ImageUsage.unknown
+<a class="headerlink" href="#ImageUsage.unknown" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="ImageUsage" signature="shader_read"></endpoint>
+<signature id="ImageUsage.shader_read">ImageUsage.shader_read
+<a class="headerlink" href="#ImageUsage.shader_read" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="ImageUsage" signature="shader_write"></endpoint>
+<signature id="ImageUsage.shader_write">ImageUsage.shader_write
+<a class="headerlink" href="#ImageUsage.shader_write" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="ImageUsage" signature="shader_read_write"></endpoint>
+<signature id="ImageUsage.shader_read_write">ImageUsage.shader_read_write
+<a class="headerlink" href="#ImageUsage.shader_read_write" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="ImageUsage" signature="render_target"></endpoint>
+<signature id="ImageUsage.render_target">ImageUsage.render_target
+<a class="headerlink" href="#ImageUsage.render_target" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="ImageUsage" signature="pixel_format_view"></endpoint>
+<signature id="ImageUsage.pixel_format_view">ImageUsage.pixel_format_view
+<a class="headerlink" href="#ImageUsage.pixel_format_view" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="ImageUsage" signature="stream"></endpoint>
+<signature id="ImageUsage.stream">ImageUsage.stream
+<a class="headerlink" href="#ImageUsage.stream" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
@@ -1370,6 +1441,8 @@
 - [inputs](#MaterialDesc.inputs=)=(v : Any)
 - [blocks](#MaterialDesc.blocks)
 - [blocks](#MaterialDesc.blocks=)=(v : Any)
+- [replace](#MaterialDesc.replace)
+- [replace](#MaterialDesc.replace=)=(v : Any)
 - [stencil_back_failure_stencil](#MaterialDesc.stencil_back_failure_stencil)
 - [stencil_back_failure_stencil](#MaterialDesc.stencil_back_failure_stencil=)=(v : Any)
 - [stencil_back_failure_depth](#MaterialDesc.stencil_back_failure_depth)
@@ -1703,6 +1776,18 @@
 <endpoint module="luxe: render" class="MaterialDesc" signature="blocks=(v : Any)"></endpoint>
 <signature id="MaterialDesc.blocks=">MaterialDesc.blocks=(v : Any)
 <a class="headerlink" href="#MaterialDesc.blocks=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="MaterialDesc" signature="replace"></endpoint>
+<signature id="MaterialDesc.replace">MaterialDesc.replace
+<a class="headerlink" href="#MaterialDesc.replace" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="MaterialDesc" signature="replace=(v : Any)"></endpoint>
+<signature id="MaterialDesc.replace=">MaterialDesc.replace=(v : Any)
+<a class="headerlink" href="#MaterialDesc.replace=" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
@@ -2273,6 +2358,47 @@
 <signature id="MaterialInputType.default_of">MaterialInputType.default_of(**value**: `Any`)
 <a class="headerlink" href="#MaterialInputType.default_of" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+### MaterialReplace
+`:::js import "luxe: render" for MaterialReplace`
+> no docs found
+
+- [tag](#MaterialReplace.tag)
+- [tag](#MaterialReplace.tag=)=(v : Any)
+- [basis](#MaterialReplace.basis)
+- [basis](#MaterialReplace.basis=)=(v : Any)
+- [new](#MaterialReplace.new)()
+
+<hr/>
+<endpoint module="luxe: render" class="MaterialReplace" signature="tag"></endpoint>
+<signature id="MaterialReplace.tag">MaterialReplace.tag
+<a class="headerlink" href="#MaterialReplace.tag" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="MaterialReplace" signature="tag=(v : Any)"></endpoint>
+<signature id="MaterialReplace.tag=">MaterialReplace.tag=(v : Any)
+<a class="headerlink" href="#MaterialReplace.tag=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="MaterialReplace" signature="basis"></endpoint>
+<signature id="MaterialReplace.basis">MaterialReplace.basis
+<a class="headerlink" href="#MaterialReplace.basis" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="MaterialReplace" signature="basis=(v : Any)"></endpoint>
+<signature id="MaterialReplace.basis=">MaterialReplace.basis=(v : Any)
+<a class="headerlink" href="#MaterialReplace.basis=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="MaterialReplace" signature="new()"></endpoint>
+<signature id="MaterialReplace.new">MaterialReplace.new()
+<a class="headerlink" href="#MaterialReplace.new" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js MaterialReplace`
 > no docs found   
 
 ### PassLayerDesc
@@ -2967,12 +3093,12 @@
 - [get_path_vertex_count](#Render.get_path_vertex_count+6)(**points**: `Any`, **thickness**: `Any`, **cap**: `Any`, **join**: `Any`, **closed**: `Any`, **miter_limit**: `Any`)
 - [push_render_dest](#Render.push_render_dest+2)(**dest**: `Any`, **into**: `Any`)
 - [path_add_render_layers](#Render.path_add_render_layers+4)(**path**: `Any`, **name**: `Any`, **layers_add**: `Any`, **layer**: `Any`)
-- [path_add_render_layers](#Render.path_add_render_layers+5)(**path**: `Any`, **name**: `Any`, **layers_add**: `Any`, **layers_exclude**: `Any`, **layer**: `Any`)
-- [path_add_render_layer](#Render.path_add_render_layer+3)(**path**: `Any`, **name**: `Any`, **layer**: `Any`)
+- [path_add_render_layers](#Render.path_add_render_layers+5)(**path**: `Any`, **name**: `Any`, **layers_add**: `Any`, **layers_exclude**: `Any`, **layer**: `RenderLayerDesc`)
+- [path_add_render_layer](#Render.path_add_render_layer+3)(**path**: `Any`, **name**: `Any`, **layer**: `RenderLayerDesc`)
 - [path_add_compute_layer](#Render.path_add_compute_layer+3)(**path**: `Any`, **name**: `Any`, **layer**: `Any`)
 - [path_add_pass_layer](#Render.path_add_pass_layer+4)(**path**: `Any`, **name**: `Any`, **dest**: `Any`, **material**: `Any`)
 - [path_remove](#Render.path_remove+2)(**path**: `Any`, **name**: `Any`)
-- [path_update](#Render.path_update+3)(**path**: `Any`, **name**: `Any`, **layer**: `Any`)
+- [path_update](#Render.path_update+3)(**path**: `Any`, **name**: `Any`, **layer**: `RenderLayerDesc`)
 - [define_compute](#Render.define_compute+3)(**name**: `Any`, **library**: `Any`, **function**: `Any`)
 - [undefine_compute](#Render.undefine_compute)(**name**: `Any`)
 - [undefine_sampler_state](#Render.undefine_sampler_state)(**name**: `Any`)
@@ -3012,6 +3138,7 @@
 - [kColorTargets](#Render.kColorTargets)
 - [kMaterialLayerTargets](#Render.kMaterialLayerTargets)
 - [kMaterialInputs](#Render.kMaterialInputs)
+- [kMaterialReplace](#Render.kMaterialReplace)
 - [kStencilUnset](#Render.kStencilUnset)
 
 <hr/>
@@ -3171,14 +3298,14 @@
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
-<endpoint module="luxe: render" class="Render" signature="path_add_render_layers(path : Any, name : Any, layers_add : Any, layers_exclude : Any, layer : Any)"></endpoint>
-<signature id="Render.path_add_render_layers+5">Render.path_add_render_layers(**path**: `Any`, **name**: `Any`, **layers_add**: `Any`, **layers_exclude**: `Any`, **layer**: `Any`)
+<endpoint module="luxe: render" class="Render" signature="path_add_render_layers(path : Any, name : Any, layers_add : Any, layers_exclude : Any, layer : RenderLayerDesc)"></endpoint>
+<signature id="Render.path_add_render_layers+5">Render.path_add_render_layers(**path**: `Any`, **name**: `Any`, **layers_add**: `Any`, **layers_exclude**: `Any`, **layer**: `RenderLayerDesc`)
 <a class="headerlink" href="#Render.path_add_render_layers+5" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
-<endpoint module="luxe: render" class="Render" signature="path_add_render_layer(path : Any, name : Any, layer : Any)"></endpoint>
-<signature id="Render.path_add_render_layer+3">Render.path_add_render_layer(**path**: `Any`, **name**: `Any`, **layer**: `Any`)
+<endpoint module="luxe: render" class="Render" signature="path_add_render_layer(path : Any, name : Any, layer : RenderLayerDesc)"></endpoint>
+<signature id="Render.path_add_render_layer+3">Render.path_add_render_layer(**path**: `Any`, **name**: `Any`, **layer**: `RenderLayerDesc`)
 <a class="headerlink" href="#Render.path_add_render_layer+3" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
@@ -3201,8 +3328,8 @@
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
-<endpoint module="luxe: render" class="Render" signature="path_update(path : Any, name : Any, layer : Any)"></endpoint>
-<signature id="Render.path_update+3">Render.path_update(**path**: `Any`, **name**: `Any`, **layer**: `Any`)
+<endpoint module="luxe: render" class="Render" signature="path_update(path : Any, name : Any, layer : RenderLayerDesc)"></endpoint>
+<signature id="Render.path_update+3">Render.path_update(**path**: `Any`, **name**: `Any`, **layer**: `RenderLayerDesc`)
 <a class="headerlink" href="#Render.path_update+3" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
@@ -3438,6 +3565,12 @@
 <endpoint module="luxe: render" class="Render" signature="kMaterialInputs"></endpoint>
 <signature id="Render.kMaterialInputs">Render.kMaterialInputs
 <a class="headerlink" href="#Render.kMaterialInputs" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="Render" signature="kMaterialReplace"></endpoint>
+<signature id="Render.kMaterialReplace">Render.kMaterialReplace
+<a class="headerlink" href="#Render.kMaterialReplace" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
@@ -3852,6 +3985,8 @@
 - [sort](#RenderLayerDesc.sort=)=(sort : Any)
 - [material_override](#RenderLayerDesc.material_override)
 - [material_override](#RenderLayerDesc.material_override=)=(material_override : Any)
+- [replace_tag](#RenderLayerDesc.replace_tag)
+- [replace_tag](#RenderLayerDesc.replace_tag=)=(replace_tag : Any)
 - [dest](#RenderLayerDesc.dest)
 - [dest](#RenderLayerDesc.dest=)=(dest : Any)
 - [new](#RenderLayerDesc.new)()
@@ -3890,6 +4025,18 @@
 <endpoint module="luxe: render" class="RenderLayerDesc" signature="material_override=(material_override : Any)"></endpoint>
 <signature id="RenderLayerDesc.material_override=">RenderLayerDesc.material_override=(material_override : Any)
 <a class="headerlink" href="#RenderLayerDesc.material_override=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="RenderLayerDesc" signature="replace_tag"></endpoint>
+<signature id="RenderLayerDesc.replace_tag">RenderLayerDesc.replace_tag
+<a class="headerlink" href="#RenderLayerDesc.replace_tag" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="RenderLayerDesc" signature="replace_tag=(replace_tag : Any)"></endpoint>
+<signature id="RenderLayerDesc.replace_tag=">RenderLayerDesc.replace_tag=(replace_tag : Any)
+<a class="headerlink" href="#RenderLayerDesc.replace_tag=" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
@@ -4562,6 +4709,7 @@
 - [double2](#VertexAttrFormat.double2)
 - [double3](#VertexAttrFormat.double3)
 - [double4](#VertexAttrFormat.double4)
+- [mat4](#VertexAttrFormat.mat4)
 - [from_string](#VertexAttrFormat.from_string)(**value**: `Any`)
 - [size_of](#VertexAttrFormat.size_of)(**value**: `Any`)
 
@@ -4689,6 +4837,12 @@
 <endpoint module="luxe: render" class="VertexAttrFormat" signature="double4"></endpoint>
 <signature id="VertexAttrFormat.double4">VertexAttrFormat.double4
 <a class="headerlink" href="#VertexAttrFormat.double4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="VertexAttrFormat" signature="mat4"></endpoint>
+<signature id="VertexAttrFormat.mat4">VertexAttrFormat.mat4
+<a class="headerlink" href="#VertexAttrFormat.mat4" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 

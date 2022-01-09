@@ -1,6 +1,6 @@
 #![](images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2021.0.9`)  
+# `luxe` API (`2022.0.1`)  
 
 
 ---
@@ -37,6 +37,10 @@
 - [luxe: ui/button](ui/button)   
 - [luxe: ui/check](ui/check)   
 - [luxe: ui/control](ui/control)   
+- [luxe: ui/field/choice](ui/field/choice)   
+- [luxe: ui/field/number](ui/field/number)   
+- [luxe: ui/field/path](ui/field/path)   
+- [luxe: ui/field/vector](ui/field/vector)   
 - [luxe: ui/image](ui/image)   
 - [luxe: ui/label](ui/label)   
 - [luxe: ui/list](ui/list)   

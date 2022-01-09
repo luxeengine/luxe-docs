@@ -1,6 +1,6 @@
 #![](../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2021.0.9`)  
+# `luxe` API (`2022.0.1`)  
 
 
 ---
@@ -8,6 +8,7 @@
 ## `luxe: io` module
 
 - [Flags](#flags)   
+- [ProcFlags](#procflags)   
 
 ---
 
@@ -63,6 +64,68 @@
 <endpoint module="luxe: io" class="Flags" signature="values(flag : Any, require : Any)"></endpoint>
 <signature id="Flags.values+2">Flags.values(**flag**: `Any`, **require**: `Any`)
 <a class="headerlink" href="#Flags.values+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+### ProcFlags
+`:::js import "luxe: io" for ProcFlags`
+> no docs found
+
+- [none](#ProcFlags.none)
+- [setuid](#ProcFlags.setuid)
+- [setgid](#ProcFlags.setgid)
+- [windows_verbatim_arguments](#ProcFlags.windows_verbatim_arguments)
+- [detached](#ProcFlags.detached)
+- [windows_hide](#ProcFlags.windows_hide)
+- [windows_hide_console](#ProcFlags.windows_hide_console)
+- [windows_hide_gui](#ProcFlags.windows_hide_gui)
+
+<hr/>
+<endpoint module="luxe: io" class="ProcFlags" signature="none"></endpoint>
+<signature id="ProcFlags.none">ProcFlags.none
+<a class="headerlink" href="#ProcFlags.none" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: io" class="ProcFlags" signature="setuid"></endpoint>
+<signature id="ProcFlags.setuid">ProcFlags.setuid
+<a class="headerlink" href="#ProcFlags.setuid" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: io" class="ProcFlags" signature="setgid"></endpoint>
+<signature id="ProcFlags.setgid">ProcFlags.setgid
+<a class="headerlink" href="#ProcFlags.setgid" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: io" class="ProcFlags" signature="windows_verbatim_arguments"></endpoint>
+<signature id="ProcFlags.windows_verbatim_arguments">ProcFlags.windows_verbatim_arguments
+<a class="headerlink" href="#ProcFlags.windows_verbatim_arguments" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: io" class="ProcFlags" signature="detached"></endpoint>
+<signature id="ProcFlags.detached">ProcFlags.detached
+<a class="headerlink" href="#ProcFlags.detached" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: io" class="ProcFlags" signature="windows_hide"></endpoint>
+<signature id="ProcFlags.windows_hide">ProcFlags.windows_hide
+<a class="headerlink" href="#ProcFlags.windows_hide" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: io" class="ProcFlags" signature="windows_hide_console"></endpoint>
+<signature id="ProcFlags.windows_hide_console">ProcFlags.windows_hide_console
+<a class="headerlink" href="#ProcFlags.windows_hide_console" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: io" class="ProcFlags" signature="windows_hide_gui"></endpoint>
+<signature id="ProcFlags.windows_hide_gui">ProcFlags.windows_hide_gui
+<a class="headerlink" href="#ProcFlags.windows_hide_gui" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 

@@ -1,6 +1,6 @@
 #![](../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2021.0.9`)  
+# `luxe` API (`2022.0.1`)  
 
 
 ---
@@ -36,11 +36,15 @@
 - [Tiles](#tiles)   
 - [Transform](#transform)   
 - [UI](#ui)   
+- [UIBehave](#uibehave)   
 - [UIClear](#uiclear)   
+- [UIContain](#uicontain)   
+- [UIDebugMode](#uidebugmode)   
 - [UIEvent](#uievent)   
 - [UILayout](#uilayout)   
 - [UILayoutBehave](#uilayoutbehave)   
 - [UILayoutContain](#uilayoutcontain)   
+- [UILayoutMode](#uilayoutmode)   
 - [UIRenderMode](#uirendermode)   
 - [Values](#values)   
 - [ValuesType](#valuestype)   
@@ -1709,15 +1713,15 @@
 - [create](#Entity.create)(**world**: `World`)
 - [create](#Entity.create+2)(**world**: `World`, **name**: `String`)
 - [valid](#Entity.valid)(**entity**: `Entity`)
-- [get_world](#Entity.get_world)(**entity**: `Any`)
-- [get](#Entity.get)(**uuid**: `Any`)
+- [get_world](#Entity.get_world)(**entity**: `Entity`)
+- [get](#Entity.get)(**uuid**: `String`)
 - [get_named](#Entity.get_named+2)(**world**: `World`, **name**: `String`)
 - [get_named_all](#Entity.get_named_all+2)(**world**: `World`, **name**: `String`)
 - [get_name](#Entity.get_name)(**entity**: `Entity`)
 - [set_name](#Entity.set_name+2)(**entity**: `Entity`, **name**: `String`)
-- [get_uuid](#Entity.get_uuid)(**entity**: `Any`)
-- [set_uuid](#Entity.set_uuid+2)(**entity**: `Any`, **uuid_string**: `Any`)
-- [destroy](#Entity.destroy)(**entity**: `Any`)
+- [get_uuid](#Entity.get_uuid)(**entity**: `Entity`)
+- [set_uuid](#Entity.set_uuid+2)(**entity**: `Entity`, **uuid_string**: `String`)
+- [destroy](#Entity.destroy)(**entity**: `Entity`)
 
 <hr/>
 <endpoint module="luxe: world" class="Entity" signature="create(world : World)"></endpoint>
@@ -1753,23 +1757,41 @@
 >   }
 >   ```   
 
-<endpoint module="luxe: world" class="Entity" signature="get_world(entity : Any)"></endpoint>
-<signature id="Entity.get_world">Entity.get_world(**entity**: `Any`)
+<endpoint module="luxe: world" class="Entity" signature="get_world(entity : Entity)"></endpoint>
+<signature id="Entity.get_world">Entity.get_world(**entity**: `Entity`)
 <a class="headerlink" href="#Entity.get_world" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+<span class='api_ret'>returns</span> `:::js World`
+> Get the `world` a given `entity` belongs to
+> 
+>   ```js
+>   var world = Entity.get_world(entity)
+>   ```   
 
-<endpoint module="luxe: world" class="Entity" signature="get(uuid : Any)"></endpoint>
-<signature id="Entity.get">Entity.get(**uuid**: `Any`)
+<endpoint module="luxe: world" class="Entity" signature="get(uuid : String)"></endpoint>
+<signature id="Entity.get">Entity.get(**uuid**: `String`)
 <a class="headerlink" href="#Entity.get" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+<span class='api_ret'>returns</span> `:::js Entity`
+> Get the entity with a given UUID. Since an entity can have 
+> a name that is shared by several entities in the same world, 
+> the unique ID of an entity is used to locate exactly one entity.
+> Generally, no two entities will have the same UUID.
+> 
+>   ```js
+>   var entity = Entity.get("5b01869b-fd59-4f2c-892f-4c0b726c79a2")
+> 
+>   if (Entity.valid(entity)) {
+>     System.print("found entity")
+>   }
+>   ```   
 
 <endpoint module="luxe: world" class="Entity" signature="get_named(world : World, name : String)"></endpoint>
 <signature id="Entity.get_named+2">Entity.get_named(**world**: `World`, **name**: `String`)
 <a class="headerlink" href="#Entity.get_named+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js Entity`
 > Get the first `entity` from the given `world` with the name `name`.
+> Which entity is returned is unspecified if there are multiple with the same name.
+> If you need to test further use `Entity.get_named_all`. Returns null if no
+> entity is found by that name.
 > 
 >   ```js
 >   var player = Entity.get_named(app.world, "player")
@@ -1780,52 +1802,63 @@
 <a class="headerlink" href="#Entity.get_named_all+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js List`
 > Get a list of all `entities` from the given `world` with the name `name`.
+> Returns a list of entities with an unspecified order. Returns an empty list
+> if no entities are found.
 > 
 >   ```js
->   var ferns = Entity.get_named_all(app.world, "fern")
->   System.print("There are %(ferns.count) ferns in this forest!")
+>   var list = Entity.get_named_all(app.world, "fern")
+>   System.print("There are %(list.count) ferns in this forest!")
 >   ```   
 
 <endpoint module="luxe: world" class="Entity" signature="get_name(entity : Entity)"></endpoint>
 <signature id="Entity.get_name">Entity.get_name(**entity**: `Entity`)
 <a class="headerlink" href="#Entity.get_name" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js String`
-> Get the name of a given `entity`
+<span class='api_ret'>returns</span> `:::js StringID`
+> Get the name of a given `entity` as a hashed string ID.
+> Use `import "luxe: assets" for Strings` with `Strings.get(name)`
+> to convert to a string. :note: this ID nuance is wip.
 > 
 >   ```js
->   System.print("Hello, my name is %(Entity.get_name(traveler))!")
->   // prints "Hello, my name is Frances!"
+>   Entity.set_name(player, "player")
+>   var name_id = Entity.get_name(player)
+>   var name = Strings.get(name_id)
+>   System.print("Entity name is `%(name)`!")
+>   // prints "Entity name is `player`"
 >   ```   
 
 <endpoint module="luxe: world" class="Entity" signature="set_name(entity : Entity, name : String)"></endpoint>
 <signature id="Entity.set_name+2">Entity.set_name(**entity**: `Entity`, **name**: `String`)
 <a class="headerlink" href="#Entity.set_name+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> Set the name of a given `entity`
+> Set the name of a given `entity`.
 > 
 >   ```js
->   Entity.set_name(traveler, "Franny")
->   System.print("But you can just call me %(Entity.get_name(traveler))!")
->   // prints "But you can just call me Franny!"
+>   Entity.set_name(player, "player")
 >   ```   
 
-<endpoint module="luxe: world" class="Entity" signature="get_uuid(entity : Any)"></endpoint>
-<signature id="Entity.get_uuid">Entity.get_uuid(**entity**: `Any`)
+<endpoint module="luxe: world" class="Entity" signature="get_uuid(entity : Entity)"></endpoint>
+<signature id="Entity.get_uuid">Entity.get_uuid(**entity**: `Entity`)
 <a class="headerlink" href="#Entity.get_uuid" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+<span class='api_ret'>returns</span> `:::js String`
+> Get the unique ID as a string UUID for a given `entity`.   
 
-<endpoint module="luxe: world" class="Entity" signature="set_uuid(entity : Any, uuid_string : Any)"></endpoint>
-<signature id="Entity.set_uuid+2">Entity.set_uuid(**entity**: `Any`, **uuid_string**: `Any`)
+<endpoint module="luxe: world" class="Entity" signature="set_uuid(entity : Entity, uuid_string : String)"></endpoint>
+<signature id="Entity.set_uuid+2">Entity.set_uuid(**entity**: `Entity`, **uuid_string**: `String`)
 <a class="headerlink" href="#Entity.set_uuid+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> Set the unique ID of a given `entity`.
+> Typically used in special cases, not commonly used on the high level.   
 
-<endpoint module="luxe: world" class="Entity" signature="destroy(entity : Any)"></endpoint>
-<signature id="Entity.destroy">Entity.destroy(**entity**: `Any`)
+<endpoint module="luxe: world" class="Entity" signature="destroy(entity : Entity)"></endpoint>
+<signature id="Entity.destroy">Entity.destroy(**entity**: `Entity`)
 <a class="headerlink" href="#Entity.destroy" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> Destroy the given `entity`, removing it from the world it's in.
+>         
+> At the moment destroy is immediate (potentially changing soon),
+> so sometimes you might want `Frame.end { Entity.destroy(entity) }` 
+> to push the destroy to the end of the frame, so it doesn't happen
+> while iterating a list or when things are still processing it.   
 
 ### Layer
 `:::js import "luxe: world" for Layer`
@@ -1900,130 +1933,137 @@
 `:::js import "luxe: world" for Mesh`
 > no docs found
 
-- [create](#Mesh.create)(**entity**: `Any`)
-- [create](#Mesh.create+3)(**entity**: `Any`, **material**: `Any`, **mesh_lx**: `Any`)
-- [destroy](#Mesh.destroy)(**entity**: `Any`)
-- [has](#Mesh.has)(**entity**: `Any`)
-- [clear](#Mesh.clear)(**entity**: `Any`)
-- [level_get_element_count](#Mesh.level_get_element_count+2)(**entity**: `Any`, **level**: `Any`)
-- [level_get_count](#Mesh.level_get_count)(**entity**: `Any`)
-- [level_set_active](#Mesh.level_set_active+3)(**entity**: `Any`, **level**: `Any`, **disable_current**: `Any`)
-- [level_get_active](#Mesh.level_get_active)(**entity**: `Any`)
-- [level_set_enabled](#Mesh.level_set_enabled+3)(**entity**: `Any`, **level**: `Any`, **state**: `Any`)
-- [level_get_enabled](#Mesh.level_get_enabled+2)(**entity**: `Any`, **level**: `Any`)
-- [set_asset](#Mesh.set_asset+2)(**entity**: `Any`, **asset_id**: `Any`)
-- [get_source_id](#Mesh.get_source_id)(**entity**: `Any`)
-- [get_default_material](#Mesh.get_default_material)(**entity**: `Any`)
-- [set_default_material](#Mesh.set_default_material+2)(**entity**: `Any`, **material**: `Any`)
-- [get_geometry](#Mesh.get_geometry+3)(**entity**: `Any`, **level**: `Any`, **element**: `Any`)
-- [get_geometry](#Mesh.get_geometry)(**entity**: `Any`)
-- [obb_intersect_ray](#Mesh.obb_intersect_ray+7)(**entity**: `Any`, **ray_x**: `Any`, **ray_y**: `Any`, **ray_z**: `Any`, **ray_dir_x**: `Any`, **ray_dir_y**: `Any`, **ray_dir_z**: `Any`)
+- [create](#Mesh.create)(**entity**: `Entity`)
+- [create](#Mesh.create+3)(**entity**: `Entity`, **material**: `Material`, **mesh_lx**: `String`)
+- [destroy](#Mesh.destroy)(**entity**: `Entity`)
+- [has](#Mesh.has)(**entity**: `Entity`)
+- [clear](#Mesh.clear)(**entity**: `Entity`)
+- [level_get_element_count](#Mesh.level_get_element_count+2)(**entity**: `Entity`, **level**: `Num`)
+- [level_get_count](#Mesh.level_get_count)(**entity**: `Entity`)
+- [level_set_active](#Mesh.level_set_active+3)(**entity**: `Entity`, **level**: `Num`, **disable_current**: `Bool`)
+- [level_get_active](#Mesh.level_get_active)(**entity**: `Entity`)
+- [level_set_enabled](#Mesh.level_set_enabled+3)(**entity**: `Entity`, **level**: `Num`, **state**: `Bool`)
+- [level_get_enabled](#Mesh.level_get_enabled+2)(**entity**: `Entity`, **level**: `Num`)
+- [set_asset](#Mesh.set_asset+2)(**entity**: `Entity`, **asset_id**: `String`)
+- [set_instanced](#Mesh.set_instanced+2)(**entity**: `Entity`, **state**: `Bool`)
+- [get_source_id](#Mesh.get_source_id)(**entity**: `Entity`)
+- [get_default_material](#Mesh.get_default_material)(**entity**: `Entity`)
+- [set_default_material](#Mesh.set_default_material+2)(**entity**: `Entity`, **material**: `Material`)
+- [get_geometry](#Mesh.get_geometry+3)(**entity**: `Entity`, **level**: `Num`, **element**: `Num`)
+- [get_geometry](#Mesh.get_geometry)(**entity**: `Entity`)
+- [obb_intersect_ray](#Mesh.obb_intersect_ray+7)(**entity**: `Entity`, **ray_x**: `Num`, **ray_y**: `Num`, **ray_z**: `Num`, **ray_dir_x**: `Num`, **ray_dir_y**: `Num`, **ray_dir_z**: `Num`)
 
 <hr/>
-<endpoint module="luxe: world" class="Mesh" signature="create(entity : Any)"></endpoint>
-<signature id="Mesh.create">Mesh.create(**entity**: `Any`)
+<endpoint module="luxe: world" class="Mesh" signature="create(entity : Entity)"></endpoint>
+<signature id="Mesh.create">Mesh.create(**entity**: `Entity`)
 <a class="headerlink" href="#Mesh.create" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
-<endpoint module="luxe: world" class="Mesh" signature="create(entity : Any, material : Any, mesh_lx : Any)"></endpoint>
-<signature id="Mesh.create+3">Mesh.create(**entity**: `Any`, **material**: `Any`, **mesh_lx**: `Any`)
+<endpoint module="luxe: world" class="Mesh" signature="create(entity : Entity, material : Material, mesh_lx : String)"></endpoint>
+<signature id="Mesh.create+3">Mesh.create(**entity**: `Entity`, **material**: `Material`, **mesh_lx**: `String`)
 <a class="headerlink" href="#Mesh.create+3" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
-<endpoint module="luxe: world" class="Mesh" signature="destroy(entity : Any)"></endpoint>
-<signature id="Mesh.destroy">Mesh.destroy(**entity**: `Any`)
+<endpoint module="luxe: world" class="Mesh" signature="destroy(entity : Entity)"></endpoint>
+<signature id="Mesh.destroy">Mesh.destroy(**entity**: `Entity`)
 <a class="headerlink" href="#Mesh.destroy" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
-<endpoint module="luxe: world" class="Mesh" signature="has(entity : Any)"></endpoint>
-<signature id="Mesh.has">Mesh.has(**entity**: `Any`)
+<endpoint module="luxe: world" class="Mesh" signature="has(entity : Entity)"></endpoint>
+<signature id="Mesh.has">Mesh.has(**entity**: `Entity`)
 <a class="headerlink" href="#Mesh.has" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
-<endpoint module="luxe: world" class="Mesh" signature="clear(entity : Any)"></endpoint>
-<signature id="Mesh.clear">Mesh.clear(**entity**: `Any`)
+<endpoint module="luxe: world" class="Mesh" signature="clear(entity : Entity)"></endpoint>
+<signature id="Mesh.clear">Mesh.clear(**entity**: `Entity`)
 <a class="headerlink" href="#Mesh.clear" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
-<endpoint module="luxe: world" class="Mesh" signature="level_get_element_count(entity : Any, level : Any)"></endpoint>
-<signature id="Mesh.level_get_element_count+2">Mesh.level_get_element_count(**entity**: `Any`, **level**: `Any`)
+<endpoint module="luxe: world" class="Mesh" signature="level_get_element_count(entity : Entity, level : Num)"></endpoint>
+<signature id="Mesh.level_get_element_count+2">Mesh.level_get_element_count(**entity**: `Entity`, **level**: `Num`)
 <a class="headerlink" href="#Mesh.level_get_element_count+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
-<endpoint module="luxe: world" class="Mesh" signature="level_get_count(entity : Any)"></endpoint>
-<signature id="Mesh.level_get_count">Mesh.level_get_count(**entity**: `Any`)
+<endpoint module="luxe: world" class="Mesh" signature="level_get_count(entity : Entity)"></endpoint>
+<signature id="Mesh.level_get_count">Mesh.level_get_count(**entity**: `Entity`)
 <a class="headerlink" href="#Mesh.level_get_count" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
-<endpoint module="luxe: world" class="Mesh" signature="level_set_active(entity : Any, level : Any, disable_current : Any)"></endpoint>
-<signature id="Mesh.level_set_active+3">Mesh.level_set_active(**entity**: `Any`, **level**: `Any`, **disable_current**: `Any`)
+<endpoint module="luxe: world" class="Mesh" signature="level_set_active(entity : Entity, level : Num, disable_current : Bool)"></endpoint>
+<signature id="Mesh.level_set_active+3">Mesh.level_set_active(**entity**: `Entity`, **level**: `Num`, **disable_current**: `Bool`)
 <a class="headerlink" href="#Mesh.level_set_active+3" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
-<endpoint module="luxe: world" class="Mesh" signature="level_get_active(entity : Any)"></endpoint>
-<signature id="Mesh.level_get_active">Mesh.level_get_active(**entity**: `Any`)
+<endpoint module="luxe: world" class="Mesh" signature="level_get_active(entity : Entity)"></endpoint>
+<signature id="Mesh.level_get_active">Mesh.level_get_active(**entity**: `Entity`)
 <a class="headerlink" href="#Mesh.level_get_active" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
-<endpoint module="luxe: world" class="Mesh" signature="level_set_enabled(entity : Any, level : Any, state : Any)"></endpoint>
-<signature id="Mesh.level_set_enabled+3">Mesh.level_set_enabled(**entity**: `Any`, **level**: `Any`, **state**: `Any`)
+<endpoint module="luxe: world" class="Mesh" signature="level_set_enabled(entity : Entity, level : Num, state : Bool)"></endpoint>
+<signature id="Mesh.level_set_enabled+3">Mesh.level_set_enabled(**entity**: `Entity`, **level**: `Num`, **state**: `Bool`)
 <a class="headerlink" href="#Mesh.level_set_enabled+3" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
-<endpoint module="luxe: world" class="Mesh" signature="level_get_enabled(entity : Any, level : Any)"></endpoint>
-<signature id="Mesh.level_get_enabled+2">Mesh.level_get_enabled(**entity**: `Any`, **level**: `Any`)
+<endpoint module="luxe: world" class="Mesh" signature="level_get_enabled(entity : Entity, level : Num)"></endpoint>
+<signature id="Mesh.level_get_enabled+2">Mesh.level_get_enabled(**entity**: `Entity`, **level**: `Num`)
 <a class="headerlink" href="#Mesh.level_get_enabled+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
-<endpoint module="luxe: world" class="Mesh" signature="set_asset(entity : Any, asset_id : Any)"></endpoint>
-<signature id="Mesh.set_asset+2">Mesh.set_asset(**entity**: `Any`, **asset_id**: `Any`)
+<endpoint module="luxe: world" class="Mesh" signature="set_asset(entity : Entity, asset_id : String)"></endpoint>
+<signature id="Mesh.set_asset+2">Mesh.set_asset(**entity**: `Entity`, **asset_id**: `String`)
 <a class="headerlink" href="#Mesh.set_asset+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
-<endpoint module="luxe: world" class="Mesh" signature="get_source_id(entity : Any)"></endpoint>
-<signature id="Mesh.get_source_id">Mesh.get_source_id(**entity**: `Any`)
+<endpoint module="luxe: world" class="Mesh" signature="set_instanced(entity : Entity, state : Bool)"></endpoint>
+<signature id="Mesh.set_instanced+2">Mesh.set_instanced(**entity**: `Entity`, **state**: `Bool`)
+<a class="headerlink" href="#Mesh.set_instanced+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="Mesh" signature="get_source_id(entity : Entity)"></endpoint>
+<signature id="Mesh.get_source_id">Mesh.get_source_id(**entity**: `Entity`)
 <a class="headerlink" href="#Mesh.get_source_id" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
-<endpoint module="luxe: world" class="Mesh" signature="get_default_material(entity : Any)"></endpoint>
-<signature id="Mesh.get_default_material">Mesh.get_default_material(**entity**: `Any`)
+<endpoint module="luxe: world" class="Mesh" signature="get_default_material(entity : Entity)"></endpoint>
+<signature id="Mesh.get_default_material">Mesh.get_default_material(**entity**: `Entity`)
 <a class="headerlink" href="#Mesh.get_default_material" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
-<endpoint module="luxe: world" class="Mesh" signature="set_default_material(entity : Any, material : Any)"></endpoint>
-<signature id="Mesh.set_default_material+2">Mesh.set_default_material(**entity**: `Any`, **material**: `Any`)
+<endpoint module="luxe: world" class="Mesh" signature="set_default_material(entity : Entity, material : Material)"></endpoint>
+<signature id="Mesh.set_default_material+2">Mesh.set_default_material(**entity**: `Entity`, **material**: `Material`)
 <a class="headerlink" href="#Mesh.set_default_material+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
-<endpoint module="luxe: world" class="Mesh" signature="get_geometry(entity : Any, level : Any, element : Any)"></endpoint>
-<signature id="Mesh.get_geometry+3">Mesh.get_geometry(**entity**: `Any`, **level**: `Any`, **element**: `Any`)
+<endpoint module="luxe: world" class="Mesh" signature="get_geometry(entity : Entity, level : Num, element : Num)"></endpoint>
+<signature id="Mesh.get_geometry+3">Mesh.get_geometry(**entity**: `Entity`, **level**: `Num`, **element**: `Num`)
 <a class="headerlink" href="#Mesh.get_geometry+3" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
-<endpoint module="luxe: world" class="Mesh" signature="get_geometry(entity : Any)"></endpoint>
-<signature id="Mesh.get_geometry">Mesh.get_geometry(**entity**: `Any`)
+<endpoint module="luxe: world" class="Mesh" signature="get_geometry(entity : Entity)"></endpoint>
+<signature id="Mesh.get_geometry">Mesh.get_geometry(**entity**: `Entity`)
 <a class="headerlink" href="#Mesh.get_geometry" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
-<endpoint module="luxe: world" class="Mesh" signature="obb_intersect_ray(entity : Any, ray_x : Any, ray_y : Any, ray_z : Any, ray_dir_x : Any, ray_dir_y : Any, ray_dir_z : Any)"></endpoint>
-<signature id="Mesh.obb_intersect_ray+7">Mesh.obb_intersect_ray(**entity**: `Any`, **ray_x**: `Any`, **ray_y**: `Any`, **ray_z**: `Any`, **ray_dir_x**: `Any`, **ray_dir_y**: `Any`, **ray_dir_z**: `Any`)
+<endpoint module="luxe: world" class="Mesh" signature="obb_intersect_ray(entity : Entity, ray_x : Num, ray_y : Num, ray_z : Num, ray_dir_x : Num, ray_dir_y : Num, ray_dir_z : Num)"></endpoint>
+<signature id="Mesh.obb_intersect_ray+7">Mesh.obb_intersect_ray(**entity**: `Entity`, **ray_x**: `Num`, **ray_y**: `Num`, **ray_z**: `Num`, **ray_dir_x**: `Num`, **ray_dir_y**: `Num`, **ray_dir_z**: `Num`)
 <a class="headerlink" href="#Mesh.obb_intersect_ray+7" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
@@ -4578,6 +4618,7 @@
 
 - [create](#UI.create+7)(**entity**: `Any`, **x**: `Any`, **y**: `Any`, **w**: `Any`, **h**: `Any`, **z**: `Any`, **camera**: `Any`)
 - [destroy](#UI.destroy)(**entity**: `Any`)
+- [has](#UI.has)(**entity**: `Any`)
 - [commit](#UI.commit)(**entity**: `Any`)
 - [event_cancel](#UI.event_cancel+2)(**entity**: `Any`, **event_id**: `Any`)
 - [event_cancelled](#UI.event_cancelled+2)(**entity**: `Any`, **event_id**: `Any`)
@@ -4588,6 +4629,8 @@
 - [set_bounds](#UI.set_bounds+6)(**entity**: `Any`, **x**: `Any`, **y**: `Any`, **w**: `Any`, **h**: `Any`, **z**: `Any`)
 - [get_input_node](#UI.get_input_node)(**entity**: `Any`)
 - [set_input_node](#UI.set_input_node+2)(**entity**: `Any`, **input_node_id**: `Any`)
+- [set_layout_mode](#UI.set_layout_mode+2)(**entity**: `Entity`, **mode**: `UILayoutMode`)
+- [set_debug_mode](#UI.set_debug_mode+2)(**entity**: `Entity`, **mode**: `UIDebugMode`)
 - [get_focused](#UI.get_focused)(**entity**: `Any`)
 - [get_captured](#UI.get_captured)(**entity**: `Any`)
 - [get_marked](#UI.get_marked)(**entity**: `Any`)
@@ -4602,6 +4645,7 @@
 - [uncapture](#UI.uncapture)(**control**: `Any`)
 - [bring_to_front](#UI.bring_to_front)(**control**: `Any`)
 - [control_at_point](#UI.control_at_point+3)(**entity**: `Any`, **x**: `Any`, **y**: `Any`)
+- [mouse_to_canvas](#UI.mouse_to_canvas+3)(**entity**: `Any`, **x**: `Any`, **y**: `Any`)
 - [dump](#UI.dump)(**ui**: `Any`)
 - [spawn](#UI.spawn+3)(**asset_id**: `Any`, **parent**: `Any`, **instance_id**: `Any`)
 - [make](#UI.make+3)(**ui**: `Any`, **asset**: `Any`, **instance_id**: `Any`)
@@ -4615,6 +4659,7 @@
 - [draw_line](#UI.draw_line+7)(**control**: `Any`, **x1**: `Any`, **y1**: `Any`, **x2**: `Any`, **y2**: `Any`, **z**: `Any`, **style**: `Any`)
 - [draw_rect](#UI.draw_rect+8)(**control**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **w**: `Any`, **h**: `Any`, **angle**: `Any`, **style**: `Any`)
 - [draw_rect_detailed](#UI.draw_rect_detailed+10)(**control**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **w**: `Any`, **h**: `Any`, **angle**: `Any`, **radius**: `Any`, **smoothness**: `Any`, **style**: `Any`)
+- [draw_quad_detailed](#UI.draw_quad_detailed+10)(**control**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **w**: `Any`, **h**: `Any`, **angle**: `Any`, **radius**: `Any`, **smoothness**: `Any`, **color**: `Any`)
 - [draw_ring](#UI.draw_ring+10)(**control**: `Any`, **ox**: `Any`, **oy**: `Any`, **oz**: `Any`, **rx**: `Any`, **ry**: `Any`, **start_angle**: `Any`, **end_angle**: `Any`, **smoothness**: `Any`, **style**: `Any`)
 - [draw_path](#UI.draw_path+4)(**control**: `Any`, **points**: `Any`, **style**: `Any`, **closed**: `Any`)
 - [events_emit](#UI.events_emit+2)(**control**: `Any`, **type**: `Any`)
@@ -4630,6 +4675,12 @@
 <endpoint module="luxe: world" class="UI" signature="destroy(entity : Any)"></endpoint>
 <signature id="UI.destroy">UI.destroy(**entity**: `Any`)
 <a class="headerlink" href="#UI.destroy" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="UI" signature="has(entity : Any)"></endpoint>
+<signature id="UI.has">UI.has(**entity**: `Any`)
+<a class="headerlink" href="#UI.has" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
@@ -4690,6 +4741,18 @@
 <endpoint module="luxe: world" class="UI" signature="set_input_node(entity : Any, input_node_id : Any)"></endpoint>
 <signature id="UI.set_input_node+2">UI.set_input_node(**entity**: `Any`, **input_node_id**: `Any`)
 <a class="headerlink" href="#UI.set_input_node+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="UI" signature="set_layout_mode(entity : Entity, mode : UILayoutMode)"></endpoint>
+<signature id="UI.set_layout_mode+2">UI.set_layout_mode(**entity**: `Entity`, **mode**: `UILayoutMode`)
+<a class="headerlink" href="#UI.set_layout_mode+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="UI" signature="set_debug_mode(entity : Entity, mode : UIDebugMode)"></endpoint>
+<signature id="UI.set_debug_mode+2">UI.set_debug_mode(**entity**: `Entity`, **mode**: `UIDebugMode`)
+<a class="headerlink" href="#UI.set_debug_mode+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
@@ -4777,6 +4840,12 @@
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
+<endpoint module="luxe: world" class="UI" signature="mouse_to_canvas(entity : Any, x : Any, y : Any)"></endpoint>
+<signature id="UI.mouse_to_canvas+3">UI.mouse_to_canvas(**entity**: `Any`, **x**: `Any`, **y**: `Any`)
+<a class="headerlink" href="#UI.mouse_to_canvas+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
 <endpoint module="luxe: world" class="UI" signature="dump(ui : Any)"></endpoint>
 <signature id="UI.dump">UI.dump(**ui**: `Any`)
 <a class="headerlink" href="#UI.dump" title="Permanent link">¶</a></signature>
@@ -4855,6 +4924,12 @@
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
+<endpoint module="luxe: world" class="UI" signature="draw_quad_detailed(control : Any, x : Any, y : Any, z : Any, w : Any, h : Any, angle : Any, radius : Any, smoothness : Any, color : Any)"></endpoint>
+<signature id="UI.draw_quad_detailed+10">UI.draw_quad_detailed(**control**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **w**: `Any`, **h**: `Any`, **angle**: `Any`, **radius**: `Any`, **smoothness**: `Any`, **color**: `Any`)
+<a class="headerlink" href="#UI.draw_quad_detailed+10" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
 <endpoint module="luxe: world" class="UI" signature="draw_ring(control : Any, ox : Any, oy : Any, oz : Any, rx : Any, ry : Any, start_angle : Any, end_angle : Any, smoothness : Any, style : Any)"></endpoint>
 <signature id="UI.draw_ring+10">UI.draw_ring(**control**: `Any`, **ox**: `Any`, **oy**: `Any`, **oz**: `Any`, **rx**: `Any`, **ry**: `Any`, **start_angle**: `Any`, **end_angle**: `Any`, **smoothness**: `Any`, **style**: `Any`)
 <a class="headerlink" href="#UI.draw_ring+10" title="Permanent link">¶</a></signature>
@@ -4876,6 +4951,89 @@
 <endpoint module="luxe: world" class="UI" signature="events_emit(control : Any, type : Any, data : Any)"></endpoint>
 <signature id="UI.events_emit+3">UI.events_emit(**control**: `Any`, **type**: `Any`, **data**: `Any`)
 <a class="headerlink" href="#UI.events_emit+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+### UIBehave
+`:::js import "luxe: world" for UIBehave`
+> no docs found
+
+- [left](#UIBehave.left)
+- [top](#UIBehave.top)
+- [right](#UIBehave.right)
+- [bottom](#UIBehave.bottom)
+- [hfill](#UIBehave.hfill)
+- [vfill](#UIBehave.vfill)
+- [hcenter](#UIBehave.hcenter)
+- [vcenter](#UIBehave.vcenter)
+- [center](#UIBehave.center)
+- [fill](#UIBehave.fill)
+- [break_line](#UIBehave.break_line)
+
+<hr/>
+<endpoint module="luxe: world" class="UIBehave" signature="left"></endpoint>
+<signature id="UIBehave.left">UIBehave.left
+<a class="headerlink" href="#UIBehave.left" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="UIBehave" signature="top"></endpoint>
+<signature id="UIBehave.top">UIBehave.top
+<a class="headerlink" href="#UIBehave.top" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="UIBehave" signature="right"></endpoint>
+<signature id="UIBehave.right">UIBehave.right
+<a class="headerlink" href="#UIBehave.right" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="UIBehave" signature="bottom"></endpoint>
+<signature id="UIBehave.bottom">UIBehave.bottom
+<a class="headerlink" href="#UIBehave.bottom" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="UIBehave" signature="hfill"></endpoint>
+<signature id="UIBehave.hfill">UIBehave.hfill
+<a class="headerlink" href="#UIBehave.hfill" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="UIBehave" signature="vfill"></endpoint>
+<signature id="UIBehave.vfill">UIBehave.vfill
+<a class="headerlink" href="#UIBehave.vfill" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="UIBehave" signature="hcenter"></endpoint>
+<signature id="UIBehave.hcenter">UIBehave.hcenter
+<a class="headerlink" href="#UIBehave.hcenter" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="UIBehave" signature="vcenter"></endpoint>
+<signature id="UIBehave.vcenter">UIBehave.vcenter
+<a class="headerlink" href="#UIBehave.vcenter" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="UIBehave" signature="center"></endpoint>
+<signature id="UIBehave.center">UIBehave.center
+<a class="headerlink" href="#UIBehave.center" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="UIBehave" signature="fill"></endpoint>
+<signature id="UIBehave.fill">UIBehave.fill
+<a class="headerlink" href="#UIBehave.fill" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="UIBehave" signature="break_line"></endpoint>
+<signature id="UIBehave.break_line">UIBehave.break_line
+<a class="headerlink" href="#UIBehave.break_line" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
@@ -4910,6 +5068,116 @@
 <endpoint module="luxe: world" class="UIClear" signature="remove_set_invisible"></endpoint>
 <signature id="UIClear.remove_set_invisible">UIClear.remove_set_invisible
 <a class="headerlink" href="#UIClear.remove_set_invisible" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+### UIContain
+`:::js import "luxe: world" for UIContain`
+> no docs found
+
+- [row](#UIContain.row)
+- [column](#UIContain.column)
+- [layout](#UIContain.layout)
+- [flex](#UIContain.flex)
+- [nowrap](#UIContain.nowrap)
+- [wrap](#UIContain.wrap)
+- [start](#UIContain.start)
+- [middle](#UIContain.middle)
+- [end](#UIContain.end)
+- [justify](#UIContain.justify)
+- [vfit](#UIContain.vfit)
+- [hfit](#UIContain.hfit)
+
+<hr/>
+<endpoint module="luxe: world" class="UIContain" signature="row"></endpoint>
+<signature id="UIContain.row">UIContain.row
+<a class="headerlink" href="#UIContain.row" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="UIContain" signature="column"></endpoint>
+<signature id="UIContain.column">UIContain.column
+<a class="headerlink" href="#UIContain.column" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="UIContain" signature="layout"></endpoint>
+<signature id="UIContain.layout">UIContain.layout
+<a class="headerlink" href="#UIContain.layout" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="UIContain" signature="flex"></endpoint>
+<signature id="UIContain.flex">UIContain.flex
+<a class="headerlink" href="#UIContain.flex" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="UIContain" signature="nowrap"></endpoint>
+<signature id="UIContain.nowrap">UIContain.nowrap
+<a class="headerlink" href="#UIContain.nowrap" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="UIContain" signature="wrap"></endpoint>
+<signature id="UIContain.wrap">UIContain.wrap
+<a class="headerlink" href="#UIContain.wrap" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="UIContain" signature="start"></endpoint>
+<signature id="UIContain.start">UIContain.start
+<a class="headerlink" href="#UIContain.start" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="UIContain" signature="middle"></endpoint>
+<signature id="UIContain.middle">UIContain.middle
+<a class="headerlink" href="#UIContain.middle" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="UIContain" signature="end"></endpoint>
+<signature id="UIContain.end">UIContain.end
+<a class="headerlink" href="#UIContain.end" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="UIContain" signature="justify"></endpoint>
+<signature id="UIContain.justify">UIContain.justify
+<a class="headerlink" href="#UIContain.justify" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="UIContain" signature="vfit"></endpoint>
+<signature id="UIContain.vfit">UIContain.vfit
+<a class="headerlink" href="#UIContain.vfit" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="UIContain" signature="hfit"></endpoint>
+<signature id="UIContain.hfit">UIContain.hfit
+<a class="headerlink" href="#UIContain.hfit" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+### UIDebugMode
+`:::js import "luxe: world" for UIDebugMode`
+> no docs found
+
+- [none](#UIDebugMode.none)
+- [basic](#UIDebugMode.basic)
+
+<hr/>
+<endpoint module="luxe: world" class="UIDebugMode" signature="none"></endpoint>
+<signature id="UIDebugMode.none">UIDebugMode.none
+<a class="headerlink" href="#UIDebugMode.none" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="UIDebugMode" signature="basic"></endpoint>
+<signature id="UIDebugMode.basic">UIDebugMode.basic
+<a class="headerlink" href="#UIDebugMode.basic" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
@@ -5378,6 +5646,26 @@
 <endpoint module="luxe: world" class="UILayoutContain" signature="justify"></endpoint>
 <signature id="UILayoutContain.justify">UILayoutContain.justify
 <a class="headerlink" href="#UILayoutContain.justify" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+### UILayoutMode
+`:::js import "luxe: world" for UILayoutMode`
+> no docs found
+
+- [none](#UILayoutMode.none)
+- [flex](#UILayoutMode.flex)
+
+<hr/>
+<endpoint module="luxe: world" class="UILayoutMode" signature="none"></endpoint>
+<signature id="UILayoutMode.none">UILayoutMode.none
+<a class="headerlink" href="#UILayoutMode.none" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="UILayoutMode" signature="flex"></endpoint>
+<signature id="UILayoutMode.flex">UILayoutMode.flex
+<a class="headerlink" href="#UILayoutMode.flex" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 

@@ -1,32 +1,79 @@
 # luxe editor release notes
 
-#### 2021.0.10
+## 2022.0.1
+
+- Play Standalone; Fixed 2 crashes there, playing should be reliable
+- Play Standalone; now shows playing/running state (as a quick solution) 
+- Color Picker now changes on click as well not just drag (jonathan)
+- Tiles; add tile size setting for atlas imports, quicker than counting tiles
+- Import; Fix import dialogs hanging on macOS
+- Import; add multiple sprite import from a folder
+- UI; fix weird clipping issue on resizing the editor
+
+## 2021.0.10
+
+#### new stuff
+
+**multi-select**   
+When multiple entities are under the mouse in the world editor, you can now hold `ctrl` and click to show a list.
+This list has a filter and will stay open while you select entities from it. Hold shift and click the entities in the
+list to select multiple, as you'd expect. To dismiss the list, right click. The list is also dismissed when there's nothing to select, 
+so clicking empty space will dismiss it (this is a wip but still plenty useful already).
+
+**color-picker**   
+There's a new color picker (finally) that Ronja implemented! All (almost) color fields have been replaced with it.
+If you have issues let us know.
+
+**color-picker**   
+
+#### resilience
+
+The editor will crash a lot less when you have invalid code in a modifier. It used to crash on attach for example, 
+but now it will check for errors during attach and display them. 
+
+It also does this on project load now, so you're unable to open a project that has script errors (for now!).
+This is still better than crashing.
+
+#### workflow issues
+
+Many of the major workflow issues reported during closed beta have been addressed, like **Omni stealing shortcut keys**, 
+and the ability to **view the log while running the game** from the editor. **To view the log/debug panel, press `alt + backtick`**.
+
+Another big workflow issue was the camera in the world editor losing focus while rotating in 3D mode. The camera now holds focus
+and doesn't get interrupted by the UI at all, as intended.
 
 - Editor; context switcher now looks interactable
 - Editor; add initial debug view (shows log). `alt + backtick`
 - Editor; replace all file save/open dialogs with a consistent UIPath field
+- Editor; replace most color pickers with a color picker control
+- Camera; fix focus issues with camera, fix wasd mouse wheel speed
 - Project; when loading, show error/don't crash if project is missing dependencies 
+- Project; when loading, show errors if code has an error, don't crash 
 - Tiles; fix shortcuts being consumed by omni 
+- World; add multi-select list (hold ctrl + click) for selection
 - World; add delete section button to omni 
 - World; anim; display save notifications for animations 
 - World; anim; delete track/s button inside track settings
 - World; fix shortcuts being consumed by omni 
 - World; fix 3d camera being miles away from origin, now fits 1 unit
 - World; fix 3d camera losing control when entering omni
+- World; Anim; don't take focus when other UI has UI focus
+- World; don't crash when modifiers cause errors, display a message instead
 - Camera; when modifiers are held (alt/ctrl/shift) wheel doesn't zoom
+- World; Camera; add back F for "fit to view", very rough/wip
 - Tiles; fix `shift+mouse wheel` scroll changing paint depth
 - UI; use flex layout mode for UI going forward
 - UI; checkbox style refactored across the editor
 - UI; fix glitching controls bug
-- add first pass of hex grid shader (ronja)
+- Add first pass of hex grid shader (ronja)
 - Add color picker (ronja)
 
-#### 2021.0.9
+## 2021.0.9
 
 - Fix crash from previewing an animation (Dolichomps)
 - Fix preview camera being upside down in 2D (voidberg)
 
-#### 2021.0.8
+## 2021.0.8
 
 - Open Prototype will switch to already open prototypes
 - Fix anim crashes when creating anims in a prototype world
@@ -39,7 +86,7 @@
 - Fix crash on clicking cancel on the asset import view
 - World; camera; some fixes to capture behaviour
 
-#### 2021.0.7
+## 2021.0.7
 
 - Fix regression from imports added in 2021.0.6, paths should work as intended
 - Fix duplicate options added when clicking import repeatedly #52
@@ -51,13 +98,13 @@
 - Anim; Sprite Value Track now exposes uv.left/uv.right/uv.top/uv.bottom
 - Material previews for sprite based materials render as 2D images
 
-#### 2021.0.6
+## 2021.0.6
 
 - remove Str.lower on paths removing cross platform behaviour
 - remove create asset options from asset lists (use import menu)
 - fix tab behaviours for several things
 
-#### 2021.0.5
+## 2021.0.5
 
 - Values / Tags - fix enter key being stolen 
 - Anim - fix loading creating duplicate tracks
@@ -65,7 +112,7 @@
 - Anim - add sprite value track settings
 - World - fix assumptions of project-local paths in world editor, so scenes in modules can be edited
 
-#### 2021.0.4
+## 2021.0.4
 
 - luxe 2021.0.4 compatability
 - rename default scene folder to `scene/` instead of `scenes/` for consistency
@@ -76,7 +123,7 @@
 - scene outline - fix renaming scenes to be consistent with layers
 - scene outline - add several tooltips to things
 
-#### 2021.0.3
+## 2021.0.3
 
 - luxe 2021.0.3 compatability
 - Editor - Fix several places where Str.fixed is used to display nicer numbers
@@ -106,7 +153,7 @@
 - Tiles - add tooltips to visual source add panels
 - Tiles - display notifications for key events
 
-#### 2021.0.2
+## 2021.0.2
 
 - luxe 2021.0.2 compatability
 - fix some issues with luxe dev mode
@@ -117,7 +164,7 @@
 - world - fix mouse staying connected on world destroy
 - fix crash when asset reloading fails to compile
 
-#### 2021.0.1
+## 2021.0.1
 
 - luxe 2021.0.1 compatability
 - UI - fix lists with filters, fixes annoying mouse snapping bug on click
@@ -125,7 +172,7 @@
 - Remove old anim context, rename materials to reduce confusion
 - block in assets context
 
-#### 2021.0.0
+## 2021.0.0
 
 - luxe 2021.0.0 compatability
 - Project - add hot reload for meshes, images and shaders (only)
@@ -149,7 +196,7 @@
 - World - Anim - clean up on closing a project
 - World - Anim - lots of UI work and fixes toward a usable editor. It can load/save basics.
 
-#### 2020.3.5
+## 2020.3.5
 
 - luxe 2020.3.5 compatability
 - world - gizmo adapts to the scale of the world (tilman)
@@ -158,7 +205,7 @@
 - world - gizmos persist snap settings when editing
 - world - gizmo snap settings select all on focus
 
-#### 2020.3.4
+## 2020.3.4
 
 - luxe 2020.3.4 compatability
 - load project strings up front
@@ -170,7 +217,7 @@
 - redo duplicating, now anything i.e prototype instances can be duplicated
 - initial support for deleting prototype roots (not undoable, but saveable)
 
-#### 2020.3.3
+## 2020.3.3
 
 - luxe 2020.3.3 compatability
 - Fix some crashes in tiles and filtered lists
@@ -178,20 +225,20 @@
 - Add tag to preview world so it can be identified (tilman)
 - Swap Q/E controls on camera as they were inverted (tilman)
 
-#### 2020.3.2
+## 2020.3.2
 
 - luxe 2020.3.2 compatability
 - Fix crash when closing a project and some other places
 - World - prevent naming two entities the same thing to avoid bugs atm (eva)
 
-#### 2020.3.1
+## 2020.3.1
 
 - luxe 2020.3.1 compatability
 - fix a crash when closing a scene sometimes
 - set default world and camera for reaching
 - use project compiler for project assets (not editor compiler)
 
-#### 2020.3.0
+## 2020.3.0
 
 - luxe 2020.3.0 compatability
 - editor - load input entry setting so game input bindings exist
@@ -208,7 +255,7 @@
 - tiles - fix gaps when painting fast (eduardo)
 
 
-#### 2020.2.0
+## 2020.2.0
 
 - luxe 2020.2.0 compatability
 

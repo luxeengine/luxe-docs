@@ -1,6 +1,6 @@
 #![](../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2021.0.9`)  
+# `luxe` API (`2022.0.1`)  
 
 
 ---
@@ -45,6 +45,7 @@
 - [circle](#Draw.circle+10)(**context**: `Any`, **ox**: `Any`, **oy**: `Any`, **oz**: `Any`, **rx**: `Any`, **ry**: `Any`, **start_angle**: `Any`, **end_angle**: `Any`, **smoothness**: `Any`, **color**: `Any`)
 - [line](#Draw.line+7)(**context**: `Any`, **x1**: `Any`, **y1**: `Any`, **x2**: `Any`, **y2**: `Any`, **z**: `Any`, **style**: `Any`)
 - [path](#Draw.path+4)(**context**: `Any`, **points**: `Any`, **style**: `Any`, **closed**: `Any`)
+- [path3D](#Draw.path3D+4)(**context**: `Any`, **points**: `Any`, **style**: `Any`, **closed**: `Any`)
 - [text](#Draw.text+12)(**context**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **w**: `Any`, **h**: `Any`, **string**: `Any`, **size**: `Any`, **font**: `Any`, **color**: `Any`, **align**: `Any`, **align_vertical**: `Any`)
 - [text](#Draw.text+10)(**context**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **string**: `Any`, **size**: `Any`, **font**: `Any`, **color**: `Any`, **align**: `Any`, **align_vertical**: `Any`)
 - [image](#Draw.image+8)(**context**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **w**: `Any`, **h**: `Any`, **angle**: `Any`, **material**: `Any`)
@@ -293,6 +294,28 @@
 >   Draw.path(canvas, points, style, true)
 >   ```   
 
+<endpoint module="luxe: draw" class="Draw" signature="path3D(context : Any, points : Any, style : Any, closed : Any)"></endpoint>
+<signature id="Draw.path3D+4">Draw.path3D(**context**: `Any`, **points**: `Any`, **style**: `Any`, **closed**: `Any`)
+<a class="headerlink" href="#Draw.path3D+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Draw a 3D path consisting of a list of points. 
+> 
+> If `closed` is true it is expected that the first and last point in `points`
+> have the same positions. 
+> 
+> `points` is a `List` of `[x,y,z]` points. 
+> 
+>   ```js
+>   var style = PathStyle.new()
+>   var points = [
+>     [0,0,0],
+>     [100,100,100],
+>     [120,50,100],
+>     [0,0,0]
+>   ]
+>   Draw.path3D(canvas, points, style, true)
+>   ```   
+
 <endpoint module="luxe: draw" class="Draw" signature="text(context : Any, x : Any, y : Any, z : Any, w : Any, h : Any, string : Any, size : Any, font : Any, color : Any, align : Any, align_vertical : Any)"></endpoint>
 <signature id="Draw.text+12">Draw.text(**context**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **w**: `Any`, **h**: `Any`, **string**: `Any`, **size**: `Any`, **font**: `Any`, **color**: `Any`, **align**: `Any`, **align_vertical**: `Any`)
 <a class="headerlink" href="#Draw.text+12" title="Permanent link">¶</a></signature>
@@ -480,6 +503,8 @@
 
 - [color](#PathStyle.color)
 - [color](#PathStyle.color=)=(value : Any)
+- [alpha](#PathStyle.alpha)
+- [alpha](#PathStyle.alpha=)=(value : Any)
 - [thickness](#PathStyle.thickness)
 - [thickness](#PathStyle.thickness=)=(value : Any)
 - [feather](#PathStyle.feather)
@@ -513,6 +538,28 @@
 >   ```js
 >   var style = PathStyle.new()
 >   style.color = [0, 0, 0, 1] //black
+>   ```   
+
+<endpoint module="luxe: draw" class="PathStyle" signature="alpha"></endpoint>
+<signature id="PathStyle.alpha">PathStyle.alpha
+<a class="headerlink" href="#PathStyle.alpha" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Returns the alpha from the color of the path style.
+> 
+>   ```js
+>   var style = PathStyle.new()
+>   var color = style.alpha //the alpha value of the default color
+>   ```   
+
+<endpoint module="luxe: draw" class="PathStyle" signature="alpha=(value : Any)"></endpoint>
+<signature id="PathStyle.alpha=">PathStyle.alpha=(value : Any)
+<a class="headerlink" href="#PathStyle.alpha=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Set the alpha of the color for the style.
+> 
+>   ```js
+>   var style = PathStyle.new()
+>   style.alpha = 0.5 //half alpha
 >   ```   
 
 <endpoint module="luxe: draw" class="PathStyle" signature="thickness"></endpoint>

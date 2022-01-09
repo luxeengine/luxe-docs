@@ -1,6 +1,6 @@
 #![](../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2021.0.9`)  
+# `luxe` API (`2022.0.1`)  
 
 
 ---
@@ -21,6 +21,7 @@
 - [set_material](#UIImage.set_material+2)(**control**: `Any`, **material**: `Any`)
 - [set_uv](#UIImage.set_uv+5)(**control**: `Any`, **left**: `Any`, **top**: `Any`, **right**: `Any`, **bottom**: `Any`)
 - [set_color](#UIImage.set_color+2)(**control**: `Any`, **color**: `Any`)
+- [get_color](#UIImage.get_color)(**control**: `Any`)
 - [set_angle](#UIImage.set_angle+2)(**control**: `Any`, **degrees**: `Any`)
 
 <hr/>
@@ -57,6 +58,12 @@
 <endpoint module="luxe: ui/image" class="UIImage" signature="set_color(control : Any, color : Any)"></endpoint>
 <signature id="UIImage.set_color+2">UIImage.set_color(**control**: `Any`, **color**: `Any`)
 <a class="headerlink" href="#UIImage.set_color+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: ui/image" class="UIImage" signature="get_color(control : Any)"></endpoint>
+<signature id="UIImage.get_color">UIImage.get_color(**control**: `Any`)
+<a class="headerlink" href="#UIImage.get_color" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 

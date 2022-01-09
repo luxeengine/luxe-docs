@@ -1,6 +1,6 @@
 #![](../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2021.0.9`)  
+# `luxe` API (`2022.0.1`)  
 
 
 ---
@@ -28,6 +28,7 @@
 - [get_align](#UIButton.get_align)(**control**: `Any`)
 - [set_align_vertical](#UIButton.set_align_vertical+2)(**control**: `Any`, **align**: `Any`)
 - [get_align_vertical](#UIButton.get_align_vertical)(**control**: `Any`)
+- [get_render_text](#UIButton.get_render_text)(**control**: `Any`)
 
 <hr/>
 <endpoint module="luxe: ui/button" class="UIButton" signature="create(ui_entity : Any)"></endpoint>
@@ -105,6 +106,12 @@
 <endpoint module="luxe: ui/button" class="UIButton" signature="get_align_vertical(control : Any)"></endpoint>
 <signature id="UIButton.get_align_vertical">UIButton.get_align_vertical(**control**: `Any`)
 <a class="headerlink" href="#UIButton.get_align_vertical" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: ui/button" class="UIButton" signature="get_render_text(control : Any)"></endpoint>
+<signature id="UIButton.get_render_text">UIButton.get_render_text(**control**: `Any`)
+<a class="headerlink" href="#UIButton.get_render_text" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 

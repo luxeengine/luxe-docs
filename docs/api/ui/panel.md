@@ -1,6 +1,6 @@
 #![](../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2021.0.9`)  
+# `luxe` API (`2022.0.1`)  
 
 
 ---
@@ -15,25 +15,32 @@
 `:::js import "luxe: ui/panel" for UIPanel`
 > no docs found
 
-- [create](#UIPanel.create)(**ui_entity**: `Any`)
-- [set_color](#UIPanel.set_color+2)(**control**: `Any`, **color**: `Any`)
-- [set_border](#UIPanel.set_border+3)(**control**: `Any`, **size**: `Any`, **color**: `Any`)
+- [create](#UIPanel.create)(**ui**: `Entity`)
+- [set_color](#UIPanel.set_color+2)(**panel**: `Control`, **color**: `Color`)
+- [get_color](#UIPanel.get_color)(**panel**: `Control`)
+- [set_border](#UIPanel.set_border+3)(**panel**: `Control`, **size**: `Num`, **color**: `Color`)
 
 <hr/>
-<endpoint module="luxe: ui/panel" class="UIPanel" signature="create(ui_entity : Any)"></endpoint>
-<signature id="UIPanel.create">UIPanel.create(**ui_entity**: `Any`)
+<endpoint module="luxe: ui/panel" class="UIPanel" signature="create(ui : Entity)"></endpoint>
+<signature id="UIPanel.create">UIPanel.create(**ui**: `Entity`)
 <a class="headerlink" href="#UIPanel.create" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
-<endpoint module="luxe: ui/panel" class="UIPanel" signature="set_color(control : Any, color : Any)"></endpoint>
-<signature id="UIPanel.set_color+2">UIPanel.set_color(**control**: `Any`, **color**: `Any`)
+<endpoint module="luxe: ui/panel" class="UIPanel" signature="set_color(panel : Control, color : Color)"></endpoint>
+<signature id="UIPanel.set_color+2">UIPanel.set_color(**panel**: `Control`, **color**: `Color`)
 <a class="headerlink" href="#UIPanel.set_color+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
-<endpoint module="luxe: ui/panel" class="UIPanel" signature="set_border(control : Any, size : Any, color : Any)"></endpoint>
-<signature id="UIPanel.set_border+3">UIPanel.set_border(**control**: `Any`, **size**: `Any`, **color**: `Any`)
+<endpoint module="luxe: ui/panel" class="UIPanel" signature="get_color(panel : Control)"></endpoint>
+<signature id="UIPanel.get_color">UIPanel.get_color(**panel**: `Control`)
+<a class="headerlink" href="#UIPanel.get_color" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: ui/panel" class="UIPanel" signature="set_border(panel : Control, size : Num, color : Color)"></endpoint>
+<signature id="UIPanel.set_border+3">UIPanel.set_border(**panel**: `Control`, **size**: `Num`, **color**: `Color`)
 <a class="headerlink" href="#UIPanel.set_border+3" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
