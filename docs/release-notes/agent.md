@@ -1,5 +1,5 @@
 Note: it's ok if the agent version is slightly different from your engine/editor.
-Typically, the 2021.x is what matters for compatibility, the y part in 2021.x.y isn't as important.
+Typically, the 2022.x is what matters for compatibility, the y part in 2022.x.y isn't as important.
 
 # 2022.0.1-2
 
