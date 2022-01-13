@@ -1,5 +1,15 @@
 # luxe editor release notes
 
+## 2022.0.2
+
+- Editor; fix tooltips outside of parent clip showing up (ronja)
+- World; fix selection outline for render module, make more consistent
+- Tiles; perf; with many visuals in palette, only render visible ones
+- Tiles; sheet; add spacing and margin for tiles on add
+- Tiles; sheet; add display size input option for scaling on add
+- Tiles; sheet; change to use a tile size and calculate rows/cols
+- Modules; fix weird slowdown on refresh
+
 ## 2022.0.1
 
 - Play Standalone; Fixed 2 crashes there, playing should be reliable

@@ -1,6 +1,6 @@
 #![](../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2022.0.1`)  
+# `luxe` API (`2022.0.2`)  
 
 
 ---
@@ -39,6 +39,8 @@
 - [rect_detailed](#Draw.rect_detailed+10)(**context**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **w**: `Any`, **h**: `Any`, **angle**: `Any`, **radius**: `Any`, **smoothness**: `Any`, **style**: `Any`)
 - [quad_detailed](#Draw.quad_detailed+10)(**context**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **w**: `Any`, **h**: `Any`, **angle**: `Any`, **radius**: `Any`, **smoothness**: `Any`, **color**: `Any`)
 - [quad](#Draw.quad+8)(**context**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **w**: `Any`, **h**: `Any`, **angle**: `Any`, **color**: `Any`)
+- [ngon](#Draw.ngon+9)(**context**: `Any`, **ox**: `Any`, **oy**: `Any`, **oz**: `Any`, **rx**: `Any`, **ry**: `Any`, **sides**: `Any`, **angle**: `Any`, **style**: `Any`)
+- [ngon_solid](#Draw.ngon_solid+9)(**context**: `Any`, **ox**: `Any`, **oy**: `Any`, **oz**: `Any`, **rx**: `Any`, **ry**: `Any`, **sides**: `Any`, **angle**: `Any`, **color**: `Any`)
 - [ring](#Draw.ring+10)(**context**: `Any`, **ox**: `Any`, **oy**: `Any`, **oz**: `Any`, **rx**: `Any`, **ry**: `Any`, **start_angle**: `Any`, **end_angle**: `Any`, **smoothness**: `Any`, **style**: `Any`)
 - [ring](#Draw.ring+7)(**context**: `Any`, **ox**: `Any`, **oy**: `Any`, **oz**: `Any`, **radius**: `Any`, **smoothness**: `Any`, **style**: `Any`)
 - [circle](#Draw.circle+7)(**context**: `Any`, **ox**: `Any`, **oy**: `Any`, **oz**: `Any`, **radius**: `Any`, **smoothness**: `Any`, **color**: `Any`)
@@ -194,6 +196,43 @@
 >   var depth = 0
 >   var angle = 45
 >   Draw.quad(canvas, 0, 0, depth, 100, 100, angle, [0,0,0,1])
+>   ```   
+
+<endpoint module="luxe: draw" class="Draw" signature="ngon(context : Any, ox : Any, oy : Any, oz : Any, rx : Any, ry : Any, sides : Any, angle : Any, style : Any)"></endpoint>
+<signature id="Draw.ngon+9">Draw.ngon(**context**: `Any`, **ox**: `Any`, **oy**: `Any`, **oz**: `Any`, **rx**: `Any`, **ry**: `Any`, **sides**: `Any`, **angle**: `Any`, **style**: `Any`)
+<a class="headerlink" href="#Draw.ngon+9" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Draw an ngon (like a triangle, hexagon, pentagon etc) **outline** at `ox`,`oy` at depth `oz`. 
+> The `rx` and `ry` radius values control the size of the shape around its origin.
+> The number of `sides` controls how many sides the polygon will have (3 for a triangle, 6 for a hexagon).
+> `sides` must be bigger than `3` to make sense for this function, it will be clamped to 3.
+> 
+>   ```js
+>   var depth = 0
+>   var sides = 3
+>   var radius = 32
+>   var angle = 45
+>   var style = PathStyle.new()
+>   Draw.ngon(canvas, 128, 128, depth, radius, radius, sides, angle, style)
+>   ```   
+
+<endpoint module="luxe: draw" class="Draw" signature="ngon_solid(context : Any, ox : Any, oy : Any, oz : Any, rx : Any, ry : Any, sides : Any, angle : Any, color : Any)"></endpoint>
+<signature id="Draw.ngon_solid+9">Draw.ngon_solid(**context**: `Any`, **ox**: `Any`, **oy**: `Any`, **oz**: `Any`, **rx**: `Any`, **ry**: `Any`, **sides**: `Any`, **angle**: `Any`, **color**: `Any`)
+<a class="headerlink" href="#Draw.ngon_solid+9" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Draw a **solid** ngon (like a triangle, hexagon, pentagon etc)  at `ox`,`oy` at depth `oz`. 
+> The `rx` and `ry` radius values control the size of the shape around its origin.
+> The number of `sides` controls how many sides the polygon will have (3 for a triangle, 6 for a hexagon).
+> `sides` must be bigger than `3` to make sense for this function.
+> 
+> :todo: this naming will change soon to be consistent across all draw APIs.
+> 
+>   ```js
+>   var depth = 0
+>   var sides = 3
+>   var radius = 32
+>   var angle = 45
+>   Draw.ngon_solid(canvas, 128, 128, depth, radius, radius, sides, angle, Color.pink)
 >   ```   
 
 <endpoint module="luxe: draw" class="Draw" signature="ring(context : Any, ox : Any, oy : Any, oz : Any, rx : Any, ry : Any, start_angle : Any, end_angle : Any, smoothness : Any, style : Any)"></endpoint>
@@ -501,6 +540,7 @@
 `:::js import "luxe: draw" for PathStyle`
 > 
 
+- [array](#PathStyle.array)
 - [color](#PathStyle.color)
 - [color](#PathStyle.color=)=(value : Any)
 - [alpha](#PathStyle.alpha)
@@ -518,6 +558,12 @@
 - [new](#PathStyle.new)()
 
 <hr/>
+<endpoint module="luxe: draw" class="PathStyle" signature="array"></endpoint>
+<signature id="PathStyle.array">PathStyle.array
+<a class="headerlink" href="#PathStyle.array" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
 <endpoint module="luxe: draw" class="PathStyle" signature="color"></endpoint>
 <signature id="PathStyle.color">PathStyle.color
 <a class="headerlink" href="#PathStyle.color" title="Permanent link">¶</a></signature>

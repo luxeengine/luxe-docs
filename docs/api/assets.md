@@ -1,6 +1,6 @@
 #![](../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2022.0.1`)  
+# `luxe` API (`2022.0.2`)  
 
 
 ---
@@ -50,6 +50,7 @@
 - [has_tiles](#Assets.has_tiles)(**id**: `String`)
 - [has_ui](#Assets.has_ui)(**id**: `String`)
 - [unload_input](#Assets.unload_input)(**id**: `String`)
+- [load_input](#Assets.load_input)(**id**: `String`)
 
 <hr/>
 <endpoint module="luxe: assets" class="Assets" signature="image(id : String)"></endpoint>
@@ -301,6 +302,12 @@
 <a class="headerlink" href="#Assets.unload_input" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js None`
 > Unload the input asset, which undefines any nodes or events   
+
+<endpoint module="luxe: assets" class="Assets" signature="load_input(id : String)"></endpoint>
+<signature id="Assets.load_input">Assets.load_input(**id**: `String`)
+<a class="headerlink" href="#Assets.load_input" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Load an input asset, which defines any nodes or events within it   
 
 ### Strings
 `:::js import "luxe: assets" for Strings`

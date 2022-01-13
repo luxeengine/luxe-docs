@@ -1,6 +1,6 @@
 #![](../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2022.0.1`)  
+# `luxe` API (`2022.0.2`)  
 
 
 ---
@@ -20,7 +20,7 @@
 - [get_component_count](#UIVector.get_component_count)(**vec**: `Control`)
 - [set_component_count](#UIVector.set_component_count+2)(**vec**: `Control`, **count**: `Num`)
 - [get_value](#UIVector.get_value)(**vec**: `Control`)
-- [set_value](#UIVector.set_value+2)(**vec**: `Control`, **value**: `List`)
+- [set_value](#UIVector.set_value+2)(**vec**: `Control`, **value**: `Vec`)
 - [get_text_field](#UIVector.get_text_field+2)(**vec**: `Control`, **index**: `Num`)
 
 <hr/>
@@ -45,11 +45,11 @@
 <endpoint module="luxe: ui/field/vector" class="UIVector" signature="get_value(vec : Control)"></endpoint>
 <signature id="UIVector.get_value">UIVector.get_value(**vec**: `Control`)
 <a class="headerlink" href="#UIVector.get_value" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js List`
+<span class='api_ret'>returns</span> `:::js Vec`
 > no docs found   
 
-<endpoint module="luxe: ui/field/vector" class="UIVector" signature="set_value(vec : Control, value : List)"></endpoint>
-<signature id="UIVector.set_value+2">UIVector.set_value(**vec**: `Control`, **value**: `List`)
+<endpoint module="luxe: ui/field/vector" class="UIVector" signature="set_value(vec : Control, value : Vec)"></endpoint>
+<signature id="UIVector.set_value+2">UIVector.set_value(**vec**: `Control`, **value**: `Vec`)
 <a class="headerlink" href="#UIVector.set_value+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
@@ -67,7 +67,7 @@
 - [components](#UIVectorState.components)
 - [components](#UIVectorState.components=)=(v : Any)
 - [value](#UIVectorState.value)
-- [set_value](#UIVectorState.set_value)(**value**: `List`)
+- [set_value](#UIVectorState.set_value)(**value**: `Vec`)
 - [get_text_field](#UIVectorState.get_text_field)(**index**: `Num`)
 - [new](#UIVectorState.new+2)(**ui**: `Any`, **ctrl**: `Any`)
 - [on_event](#UIVectorState.on_event+2)(**field**: `Any`, **event**: `Any`)
@@ -92,8 +92,8 @@
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
-<endpoint module="luxe: ui/field/vector" class="UIVectorState" signature="set_value(value : List)"></endpoint>
-<signature id="UIVectorState.set_value">UIVectorState.set_value(**value**: `List`)
+<endpoint module="luxe: ui/field/vector" class="UIVectorState" signature="set_value(value : Vec)"></endpoint>
+<signature id="UIVectorState.set_value">UIVectorState.set_value(**value**: `Vec`)
 <a class="headerlink" href="#UIVectorState.set_value" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   

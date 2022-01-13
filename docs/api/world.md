@@ -1,6 +1,6 @@
 #![](../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2022.0.1`)  
+# `luxe` API (`2022.0.2`)  
 
 
 ---
@@ -3989,6 +3989,10 @@
 - [get_scale_x](#Transform.get_scale_x)(**entity**: `Any`)
 - [get_scale_y](#Transform.get_scale_y)(**entity**: `Any`)
 - [get_scale_z](#Transform.get_scale_z)(**entity**: `Any`)
+- [get_scale_world](#Transform.get_scale_world)(**entity**: `Any`)
+- [get_scale_x_world](#Transform.get_scale_x_world)(**entity**: `Any`)
+- [get_scale_y_world](#Transform.get_scale_y_world)(**entity**: `Any`)
+- [get_scale_z_world](#Transform.get_scale_z_world)(**entity**: `Any`)
 - [get_right](#Transform.get_right)(**entity**: `Any`)
 - [get_forward](#Transform.get_forward)(**entity**: `Any`)
 - [get_up](#Transform.get_up)(**entity**: `Any`)
@@ -4519,6 +4523,30 @@
 <endpoint module="luxe: world" class="Transform" signature="get_scale_z(entity : Any)"></endpoint>
 <signature id="Transform.get_scale_z">Transform.get_scale_z(**entity**: `Any`)
 <a class="headerlink" href="#Transform.get_scale_z" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="Transform" signature="get_scale_world(entity : Any)"></endpoint>
+<signature id="Transform.get_scale_world">Transform.get_scale_world(**entity**: `Any`)
+<a class="headerlink" href="#Transform.get_scale_world" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="Transform" signature="get_scale_x_world(entity : Any)"></endpoint>
+<signature id="Transform.get_scale_x_world">Transform.get_scale_x_world(**entity**: `Any`)
+<a class="headerlink" href="#Transform.get_scale_x_world" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="Transform" signature="get_scale_y_world(entity : Any)"></endpoint>
+<signature id="Transform.get_scale_y_world">Transform.get_scale_y_world(**entity**: `Any`)
+<a class="headerlink" href="#Transform.get_scale_y_world" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="Transform" signature="get_scale_z_world(entity : Any)"></endpoint>
+<signature id="Transform.get_scale_z_world">Transform.get_scale_z_world(**entity**: `Any`)
+<a class="headerlink" href="#Transform.get_scale_z_world" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 

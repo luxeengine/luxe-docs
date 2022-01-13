@@ -1,6 +1,6 @@
 #![](../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2022.0.1`)  
+# `luxe` API (`2022.0.2`)  
 
 
 ---
@@ -262,6 +262,8 @@
 - [containsKey](#MapOrdered.containsKey)(**key**: `Any`)
 - [[key : Any]](#MapOrdered.[key : Any])
 - [[key : Any]](#MapOrdered.[key : Any]=)=(value : Any)
+- [iterate](#MapOrdered.iterate)(**iterator**: `Any`)
+- [iteratorValue](#MapOrdered.iteratorValue)(**iterator**: `Any`)
 
 <hr/>
 <endpoint module="luxe: containers" class="MapOrdered" signature="keys"></endpoint>
@@ -359,4 +361,16 @@
 <a class="headerlink" href="#MapOrdered.[key : Any]=" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 >    
+
+<endpoint module="luxe: containers" class="MapOrdered" signature="iterate(iterator : Any)"></endpoint>
+<signature id="MapOrdered.iterate">MapOrdered.iterate(**iterator**: `Any`)
+<a class="headerlink" href="#MapOrdered.iterate" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Implementation details for the Wren iterator protocol.   
+
+<endpoint module="luxe: containers" class="MapOrdered" signature="iteratorValue(iterator : Any)"></endpoint>
+<signature id="MapOrdered.iteratorValue">MapOrdered.iteratorValue(**iterator**: `Any`)
+<a class="headerlink" href="#MapOrdered.iteratorValue" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Implementation details for the Wren iterator protocol.   
 

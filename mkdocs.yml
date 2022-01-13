@@ -52,12 +52,15 @@ nav:
         - concepts: manual/rendering/concepts.md
         - high level: manual/rendering/high-level.md
         - low level: manual/rendering/low-level.md
-    - modules: modules.md
     - release notes:
       - engine : release-notes/engine.md
       - editor : release-notes/editor.md
       - launcher : release-notes/launcher.md
       - agent : release-notes/agent.md
+    - modules:
+      - overview : modules.md
+      - arcade : modules/arcade/api.md
+      - tktween : modules/tktween/api.md
     - API: api.md
 theme:
   name: material

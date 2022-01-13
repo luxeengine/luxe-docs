@@ -1,6 +1,6 @@
 #![](../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2022.0.1`)  
+# `luxe` API (`2022.0.2`)  
 
 
 ---
@@ -595,6 +595,11 @@
 `:::js import "luxe: input" for Input`
 > no docs found
 
+- [new](#Input.new)()
+- [tick_pre](#Input.tick_pre)()
+- [tick](#Input.tick)()
+- [tick_post](#Input.tick_post)()
+- [graph](#Input.graph)
 - [key_down](#Input.key_down+6)(**key**: `Any`, **scan**: `Any`, **repeat**: `Any`, **mod**: `Any`, **timestamp**: `Any`, **window_id**: `Any`)
 - [key_up](#Input.key_up+5)(**key**: `Any`, **scan**: `Any`, **mod**: `Any`, **timestamp**: `Any`, **window_id**: `Any`)
 - [text](#Input.text+6)(**text**: `Any`, **start**: `Any`, **length**: `Any`, **type**: `Any`, **timestamp**: `Any`, **window_id**: `Any`)
@@ -685,8 +690,39 @@
 - [channels_set](#Input.channels_set+2)(**at_node**: `Any`, **channels**: `Any`)
 - [channels_set_plus](#Input.channels_set_plus+2)(**at_node**: `Any`, **plus**: `Any`)
 - [channels_set_minus](#Input.channels_set_minus+2)(**at_node**: `Any`, **minus**: `Any`)
+- [set_events](#Input.set_events)(**ev**: `Any`)
 
 <hr/>
+<endpoint module="luxe: input" class="Input" signature="new()"></endpoint>
+<signature id="Input.new">Input.new()
+<a class="headerlink" href="#Input.new" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Input`
+> no docs found   
+
+<endpoint module="luxe: input" class="Input" signature="tick_pre()"></endpoint>
+<signature id="Input.tick_pre">Input.tick_pre()
+<a class="headerlink" href="#Input.tick_pre" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: input" class="Input" signature="tick()"></endpoint>
+<signature id="Input.tick">Input.tick()
+<a class="headerlink" href="#Input.tick" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: input" class="Input" signature="tick_post()"></endpoint>
+<signature id="Input.tick_post">Input.tick_post()
+<a class="headerlink" href="#Input.tick_post" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: input" class="Input" signature="graph"></endpoint>
+<signature id="Input.graph">Input.graph
+<a class="headerlink" href="#Input.graph" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
 <endpoint module="luxe: input" class="Input" signature="key_down(key : Any, scan : Any, repeat : Any, mod : Any, timestamp : Any, window_id : Any)"></endpoint>
 <signature id="Input.key_down+6">Input.key_down(**key**: `Any`, **scan**: `Any`, **repeat**: `Any`, **mod**: `Any`, **timestamp**: `Any`, **window_id**: `Any`)
 <a class="headerlink" href="#Input.key_down+6" title="Permanent link">¶</a></signature>
@@ -1224,6 +1260,12 @@
 <endpoint module="luxe: input" class="Input" signature="channels_set_minus(at_node : Any, minus : Any)"></endpoint>
 <signature id="Input.channels_set_minus+2">Input.channels_set_minus(**at_node**: `Any`, **minus**: `Any`)
 <a class="headerlink" href="#Input.channels_set_minus+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: input" class="Input" signature="set_events(ev : Any)"></endpoint>
+<signature id="Input.set_events">Input.set_events(**ev**: `Any`)
+<a class="headerlink" href="#Input.set_events" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 

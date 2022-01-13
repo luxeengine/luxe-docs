@@ -1,5 +1,15 @@
 # luxe release notes
 
+## 2022.0.2
+
+- Render; don't skip rendering geometry in multiple layers if found in the first
+- Draw; add Draw.ngon/ngon_solid for drawing triangles, hexagons, etc
+- Draw; fix a few ring + circle bugs when non-uniform radius
+- Transform; add get_scale_world and component getters
+- UI; Control; add can_see/can_see_area/can_see_point
+- Render; fix bug in layer passes that could cause crashes
+- Math; add documentation (ronja)
+
 ## 2022.0.1
 
 - Wren; fix some script compiler errors when tabs are present, and other minor bugs

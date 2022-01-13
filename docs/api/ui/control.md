@@ -1,6 +1,6 @@
 #![](../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2022.0.1`)  
+# `luxe` API (`2022.0.2`)  
 
 
 ---
@@ -22,6 +22,9 @@
 - [get](#Control.get)(**id**: `Any`)
 - [exists](#Control.exists)(**id**: `Any`)
 - [clear](#Control.clear+2)(**control**: `Any`, **uiclear_action**: `Any`)
+- [can_see](#Control.can_see)(**control**: `Any`)
+- [can_see_area](#Control.can_see_area+2)(**control**: `Control`, **area**: `Rect`)
+- [can_see_point](#Control.can_see_point+2)(**control**: `Control`, **point**: `Vec`)
 - [set_type](#Control.set_type+2)(**control**: `Any`, **type**: `Any`)
 - [get_type](#Control.get_type)(**control**: `Any`)
 - [set_id](#Control.set_id+2)(**control**: `Any`, **id**: `Any`)
@@ -123,6 +126,24 @@
 <a class="headerlink" href="#Control.clear+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
+
+<endpoint module="luxe: ui/control" class="Control" signature="can_see(control : Any)"></endpoint>
+<signature id="Control.can_see">Control.can_see(**control**: `Any`)
+<a class="headerlink" href="#Control.can_see" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
+> Returns true if this control can be seen, or false if clipped.   
+
+<endpoint module="luxe: ui/control" class="Control" signature="can_see_area(control : Control, area : Rect)"></endpoint>
+<signature id="Control.can_see_area+2">Control.can_see_area(**control**: `Control`, **area**: `Rect`)
+<a class="headerlink" href="#Control.can_see_area+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
+> Returns true if the area at this control can be seen or false if clipped.   
+
+<endpoint module="luxe: ui/control" class="Control" signature="can_see_point(control : Control, point : Vec)"></endpoint>
+<signature id="Control.can_see_point+2">Control.can_see_point(**control**: `Control`, **point**: `Vec`)
+<a class="headerlink" href="#Control.can_see_point+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
+> Returns true if the point at this control can be seen or false if clipped.   
 
 <endpoint module="luxe: ui/control" class="Control" signature="set_type(control : Any, type : Any)"></endpoint>
 <signature id="Control.set_type+2">Control.set_type(**control**: `Any`, **type**: `Any`)

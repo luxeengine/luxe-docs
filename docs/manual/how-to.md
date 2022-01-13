@@ -64,8 +64,8 @@ Alongside your `project.luxe` file, there is a file called `project.modules.lx`.
 
 ```js
   modules = {
-    luxe = "2021.0.3"
-    arcade = "0.0.12"
+    luxe = "2022.0.1"
+    arcade = "0.0.16"
   } //modules
 ```
 
