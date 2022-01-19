@@ -1,5 +1,12 @@
 # luxe editor release notes
 
+## 2022.0.3
+
+- Fix duplicate extensions on bulk sprite import (2022.0.2 hotfix)
+- add `luxe.editor.debug.enabled` to disable debug console (2022.0.2 hotfix)
+- Assets; lists of assets can be filtered (e.g by custom modifiers)
+- Editor; check right alt key as well in a dozen places
+
 ## 2022.0.2
 
 - Editor; fix tooltips outside of parent clip showing up (ronja)

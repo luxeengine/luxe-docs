@@ -1,6 +1,6 @@
 #![](images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2022.0.2`)  
+# `luxe` API (`2022.0.3`)  
 
 
 ---
@@ -27,6 +27,7 @@
 - [luxe: render](render)   
 - [luxe: result](result)   
 - [luxe: sat2D](sat2D)   
+- [luxe: save](save)   
 - [luxe: semver](semver)   
 - [luxe: settings](settings)   
 - [luxe: shape2D](shape2D)   

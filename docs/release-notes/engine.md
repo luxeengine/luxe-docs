@@ -1,5 +1,14 @@
 # luxe release notes
 
+## 2022.0.3
+
+- Save; add initial save system
+- IO; image save now has an extra hdr bool variant
+- Web; don't do background sleep, it can lock up the browser
+- Web; fix IDBFS mounting and access for save data
+- Web; template includes fixes for deploying direct to e.g itch.io
+- Web; emsdk 3.1.1
+
 ## 2022.0.2
 
 - Render; don't skip rendering geometry in multiple layers if found in the first
