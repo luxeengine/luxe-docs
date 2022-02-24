@@ -1,3 +1,5 @@
+![](../../images/luxe-dark.svg){width="96em"}
+
 # luxe modifiers
 
 As we found out in the [guide](../../../guide), luxe often works based on modifiers attached to an entity to give it the ability to do things.
@@ -14,8 +16,6 @@ To move an entity with `Text` attached around, set the transform position.
 
 The animation modifier is an animation player that can play several animations at once. 
 The animations themselves can affect any entity, not just the one the animation player is attached to.
-
-[Basic Animation Tutorial](../wip/animate-a-sprite.md)
 
 ## Body2D
 

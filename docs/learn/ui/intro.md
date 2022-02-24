@@ -1,3 +1,5 @@
+![](../../images/luxe-dark.svg){width="96em"}
+
 # UI in luxe
 
 !!! note "work in progress"

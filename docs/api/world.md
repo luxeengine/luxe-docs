@@ -464,19 +464,19 @@
 <signature id="AnimEvent.start">AnimEvent.start
 <a class="headerlink" href="#AnimEvent.start" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> An event fired when an animation started playing.   
 
 <endpoint module="luxe: world" class="AnimEvent" signature="tick"></endpoint>
 <signature id="AnimEvent.tick">AnimEvent.tick
 <a class="headerlink" href="#AnimEvent.tick" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> An event fired when an animation is updated, but only if the track is set to emit the event.   
 
 <endpoint module="luxe: world" class="AnimEvent" signature="complete"></endpoint>
 <signature id="AnimEvent.complete">AnimEvent.complete
 <a class="headerlink" href="#AnimEvent.complete" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> An event fired when an animation is stopped or done playing.   
 
 ### AnimInterpolation
 `:::js import "luxe: world" for AnimInterpolation`
@@ -3974,6 +3974,7 @@
 - [get_depth2D](#Transform.get_depth2D)(**entity**: `Any`)
 - [set_depth2D_world](#Transform.set_depth2D_world+2)(**entity**: `Any`, **depth**: `Any`)
 - [get_depth2D_world](#Transform.get_depth2D_world)(**entity**: `Any`)
+- [get_world_matrix](#Transform.get_world_matrix+2)(**entity**: `Any`, **into_matrix**: `Any`)
 - [get_rotation](#Transform.get_rotation)(**entity**: `Any`)
 - [get_rotation_world](#Transform.get_rotation_world)(**entity**: `Any`)
 - [get_rotation_matrix](#Transform.get_rotation_matrix+2)(**entity**: `Any`, **into_matrix**: `Any`)
@@ -4433,6 +4434,12 @@
 <endpoint module="luxe: world" class="Transform" signature="get_depth2D_world(entity : Any)"></endpoint>
 <signature id="Transform.get_depth2D_world">Transform.get_depth2D_world(**entity**: `Any`)
 <a class="headerlink" href="#Transform.get_depth2D_world" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="Transform" signature="get_world_matrix(entity : Any, into_matrix : Any)"></endpoint>
+<signature id="Transform.get_world_matrix+2">Transform.get_world_matrix(**entity**: `Any`, **into_matrix**: `Any`)
+<a class="headerlink" href="#Transform.get_world_matrix+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 

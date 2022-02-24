@@ -1,3 +1,5 @@
+![](../../images/luxe-dark.svg){width="96em"}
+
 # Custom modifiers
 
 !!! note ""

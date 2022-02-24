@@ -1,3 +1,5 @@
+![](../../images/luxe-dark.svg){width="96em"}
+
 # Basic UI layout
 
 There's a basic layout engine for UI that is currently code only, 
@@ -118,7 +120,7 @@ There's also the `samples/wip/ui` sample, which has been updated to use the layo
 
 #### A row of controls
 
-![](../../../images/tutorial/ui/layout-0.png)
+![](../../images/tutorial/ui/layout-0.png)
 
 ```js
 var ui = Entity.create(app.world, "ui")
@@ -173,10 +175,10 @@ UILayout.set_contain(ui, container,
   UILayoutContain.column | UILayoutContain.start)
 ```
 
-![](../../../images/tutorial/ui/layout-1.png)
-![](../../../images/tutorial/ui/layout-2.png)
-![](../../../images/tutorial/ui/layout-3.png)
-![](../../../images/tutorial/ui/layout-4.png)
+![](../../images/tutorial/ui/layout-1.png)
+![](../../images/tutorial/ui/layout-2.png)
+![](../../images/tutorial/ui/layout-3.png)
+![](../../images/tutorial/ui/layout-4.png)
 
 And then the blocks, we set them to horizontal fill, so they'll expand all available space on x.
 We don't set any vertical layout options, so we set the size vertically to a fixed size.

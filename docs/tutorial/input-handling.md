@@ -378,8 +378,8 @@ if(Input.mouse_state_released(MouseButton.left)) {
     //the player, and the destination mouse position 
   var direction = Math.dir2D(mouse, Transform.get_pos(_player))
     //If we're not standing at the destination, flip based on
-    //whether the direction x value is on the right hand side (> 0)
-  if(direction.x != 0) Sprite.set_flip_h(_player, direction.x > 0)
+    //whether the direction x value is on the right hand side (< 0)
+  if(direction.x != 0) Sprite.set_flip_h(_player, direction.x < 0)
 
   Transform.set_pos(_move_target, mouse.x, mouse.y)
   Move.to(_player, _move_target, _move_speed)

@@ -1,3 +1,4 @@
+![](../images/luxe-dark.svg){width="96em"}
 
 # Drawing shapes and lines
 
@@ -56,7 +57,7 @@ Draw.commit(context)
 
 When you run this, you should see the box show up, something like this:
 
-![](../../images/tutorial/drawing-a-box.png)
+![](../images/tutorial/drawing-a-box.png)
 
 ## When to commit?
 

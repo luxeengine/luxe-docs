@@ -26,26 +26,22 @@ nav:
       - animation events : tutorial/animation-events.md
       - scheduled functions : tutorial/scheduled-functions.md
       - fading in & out : tutorial/fading-out.md
-    - learn to ...:
+    - learn ...:
       - overview: learn/overview.md
-      - use tilemaps : learn/tilemaps.md
+      - tilemaps : learn/tilemaps.md
+      - 2D drawing : learn/drawing-2d.md
+      - modifiers:
+        - luxe modifiers : learn/modifiers/luxe-modifiers.md
+        - custom modifiers : learn/modifiers/custom-modifiers.md
+      - using UI:
+        - overview : learn/ui/intro.md
+        - custom controls : learn/ui/custom-controls.md
+        - basic layout : learn/ui/basic-layout.md      
+      - random numbers : learn/random-numbers.md
+      - multiple wren files : learn/multiple-wren-files.md
+      - using modules : learn/modules.md
     - manual: 
       - overview: manual/overview.md
-      - wip:
-        - modifiers:
-          - luxe modifiers : manual/wip/luxe-modifiers.md
-          - custom modifiers : manual/wip/custom-modifiers.md
-        - 2D drawing : manual/wip/drawing-2d.md
-        - basic ui guide:
-          - intro : manual/wip/ui/intro.md
-          - custom controls : manual/wip/ui/custom-controls.md
-          - basic layout : manual/wip/ui/basic-layout.md
-        - old tutorials:
-          - create a sprite : manual/wip/create-a-sprite.md
-          - animate a sprite : manual/wip/animate-a-sprite.md
-          - moving a sprite : manual/wip/moving-a-sprite.md
-          - create a scene : manual/wip/create-a-scene.md
-      - how to ...: manual/how-to.md
       - runtime:
         - overview: manual/runtime/overview.md
       - asset pipeline:

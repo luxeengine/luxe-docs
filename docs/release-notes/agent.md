@@ -1,6 +1,11 @@
 Note: it's ok if the agent version is slightly different from your engine/editor.
 Typically, the 2022.x is what matters for compatibility, the y part in 2022.x.y isn't as important.
 
+# 2022.0.3
+
+- Fix bug causing the agent to die when it shouldn't, requiring restarts
+- Fixed bug in code actions around offering imports for missing classes
+
 # 2022.0.1-2
 
 Rewrite of a lot of stuff by Ronja, includes a ton of changes. 

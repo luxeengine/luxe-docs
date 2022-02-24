@@ -8,13 +8,24 @@
 ## `luxe: save` module
 
 - [Save](#save)   
-- [SaveContext](#savecontext)   
 
 ---
 
 ### Save
 `:::js import "luxe: save" for Save`
-> no docs found
+> A cross platform save system with a Key/Value store and file storage.
+> 
+>   ```js
+>     //create a save profile
+>     var save = Save.create("organization", "game")
+>     //load the profile
+>     Save.load(save)
+>     
+>     //Set some values
+>     Save.set(save, "key", "value")
+>     //Get some values
+>     var name = Save.get(save, "name", "default_name")
+>   ```
 
 - [create](#Save.create+2)(**org**: `String`, **app**: `String`)
 - [create](#Save.create+3)(**org**: `String`, **app**: `String`, **slot**: `Num`)
@@ -101,94 +112,4 @@
 <a class="headerlink" href="#Save.get_keys" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > Returns a list of knowns keys   
-
-### SaveContext
-`:::js import "luxe: save" for SaveContext`
-> no docs found
-
-- [keys_path](#SaveContext.keys_path)
-- [new](#SaveContext.new+4)(**org**: `String`, **app**: `String`, **slot**: `Num`, **user_id**: `String`)
-- [set](#SaveContext.set+2)(**key**: `String`, **value**: `Any`)
-- [get_keys](#SaveContext.get_keys)()
-- [get](#SaveContext.get+2)(**key**: `String`, **default**: `Any`)
-- [has](#SaveContext.has)(**key**: `String`)
-- [save](#SaveContext.save)()
-- [load](#SaveContext.load)()
-- [ensure](#SaveContext.ensure)(**file_path**: `String`)
-- [set_file](#SaveContext.set_file+2)(**id**: `String`, **contents**: `String`)
-- [get_file](#SaveContext.get_file)(**id**: `String`)
-- [file_exists](#SaveContext.file_exists)(**id**: `String`)
-
-<hr/>
-<endpoint module="luxe: save" class="SaveContext" signature="keys_path"></endpoint>
-<signature id="SaveContext.keys_path">SaveContext.keys_path
-<a class="headerlink" href="#SaveContext.keys_path" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: save" class="SaveContext" signature="new(org : String, app : String, slot : Num, user_id : String)"></endpoint>
-<signature id="SaveContext.new+4">SaveContext.new(**org**: `String`, **app**: `String`, **slot**: `Num`, **user_id**: `String`)
-<a class="headerlink" href="#SaveContext.new+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js SaveContext`
-> no docs found   
-
-<endpoint module="luxe: save" class="SaveContext" signature="set(key : String, value : Any)"></endpoint>
-<signature id="SaveContext.set+2">SaveContext.set(**key**: `String`, **value**: `Any`)
-<a class="headerlink" href="#SaveContext.set+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: save" class="SaveContext" signature="get_keys()"></endpoint>
-<signature id="SaveContext.get_keys">SaveContext.get_keys()
-<a class="headerlink" href="#SaveContext.get_keys" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: save" class="SaveContext" signature="get(key : String, default : Any)"></endpoint>
-<signature id="SaveContext.get+2">SaveContext.get(**key**: `String`, **default**: `Any`)
-<a class="headerlink" href="#SaveContext.get+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: save" class="SaveContext" signature="has(key : String)"></endpoint>
-<signature id="SaveContext.has">SaveContext.has(**key**: `String`)
-<a class="headerlink" href="#SaveContext.has" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: save" class="SaveContext" signature="save()"></endpoint>
-<signature id="SaveContext.save">SaveContext.save()
-<a class="headerlink" href="#SaveContext.save" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: save" class="SaveContext" signature="load()"></endpoint>
-<signature id="SaveContext.load">SaveContext.load()
-<a class="headerlink" href="#SaveContext.load" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: save" class="SaveContext" signature="ensure(file_path : String)"></endpoint>
-<signature id="SaveContext.ensure">SaveContext.ensure(**file_path**: `String`)
-<a class="headerlink" href="#SaveContext.ensure" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: save" class="SaveContext" signature="set_file(id : String, contents : String)"></endpoint>
-<signature id="SaveContext.set_file+2">SaveContext.set_file(**id**: `String`, **contents**: `String`)
-<a class="headerlink" href="#SaveContext.set_file+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: save" class="SaveContext" signature="get_file(id : String)"></endpoint>
-<signature id="SaveContext.get_file">SaveContext.get_file(**id**: `String`)
-<a class="headerlink" href="#SaveContext.get_file" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: save" class="SaveContext" signature="file_exists(id : String)"></endpoint>
-<signature id="SaveContext.file_exists">SaveContext.file_exists(**id**: `String`)
-<a class="headerlink" href="#SaveContext.file_exists" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
 

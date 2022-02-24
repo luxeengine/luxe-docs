@@ -30,6 +30,8 @@
 - [cross](#Math.cross+2)(**a**: `Vec`, **b**: `Vec`)
 - [angle](#Math.angle+2)(**from**: `Vec`, **to**: `Vec`)
 - [angle](#Math.angle+3)(**v1**: `Vec`, **v2**: `Vec`, **up**: `Vec`)
+- [angle2D](#Math.angle2D+2)(**from**: `Vec`, **to**: `Vec`)
+- [angle2D](#Math.angle2D+4)(**from_x**: `Num`, **from_y**: `Num`, **to_x**: `Num`, **to_y**: `Num`)
 - [normalize2D](#Math.normalize2D)(**vec**: `Vec`)
 - [normalize](#Math.normalize)(**vec**: `Vec`)
 - [dist](#Math.dist+6)(**x**: `Num`, **y**: `Num`, **z**: `Num`, **other_x**: `Num`, **other_y**: `Num`, **other_z**: `Num`)
@@ -163,16 +165,28 @@
 <span class='api_ret'>returns</span> `:::js Num`
 > Signed angle between two 3d vectors.   
 
+<endpoint module="luxe: math" class="Math" signature="angle2D(from : Vec, to : Vec)"></endpoint>
+<signature id="Math.angle2D+2">Math.angle2D(**from**: `Vec`, **to**: `Vec`)
+<a class="headerlink" href="#Math.angle2D+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Num`
+> Signed angle between two 2d vectors.   
+
+<endpoint module="luxe: math" class="Math" signature="angle2D(from_x : Num, from_y : Num, to_x : Num, to_y : Num)"></endpoint>
+<signature id="Math.angle2D+4">Math.angle2D(**from_x**: `Num`, **from_y**: `Num`, **to_x**: `Num`, **to_y**: `Num`)
+<a class="headerlink" href="#Math.angle2D+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Num`
+> Signed angle between two 2d vectors.   
+
 <endpoint module="luxe: math" class="Math" signature="normalize2D(vec : Vec)"></endpoint>
 <signature id="Math.normalize2D">Math.normalize2D(**vec**: `Vec`)
 <a class="headerlink" href="#Math.normalize2D" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Null`
+<span class='api_ret'>returns</span> `:::js None`
 > Normalize 2d vector. Changes input vector and doesnt return anything. 0 length vectors remain untouched.   
 
 <endpoint module="luxe: math" class="Math" signature="normalize(vec : Vec)"></endpoint>
 <signature id="Math.normalize">Math.normalize(**vec**: `Vec`)
 <a class="headerlink" href="#Math.normalize" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Null`
+<span class='api_ret'>returns</span> `:::js None`
 > Normalize 3d vector. Changes input vector and doesnt return anything. 0 length vectors remain untouched.   
 
 <endpoint module="luxe: math" class="Math" signature="dist(x : Num, y : Num, z : Num, other_x : Num, other_y : Num, other_z : Num)"></endpoint>
@@ -208,7 +222,7 @@
 <endpoint module="luxe: math" class="Math" signature="rotate(vec : Vec, ox : Num, oy : Num, angle : Num)"></endpoint>
 <signature id="Math.rotate+4">Math.rotate(**vec**: `Vec`, **ox**: `Num`, **oy**: `Num`, **angle**: `Num`)
 <a class="headerlink" href="#Math.rotate+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Null`
+<span class='api_ret'>returns</span> `:::js None`
 > Rotate 2d vector around another 2d vector. This rotates the input vector and doesnt return anything.   
 
 <endpoint module="luxe: math" class="Math" signature="ray_intersect_plane(plane_x : Num, plane_y : Num, plane_z : Num, normal_x : Num, normal_y : Num, normal_z : Num, ray_x : Num, ray_y : Num, ray_z : Num, ray_dir_x : Num, ray_dir_y : Num, ray_dir_z : Num)"></endpoint>
@@ -265,8 +279,8 @@
 <a class="headerlink" href="#Math.atan2+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js Num`
 > The arc tangent of `y` when divided by `x`, 
-> 		using the signs of the two numbers to determine the quadrant of the result. 
-> 		(equivalient to `y.atan(x)`)   
+>     using the signs of the two numbers to determine the quadrant of the result. 
+>     (equivalient to `y.atan(x)`)   
 
 <endpoint module="luxe: math" class="Math" signature="degrees(radians : Num)"></endpoint>
 <signature id="Math.degrees">Math.degrees(**radians**: `Num`)
@@ -285,7 +299,7 @@
 <a class="headerlink" href="#Math.clamp+3" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js Num`
 > Clamp `value` between `a` and `b` (result will never be smaller than a or bigger than b). 
-> 		Equivalent to `value.clamp(a, b)`.   
+>     Equivalent to `value.clamp(a, b)`.   
 
 <endpoint module="luxe: math" class="Math" signature="min(a : Num, b : Num)"></endpoint>
 <signature id="Math.min+2">Math.min(**a**: `Num`, **b**: `Num`)

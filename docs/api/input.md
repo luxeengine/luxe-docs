@@ -656,6 +656,7 @@
 - [mouse_state_down](#Input.mouse_state_down)(**button**: `Any`)
 - [mouse_state_released](#Input.mouse_state_released)(**button**: `Any`)
 - [mouse_state_pressed](#Input.mouse_state_pressed)(**button**: `Any`)
+- [mouse_state_wheel](#Input.mouse_state_wheel)()
 - [mouse_x](#Input.mouse_x)()
 - [mouse_y](#Input.mouse_y)()
 - [mouse_x_rel](#Input.mouse_x_rel)()
@@ -1056,6 +1057,12 @@
 <endpoint module="luxe: input" class="Input" signature="mouse_state_pressed(button : Any)"></endpoint>
 <signature id="Input.mouse_state_pressed">Input.mouse_state_pressed(**button**: `Any`)
 <a class="headerlink" href="#Input.mouse_state_pressed" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: input" class="Input" signature="mouse_state_wheel()"></endpoint>
+<signature id="Input.mouse_state_wheel">Input.mouse_state_wheel()
+<a class="headerlink" href="#Input.mouse_state_wheel" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 

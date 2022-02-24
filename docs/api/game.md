@@ -36,10 +36,12 @@
 - [schedule](#Frame.schedule+3)(**time**: `Num`, **count**: `Num`, **fn**: `Fn`)
 - [unschedule](#Frame.unschedule)(**handle**: `Handle`)
 - [off](#Frame.off)(**handle**: `Handle`)
+- [once](#Frame.once+3)(**section**: `Any`, **priority**: `Any`, **fn**: `Fn`)
 - [on](#Frame.on+3)(**section**: `Any`, **priority**: `Any`, **fn**: `Fn`)
 - [before](#Frame.before+3)(**section**: `Any`, **priority**: `Any`, **fn**: `Fn`)
 - [after](#Frame.after+3)(**section**: `Any`, **priority**: `Any`, **fn**: `Fn`)
 - [on](#Frame.on+2)(**section**: `String`, **fn**: `Fn`)
+- [once](#Frame.once+2)(**section**: `String`, **fn**: `Fn`)
 - [before](#Frame.before+2)(**section**: `Any`, **fn**: `Fn`)
 - [after](#Frame.after+2)(**section**: `Any`, **fn**: `Any`)
 
@@ -207,6 +209,20 @@
 >   Frame.off(tick)
 >   ```   
 
+<endpoint module="luxe: game" class="Frame" signature="once(section : Any, priority : Any, fn : Fn)"></endpoint>
+<signature id="Frame.once+3">Frame.once(**section**: `Any`, **priority**: `Any`, **fn**: `Fn`)
+<a class="headerlink" href="#Frame.once+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Handle`
+> **Once off**. Queues a function to the specified section, with a given priority which will be executed _during_ the section.
+> Priority is based on "highest priority first". So priority 1 executes before 0.
+> 
+> Returns a handle that can be used to remove the function via `off`.
+> 
+>   ```js
+>   Frame.once(Frame.sim, 3) {|delta| System.print("prints first") }
+>   Frame.once(Frame.sim, 1) {|delta| System.print("prints second") }
+>   ```   
+
 <endpoint module="luxe: game" class="Frame" signature="on(section : Any, priority : Any, fn : Fn)"></endpoint>
 <signature id="Frame.on+3">Frame.on(**section**: `Any`, **priority**: `Any`, **fn**: `Fn`)
 <a class="headerlink" href="#Frame.on+3" title="Permanent link">¶</a></signature>
@@ -259,6 +275,17 @@
 > 
 >   ```js
 >   Frame.on(Frame.sim) {|delta| System.print("delta:%(delta)") }
+>   ```   
+
+<endpoint module="luxe: game" class="Frame" signature="once(section : String, fn : Fn)"></endpoint>
+<signature id="Frame.once+2">Frame.once(**section**: `String`, **fn**: `Fn`)
+<a class="headerlink" href="#Frame.once+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Handle`
+> **Once off**. Queue a function to the specified section (with priority 0) which will be executed _during_ the section.
+> Returns a handle that can be used to remove the function via `off`.
+> 
+>   ```js
+>   Frame.once(Frame.sim) { System.print("happens during 'sim'") }
 >   ```   
 
 <endpoint module="luxe: game" class="Frame" signature="before(section : Any, fn : Fn)"></endpoint>
