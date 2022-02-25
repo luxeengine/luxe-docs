@@ -1,5 +1,37 @@
 # luxe release notes
 
+## 2022.0.4
+
+### Sprite Import Autofill  
+When importing a sprite, the material and image name will now default to the file name of the imported sprite. This speeds up workflow (thanks miniglitch for the suggestion).
+
+### Asset ID completion
+When an API signals to completion that it accepts an asset type, completion can now show the list of assets of that type. All thanks to Ronja.
+
+### Windows unicode path fixes 
+If your user name on Windows included a non ascii character it could confuse the path APIs of the engine, causing trouble when trying to install luxe. This should be fixed where any user name or project folder name can work as intended, even if named with emoji etc. Thanks to Cepukka and Nomad_Hermit for debugging!
+
+--- 
+
+- Runtime; fix more bugs in schedules 
+- Render; use Uint16 for index buffer replace/update as intended
+- UI; fix bugs in destroying ui 
+- Mesh; fix first item ignoring transforms in editor
+- Values; fix memory issue causing weird bugs
+- Transform; add `get_world_matrix(entitym into_matrix)`
+- Tiles; add clearer errors for set_visual 
+- Draw; path3d + path report errors for invalid point counts
+- Sprite; add clearer errors for contains 
+- Docs; add pqueue and AnimEvent docs
+- Fix \" causing code coloring issues
+- UI; tweak contrast of toggle control
+- UI; tweak contrast of toggle control
+- Input; add `mouse_state_wheel()` query, returns a float2
+- Math; add angle2d for signed 2d angles between directions
+- Completion; add "asset_type" annotations 
+- luxeignore; ignore log files so they aren't loaded as assets
+
+
 ## 2022.0.3
 
 - Save; add initial save system

@@ -1,6 +1,11 @@
 Note: it's ok if the agent version is slightly different from your engine/editor.
 Typically, the 2022.x is what matters for compatibility, the y part in 2022.x.y isn't as important.
 
+# 2022.0.4
+
+- add completion for assets
+- fix jump to definition on classes with a superclass
+
 # 2022.0.3
 
 - Fix bug causing the agent to die when it shouldn't, requiring restarts

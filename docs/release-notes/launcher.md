@@ -1,5 +1,14 @@
 # luxe launcher release notes
 
+## 0.0.18-20
+
+- add download latest to module list
+- add run project button on projects
+- add "show remote" toggle to modules
+- add search to projects and modules
+- add some crash resilience 
+- show running state for samples
+
 ## 0.0.17
 
 - fix crash when leaving tools + settings page too quickly

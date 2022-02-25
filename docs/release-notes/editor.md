@@ -1,5 +1,11 @@
 # luxe editor release notes
 
+## 2022.0.4
+
+- Allow modifier options to use number type for numeric enums
+- Project; fix path display and cropping of info text
+- World; fix selection showing up incorrectly when switching worlds
+
 ## 2022.0.3
 
 - Fix duplicate extensions on bulk sprite import (2022.0.2 hotfix)
