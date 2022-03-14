@@ -3,85 +3,83 @@
 # Basic UI layout
 
 There's a basic layout engine for UI that is currently code only, 
-but will be able to be used from assets soon.
+but will be able to be used from assets over time.
 
 The examples at the end have images to show how the options work.
 
 ## Getting started
 
+The first important step for layout is enabling it on a given UI canvas.
+We'll import the layout mode enum for the UI, as well as the ones for layout.
+
 ```js
-import "luxe: world" for UILayout, UILayoutBehave, UILayoutContain
+import "luxe: ui" for UILayoutMode, UIBehave, UIContain
 ```
 
-To get started, attach a `UILayout` to the same entity that has a `UI` modifier.
+Then we tell the UI we have to use `UILayoutMode.flex` via `UI.set_layout_mode`.
 
 ```js
 var ui = Entity.create(app.world, "ui")
 UI.create(ui, x, y, w, h, depth, app.camera)
-//now add a layout modifier
-UILayout.create(ui)
+//now tell it to use flex layout mode
+UI.set_layout_mode(ui, UILayoutMode.flex)
 ```
 
-When you add a `UILayout` modifier to your entity with a `UI` attached, 
-what you are saying is _I want the layout to be driven by the layout system_.
-
-This means all controls will now be subject to the layout rules of this system.
-This is typically what you want, but can be surprising when applied to an existing UI,
-because the default layout might be centered.
-
-Don't forget to commit layout changes when you make changes to the UI!
+Don't forget to commit changes which will update layout when you make changes to the UI!
 ```js
 UI.commit(ui)
-UILayout.commit(ui)
 ```
 
 ## The API
 
-As expected, you'd have a create/destroy pair, for attaching the modifier to your entity.
-You also have a commit function which finalizes the layout decisions and lays out controls ([the commit concept](../../../guide/concepts#commit)).
+There's only 3 methods needed for the layout engine.
 
 ```js
-UILayout.create(ui_entity)
-UILayout.destroy(ui_entity)
-UILayout.commit(ui_entity)
-
-UILayout.set_behave(ui_entity, control, behave)
-UILayout.set_contain(ui_entity, control, contain)
-UILayout.set_margin(ui_entity, control, left, top, right, bottom)
+Control.set_behave(control: Control, behave: UIBehave)
+Control.set_contain(control: Control, contain: UIContain)
+Control.set_margin(control: Control, left: Num, top: Num, right: Num, bottom: Num)
 ```
 
 ## The concepts
 
-The layout system works based on three primary functions, as shown above.
 The margins are just margins, they're relative to other controls.
 
 The first key concept is **`contain`: as a container, how does my contents behave**.   
+
 The second is **`behave`: as a child, how do I behave**.
 
 We'll start by looking at how `contain` works, which has two main approaches of laying out the contents of a container.
 
+**Set a size to zero** if you want it to be filled in by the layout engine. If you specify a fixed size it will try to respect it.
+
 ## Contain
 
 ### free layout
-The first type is called `UILayoutContain.layout` which is free layout. A child can set their margins to control their relative position, it won't be affected by other controls.
+The first type is called `UIContain.layout` which is free layout. A child can set their margins to control their relative position, it won't be affected by other controls.
 
-To use this, you'd set `UILayout.set_contain(ui, container, UILayoutContain.layout)` on the container.
+To use this, you'd set `Control.set_contain(container, UIContain.layout)` on the container.
 
 ### flex layout
-The second kind is `UILayoutContain.flex`, the one you typically use a dynamic layout for: flexible automatic layout.
+The second kind is `UIContain.flex`, the one you typically use a dynamic layout for: flexible automatic layout.
 
 #### row/column
 To use this, you start by choosing a type of layout (row/column).
-These are `UILayoutContain.row` and `UILayoutContain.column`. 
+These are `UIContain.row` and `UIContain.column`. 
 
 With `row`, contents of the container will be placed side by side.    
 With `column`, they'll be stacked vertically.
 
 !!! note "optional flex"
-    Technically `UILayoutContain.flex` exists, which defaults to `row`, but you can leave out the `flex` when specifying flex options since it's implied.
+    Technically `UIContain.flex` exists, which defaults to `row`, but you can leave out the `flex` when specifying flex options since it's implied.
+
+#### fit contents
+
+Sometimes we want a container to be the size of the children. This will ordinarily happen automatically if you don't set a fixed size for the container, but you can also use `UIContain.vfit` and `UIContain.hfit` to force the behaviour and ignore the container size. 
+
+Note that children relying on the container size (like vfill) while the container expecting a size from the children (vfit) may behave in an unclear way, since it's somewhat impractical. Make sure somewhere a size is specified so it can resolve what you really mean. Better errors around this are planned.
 
 #### alignment
-Now that we have our contents arranged side by side or vertically, we can decide how they'll be aligned. We do this with `UILayoutContain.start`, `UILayoutContain.middle`, `UILayoutContain.end` and `UILayoutContain.justify`. 
+Now that we have our contents arranged side by side or vertically, we can decide how they'll be aligned. We do this with `UIContain.start`, `UIContain.middle`, `UIContain.end` and `UIContain.justify`. 
 
 `start` will align **left** (row) or **top** (column).    
 `end` is **right** (row) or **bottom** (column).    
@@ -89,15 +87,15 @@ Now that we have our contents arranged side by side or vertically, we can decide
 `justify` will insert spacing to stretch across whole area, spacing them out evenly.   
 
 #### wrapping
-Finally, we have `UILayoutContain.wrap`/`UILayoutContain.nowrap`. `nowrap` means single line, and won't wrap if the container gets too small. `wrap` would rearrange contents making it multi-line if that happened.
+Finally, we have `UIContain.wrap`/`UIContain.nowrap`. `nowrap` means single line, and won't wrap if the container gets too small. `wrap` would rearrange contents making it multi-line if that happened.
 
 ## Behave
 
-The next set of options available come from `UILayoutBehave`, which decide how a control will behave when inside a container. The container decides how things will be arranged in relation to each other, but a container has options on how it will act as well.
+The next set of options available come from `UIBehave`, which decide how a control will behave when inside a container. The container decides how things will be arranged in relation to each other, but a container has options on how it will act as well.
 
 Behaviour is also relative to the `contain` of the parent. Some options won't make sense if the parent is in `flex` mode, but all options are valid for `layout` mode. 
 
-The options are listed below. Some options are a shorthand for multiple options, such as `UILayoutBehave.left | UILayoutBehave.right | UILayoutBehave.top | UILayoutBehave.bottom` meaning the same as `UILayoutBehave.fill`. You'll also notice that margins are used in relation here as well.
+The options are listed below. Some options are a shorthand for multiple options, such as `UIBehave.left | UIBehave.right | UIBehave.top | UIBehave.bottom` meaning the same as `UIBehave.fill`. You'll also notice that margins are used in relation here as well.
 
 - `fill` - anchor to all four directions
 - `left` - anchor to left item or left side of parent
@@ -125,17 +123,16 @@ There's also the `samples/wip/ui` sample, which has been updated to use the layo
 ```js
 var ui = Entity.create(app.world, "ui")
 UI.create(ui, 0, 0, app.width, app.height, 0, app.camera)
-UILayout.create(ui)
 
 //First we create a container
 var container = Control.create(ui)
 Control.set_bounds(container, 20, 20, 400, 100)
 //Then we want children to be in a row, and spaced evenly
-UILayout.set_contain(ui, container, UILayoutContain.row | UILayoutContain.justify)
+Control.set_contain(ui, container, UIContain.row | UIContain.justify)
 //We are relative to the canvas, so anchor left...
-UILayout.set_behave(ui, container, UILayoutBehave.left)
+Control.set_behave(ui, container, UIBehave.left)
 //And set a margin of 8 units away from the side
-UILayout.set_margin(ui, container, 8, 0, 0, 0)
+Control.set_margin(ui, container, 8, 0, 0, 0)
 
 //Now we'll make a few controls to put inside
 
@@ -150,16 +147,15 @@ for(i in 0 ... 4) {
   // Notice that we don't set the size of the control, 
   // because the layout will do that for us by definition. 
   // We set our behaviour to fill, both vertically and horizontally.
-  UILayout.set_behave(ui, block, UILayoutBehave.fill)
+  Control.set_behave(ui, block, UIBehave.fill)
   //We add margins so we're not touching the edges
-  UILayout.set_margin(ui, block, left, 5, 5, 5)
+  Control.set_margin(ui, block, left, 5, 5, 5)
   //And add it to the control
   Control.child_add(container, block)
 }
 
 //Commit changes
 UI.commit(ui)
-UILayout.commit(ui)
 ```
 
 #### A stack of controls
@@ -171,8 +167,8 @@ We can still specify sizes of our controls if the layout settings don't override
 The container changes, note that we've removed `justify` and made it `start` so they'll be aligned
 to the top of the container. The 4 images below are `start`, `middle`, `end` and `justify` respectively.
 ```js
-UILayout.set_contain(ui, container, 
-  UILayoutContain.column | UILayoutContain.start)
+Control.set_contain(ui, container, 
+  UIContain.column | UIContain.start)
 ```
 
 ![](../../images/tutorial/ui/layout-1.png)
@@ -189,8 +185,8 @@ for(i in 0 ... 4) {
   var top = 0
   if(i == 0) top = 5
   Control.set_size(block, 0, 40)
-  UILayout.set_behave(ui, block, UILayoutBehave.hfill)
-  UILayout.set_margin(ui, block, 5, top, 5, 5)
+  Control.set_behave(ui, block, UIBehave.hfill)
+  Control.set_margin(ui, block, 5, top, 5, 5)
   Control.child_add(container, block)
 }
 ```
