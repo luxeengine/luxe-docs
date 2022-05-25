@@ -101,7 +101,7 @@ tick(delta) {
 
 ## World, Entity, Modifier ...
 
-In the [intro guide](../../../guide), the concept of an Entity was described.
+In the [intro guide](../../guide), the concept of an Entity was described.
 
 > An Entity is how we talk about a unique thing, 
 > which makes it the basic building block of making games in luxe! 

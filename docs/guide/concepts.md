@@ -7,8 +7,8 @@ luxe is created with a design philosophy, having a better understanding of some 
 ## Commit 
 
 Several APIs in luxe use a concept called `commit`, where changes are made in bulk first,
-and then committed. [2D drawing](../../tutorial/older/drawing-2d) for example, you queue up
-drawing by calling the API, and then commit the changes when done. [UI](../../tutorial/ui/intro) is also an example.
+and then committed. [2D drawing](../../learn/drawing-2d) for example, you queue up
+drawing by calling the API, and then commit the changes when done. [UI](../../learn/ui/intro/) is also an example.
 
 This makes bulk changes cheaper, and is a good way to make things more efficient.
 
