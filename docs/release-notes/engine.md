@@ -1,5 +1,28 @@
 # luxe release notes
 
+## 2022.0.5
+
+This build is largely bug fixes and foundations that aren't visible just yet.
+
+- Engine; fix a bunch of memory leaks and issues 
+- Zip; fix unzipping files on linux/mac
+- Outlines; new format for outlines which will show up in new build
+- Assets; add get_script which can return script code in release builds
+- UI; add UIImageFlags for pixelated images or images with mips
+- UI; add Control docs (ronja)
+- UI; add UITabs control with tabs
+- UI; fix Control.destroy_children not cleaning up parent properly (ronja)
+- Loc; initial Localization api; Not in use yet
+- Physics; add Body3D.get_aabb
+- Blocks; BLOCKS BLOCKS BLOCKS
+- UI; add UIBlock control for displaying blocks
+- World; fix Layer destroy 
+- Mesh; move all lods when transform changes as intended
+- Render; fix MRT clear color issues
+- Render; support PBO style uploads for images
+- Render; use scratch memory for submissions instead of allocating
+
+
 ## 2022.0.4
 
 ### Sprite Import Autofill  

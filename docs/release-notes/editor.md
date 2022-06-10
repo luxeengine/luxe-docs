@@ -1,5 +1,18 @@
 # luxe editor release notes
 
+## 2022.0.5
+
+- Hopefully have that UI clipping fixed 
+- Disable debug ui as it's causing trouble
+- World; Add convert to prototype (ronja)
+- World; Add layer delete button (ronja)
+- World; Add undo for prototype spawn (ronja)
+- World; fix transform links with undo (ronja)
+- World; fix error on same names bug in multiple layers (ronja)
+- World; disallow renaming prototype members for now (ronja)
+- World; disallow renaming prototype members for now (ronja)
+- Transform; prevent cyclic links (ronja)
+
 ## 2022.0.4
 
 - Allow modifier options to use number type for numeric enums

@@ -1,5 +1,11 @@
 # luxe launcher release notes
 
+## 0.0.21
+
+- add new project wizard screen with folder choice
+- fix download issue on mac/linux
+- refactor everything so we can iterate more
+
 ## 0.0.18-20
 
 - add download latest to module list
