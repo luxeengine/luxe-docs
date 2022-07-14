@@ -123,7 +123,7 @@ This offset is based on half of the view area shown on screen, and we've already
 
 If we wanted to center the player we can do something like this. 
 If we add this in `ready`, it would look the same as before, since the player is already centered.
-If we add this to the top of `ready`, the camera would follow the player, but not very smoothly.
+If we add this to the top of `tick`, the camera would follow the player, but not very smoothly.
 
 ```js
 var x = Transform.get_pos_x(_player)
