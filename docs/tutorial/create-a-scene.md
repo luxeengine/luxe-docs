@@ -113,9 +113,7 @@ You can also use the **save icon on the top of the scene outline** to save all o
 
 ![](../images/tutorial/intro/create-a-scene-8.png){: loading=lazy }
 
-And of course, you can use ++ctrl+s++ or ++cmd+s++ **(when the mouse is not over omni)**.
-
-!!! warning "Currently, when the mouse is over omni (the sidebar menu), shortcut keys are ignored, which is a bug."
+And of course, you can use ++ctrl+s++ or ++cmd+s++.
 
 !!! tip "look for the pink notification to confirm"
 
