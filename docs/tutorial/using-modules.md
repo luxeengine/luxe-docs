@@ -168,7 +168,7 @@ Then change the following settings:
 
   - **solid**: false
   - **restitution**: 0
-  - **shape type**: 1 (circle)
+  - **shape**: circle
   - **radius**: 16
 
 ![](../images/tutorial/intro/open-prototype-1.png){: loading=lazy }
