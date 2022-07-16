@@ -459,7 +459,7 @@ update_camera(delta) {
     //this is the target move position for the camera
   var target = Transform.get_pos_x(_player) - offset
     //don't let the camera go outside the area
-  target = target.clamp(_camera_limits.x, _camera_limits.y - app.world_width)
+  target = Math.clamp(target, _camera_limits.x, _camera_limits.y - app.world_width)
 
   ...
 }
