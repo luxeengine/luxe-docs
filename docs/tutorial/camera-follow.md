@@ -343,7 +343,7 @@ update_camera(delta) {
     //the game area is based on the background size
   var area_width = Sprite.get_width(_background) - app.world_width
     //so don't let it go outside the area
-  target = target.clamp(0, area_width)
+  target = Math.clamp(target, 0, area_width)
 
     //if we want smooth camera movement, we need to use
     //the unsnapped position to move the camera
