@@ -642,7 +642,7 @@ Anim.on_event(entity, anim) {|entity, anim, time, value, track_type, track, even
 #### UI Layout API
 
 There's a new modifier for doing dynamic layout with UI.
-It's documented in the [layout tutorial here](../tutorial/ui/basic-layout).
+It's documented in the [layout tutorial here](../learn/ui/basic-layout).
 
 #### Material changes
 The format of the material basis has changed a bit. 
