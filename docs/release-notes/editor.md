@@ -3,13 +3,13 @@
 ## 2022.0.5
 
 - Hopefully have that UI clipping fixed 
+- Hopefully have that memory explosion fixed on mac/linux
 - Disable debug ui as it's causing trouble
 - World; Add convert to prototype (ronja)
 - World; Add layer delete button (ronja)
 - World; Add undo for prototype spawn (ronja)
 - World; fix transform links with undo (ronja)
 - World; fix error on same names bug in multiple layers (ronja)
-- World; disallow renaming prototype members for now (ronja)
 - World; disallow renaming prototype members for now (ronja)
 - Transform; prevent cyclic links (ronja)
 

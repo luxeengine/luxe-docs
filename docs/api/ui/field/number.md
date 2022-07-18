@@ -1,6 +1,6 @@
 #![](../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2022.0.4`)  
+# `luxe` API (`2022.0.5`)  
 
 
 ---
@@ -88,6 +88,7 @@
 - [cancel_radial_capture](#UINumberState.cancel_radial_capture)()
 - [render_radial](#UINumberState.render_radial+6)(**control**: `Any`, **state**: `Any`, **x**: `Any`, **y**: `Any`, **w**: `Any`, **h**: `Any`)
 - [validate](#UINumberState.validate)(**num**: `Num`)
+- [try_expression](#UINumberState.try_expression)(**string**: `String`)
 - [on_text_event](#UINumberState.on_text_event)(**event**: `Any`)
 
 <hr/>
@@ -190,6 +191,12 @@
 <endpoint module="luxe: ui/field/number" class="UINumberState" signature="validate(num : Num)"></endpoint>
 <signature id="UINumberState.validate">UINumberState.validate(**num**: `Num`)
 <a class="headerlink" href="#UINumberState.validate" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: ui/field/number" class="UINumberState" signature="try_expression(string : String)"></endpoint>
+<signature id="UINumberState.try_expression">UINumberState.try_expression(**string**: `String`)
+<a class="headerlink" href="#UINumberState.try_expression" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 

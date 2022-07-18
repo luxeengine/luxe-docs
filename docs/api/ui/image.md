@@ -1,6 +1,6 @@
 #![](../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2022.0.4`)  
+# `luxe` API (`2022.0.5`)  
 
 
 ---
@@ -17,6 +17,7 @@
 
 - [create](#UIImage.create)(**ui_entity**: `Any`)
 - [set_image](#UIImage.set_image+2)(**control**: `Any`, **image**: `Any`)
+- [set_image](#UIImage.set_image+3)(**control**: `Any`, **image**: `Any`, **flags**: `Any`)
 - [get_image](#UIImage.get_image)(**control**: `Any`)
 - [set_material](#UIImage.set_material+2)(**control**: `Any`, **material**: `Any`)
 - [set_uv](#UIImage.set_uv+5)(**control**: `Any`, **left**: `Any`, **top**: `Any`, **right**: `Any`, **bottom**: `Any`)
@@ -34,6 +35,12 @@
 <endpoint module="luxe: ui/image" class="UIImage" signature="set_image(control : Any, image : Any)"></endpoint>
 <signature id="UIImage.set_image+2">UIImage.set_image(**control**: `Any`, **image**: `Any`)
 <a class="headerlink" href="#UIImage.set_image+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: ui/image" class="UIImage" signature="set_image(control : Any, image : Any, flags : Any)"></endpoint>
+<signature id="UIImage.set_image+3">UIImage.set_image(**control**: `Any`, **image**: `Any`, **flags**: `Any`)
+<a class="headerlink" href="#UIImage.set_image+3" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 

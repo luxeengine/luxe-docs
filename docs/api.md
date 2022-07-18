@@ -1,6 +1,6 @@
 #![](images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2022.0.4`)  
+# `luxe` API (`2022.0.5`)  
 
 
 ---
@@ -35,6 +35,7 @@
 - [luxe: terminal](terminal)   
 - [luxe: test](test)   
 - [luxe: ui](ui)   
+- [luxe: ui/block](ui/block)   
 - [luxe: ui/button](ui/button)   
 - [luxe: ui/check](ui/check)   
 - [luxe: ui/control](ui/control)   
@@ -49,6 +50,7 @@
 - [luxe: ui/progress](ui/progress)   
 - [luxe: ui/scroll](ui/scroll)   
 - [luxe: ui/slider](ui/slider)   
+- [luxe: ui/tabs](ui/tabs)   
 - [luxe: ui/text](ui/text)   
 - [luxe: ui/window](ui/window)   
 - [luxe: version](version)   

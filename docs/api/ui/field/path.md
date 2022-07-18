@@ -1,6 +1,6 @@
 #![](../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2022.0.4`)  
+# `luxe` API (`2022.0.5`)  
 
 
 ---
@@ -36,37 +36,37 @@
 <signature id="UIPath.set_validation+2">UIPath.set_validation(**path**: `Control`, **fn**: `Fn`)
 <a class="headerlink" href="#UIPath.set_validation+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> set a validation function to be called which will ensure the path is validated before use   
 
 <endpoint module="luxe: ui/field/path" class="UIPath" signature="set_defaults(path : Control, default_path : String, filters : String)"></endpoint>
 <signature id="UIPath.set_defaults+3">UIPath.set_defaults(**path**: `Control`, **default_path**: `String`, **filters**: `String`)
 <a class="headerlink" href="#UIPath.set_defaults+3" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> set the default file dialog path and file dialog filters   
 
 <endpoint module="luxe: ui/field/path" class="UIPath" signature="set_defaults(path : Control, default_path : String)"></endpoint>
 <signature id="UIPath.set_defaults+2">UIPath.set_defaults(**path**: `Control`, **default_path**: `String`)
 <a class="headerlink" href="#UIPath.set_defaults+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> set the default file dialog path   
 
 <endpoint module="luxe: ui/field/path" class="UIPath" signature="set_type(path : Control, type : UIPathType)"></endpoint>
 <signature id="UIPath.set_type+2">UIPath.set_type(**path**: `Control`, **type**: `UIPathType`)
 <a class="headerlink" href="#UIPath.set_type+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> set the path type, to open/save/folder   
 
 <endpoint module="luxe: ui/field/path" class="UIPath" signature="get_path(path : Control)"></endpoint>
 <signature id="UIPath.get_path">UIPath.get_path(**path**: `Control`)
 <a class="headerlink" href="#UIPath.get_path" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> return the path stored in the field   
 
 <endpoint module="luxe: ui/field/path" class="UIPath" signature="set_path(path : Control, path_value : String)"></endpoint>
 <signature id="UIPath.set_path+2">UIPath.set_path(**path**: `Control`, **path_value**: `String`)
 <a class="headerlink" href="#UIPath.set_path+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> set the path stored in the field (will be validated)   
 
 ### UIPathState
 `:::js import "luxe: ui/field/path" for UIPathState`

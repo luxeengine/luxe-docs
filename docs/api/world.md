@@ -1,6 +1,6 @@
 #![](../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2022.0.4`)  
+# `luxe` API (`2022.0.5`)  
 
 
 ---
@@ -41,6 +41,7 @@
 - [UIContain](#uicontain)   
 - [UIDebugMode](#uidebugmode)   
 - [UIEvent](#uievent)   
+- [UIImageFlags](#uiimageflags)   
 - [UILayout](#uilayout)   
 - [UILayoutBehave](#uilayoutbehave)   
 - [UILayoutContain](#uilayoutcontain)   
@@ -1050,6 +1051,7 @@
 - [create_collider_capsule](#Body3D.create_collider_capsule+4)(**entity**: `Any`, **center**: `Any`, **radius**: `Any`, **height**: `Any`)
 - [create_collider_mesh](#Body3D.create_collider_mesh+7)(**entity**: `Any`, **center**: `Any`, **euler**: `Any`, **collider_type**: `MeshColliderType`, **mesh_asset**: `Any`, **mesh_level**: `Any`, **physics_asset**: `Any`)
 - [create_collider_mesh](#Body3D.create_collider_mesh+6)(**entity**: `Any`, **center**: `Any`, **euler**: `Any`, **collider_type**: `MeshColliderType`, **mesh_asset**: `Any`, **mesh_level**: `Any`)
+- [get_aabb](#Body3D.get_aabb)(**entity**: `Any`)
 - [get_center](#Body3D.get_center)(**entity**: `Any`)
 - [get_mass](#Body3D.get_mass)(**entity**: `Any`)
 - [get_inertia](#Body3D.get_inertia)(**entity**: `Any`)
@@ -1168,6 +1170,12 @@
 <endpoint module="luxe: world" class="Body3D" signature="create_collider_mesh(entity : Any, center : Any, euler : Any, collider_type : MeshColliderType, mesh_asset : Any, mesh_level : Any)"></endpoint>
 <signature id="Body3D.create_collider_mesh+6">Body3D.create_collider_mesh(**entity**: `Any`, **center**: `Any`, **euler**: `Any`, **collider_type**: `MeshColliderType`, **mesh_asset**: `Any`, **mesh_level**: `Any`)
 <a class="headerlink" href="#Body3D.create_collider_mesh+6" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="Body3D" signature="get_aabb(entity : Any)"></endpoint>
+<signature id="Body3D.get_aabb">Body3D.get_aabb(**entity**: `Any`)
+<a class="headerlink" href="#Body3D.get_aabb" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
@@ -4687,7 +4695,7 @@
 - [draw_depth_of](#UI.draw_depth_of+2)(**control**: `Any`, **index**: `Any`)
 - [draw_text](#UI.draw_text+12)(**control**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **w**: `Any`, **h**: `Any`, **string**: `Any`, **size**: `Any`, **font**: `Any`, **color**: `Any`, **align**: `Any`, **align_vertical**: `Any`)
 - [draw_text](#UI.draw_text+10)(**control**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **string**: `Any`, **size**: `Any`, **font**: `Any`, **color**: `Any`, **align**: `Any`, **align_vertical**: `Any`)
-- [draw_image](#UI.draw_image+11)(**control**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **w**: `Any`, **h**: `Any`, **angle**: `Any`, **color**: `Any`, **uv**: `Any`, **image**: `Any`, **pixelated**: `Any`)
+- [draw_image](#UI.draw_image+11)(**control**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **w**: `Any`, **h**: `Any`, **angle**: `Any`, **color**: `Any`, **uv**: `Any`, **image**: `Any`, **flags**: `Any`)
 - [draw_image](#UI.draw_image+10)(**control**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **w**: `Any`, **h**: `Any`, **angle**: `Any`, **color**: `Any`, **uv**: `Any`, **image**: `Any`)
 - [draw_quad](#UI.draw_quad+8)(**control**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **w**: `Any`, **h**: `Any`, **angle**: `Any`, **color**: `Any`)
 - [draw_circle](#UI.draw_circle+10)(**control**: `Any`, **ox**: `Any`, **oy**: `Any`, **oz**: `Any`, **rx**: `Any`, **ry**: `Any`, **start_angle**: `Any`, **end_angle**: `Any`, **smoothness**: `Any`, **color**: `Any`)
@@ -4917,8 +4925,8 @@
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
-<endpoint module="luxe: world" class="UI" signature="draw_image(control : Any, x : Any, y : Any, z : Any, w : Any, h : Any, angle : Any, color : Any, uv : Any, image : Any, pixelated : Any)"></endpoint>
-<signature id="UI.draw_image+11">UI.draw_image(**control**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **w**: `Any`, **h**: `Any`, **angle**: `Any`, **color**: `Any`, **uv**: `Any`, **image**: `Any`, **pixelated**: `Any`)
+<endpoint module="luxe: world" class="UI" signature="draw_image(control : Any, x : Any, y : Any, z : Any, w : Any, h : Any, angle : Any, color : Any, uv : Any, image : Any, flags : Any)"></endpoint>
+<signature id="UI.draw_image+11">UI.draw_image(**control**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **w**: `Any`, **h**: `Any`, **angle**: `Any`, **color**: `Any`, **uv**: `Any`, **image**: `Any`, **flags**: `Any`)
 <a class="headerlink" href="#UI.draw_image+11" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
@@ -5476,6 +5484,33 @@
 >     if(event.dh != 0) System.print("height changed by %(event.dh) amount!")
 >   }
 >   ```   
+
+### UIImageFlags
+`:::js import "luxe: world" for UIImageFlags`
+> no docs found
+
+- [none](#UIImageFlags.none)
+- [pixelated](#UIImageFlags.pixelated)
+- [use_mips](#UIImageFlags.use_mips)
+
+<hr/>
+<endpoint module="luxe: world" class="UIImageFlags" signature="none"></endpoint>
+<signature id="UIImageFlags.none">UIImageFlags.none
+<a class="headerlink" href="#UIImageFlags.none" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="UIImageFlags" signature="pixelated"></endpoint>
+<signature id="UIImageFlags.pixelated">UIImageFlags.pixelated
+<a class="headerlink" href="#UIImageFlags.pixelated" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="UIImageFlags" signature="use_mips"></endpoint>
+<signature id="UIImageFlags.use_mips">UIImageFlags.use_mips
+<a class="headerlink" href="#UIImageFlags.use_mips" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
 
 ### UILayout
 `:::js import "luxe: world" for UILayout`

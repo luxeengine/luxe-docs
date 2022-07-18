@@ -1,15 +1,71 @@
 #![](../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2022.0.4`)  
+# `luxe` API (`2022.0.5`)  
 
 
 ---
 
 ## `luxe: string` module
 
+- [Loc](#loc)   
 - [Str](#str)   
 
 ---
+
+### Loc
+`:::js import "luxe: string" for Loc`
+> no docs found
+
+- [set_primary](#Loc.set_primary)(**language**: `String`)
+- [get_primary](#Loc.get_primary)()
+- [set_language](#Loc.set_language)(**language**: `String`)
+- [get_language](#Loc.get_language)()
+- [add](#Loc.add+4)(**language**: `String`, **space**: `String`, **key**: `String`, **string**: `String`)
+- [get](#Loc.get+3)(**language**: `String`, **space**: `String`, **key**: `String`)
+- [get](#Loc.get+2)(**space**: `String`, **key**: `String`)
+
+<hr/>
+<endpoint module="luxe: string" class="Loc" signature="set_primary(language : String)"></endpoint>
+<signature id="Loc.set_primary">Loc.set_primary(**language**: `String`)
+<a class="headerlink" href="#Loc.set_primary" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: string" class="Loc" signature="get_primary()"></endpoint>
+<signature id="Loc.get_primary">Loc.get_primary()
+<a class="headerlink" href="#Loc.get_primary" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: string" class="Loc" signature="set_language(language : String)"></endpoint>
+<signature id="Loc.set_language">Loc.set_language(**language**: `String`)
+<a class="headerlink" href="#Loc.set_language" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: string" class="Loc" signature="get_language()"></endpoint>
+<signature id="Loc.get_language">Loc.get_language()
+<a class="headerlink" href="#Loc.get_language" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: string" class="Loc" signature="add(language : String, space : String, key : String, string : String)"></endpoint>
+<signature id="Loc.add+4">Loc.add(**language**: `String`, **space**: `String`, **key**: `String`, **string**: `String`)
+<a class="headerlink" href="#Loc.add+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: string" class="Loc" signature="get(language : String, space : String, key : String)"></endpoint>
+<signature id="Loc.get+3">Loc.get(**language**: `String`, **space**: `String`, **key**: `String`)
+<a class="headerlink" href="#Loc.get+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: string" class="Loc" signature="get(space : String, key : String)"></endpoint>
+<signature id="Loc.get+2">Loc.get(**space**: `String`, **key**: `String`)
+<a class="headerlink" href="#Loc.get+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
 
 ### Str
 `:::js import "luxe: string" for Str`

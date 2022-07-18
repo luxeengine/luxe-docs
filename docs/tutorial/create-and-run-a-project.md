@@ -37,16 +37,18 @@ Selecting it will present a list of available project outlines to choose from.
 ![](../images/tutorial/intro/create-project-1.png){: loading=lazy }
 
 The list of available outlines shows which module they originate from (and the version), as well as a short description.
-Once you select an outline, a folder selection dialog will be presented so you can choose where to save it. 
+Once you select an outline, a configuration dialog will be presented so you can choose where to save it, a name, and any outline specific settings. 
 
-**You're saving a project into an empty folder**, so create one first and then select the new empty folder you just made to save the project. 
+![](../images/tutorial/intro/create-project-1.1.png){: loading=lazy }
 
-<small>:todo: The flow here could be better, so it shows a intermediate dialog which has validation and clarity.</small>
+!!! warning "Empty folder expected"
+    Note that for now, it expects an empty folder and will warn you if you're going to overwrite something. Be careful.
+
+![](../images/tutorial/intro/create-project-1.2.png){: loading=lazy }
+
+Once you click create, you'll be taken back to the projects list with the new project highlighted.
 
 ![](../images/tutorial/intro/create-project-2.png){: loading=lazy }
-
-Once created, the new project will be listed at the top of the projects page.
-From here you can open the folder using the folder icon, or click the project to open it in the editor.
 
 ## Running the project via code
 
