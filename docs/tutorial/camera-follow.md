@@ -401,7 +401,14 @@ Since we're doing a lot more now, let's start by moving this logic into a new me
 
 There's one important factor now: we need to create the player **before** loading the area, because the area will need to refer to the player later.
 
-Inside that method, we'll fetch each of the entities, and store their positions in fields we can reach elsewhere in the class.
+First we'll **remove** the following code from `ready` since we're going to replace them:
+
+```js
+  Scene.load(app.world, "scene/area1")
+  _background = Entity.get_named(app.world, "background_image")
+```
+
+Inside the new `load_area` method, we'll fetch each of the entities, and store their positions in fields we can reach elsewhere in the class.
 We're storing the limits in a vector, like this `[min, max]`, and we only care about the `x` value. The start point is just the position we'll store.
 
 ```js hl_lines="13 17"
@@ -424,6 +431,8 @@ construct ready() {
 load_area() {
 
   Scene.load(app.world, "scene/area1")
+
+  _background = Entity.get_named(app.world, "background_image")
 
   var player_start = Entity.get_named(app.world, "player.start")
   var player_min = Entity.get_named(app.world, "player.min")
