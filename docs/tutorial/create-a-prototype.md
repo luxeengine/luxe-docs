@@ -73,6 +73,8 @@ Now that we've made an asset, we'll use it from the code similarly to how we did
 
 !!! tip "switch back to code, inside area1.wren"
 
+### Prototype.create
+
 To instance a prototype in the world, we'll use 
 
 ```js
@@ -80,13 +82,11 @@ Prototype.create(world: World, asset_id: String, instance_name: String)
 ```
 
 It returns an entity that acts as the root of the prototype, where destroying the root cleans up all entities created by the prototype,
-moving the transform on the root moves all entities connected to it (e.g ones with a transform but no explicit `link`).
+and moving the transform on the root moves all entities connected to it (e.g ones with a transform but no explicit `link`).
 
 This root is the representation of the jar as a single distinct thing.
 
-Create a method called `create_jar` in `area1.wren` which is where we'll call this. 
-
-### Prototype.create
+Now we'll create a method called `create_jar` in `area1.wren` which is where we'll call `Prototype.create`. 
 
 We know in this particular area there will only ever be 1 jar, so we can store the instance in a field called `_jar`.
 We can start by checking if a previous jar exists, and destroy it if so. 

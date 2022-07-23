@@ -14,7 +14,7 @@ In [Input Handling](../input-handling) we mentioned there are named input events
 We're going to add a named input event named `interact` which we'll bind to some keys.
 
 !!! note ""
-    At the moment this is more manual data files than UI based. It'll be a
+    At the moment this is more manual data files than UI based. There will be a
     nice UI on top as well!
 
 ### adding a named event
@@ -180,13 +180,14 @@ If the parent changes position, all children follow, and all children of their c
 We use `Transform.link(entity: Entity, target: Entity)` to connect the jar to the player.
 The jar would be the entity, the target would be the player. 
 
-When the jar is connected, it's transform values like position become relative to the parent. When position
+When the jar is connected, its transform values like position become relative to the parent. When position
 is `0,0` the child matches the parent position exactly. If it was `-10, 0` it would be 10 units to the left of the parent,
 regardless of where the parent was positioned (assuming no scale/rotation on the parent). 
 
 !!! note ""
     This difference is called `world space` versus `local space`. Local space is relative to the parent, world space is relative to the world.
-    When a transform has no link, it's local space = world space. By default, methods operate on local space, but you can use methods like `Transform.set_pos_world` to explicitly refer to world space instead.
+    When a transform has no link, its local space = world space. By default, methods operate on local space,
+    but you can use methods like `Transform.set_pos_world` to explicitly refer to world space instead.
 
 ### linking the transforms
 

@@ -83,7 +83,7 @@ If you press and hold `ctrl/cmd` and click, it will create a new keyframe. If yo
 
 Inside our `area1.wren` file, we'll be adding some code to the `Scene` class we have there.
 
-What we're going to do is make it so that when the player walks nearby a terminal, it fades in, and when they move away it fades out.
+What we're going to do is make it so that when the player walks near a terminal, it fades in, and when they move away it fades out.
 
 ### accessing the player 
 
@@ -174,7 +174,7 @@ Now, all terminals should be invisible, and show only when we're within range. N
   <source src="../../images/tutorial/intro/fading-terminals-0.mp4" type="video/mp4"></source>
 </video>
 
-### making an Name helper
+### making a Name helper
 
 For fading, since we're checking every frame, we're going to want to store a visible flag on each terminal. That way, it only tries to fade on the first frame you enter, and the first frame you leave, rather than every time.
 
@@ -209,7 +209,7 @@ This class will hold various names, but for now we have a few values we know abo
  - `player` - which we used to fetch the player
  - `firefly` - which we used to find firelies
 
-A `static` method in a class is called on the class itself, in other words, you use `Name.visible` to access the method. The method returns a _constant_ value, it's returning a string directly to use. 
+A `static` method in a class is called on the class itself, in other words, you use `Name.visible` to access the method. In this case, the method returns a _constant_ value, returning a string directly to use.
 
 ```js
 class Name {
@@ -251,9 +251,9 @@ setup_terminals() {
 
 ### making a Fade helper
 
-We're going to use one shared function to handle both fading in and out, 
-though using a boolean value (true/false) to represent the direction can be confusing at times, 
-it would be nicer to use something like `Fade.In` and `Fade.Out`. We've just learned how!
+We're going to use one shared function to handle both fading in and out. 
+Since using a boolean value (true/false) to represent a direction (in/out, left/right) can be confusing at times, 
+we would prefer to use something like `Fade.In` and `Fade.Out`. We've just learned how!
 
 !!! note ""
   We can't use `Fade.in` with a lowercase `i` because `in` is a keyword in Wren, so we use a capital letter here.

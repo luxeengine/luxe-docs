@@ -188,7 +188,7 @@ If you use the **open animation** button in omni, you can open this animation to
 
 ![](../images/tutorial/intro/create-terminals-19.png){: loading=lazy }
 
-If you run the game you'll see the symbols in the scene, as well as the animated one.
+If you run the game you'll see the symbols in the scene, as well as the animated one. (You may have to save your layer first).
 
 <video preload="auto" autoplay controls="" loop="loop" style="max-width:100%; width:auto; margin:auto; display:block;">  
   <source src="../../images/tutorial/intro/create-terminals-20.mp4" type="video/mp4"></source>
@@ -200,7 +200,7 @@ If you run the game you'll see the symbols in the scene, as well as the animated
 
 Often when you create games, it can be convenient to have logic specific to an area of the game
 that doesn't leak into the game core systems. Like maybe there's a very specific set of rules or hardcoded behaviour
-for this one door in this one room, it can be good not to add that specific behaviour to the door system.
+for this one door in this one room, and it can be good not to add that specific behaviour to the global door system.
 
 Instead, we can use a Scene Script, which is a Wren script that belongs to a specific scene.
 
@@ -216,7 +216,7 @@ The majority of what we'll add next for the tutorial is going to live in the sce
 
 Mentioned earlier in the tutorial, a scene asset is actually a folder inside your project. Inside the folder are the layer files for the scene.
 
-This folder is also where the scene script lives, we create a Wren script with the same name as the scene inside the scene folder.
+This folder is also where the scene script lives, and we create a Wren script with the same name as the scene inside the scene folder.
 In our case the scene is called `scene/area1.scene/`, so we create a new file at `scene/area1.scene/area1.wren`.
 
 In VS Code at least, we can select the scene folder, and click the new file icon on the top of the sidebar.

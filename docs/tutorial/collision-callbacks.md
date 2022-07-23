@@ -68,22 +68,23 @@ create_jar() {
 
 ## collision callbacks
 
-The goal here is to not just understand how collision callbacks work for `arcade`, 
-but the concepts involved apply to most collision libraries, including the built in bigger physics modifiers in luxe.
+The goal here is not just to understand how collision callbacks work in the `arcade` module, but also
+how the concepts involved apply to most collision libraries, including built-in physics modifiers in luxe.
 
 Specifically, we want to be intentional about what we're colliding with. 
 For example, the jar has a rectangle collider we added in editor, and it has a pickup circle collider.
 If we're not careful, we'll respond to collision events with the jar itself, so we want to isolate the logic to just include the player.
 
-Often collision libraries provide filters, but it's not all that complicated, we just ignore anything that isn't the player.
+Often collision libraries provide filters, but the current situation is not all that complicated:
+we just ignore anything that isn't the player.
 
-`Arcade` provides a `add_collision_callback` method that we can use to listen for when it collides with stuff.
+`Arcade` provides an `add_collision_callback` method that we can use to listen for when it collides with stuff.
 
 This will call a method `on_jar_overlap` we'll implement next. We hand it the `other` entity (the one we collided with), 
 and the `event` which is an arcade `CollisionEvent` for `begin`/`end` and `overlap`. The `overlap` event is 
 sent every frame that the two colliders overlap, and the others are self explaining.
 
-```js hl_lines="6"
+```js hl_lines="8 9 10"
 create_jar() {
 
   ...
@@ -128,7 +129,7 @@ jar collide type 'overlap' with entity 'jar'
 
 We only care about the player, so we just ignore anything else.
 
-```js
+```js hl_lines="3"
 on_jar_overlap(event, other) {
 
   if(other != _player) return
@@ -154,7 +155,7 @@ jar collide type 'end' with entity 'player'
 The logic in our game is based on the jar being in a certain state, like none,
 ready to be picked up, picked up and locked, unlocked and ready to open.
 
-We'll add another enum for the state of the jar:
+We'll add another enum for the state of the jar in `area1.wren`:
 
 ```js
 class State {
@@ -209,8 +210,9 @@ create_jar() {
 
 ## jar overlap states
 
-Inside `on_jar_overlap` we're gonna update the `_jar_state` based on whether we're in range or not.
-If the overlap callback event is `begin` or `overlap`, it means we're close enough to pick up the jar.
+Inside `on_jar_overlap` we're gonna update the `_jar_state` based on whether we're in range or not (removing
+our previous name/type printout code). If the overlap callback event is `begin` or `overlap`,
+it means we're close enough to pick up the jar.
 
 We'll set the jar state to `pickupable` when we're not in range, and `collectable` when we're in range.
 

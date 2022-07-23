@@ -260,7 +260,7 @@ update_camera(delta) {
 We can use `Transform.set_pos_x` to update the position, and for other reasons, 
 we'll want to call `Transform.sync(app.cammera)` after that. This will make sure the camera has the latest position.
 
-```js hl_lines="16 18"
+```js hl_lines="10 16 18"
 update_camera(delta) {
 
     //the camera is positioned half the view away
@@ -502,6 +502,14 @@ If we try to access the `_player_start` value inside `create_player`, it's too e
 
 Instead, we'll create a method called `reset_player` to move the player to the start location, which we can use later if needed to reset the area.
 We call it _after_ loading the area.
+
+Once again, we **remove** the following code from `create_player`:
+
+```js
+  Transform.set_pos(_player, app.world_width/2, 26, 2)
+```
+
+We then move it into the new `reset_player` method we create:
 
 ```js hl_lines="14 18"
 construct ready() {

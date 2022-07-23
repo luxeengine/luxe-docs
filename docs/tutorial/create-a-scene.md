@@ -142,7 +142,7 @@ Once the change is committed, you'll see the new name in the outline as well.
 ![](../images/tutorial/intro/create-an-entity-3.png){: loading=lazy }
 
 !!! info "selecting an Entity"
-    You can select an Entity by clicking it's name in the scene outline, or if it has visuals in the world editor view,
+    You can select an Entity by clicking its name in the scene outline, or if it has visuals in the world editor view,
     you can click on them directly in the scene. To select an Entity behind another, clicking repeatedly will cycle through 
     the entities under the cursor. You can also filter the scenes to find things by name.
 

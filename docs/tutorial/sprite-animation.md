@@ -40,7 +40,7 @@ We'll choose the `Sprite` option to get started.
 
 ![](../images/tutorial/intro/import-a-sprite-3.png){: loading=lazy }
 
-That presents us with the following which we can fill out.
+That presents us with the following fields which we can fill out.
 
 ![](../images/tutorial/intro/import-a-sprite-4.png){: loading=lazy }
 
@@ -157,7 +157,7 @@ What this does is make this frame a range of frames, of the same duration, from 
     When dealing with animation, frames start at 1 (not 0).
 
 When you hover the other frames, you'll notice they don't have settings (only a preview). 
-That's also why they're a bit dimmer and not highlighted, only those can be edited.
+That's also why they're a bit dimmer and not highlighted, and cannot be edited.
 
 ![](../images/tutorial/intro/add-anim-frames-0.png){: loading=lazy }
 

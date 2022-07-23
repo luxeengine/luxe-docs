@@ -66,7 +66,8 @@ The exciting result:
 ## removing the logo
 
 The tutorial outline includes a logo that follows the mouse, 
-mostly because showing a blank screen is hard to tell if things are working as expected.
+since it would be hard to tell if things are working as expected if all we showed 
+was a blank screen.
 
 We're not gonna need that going forward, so let's remove it. It's inside the `tick` method.
 Delete the highlighted section of code!
@@ -193,7 +194,7 @@ Our material id is `material/player`, which refers to a material file in our pro
 
 The next step is to give our Entity a position. To do that, we attach a **`Transform` modifier** to our Entity. 
 
-This will give the Entity a position as well as a rotation and scale. The Transform modifier is a key part of making games, since it allows us to manipulate the space within a world, and allows us to link things so that the move together.
+This will give the Entity a position as well as a rotation and scale. The Transform modifier is a key part of making games, since it allows us to manipulate the space within a world, and allows us to link things so that they move together.
 
 Attaching a Transform is done via `Transform.create(entity: Entity)`.
 

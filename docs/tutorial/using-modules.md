@@ -154,10 +154,12 @@ You can see this in action below, where the value is changed and scene preview i
   <source src="../../images/tutorial/intro/test-physics-0.mp4" type="video/mp4"></source>
 </video>
 
+Now that we're done with our test, we can delete our temporary layer.
+
 ## jar collectable collider
 
 One more place we'll add a collider is the jar. 
-We'll add a collider to the player from code too later, and when that collider comes nearby the jar, we'll overlap with this one. 
+We'll add a collider to the player from code too later, and when that collider comes near the jar, it'll overlap with this one. 
 
 This will entail opening the existing jar prototype and adding a collider entity. There's an **open prototype** option in omni.
 
