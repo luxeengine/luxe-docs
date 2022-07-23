@@ -69,23 +69,19 @@ And for `destroy`, this is called for you when the user quits (or the game is sh
 **outline and `app`**   
 Since it is likely you created a project from an outline, you should see the `app` details in the `game.wren` file. This is initialized by your game code so that it can provide convenience for you.
 
+
 ## asset workflow
-
-### an asset is...
-
-In luxe an asset refers to content files in your project folder. 
-
-There are many different types of assets in luxe that you use to create your game, like animations, materials, fonts, meshes and more.
+In luxe we primarily work with two different concepts, namely **source assets** and **luxe assets**. The difference is described below and are important to understand.
 
 ### source assets
-Your project will likely have a number of _source assets_ like images, fonts and audio files, **these can all go in your project folder**. 
+Your project will likely have a number of source assets like images, fonts, meshes, animations, audio files, etc. and these can all go in your project folder. These are the raw assets that you import with extensions such as png, obj, wav and so on. 
 
-Source assets are _referenced_ by luxe _assets_, in order to tell luxe what you want from them, and are only used when your project data is compiled. 
+These source assets are then referenced by luxe assets (see below), in order to tell luxe what you want from them, and are only used when your project data is compiled.
 
 ### luxe assets
-Then there are the assets themselves, which can refer to source assets and other luxe asset files. These often have settings and information about the source asset, but most of them will actually be the content for your game.
+These are the asset files that luxe *actually* work with. These luxe assets are managed by luxe itself and can refer to source assets or other luxe assets. These often have settings and information about the asset they refer to (source or luxe asset), but most of them will actually be the content for your game.
 
-**luxe assets are named `example.type.lx`**. For instance, an image would be `images/player.image.lx`. Both the type and the lx extension are needed.
+luxe assets are named `example.type.lx`. For instance, an image would be `images/player.image.lx`. Both the type and the lx extension are needed.
 
 If you were making a level for example, you would have an asset to describe it. You would also probably have assets describing all the types of pre-composed entities for your game with all their modifiers set up, all the materials describing how things should be drawn, what input mappings you have, animation curves and more.
 
