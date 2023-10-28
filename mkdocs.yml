@@ -85,6 +85,7 @@ theme:
         name: Switch to light mode
   features:
     - instant
+    - navigation.prune 
 extra_css:
   - css/extra.css
 markdown_extensions:
@@ -121,6 +122,17 @@ plugins:
   - search:
       prebuild_index: true
       min_search_length: 2
+  - encryptcontent:
+      global_password: 'create with luxe'
+      title_prefix: ''
+      summary: 'docs will be public soon'
+      encryption_info_message: 'for now enter your access code'
+      password_button_text: 'go'
+      webcrypto: true
+      # search_index: 'clear'
+      encrypted_something:
+          md-footer__inner: [nav, class]
+          md-nav: [nav, class]
   - exclude:
       glob:
         - usage.md

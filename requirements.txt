@@ -1,3 +1,4 @@
 mkdocs
 mkdocs-exclude
+mkdocs-encryptcontent-plugin
 mkdocs-material
