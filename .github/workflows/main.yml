@@ -22,5 +22,13 @@ jobs:
     - name: Build docs
       run: mkdocs build
     - name: Deploy docs
-      run: mkdocs gh-deploy
+      uses: cpina/github-action-push-to-another-repository@1.7.2
+      env:
+        SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
+      with:
+        source-directory: 'site'
+        destination-github-username: 'luxeengine'
+        destination-repository-name: 'luxeengine.github.io'
+        user-email: docs@createwith.luxe
+        target-branch: main
     
