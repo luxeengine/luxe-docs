@@ -57,9 +57,7 @@ luxe is designed for modules to serve this need, which makes them a fundamental 
 
 ---
 
-## Getting started
-
-When creating a game with luxe, you start by creating a luxe project.
+## Your luxe project
 
 ### Code vs Editor
 
@@ -67,17 +65,19 @@ When creating a game with luxe, you start by creating a luxe project.
 
 The same will eventually be true for editor focused workflows. Right now the engine leans toward code focused, because the editor is a work in progress. Ideally in the future it would be possible to work only from the editor.
 
-### Your luxe project
-
-A luxe project is a folder with a `project.luxe` file inside it.
-
-Inside your `project.luxe` file, you set the project `name` and `version`.
-
-Your project will often be created from a template, called a project `outline`. Your project probably contains an `outline/` folder, this is the template part. The project template gives you an easy starting point ready to go. 
+### Project anatomy
 
 !!! summary "How to start a new project?"
     Use the luxe launcher, and from the project page, select new project at the top.   
-    From there you can select which outline you want to use as the starting point!
+    From there you can select which project outline you want to use as the starting point.
+
+A luxe project is a folder with a `project.luxe` file inside it.
+
+Inside your `project.luxe` file, you can set the project `name`, but it usually is set when created.
+
+There's also typically a `game.wren` file, this is your entry point for the game code.
+
+Your project will often be created from a template, called a project `outline`. Your project probably contains an `outline/` folder, this is the template part. The project template gives you an easy starting point ready to go. 
 
 ### Your project data
 
