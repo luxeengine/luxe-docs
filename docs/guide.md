@@ -61,7 +61,7 @@ luxe is designed for modules to serve this need, which makes them a fundamental 
 
 ### Code vs Editor
 
-**With luxe, if you prefer working through code only, you can**. The code focused workflow is complimented by the editor tools. They help you create assets that would be faster to create in a tool. But, it is optional.
+**With luxe, if you prefer working through code only, you can**. The code focused workflow is complemented by the editor tools. They help you create assets that would be faster to create in a tool. But, it is optional.
 
 The same will eventually be true for editor focused workflows. Right now the engine leans toward code focused, because the editor is a work in progress. Ideally in the future it would be possible to work only from the editor.
 

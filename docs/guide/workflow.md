@@ -92,7 +92,7 @@ If you were making a level for example, you would have an asset to describe it. 
 While these files are easy to create, read and edit by hand, most of these will be created and edited using the editor tools instead.
 
 !!! note "" 
-    In luxe, you can do basically everything via assets. You can also do the same via code - which means assets compliment a code based workflow, they do not replace it.
+    In luxe, you can do basically everything via assets. You can also do the same via code - which means assets complement a code based workflow, they do not replace it.
 
 ### data compiling
 
