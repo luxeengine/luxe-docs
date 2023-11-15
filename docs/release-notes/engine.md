@@ -1,5 +1,10 @@
 # luxe release notes
 
+## 2023.11.0
+
+This one is gonna take a whillllle to write up. 
+Please hold 😅
+
 ## 2022.0.5
 
 This build is largely bug fixes and foundations that aren't visible just yet.
