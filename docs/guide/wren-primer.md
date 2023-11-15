@@ -1,6 +1,6 @@
 #![](../images/luxe-dark.svg){width="96em"}
 
-# Introduction to Wren scripting
+## Introduction to Wren scripting
 
 Scripting in luxe is done with the [Wren](https://wren.io/) programming language.   
 Wren is a class based language, which should be familiar if you're used to other languages.   

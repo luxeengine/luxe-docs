@@ -1,38 +1,26 @@
 
 # Install
 
-## Installing luxe itself
+## Installing luxe
 - Get the luxe launcher from itch.io
-- Run the launcher, it'll offer to install the latest luxe version
-- You can view other versions in the `engines` page
+- Run the launcher, it'll offer to install the latest version
+- This will install the engine, editor and agent
 
 ![](images/get/launcher.png){width="75%"}
-
-## Installing the editor
-Using the luxe editor isn't required.   
-If you plan to use the editor, you should install it:
-
-- Visit the `editors` page of the launcher
-- Click the download button for the matching luxe version
-
-![](images/get/editors.png){width="75%"}
 
 ## Installing IDE support
 
 Currently the primary supported IDE is [Code](https://code.visualstudio.com/).   
 It's a free cross platform editor with great support for custom extensions.
+The extension includes features like code completion, jump to definition, and so on.
 
-Download and install Code from the above link for your platform.
+!!! note "Install Code" 
+    Download and install Code from the above link for your platform if you haven't.
 
-To install support for luxe, open the extensions panel.   
-This can be found via the menu or the side bar.
-
-![](images/get/vscode-0.png){width="75%"}
+To install support for luxe, open the extensions panel. 
+This is an icon on the side bar, or found via the `View -> Extensions` menu.  
 
 Search the extensions for 'luxe' and when found, select 'install'.   
-This will install all the parts needed to use luxe.
+_(Make sure it's the official one)_.
 
-!!! note "" 
-    Double check that it's the official one from 'luxe engine'.
-
-![](images/get/vscode-1.png){width="75%"}
+![](images/get/vscode-0.png){width="75%"}

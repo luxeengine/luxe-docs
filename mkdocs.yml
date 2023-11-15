@@ -5,8 +5,8 @@ nav:
     - install: get.md
     - guide: 
       - intro : guide.md
+      - important: guide/important.md
       - workflow : guide/workflow.md
-      - launcher: guide/launcher.md
       - concepts : guide/concepts.md
       - wren primer : guide/wren-primer.md
     - tutorial:

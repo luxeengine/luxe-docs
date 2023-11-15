@@ -1,6 +1,6 @@
 #![](../images/luxe-dark.svg){width="96em"}
 
-# concepts
+## concepts
 
 luxe is created with a design philosophy, having a better understanding of some of the choices, concepts and ideas should help you use it better.
 

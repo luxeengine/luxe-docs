@@ -1,6 +1,6 @@
 #![](images/luxe-dark.svg){width="96em"}
 
-# luxe user guide
+## luxe user guide
 
 ---
 
@@ -61,9 +61,9 @@ luxe is designed for modules to serve this need, which makes them a fundamental 
 
 ### Code vs Editor
 
-**With luxe, if you prefer working through code only, you can**. The code focused workflow is complemented by the editor tools. They help you create assets that would be faster to create in a tool. But, it is optional.
+**With luxe, if you prefer working through code only, you can**. The code focused workflow is complemented by the editor tools. They help you create assets that would be faster to create in a tool, but is optional.
 
-The same will eventually be true for editor focused workflows. Right now the engine leans toward code focused, because the editor is a work in progress. Ideally in the future it would be possible to work only from the editor.
+The same will eventually be true for editor focused workflows. **Right now the engine leans a little toward code focused**, because the editor is a work in progress and higher level modules which provide those workflows are being made now. In the future it would be possible to work only from the editor and make a wide range of content without opening the code.
 
 ### Project anatomy
 
@@ -71,19 +71,19 @@ The same will eventually be true for editor focused workflows. Right now the eng
     Use the luxe launcher, and from the project page, select new project at the top.   
     From there you can select which project outline you want to use as the starting point.
 
-A luxe project is a folder with a `project.luxe` file inside it.
-
+**Project file**   
+A luxe project is a folder with a `project.luxe` file inside it. This is the project file.
 Inside your `project.luxe` file, you can set the project `name`, but it usually is set when created.
 
+**Project config**   
+There's also a project config folder, `luxe.project/`, which is typically where project configuration goes.
+This holds files like the modules used, asset manifest, version info and more.
+
+**Entry**   
 There's also typically a `game.wren` file, this is your entry point for the game code.
 
+**Outline**   
 Your project will often be created from a template, called a project `outline`. Your project probably contains an `outline/` folder, this is the template part. The project template gives you an easy starting point ready to go. 
-
-### Your project data
-
-Your project also contains your game code, and your asset files like images and sounds (_source assets_). In luxe, many things can be specified in data too, like levels, entities and settings which will be in the project as well. 
-
-When making your game, all these assets are converted (_compiled_) into content luxe can easily consume, as you'll see later.
 
 ### Running a project
 

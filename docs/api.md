@@ -1,6 +1,6 @@
 #![](images/luxe-dark.svg){width="96em"}
 
-# `luxe` API documentation
+# luxe API documentation
 
 ---
 
