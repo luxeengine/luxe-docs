@@ -53,6 +53,7 @@
 `:::js import "luxe: asset/type" for AssetContext`
 > no docs found
 
+- [id](#AssetContext.id)
 - [db](#AssetContext.db)
 - [artifacts](#AssetContext.artifacts)
 - [artifacts_for](#AssetContext.artifacts_for)(**type_id**: `String`)
@@ -61,7 +62,10 @@
 - [TYPE](#AssetContext.TYPE)
 - [DEV](#AssetContext.DEV)
 - [RELEASE](#AssetContext.RELEASE)
-- [new](#AssetContext.new+2)(**db**: `Any`, **artifact_root**: `String`)
+- [new](#AssetContext.new+3)(**id**: `String`, **db**: `Any`, **artifact_root**: `String`)
+- [set_modified](#AssetContext.set_modified+2)(**type**: `String`, **modified**: `List`)
+- [get_modified](#AssetContext.get_modified)(**type**: `String`)
+- [get_modified](#AssetContext.get_modified)()
 - [skip](#AssetContext.skip)(**id**: `String`)
 - [skipped](#AssetContext.skipped)(**id**: `String`)
 - [emit_path](#AssetContext.emit_path)(**id**: `String`)
@@ -69,6 +73,12 @@
 - [emit](#AssetContext.emit+3)(**type_id**: `String`, **artifact_id**: `String`, **artifact_path**: `String`)
 
 <hr/>
+<endpoint module="luxe: asset/type" class="AssetContext" signature="id"></endpoint>
+<signature id="AssetContext.id">AssetContext.id
+<a class="headerlink" href="#AssetContext.id" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js String`
+> no docs found   
+
 <endpoint module="luxe: asset/type" class="AssetContext" signature="db"></endpoint>
 <signature id="AssetContext.db">AssetContext.db
 <a class="headerlink" href="#AssetContext.db" title="Permanent link">¶</a></signature>
@@ -78,7 +88,7 @@
 <endpoint module="luxe: asset/type" class="AssetContext" signature="artifacts"></endpoint>
 <signature id="AssetContext.artifacts">AssetContext.artifacts
 <a class="headerlink" href="#AssetContext.artifacts" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
+<span class='api_ret'>returns</span> `:::js Map`
 > no docs found   
 
 <endpoint module="luxe: asset/type" class="AssetContext" signature="artifacts_for(type_id : String)"></endpoint>
@@ -117,10 +127,28 @@
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
-<endpoint module="luxe: asset/type" class="AssetContext" signature="new(db : Any, artifact_root : String)"></endpoint>
-<signature id="AssetContext.new+2">AssetContext.new(**db**: `Any`, **artifact_root**: `String`)
-<a class="headerlink" href="#AssetContext.new+2" title="Permanent link">¶</a></signature>
+<endpoint module="luxe: asset/type" class="AssetContext" signature="new(id : String, db : Any, artifact_root : String)"></endpoint>
+<signature id="AssetContext.new+3">AssetContext.new(**id**: `String`, **db**: `Any`, **artifact_root**: `String`)
+<a class="headerlink" href="#AssetContext.new+3" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js AssetContext`
+> no docs found   
+
+<endpoint module="luxe: asset/type" class="AssetContext" signature="set_modified(type : String, modified : List)"></endpoint>
+<signature id="AssetContext.set_modified+2">AssetContext.set_modified(**type**: `String`, **modified**: `List`)
+<a class="headerlink" href="#AssetContext.set_modified+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: asset/type" class="AssetContext" signature="get_modified(type : String)"></endpoint>
+<signature id="AssetContext.get_modified">AssetContext.get_modified(**type**: `String`)
+<a class="headerlink" href="#AssetContext.get_modified" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js List`
+> no docs found   
+
+<endpoint module="luxe: asset/type" class="AssetContext" signature="get_modified()"></endpoint>
+<signature id="AssetContext.get_modified">AssetContext.get_modified()
+<a class="headerlink" href="#AssetContext.get_modified" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Map`
 > no docs found   
 
 <endpoint module="luxe: asset/type" class="AssetContext" signature="skip(id : String)"></endpoint>

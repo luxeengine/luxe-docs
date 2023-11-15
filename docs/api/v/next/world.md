@@ -1766,6 +1766,7 @@
 `:::js import "luxe: world" for Entity`
 > no docs found
 
+- [none](#Entity.none)
 - [create](#Entity.create)(**world**: `World`)
 - [create](#Entity.create+2)(**world**: `World`, **name**: `String`)
 - [valid](#Entity.valid)(**entity**: `Entity`)
@@ -1795,6 +1796,12 @@
 - [destroy](#Entity.destroy)(**entity**: `Entity`)
 
 <hr/>
+<endpoint module="luxe: world" class="Entity" signature="none"></endpoint>
+<signature id="Entity.none">Entity.none
+<a class="headerlink" href="#Entity.none" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Entity`
+> An entity representing no value. Note, not for comparisons! Use Entity.valid(entity) for that   
+
 <endpoint module="luxe: world" class="Entity" signature="create(world : World)"></endpoint>
 <signature id="Entity.create">Entity.create(**world**: `World`)
 <a class="headerlink" href="#Entity.create" title="Permanent link">¶</a></signature>
@@ -4212,6 +4219,8 @@
 > While not all entities need to be "somewhere" locally, a lot of them do, which is when this modifier is used.
 > Other modifiers on the same entity aren't required to read and react to the `Transform`, but most do, allowing you to use this to move things (like Sprites, Meshes, Physics shapes, etc...).
 
+- [create](#Transform.create+3)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`)
+- [create](#Transform.create+4)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
 - [create](#Transform.create)(**entity**: `Entity`)
 - [destroy](#Transform.destroy)(**entity**: `Entity`)
 - [has](#Transform.has)(**entity**: `Entity`)
@@ -4324,6 +4333,18 @@
 - [unlisten](#Transform.unlisten+2)(**entity**: `Entity`, **handle**: `Handle`)
 
 <hr/>
+<endpoint module="luxe: world" class="Transform" signature="create(entity : Entity, x : Num, y : Num)"></endpoint>
+<signature id="Transform.create+3">Transform.create(**entity**: `Entity`, **x**: `Num`, **y**: `Num`)
+<a class="headerlink" href="#Transform.create+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Attach a `Transform` modifier to an entity with the given `x` and `y` position (with a z of 0)   
+
+<endpoint module="luxe: world" class="Transform" signature="create(entity : Entity, x : Num, y : Num, z : Num)"></endpoint>
+<signature id="Transform.create+4">Transform.create(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
+<a class="headerlink" href="#Transform.create+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Attach a `Transform` modifier to an entity with the given `x`, `y` and `z` position   
+
 <endpoint module="luxe: world" class="Transform" signature="create(entity : Entity)"></endpoint>
 <signature id="Transform.create">Transform.create(**entity**: `Entity`)
 <a class="headerlink" href="#Transform.create" title="Permanent link">¶</a></signature>

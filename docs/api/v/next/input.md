@@ -3093,6 +3093,7 @@
 > no docs found
 
 - [new](#ModState.new)()
+- [new](#ModState.new)(**value**: `Num`)
 - [value](#ModState.value=)=(v : Any)
 - [value](#ModState.value)
 - [none](#ModState.none)
@@ -3115,6 +3116,12 @@
 <hr/>
 <endpoint module="luxe: input" class="ModState" signature="new()"></endpoint>
 <signature id="ModState.new">ModState.new()
+<a class="headerlink" href="#ModState.new" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js ModState`
+> no docs found   
+
+<endpoint module="luxe: input" class="ModState" signature="new(value : Num)"></endpoint>
+<signature id="ModState.new">ModState.new(**value**: `Num`)
 <a class="headerlink" href="#ModState.new" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js ModState`
 > no docs found   
