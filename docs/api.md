@@ -6,7 +6,7 @@
 
 ### latest
 - [latest](v/latest/)
-- [2022.11.0](v/2022.11.0/)
+- [2023.11.0](v/2023.11.0/)
 
 ### next (git latest)
 - [next](v/next/)

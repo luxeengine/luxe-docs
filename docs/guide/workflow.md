@@ -154,6 +154,10 @@ Both cameras are set up as the size of the window, which makes 1 _window pixel_ 
 
 For convenience you can get the window size from `width` and `height` and if needed the device pixel ratio as `scale`. You can also access the mouse position in world space using `mouse`, e.g `mouse.x` or `mouse.y`.
 
+### The `tutorial` outline
+
+Immediate term this template matches the old workflows and is being updated. It has some useful info but a lot of stuff has changed since and it is being updated. 
+
 ### The `pixel art` outline
 
 This outline will be added soon. It includes similar things to the empty outline but handles all the pixel art scaling and content automatically for you. The older tutorial outline is similar but has a bunch of content in it, the ideal is obviously an emptier project. If you're in a hurry, modify the tutorial outline so long.
