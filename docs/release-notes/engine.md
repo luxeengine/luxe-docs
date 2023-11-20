@@ -2,8 +2,187 @@
 
 ## 2023.11.0
 
-This one is gonna take a whillllle to write up. 
-Please hold 😅
+Whew. Important to note that this build was 1.5 ish years of constant use and change,
+so the list of changes and fixes is incomplete at best. There's also a lot of 
+foundation changes that shift the engine to it's more final form for open beta.
+
+There's a huge list, not all listed here.
+
+Some of these things are still in flight and will land in the next few versions,
+but we're switching back to the rapid iterative builds where we have frequent builds instead.
+
+### Asset db
+There's a new wip asset database which tracks missing assets or assets moving around, 
+and will be able to answer questions about references and lots more. 
+
+Currently the new asset system co-exists with the old one. Some assets are handled
+by the old system and some handled by the new. This is all pretty transparent but,
+there are things that are less efficient or things that are doing extra work cos of it.
+Those will go away as we finish this up, but shouldn't affect your day to day use much.
+
+### New project format
+The project has changed shape a bit, there's now a `luxe.project/` folder which 
+contains things like the version.lx, modules.lx, ignore and so on. This folder
+will be where all project configuration lives and keeps the root clean for your content.
+
+This also makes those things more machine editable, for example you can write to version.build.lx
+and it'll automatically be available as a setting `project.build` to display in game.
+We use this to write git version hashes into that.
+
+### Rendering and Shaders
+The shaders have evolved a lot, make sure if you had project local shaders you look at the 
+module shaders.emsl for the new Draw, View, Frame inputs. These change the `input.view.mvp` 
+and friends to `input.draw.mvp` and so on. 
+
+Shaders also now send their data as buffers (more modern) which allows a lot of stuff
+like compute and other things to use the data more effectively. This is largely transparent for you.
+
+### UI Layout
+Controls in the UI now have flex layout built in. You opt in with `UI.set_layout_mode`,
+and use `Control.set_behave` and `Control.set_contain` to control the layout.
+
+### Agent + Code completion
+The agent has seen many improvements! Code completion, references and jump to
+definition should work better now. There are more places with annotations and 
+inferred types and more to come.
+
+### Wren
+We've been improving the baseline wren as well. There's a new GC that is aware
+it's running in a game and does work on a frame level, allowing things to spread 
+out and not spike as much. Still wip, but significantly smoother in a bigger game 
+like Mossfield Origins.
+
+#### Explicit fields
+We've also now got explicit field declarations! 
+They go first in a class, must be initialized.
+
+This reduces boilerplate a lot for one thing. 
+Before you had to write this for every field:
+
+```js
+field { _field }
+field=(v) { _field=v }
+// ... initialize
+_field = 3
+```
+
+But now, you can just do this:
+
+```js
+var field = 3
+```
+
+This generates the get/set for you, but you still have the `_field` though.
+It will only generate it if one doesn't exist, so you can override the behavior
+and still treat them as regular methods, and existing code is compatible.
+
+```js
+class Example {
+  var number = 2
+  construct new() {
+    number = number + 2
+    Log.print(_number) //4
+  }
+}
+```
+
+Fields like this can be initialized with any expression since the initializer 
+is executed when an instance is constructed. So you can do things like
+
+```js
+var entity = Some.code(here)
+```
+
+### Random sampling of changes
+
+- UI; add UIColor control + ColorPicker control
+- Outline; add pixel art outline
+- Basis; add pixelated AA shader for scaling pixel art
+- Topograph sort service API
+- Frame; add Frame.skip(N)
+- Render; expose write mask to pass layer
+- Input; add display name for keys
+- Draw; add plane3D, bounds3D and aabb3D for geo
+- Selection; add selection service api
+- UI; add wip world inspector control (view scene in game)
+- Add fuzzy search for strings
+- UI; add filtered list api
+- IO; add wip Ptr and Uint64 type
+- Str; add format api
+- Str; is_alphanumeric
+- LX; deterministic key serialization
+- Sprite; add create where it'll infer the size from the image
+- Wren; var field
+- Mac; Universal Intel/Apple Silicon binary
+- Mesh; auto instancing, with location and tag options
+- UI; wip drag and drop
+- UI; send destroy events
+- Fix clipboard corruption on some platforms
+- Render; vsync setting can be changed dynamically
+- UI; make commits more efficient
+- Text; add wrap, styles, markup, shaping and more
+- Fonts; new font compiler + latest MTSDF 
+- Jobs; add new task system (internal atm)
+- Render; add writable buffers for compute
+- Render; expose compute properly
+- Wren; new wip frame based GC with better dials
+- Sprite; add set geometry
+- UI; add set_system_cursor to control (wip)
+- Input; add system + custom mouse cursors on desktop
+- Atlas; add rect exists 
+- Render; clean up mat4 vertex inputs 
+- UI; nicer debug visualization and control over it
+- Video; wip simple video player (mpg1)
+- Entity; add on create/destroy listeners
+- UI; add any_focused query
+- UI; Label; add auto size width/height/both 
+- Draw; expose mat basis on create
+- Camera; add zoom 2d
+- Geometry; add get_aabb
+- Entity; destroy changed a bit, no defer needed, safe in loops
+- Text; add loc to text objects
+- Loc; add PO/POT parsing and handling
+- Loc; add initial Localization apis
+- UI; add localization to label
+- UI; fixed control destroy should take children with
+- UI; control enter/exit consistency
+- UI; fix events being missed sometimes
+- Transform; euler<>quat cache for more stable to and from
+- UI; move layout to built in
+- Draw; add line3d, camera, frustum, plus, plus3d, ring3d
+- Camera; add get_frustum
+- Render; remove Float3 types from inputs
+- Render; Input buffers now use buffer objects 
+- Wren; add Log.print(...) instead of System.print
+- Wren; add Sys.stackCaller() for debugging
+- Wren; renamed System -> Sys
+- add IO.date_and_time(from: Num)
+- add IO.date_and_time(from: Num, format: String)
+- Input; fix graph node events
+- Sprite; new sprite incoming
+- Sort render geo by basis as well
+- Crash; Initial crash handling (windows only atm, wip)
+- Plot; add plot service for storing numbers over time
+- Toggle; add Toggle service API (multi boolean for e.g pause)
+- SVG; add experimental svg -> geo + svg -> image apis
+- Triangulate; add initial triangulate helper apis
+- Noise; add Noise API with various flavours of noise
+- Wren; add orderedKeys to map
+- Audio; add playing? query
+- Audio; add pause and pause_of api
+- UI; Panel; border is now interior to the control
+  - search for set border and half the size if breaking
+- Transform; fix get_angle2D_world returning local angle
+- Mesh; clean up some memory on destroy
+- Render; fix headless crashes
+- Render; perf; use frame allocator for queue data
+- LX; parse errors and surface them (via Result)
+- Wren; add Result type to core
+- Wren; add Option type to core
+- UI; Control; add get pos/size
+- UI; Control; add get UI from control api
+- LX: use canonical Wren NaN to avoid bugs
+- Transform: fix issue with unlink previous parent
 
 ## 2022.0.5
 
