@@ -1,5 +1,13 @@
 # luxe release notes
 
+## 2023.11.1
+
+- Outline; add pixel art outline with auto scaling and all that
+- Wren; fix a few issues with new fields in completion
+- Wren; fix explicit fields not initializing parent class fields
+- Basis; add pixelated AA shader + basis for scaling pixel art
+- UI; add UIColor control + ColorPicker control
+
 ## 2023.11.0
 
 Whew. Important to note that this build was 1.5 ish years of constant use and change,
@@ -95,9 +103,6 @@ var entity = Some.code(here)
 
 ### Random sampling of changes
 
-- UI; add UIColor control + ColorPicker control
-- Outline; add pixel art outline
-- Basis; add pixelated AA shader for scaling pixel art
 - Topograph sort service API
 - Frame; add Frame.skip(N)
 - Render; expose write mask to pass layer

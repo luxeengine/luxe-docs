@@ -1,5 +1,16 @@
 # luxe editor release notes
 
+## 2023.11.1
+
+- World 2.0; Select created items
+- World 2.0; use built in color picker
+- World 2.0; Vector fields tab properly
+- World 2.0; Color fields have color + show color picker now
+
+## 2023.11.0
+
+Big long list coming soon.
+
 ## 2022.0.5
 
 - Hopefully have that UI clipping fixed 
