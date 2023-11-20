@@ -1764,7 +1764,10 @@
 
 ### Entity
 `:::js import "luxe: world" for Entity`
-> no docs found
+> Anything that exists in a world is a `entity`. The entity itself is just a handle (represented by a number) with which modifiers and a name can be associated. Entities are very lightweight, so creating and destroying many of them usually isnt a concern.
+> 
+> An entity in itself does not have a transform (you can attach the `transform` modifier to it to gain that) or any kind of hierarchy (different implicit hierarchies can result from modifiers).
+> Entities can be created manually in code, or loaded as Scenes or Prototypes.
 
 - [none](#Entity.none)
 - [create](#Entity.create)(**world**: `World`)
@@ -3115,6 +3118,7 @@
 >   ```
 
 - [create](#Sprite.create+4)(**entity**: `Entity`, **material**: `Material`, **width**: `Num`, **height**: `Num`)
+- [create](#Sprite.create+2)(**entity**: `Entity`, **material**: `Material`)
 - [create](#Sprite.create+3)(**entity**: `Entity`, **atlas**: `Atlas`, **atlas_image**: `String`)
 - [destroy](#Sprite.destroy)(**entity**: `Entity`)
 - [has](#Sprite.has)(**entity**: `Entity`)
@@ -3155,6 +3159,19 @@
 >   var entity = Entity.create(world)
 >   var material = Assets.material("luxe: material/logo")
 >   Sprite.create(entity, material, 128, 128)
+>   ```   
+
+<endpoint module="luxe: world" class="Sprite" signature="create(entity : Entity, material : Material)"></endpoint>
+<signature id="Sprite.create+2">Sprite.create(**entity**: `Entity`, **material**: `Material`)
+<a class="headerlink" href="#Sprite.create+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Attach a `Sprite` modifier to `entity`, drawn using `material`.
+> The size of the sprite will be determined by the `sprite.image` slot in the material.
+> 
+>   ```js
+>   var entity = Entity.create(world)
+>   var material = Assets.material("luxe: material/logo")
+>   Sprite.create(entity, material)
 >   ```   
 
 <endpoint module="luxe: world" class="Sprite" signature="create(entity : Entity, atlas : Atlas, atlas_image : String)"></endpoint>

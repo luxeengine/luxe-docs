@@ -519,6 +519,7 @@
 - [set_instances](#UIBlockState.set_instances+2)(**block**: `Block`, **instances**: `List`)
 - [refresh](#UIBlockState.refresh)()
 - [make_vec](#UIBlockState.make_vec)(**view**: `ValueView`)
+- [make_color](#UIBlockState.make_color)(**view**: `ValueView`)
 - [make_num](#UIBlockState.make_num)(**view**: `ValueView`)
 - [make_text](#UIBlockState.make_text)(**view**: `ValueView`)
 - [get_asset_picks](#UIBlockState.get_asset_picks)(**types**: `Any`)
@@ -545,6 +546,7 @@
 - [reset_to_default](#UIBlockState.reset_to_default+4)(**block**: `Block`, **instance**: `BlockInstance`, **field_idx**: `Num`, **array_idx**: `Num`)
 - [get_changes](#UIBlockState.get_changes+3)(**kind**: `UIBlockChange`, **value**: `ValueView`, **edit_value**: `Any`)
 - [get_changes](#UIBlockState.get_changes+4)(**kind**: `UIBlockChange`, **value**: `ValueView`, **edit_value**: `Any`, **edit_value_fn**: `Fn`)
+- [get_changes](#UIBlockState.get_changes+5)(**kind**: `UIBlockChange`, **value**: `ValueView`, **change_id**: `String`, **edit_value**: `Any`, **edit_value_fn**: `Fn`)
 - [make_block](#UIBlockState.make_block+2)(**instance_view**: `InstanceView`, **into**: `Control`)
 - [make_block](#UIBlockState.make_block+3)(**instance_view**: `InstanceView`, **into**: `Control`, **indent**: `Num`)
 - [make_group](#UIBlockState.make_group)(**name**: `Any`)
@@ -613,6 +615,12 @@
 <endpoint module="luxe: ui/block" class="UIBlockState" signature="make_vec(view : ValueView)"></endpoint>
 <signature id="UIBlockState.make_vec">UIBlockState.make_vec(**view**: `ValueView`)
 <a class="headerlink" href="#UIBlockState.make_vec" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Field`
+> no docs found   
+
+<endpoint module="luxe: ui/block" class="UIBlockState" signature="make_color(view : ValueView)"></endpoint>
+<signature id="UIBlockState.make_color">UIBlockState.make_color(**view**: `ValueView`)
+<a class="headerlink" href="#UIBlockState.make_color" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js Field`
 > no docs found   
 
@@ -769,6 +777,12 @@
 <endpoint module="luxe: ui/block" class="UIBlockState" signature="get_changes(kind : UIBlockChange, value : ValueView, edit_value : Any, edit_value_fn : Fn)"></endpoint>
 <signature id="UIBlockState.get_changes+4">UIBlockState.get_changes(**kind**: `UIBlockChange`, **value**: `ValueView`, **edit_value**: `Any`, **edit_value_fn**: `Fn`)
 <a class="headerlink" href="#UIBlockState.get_changes+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js List`
+> no docs found   
+
+<endpoint module="luxe: ui/block" class="UIBlockState" signature="get_changes(kind : UIBlockChange, value : ValueView, change_id : String, edit_value : Any, edit_value_fn : Fn)"></endpoint>
+<signature id="UIBlockState.get_changes+5">UIBlockState.get_changes(**kind**: `UIBlockChange`, **value**: `ValueView`, **change_id**: `String`, **edit_value**: `Any`, **edit_value_fn**: `Fn`)
+<a class="headerlink" href="#UIBlockState.get_changes+5" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js List`
 > no docs found   
 
