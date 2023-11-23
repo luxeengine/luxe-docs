@@ -1,5 +1,10 @@
 # luxe release notes
 
+## 2023.11.2
+
+- Outline; fix pixel art project dependency version
+- Fix uninitialized crash in new var fields (thanks msminotaur!)
+
 ## 2023.11.1
 
 - Outline; add pixel art outline with auto scaling and all that

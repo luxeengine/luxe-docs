@@ -1,5 +1,9 @@
 # luxe editor release notes
 
+## 2023.11.2
+
+- prevent crash from noodles on first launch of a new project
+
 ## 2023.11.1
 
 - World 2.0; Select created items

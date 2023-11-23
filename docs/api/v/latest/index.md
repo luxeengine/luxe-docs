@@ -1,1 +1,1 @@
-<meta http-equiv="refresh" content="0; URL=../../v/2023.11.1/" />
+<meta http-equiv="refresh" content="0; URL=../../v/2023.11.2/" />
