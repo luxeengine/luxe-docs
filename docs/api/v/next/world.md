@@ -2913,7 +2913,9 @@
 
 ### Prototype
 `:::js import "luxe: world" for Prototype`
-> no docs found
+> Prototypes are collections of entities that are stored together and can be instanced together. Protoype instances can be nested in other prototypes as well as scenes. If entities in a prototype have a transform modifier without a transform parent, the prototype root will automatically be set as their parent.
+> 
+> Once a prototype is instanced in a world, all its entities behave just like other entities in the world and get assigned unique entity UUIDs. Relative prototype UUIDs, or named entities within a prototype can be accessed via the root entity of the prototype instance.
 
 - [destroy](#Prototype.destroy)(**entity**: `Any`)
 - [has](#Prototype.has)(**entity**: `Any`)
@@ -2937,13 +2939,13 @@
 <signature id="Prototype.destroy">Prototype.destroy(**entity**: `Any`)
 <a class="headerlink" href="#Prototype.destroy" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> Destroys the prototype instance. (called on the root entity and will also destroy member entities that were instanced with it)   
 
 <endpoint module="luxe: world" class="Prototype" signature="has(entity : Any)"></endpoint>
 <signature id="Prototype.has">Prototype.has(**entity**: `Any`)
 <a class="headerlink" href="#Prototype.has" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> Get whether a entity has a prototype modifier (is a prototype instance root).   
 
 <endpoint module="luxe: world" class="Prototype" signature="get_type(entity : Any)"></endpoint>
 <signature id="Prototype.get_type">Prototype.get_type(**entity**: `Any`)
@@ -2955,55 +2957,55 @@
 <signature id="Prototype.get_root">Prototype.get_root(**entity**: `Any`)
 <a class="headerlink" href="#Prototype.get_root" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> Get the \"innermost\" prototype root if entity is part of a prototype instance. Returns the entity itself if it is a prototype root. Returns null if entity is not part of a prototype instance.   
 
 <endpoint module="luxe: world" class="Prototype" signature="get_tree(entity : Any)"></endpoint>
 <signature id="Prototype.get_tree">Prototype.get_tree(**entity**: `Any`)
 <a class="headerlink" href="#Prototype.get_tree" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> Get the list of prototype instances this entity is a part of. (List will have 1 elements for unnested prototypes and goes from innermost to outermost instance root for nested prototypes.). Null if entity is not part of prototype instance.   
 
 <endpoint module="luxe: world" class="Prototype" signature="has_tree(entity : Any)"></endpoint>
 <signature id="Prototype.has_tree">Prototype.has_tree(**entity**: `Any`)
 <a class="headerlink" href="#Prototype.has_tree" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> Get whether the entity is part of a prototype instance.   
 
 <endpoint module="luxe: world" class="Prototype" signature="get_ref(entity : Any, uuid : Any)"></endpoint>
 <signature id="Prototype.get_ref+2">Prototype.get_ref(**entity**: `Any`, **uuid**: `Any`)
 <a class="headerlink" href="#Prototype.get_ref+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> Get an entity by its reference (prototype-relative UUID) from its prototype root. (the same prototype asset may be instanced multiple times, so it may be important to find a specific prototype root and ask it for its version of the entity)   
 
 <endpoint module="luxe: world" class="Prototype" signature="get_ref_of(entity : Any, target_entity : Any)"></endpoint>
 <signature id="Prototype.get_ref_of+2">Prototype.get_ref_of(**entity**: `Any`, **target_entity**: `Any`)
 <a class="headerlink" href="#Prototype.get_ref_of+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> Get the reference (prototype-relative UUID) of an entity within a prototype instance.   
 
 <endpoint module="luxe: world" class="Prototype" signature="get_named(entity : Any, name : Any)"></endpoint>
 <signature id="Prototype.get_named+2">Prototype.get_named(**entity**: `Any`, **name**: `Any`)
 <a class="headerlink" href="#Prototype.get_named+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> Get first entity in a prototype instance with a specific name.   
 
 <endpoint module="luxe: world" class="Prototype" signature="get_named_all(entity : Any, name : Any)"></endpoint>
 <signature id="Prototype.get_named_all+2">Prototype.get_named_all(**entity**: `Any`, **name**: `Any`)
 <a class="headerlink" href="#Prototype.get_named_all+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> Get all entities in a prototype instance with a specific name.   
 
 <endpoint module="luxe: world" class="Prototype" signature="entity_list(entity : Any)"></endpoint>
 <signature id="Prototype.entity_list">Prototype.entity_list(**entity**: `Any`)
 <a class="headerlink" href="#Prototype.entity_list" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> Get a list of all entities that are part of a prototype instance.   
 
 <endpoint module="luxe: world" class="Prototype" signature="refs_list(entity : Any)"></endpoint>
 <signature id="Prototype.refs_list">Prototype.refs_list(**entity**: `Any`)
 <a class="headerlink" href="#Prototype.refs_list" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> Get a list of all references (prototype-relative UUIDs) to entities within one prototype instance.   
 
 <endpoint module="luxe: world" class="Prototype" signature="create(world : Any, prototype_id : Any, instance_id : Any)"></endpoint>
 <signature id="Prototype.create+3">Prototype.create(**world**: `Any`, **prototype_id**: `Any`, **instance_id**: `Any`)
@@ -3027,7 +3029,9 @@
 <signature id="Prototype.create+6">Prototype.create(**world**: `Any`, **prototype_id**: `Any`, **instance_id**: `Any`, **position**: `Any`, **rotation**: `Any`, **scale**: `Any`)
 <a class="headerlink" href="#Prototype.create+6" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> Instantiate a new prototype into a world with a new name(instance id), position, rotation and scale.
+> You may pass `null` into position rotation and scale (or call one of the functions that omit those arguments), to give them default values (0,0,0 for position/rotation, 1,1,1 for scale).
+> This function returns the root entity of the newly created prototype instance.   
 
 ### Scene
 `:::js import "luxe: world" for Scene`

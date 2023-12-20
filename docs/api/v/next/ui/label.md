@@ -85,19 +85,19 @@
 <endpoint module="luxe: ui/label" class="UILabel" signature="create(ui_entity : Any)"></endpoint>
 <signature id="UILabel.create">UILabel.create(**ui_entity**: `Any`)
 <a class="headerlink" href="#UILabel.create" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
+<span class='api_ret'>returns</span> `:::js UILabel`
 > no docs found   
 
 <endpoint module="luxe: ui/label" class="UILabel" signature="set_text(label : Any, text : Any)"></endpoint>
 <signature id="UILabel.set_text+2">UILabel.set_text(**label**: `Any`, **text**: `Any`)
 <a class="headerlink" href="#UILabel.set_text+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
+<span class='api_ret'>returns</span> `:::js None`
 > no docs found   
 
 <endpoint module="luxe: ui/label" class="UILabel" signature="get_text(label : Any)"></endpoint>
 <signature id="UILabel.get_text">UILabel.get_text(**label**: `Any`)
 <a class="headerlink" href="#UILabel.get_text" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
+<span class='api_ret'>returns</span> `:::js String`
 > no docs found   
 
 <endpoint module="luxe: ui/label" class="UILabel" signature="get_render_text(label : Any)"></endpoint>

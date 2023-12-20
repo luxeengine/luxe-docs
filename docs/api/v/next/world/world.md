@@ -15,6 +15,7 @@
 `:::js import "luxe: world/world" for World`
 > no docs found
 
+- [get_system](#World.get_system+2)(**world**: `World`, **modifier_id**: `String`)
 - [exists](#World.exists)(**id**: `Any`)
 - [valid](#World.valid)(**world**: `Any`)
 - [get](#World.get)(**id**: `Any`)
@@ -67,6 +68,12 @@
 - [live_worlds](#World.live_worlds)
 
 <hr/>
+<endpoint module="luxe: world/world" class="World" signature="get_system(world : World, modifier_id : String)"></endpoint>
+<signature id="World.get_system+2">World.get_system(**world**: `World`, **modifier_id**: `String`)
+<a class="headerlink" href="#World.get_system+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
 <endpoint module="luxe: world/world" class="World" signature="exists(id : Any)"></endpoint>
 <signature id="World.exists">World.exists(**id**: `Any`)
 <a class="headerlink" href="#World.exists" title="Permanent link">¶</a></signature>
