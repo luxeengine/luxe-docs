@@ -1,11 +1,12 @@
 #![](../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2023.11.1`)  
+# `luxe` API (`2024.2.1`)  
 
 
 ---
 
 - [luxe: assert](assert)   
+- [luxe: asset](asset)   
 - [luxe: asset/type](asset/type)   
 - [luxe: assets](assets)   
 - [luxe: astar](astar)   
@@ -52,27 +53,6 @@
 - [luxe: toggle](toggle)   
 - [luxe: topograph](topograph)   
 - [luxe: triangulate](triangulate)   
-- [luxe: type/anim.asset](type/anim.asset)   
-- [luxe: type/asset.meta.asset](type/asset.meta.asset)   
-- [luxe: type/basis.asset](type/basis.asset)   
-- [luxe: type/block_def.asset](type/block_def.asset)   
-- [luxe: type/compute.asset](type/compute.asset)   
-- [luxe: type/entity.asset](type/entity.asset)   
-- [luxe: type/font.asset](type/font.asset)   
-- [luxe: type/font.face.asset](type/font.face.asset)   
-- [luxe: type/font.face.otf.asset](type/font.face.otf.asset)   
-- [luxe: type/font.face.ttf.asset](type/font.face.ttf.asset)   
-- [luxe: type/image.asset](type/image.asset)   
-- [luxe: type/material.asset](type/material.asset)   
-- [luxe: type/mesh.asset](type/mesh.asset)   
-- [luxe: type/modifier.asset](type/modifier.asset)   
-- [luxe: type/prototype.asset](type/prototype.asset)   
-- [luxe: type/scene.asset](type/scene.asset)   
-- [luxe: type/sys.asset](type/sys.asset)   
-- [luxe: type/text.style.asset](type/text.style.asset)   
-- [luxe: type/tiles.asset](type/tiles.asset)   
-- [luxe: type/tiles.source.asset](type/tiles.source.asset)   
-- [luxe: type/tiles.visual.asset](type/tiles.visual.asset)   
 - [luxe: ui](ui)   
 - [luxe: ui/block](ui/block)   
 - [luxe: ui/button](ui/button)   
