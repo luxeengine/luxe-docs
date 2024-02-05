@@ -6,6 +6,9 @@ Lots of stability and bug fixes on the new modifier workflows,
 scene/prototypes and editor this time around. Not necessarily
 fully complete yet, but much closer to parity and much more reliable.
 
+- Scene 2.0; add scene scripts
+- Scene 2.0; fix wrong modifier APIs used
+- Scene 2.0; add unload for scene/prototype (Entity.destroy(root))
 - Text; fix jumpy text
 - Wren; allow { on new line in more places
 - World; revise how attach/detach and modifier events work
