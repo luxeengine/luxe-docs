@@ -20,6 +20,7 @@
 - [has](#Modifier.has+2)(**modifier_id**: `String`, **entity**: `Entity`)
 - [set_transient](#Modifier.set_transient+3)(**entity**: `Entity`, **modifier_id**: `String`, **state**: `Bool`)
 - [get_transient](#Modifier.get_transient+2)(**entity**: `Entity`, **modifier_id**: `String`)
+- [get](#Modifier.get+2)(**entity**: `String`, **modifier_id**: `String`)
 - [get_attached](#Modifier.get_attached)(**entity**: `Entity`)
 - [get_modifier_id](#Modifier.get_modifier_id+2)(**world**: `World`, **block**: `Block`)
 
@@ -52,6 +53,12 @@
 <signature id="Modifier.get_transient+2">Modifier.get_transient(**entity**: `Entity`, **modifier_id**: `String`)
 <a class="headerlink" href="#Modifier.get_transient+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js Bool`
+> no docs found   
+
+<endpoint module="luxe: world/modifier" class="Modifier" signature="get(entity : String, modifier_id : String)"></endpoint>
+<signature id="Modifier.get+2">Modifier.get(**entity**: `String`, **modifier_id**: `String`)
+<a class="headerlink" href="#Modifier.get+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
 <endpoint module="luxe: world/modifier" class="Modifier" signature="get_attached(entity : Entity)"></endpoint>

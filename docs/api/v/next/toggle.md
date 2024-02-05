@@ -20,6 +20,7 @@
 - [destroy](#Toggle.destroy)(**toggle**: `Toggle`)
 - [set](#Toggle.set+3)(**toggle**: `Toggle`, **handle**: `Num`, **state**: `Bool`)
 - [get](#Toggle.get+2)(**toggle**: `Toggle`, **handle**: `Num`)
+- [get](#Toggle.get)(**toggle**: `Toggle`)
 - [filter](#Toggle.filter+2)(**toggle**: `Toggle`, **handles**: `List`)
 - [link](#Toggle.link+3)(**toggle**: `Toggle`, **from_handle**: `Num`, **to_handle**: `Num`)
 
@@ -51,6 +52,12 @@
 <endpoint module="luxe: toggle" class="Toggle" signature="get(toggle : Toggle, handle : Num)"></endpoint>
 <signature id="Toggle.get+2">Toggle.get(**toggle**: `Toggle`, **handle**: `Num`)
 <a class="headerlink" href="#Toggle.get+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
+> no docs found   
+
+<endpoint module="luxe: toggle" class="Toggle" signature="get(toggle : Toggle)"></endpoint>
+<signature id="Toggle.get">Toggle.get(**toggle**: `Toggle`)
+<a class="headerlink" href="#Toggle.get" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js Bool`
 > no docs found   
 

@@ -64,12 +64,12 @@
 `:::js import "luxe: type/font.face.asset" for FaceMeta`
 > no docs found
 
-- [generate](#FaceMeta.generate)(**asset**: `AssetID`)
+- [generate](#FaceMeta.generate+2)(**ctx**: `AssetContext`, **asset**: `AssetID`)
 
 <hr/>
-<endpoint module="luxe: type/font.face.asset" class="FaceMeta" signature="generate(asset : AssetID)"></endpoint>
-<signature id="FaceMeta.generate">FaceMeta.generate(**asset**: `AssetID`)
-<a class="headerlink" href="#FaceMeta.generate" title="Permanent link">¶</a></signature>
+<endpoint module="luxe: type/font.face.asset" class="FaceMeta" signature="generate(ctx : AssetContext, asset : AssetID)"></endpoint>
+<signature id="FaceMeta.generate+2">FaceMeta.generate(**ctx**: `AssetContext`, **asset**: `AssetID`)
+<a class="headerlink" href="#FaceMeta.generate+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 

@@ -63,6 +63,7 @@
 - [set_color](#UIColorData.set_color)(**color**: `Color`)
 - [set_colors](#UIColorData.set_colors)(**colors**: `List`)
 - [colors_similar](#UIColorData.colors_similar)(**colors**: `List`)
+- [destroy](#UIColorData.destroy)()
 - [get_color](#UIColorData.get_color)()
 - [get_text_field](#UIColorData.get_text_field)(**index**: `Num`)
 
@@ -100,6 +101,12 @@
 <endpoint module="luxe: ui/field/color" class="UIColorData" signature="colors_similar(colors : List)"></endpoint>
 <signature id="UIColorData.colors_similar">UIColorData.colors_similar(**colors**: `List`)
 <a class="headerlink" href="#UIColorData.colors_similar" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: ui/field/color" class="UIColorData" signature="destroy()"></endpoint>
+<signature id="UIColorData.destroy">UIColorData.destroy()
+<a class="headerlink" href="#UIColorData.destroy" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 

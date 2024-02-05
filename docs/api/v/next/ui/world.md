@@ -160,6 +160,7 @@
 - [save](#UIWorldEvent.save)
 - [save_all](#UIWorldEvent.save_all)
 - [delete](#UIWorldEvent.delete)
+- [duplicate](#UIWorldEvent.duplicate)
 - [rename](#UIWorldEvent.rename)
 - [active_context](#UIWorldEvent.active_context)
 - [kind](#UIWorldEvent.kind)
@@ -189,6 +190,12 @@
 <endpoint module="luxe: ui/world" class="UIWorldEvent" signature="delete"></endpoint>
 <signature id="UIWorldEvent.delete">UIWorldEvent.delete
 <a class="headerlink" href="#UIWorldEvent.delete" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: ui/world" class="UIWorldEvent" signature="duplicate"></endpoint>
+<signature id="UIWorldEvent.duplicate">UIWorldEvent.duplicate
+<a class="headerlink" href="#UIWorldEvent.duplicate" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
@@ -234,6 +241,7 @@
 
 - [icon](#UIWorldIcon.icon)
 - [enabled](#UIWorldIcon.enabled)
+- [enabled](#UIWorldIcon.enabled)(**handle**: `Num`)
 - [tooltip](#UIWorldIcon.tooltip)
 - [tooltip](#UIWorldIcon.tooltip=)=(v : String)
 - [selection_based](#UIWorldIcon.selection_based)
@@ -244,7 +252,9 @@
 - [svg](#UIWorldIcon.svg=)=(v : Any)
 - [new](#UIWorldIcon.new)(**world_view**: `UIWorld`)
 - [enable](#UIWorldIcon.enable)()
+- [enable](#UIWorldIcon.enable)(**handle**: `Num`)
 - [disable](#UIWorldIcon.disable)()
+- [disable](#UIWorldIcon.disable)(**handle**: `Num`)
 - [on_selection](#UIWorldIcon.on_selection)(**fn**: `Fn`)
 - [on_release](#UIWorldIcon.on_release)(**fn**: `Fn`)
 - [on_enter](#UIWorldIcon.on_enter)(**fn**: `Fn`)
@@ -259,6 +269,12 @@
 
 <endpoint module="luxe: ui/world" class="UIWorldIcon" signature="enabled"></endpoint>
 <signature id="UIWorldIcon.enabled">UIWorldIcon.enabled
+<a class="headerlink" href="#UIWorldIcon.enabled" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
+> no docs found   
+
+<endpoint module="luxe: ui/world" class="UIWorldIcon" signature="enabled(handle : Num)"></endpoint>
+<signature id="UIWorldIcon.enabled">UIWorldIcon.enabled(**handle**: `Num`)
 <a class="headerlink" href="#UIWorldIcon.enabled" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js Bool`
 > no docs found   
@@ -323,8 +339,20 @@
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
+<endpoint module="luxe: ui/world" class="UIWorldIcon" signature="enable(handle : Num)"></endpoint>
+<signature id="UIWorldIcon.enable">UIWorldIcon.enable(**handle**: `Num`)
+<a class="headerlink" href="#UIWorldIcon.enable" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
 <endpoint module="luxe: ui/world" class="UIWorldIcon" signature="disable()"></endpoint>
 <signature id="UIWorldIcon.disable">UIWorldIcon.disable()
+<a class="headerlink" href="#UIWorldIcon.disable" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: ui/world" class="UIWorldIcon" signature="disable(handle : Num)"></endpoint>
+<signature id="UIWorldIcon.disable">UIWorldIcon.disable(**handle**: `Num`)
 <a class="headerlink" href="#UIWorldIcon.disable" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   

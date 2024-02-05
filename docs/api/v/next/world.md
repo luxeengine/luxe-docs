@@ -21,9 +21,11 @@
 - [Clock](#clock)   
 - [Entity](#entity)   
 - [EntityContextType](#entitycontexttype)   
+- [EntityEventType](#entityeventtype)   
 - [Layer](#layer)   
 - [Mesh](#mesh)   
 - [MeshColliderType](#meshcollidertype)   
+- [ModifierEventType](#modifiereventtype)   
 - [ModifierSystem](#modifiersystem)   
 - [Modifiers](#modifiers)   
 - [Overlap](#overlap)   
@@ -2072,6 +2074,61 @@
 <span class='api_ret'>returns</span> `:::js String`
 > no docs found   
 
+### EntityEventType
+`:::js import "luxe: world" for EntityEventType`
+> no docs found
+
+- [unknown](#EntityEventType.unknown)
+- [create](#EntityEventType.create)
+- [destroy](#EntityEventType.destroy)
+- [load](#EntityEventType.load)
+- [unload](#EntityEventType.unload)
+- [modifier](#EntityEventType.modifier)
+- [name](#EntityEventType.name)(**value**: `EntityEventType`)
+
+<hr/>
+<endpoint module="luxe: world" class="EntityEventType" signature="unknown"></endpoint>
+<signature id="EntityEventType.unknown">EntityEventType.unknown
+<a class="headerlink" href="#EntityEventType.unknown" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="EntityEventType" signature="create"></endpoint>
+<signature id="EntityEventType.create">EntityEventType.create
+<a class="headerlink" href="#EntityEventType.create" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="EntityEventType" signature="destroy"></endpoint>
+<signature id="EntityEventType.destroy">EntityEventType.destroy
+<a class="headerlink" href="#EntityEventType.destroy" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="EntityEventType" signature="load"></endpoint>
+<signature id="EntityEventType.load">EntityEventType.load
+<a class="headerlink" href="#EntityEventType.load" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="EntityEventType" signature="unload"></endpoint>
+<signature id="EntityEventType.unload">EntityEventType.unload
+<a class="headerlink" href="#EntityEventType.unload" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="EntityEventType" signature="modifier"></endpoint>
+<signature id="EntityEventType.modifier">EntityEventType.modifier
+<a class="headerlink" href="#EntityEventType.modifier" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="EntityEventType" signature="name(value : EntityEventType)"></endpoint>
+<signature id="EntityEventType.name">EntityEventType.name(**value**: `EntityEventType`)
+<a class="headerlink" href="#EntityEventType.name" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js String`
+> no docs found   
+
 ### Layer
 `:::js import "luxe: world" for Layer`
 > no docs found
@@ -2354,6 +2411,47 @@
 <signature id="MeshColliderType.from_string">MeshColliderType.from_string(**value**: `Any`)
 <a class="headerlink" href="#MeshColliderType.from_string" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+### ModifierEventType
+`:::js import "luxe: world" for ModifierEventType`
+> no docs found
+
+- [unknown](#ModifierEventType.unknown)
+- [attach](#ModifierEventType.attach)
+- [detach](#ModifierEventType.detach)
+- [change](#ModifierEventType.change)
+- [name](#ModifierEventType.name)(**value**: `ModifierEventType`)
+
+<hr/>
+<endpoint module="luxe: world" class="ModifierEventType" signature="unknown"></endpoint>
+<signature id="ModifierEventType.unknown">ModifierEventType.unknown
+<a class="headerlink" href="#ModifierEventType.unknown" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="ModifierEventType" signature="attach"></endpoint>
+<signature id="ModifierEventType.attach">ModifierEventType.attach
+<a class="headerlink" href="#ModifierEventType.attach" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="ModifierEventType" signature="detach"></endpoint>
+<signature id="ModifierEventType.detach">ModifierEventType.detach
+<a class="headerlink" href="#ModifierEventType.detach" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="ModifierEventType" signature="change"></endpoint>
+<signature id="ModifierEventType.change">ModifierEventType.change
+<a class="headerlink" href="#ModifierEventType.change" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="ModifierEventType" signature="name(value : ModifierEventType)"></endpoint>
+<signature id="ModifierEventType.name">ModifierEventType.name(**value**: `ModifierEventType`)
+<a class="headerlink" href="#ModifierEventType.name" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js String`
 > no docs found   
 
 ### ModifierSystem
@@ -5175,6 +5273,7 @@
 - [set_input_node](#UI.set_input_node+2)(**entity**: `Entity`, **input_node_id**: `String`)
 - [set_layout_mode](#UI.set_layout_mode+2)(**entity**: `Entity`, **mode**: `UILayoutMode`)
 - [set_debug_mode](#UI.set_debug_mode+2)(**entity**: `Entity`, **mode**: `UIDebugMode`)
+- [any_marked](#UI.any_marked)()
 - [any_focused](#UI.any_focused)()
 - [get_focused](#UI.get_focused)(**entity**: `Entity`)
 - [get_captured](#UI.get_captured)(**entity**: `Entity`)
@@ -5345,6 +5444,12 @@
 <a class="headerlink" href="#UI.set_debug_mode+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js None`
 > no docs found   
+
+<endpoint module="luxe: world" class="UI" signature="any_marked()"></endpoint>
+<signature id="UI.any_marked">UI.any_marked()
+<a class="headerlink" href="#UI.any_marked" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
+> Returns true if any UI has a marked control (any control with input under the mouse)   
 
 <endpoint module="luxe: world" class="UI" signature="any_focused()"></endpoint>
 <signature id="UI.any_focused">UI.any_focused()
@@ -5818,6 +5923,7 @@
 > The built in UI events that all controls can potentially use.
 
 - [name](#UIEvent.name)(**value**: `Any`)
+- [unknown](#UIEvent.unknown)
 - [enter](#UIEvent.enter)
 - [exit](#UIEvent.exit)
 - [press](#UIEvent.press)
@@ -5847,6 +5953,12 @@
 >   ```js
 >   Log.print(UIEvent.name(UIEvent.move)) //prints "move"
 >   ```   
+
+<endpoint module="luxe: world" class="UIEvent" signature="unknown"></endpoint>
+<signature id="UIEvent.unknown">UIEvent.unknown
+<a class="headerlink" href="#UIEvent.unknown" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> An event of unknown type, invalid. This is the default value.   
 
 <endpoint module="luxe: world" class="UIEvent" signature="enter"></endpoint>
 <signature id="UIEvent.enter">UIEvent.enter

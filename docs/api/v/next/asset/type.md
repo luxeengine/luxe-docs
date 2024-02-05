@@ -192,6 +192,7 @@
 - [ext](#AssetID.ext)
 - [subtype](#AssetID.subtype)
 - [prefix](#AssetID.prefix)
+- [root](#AssetID.root)
 - [meta_uuid](#AssetID.meta_uuid)
 - [new](#AssetID.new+2)(**type_id**: `String`, **map**: `Map`)
 - [refresh](#AssetID.refresh)()
@@ -236,6 +237,12 @@
 <endpoint module="luxe: asset/type" class="AssetID" signature="prefix"></endpoint>
 <signature id="AssetID.prefix">AssetID.prefix
 <a class="headerlink" href="#AssetID.prefix" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js String`
+> no docs found   
+
+<endpoint module="luxe: asset/type" class="AssetID" signature="root"></endpoint>
+<signature id="AssetID.root">AssetID.root
+<a class="headerlink" href="#AssetID.root" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js String`
 > no docs found   
 

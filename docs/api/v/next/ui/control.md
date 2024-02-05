@@ -42,6 +42,8 @@
 - [get_id](#Control.get_id)(**control**: `Control`)
 - [get_bounds_abs](#Control.get_bounds_abs+2)(**control**: `Control`, **into**: `List`)
 - [get_bounds](#Control.get_bounds+2)(**control**: `Control`, **into**: `List`)
+- [set_allow_bounds_event](#Control.set_allow_bounds_event+2)(**control**: `Control`, **state**: `Bool`)
+- [get_allow_bounds_event](#Control.get_allow_bounds_event)(**control**: `Control`)
 - [set_bounds_abs](#Control.set_bounds_abs+5)(**control**: `Control`, **x**: `Num`, **y**: `Num`, **w**: `Num`, **h**: `Num`)
 - [set_bounds](#Control.set_bounds+5)(**control**: `Control`, **x**: `Num`, **y**: `Num`, **w**: `Num`, **h**: `Num`)
 - [set_pos_abs](#Control.set_pos_abs+3)(**control**: `Control`, **x**: `Num`, **y**: `Num`)
@@ -279,6 +281,20 @@
 >   Control.get_bounds(child, bounds)
 >   Log.print(bounds) // [100, 100, 20, 20]
 > ```   
+
+<endpoint module="luxe: ui/control" class="Control" signature="set_allow_bounds_event(control : Control, state : Bool)"></endpoint>
+<signature id="Control.set_allow_bounds_event+2">Control.set_allow_bounds_event(**control**: `Control`, **state**: `Bool`)
+<a class="headerlink" href="#Control.set_allow_bounds_event+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Enables bounds events for the control. Since there are many controls
+> that may be resized during layout events, only ones that ask for the event 
+> will receive it to save time.   
+
+<endpoint module="luxe: ui/control" class="Control" signature="get_allow_bounds_event(control : Control)"></endpoint>
+<signature id="Control.get_allow_bounds_event">Control.get_allow_bounds_event(**control**: `Control`)
+<a class="headerlink" href="#Control.get_allow_bounds_event" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
+> Returns true if this control sends bounds events.   
 
 <endpoint module="luxe: ui/control" class="Control" signature="set_bounds_abs(control : Control, x : Num, y : Num, w : Num, h : Num)"></endpoint>
 <signature id="Control.set_bounds_abs+5">Control.set_bounds_abs(**control**: `Control`, **x**: `Num`, **y**: `Num`, **w**: `Num`, **h**: `Num`)

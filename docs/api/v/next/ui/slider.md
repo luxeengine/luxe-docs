@@ -16,6 +16,7 @@
 > no docs found
 
 - [create](#UISlider.create)(**ui_entity**: `Any`)
+- [set_value](#UISlider.set_value+3)(**control**: `Any`, **value**: `Any`, **event_kind**: `Any`)
 - [set_value](#UISlider.set_value+2)(**control**: `Any`, **value**: `Any`)
 - [get_value](#UISlider.get_value)(**control**: `Any`)
 - [set_step](#UISlider.set_step+2)(**control**: `Any`, **value**: `Any`)
@@ -31,6 +32,12 @@
 <endpoint module="luxe: ui/slider" class="UISlider" signature="create(ui_entity : Any)"></endpoint>
 <signature id="UISlider.create">UISlider.create(**ui_entity**: `Any`)
 <a class="headerlink" href="#UISlider.create" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: ui/slider" class="UISlider" signature="set_value(control : Any, value : Any, event_kind : Any)"></endpoint>
+<signature id="UISlider.set_value+3">UISlider.set_value(**control**: `Any`, **value**: `Any`, **event_kind**: `Any`)
+<a class="headerlink" href="#UISlider.set_value+3" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
