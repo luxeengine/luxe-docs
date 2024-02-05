@@ -1,6 +1,11 @@
 Note: it's ok if the agent version is slightly different from your engine/editor.
 Typically, the 2022.x is what matters for compatibility, the y part in 2022.x.y isn't as important.
 
+# 2024.2.1
+
+- Add code Outline to vscode! (Izzy)
+- Lots of bug fixes and improvements to reliability
+
 # 2022.0.4
 
 - add completion for assets

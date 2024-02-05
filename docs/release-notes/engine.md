@@ -1,5 +1,24 @@
 # luxe release notes
 
+## 2024.2.1
+
+Lots of stability and bug fixes on the new modifier workflows, 
+scene/prototypes and editor this time around. Not necessarily
+fully complete yet, but much closer to parity and much more reliable.
+
+- Text; fix jumpy text
+- Wren; allow { on new line in more places
+- World; revise how attach/detach and modifier events work
+- Assets; fix font face gen not being found on first compile
+- Assets; fix crashes when certain apis are used certain ways
+- Toggle; add get() api
+- Tiles; fix crash in certain cases
+- Blocks; several major bugs found + fixed 
+- Blocks; fix arrays being incorrect for lx inputs in new data
+- Blocks; add destroy
+- Engine; clean up wip memory from in dev code
+- Engine; fix a couple memory corruption issues
+
 ## 2023.11.2
 
 - Outline; fix pixel art project dependency version

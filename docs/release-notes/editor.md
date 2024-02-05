@@ -1,5 +1,17 @@
 # luxe editor release notes
 
+## 2024.2.1
+
+- World 2.0; several fixes
+- World 2.0; add delete/duplicate button to UI
+- World 2.0; fix issues with duplicate and delete 
+- World 2.0; clean up visual glitchyness 
+- World 2.0; create undo (entity)  
+- World 2.0; attach undo 
+- World 2.0; select created
+- World; fix anim track crashes in old editor
+- World; fix keyframe window being bugged in anim track
+
 ## 2023.11.2
 
 - prevent crash from noodles on first launch of a new project
