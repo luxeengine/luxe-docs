@@ -52,13 +52,13 @@ This takes you to the project settings showing the module has been added.
 
 ## adding a module manually
 
-Inside your project folder, there's a `project.modules.lx` file. This file contains the modules a project is using.
-In it, you can add `arcade = "0.0.16"` or whichever version you're using in order to add it to the project as a dependency.
+Inside your project folder, there's a `luxe.project/modules.lx` file. This file contains the modules a project is using.
+In it, you can add `arcade = "0.0.21"` or whichever version you're using in order to add it to the project as a dependency.
 
 ```js
 modules = {
-  luxe = "2022.0.1"
-  arcade = "0.0.16"
+  luxe = "2024.2.1"
+  arcade = "0.0.21"
 } //modules
 ```
 
