@@ -31,6 +31,9 @@ A modifier is a script asset with a `modifier` subtype. To make a door modifier,
 you would make a file named `door.modifier.wren` in your project, typically inside
 a `system/door.modifier.wren` by convention.
 
+!!! note ""
+    In a Wren file, `This` is a built in variable for "module id".
+
 This file contains three important pieces that we'll get into below:
 
   - A description of your system **data** per entity
@@ -58,7 +61,9 @@ class Door is API {
 #phase(on, tick)
 class System is Modifier {
 
-  construct new(world: World) { super(world) }
+  init(world: World) {
+    Log.print("init `%(This)` in world `%(world)`")
+  }
 
   attach(entity: Entity, door: Data) {
     Log.print("attached to entity `%(entity)` - locked? %(door.locked)")
@@ -132,6 +137,14 @@ class Data {
   var float3 : Float3 = [1,1,1]
   var float4 : Float4 = [1,1,1,1]
   var boolean : Bool = true
+
+  //Show if can hide fields that aren't relevant
+  //based on the value in another option field.
+  //So this field will only be visible in the UI if the enum is 
+  //set to MyTextAlign.center in the UI 
+
+  #show_if(enum = center)
+  var other : Num = 22
   
   //Arrays
   
@@ -165,6 +178,20 @@ class Data {
   #type = Obj
   var obj_array : List = []
 
+  //Groups
+  //Any consecutive fields with the same group tag 
+  //will be collected together in a collapsible group
+
+  #group="Stuff Together"
+  var hey : Num = 99.0
+  #group="Stuff Together"
+  var hi : String = "how?" 
+
+  #group="Other Together"
+  var why : Num = 99.0
+  #group="Other Together"
+  var here : String = "how?" 
+
 }
 
 //option tag is required
@@ -186,6 +213,6 @@ class Obj {
 }
 ```
 
-
+![](../../images/tutorial/modifiers/groups.png)
 
 To be continued...
