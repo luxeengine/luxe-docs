@@ -2,173 +2,190 @@
 
 # Custom modifiers
 
+Typically, **modifiers are where you'll write a majority of your gameplay code**.
+Naturally, that means you need to be able to add modifiers of your own to the mix.
+These modifiers become available in the editor, and can be used from code to
+combine and create complex behaviours in a modular way.
+
 !!! note ""
-    The moving parts involved with custom modifiers are still evolving behind the scenes.   
-    This shouldn't affect existing systems you create much (if at all).
+    The modifiers have been rewritten and are just now landing in 2024.x.
+    This means there may be bugs, gaps or other mysteries. Please let
+    us know if you run into unexpected behaviour!
 
-    The core shape of the idea is there, though all the customization, flexibility and workflow
-    will improve over time.
+Modifiers exist in a world, and there is **one system per world** for a modifier type.
+A modifier system in a world will see and modify ALL entities that have the modifier attached.
+This is a little different from a 1:1 relationship, and enables gameplay code to be expressive
+about multiple things at once easily, but will still be familiar as you typically are still operating per entity.
 
-## Step 1. A modifier.lx file
+As an example, a door modifier will be attached to 20 entities in a world, but in that world 
+there is only one door modifier system running. **That system knows about all doors** in that world, and 
+can answer questions like how many doors are open, without a lot of effort or looping or searching.
 
-This is the only step needed to get a new modifier set up. 
-If we're making a **system** to keep track of how thirsty an entity is, we can make a `modifier/thirst.modifier.lx` file.
-This file describes inputs and data for the system, stuff to display in the editor etc.
+Modifiers can also run custom code in the editor, allowing custom behaviour between editor and the game.
 
-```js
-modifier = {
-  script = "modifier/thirst"
-  description = "Makes an entity able to express thirst."
-  field = "thirst"
-  display = "Thirst"  //the display in the editor
-  class = "Thirst"    //The code generated name for the modifier API
-  block = {           //The data for the modifier
-    fields = [
-      { name="amount" type="number" default=0 } //how thirsty currently
-      { name="max" type="number" default=1 }    //the max for amount
-    ]
+## Making a modifier
+
+### Step 1. A modifier.wren file
+
+A modifier is a script asset with a `modifier` subtype. To make a door modifier,
+you would make a file named `door.modifier.wren` in your project, typically inside
+a `system/door.modifier.wren` by convention.
+
+This file contains three important pieces that we'll get into below:
+
+  - A description of your system **data** per entity
+  - A user facing **API** for your system
+  - The **system** implementation
+
+Take a look at the example below:
+
+```wren
+#block = data
+class Data {
+  var locked: Bool = false
+}
+
+#api
+#desc = "**A door**. Can be locked or unlocked."
+#keywords(door, entrance, lock)
+class Door is API {
+  static unlock(entity: Entity) {
+    get(entity).locked = false
   }
+}
+
+#system
+#phase(on, tick)
+class System is Modifier {
+
+  construct new(world: World) { super(world) }
+
+  attach(entity: Entity, door: Data) {
+    Log.print("attached to entity `%(entity)` - locked? %(door.locked)")
+  }
+
+  detach(entity: Entity, door: Data) {
+    Log.print("detached from `%(entity)`")
+  }
+
+  tick(delta: Num) {
+    each {|entity: Entity, door: Data|
+      //use door.*
+    } 
+  }
+  
 }
 ```
 
-Once you have this file, run `luxe build` (or run), which will generate a `modifier/thirst.wren` and `modifier/thirst.modifier.wren`.
-The important file is `modifier/thirst.wren`. This is the code for your system. Below shows what it looks like by default, 
-and the comments elaborate on what goes where and why. 
+!!! note ""
+    Currently there's a `door.modifier.api.wren` generated for your system alongside it, this 
+    is a temporary generated file and won't stay long term.
 
-### The editor side
+## Use via editor
 
-At this point, you can already attach your modifier to entities in the editor. 
+If you save your file and re-open your project in the editor (it's not able to hot reload at the moment).
+Once opened, on an entity you can select attach and see your Door modifier is now available.
 
 ![](../../images/tutorial/modifiers/attaching.png)
+
+And if attached, will show up in omni along with the other modifiers below the scene outline.
+
 ![](../../images/tutorial/modifiers/attached.png)
 
-Or via code, you can also already `import "modifier/thirst" for Thirst` and then do `Thirst.create(entity)`.
+## Use via code 
 
-### The modifier system code
+To use the modifier in code, you import the API class from the modifier id. Ours was called
+`system/door.modifier.wren` which makes the modifier id `system/door.modifier`.
 
-```js
-import "luxe: io" for IO
-import "luxe: world" for World, Entity, Modifiers, ModifierSystem
+```wren
+import "system/door.modifier" for Door
 
-//User facing API
-//This is what the user of your modifier will interact with
-class Thirst {
+...
 
-  static create(entity) { Modifiers.create(This, entity) }
-  static destroy(entity) { Modifiers.destroy(This, entity) }
-  static has(entity) { Modifiers.has(This, entity) }
-
-} //Thirst
-
-//Your modifier system implementation.
-//This speaks to the engine and your user facing API
-//to do the actual work. You'll get notified when things change
-//in the world and respond to them here.
-class ThirstSystem is ModifierSystem {
-
-  construct new() {
-    //called when your system is first created.
-  }
-
-  init(world) {
-    _world = world
-    //called when your modifier is created in a world
-  }
-
-  destroy() {
-    //called when your modifier is removed from a world
-  }
-
-  attach(entity, data) {
-    //called when attached to an entity
-  }
-
-  detach(entity, data) {
-    //called when detached from an entity, like on destroy
-  }
-
-  tick(delta) {
-      //called usually once every frame.
-      //called when the world that this modifier lives in, is ticked
-    each {|entity, data|
-      //use data.*
-    }
-  } //tick
-
-} //ThirstSystem
-
-var Modifier = ThirstSystem //required
+var door = Entity.create("door")
+Door.create(door)
+Door.unlock(door)
 ```
 
-## Step 2: Make it do something
+## Data field types
 
-An empty modifier isn't that interesting, let's make it slowly increase thirst.
+!!! note "Docs WIP"
+    These will get documented nicely, but here is a dump of the types and examples available
+    to systems. Some of these have rough edges and will change slightly (nothing major).
 
-One important thing to understand about modifiers is that **a single system deals with multiple entities** (one to many).
-That means our thirst modifier is managing thirst for any entity that has it attached, rather than a single entity.
+![](../../images/tutorial/modifiers/fields.png)
 
-This has many benefits, including performance and access/visibility. An example would be if we wanted to know the most thirsty entity in a world.
-This is something our system can trivially answer, rather than making gameplay code try to find + iterate instances.
 
-### The user facing API
+```wren
+#block = data
+class Data {
 
-Assuming that we'll want to code something somewhere that needs to know how thirsty an entity is, 
-we can make our API offer that information. [API concepts](../../../guide/concepts/#api-patterns) covers this a bit,
-our API is a static one atm. We'll add functions to get and set the `amount` and `max` to our API.
+  #display = "Number (count)"
+  var number : Num = 11
+  #display = "name"
+  var string : String = "luxe" 
+  var enum : MyTextAlign = MyTextAlign.bottom //defined below
+  var uuid : UUID = null
+  var link : Link = null //a reference to an entity in the editor/scene
+  var color : Color = [1,1,1,1]
+  var float2 : Float2 = [1,1]
+  var float3 : Float3 = [1,1,1]
+  var float4 : Float4 = [1,1,1,1]
+  var boolean : Bool = true
+  
+  //Arrays
+  
+  //They have a count for efficiency,
+  //the count isn't a limit. It's how much
+  //space to reserve for your common use case,
+  //which will make operating on this field faster.
 
-```js
-class Thirst {
+  //For now, we specify the type as a tag on the field,
+  //this will be improved later.
+  //Any primitive array can have a default
 
-  static create(entity) { Modifiers.create(This, entity) }
-  static destroy(entity) { Modifiers.destroy(This, entity) }
-  static has(entity) { Modifiers.has(This, entity) }
+  #count = 4
+  #type = Num
+  var array_number : List = [22, 33, 44, 55]
 
-  static get_amount(entity) {
-    var thirst = Modifiers.get(This, entity)
-    return thirst.amount
-  }
+  #count = 2
+  #type = MyTextAlign
+  var array_enum : List = [MyTextAlign.center]
 
-  static set_amount(entity, value) {
-    var thirst = Modifiers.get(This, entity)
-    thirst.amount = value
-  }
+  //No defaults for objects here, 
+  //defaults are defined in the object itself
+  var obj : Obj = Object
+  
+  //Arrays of objects are valid too,
+  //and they work similarly, they can't
+  //have a default here. The list can 
+  //have an empty default though
 
-  static get_max(entity) {
-    var thirst = Modifiers.get(This, entity)
-    return thirst.max
-  }
+  #count = 1
+  #type = Obj
+  var obj_array : List = []
 
-  static set_max(entity, max) {
-    var thirst = Modifiers.get(This, entity)
-    thirst.max = max
-  }
+}
 
-} //Thirst
+//option tag is required
+#option
+class MyTextAlign {
+  static left { "left" }
+  static center { "center" }
+  static right { "right" }
+  static top { "top" }
+  static bottom { "bottom" }
+}
+
+//Objects have the same types as above
+class Obj {
+  var other: Num = 1
+  var some: String = "fields"
+  var here: Color = [111,112,113,114]
+  var yea: Float2 = [11, 12]
+}
 ```
 
-### System logic
 
-Now the user of our system can access the values. 
-
-Next we'll want to implement some logic in the system. Our system `:::js class ThirstSystem is ModifierSystem`
-has the `tick` function, which is where we can implement logic that happens over the time. 
-Since we want our thirst to change over time, we'll implement it here. 
-
-_Note: this isn't realistic code, just an example._ 
-The first thing we'll do is rename `data` to `thirst` for clarity.
-Notice that we're operating on all entities that have `thirst` attached.
-
-```js
-  tick(delta) {
-      //called usually once every frame.
-      //called when the world that this modifier lives in, is ticked
-    each {|entity, thirst|
-      //use thirst.*
-      if(thirst.amount < thirst.max) {
-        thirst.amount = (thirst.amount + (2 * delta)).clamp(0, thirst.max)
-      }
-    }
-  } //tick
-```
 
 To be continued...

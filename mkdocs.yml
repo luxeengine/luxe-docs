@@ -5,7 +5,7 @@ nav:
     - install: get.md
     - guide: 
       - intro : guide.md
-      - important: guide/important.md
+      # - important: guide/important.md
       - workflow : guide/workflow.md
       - concepts : guide/concepts.md
       - wren primer : guide/wren-primer.md
@@ -33,6 +33,7 @@ nav:
       - modifiers:
         - luxe modifiers : learn/modifiers/luxe-modifiers.md
         - custom modifiers : learn/modifiers/custom-modifiers.md
+        - old custom modifiers : learn/modifiers/old-custom-modifiers.md
       - using UI:
         - overview : learn/ui/intro.md
         - custom controls : learn/ui/custom-controls.md
