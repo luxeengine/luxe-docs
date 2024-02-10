@@ -139,6 +139,18 @@ class Data {
   var float4 : Float4 = [1,1,1,1]
   var boolean : Bool = true
 
+  //Asset types have a type stored in the #tag 
+  //so that the editor can show just the type you care about
+
+  #tag = "luxe: type/scene.asset"
+  var scene_to_load : Asset = "some/asset"
+
+  //Strings can be tagged to add an OS file picker
+  //with `path`, `path.open`, `path.save`, and `path.folder`
+  
+  #tag = "path.folder"
+  var project_location: String = ""
+
   //Show if can hide fields that aren't relevant
   //based on the value in another option field.
   //So this field will only be visible in the UI if the enum is 
