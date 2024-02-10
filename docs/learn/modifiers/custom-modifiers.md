@@ -22,6 +22,7 @@ there is only one door modifier system running. **That system knows about all do
 can answer questions like how many doors are open, without a lot of effort or looping or searching.
 
 Modifiers can also run custom code in the editor, allowing custom behaviour between editor and the game.
+Any of the system functions (init, attach, etc) have an `editor_` prefixed equivalent as well.
 
 ## Making a modifier
 
