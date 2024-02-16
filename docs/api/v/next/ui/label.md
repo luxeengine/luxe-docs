@@ -1,6 +1,6 @@
 #![](../../../../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2024.2.1`)  
+# `luxe` API (`2023.11.1`)  
 
 
 ---
@@ -80,6 +80,8 @@
 - [set_loc](#UILabel.set_loc+2)(**label**: `Any`, **key**: `String`)
 - [set_loc_with_args](#UILabel.set_loc_with_args+4)(**label**: `Any`, **space**: `String`, **key**: `String`, **args**: `List`)
 - [set_loc_with_args](#UILabel.set_loc_with_args+3)(**label**: `Any`, **key**: `String`, **args**: `List`)
+- [set_outline](#UILabel.set_outline+5)(**control**: `UILabel`, **radius**: `Num`, **softness**: `Num`, **color**: `Color`, **offset**: `Float2`)
+- [set_shadow](#UILabel.set_shadow+5)(**control**: `UILabel`, **radius**: `Num`, **softness**: `Num`, **color**: `Color`, **offset**: `Float2`)
 
 <hr/>
 <endpoint module="luxe: ui/label" class="UILabel" signature="create(ui_entity : Any)"></endpoint>
@@ -255,6 +257,18 @@
 <a class="headerlink" href="#UILabel.set_loc_with_args+3" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
+
+<endpoint module="luxe: ui/label" class="UILabel" signature="set_outline(control : UILabel, radius : Num, softness : Num, color : Color, offset : Float2)"></endpoint>
+<signature id="UILabel.set_outline+5">UILabel.set_outline(**control**: `UILabel`, **radius**: `Num`, **softness**: `Num`, **color**: `Color`, **offset**: `Float2`)
+<a class="headerlink" href="#UILabel.set_outline+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Set the text outline parameters.   
+
+<endpoint module="luxe: ui/label" class="UILabel" signature="set_shadow(control : UILabel, radius : Num, softness : Num, color : Color, offset : Float2)"></endpoint>
+<signature id="UILabel.set_shadow+5">UILabel.set_shadow(**control**: `UILabel`, **radius**: `Num`, **softness**: `Num`, **color**: `Color`, **offset**: `Float2`)
+<a class="headerlink" href="#UILabel.set_shadow+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Set the text shadow parameters.   
 
 ### UIOverflowScroll
 `:::js import "luxe: ui/label" for UIOverflowScroll`

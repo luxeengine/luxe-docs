@@ -1,6 +1,6 @@
 #![](../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2024.2.1`)  
+# `luxe` API (`2023.11.1`)  
 
 
 ---
@@ -39,6 +39,7 @@
 - [dist2D](#Math.dist2D+2)(**vec**: `Vec`, **other**: `Vec`)
 - [dist2D](#Math.dist2D+4)(**x**: `Num`, **y**: `Num`, **other_x**: `Num`, **other_y**: `Num`)
 - [dir2D](#Math.dir2D+2)(**pos**: `Vec`, **target**: `Vec`)
+- [dir](#Math.dir+2)(**pos**: `Vec`, **target**: `Vec`)
 - [rotate](#Math.rotate+4)(**vec**: `Vec`, **ox**: `Num`, **oy**: `Num`, **angle**: `Num`)
 - [ray_intersect_plane](#Math.ray_intersect_plane+12)(**plane_x**: `Num`, **plane_y**: `Num`, **plane_z**: `Num`, **normal_x**: `Num`, **normal_y**: `Num`, **normal_z**: `Num`, **ray_x**: `Num`, **ray_y**: `Num`, **ray_z**: `Num`, **ray_dir_x**: `Num`, **ray_dir_y**: `Num`, **ray_dir_z**: `Num`)
 - [closest_point_on_plane](#Math.closest_point_on_plane+9)(**plane_x**: `Num`, **plane_y**: `Num`, **plane_z**: `Num`, **normal_x**: `Num`, **normal_y**: `Num`, **normal_z**: `Num`, **point_x**: `Num`, **point_y**: `Num`, **point_z**: `Num`)
@@ -219,6 +220,12 @@
 <a class="headerlink" href="#Math.dir2D+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js Vec`
 > Directional vector (length 1 unless the arguments are the same) between two 2d vectors.   
+
+<endpoint module="luxe: math" class="Math" signature="dir(pos : Vec, target : Vec)"></endpoint>
+<signature id="Math.dir+2">Math.dir(**pos**: `Vec`, **target**: `Vec`)
+<a class="headerlink" href="#Math.dir+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Vec`
+> Directional vector (length 1 unless the arguments are the same) between two 3d vectors.   
 
 <endpoint module="luxe: math" class="Math" signature="rotate(vec : Vec, ox : Num, oy : Num, angle : Num)"></endpoint>
 <signature id="Math.rotate+4">Math.rotate(**vec**: `Vec`, **ox**: `Num`, **oy**: `Num`, **angle**: `Num`)

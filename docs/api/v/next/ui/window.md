@@ -1,6 +1,6 @@
 #![](../../../../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2024.2.1`)  
+# `luxe` API (`2023.11.1`)  
 
 
 ---
@@ -35,6 +35,8 @@
 - [get_closable](#UIWindow.get_closable)(**control**: `Any`)
 - [get_collapsible](#UIWindow.get_collapsible)(**control**: `Any`)
 - [get_draggable](#UIWindow.get_draggable)(**control**: `Any`)
+- [set_outline](#UIWindow.set_outline+5)(**control**: `UIWindow`, **radius**: `Num`, **softness**: `Num`, **color**: `Color`, **offset**: `Float2`)
+- [set_shadow](#UIWindow.set_shadow+5)(**control**: `UIWindow`, **radius**: `Num`, **softness**: `Num`, **color**: `Color`, **offset**: `Float2`)
 
 <hr/>
 <endpoint module="luxe: ui/window" class="UIWindow" signature="create(ui_entity : Any)"></endpoint>
@@ -150,6 +152,18 @@
 <a class="headerlink" href="#UIWindow.get_draggable" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
+
+<endpoint module="luxe: ui/window" class="UIWindow" signature="set_outline(control : UIWindow, radius : Num, softness : Num, color : Color, offset : Float2)"></endpoint>
+<signature id="UIWindow.set_outline+5">UIWindow.set_outline(**control**: `UIWindow`, **radius**: `Num`, **softness**: `Num`, **color**: `Color`, **offset**: `Float2`)
+<a class="headerlink" href="#UIWindow.set_outline+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Set the text outline parameters.   
+
+<endpoint module="luxe: ui/window" class="UIWindow" signature="set_shadow(control : UIWindow, radius : Num, softness : Num, color : Color, offset : Float2)"></endpoint>
+<signature id="UIWindow.set_shadow+5">UIWindow.set_shadow(**control**: `UIWindow`, **radius**: `Num`, **softness**: `Num`, **color**: `Color`, **offset**: `Float2`)
+<a class="headerlink" href="#UIWindow.set_shadow+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Set the text shadow parameters.   
 
 ### UIWindowChange
 `:::js import "luxe: ui/window" for UIWindowChange`

@@ -1,6 +1,6 @@
 #![](../../../../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2024.2.1`)  
+# `luxe` API (`2023.11.1`)  
 
 
 ---
@@ -102,6 +102,7 @@
 - [set_selection](#UIWorld.set_selection+2)(**control**: `Control`, **selection**: `Selection`)
 - [get_selection](#UIWorld.get_selection)(**control**: `Control`)
 - [enter_select_mode](#UIWorld.enter_select_mode+3)(**control**: `Control`, **enter_state**: `Bool`, **display**: `String`)
+- [show_rename](#UIWorld.show_rename)(**control**: `Control`)
 
 <hr/>
 <endpoint module="luxe: ui/world" class="UIWorld" signature="create(ui : UI)"></endpoint>
@@ -152,6 +153,12 @@
 <span class='api_ret'>returns</span> `:::js None`
 > no docs found   
 
+<endpoint module="luxe: ui/world" class="UIWorld" signature="show_rename(control : Control)"></endpoint>
+<signature id="UIWorld.show_rename">UIWorld.show_rename(**control**: `Control`)
+<a class="headerlink" href="#UIWorld.show_rename" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
 ### UIWorldEvent
 `:::js import "luxe: ui/world" for UIWorldEvent`
 > no docs found
@@ -163,6 +170,7 @@
 - [duplicate](#UIWorldEvent.duplicate)
 - [rename](#UIWorldEvent.rename)
 - [active_context](#UIWorldEvent.active_context)
+- [focus](#UIWorldEvent.focus)
 - [kind](#UIWorldEvent.kind)
 - [items](#UIWorldEvent.items)
 - [data](#UIWorldEvent.data)
@@ -208,6 +216,12 @@
 <endpoint module="luxe: ui/world" class="UIWorldEvent" signature="active_context"></endpoint>
 <signature id="UIWorldEvent.active_context">UIWorldEvent.active_context
 <a class="headerlink" href="#UIWorldEvent.active_context" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: ui/world" class="UIWorldEvent" signature="focus"></endpoint>
+<signature id="UIWorldEvent.focus">UIWorldEvent.focus
+<a class="headerlink" href="#UIWorldEvent.focus" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 

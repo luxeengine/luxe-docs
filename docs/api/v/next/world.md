@@ -1,6 +1,6 @@
 #![](../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2024.2.1`)  
+# `luxe` API (`2023.11.1`)  
 
 
 ---
@@ -52,6 +52,7 @@
 - [UIRenderMode](#uirendermode)   
 - [Values](#values)   
 - [ValuesType](#valuestype)   
+- [WorldEventType](#worldeventtype)   
 - [WorldRenderDesc](#worldrenderdesc)   
 
 ---
@@ -3644,6 +3645,8 @@
 - [get_font](#Text.get_font)(**entity**: `Any`)
 - [set_style](#Text.set_style+2)(**entity**: `Entity`, **style**: `TextStyle`)
 - [get_style](#Text.get_style)(**entity**: `Entity`)
+- [set_outline](#Text.set_outline+5)(**entity**: `Entity`, **radius**: `Num`, **softness**: `Num`, **color**: `Color`, **offset**: `Float2`)
+- [set_shadow](#Text.set_shadow+5)(**entity**: `Entity`, **radius**: `Num`, **softness**: `Num`, **color**: `Color`, **offset**: `Float2`)
 - [set_max_visible](#Text.set_max_visible+2)(**entity**: `Entity`, **max_visible**: `Num`)
 - [get_max_visible](#Text.get_max_visible)(**entity**: `Entity`)
 - [set_color](#Text.set_color+2)(**entity**: `Any`, **default_color**: `Any`)
@@ -3655,7 +3658,7 @@
 - [get_align_vertical](#Text.get_align_vertical)(**entity**: `Any`)
 - [set_bounds](#Text.set_bounds+5)(**entity**: `Any`, **x**: `Any`, **y**: `Any`, **w**: `Any`, **h**: `Any`)
 - [get_bounds](#Text.get_bounds)(**entity**: `Any`)
-- [set_attr](#Text.set_attr+5)(**entity**: `Any`, **start**: `Any`, **length**: `Any`, **key**: `Any`, **value**: `Any`)
+- [set_attr](#Text.set_attr+6)(**entity**: `Entity`, **start**: `Num`, **length**: `Num`, **type**: `TextAttrType`, **key**: `String`, **value**: `Any`)
 - [attr_clear](#Text.attr_clear)(**entity**: `Any`)
 - [commit](#Text.commit)(**entity**: `Any`)
 - [get_render_text](#Text.get_render_text)(**entity**: `Any`)
@@ -3719,6 +3722,18 @@
 <signature id="Text.get_style">Text.get_style(**entity**: `Entity`)
 <a class="headerlink" href="#Text.get_style" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js TextStyle`
+> no docs found   
+
+<endpoint module="luxe: world" class="Text" signature="set_outline(entity : Entity, radius : Num, softness : Num, color : Color, offset : Float2)"></endpoint>
+<signature id="Text.set_outline+5">Text.set_outline(**entity**: `Entity`, **radius**: `Num`, **softness**: `Num`, **color**: `Color`, **offset**: `Float2`)
+<a class="headerlink" href="#Text.set_outline+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="Text" signature="set_shadow(entity : Entity, radius : Num, softness : Num, color : Color, offset : Float2)"></endpoint>
+<signature id="Text.set_shadow+5">Text.set_shadow(**entity**: `Entity`, **radius**: `Num`, **softness**: `Num`, **color**: `Color`, **offset**: `Float2`)
+<a class="headerlink" href="#Text.set_shadow+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
 <endpoint module="luxe: world" class="Text" signature="set_max_visible(entity : Entity, max_visible : Num)"></endpoint>
@@ -3787,10 +3802,10 @@
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
-<endpoint module="luxe: world" class="Text" signature="set_attr(entity : Any, start : Any, length : Any, key : Any, value : Any)"></endpoint>
-<signature id="Text.set_attr+5">Text.set_attr(**entity**: `Any`, **start**: `Any`, **length**: `Any`, **key**: `Any`, **value**: `Any`)
-<a class="headerlink" href="#Text.set_attr+5" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
+<endpoint module="luxe: world" class="Text" signature="set_attr(entity : Entity, start : Num, length : Num, type : TextAttrType, key : String, value : Any)"></endpoint>
+<signature id="Text.set_attr+6">Text.set_attr(**entity**: `Entity`, **start**: `Num`, **length**: `Num`, **type**: `TextAttrType`, **key**: `String`, **value**: `Any`)
+<a class="headerlink" href="#Text.set_attr+6" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
 > no docs found   
 
 <endpoint module="luxe: world" class="Text" signature="attr_clear(entity : Any)"></endpoint>
@@ -5544,7 +5559,7 @@
 <endpoint module="luxe: world" class="UI" signature="mouse_to_canvas(entity : Entity, x : Num, y : Num)"></endpoint>
 <signature id="UI.mouse_to_canvas+3">UI.mouse_to_canvas(**entity**: `Entity`, **x**: `Num`, **y**: `Num`)
 <a class="headerlink" href="#UI.mouse_to_canvas+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Control`
+<span class='api_ret'>returns</span> `:::js Float2`
 > Translate from mouse position on screen to canvas coordinates. Uses the set canvas camera.   
 
 <endpoint module="luxe: world" class="UI" signature="dump(ui : Entity)"></endpoint>
@@ -6486,6 +6501,47 @@
 <signature id="ValuesType.name">ValuesType.name(**value**: `Any`)
 <a class="headerlink" href="#ValuesType.name" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+### WorldEventType
+`:::js import "luxe: world" for WorldEventType`
+> no docs found
+
+- [unknown](#WorldEventType.unknown)
+- [create](#WorldEventType.create)
+- [destroy](#WorldEventType.destroy)
+- [tick](#WorldEventType.tick)
+- [name](#WorldEventType.name)(**value**: `WorldEventType`)
+
+<hr/>
+<endpoint module="luxe: world" class="WorldEventType" signature="unknown"></endpoint>
+<signature id="WorldEventType.unknown">WorldEventType.unknown
+<a class="headerlink" href="#WorldEventType.unknown" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="WorldEventType" signature="create"></endpoint>
+<signature id="WorldEventType.create">WorldEventType.create
+<a class="headerlink" href="#WorldEventType.create" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="WorldEventType" signature="destroy"></endpoint>
+<signature id="WorldEventType.destroy">WorldEventType.destroy
+<a class="headerlink" href="#WorldEventType.destroy" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="WorldEventType" signature="tick"></endpoint>
+<signature id="WorldEventType.tick">WorldEventType.tick
+<a class="headerlink" href="#WorldEventType.tick" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="WorldEventType" signature="name(value : WorldEventType)"></endpoint>
+<signature id="WorldEventType.name">WorldEventType.name(**value**: `WorldEventType`)
+<a class="headerlink" href="#WorldEventType.name" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js String`
 > no docs found   
 
 ### WorldRenderDesc

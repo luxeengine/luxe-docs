@@ -1,6 +1,6 @@
 #![](../../../../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2024.2.1`)  
+# `luxe` API (`2023.11.1`)  
 
 
 ---
@@ -27,6 +27,8 @@
 
 - [create](#UIButton.create)(**ui_entity**: `Entity`)
 - [set_text](#UIButton.set_text+2)(**control**: `UIButton`, **text**: `String`)
+- [set_outline](#UIButton.set_outline+5)(**control**: `UIButton`, **radius**: `Num`, **softness**: `Num`, **color**: `Color`, **offset**: `Float2`)
+- [set_shadow](#UIButton.set_shadow+5)(**control**: `UIButton`, **radius**: `Num`, **softness**: `Num`, **color**: `Color`, **offset**: `Float2`)
 - [get_text](#UIButton.get_text)(**control**: `UIButton`)
 - [set_font](#UIButton.set_font+2)(**control**: `UIButton`, **font**: `String`)
 - [get_font](#UIButton.get_font)(**control**: `UIButton`)
@@ -52,6 +54,18 @@
 <a class="headerlink" href="#UIButton.set_text+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js None`
 > Set the text displayed on a button.   
+
+<endpoint module="luxe: ui/button" class="UIButton" signature="set_outline(control : UIButton, radius : Num, softness : Num, color : Color, offset : Float2)"></endpoint>
+<signature id="UIButton.set_outline+5">UIButton.set_outline(**control**: `UIButton`, **radius**: `Num`, **softness**: `Num`, **color**: `Color`, **offset**: `Float2`)
+<a class="headerlink" href="#UIButton.set_outline+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Set the text outline parameters.   
+
+<endpoint module="luxe: ui/button" class="UIButton" signature="set_shadow(control : UIButton, radius : Num, softness : Num, color : Color, offset : Float2)"></endpoint>
+<signature id="UIButton.set_shadow+5">UIButton.set_shadow(**control**: `UIButton`, **radius**: `Num`, **softness**: `Num`, **color**: `Color`, **offset**: `Float2`)
+<a class="headerlink" href="#UIButton.set_shadow+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Set the text shadow parameters.   
 
 <endpoint module="luxe: ui/button" class="UIButton" signature="get_text(control : UIButton)"></endpoint>
 <signature id="UIButton.get_text">UIButton.get_text(**control**: `UIButton`)

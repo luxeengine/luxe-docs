@@ -1,6 +1,6 @@
 #![](../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2024.2.1`)  
+# `luxe` API (`2023.11.1`)  
 
 
 ---
@@ -52,6 +52,7 @@
 - [StencilOperation](#stenciloperation)   
 - [StoreAction](#storeaction)   
 - [TextAlign](#textalign)   
+- [TextAttrType](#textattrtype)   
 - [TextWrapMode](#textwrapmode)   
 - [VertexAttr](#vertexattr)   
 - [VertexAttrFormat](#vertexattrformat)   
@@ -3245,7 +3246,9 @@
 - [valid_text](#Render.valid_text)(**text**: `Any`)
 - [text_attr_clear](#Render.text_attr_clear)(**text**: `Any`)
 - [text_set_text_buffer](#Render.text_set_text_buffer+2)(**text**: `Any`, **string**: `Any`)
-- [text_set_attr](#Render.text_set_attr+5)(**text**: `Any`, **start**: `Any`, **length**: `Any`, **key**: `Any`, **value**: `Any`)
+- [text_set_attr](#Render.text_set_attr+6)(**text**: `Text`, **start**: `Num`, **length**: `Num`, **type**: `TextAttrType`, **key**: `String`, **value**: `Any`)
+- [text_set_outline](#Render.text_set_outline+5)(**text**: `Text`, **radius**: `Num`, **softness**: `Num`, **color**: `Color`, **offset**: `Float2`)
+- [text_set_shadow](#Render.text_set_shadow+5)(**text**: `Text`, **radius**: `Num`, **softness**: `Num`, **color**: `Color`, **offset**: `Float2`)
 - [text_set_pos](#Render.text_set_pos+4)(**text**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`)
 - [text_set_align](#Render.text_set_align+3)(**text**: `Any`, **align**: `Any`, **align_vertical**: `Any`)
 - [text_set_bounds](#Render.text_set_bounds+5)(**text**: `Any`, **x**: `Any`, **y**: `Any`, **w**: `Any`, **h**: `Any`)
@@ -3611,9 +3614,21 @@
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
-<endpoint module="luxe: render" class="Render" signature="text_set_attr(text : Any, start : Any, length : Any, key : Any, value : Any)"></endpoint>
-<signature id="Render.text_set_attr+5">Render.text_set_attr(**text**: `Any`, **start**: `Any`, **length**: `Any`, **key**: `Any`, **value**: `Any`)
-<a class="headerlink" href="#Render.text_set_attr+5" title="Permanent link">¶</a></signature>
+<endpoint module="luxe: render" class="Render" signature="text_set_attr(text : Text, start : Num, length : Num, type : TextAttrType, key : String, value : Any)"></endpoint>
+<signature id="Render.text_set_attr+6">Render.text_set_attr(**text**: `Text`, **start**: `Num`, **length**: `Num`, **type**: `TextAttrType`, **key**: `String`, **value**: `Any`)
+<a class="headerlink" href="#Render.text_set_attr+6" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: render" class="Render" signature="text_set_outline(text : Text, radius : Num, softness : Num, color : Color, offset : Float2)"></endpoint>
+<signature id="Render.text_set_outline+5">Render.text_set_outline(**text**: `Text`, **radius**: `Num`, **softness**: `Num`, **color**: `Color`, **offset**: `Float2`)
+<a class="headerlink" href="#Render.text_set_outline+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="Render" signature="text_set_shadow(text : Text, radius : Num, softness : Num, color : Color, offset : Float2)"></endpoint>
+<signature id="Render.text_set_shadow+5">Render.text_set_shadow(**text**: `Text`, **radius**: `Num`, **softness**: `Num`, **color**: `Color`, **offset**: `Float2`)
+<a class="headerlink" href="#Render.text_set_shadow+5" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
@@ -4746,6 +4761,68 @@
 <endpoint module="luxe: render" class="TextAlign" signature="name(value : Any)"></endpoint>
 <signature id="TextAlign.name">TextAlign.name(**value**: `Any`)
 <a class="headerlink" href="#TextAlign.name" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+### TextAttrType
+`:::js import "luxe: render" for TextAttrType`
+> no docs found
+
+- [unknown](#TextAttrType.unknown)
+- [handle32](#TextAttrType.handle32)
+- [handle64](#TextAttrType.handle64)
+- [number](#TextAttrType.number)
+- [string](#TextAttrType.string)
+- [color](#TextAttrType.color)
+- [float2](#TextAttrType.float2)
+- [name](#TextAttrType.name)(**value**: `Any`)
+
+<hr/>
+<endpoint module="luxe: render" class="TextAttrType" signature="unknown"></endpoint>
+<signature id="TextAttrType.unknown">TextAttrType.unknown
+<a class="headerlink" href="#TextAttrType.unknown" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="TextAttrType" signature="handle32"></endpoint>
+<signature id="TextAttrType.handle32">TextAttrType.handle32
+<a class="headerlink" href="#TextAttrType.handle32" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="TextAttrType" signature="handle64"></endpoint>
+<signature id="TextAttrType.handle64">TextAttrType.handle64
+<a class="headerlink" href="#TextAttrType.handle64" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="TextAttrType" signature="number"></endpoint>
+<signature id="TextAttrType.number">TextAttrType.number
+<a class="headerlink" href="#TextAttrType.number" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="TextAttrType" signature="string"></endpoint>
+<signature id="TextAttrType.string">TextAttrType.string
+<a class="headerlink" href="#TextAttrType.string" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="TextAttrType" signature="color"></endpoint>
+<signature id="TextAttrType.color">TextAttrType.color
+<a class="headerlink" href="#TextAttrType.color" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="TextAttrType" signature="float2"></endpoint>
+<signature id="TextAttrType.float2">TextAttrType.float2
+<a class="headerlink" href="#TextAttrType.float2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="TextAttrType" signature="name(value : Any)"></endpoint>
+<signature id="TextAttrType.name">TextAttrType.name(**value**: `Any`)
+<a class="headerlink" href="#TextAttrType.name" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 

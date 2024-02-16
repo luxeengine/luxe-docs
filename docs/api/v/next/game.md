@@ -1,6 +1,6 @@
 #![](../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2024.2.1`)  
+# `luxe` API (`2023.11.1`)  
 
 
 ---
@@ -8,6 +8,8 @@
 ## `luxe: game` module
 
 - [Frame](#frame)   
+- [FrameSection](#framesection)   
+- [FrameWhen](#framewhen)   
 - [Ready](#ready)   
 
 ---
@@ -45,6 +47,10 @@
 - [before](#Frame.before+2)(**section**: `String`, **fn**: `Fn`)
 - [after](#Frame.after+2)(**section**: `String`, **fn**: `Fn`)
 - [skip](#Frame.skip+2)(**count_frames**: `Num`, **fn**: `Fn`)
+- [mark](#Frame.mark+2)(**id**: `String`, **display**: `String`)
+- [get_marks](#Frame.get_marks)(**frame_index**: `Num`)
+- [index](#Frame.index)
+- [delta](#Frame.delta)
 
 <hr/>
 <endpoint module="luxe: game" class="Frame" signature="begin"></endpoint>
@@ -325,6 +331,160 @@
 >     Log.print("three frames from now!")
 >   }
 >   ```   
+
+<endpoint module="luxe: game" class="Frame" signature="mark(id : String, display : String)"></endpoint>
+<signature id="Frame.mark+2">Frame.mark(**id**: `String`, **display**: `String`)
+<a class="headerlink" href="#Frame.mark+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: game" class="Frame" signature="get_marks(frame_index : Num)"></endpoint>
+<signature id="Frame.get_marks">Frame.get_marks(**frame_index**: `Num`)
+<a class="headerlink" href="#Frame.get_marks" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js List`
+> no docs found   
+
+<endpoint module="luxe: game" class="Frame" signature="index"></endpoint>
+<signature id="Frame.index">Frame.index
+<a class="headerlink" href="#Frame.index" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Num`
+> no docs found   
+
+<endpoint module="luxe: game" class="Frame" signature="delta"></endpoint>
+<signature id="Frame.delta">Frame.delta
+<a class="headerlink" href="#Frame.delta" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Num`
+> no docs found   
+
+### FrameSection
+`:::js import "luxe: game" for FrameSection`
+> no docs found
+
+- [begin](#FrameSection.begin)
+- [init](#FrameSection.init)
+- [sim](#FrameSection.sim)
+- [visual](#FrameSection.visual)
+- [debug](#FrameSection.debug)
+- [end](#FrameSection.end)
+- [name](#FrameSection.name)(**value**: `Any`)
+
+<hr/>
+<endpoint module="luxe: game" class="FrameSection" signature="begin"></endpoint>
+<signature id="FrameSection.begin">FrameSection.begin
+<a class="headerlink" href="#FrameSection.begin" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js String`
+> An enum value for the `begin` section in the loop.
+> The `begin section is the start of the frame from the game's perspective.
+> 
+>   ```js
+>   Frame.on(Frame.begin) {|delta| ... }
+>   ```   
+
+<endpoint module="luxe: game" class="FrameSection" signature="init"></endpoint>
+<signature id="FrameSection.init">FrameSection.init
+<a class="headerlink" href="#FrameSection.init" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js String`
+> An enum value for the `init` section in the loop.
+> The `init` section is used for initialization tasks that happen before
+> updates, like when a new entity is created, it can be added to a queue and
+> processed in init to set some default values before it arrives in `sim` or `visual`.
+>     
+>   ```js
+>   Frame.on(Frame.init) {|delta| ... }
+>   ```   
+
+<endpoint module="luxe: game" class="FrameSection" signature="sim"></endpoint>
+<signature id="FrameSection.sim">FrameSection.sim
+<a class="headerlink" href="#FrameSection.sim" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js String`
+> An enum value for the `sim` section in the loop.
+> The `sim` section is for simulation, also known as `update`. 
+> In this section you would update game logic and modify things that the `visual` section would reference.
+> 
+>   ```js
+>   Frame.on(Frame.sim) {|delta| ... }
+>   ```   
+
+<endpoint module="luxe: game" class="FrameSection" signature="visual"></endpoint>
+<signature id="FrameSection.visual">FrameSection.visual
+<a class="headerlink" href="#FrameSection.visual" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js String`
+> An enum value for the `visual` section in the loop.
+> The `visual` section is for rendering, also known as `render`.
+> Updating visual state from the sim states happens here.
+> 
+>   ```js
+>   Frame.on(Frame.visual) {|delta| ... }
+>   ```   
+
+<endpoint module="luxe: game" class="FrameSection" signature="debug"></endpoint>
+<signature id="FrameSection.debug">FrameSection.debug
+<a class="headerlink" href="#FrameSection.debug" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js String`
+> An enum value for the `debug` section in the loop.
+> The `debug` part of the loop can perform debug related tasks before the end of the frame and rendering is submitted.
+> 
+>   ```js
+>   Frame.on(Frame.debug) {|delta| ... }
+>   ```   
+
+<endpoint module="luxe: game" class="FrameSection" signature="end"></endpoint>
+<signature id="FrameSection.end">FrameSection.end
+<a class="headerlink" href="#FrameSection.end" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js String`
+> An enum value for the `end` section in the loop.
+> The `end` of the loop can perform tasks after rendering and simulation.
+> 
+>   ```js
+>   Frame.on(Frame.end) {|delta| ... }
+>   ```   
+
+<endpoint module="luxe: game" class="FrameSection" signature="name(value : Any)"></endpoint>
+<signature id="FrameSection.name">FrameSection.name(**value**: `Any`)
+<a class="headerlink" href="#FrameSection.name" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+### FrameWhen
+`:::js import "luxe: game" for FrameWhen`
+> no docs found
+
+- [unknown](#FrameWhen.unknown)
+- [before](#FrameWhen.before)
+- [on](#FrameWhen.on)
+- [after](#FrameWhen.after)
+- [name](#FrameWhen.name)(**value**: `Any`)
+
+<hr/>
+<endpoint module="luxe: game" class="FrameWhen" signature="unknown"></endpoint>
+<signature id="FrameWhen.unknown">FrameWhen.unknown
+<a class="headerlink" href="#FrameWhen.unknown" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js String`
+> no docs found   
+
+<endpoint module="luxe: game" class="FrameWhen" signature="before"></endpoint>
+<signature id="FrameWhen.before">FrameWhen.before
+<a class="headerlink" href="#FrameWhen.before" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js String`
+> no docs found   
+
+<endpoint module="luxe: game" class="FrameWhen" signature="on"></endpoint>
+<signature id="FrameWhen.on">FrameWhen.on
+<a class="headerlink" href="#FrameWhen.on" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js String`
+> no docs found   
+
+<endpoint module="luxe: game" class="FrameWhen" signature="after"></endpoint>
+<signature id="FrameWhen.after">FrameWhen.after
+<a class="headerlink" href="#FrameWhen.after" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js String`
+> no docs found   
+
+<endpoint module="luxe: game" class="FrameWhen" signature="name(value : Any)"></endpoint>
+<signature id="FrameWhen.name">FrameWhen.name(**value**: `Any`)
+<a class="headerlink" href="#FrameWhen.name" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
 
 ### Ready
 `:::js import "luxe: game" for Ready`

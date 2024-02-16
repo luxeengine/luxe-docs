@@ -1,15 +1,36 @@
 #![](../../../../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2024.2.1`)  
+# `luxe` API (`2023.11.1`)  
 
 
 ---
 
 ## `luxe: world/world` module
 
+- [OldEvent](#oldevent)   
 - [World](#world)   
 
 ---
+
+### OldEvent
+`:::js import "luxe: world/world" for OldEvent`
+> no docs found
+
+- [destroy](#OldEvent.destroy)
+- [tick](#OldEvent.tick)
+
+<hr/>
+<endpoint module="luxe: world/world" class="OldEvent" signature="destroy"></endpoint>
+<signature id="OldEvent.destroy">OldEvent.destroy
+<a class="headerlink" href="#OldEvent.destroy" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world/world" class="OldEvent" signature="tick"></endpoint>
+<signature id="OldEvent.tick">OldEvent.tick
+<a class="headerlink" href="#OldEvent.tick" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
 
 ### World
 `:::js import "luxe: world/world" for World`
@@ -30,6 +51,9 @@
 - [tag_remove](#World.tag_remove+2)(**world**: `Any`, **tag**: `Any`)
 - [tag_has](#World.tag_has+2)(**world**: `Any`, **tag**: `Any`)
 - [get_delta](#World.get_delta)(**world**: `Any`)
+- [tick](#World.tick+4)(**world**: `World`, **when**: `FrameWhen`, **section**: `FrameSection`, **priority**: `Num`)
+- [tick](#World.tick)(**world**: `World`)
+- [tick](#World.tick+2)(**world**: `World`, **delta**: `Num`)
 - [schedule](#World.schedule+4)(**world**: `Any`, **time**: `Any`, **count**: `Any`, **fn**: `Any`)
 - [schedule](#World.schedule+3)(**world**: `Any`, **time**: `Any`, **fn**: `Any`)
 - [unschedule](#World.unschedule+2)(**world**: `Any`, **handle**: `Any`)
@@ -44,6 +68,7 @@
 - [get_phases](#World.get_phases)(**world**: `World`)
 - [get_phase_modifiers](#World.get_phase_modifiers+3)(**world**: `World`, **phase**: `Num`, **stage**: `Num`)
 - [get_modifier_block](#World.get_modifier_block+2)(**world**: `World`, **modifier_id**: `String`)
+- [get_sorted_modifiers](#World.get_sorted_modifiers)(**world**: `World`)
 - [get_rate](#World.get_rate)(**world**: `Any`)
 - [set_rate](#World.set_rate+2)(**world**: `Any`, **rate**: `Any`)
 - [set_time](#World.set_time+2)(**world**: `Any`, **time**: `Any`)
@@ -64,7 +89,7 @@
 - [create](#World.create)()
 - [create](#World.create)(**id**: `Any`)
 - [destroy](#World.destroy)(**world**: `Any`)
-- [tick](#World.tick+2)(**world**: `Any`, **delta**: `Any`)
+- [tick_now](#World.tick_now+2)(**world**: `Any`, **delta**: `Any`)
 - [live_worlds](#World.live_worlds)
 
 <hr/>
@@ -158,6 +183,24 @@
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
+<endpoint module="luxe: world/world" class="World" signature="tick(world : World, when : FrameWhen, section : FrameSection, priority : Num)"></endpoint>
+<signature id="World.tick+4">World.tick(**world**: `World`, **when**: `FrameWhen`, **section**: `FrameSection`, **priority**: `Num`)
+<a class="headerlink" href="#World.tick+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world/world" class="World" signature="tick(world : World)"></endpoint>
+<signature id="World.tick">World.tick(**world**: `World`)
+<a class="headerlink" href="#World.tick" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world/world" class="World" signature="tick(world : World, delta : Num)"></endpoint>
+<signature id="World.tick+2">World.tick(**world**: `World`, **delta**: `Num`)
+<a class="headerlink" href="#World.tick+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
 <endpoint module="luxe: world/world" class="World" signature="schedule(world : Any, time : Any, count : Any, fn : Any)"></endpoint>
 <signature id="World.schedule+4">World.schedule(**world**: `Any`, **time**: `Any`, **count**: `Any`, **fn**: `Any`)
 <a class="headerlink" href="#World.schedule+4" title="Permanent link">¶</a></signature>
@@ -241,6 +284,12 @@
 <a class="headerlink" href="#World.get_modifier_block+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js Block`
 > Get the block for the given modifier `modifier_id` in `world`   
+
+<endpoint module="luxe: world/world" class="World" signature="get_sorted_modifiers(world : World)"></endpoint>
+<signature id="World.get_sorted_modifiers">World.get_sorted_modifiers(**world**: `World`)
+<a class="headerlink" href="#World.get_sorted_modifiers" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Set`
+> Get the list of modifiers in `world` (sorted by their order)   
 
 <endpoint module="luxe: world/world" class="World" signature="get_rate(world : Any)"></endpoint>
 <signature id="World.get_rate">World.get_rate(**world**: `Any`)
@@ -362,9 +411,9 @@
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
-<endpoint module="luxe: world/world" class="World" signature="tick(world : Any, delta : Any)"></endpoint>
-<signature id="World.tick+2">World.tick(**world**: `Any`, **delta**: `Any`)
-<a class="headerlink" href="#World.tick+2" title="Permanent link">¶</a></signature>
+<endpoint module="luxe: world/world" class="World" signature="tick_now(world : Any, delta : Any)"></endpoint>
+<signature id="World.tick_now+2">World.tick_now(**world**: `Any`, **delta**: `Any`)
+<a class="headerlink" href="#World.tick_now+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 

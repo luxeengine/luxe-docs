@@ -1,6 +1,6 @@
 #![](../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2024.2.1`)  
+# `luxe` API (`2023.11.1`)  
 
 
 ---
@@ -19,8 +19,13 @@
 - [black](#Color.black)
 - [clear](#Color.clear)
 - [pink](#Color.pink)
+- [red](#Color.red)
+- [green](#Color.green)
+- [blue](#Color.blue)
 - [hex](#Color.hex)(**value**: `Num`)
 - [clone](#Color.clone+2)(**other**: `Color`, **alpha**: `Num`)
+- [hex_string](#Color.hex_string)(**color**: `Color`)
+- [hex_string](#Color.hex_string+2)(**color**: `Color`, **alpha**: `Bool`)
 - [hex](#Color.hex+2)(**value**: `Num`, **alpha**: `Num`)
 - [hex_set](#Color.hex_set+2)(**color**: `Color`, **hex**: `Num`)
 - [hex_color](#Color.hex_color)(**color**: `Color`)
@@ -65,6 +70,24 @@
 <span class='api_ret'>returns</span> `:::js Color`
 > The luxe pink color used everywhere. Note: don't modify the return value.   
 
+<endpoint module="luxe: color" class="Color" signature="red"></endpoint>
+<signature id="Color.red">Color.red
+<a class="headerlink" href="#Color.red" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Color`
+> The luxe red color. Note: don't modify the return value.   
+
+<endpoint module="luxe: color" class="Color" signature="green"></endpoint>
+<signature id="Color.green">Color.green
+<a class="headerlink" href="#Color.green" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Color`
+> The luxe green color. Note: don't modify the return value.   
+
+<endpoint module="luxe: color" class="Color" signature="blue"></endpoint>
+<signature id="Color.blue">Color.blue
+<a class="headerlink" href="#Color.blue" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Color`
+> The luxe blue color. Note: don't modify the return value.   
+
 <endpoint module="luxe: color" class="Color" signature="hex(value : Num)"></endpoint>
 <signature id="Color.hex">Color.hex(**value**: `Num`)
 <a class="headerlink" href="#Color.hex" title="Permanent link">¶</a></signature>
@@ -85,6 +108,23 @@
 >   var other = Color.hex(0xFF00AA)
 >   var color = Color.clone(other, 0.5)
 >   ```   
+
+<endpoint module="luxe: color" class="Color" signature="hex_string(color : Color)"></endpoint>
+<signature id="Color.hex_string">Color.hex_string(**color**: `Color`)
+<a class="headerlink" href="#Color.hex_string" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js String`
+> Returns a hex string from the specified color.
+> 
+>     Color.hex_string(Color.white) //#FFFFFF   
+
+<endpoint module="luxe: color" class="Color" signature="hex_string(color : Color, alpha : Bool)"></endpoint>
+<signature id="Color.hex_string+2">Color.hex_string(**color**: `Color`, **alpha**: `Bool`)
+<a class="headerlink" href="#Color.hex_string+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js String`
+> Returns a hex string from the specified color.
+> If `alpha` is true, includes the alpha component.
+> 
+>     Color.hex_string(Color.white, true) //#FFFFFFFF   
 
 <endpoint module="luxe: color" class="Color" signature="hex(value : Num, alpha : Num)"></endpoint>
 <signature id="Color.hex+2">Color.hex(**value**: `Num`, **alpha**: `Num`)

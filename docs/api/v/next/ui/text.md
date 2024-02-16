@@ -1,6 +1,6 @@
 #![](../../../../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2024.2.1`)  
+# `luxe` API (`2023.11.1`)  
 
 
 ---
@@ -30,6 +30,8 @@
 - [get_align_vertical](#UIText.get_align_vertical)(**control**: `Any`)
 - [select_all](#UIText.select_all)(**control**: `Any`)
 - [invalidate](#UIText.invalidate+2)(**control**: `Control`, **change_before**: `String`)
+- [set_outline](#UIText.set_outline+5)(**control**: `UIText`, **radius**: `Num`, **softness**: `Num`, **color**: `Color`, **offset**: `Float2`)
+- [set_shadow](#UIText.set_shadow+5)(**control**: `UIText`, **radius**: `Num`, **softness**: `Num`, **color**: `Color`, **offset**: `Float2`)
 
 <hr/>
 <endpoint module="luxe: ui/text" class="UIText" signature="create(ui_entity : Any)"></endpoint>
@@ -121,4 +123,16 @@
 <a class="headerlink" href="#UIText.invalidate+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
+
+<endpoint module="luxe: ui/text" class="UIText" signature="set_outline(control : UIText, radius : Num, softness : Num, color : Color, offset : Float2)"></endpoint>
+<signature id="UIText.set_outline+5">UIText.set_outline(**control**: `UIText`, **radius**: `Num`, **softness**: `Num`, **color**: `Color`, **offset**: `Float2`)
+<a class="headerlink" href="#UIText.set_outline+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Set the text outline parameters.   
+
+<endpoint module="luxe: ui/text" class="UIText" signature="set_shadow(control : UIText, radius : Num, softness : Num, color : Color, offset : Float2)"></endpoint>
+<signature id="UIText.set_shadow+5">UIText.set_shadow(**control**: `UIText`, **radius**: `Num`, **softness**: `Num`, **color**: `Color`, **offset**: `Float2`)
+<a class="headerlink" href="#UIText.set_shadow+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Set the text shadow parameters.   
 
