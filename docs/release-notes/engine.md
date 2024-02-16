@@ -1,5 +1,36 @@
 # luxe release notes
 
+## 2024.2.3
+
+This build fixes issues from last build + more big beta todos.
+
+- Color; add Color.hex_string 
+- Frame; mark; add a history so it doesn't crash after time
+- Text; another color fix
+- Mesh; new mesh importer pipeline merged in (to document)
+- Render; fix issue with shadows in 3d render module
+- Text Style; fix asset types not finding fonts
+
+## 2024.2.2
+
+More work on stabilizing new modifiers and world tick!
+The changes to world tick may take time to finalize but 
+for most content works as is and shouldn't be visible.
+
+- Render; fix some text color bugs 
+- UI; more tweaks on UI layout/auto size interactions
+- Outlines; Fix copying .gitignore and .vscode as intended
+- Frame; add initial Frame.mark helper for seeing frame timelines
+- World; changes in how world tick world
+- World; modifiers now use init instead of new() removing need for super()
+- Editor; Editor api for accessing editor instance in modifiers
+- Text; add initial shadow/outline effects (Ronja)
+- Agent; fix some minor issues and auto restart agent as needed
+- Assets; fix off by one error by moving generated assets into project
+- Scene 2.0; fix scene scripts running in editor
+- Scene 2.0; fix scene scripts not running tick
+- Scene 2.0; scene scripts have parent class now (no required functions)
+
 ## 2024.2.1
 
 Lots of stability and bug fixes on the new modifier workflows, 

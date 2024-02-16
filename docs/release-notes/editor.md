@@ -1,5 +1,18 @@
 # luxe editor release notes
 
+## 2024.2.3
+
+- Camera; fix scroll wheel being weird
+- Fix inspector showing up if omni is never opened (Izzy)
+- Double click outline to focus selected (Ronja)
+- Rename on F2 (Ronja)
+
+## 2024.2.2
+
+- Add fit bounds for ortho camera (Ronja)
+- Double click to focus (in view) (Ronja)
+- Remove debug cubes  :'( 
+
 ## 2024.2.1
 
 - World 2.0; several fixes
