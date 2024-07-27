@@ -1,0 +1,40 @@
+#![](../../../../../../images/luxe-dark.svg){width="96em"}
+
+# `luxe` API (`2023.11.1`)  
+
+
+---
+
+## `luxe: system/skeleton.modifier` module
+
+- [Data](#data)   
+- [Skeleton](#skeleton)   
+- [System](#system)   
+
+---
+
+### Data
+`:::js import "luxe: system/skeleton.modifier" for Data`
+> no docs found
+
+
+<hr/>
+### Skeleton
+`:::js import "luxe: system/skeleton.modifier" for Skeleton`
+> no docs found
+
+
+<hr/>
+### System
+`:::js import "luxe: system/skeleton.modifier" for System`
+> no docs found
+
+- [new](#System.new)(**world**: `World`)
+
+<hr/>
+<endpoint module="luxe: system/skeleton.modifier" class="System" signature="new(world : World)"></endpoint>
+<signature id="System.new">System.new(**world**: `World`)
+<a class="headerlink" href="#System.new" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js System`
+> no docs found   
+

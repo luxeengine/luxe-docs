@@ -37,19 +37,21 @@
 > no docs found
 
 - [get_system](#World.get_system+2)(**world**: `World`, **modifier_id**: `String`)
-- [exists](#World.exists)(**id**: `Any`)
-- [valid](#World.valid)(**world**: `Any`)
-- [get](#World.get)(**id**: `Any`)
-- [get_id](#World.get_id)(**world**: `Any`)
-- [set_id](#World.set_id+2)(**world**: `Any`, **id**: `Any`)
+- [exists](#World.exists)(**id**: `String`)
+- [valid](#World.valid)(**world**: `World`)
+- [get](#World.get)(**id**: `String`)
+- [get_id](#World.get_id)(**world**: `World`)
+- [set_id](#World.set_id+2)(**world**: `World`, **id**: `String`)
 - [get_default](#World.get_default)()
-- [set_default](#World.set_default)(**world**: `Any`)
-- [list](#World.list)(**world**: `Any`)
-- [list_ids](#World.list_ids)(**world**: `Any`)
-- [clear](#World.clear)(**world**: `Any`)
+- [set_default](#World.set_default)(**world**: `World`)
+- [list](#World.list)(**world**: `World`)
+- [list_ids](#World.list_ids)(**world**: `World`)
+- [clear](#World.clear)(**world**: `World`)
+- [duplicate](#World.duplicate)(**world**: `World`)
 - [tag_add](#World.tag_add+2)(**world**: `Any`, **tag**: `Any`)
 - [tag_remove](#World.tag_remove+2)(**world**: `Any`, **tag**: `Any`)
 - [tag_has](#World.tag_has+2)(**world**: `Any`, **tag**: `Any`)
+- [get_scene_roots](#World.get_scene_roots)(**world**: `World`)
 - [get_delta](#World.get_delta)(**world**: `Any`)
 - [tick](#World.tick+4)(**world**: `World`, **when**: `FrameWhen`, **section**: `FrameSection`, **priority**: `Num`)
 - [tick](#World.tick)(**world**: `World`)
@@ -89,6 +91,8 @@
 - [create](#World.create)()
 - [create](#World.create)(**id**: `Any`)
 - [destroy](#World.destroy)(**world**: `Any`)
+- [on_register_system](#World.on_register_system+2)(**world**: `World`, **fn**: `Fn`)
+- [off_register_system](#World.off_register_system+2)(**world**: `World`, **listener**: `Handle`)
 - [tick_now](#World.tick_now+2)(**world**: `Any`, **delta**: `Any`)
 - [live_worlds](#World.live_worlds)
 
@@ -99,32 +103,32 @@
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
-<endpoint module="luxe: world/world" class="World" signature="exists(id : Any)"></endpoint>
-<signature id="World.exists">World.exists(**id**: `Any`)
+<endpoint module="luxe: world/world" class="World" signature="exists(id : String)"></endpoint>
+<signature id="World.exists">World.exists(**id**: `String`)
 <a class="headerlink" href="#World.exists" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
+<span class='api_ret'>returns</span> `:::js Bool`
 > no docs found   
 
-<endpoint module="luxe: world/world" class="World" signature="valid(world : Any)"></endpoint>
-<signature id="World.valid">World.valid(**world**: `Any`)
+<endpoint module="luxe: world/world" class="World" signature="valid(world : World)"></endpoint>
+<signature id="World.valid">World.valid(**world**: `World`)
 <a class="headerlink" href="#World.valid" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
+<span class='api_ret'>returns</span> `:::js Bool`
 > no docs found   
 
-<endpoint module="luxe: world/world" class="World" signature="get(id : Any)"></endpoint>
-<signature id="World.get">World.get(**id**: `Any`)
+<endpoint module="luxe: world/world" class="World" signature="get(id : String)"></endpoint>
+<signature id="World.get">World.get(**id**: `String`)
 <a class="headerlink" href="#World.get" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
+<span class='api_ret'>returns</span> `:::js World`
 > no docs found   
 
-<endpoint module="luxe: world/world" class="World" signature="get_id(world : Any)"></endpoint>
-<signature id="World.get_id">World.get_id(**world**: `Any`)
+<endpoint module="luxe: world/world" class="World" signature="get_id(world : World)"></endpoint>
+<signature id="World.get_id">World.get_id(**world**: `World`)
 <a class="headerlink" href="#World.get_id" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
+<span class='api_ret'>returns</span> `:::js String`
 > no docs found   
 
-<endpoint module="luxe: world/world" class="World" signature="set_id(world : Any, id : Any)"></endpoint>
-<signature id="World.set_id+2">World.set_id(**world**: `Any`, **id**: `Any`)
+<endpoint module="luxe: world/world" class="World" signature="set_id(world : World, id : String)"></endpoint>
+<signature id="World.set_id+2">World.set_id(**world**: `World`, **id**: `String`)
 <a class="headerlink" href="#World.set_id+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
@@ -132,31 +136,37 @@
 <endpoint module="luxe: world/world" class="World" signature="get_default()"></endpoint>
 <signature id="World.get_default">World.get_default()
 <a class="headerlink" href="#World.get_default" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
+<span class='api_ret'>returns</span> `:::js World`
 > no docs found   
 
-<endpoint module="luxe: world/world" class="World" signature="set_default(world : Any)"></endpoint>
-<signature id="World.set_default">World.set_default(**world**: `Any`)
+<endpoint module="luxe: world/world" class="World" signature="set_default(world : World)"></endpoint>
+<signature id="World.set_default">World.set_default(**world**: `World`)
 <a class="headerlink" href="#World.set_default" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
+<span class='api_ret'>returns</span> `:::js None`
 > no docs found   
 
-<endpoint module="luxe: world/world" class="World" signature="list(world : Any)"></endpoint>
-<signature id="World.list">World.list(**world**: `Any`)
+<endpoint module="luxe: world/world" class="World" signature="list(world : World)"></endpoint>
+<signature id="World.list">World.list(**world**: `World`)
 <a class="headerlink" href="#World.list" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
+<span class='api_ret'>returns</span> `:::js List`
 > no docs found   
 
-<endpoint module="luxe: world/world" class="World" signature="list_ids(world : Any)"></endpoint>
-<signature id="World.list_ids">World.list_ids(**world**: `Any`)
+<endpoint module="luxe: world/world" class="World" signature="list_ids(world : World)"></endpoint>
+<signature id="World.list_ids">World.list_ids(**world**: `World`)
 <a class="headerlink" href="#World.list_ids" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
+<span class='api_ret'>returns</span> `:::js List`
 > no docs found   
 
-<endpoint module="luxe: world/world" class="World" signature="clear(world : Any)"></endpoint>
-<signature id="World.clear">World.clear(**world**: `Any`)
+<endpoint module="luxe: world/world" class="World" signature="clear(world : World)"></endpoint>
+<signature id="World.clear">World.clear(**world**: `World`)
 <a class="headerlink" href="#World.clear" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: world/world" class="World" signature="duplicate(world : World)"></endpoint>
+<signature id="World.duplicate">World.duplicate(**world**: `World`)
+<a class="headerlink" href="#World.duplicate" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js World`
 > no docs found   
 
 <endpoint module="luxe: world/world" class="World" signature="tag_add(world : Any, tag : Any)"></endpoint>
@@ -176,6 +186,12 @@
 <a class="headerlink" href="#World.tag_has+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
+
+<endpoint module="luxe: world/world" class="World" signature="get_scene_roots(world : World)"></endpoint>
+<signature id="World.get_scene_roots">World.get_scene_roots(**world**: `World`)
+<a class="headerlink" href="#World.get_scene_roots" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Returns a Set of scene root entities in the given world   
 
 <endpoint module="luxe: world/world" class="World" signature="get_delta(world : Any)"></endpoint>
 <signature id="World.get_delta">World.get_delta(**world**: `Any`)
@@ -410,6 +426,18 @@
 <a class="headerlink" href="#World.destroy" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
+
+<endpoint module="luxe: world/world" class="World" signature="on_register_system(world : World, fn : Fn)"></endpoint>
+<signature id="World.on_register_system+2">World.on_register_system(**world**: `World`, **fn**: `Fn`)
+<a class="headerlink" href="#World.on_register_system+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Handle`
+> Add a function to be called when a new modifier system is added to a world.   
+
+<endpoint module="luxe: world/world" class="World" signature="off_register_system(world : World, listener : Handle)"></endpoint>
+<signature id="World.off_register_system+2">World.off_register_system(**world**: `World`, **listener**: `Handle`)
+<a class="headerlink" href="#World.off_register_system+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Unsubscribe a listener from the creation of new modifier systems.   
 
 <endpoint module="luxe: world/world" class="World" signature="tick_now(world : Any, delta : Any)"></endpoint>
 <signature id="World.tick_now+2">World.tick_now(**world**: `Any`, **delta**: `Any`)

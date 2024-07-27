@@ -3210,6 +3210,7 @@
 - [drawable_w](#Render.drawable_w)()
 - [drawable_h](#Render.drawable_h)()
 - [drawable_ratio](#Render.drawable_ratio)()
+- [window_set_title](#Render.window_set_title)(**title**: `String`)
 - [get_path_vertices](#Render.get_path_vertices+13)(**into_pos**: `Any`, **offset_pos**: `Any`, **stride_pos**: `Any`, **into_color**: `Any`, **offset_color**: `Any`, **stride_color**: `Any`, **points**: `Any`, **color**: `Any`, **thickness**: `Any`, **cap**: `Any`, **join**: `Any`, **closed**: `Any`, **miter_limit**: `Any`)
 - [get_path_vertex_count](#Render.get_path_vertex_count+6)(**points**: `Any`, **thickness**: `Any`, **cap**: `Any`, **join**: `Any`, **closed**: `Any`, **miter_limit**: `Any`)
 - [push_render_dest](#Render.push_render_dest+2)(**dest**: `Any`, **into**: `Any`)
@@ -3236,6 +3237,7 @@
 - [vertex_buffer_update](#Render.vertex_buffer_update+5)(**vertex_buffer**: `Any`, **data**: `Any`, **length**: `Any`, **data_src_offset**: `Any`, **dest_offset**: `Any`)
 - [destroy_vertex_buffer](#Render.destroy_vertex_buffer)(**vertex_buffer**: `Any`)
 - [create_index_buffer](#Render.create_index_buffer+2)(**data**: `Any`, **length**: `Any`)
+- [create_index_buffer32](#Render.create_index_buffer32+2)(**data**: `Any`, **length**: `Any`)
 - [index_buffer_get_size](#Render.index_buffer_get_size)(**index_buffer**: `Any`)
 - [index_buffer_get_data](#Render.index_buffer_get_data+4)(**index_buffer**: `Any`, **into**: `Any`, **length**: `Any`, **offset**: `Any`)
 - [index_buffer_replace](#Render.index_buffer_replace+3)(**index_buffer**: `Any`, **data**: `Any`, **length**: `Any`)
@@ -3398,6 +3400,12 @@
 <span class='api_ret'>returns</span> `:::js Num`
 > no docs found   
 
+<endpoint module="luxe: render" class="Render" signature="window_set_title(title : String)"></endpoint>
+<signature id="Render.window_set_title">Render.window_set_title(**title**: `String`)
+<a class="headerlink" href="#Render.window_set_title" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
 <endpoint module="luxe: render" class="Render" signature="get_path_vertices(into_pos : Any, offset_pos : Any, stride_pos : Any, into_color : Any, offset_color : Any, stride_color : Any, points : Any, color : Any, thickness : Any, cap : Any, join : Any, closed : Any, miter_limit : Any)"></endpoint>
 <signature id="Render.get_path_vertices+13">Render.get_path_vertices(**into_pos**: `Any`, **offset_pos**: `Any`, **stride_pos**: `Any`, **into_color**: `Any`, **offset_color**: `Any`, **stride_color**: `Any`, **points**: `Any`, **color**: `Any`, **thickness**: `Any`, **cap**: `Any`, **join**: `Any`, **closed**: `Any`, **miter_limit**: `Any`)
 <a class="headerlink" href="#Render.get_path_vertices+13" title="Permanent link">¶</a></signature>
@@ -3551,6 +3559,12 @@
 <endpoint module="luxe: render" class="Render" signature="create_index_buffer(data : Any, length : Any)"></endpoint>
 <signature id="Render.create_index_buffer+2">Render.create_index_buffer(**data**: `Any`, **length**: `Any`)
 <a class="headerlink" href="#Render.create_index_buffer+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="Render" signature="create_index_buffer32(data : Any, length : Any)"></endpoint>
+<signature id="Render.create_index_buffer32+2">Render.create_index_buffer32(**data**: `Any`, **length**: `Any`)
+<a class="headerlink" href="#Render.create_index_buffer32+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 

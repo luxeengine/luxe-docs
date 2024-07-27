@@ -180,7 +180,7 @@
 <endpoint module="luxe: containers" class="Lists" signature="remove_where(list : List, value : Any, fn : Fn)"></endpoint>
 <signature id="Lists.remove_where+3">Lists.remove_where(**list**: `List`, **value**: `Any`, **fn**: `Fn`)
 <a class="headerlink" href="#Lists.remove_where+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Bool`
+<span class='api_ret'>returns</span> `:::js Any`
 > Similar to `list.remove` but uses a function for the find/equality check.
 > Uses `Lists.index_of_where` to find the index, so the callback 
 > msut return true if the values are equal or false if not.

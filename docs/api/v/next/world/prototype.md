@@ -15,5 +15,12 @@
 `:::js import "luxe: world/prototype" for Prototype`
 > no docs found
 
+- [has](#Prototype.has)(**entity**: `Entity`)
 
 <hr/>
+<endpoint module="luxe: world/prototype" class="Prototype" signature="has(entity : Entity)"></endpoint>
+<signature id="Prototype.has">Prototype.has(**entity**: `Entity`)
+<a class="headerlink" href="#Prototype.has" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+

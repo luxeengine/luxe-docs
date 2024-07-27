@@ -99,6 +99,7 @@
 - [set_handle_default_icons](#UIWorld.set_handle_default_icons+2)(**control**: `Control`, **enable**: `Bool`)
 - [refresh](#UIWorld.refresh)(**control**: `Control`)
 - [get_view](#UIWorld.get_view)(**control**: `Control`)
+- [scroll_to](#UIWorld.scroll_to+2)(**control**: `Control`, **entity**: `Entity`)
 - [set_selection](#UIWorld.set_selection+2)(**control**: `Control`, **selection**: `Selection`)
 - [get_selection](#UIWorld.get_selection)(**control**: `Control`)
 - [enter_select_mode](#UIWorld.enter_select_mode+3)(**control**: `Control`, **enter_state**: `Bool`, **display**: `String`)
@@ -132,6 +133,12 @@
 <endpoint module="luxe: ui/world" class="UIWorld" signature="get_view(control : Control)"></endpoint>
 <signature id="UIWorld.get_view">UIWorld.get_view(**control**: `Control`)
 <a class="headerlink" href="#UIWorld.get_view" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: ui/world" class="UIWorld" signature="scroll_to(control : Control, entity : Entity)"></endpoint>
+<signature id="UIWorld.scroll_to+2">UIWorld.scroll_to(**control**: `Control`, **entity**: `Entity`)
+<a class="headerlink" href="#UIWorld.scroll_to+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
@@ -171,6 +178,7 @@
 - [rename](#UIWorldEvent.rename)
 - [active_context](#UIWorldEvent.active_context)
 - [focus](#UIWorldEvent.focus)
+- [close](#UIWorldEvent.close)
 - [kind](#UIWorldEvent.kind)
 - [items](#UIWorldEvent.items)
 - [data](#UIWorldEvent.data)
@@ -225,6 +233,12 @@
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
+<endpoint module="luxe: ui/world" class="UIWorldEvent" signature="close"></endpoint>
+<signature id="UIWorldEvent.close">UIWorldEvent.close
+<a class="headerlink" href="#UIWorldEvent.close" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
 <endpoint module="luxe: ui/world" class="UIWorldEvent" signature="kind"></endpoint>
 <signature id="UIWorldEvent.kind">UIWorldEvent.kind
 <a class="headerlink" href="#UIWorldEvent.kind" title="Permanent link">¶</a></signature>
@@ -269,6 +283,7 @@
 - [enable](#UIWorldIcon.enable)(**handle**: `Num`)
 - [disable](#UIWorldIcon.disable)()
 - [disable](#UIWorldIcon.disable)(**handle**: `Num`)
+- [can_do_direct_only_action](#UIWorldIcon.can_do_direct_only_action)(**list**: `List`)
 - [on_selection](#UIWorldIcon.on_selection)(**fn**: `Fn`)
 - [on_release](#UIWorldIcon.on_release)(**fn**: `Fn`)
 - [on_enter](#UIWorldIcon.on_enter)(**fn**: `Fn`)
@@ -369,6 +384,12 @@
 <signature id="UIWorldIcon.disable">UIWorldIcon.disable(**handle**: `Num`)
 <a class="headerlink" href="#UIWorldIcon.disable" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: ui/world" class="UIWorldIcon" signature="can_do_direct_only_action(list : List)"></endpoint>
+<signature id="UIWorldIcon.can_do_direct_only_action">UIWorldIcon.can_do_direct_only_action(**list**: `List`)
+<a class="headerlink" href="#UIWorldIcon.can_do_direct_only_action" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
 > no docs found   
 
 <endpoint module="luxe: ui/world" class="UIWorldIcon" signature="on_selection(fn : Fn)"></endpoint>

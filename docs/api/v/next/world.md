@@ -7,23 +7,14 @@
 
 ## `luxe: world` module
 
-- [Anim](#anim)   
-- [AnimEvent](#animevent)   
-- [AnimInterpolation](#animinterpolation)   
-- [AnimInterval](#animinterval)   
-- [AnimState](#animstate)   
 - [Body2D](#body2d)   
 - [Body3D](#body3d)   
 - [BodyEvent](#bodyevent)   
 - [BodyType](#bodytype)   
-- [Camera](#camera)   
-- [CameraProjection](#cameraprojection)   
 - [Clock](#clock)   
 - [Entity](#entity)   
 - [EntityContextType](#entitycontexttype)   
 - [EntityEventType](#entityeventtype)   
-- [Layer](#layer)   
-- [Mesh](#mesh)   
 - [MeshColliderType](#meshcollidertype)   
 - [ModifierEventType](#modifiereventtype)   
 - [ModifierSystem](#modifiersystem)   
@@ -33,13 +24,6 @@
 - [Physics3D](#physics3d)   
 - [Prototype](#prototype)   
 - [Scene](#scene)   
-- [Sprite](#sprite)   
-- [Tags](#tags)   
-- [Text](#text)   
-- [Tile](#tile)   
-- [Tiles](#tiles)   
-- [Transform](#transform)   
-- [TransformApplyMask](#transformapplymask)   
 - [UI](#ui)   
 - [UIBehave](#uibehave)   
 - [UIClear](#uiclear)   
@@ -50,754 +34,10 @@
 - [UIImageFlags](#uiimageflags)   
 - [UILayoutMode](#uilayoutmode)   
 - [UIRenderMode](#uirendermode)   
-- [Values](#values)   
-- [ValuesType](#valuestype)   
 - [WorldEventType](#worldeventtype)   
 - [WorldRenderDesc](#worldrenderdesc)   
 
 ---
-
-### Anim
-`:::js import "luxe: world" for Anim`
-> `Anim` is an animation player attached to an entity.
-> 
-> It plays animations from animation assets or ones created from code. 
-> Animations can target the entity `Anim` is attached to, 
-> but can target any entity. 
-> For example, a level cutscene could be played back from one entity, 
-> but it drives several other entities. From assets like scenes and prototypes, 
-> `Anim` provides an autoplay list, for playing when loaded. 
-> 
-> You can play multiple animations at the same time, 
-> for example, the player might have a _walk_ animation playing 
-> and you play a _glowing_ animation on top. 
-> 
-> `Anim` supports curve, linear and discrete driven animations 
-> and is expanded on by World Systems that provide animation tracks.
-
-- [create](#Anim.create)(**entity**: `Entity`)
-- [destroy](#Anim.destroy)(**entity**: `Entity`)
-- [has](#Anim.has)(**entity**: `Entity`)
-- [valid](#Anim.valid+2)(**entity**: `Entity`, **anim**: `Anim`)
-- [get_source_id](#Anim.get_source_id+2)(**entity**: `Entity`, **anim**: `Anim`)
-- [get_state](#Anim.get_state+2)(**entity**: `Entity`, **anim**: `Anim`)
-- [get_active_anims](#Anim.get_active_anims)(**entity**: `Entity`)
-- [play](#Anim.play+3)(**entity**: `Entity`, **anim_lx**: `ID`, **time_offset**: `Num`)
-- [play](#Anim.play+2)(**entity**: `Entity`, **anim_lx**: `ID`)
-- [play_only](#Anim.play_only+3)(**entity**: `Entity`, **anim_lx**: `ID`, **time_offset**: `Num`)
-- [play_only](#Anim.play_only+2)(**entity**: `Entity`, **anim_lx**: `ID`)
-- [stop](#Anim.stop+3)(**entity**: `Entity`, **anim**: `Anim`, **reset**: `Bool`)
-- [stop](#Anim.stop+2)(**entity**: `Entity`, **anim**: `Anim`)
-- [stop_all](#Anim.stop_all+2)(**entity**: `Entity`, **reset**: `Bool`)
-- [stop_all](#Anim.stop_all)(**entity**: `Entity`)
-- [create_track](#Anim.create_track+4)(**entity**: `Entity`, **anim**: `Anim`, **track_id**: `Any`, **track_type**: `Any`)
-- [has_track](#Anim.has_track+3)(**entity**: `Entity`, **anim**: `Anim`, **track_id**: `Any`)
-- [track_set_range](#Anim.track_set_range+5)(**entity**: `Entity`, **anim**: `Anim`, **track_id**: `Any`, **min**: `Any`, **max**: `Any`)
-- [track_get_range](#Anim.track_get_range+3)(**entity**: `Entity`, **anim**: `Anim`, **track_id**: `Any`)
-- [track_set](#Anim.track_set+5)(**entity**: `Entity`, **anim**: `Anim`, **track_id**: `Any`, **property**: `Any`, **value**: `Any`)
-- [track_set_channel](#Anim.track_set_channel+7)(**entity**: `Entity`, **anim**: `Anim`, **track_id**: `Any`, **channel_id**: `Any`, **channel_idx**: `Any`, **interp**: `Any`, **keys**: `Any`)
-- [set_play_count](#Anim.set_play_count+3)(**entity**: `Entity`, **anim**: `Anim`, **play_count**: `Num`)
-- [set_rate](#Anim.set_rate+3)(**entity**: `Entity`, **anim**: `Anim`, **rate**: `Num`)
-- [set_start](#Anim.set_start+3)(**entity**: `Entity`, **anim**: `Anim`, **start**: `Num`)
-- [set_end](#Anim.set_end+3)(**entity**: `Entity`, **anim**: `Anim`, **end**: `Num`)
-- [set_interval_time](#Anim.set_interval_time+3)(**entity**: `Entity`, **anim**: `Anim`, **time**: `Num`)
-- [get_play_count](#Anim.get_play_count+2)(**entity**: `Entity`, **anim**: `Anim`)
-- [get_rate](#Anim.get_rate+2)(**entity**: `Entity`, **anim**: `Anim`)
-- [get_duration](#Anim.get_duration+2)(**entity**: `Entity`, **anim**: `Anim`)
-- [get_start](#Anim.get_start+2)(**entity**: `Entity`, **anim**: `Anim`)
-- [get_end](#Anim.get_end+2)(**entity**: `Entity`, **anim**: `Anim`)
-- [get_interval_time](#Anim.get_interval_time+2)(**entity**: `Entity`, **anim**: `Anim`)
-- [on_event](#Anim.on_event+3)(**entity**: `Entity`, **anim**: `Anim`, **fn**: `Fn`)
-
-<hr/>
-<endpoint module="luxe: world" class="Anim" signature="create(entity : Entity)"></endpoint>
-<signature id="Anim.create">Anim.create(**entity**: `Entity`)
-<a class="headerlink" href="#Anim.create" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> Attach an `Anim` modifier to `entity`.
-> 
->   ```js
->   var entity = Entity.create(world)
->   Anim.create(entity)
->   ```   
-
-<endpoint module="luxe: world" class="Anim" signature="destroy(entity : Entity)"></endpoint>
-<signature id="Anim.destroy">Anim.destroy(**entity**: `Entity`)
-<a class="headerlink" href="#Anim.destroy" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Detach and destroy the `Anim` attached to `entity`.
-> 
->   ```js
->   Anim.destroy(entity)
->   ```   
-
-<endpoint module="luxe: world" class="Anim" signature="has(entity : Entity)"></endpoint>
-<signature id="Anim.has">Anim.has(**entity**: `Entity`)
-<a class="headerlink" href="#Anim.has" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Bool`
-> Returns whether `entity` has an `Anim` modifier attached. 
-> 
->   ```js
->   if(Anim.has(entity)) {
->     Log.print("found anim")
->   }
->   ```   
-
-<endpoint module="luxe: world" class="Anim" signature="valid(entity : Entity, anim : Anim)"></endpoint>
-<signature id="Anim.valid+2">Anim.valid(**entity**: `Entity`, **anim**: `Anim`)
-<a class="headerlink" href="#Anim.valid+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Bool`
-> Returns whether the `Anim` instance is valid for the `Anim` attached to `entity`. 
-> 
->   ```js
->   var anim = Anim.play(entity, "player/idle")
->   if(!Anim.valid(entity, anim)) {
->     Log.print("oh no!")
->   }
->   ```   
-
-<endpoint module="luxe: world" class="Anim" signature="get_source_id(entity : Entity, anim : Anim)"></endpoint>
-<signature id="Anim.get_source_id+2">Anim.get_source_id(**entity**: `Entity`, **anim**: `Anim`)
-<a class="headerlink" href="#Anim.get_source_id+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js ID`
-> Returns the `ID` of the animation asset that the `Anim` instance was played from, 
-> if known, by asking the `Anim` attached to `entity`. Returns `null` if not. 
-> 
->   ```js
->   var anim = Anim.play(entity, "player/idle")
->   var source_id = Anim.get_source_id(entity, anim)
->   Log.print(Strings.get(source_id)) //expect: "player/idle"
->   ```   
-
-<endpoint module="luxe: world" class="Anim" signature="get_state(entity : Entity, anim : Anim)"></endpoint>
-<signature id="Anim.get_state+2">Anim.get_state(**entity**: `Entity`, **anim**: `Anim`)
-<a class="headerlink" href="#Anim.get_state+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js AnimState`
-> Return the animation state of the `Anim` instance, by asking the `Anim` attached to `entity`. 
-> 
->   ```js
->   var anim = Anim.play(entity, "player/idle")
->   var state = Anim.get_state(entity, anim)
->   if(state == AnimState.playing) {
->     Anim.stop(entity, anim)
->   }
->   ```   
-
-<endpoint module="luxe: world" class="Anim" signature="get_active_anims(entity : Entity)"></endpoint>
-<signature id="Anim.get_active_anims">Anim.get_active_anims(**entity**: `Entity`)
-<a class="headerlink" href="#Anim.get_active_anims" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js List`
-> Returns a list of `Anim` instances that are active on the `Anim` attached to `entity`. 
-> 
->   ```js
->   var active = Anim.get_active_anims(entity)
->   for(anim in active) {
->     var state = Anim.get_state(entity, anim)
->     Log.print(AnimState.name(state));
->   }
->   ```   
-
-<endpoint module="luxe: world" class="Anim" signature="play(entity : Entity, anim_lx : ID, time_offset : Num)"></endpoint>
-<signature id="Anim.play+3">Anim.play(**entity**: `Entity`, **anim_lx**: `ID`, **time_offset**: `Num`)
-<a class="headerlink" href="#Anim.play+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Anim`
-> Play the animation asset `anim_lx` on the Anim attached to `entity`. 
-> The `time_offset` is a time in seconds to begin playback from. 
-> For example, you might pause an animation and hold onto the animation time when it was paused. 
-> Then when resuming, you can play from the new time.
-> Returns the newly started `Anim` instance.
-> 
->   ```js
->   var anim = Anim.play(entity, "player/idle", 0.5)
->   ```   
-
-<endpoint module="luxe: world" class="Anim" signature="play(entity : Entity, anim_lx : ID)"></endpoint>
-<signature id="Anim.play+2">Anim.play(**entity**: `Entity`, **anim_lx**: `ID`)
-<a class="headerlink" href="#Anim.play+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Anim`
-> Play the animation asset `anim_lx` on the `Anim` attached to `entity`. 
-> Plays from the beginning.
-> Returns the newly started `Anim` instance.
-> 
->   ```js
->   var anim = Anim.play(entity, "player/idle")
->   ```   
-
-<endpoint module="luxe: world" class="Anim" signature="play_only(entity : Entity, anim_lx : ID, time_offset : Num)"></endpoint>
-<signature id="Anim.play_only+3">Anim.play_only(**entity**: `Entity`, **anim_lx**: `ID`, **time_offset**: `Num`)
-<a class="headerlink" href="#Anim.play_only+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Anim`
-> Play the animation asset `anim_lx` on the `Anim` attached to `entity`, stopping all other active anims, 
-> and only playing this one. The `time_offset` is a time in seconds to begin playback from. 
-> Returns the newly started `Anim` instance.
-> 
->   ```js
->   var anim = Anim.play_only(entity, "player/idle", 0.5)
->   ```   
-
-<endpoint module="luxe: world" class="Anim" signature="play_only(entity : Entity, anim_lx : ID)"></endpoint>
-<signature id="Anim.play_only+2">Anim.play_only(**entity**: `Entity`, **anim_lx**: `ID`)
-<a class="headerlink" href="#Anim.play_only+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Anim`
-> Play the animation asset `anim_lx` on the `Anim` attached to `entity`, stopping all other active anims, 
-> and only playing this one.
-> Returns the newly started `Anim` instance.
-> 
->   ```js
->   var anim = Anim.play_only(entity, "player/idle")
->   ```   
-
-<endpoint module="luxe: world" class="Anim" signature="stop(entity : Entity, anim : Anim, reset : Bool)"></endpoint>
-<signature id="Anim.stop+3">Anim.stop(**entity**: `Entity`, **anim**: `Anim`, **reset**: `Bool`)
-<a class="headerlink" href="#Anim.stop+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Stop the `Anim` instance if playing on the `Anim` attached to `entity`.
-> 
-> If `reset` is `true`, the state of anything that was being animated by this `Anim` instance, 
-> will be reset to what it was before it was played. For example, if your animation is changing the transform position, 
-> it will revert back to the position at the time the animation was played. 
-> 
->   ```js
->   var anim = Anim.play(entity, "player/idle")
->   Anim.stop(entity, anim, true)
->   ```   
-
-<endpoint module="luxe: world" class="Anim" signature="stop(entity : Entity, anim : Anim)"></endpoint>
-<signature id="Anim.stop+2">Anim.stop(**entity**: `Entity`, **anim**: `Anim`)
-<a class="headerlink" href="#Anim.stop+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Stop the `Anim` instance if playing on the `Anim` attached to `entity`. 
-> State is not reset (see `Anim.stop(entity, anim, reset)`). 
-> 
->   ```js
->   var anim = Anim.play(entity, "player/idle")
->   Anim.stop(entity, anim)
->   ```   
-
-<endpoint module="luxe: world" class="Anim" signature="stop_all(entity : Entity, reset : Bool)"></endpoint>
-<signature id="Anim.stop_all+2">Anim.stop_all(**entity**: `Entity`, **reset**: `Bool`)
-<a class="headerlink" href="#Anim.stop_all+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Stop all active `Anim` instances playing on the `Anim` attached to `entity`. 
-> If `reset` is `true`, state will be reset to the state before the animation started (see `Anim.stop(entity, anim, reset)`). 
-> 
->   ```js
->   var anim = Anim.play(entity, "player/idle")
->   Anim.stop_all(entity, true)
->   ```   
-
-<endpoint module="luxe: world" class="Anim" signature="stop_all(entity : Entity)"></endpoint>
-<signature id="Anim.stop_all">Anim.stop_all(**entity**: `Entity`)
-<a class="headerlink" href="#Anim.stop_all" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Stop all active `Anim` instances playing on the `Anim` attached to `entity`. 
-> State is not reset (see `Anim.stop(entity, anim, reset)`). 
-> 
->   ```js
->   var anim = Anim.play(entity, "player/idle")
->   Anim.stop_all(entity)
->   ```   
-
-<endpoint module="luxe: world" class="Anim" signature="create_track(entity : Entity, anim : Anim, track_id : Any, track_type : Any)"></endpoint>
-<signature id="Anim.create_track+4">Anim.create_track(**entity**: `Entity`, **anim**: `Anim`, **track_id**: `Any`, **track_type**: `Any`)
-<a class="headerlink" href="#Anim.create_track+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Anim" signature="has_track(entity : Entity, anim : Anim, track_id : Any)"></endpoint>
-<signature id="Anim.has_track+3">Anim.has_track(**entity**: `Entity`, **anim**: `Anim`, **track_id**: `Any`)
-<a class="headerlink" href="#Anim.has_track+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Anim" signature="track_set_range(entity : Entity, anim : Anim, track_id : Any, min : Any, max : Any)"></endpoint>
-<signature id="Anim.track_set_range+5">Anim.track_set_range(**entity**: `Entity`, **anim**: `Anim`, **track_id**: `Any`, **min**: `Any`, **max**: `Any`)
-<a class="headerlink" href="#Anim.track_set_range+5" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Anim" signature="track_get_range(entity : Entity, anim : Anim, track_id : Any)"></endpoint>
-<signature id="Anim.track_get_range+3">Anim.track_get_range(**entity**: `Entity`, **anim**: `Anim`, **track_id**: `Any`)
-<a class="headerlink" href="#Anim.track_get_range+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Anim" signature="track_set(entity : Entity, anim : Anim, track_id : Any, property : Any, value : Any)"></endpoint>
-<signature id="Anim.track_set+5">Anim.track_set(**entity**: `Entity`, **anim**: `Anim`, **track_id**: `Any`, **property**: `Any`, **value**: `Any`)
-<a class="headerlink" href="#Anim.track_set+5" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Anim" signature="track_set_channel(entity : Entity, anim : Anim, track_id : Any, channel_id : Any, channel_idx : Any, interp : Any, keys : Any)"></endpoint>
-<signature id="Anim.track_set_channel+7">Anim.track_set_channel(**entity**: `Entity`, **anim**: `Anim`, **track_id**: `Any`, **channel_id**: `Any`, **channel_idx**: `Any`, **interp**: `Any`, **keys**: `Any`)
-<a class="headerlink" href="#Anim.track_set_channel+7" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Anim" signature="set_play_count(entity : Entity, anim : Anim, play_count : Num)"></endpoint>
-<signature id="Anim.set_play_count+3">Anim.set_play_count(**entity**: `Entity`, **anim**: `Anim`, **play_count**: `Num`)
-<a class="headerlink" href="#Anim.set_play_count+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Set the amount of times to play the `Anim` instance on the `Anim` attached to `entity`. 
-> The `play_count` value can be `0`, which will loop forever.
-> 
->   ```js
->   //play 3 times and then end
->   var anim = Anim.play(entity, "player/idle")
->   Anim.set_play_count(entity, anim, 3)
->   ```   
-
-<endpoint module="luxe: world" class="Anim" signature="set_rate(entity : Entity, anim : Anim, rate : Num)"></endpoint>
-<signature id="Anim.set_rate+3">Anim.set_rate(**entity**: `Entity`, **anim**: `Anim`, **rate**: `Num`)
-<a class="headerlink" href="#Anim.set_rate+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Set the playback rate of the `Anim` instance on the `Anim` attached to `entity`. 
-> The rate of `1` is the default speed. `0.5` is half speed, and `2` is twice as fast. 
-> 
->   ```js
->   var anim = Anim.play(entity, "player/idle")
->   Anim.set_rate(entity, anim, 0.5)
->   ```   
-
-<endpoint module="luxe: world" class="Anim" signature="set_start(entity : Entity, anim : Anim, start : Num)"></endpoint>
-<signature id="Anim.set_start+3">Anim.set_start(**entity**: `Entity`, **anim**: `Anim`, **start**: `Num`)
-<a class="headerlink" href="#Anim.set_start+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Set the start marker of the `Anim` instance on the `Anim` attached to `entity`. *note* This API is WIP. 
-> 
->   ```js
->   Anim.set_start(entity, anim, 0)
->   ```   
-
-<endpoint module="luxe: world" class="Anim" signature="set_end(entity : Entity, anim : Anim, end : Num)"></endpoint>
-<signature id="Anim.set_end+3">Anim.set_end(**entity**: `Entity`, **anim**: `Anim`, **end**: `Num`)
-<a class="headerlink" href="#Anim.set_end+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Set the end marker of the `Anim` instance on the `Anim` attached to `entity`. *note* This API is WIP. 
-> 
->   ```js
->   Anim.set_end(entity, anim, 1)
->   ```   
-
-<endpoint module="luxe: world" class="Anim" signature="set_interval_time(entity : Entity, anim : Anim, time : Num)"></endpoint>
-<signature id="Anim.set_interval_time+3">Anim.set_interval_time(**entity**: `Entity`, **anim**: `Anim`, **time**: `Num`)
-<a class="headerlink" href="#Anim.set_interval_time+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Set the current playback time of the `Anim` instance on the `Anim` attached to `entity`. *note* This API is WIP. 
-> 
->   ```js
->   Anim.set_interval_time(entity, anim, 0.5)
->   ```   
-
-<endpoint module="luxe: world" class="Anim" signature="get_play_count(entity : Entity, anim : Anim)"></endpoint>
-<signature id="Anim.get_play_count+2">Anim.get_play_count(**entity**: `Entity`, **anim**: `Anim`)
-<a class="headerlink" href="#Anim.get_play_count+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Num`
-> Return the play count of the `Anim` instance on the `Anim` attached to `entity`. 
-> 
->   ```js
->   var play_count = Anim.get_play_count(entity, anim)
->   ```   
-
-<endpoint module="luxe: world" class="Anim" signature="get_rate(entity : Entity, anim : Anim)"></endpoint>
-<signature id="Anim.get_rate+2">Anim.get_rate(**entity**: `Entity`, **anim**: `Anim`)
-<a class="headerlink" href="#Anim.get_rate+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Num`
-> Return the rate of playback of the `Anim` instance on the `Anim` attached to `entity`. 
-> 
->   ```js
->   var play_count = Anim.get_play_count(entity, anim)
->   ```   
-
-<endpoint module="luxe: world" class="Anim" signature="get_duration(entity : Entity, anim : Anim)"></endpoint>
-<signature id="Anim.get_duration+2">Anim.get_duration(**entity**: `Entity`, **anim**: `Anim`)
-<a class="headerlink" href="#Anim.get_duration+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Num`
-> Return the duration of the `Anim` instance on the `Anim` attached to `entity`. 
-> 
->   ```js
->   var play_count = Anim.get_play_count(entity, anim)
->   ```   
-
-<endpoint module="luxe: world" class="Anim" signature="get_start(entity : Entity, anim : Anim)"></endpoint>
-<signature id="Anim.get_start+2">Anim.get_start(**entity**: `Entity`, **anim**: `Anim`)
-<a class="headerlink" href="#Anim.get_start+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Num`
-> Return the start marker of the `Anim` instance on the `Anim` attached to `entity`. 
-> 
->   ```js
->   var play_count = Anim.get_play_count(entity, anim)
->   ```   
-
-<endpoint module="luxe: world" class="Anim" signature="get_end(entity : Entity, anim : Anim)"></endpoint>
-<signature id="Anim.get_end+2">Anim.get_end(**entity**: `Entity`, **anim**: `Anim`)
-<a class="headerlink" href="#Anim.get_end+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Num`
-> Return the end marker of the `Anim` instance on the `Anim` attached to `entity`. 
-> 
->   ```js
->   var play_count = Anim.get_play_count(entity, anim)
->   ```   
-
-<endpoint module="luxe: world" class="Anim" signature="get_interval_time(entity : Entity, anim : Anim)"></endpoint>
-<signature id="Anim.get_interval_time+2">Anim.get_interval_time(**entity**: `Entity`, **anim**: `Anim`)
-<a class="headerlink" href="#Anim.get_interval_time+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Num`
-> Return the current playback time of the `Anim` instance on the `Anim` attached to entity. *note* This API is WIP. 
-> 
->   ```js
->   var play_count = Anim.get_play_count(entity, anim)
->   ```   
-
-<endpoint module="luxe: world" class="Anim" signature="on_event(entity : Entity, anim : Anim, fn : Fn)"></endpoint>
-<signature id="Anim.on_event+3">Anim.on_event(**entity**: `Entity`, **anim**: `Anim`, **fn**: `Fn`)
-<a class="headerlink" href="#Anim.on_event+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> no docs found   
-
-### AnimEvent
-`:::js import "luxe: world" for AnimEvent`
-> no docs found
-
-- [start](#AnimEvent.start)
-- [tick](#AnimEvent.tick)
-- [complete](#AnimEvent.complete)
-
-<hr/>
-<endpoint module="luxe: world" class="AnimEvent" signature="start"></endpoint>
-<signature id="AnimEvent.start">AnimEvent.start
-<a class="headerlink" href="#AnimEvent.start" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> An event fired when an animation started playing.   
-
-<endpoint module="luxe: world" class="AnimEvent" signature="tick"></endpoint>
-<signature id="AnimEvent.tick">AnimEvent.tick
-<a class="headerlink" href="#AnimEvent.tick" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> An event fired when an animation is updated, but only if the track is set to emit the event.   
-
-<endpoint module="luxe: world" class="AnimEvent" signature="complete"></endpoint>
-<signature id="AnimEvent.complete">AnimEvent.complete
-<a class="headerlink" href="#AnimEvent.complete" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> An event fired when an animation is stopped or done playing.   
-
-### AnimInterpolation
-`:::js import "luxe: world" for AnimInterpolation`
-> An enum for types of interpolation in animation tracks.
-
-- [unknown](#AnimInterpolation.unknown)
-- [curve](#AnimInterpolation.curve)
-- [linear](#AnimInterpolation.linear)
-- [discrete](#AnimInterpolation.discrete)
-- [name](#AnimInterpolation.name)(**value**: `AnimInterpolation`)
-- [from_string](#AnimInterpolation.from_string)(**value**: `String`)
-
-<hr/>
-<endpoint module="luxe: world" class="AnimInterpolation" signature="unknown"></endpoint>
-<signature id="AnimInterpolation.unknown">AnimInterpolation.unknown
-<a class="headerlink" href="#AnimInterpolation.unknown" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> An invalid or unknown value.
-> 
->   ```js
->   if(value == AnimInterpolation.unknown) {
->     Log.print("unknown interpolation type!")
->   }
->   ```   
-
-<endpoint module="luxe: world" class="AnimInterpolation" signature="curve"></endpoint>
-<signature id="AnimInterpolation.curve">AnimInterpolation.curve
-<a class="headerlink" href="#AnimInterpolation.curve" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> The animation values between keys will be interpolated 
-> according to the curve defined by the keys themselves. 
-> 
->   ```js
->   if(value == AnimInterpolation.curve) {
->     Log.print("curve")
->   }
->   ```   
-
-<endpoint module="luxe: world" class="AnimInterpolation" signature="linear"></endpoint>
-<signature id="AnimInterpolation.linear">AnimInterpolation.linear
-<a class="headerlink" href="#AnimInterpolation.linear" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> The animation values between keys will be interpolated linearly. 
-> For example if your keys were `{ time=0 value=0 }` and `{ time=1 value=4 }`, 
-> at the time of `0.5` the value would be `2`, half of the next key. 
-> 
->   ```js
->   if(value == AnimInterpolation.linear) {
->     Log.print("linear")
->   }
->   ```   
-
-<endpoint module="luxe: world" class="AnimInterpolation" signature="discrete"></endpoint>
-<signature id="AnimInterpolation.discrete">AnimInterpolation.discrete
-<a class="headerlink" href="#AnimInterpolation.discrete" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> The animation values between keys would not be interpolated, 
-> they would jump from one value to the next. 
-> For example if your keys were `{ time=0 value=0 }` and `{ time=1 value=3 }`, 
-> with discrete the value at time `0.5` is still `0` 
-> (instead of `1.5` with linear). 
-> It will only change to `3` when the next key is reached. 
-> 
->   ```js
->   if(value == AnimInterpolation.discrete) {
->     Log.print("discrete")
->   }
->   ```   
-
-<endpoint module="luxe: world" class="AnimInterpolation" signature="name(value : AnimInterpolation)"></endpoint>
-<signature id="AnimInterpolation.name">AnimInterpolation.name(**value**: `AnimInterpolation`)
-<a class="headerlink" href="#AnimInterpolation.name" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js String`
-> Convert an `AnimInterpolation` value to a string. 
-> 
->   ```js
->   var type = AnimInterpolation.linear
->   var name = AnimInterpolation.name(type)
->   Log.print("type is %(name)") //expect: "linear"
->   ```   
-
-<endpoint module="luxe: world" class="AnimInterpolation" signature="from_string(value : String)"></endpoint>
-<signature id="AnimInterpolation.from_string">AnimInterpolation.from_string(**value**: `String`)
-<a class="headerlink" href="#AnimInterpolation.from_string" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js AnimInterpolation`
-> Get the `AnimInterpolation` value to a name.
-> 
->   ```js
->   var type = AnimInterpolation.from_string("discrete")
->   Log.print("discrete is value %(type)") //expect: "3", the internal value
->   ```   
-
-### AnimInterval
-`:::js import "luxe: world" for AnimInterval`
-> no docs found
-
-- [create](#AnimInterval.create+3)(**world**: `Any`, **duration**: `Any`, **rate**: `Any`)
-- [create](#AnimInterval.create+2)(**world**: `Any`, **duration**: `Any`)
-- [time](#AnimInterval.time+2)(**world**: `Any`, **anim**: `Any`)
-- [set_time](#AnimInterval.set_time+3)(**world**: `Any`, **anim**: `Any`, **time**: `Any`)
-- [set_now](#AnimInterval.set_now+3)(**world**: `Any`, **anim**: `Any`, **offset**: `Any`)
-- [set_now](#AnimInterval.set_now+2)(**world**: `Any`, **anim**: `Any`)
-- [set_play_count](#AnimInterval.set_play_count+3)(**world**: `Any`, **anim**: `Any`, **count**: `Any`)
-- [set_clock](#AnimInterval.set_clock+3)(**world**: `Any`, **anim**: `Any`, **clock**: `Any`)
-- [set_rate](#AnimInterval.set_rate+3)(**world**: `Any`, **anim**: `Any`, **rate**: `Any`)
-- [set_duration](#AnimInterval.set_duration+3)(**world**: `Any`, **anim**: `Any`, **duration**: `Any`)
-- [set_start](#AnimInterval.set_start+3)(**world**: `Any`, **anim**: `Any`, **start**: `Any`)
-- [set_end](#AnimInterval.set_end+3)(**world**: `Any`, **anim**: `Any`, **end**: `Any`)
-- [get_now](#AnimInterval.get_now+2)(**world**: `Any`, **anim**: `Any`)
-- [get_play_count](#AnimInterval.get_play_count+2)(**world**: `Any`, **anim**: `Any`)
-- [get_clock](#AnimInterval.get_clock+2)(**world**: `Any`, **anim**: `Any`)
-- [get_rate](#AnimInterval.get_rate+2)(**world**: `Any`, **anim**: `Any`)
-- [get_duration](#AnimInterval.get_duration+2)(**world**: `Any`, **anim**: `Any`)
-- [get_start](#AnimInterval.get_start+2)(**world**: `Any`, **anim**: `Any`)
-- [get_end](#AnimInterval.get_end+2)(**world**: `Any`, **anim**: `Any`)
-
-<hr/>
-<endpoint module="luxe: world" class="AnimInterval" signature="create(world : Any, duration : Any, rate : Any)"></endpoint>
-<signature id="AnimInterval.create+3">AnimInterval.create(**world**: `Any`, **duration**: `Any`, **rate**: `Any`)
-<a class="headerlink" href="#AnimInterval.create+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="AnimInterval" signature="create(world : Any, duration : Any)"></endpoint>
-<signature id="AnimInterval.create+2">AnimInterval.create(**world**: `Any`, **duration**: `Any`)
-<a class="headerlink" href="#AnimInterval.create+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="AnimInterval" signature="time(world : Any, anim : Any)"></endpoint>
-<signature id="AnimInterval.time+2">AnimInterval.time(**world**: `Any`, **anim**: `Any`)
-<a class="headerlink" href="#AnimInterval.time+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="AnimInterval" signature="set_time(world : Any, anim : Any, time : Any)"></endpoint>
-<signature id="AnimInterval.set_time+3">AnimInterval.set_time(**world**: `Any`, **anim**: `Any`, **time**: `Any`)
-<a class="headerlink" href="#AnimInterval.set_time+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="AnimInterval" signature="set_now(world : Any, anim : Any, offset : Any)"></endpoint>
-<signature id="AnimInterval.set_now+3">AnimInterval.set_now(**world**: `Any`, **anim**: `Any`, **offset**: `Any`)
-<a class="headerlink" href="#AnimInterval.set_now+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="AnimInterval" signature="set_now(world : Any, anim : Any)"></endpoint>
-<signature id="AnimInterval.set_now+2">AnimInterval.set_now(**world**: `Any`, **anim**: `Any`)
-<a class="headerlink" href="#AnimInterval.set_now+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="AnimInterval" signature="set_play_count(world : Any, anim : Any, count : Any)"></endpoint>
-<signature id="AnimInterval.set_play_count+3">AnimInterval.set_play_count(**world**: `Any`, **anim**: `Any`, **count**: `Any`)
-<a class="headerlink" href="#AnimInterval.set_play_count+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="AnimInterval" signature="set_clock(world : Any, anim : Any, clock : Any)"></endpoint>
-<signature id="AnimInterval.set_clock+3">AnimInterval.set_clock(**world**: `Any`, **anim**: `Any`, **clock**: `Any`)
-<a class="headerlink" href="#AnimInterval.set_clock+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="AnimInterval" signature="set_rate(world : Any, anim : Any, rate : Any)"></endpoint>
-<signature id="AnimInterval.set_rate+3">AnimInterval.set_rate(**world**: `Any`, **anim**: `Any`, **rate**: `Any`)
-<a class="headerlink" href="#AnimInterval.set_rate+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="AnimInterval" signature="set_duration(world : Any, anim : Any, duration : Any)"></endpoint>
-<signature id="AnimInterval.set_duration+3">AnimInterval.set_duration(**world**: `Any`, **anim**: `Any`, **duration**: `Any`)
-<a class="headerlink" href="#AnimInterval.set_duration+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="AnimInterval" signature="set_start(world : Any, anim : Any, start : Any)"></endpoint>
-<signature id="AnimInterval.set_start+3">AnimInterval.set_start(**world**: `Any`, **anim**: `Any`, **start**: `Any`)
-<a class="headerlink" href="#AnimInterval.set_start+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="AnimInterval" signature="set_end(world : Any, anim : Any, end : Any)"></endpoint>
-<signature id="AnimInterval.set_end+3">AnimInterval.set_end(**world**: `Any`, **anim**: `Any`, **end**: `Any`)
-<a class="headerlink" href="#AnimInterval.set_end+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="AnimInterval" signature="get_now(world : Any, anim : Any)"></endpoint>
-<signature id="AnimInterval.get_now+2">AnimInterval.get_now(**world**: `Any`, **anim**: `Any`)
-<a class="headerlink" href="#AnimInterval.get_now+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="AnimInterval" signature="get_play_count(world : Any, anim : Any)"></endpoint>
-<signature id="AnimInterval.get_play_count+2">AnimInterval.get_play_count(**world**: `Any`, **anim**: `Any`)
-<a class="headerlink" href="#AnimInterval.get_play_count+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="AnimInterval" signature="get_clock(world : Any, anim : Any)"></endpoint>
-<signature id="AnimInterval.get_clock+2">AnimInterval.get_clock(**world**: `Any`, **anim**: `Any`)
-<a class="headerlink" href="#AnimInterval.get_clock+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="AnimInterval" signature="get_rate(world : Any, anim : Any)"></endpoint>
-<signature id="AnimInterval.get_rate+2">AnimInterval.get_rate(**world**: `Any`, **anim**: `Any`)
-<a class="headerlink" href="#AnimInterval.get_rate+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="AnimInterval" signature="get_duration(world : Any, anim : Any)"></endpoint>
-<signature id="AnimInterval.get_duration+2">AnimInterval.get_duration(**world**: `Any`, **anim**: `Any`)
-<a class="headerlink" href="#AnimInterval.get_duration+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="AnimInterval" signature="get_start(world : Any, anim : Any)"></endpoint>
-<signature id="AnimInterval.get_start+2">AnimInterval.get_start(**world**: `Any`, **anim**: `Any`)
-<a class="headerlink" href="#AnimInterval.get_start+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="AnimInterval" signature="get_end(world : Any, anim : Any)"></endpoint>
-<signature id="AnimInterval.get_end+2">AnimInterval.get_end(**world**: `Any`, **anim**: `Any`)
-<a class="headerlink" href="#AnimInterval.get_end+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-### AnimState
-`:::js import "luxe: world" for AnimState`
-> An enum for the state of an `Anim` instance.
-
-- [inactive](#AnimState.inactive)
-- [playing](#AnimState.playing)
-- [ending](#AnimState.ending)
-- [complete](#AnimState.complete)
-- [name](#AnimState.name)(**value**: `Num`)
-- [from_string](#AnimState.from_string)(**value**: `String`)
-
-<hr/>
-<endpoint module="luxe: world" class="AnimState" signature="inactive"></endpoint>
-<signature id="AnimState.inactive">AnimState.inactive
-<a class="headerlink" href="#AnimState.inactive" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Num`
-> The animation is inactive. _:todo: This may be obsolete_.
-> 
->   ```js
->   var state = Anim.get_state(entity, anim)
->   if(state == AnimState.inactive) {
->     Log.print("anim is inactive")
->   }
->   ```   
-
-<endpoint module="luxe: world" class="AnimState" signature="playing"></endpoint>
-<signature id="AnimState.playing">AnimState.playing
-<a class="headerlink" href="#AnimState.playing" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Num`
-> The animation is active and is playing.
-> 
->   ```js
->   var state = Anim.get_state(entity, anim)
->   if(state == AnimState.playing) {
->     Log.print("anim is playing")
->   }
->   ```   
-
-<endpoint module="luxe: world" class="AnimState" signature="ending"></endpoint>
-<signature id="AnimState.ending">AnimState.ending
-<a class="headerlink" href="#AnimState.ending" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Num`
-> The animation is ending, and will be marked complete next update.
-> 
->   ```js
->   var state = Anim.get_state(entity, anim)
->   if(state == AnimState.ending) {
->     Log.print("anim is ending")
->   }
->   ```   
-
-<endpoint module="luxe: world" class="AnimState" signature="complete"></endpoint>
-<signature id="AnimState.complete">AnimState.complete
-<a class="headerlink" href="#AnimState.complete" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Num`
-> The animation has ended and is complete.
-> 
->   ```js
->   var state = Anim.get_state(entity, anim)
->   if(state == AnimState.complete) {
->     Log.print("anim is complete")
->   }
->   ```   
-
-<endpoint module="luxe: world" class="AnimState" signature="name(value : Num)"></endpoint>
-<signature id="AnimState.name">AnimState.name(**value**: `Num`)
-<a class="headerlink" href="#AnimState.name" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js String`
-> Convert an `AnimState` value to a string.
-> 
->   ```js
->   var type = AnimState.ending
->   var name = AnimState.name(type)
->   Log.print("type is %(name)") //expect: "ending"
->   ```   
-
-<endpoint module="luxe: world" class="AnimState" signature="from_string(value : String)"></endpoint>
-<signature id="AnimState.from_string">AnimState.from_string(**value**: `String`)
-<a class="headerlink" href="#AnimState.from_string" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Num`
-> Convert a string to an enum value.
->             
->   ```js
->   var state = AnimState.from_string("ending")
->   var same = state == AnimState.ending //true
->   ```   
 
 ### Body2D
 `:::js import "luxe: world" for Body2D`
@@ -1474,270 +714,6 @@
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
-### Camera
-`:::js import "luxe: world" for Camera`
-> no docs found
-
-- [create](#Camera.create)(**entity**: `Any`)
-- [destroy](#Camera.destroy)(**entity**: `Any`)
-- [has](#Camera.has)(**entity**: `Any`)
-- [get_default](#Camera.get_default)(**world**: `Any`)
-- [set_default](#Camera.set_default+2)(**world**: `Any`, **camera**: `Any`)
-- [set_fov_vertical](#Camera.set_fov_vertical+2)(**entity**: `Any`, **fov_vertical**: `Any`)
-- [get_fov_vertical](#Camera.get_fov_vertical)(**entity**: `Any`)
-- [get_projection](#Camera.get_projection)(**entity**: `Any`)
-- [set_zoom2D](#Camera.set_zoom2D+2)(**entity**: `Entity`, **zoom**: `Num`)
-- [get_zoom2D](#Camera.get_zoom2D)(**entity**: `Any`)
-- [get_near](#Camera.get_near)(**entity**: `Any`)
-- [get_far](#Camera.get_far)(**entity**: `Any`)
-- [get_aspect](#Camera.get_aspect)(**entity**: `Any`)
-- [get_frustum](#Camera.get_frustum)(**entity**: `Any`)
-- [perspective](#Camera.perspective+5)(**entity**: `Any`, **fov_vertical**: `Any`, **aspect**: `Any`, **near**: `Any`, **far**: `Any`)
-- [ortho](#Camera.ortho+7)(**entity**: `Any`, **left**: `Any`, **top**: `Any`, **right**: `Any`, **bottom**: `Any`, **near**: `Any`, **far**: `Any`)
-- [look_at](#Camera.look_at+4)(**entity**: `Any`, **from**: `Any`, **to**: `Any`, **up**: `Any`)
-- [set2D](#Camera.set2D+7)(**entity**: `Any`, **x**: `Any`, **y**: `Any`, **width**: `Any`, **height**: `Any`, **near**: `Any`, **far**: `Any`)
-- [set3D](#Camera.set3D+5)(**entity**: `Any`, **fov_vertical**: `Any`, **aspect**: `Any`, **near**: `Any`, **far**: `Any`)
-- [screen_point_to_world](#Camera.screen_point_to_world+3)(**entity**: `Any`, **pos_x**: `Any`, **pos_y**: `Any`)
-- [world_point_to_screen](#Camera.world_point_to_screen+4)(**entity**: `Any`, **pos_x**: `Any`, **pos_y**: `Any`, **pos_z**: `Any`)
-- [world_point_to_view](#Camera.world_point_to_view+5)(**entity**: `Any`, **pos_x**: `Any`, **pos_y**: `Any`, **pos_z**: `Any`, **into**: `Any`)
-- [world_point_to_view](#Camera.world_point_to_view+4)(**entity**: `Any`, **pos_x**: `Any`, **pos_y**: `Any`, **pos_z**: `Any`)
-- [view_point_to_world](#Camera.view_point_to_world+4)(**entity**: `Any`, **pos_x**: `Any`, **pos_y**: `Any`, **pos_z**: `Any`)
-- [world_point_to_clip](#Camera.world_point_to_clip+4)(**entity**: `Any`, **pos_x**: `Any`, **pos_y**: `Any`, **pos_z**: `Any`)
-- [clip_point_to_world](#Camera.clip_point_to_world+4)(**entity**: `Any`, **pos_x**: `Any`, **pos_y**: `Any`, **pos_z**: `Any`)
-- [get_view_matrix](#Camera.get_view_matrix+2)(**entity**: `Any`, **into_matrix**: `Any`)
-- [get_projection_matrix](#Camera.get_projection_matrix+2)(**entity**: `Any`, **into_matrix**: `Any`)
-- [get_view_projection_matrix](#Camera.get_view_projection_matrix+2)(**entity**: `Any`, **into_matrix**: `Any`)
-- [set_view_matrix](#Camera.set_view_matrix+2)(**entity**: `Any`, **matrix**: `Any`)
-- [set_projection_matrix](#Camera.set_projection_matrix+2)(**entity**: `Any`, **matrix**: `Any`)
-- [cull](#Camera.cull+2)(**camera**: `Any`, **render_set**: `Any`)
-- [froxelize](#Camera.froxelize+5)(**camera**: `Any`, **slices**: `Any`, **entity_info_list**: `Any`, **cluster_image**: `Any`, **items_image**: `Any`)
-
-<hr/>
-<endpoint module="luxe: world" class="Camera" signature="create(entity : Any)"></endpoint>
-<signature id="Camera.create">Camera.create(**entity**: `Any`)
-<a class="headerlink" href="#Camera.create" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Camera" signature="destroy(entity : Any)"></endpoint>
-<signature id="Camera.destroy">Camera.destroy(**entity**: `Any`)
-<a class="headerlink" href="#Camera.destroy" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Camera" signature="has(entity : Any)"></endpoint>
-<signature id="Camera.has">Camera.has(**entity**: `Any`)
-<a class="headerlink" href="#Camera.has" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Camera" signature="get_default(world : Any)"></endpoint>
-<signature id="Camera.get_default">Camera.get_default(**world**: `Any`)
-<a class="headerlink" href="#Camera.get_default" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Camera" signature="set_default(world : Any, camera : Any)"></endpoint>
-<signature id="Camera.set_default+2">Camera.set_default(**world**: `Any`, **camera**: `Any`)
-<a class="headerlink" href="#Camera.set_default+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Camera" signature="set_fov_vertical(entity : Any, fov_vertical : Any)"></endpoint>
-<signature id="Camera.set_fov_vertical+2">Camera.set_fov_vertical(**entity**: `Any`, **fov_vertical**: `Any`)
-<a class="headerlink" href="#Camera.set_fov_vertical+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Camera" signature="get_fov_vertical(entity : Any)"></endpoint>
-<signature id="Camera.get_fov_vertical">Camera.get_fov_vertical(**entity**: `Any`)
-<a class="headerlink" href="#Camera.get_fov_vertical" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Camera" signature="get_projection(entity : Any)"></endpoint>
-<signature id="Camera.get_projection">Camera.get_projection(**entity**: `Any`)
-<a class="headerlink" href="#Camera.get_projection" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js CameraProjection`
-> no docs found   
-
-<endpoint module="luxe: world" class="Camera" signature="set_zoom2D(entity : Entity, zoom : Num)"></endpoint>
-<signature id="Camera.set_zoom2D+2">Camera.set_zoom2D(**entity**: `Entity`, **zoom**: `Num`)
-<a class="headerlink" href="#Camera.set_zoom2D+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> no docs found   
-
-<endpoint module="luxe: world" class="Camera" signature="get_zoom2D(entity : Any)"></endpoint>
-<signature id="Camera.get_zoom2D">Camera.get_zoom2D(**entity**: `Any`)
-<a class="headerlink" href="#Camera.get_zoom2D" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Num`
-> no docs found   
-
-<endpoint module="luxe: world" class="Camera" signature="get_near(entity : Any)"></endpoint>
-<signature id="Camera.get_near">Camera.get_near(**entity**: `Any`)
-<a class="headerlink" href="#Camera.get_near" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Camera" signature="get_far(entity : Any)"></endpoint>
-<signature id="Camera.get_far">Camera.get_far(**entity**: `Any`)
-<a class="headerlink" href="#Camera.get_far" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Camera" signature="get_aspect(entity : Any)"></endpoint>
-<signature id="Camera.get_aspect">Camera.get_aspect(**entity**: `Any`)
-<a class="headerlink" href="#Camera.get_aspect" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Camera" signature="get_frustum(entity : Any)"></endpoint>
-<signature id="Camera.get_frustum">Camera.get_frustum(**entity**: `Any`)
-<a class="headerlink" href="#Camera.get_frustum" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Camera" signature="perspective(entity : Any, fov_vertical : Any, aspect : Any, near : Any, far : Any)"></endpoint>
-<signature id="Camera.perspective+5">Camera.perspective(**entity**: `Any`, **fov_vertical**: `Any`, **aspect**: `Any`, **near**: `Any`, **far**: `Any`)
-<a class="headerlink" href="#Camera.perspective+5" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Camera" signature="ortho(entity : Any, left : Any, top : Any, right : Any, bottom : Any, near : Any, far : Any)"></endpoint>
-<signature id="Camera.ortho+7">Camera.ortho(**entity**: `Any`, **left**: `Any`, **top**: `Any`, **right**: `Any`, **bottom**: `Any`, **near**: `Any`, **far**: `Any`)
-<a class="headerlink" href="#Camera.ortho+7" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Camera" signature="look_at(entity : Any, from : Any, to : Any, up : Any)"></endpoint>
-<signature id="Camera.look_at+4">Camera.look_at(**entity**: `Any`, **from**: `Any`, **to**: `Any`, **up**: `Any`)
-<a class="headerlink" href="#Camera.look_at+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Camera" signature="set2D(entity : Any, x : Any, y : Any, width : Any, height : Any, near : Any, far : Any)"></endpoint>
-<signature id="Camera.set2D+7">Camera.set2D(**entity**: `Any`, **x**: `Any`, **y**: `Any`, **width**: `Any`, **height**: `Any`, **near**: `Any`, **far**: `Any`)
-<a class="headerlink" href="#Camera.set2D+7" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Camera" signature="set3D(entity : Any, fov_vertical : Any, aspect : Any, near : Any, far : Any)"></endpoint>
-<signature id="Camera.set3D+5">Camera.set3D(**entity**: `Any`, **fov_vertical**: `Any`, **aspect**: `Any`, **near**: `Any`, **far**: `Any`)
-<a class="headerlink" href="#Camera.set3D+5" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Camera" signature="screen_point_to_world(entity : Any, pos_x : Any, pos_y : Any)"></endpoint>
-<signature id="Camera.screen_point_to_world+3">Camera.screen_point_to_world(**entity**: `Any`, **pos_x**: `Any`, **pos_y**: `Any`)
-<a class="headerlink" href="#Camera.screen_point_to_world+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Camera" signature="world_point_to_screen(entity : Any, pos_x : Any, pos_y : Any, pos_z : Any)"></endpoint>
-<signature id="Camera.world_point_to_screen+4">Camera.world_point_to_screen(**entity**: `Any`, **pos_x**: `Any`, **pos_y**: `Any`, **pos_z**: `Any`)
-<a class="headerlink" href="#Camera.world_point_to_screen+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Camera" signature="world_point_to_view(entity : Any, pos_x : Any, pos_y : Any, pos_z : Any, into : Any)"></endpoint>
-<signature id="Camera.world_point_to_view+5">Camera.world_point_to_view(**entity**: `Any`, **pos_x**: `Any`, **pos_y**: `Any`, **pos_z**: `Any`, **into**: `Any`)
-<a class="headerlink" href="#Camera.world_point_to_view+5" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Camera" signature="world_point_to_view(entity : Any, pos_x : Any, pos_y : Any, pos_z : Any)"></endpoint>
-<signature id="Camera.world_point_to_view+4">Camera.world_point_to_view(**entity**: `Any`, **pos_x**: `Any`, **pos_y**: `Any`, **pos_z**: `Any`)
-<a class="headerlink" href="#Camera.world_point_to_view+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Camera" signature="view_point_to_world(entity : Any, pos_x : Any, pos_y : Any, pos_z : Any)"></endpoint>
-<signature id="Camera.view_point_to_world+4">Camera.view_point_to_world(**entity**: `Any`, **pos_x**: `Any`, **pos_y**: `Any`, **pos_z**: `Any`)
-<a class="headerlink" href="#Camera.view_point_to_world+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Camera" signature="world_point_to_clip(entity : Any, pos_x : Any, pos_y : Any, pos_z : Any)"></endpoint>
-<signature id="Camera.world_point_to_clip+4">Camera.world_point_to_clip(**entity**: `Any`, **pos_x**: `Any`, **pos_y**: `Any`, **pos_z**: `Any`)
-<a class="headerlink" href="#Camera.world_point_to_clip+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Camera" signature="clip_point_to_world(entity : Any, pos_x : Any, pos_y : Any, pos_z : Any)"></endpoint>
-<signature id="Camera.clip_point_to_world+4">Camera.clip_point_to_world(**entity**: `Any`, **pos_x**: `Any`, **pos_y**: `Any`, **pos_z**: `Any`)
-<a class="headerlink" href="#Camera.clip_point_to_world+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Camera" signature="get_view_matrix(entity : Any, into_matrix : Any)"></endpoint>
-<signature id="Camera.get_view_matrix+2">Camera.get_view_matrix(**entity**: `Any`, **into_matrix**: `Any`)
-<a class="headerlink" href="#Camera.get_view_matrix+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Camera" signature="get_projection_matrix(entity : Any, into_matrix : Any)"></endpoint>
-<signature id="Camera.get_projection_matrix+2">Camera.get_projection_matrix(**entity**: `Any`, **into_matrix**: `Any`)
-<a class="headerlink" href="#Camera.get_projection_matrix+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Camera" signature="get_view_projection_matrix(entity : Any, into_matrix : Any)"></endpoint>
-<signature id="Camera.get_view_projection_matrix+2">Camera.get_view_projection_matrix(**entity**: `Any`, **into_matrix**: `Any`)
-<a class="headerlink" href="#Camera.get_view_projection_matrix+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Camera" signature="set_view_matrix(entity : Any, matrix : Any)"></endpoint>
-<signature id="Camera.set_view_matrix+2">Camera.set_view_matrix(**entity**: `Any`, **matrix**: `Any`)
-<a class="headerlink" href="#Camera.set_view_matrix+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Camera" signature="set_projection_matrix(entity : Any, matrix : Any)"></endpoint>
-<signature id="Camera.set_projection_matrix+2">Camera.set_projection_matrix(**entity**: `Any`, **matrix**: `Any`)
-<a class="headerlink" href="#Camera.set_projection_matrix+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Camera" signature="cull(camera : Any, render_set : Any)"></endpoint>
-<signature id="Camera.cull+2">Camera.cull(**camera**: `Any`, **render_set**: `Any`)
-<a class="headerlink" href="#Camera.cull+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Camera" signature="froxelize(camera : Any, slices : Any, entity_info_list : Any, cluster_image : Any, items_image : Any)"></endpoint>
-<signature id="Camera.froxelize+5">Camera.froxelize(**camera**: `Any`, **slices**: `Any`, **entity_info_list**: `Any`, **cluster_image**: `Any`, **items_image**: `Any`)
-<a class="headerlink" href="#Camera.froxelize+5" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-### CameraProjection
-`:::js import "luxe: world" for CameraProjection`
-> no docs found
-
-- [ortho](#CameraProjection.ortho)
-- [perspective](#CameraProjection.perspective)
-- [custom](#CameraProjection.custom)
-
-<hr/>
-<endpoint module="luxe: world" class="CameraProjection" signature="ortho"></endpoint>
-<signature id="CameraProjection.ortho">CameraProjection.ortho
-<a class="headerlink" href="#CameraProjection.ortho" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="CameraProjection" signature="perspective"></endpoint>
-<signature id="CameraProjection.perspective">CameraProjection.perspective
-<a class="headerlink" href="#CameraProjection.perspective" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="CameraProjection" signature="custom"></endpoint>
-<signature id="CameraProjection.custom">CameraProjection.custom
-<a class="headerlink" href="#CameraProjection.custom" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
 ### Clock
 `:::js import "luxe: world" for Clock`
 > no docs found
@@ -1779,27 +755,41 @@
 - [valid_handle](#Entity.valid_handle)(**entity**: `Entity`)
 - [get_world](#Entity.get_world)(**entity**: `Entity`)
 - [get](#Entity.get)(**uuid**: `String`)
-- [get_addressed](#Entity.get_addressed+2)(**context_root**: `Entity`, **address**: `List`)
+- [get_addressed_in](#Entity.get_addressed_in+2)(**context_root**: `Entity`, **address**: `List`)
+- [get_addressed](#Entity.get_addressed+2)(**relative_to**: `Entity`, **address**: `List`)
+- [get_addressed_context](#Entity.get_addressed_context+2)(**relative_to**: `Entity`, **address**: `List`)
 - [get_named](#Entity.get_named+2)(**world**: `World`, **name**: `String`)
 - [get_named_all](#Entity.get_named_all+2)(**world**: `World`, **name**: `String`)
+- [get_named_in](#Entity.get_named_in+2)(**context**: `Entity`, **name**: `String`)
+- [get_named_all_in](#Entity.get_named_all_in+2)(**context**: `Entity`, **name**: `String`)
 - [get_name](#Entity.get_name)(**entity**: `Entity`)
 - [get_folder](#Entity.get_folder)(**entity**: `Entity`)
 - [set_folder](#Entity.set_folder+2)(**entity**: `Entity`, **folder**: `String`)
+- [get_asset_id](#Entity.get_asset_id)(**entity**: `Entity`)
+- [set_asset_id](#Entity.set_asset_id+2)(**entity**: `Entity`, **asset_id**: `String`)
+- [get_context_asset_id](#Entity.get_context_asset_id)(**entity**: `Entity`)
+- [set_context_asset_id](#Entity.set_context_asset_id+2)(**entity**: `Entity`, **asset_id**: `String`)
 - [get_context_type](#Entity.get_context_type)(**entity**: `Entity`)
 - [get_context_instance_uuid](#Entity.get_context_instance_uuid)(**entity**: `Entity`)
 - [get_context](#Entity.get_context)(**entity**: `Entity`)
 - [get_context_origin](#Entity.get_context_origin)(**entity**: `Entity`)
 - [get_context_address](#Entity.get_context_address+2)(**entity**: `Entity`, **context**: `Entity`)
+- [list_context_all](#Entity.list_context_all)(**context**: `Entity`)
+- [list_context_direct](#Entity.list_context_direct)(**context**: `Entity`)
 - [get_context_id](#Entity.get_context_id)(**context**: `Entity`)
 - [get_origin_address](#Entity.get_origin_address)(**entity**: `Entity`)
+- [get_context_is_direct](#Entity.get_context_is_direct+2)(**context**: `Entity`, **entity**: `Entity`)
 - [init_into_context](#Entity.init_into_context+2)(**entity**: `Entity`, **context**: `Entity`)
+- [init_into_context](#Entity.init_into_context+3)(**entity**: `Entity`, **context**: `Entity`, **address_uuid**: `UUID`)
 - [note_add](#Entity.note_add+2)(**entity**: `Entity`, **note**: `String`)
 - [note_remove](#Entity.note_remove+2)(**entity**: `Entity`, **note**: `String`)
 - [note_has](#Entity.note_has+2)(**entity**: `Entity`, **note**: `String`)
+- [notes](#Entity.notes)(**entity**: `Entity`)
 - [set_name](#Entity.set_name+2)(**entity**: `Entity`, **name**: `String`)
 - [get_uuid](#Entity.get_uuid)(**entity**: `Entity`)
 - [set_uuid](#Entity.set_uuid+2)(**entity**: `Entity`, **uuid_string**: `String`)
 - [destroy](#Entity.destroy)(**entity**: `Entity`)
+- [duplicate](#Entity.duplicate)(**entity**: `Entity`)
 
 <hr/>
 <endpoint module="luxe: world" class="Entity" signature="none"></endpoint>
@@ -1879,13 +869,30 @@
 >   }
 >   ```   
 
-<endpoint module="luxe: world" class="Entity" signature="get_addressed(context_root : Entity, address : List)"></endpoint>
-<signature id="Entity.get_addressed+2">Entity.get_addressed(**context_root**: `Entity`, **address**: `List`)
-<a class="headerlink" href="#Entity.get_addressed+2" title="Permanent link">¶</a></signature>
+<endpoint module="luxe: world" class="Entity" signature="get_addressed_in(context_root : Entity, address : List)"></endpoint>
+<signature id="Entity.get_addressed_in+2">Entity.get_addressed_in(**context_root**: `Entity`, **address**: `List`)
+<a class="headerlink" href="#Entity.get_addressed_in+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js Entity`
-> Find an entity by `address` in the given context. 
+> Find an entity by `address` in the given context (only). 
 > The address is a list of uuids, and the context is a scene root entity, 
 > or prototype root entity.   
+
+<endpoint module="luxe: world" class="Entity" signature="get_addressed(relative_to : Entity, address : List)"></endpoint>
+<signature id="Entity.get_addressed+2">Entity.get_addressed(**relative_to**: `Entity`, **address**: `List`)
+<a class="headerlink" href="#Entity.get_addressed+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Entity`
+> Find an entity by `address` relative to the given entity, and will search upward
+> through all contexts in the tree to try and find the addressed entity.
+> The address is a list of uuids.   
+
+<endpoint module="luxe: world" class="Entity" signature="get_addressed_context(relative_to : Entity, address : List)"></endpoint>
+<signature id="Entity.get_addressed_context+2">Entity.get_addressed_context(**relative_to**: `Entity`, **address**: `List`)
+<a class="headerlink" href="#Entity.get_addressed_context+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Entity`
+> Find an entity by `address` relative to the given entity, and will search upward
+> through all contexts in the tree to try and find the addressed entity - but this
+> function will return the context it was found in (e.g the context the address is for).
+> The address is a list of uuids.   
 
 <endpoint module="luxe: world" class="Entity" signature="get_named(world : World, name : String)"></endpoint>
 <signature id="Entity.get_named+2">Entity.get_named(**world**: `World`, **name**: `String`)
@@ -1911,6 +918,37 @@
 >   ```js
 >   var list = Entity.get_named_all(app.world, "fern")
 >   Log.print("There are %(list.count) ferns in this forest!")
+>   ```   
+
+<endpoint module="luxe: world" class="Entity" signature="get_named_in(context : Entity, name : String)"></endpoint>
+<signature id="Entity.get_named_in+2">Entity.get_named_in(**context**: `Entity`, **name**: `String`)
+<a class="headerlink" href="#Entity.get_named_in+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Entity`
+> Get the first `entity` from the given `context` with the name `name`.
+> The context is a scene root or a prototype root entity.
+> Which entity is returned is unspecified if there are multiple with the same name.
+> If you need to test further use `Entity.get_named_all`. Returns null if no
+> entity is found by that name.
+> 
+>   ```js
+>   var prototype = Prototype.create(world, Asset.prototype("proto/example"))
+>   var item = Entity.get_named_in(prototype, "item")
+>   ```   
+
+<endpoint module="luxe: world" class="Entity" signature="get_named_all_in(context : Entity, name : String)"></endpoint>
+<signature id="Entity.get_named_all_in+2">Entity.get_named_all_in(**context**: `Entity`, **name**: `String`)
+<a class="headerlink" href="#Entity.get_named_all_in+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js List`
+> Get a list of all `entities` from the given `context` with the name `name`.
+> The context is a scene root or a prototype root entity.
+> Returns a list of entities with an unspecified order. Returns an empty list
+> if no entities are found.
+> 
+>   ```js
+>     var scene = Scene.load(world, Asset.scene("scene/example")) {
+>     var list = Entity.get_named_all_in(scene, "fern")
+>     Log.print("There are %(list.count) ferns in this forest!")
+>   }
 >   ```   
 
 <endpoint module="luxe: world" class="Entity" signature="get_name(entity : Entity)"></endpoint>
@@ -1940,6 +978,30 @@
 <a class="headerlink" href="#Entity.set_folder+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js None`
 > set the folder of this entity (used for nested display in a world outliner)   
+
+<endpoint module="luxe: world" class="Entity" signature="get_asset_id(entity : Entity)"></endpoint>
+<signature id="Entity.get_asset_id">Entity.get_asset_id(**entity**: `Entity`)
+<a class="headerlink" href="#Entity.get_asset_id" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js String`
+> get the asset ID of this entity (if it has one)   
+
+<endpoint module="luxe: world" class="Entity" signature="set_asset_id(entity : Entity, asset_id : String)"></endpoint>
+<signature id="Entity.set_asset_id+2">Entity.set_asset_id(**entity**: `Entity`, **asset_id**: `String`)
+<a class="headerlink" href="#Entity.set_asset_id+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> set the asset ID of this entity (used for e.g editor)   
+
+<endpoint module="luxe: world" class="Entity" signature="get_context_asset_id(entity : Entity)"></endpoint>
+<signature id="Entity.get_context_asset_id">Entity.get_context_asset_id(**entity**: `Entity`)
+<a class="headerlink" href="#Entity.get_context_asset_id" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js String`
+> get the context asset ID of this entity (if it has one)   
+
+<endpoint module="luxe: world" class="Entity" signature="set_context_asset_id(entity : Entity, asset_id : String)"></endpoint>
+<signature id="Entity.set_context_asset_id+2">Entity.set_context_asset_id(**entity**: `Entity`, **asset_id**: `String`)
+<a class="headerlink" href="#Entity.set_context_asset_id+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> set the context asset ID of this entity (used for e.g editor)   
 
 <endpoint module="luxe: world" class="Entity" signature="get_context_type(entity : Entity)"></endpoint>
 <signature id="Entity.get_context_type">Entity.get_context_type(**entity**: `Entity`)
@@ -1971,6 +1033,18 @@
 <span class='api_ret'>returns</span> `:::js List`
 > get the address of the entity within a given context.   
 
+<endpoint module="luxe: world" class="Entity" signature="list_context_all(context : Entity)"></endpoint>
+<signature id="Entity.list_context_all">Entity.list_context_all(**context**: `Entity`)
+<a class="headerlink" href="#Entity.list_context_all" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Set`
+> Get all the entities this context created as a Set of entities.   
+
+<endpoint module="luxe: world" class="Entity" signature="list_context_direct(context : Entity)"></endpoint>
+<signature id="Entity.list_context_direct">Entity.list_context_direct(**context**: `Entity`)
+<a class="headerlink" href="#Entity.list_context_direct" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Set`
+> Get all the entities this context created directly (rather than indirectly) as a Set of entities.   
+
 <endpoint module="luxe: world" class="Entity" signature="get_context_id(context : Entity)"></endpoint>
 <signature id="Entity.get_context_id">Entity.get_context_id(**context**: `Entity`)
 <a class="headerlink" href="#Entity.get_context_id" title="Permanent link">¶</a></signature>
@@ -1983,11 +1057,23 @@
 <span class='api_ret'>returns</span> `:::js List`
 > get the address of the entity within it's origin context.   
 
+<endpoint module="luxe: world" class="Entity" signature="get_context_is_direct(context : Entity, entity : Entity)"></endpoint>
+<signature id="Entity.get_context_is_direct+2">Entity.get_context_is_direct(**context**: `Entity`, **entity**: `Entity`)
+<a class="headerlink" href="#Entity.get_context_is_direct+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
+> returns true if the given entity is a direct entity in the context. This includes prototype roots spawned into the context (use context type to filter them out).   
+
 <endpoint module="luxe: world" class="Entity" signature="init_into_context(entity : Entity, context : Entity)"></endpoint>
 <signature id="Entity.init_into_context+2">Entity.init_into_context(**entity**: `Entity`, **context**: `Entity`)
 <a class="headerlink" href="#Entity.init_into_context+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > Initialize an entity into an existing context (typically editor related)   
+
+<endpoint module="luxe: world" class="Entity" signature="init_into_context(entity : Entity, context : Entity, address_uuid : UUID)"></endpoint>
+<signature id="Entity.init_into_context+3">Entity.init_into_context(**entity**: `Entity`, **context**: `Entity`, **address_uuid**: `UUID`)
+<a class="headerlink" href="#Entity.init_into_context+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Initialize an entity into an existing context with an address uuid (typically editor related)   
 
 <endpoint module="luxe: world" class="Entity" signature="note_add(entity : Entity, note : String)"></endpoint>
 <signature id="Entity.note_add+2">Entity.note_add(**entity**: `Entity`, **note**: `String`)
@@ -2006,6 +1092,12 @@
 <a class="headerlink" href="#Entity.note_has+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > returns true if this note exists, false otherwise   
+
+<endpoint module="luxe: world" class="Entity" signature="notes(entity : Entity)"></endpoint>
+<signature id="Entity.notes">Entity.notes(**entity**: `Entity`)
+<a class="headerlink" href="#Entity.notes" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> get all the notes on the given entity   
 
 <endpoint module="luxe: world" class="Entity" signature="set_name(entity : Entity, name : String)"></endpoint>
 <signature id="Entity.set_name+2">Entity.set_name(**entity**: `Entity`, **name**: `String`)
@@ -2040,6 +1132,13 @@
 > so sometimes you might want `Frame.end { Entity.destroy(entity) }` 
 > to push the destroy to the end of the frame, so it doesn't happen
 > while iterating a list or when things are still processing it.   
+
+<endpoint module="luxe: world" class="Entity" signature="duplicate(entity : Entity)"></endpoint>
+<signature id="Entity.duplicate">Entity.duplicate(**entity**: `Entity`)
+<a class="headerlink" href="#Entity.duplicate" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Entity`
+> Duplicate the given `entity`. 
+> Returns a new entity with the same notes, folder, name and modifiers.   
 
 ### EntityContextType
 `:::js import "luxe: world" for EntityContextType`
@@ -2128,249 +1227,6 @@
 <signature id="EntityEventType.name">EntityEventType.name(**value**: `EntityEventType`)
 <a class="headerlink" href="#EntityEventType.name" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js String`
-> no docs found   
-
-### Layer
-`:::js import "luxe: world" for Layer`
-> no docs found
-
-- [create](#Layer.create+3)(**world**: `Any`, **scene**: `Any`, **layer_id**: `Any`)
-- [destroy](#Layer.destroy+3)(**world**: `Any`, **scene**: `Any`, **layer_id**: `Any`)
-- [exists](#Layer.exists+3)(**world**: `Any`, **scene**: `Any`, **layer_id**: `Any`)
-- [get_list](#Layer.get_list+2)(**world**: `Any`, **scene**: `Any`)
-- [set_id](#Layer.set_id+4)(**world**: `Any`, **scene**: `Any`, **layer_id**: `Any`, **new_layer_id**: `Any`)
-- [entity_list](#Layer.entity_list+3)(**world**: `Any`, **scene**: `Any`, **layer_id**: `Any`)
-- [entity_set](#Layer.entity_set+3)(**world**: `Any`, **scene**: `Any`, **layer_id**: `Any`)
-- [entity_add](#Layer.entity_add+4)(**world**: `Any`, **scene**: `Any`, **layer_id**: `Any`, **entity**: `Any`)
-- [entity_remove](#Layer.entity_remove+4)(**world**: `Any`, **scene**: `Any`, **layer_id**: `Any`, **entity**: `Any`)
-
-<hr/>
-<endpoint module="luxe: world" class="Layer" signature="create(world : Any, scene : Any, layer_id : Any)"></endpoint>
-<signature id="Layer.create+3">Layer.create(**world**: `Any`, **scene**: `Any`, **layer_id**: `Any`)
-<a class="headerlink" href="#Layer.create+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Layer" signature="destroy(world : Any, scene : Any, layer_id : Any)"></endpoint>
-<signature id="Layer.destroy+3">Layer.destroy(**world**: `Any`, **scene**: `Any`, **layer_id**: `Any`)
-<a class="headerlink" href="#Layer.destroy+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Layer" signature="exists(world : Any, scene : Any, layer_id : Any)"></endpoint>
-<signature id="Layer.exists+3">Layer.exists(**world**: `Any`, **scene**: `Any`, **layer_id**: `Any`)
-<a class="headerlink" href="#Layer.exists+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Layer" signature="get_list(world : Any, scene : Any)"></endpoint>
-<signature id="Layer.get_list+2">Layer.get_list(**world**: `Any`, **scene**: `Any`)
-<a class="headerlink" href="#Layer.get_list+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Layer" signature="set_id(world : Any, scene : Any, layer_id : Any, new_layer_id : Any)"></endpoint>
-<signature id="Layer.set_id+4">Layer.set_id(**world**: `Any`, **scene**: `Any`, **layer_id**: `Any`, **new_layer_id**: `Any`)
-<a class="headerlink" href="#Layer.set_id+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Layer" signature="entity_list(world : Any, scene : Any, layer_id : Any)"></endpoint>
-<signature id="Layer.entity_list+3">Layer.entity_list(**world**: `Any`, **scene**: `Any`, **layer_id**: `Any`)
-<a class="headerlink" href="#Layer.entity_list+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Layer" signature="entity_set(world : Any, scene : Any, layer_id : Any)"></endpoint>
-<signature id="Layer.entity_set+3">Layer.entity_set(**world**: `Any`, **scene**: `Any`, **layer_id**: `Any`)
-<a class="headerlink" href="#Layer.entity_set+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Layer" signature="entity_add(world : Any, scene : Any, layer_id : Any, entity : Any)"></endpoint>
-<signature id="Layer.entity_add+4">Layer.entity_add(**world**: `Any`, **scene**: `Any`, **layer_id**: `Any`, **entity**: `Any`)
-<a class="headerlink" href="#Layer.entity_add+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Layer" signature="entity_remove(world : Any, scene : Any, layer_id : Any, entity : Any)"></endpoint>
-<signature id="Layer.entity_remove+4">Layer.entity_remove(**world**: `Any`, **scene**: `Any`, **layer_id**: `Any`, **entity**: `Any`)
-<a class="headerlink" href="#Layer.entity_remove+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-### Mesh
-`:::js import "luxe: world" for Mesh`
-> no docs found
-
-- [create](#Mesh.create)(**entity**: `Entity`)
-- [create](#Mesh.create+3)(**entity**: `Entity`, **material**: `Material`, **mesh_lx**: `String`)
-- [destroy](#Mesh.destroy)(**entity**: `Entity`)
-- [set_instanced_auto_units](#Mesh.set_instanced_auto_units+2)(**world**: `World`, **grid_units_cell_size**: `Num`)
-- [get_instanced_auto_units](#Mesh.get_instanced_auto_units)(**world**: `World`)
-- [has](#Mesh.has)(**entity**: `Entity`)
-- [clear](#Mesh.clear)(**entity**: `Entity`)
-- [level_get_element_count](#Mesh.level_get_element_count+2)(**entity**: `Entity`, **level**: `Num`)
-- [level_get_count](#Mesh.level_get_count)(**entity**: `Entity`)
-- [level_set_active](#Mesh.level_set_active+3)(**entity**: `Entity`, **level**: `Num`, **disable_current**: `Bool`)
-- [level_get_active](#Mesh.level_get_active)(**entity**: `Entity`)
-- [level_set_enabled](#Mesh.level_set_enabled+3)(**entity**: `Entity`, **level**: `Num`, **state**: `Bool`)
-- [level_get_enabled](#Mesh.level_get_enabled+2)(**entity**: `Entity`, **level**: `Num`)
-- [set_asset](#Mesh.set_asset+2)(**entity**: `Entity`, **asset_id**: `String`)
-- [set_instanced_group](#Mesh.set_instanced_group+2)(**entity**: `Entity`, **group_id**: `String`)
-- [get_instanced_group](#Mesh.get_instanced_group)(**entity**: `Entity`)
-- [set_instanced](#Mesh.set_instanced+2)(**entity**: `Entity`, **state**: `Bool`)
-- [get_instanced](#Mesh.get_instanced)(**entity**: `Entity`)
-- [get_source_id](#Mesh.get_source_id)(**entity**: `Entity`)
-- [get_default_material](#Mesh.get_default_material)(**entity**: `Entity`)
-- [set_default_material](#Mesh.set_default_material+2)(**entity**: `Entity`, **material**: `Material`)
-- [get_geometry](#Mesh.get_geometry+3)(**entity**: `Entity`, **level**: `Num`, **element**: `Num`)
-- [get_geometry](#Mesh.get_geometry)(**entity**: `Entity`)
-- [obb_intersect_ray](#Mesh.obb_intersect_ray+7)(**entity**: `Entity`, **ray_x**: `Num`, **ray_y**: `Num`, **ray_z**: `Num`, **ray_dir_x**: `Num`, **ray_dir_y**: `Num`, **ray_dir_z**: `Num`)
-
-<hr/>
-<endpoint module="luxe: world" class="Mesh" signature="create(entity : Entity)"></endpoint>
-<signature id="Mesh.create">Mesh.create(**entity**: `Entity`)
-<a class="headerlink" href="#Mesh.create" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> no docs found   
-
-<endpoint module="luxe: world" class="Mesh" signature="create(entity : Entity, material : Material, mesh_lx : String)"></endpoint>
-<signature id="Mesh.create+3">Mesh.create(**entity**: `Entity`, **material**: `Material`, **mesh_lx**: `String`)
-<a class="headerlink" href="#Mesh.create+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> no docs found   
-
-<endpoint module="luxe: world" class="Mesh" signature="destroy(entity : Entity)"></endpoint>
-<signature id="Mesh.destroy">Mesh.destroy(**entity**: `Entity`)
-<a class="headerlink" href="#Mesh.destroy" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> no docs found   
-
-<endpoint module="luxe: world" class="Mesh" signature="set_instanced_auto_units(world : World, grid_units_cell_size : Num)"></endpoint>
-<signature id="Mesh.set_instanced_auto_units+2">Mesh.set_instanced_auto_units(**world**: `World`, **grid_units_cell_size**: `Num`)
-<a class="headerlink" href="#Mesh.set_instanced_auto_units+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> no docs found   
-
-<endpoint module="luxe: world" class="Mesh" signature="get_instanced_auto_units(world : World)"></endpoint>
-<signature id="Mesh.get_instanced_auto_units">Mesh.get_instanced_auto_units(**world**: `World`)
-<a class="headerlink" href="#Mesh.get_instanced_auto_units" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Num`
-> no docs found   
-
-<endpoint module="luxe: world" class="Mesh" signature="has(entity : Entity)"></endpoint>
-<signature id="Mesh.has">Mesh.has(**entity**: `Entity`)
-<a class="headerlink" href="#Mesh.has" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Bool`
-> no docs found   
-
-<endpoint module="luxe: world" class="Mesh" signature="clear(entity : Entity)"></endpoint>
-<signature id="Mesh.clear">Mesh.clear(**entity**: `Entity`)
-<a class="headerlink" href="#Mesh.clear" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Mesh" signature="level_get_element_count(entity : Entity, level : Num)"></endpoint>
-<signature id="Mesh.level_get_element_count+2">Mesh.level_get_element_count(**entity**: `Entity`, **level**: `Num`)
-<a class="headerlink" href="#Mesh.level_get_element_count+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Mesh" signature="level_get_count(entity : Entity)"></endpoint>
-<signature id="Mesh.level_get_count">Mesh.level_get_count(**entity**: `Entity`)
-<a class="headerlink" href="#Mesh.level_get_count" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Mesh" signature="level_set_active(entity : Entity, level : Num, disable_current : Bool)"></endpoint>
-<signature id="Mesh.level_set_active+3">Mesh.level_set_active(**entity**: `Entity`, **level**: `Num`, **disable_current**: `Bool`)
-<a class="headerlink" href="#Mesh.level_set_active+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Mesh" signature="level_get_active(entity : Entity)"></endpoint>
-<signature id="Mesh.level_get_active">Mesh.level_get_active(**entity**: `Entity`)
-<a class="headerlink" href="#Mesh.level_get_active" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Mesh" signature="level_set_enabled(entity : Entity, level : Num, state : Bool)"></endpoint>
-<signature id="Mesh.level_set_enabled+3">Mesh.level_set_enabled(**entity**: `Entity`, **level**: `Num`, **state**: `Bool`)
-<a class="headerlink" href="#Mesh.level_set_enabled+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Mesh" signature="level_get_enabled(entity : Entity, level : Num)"></endpoint>
-<signature id="Mesh.level_get_enabled+2">Mesh.level_get_enabled(**entity**: `Entity`, **level**: `Num`)
-<a class="headerlink" href="#Mesh.level_get_enabled+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Mesh" signature="set_asset(entity : Entity, asset_id : String)"></endpoint>
-<signature id="Mesh.set_asset+2">Mesh.set_asset(**entity**: `Entity`, **asset_id**: `String`)
-<a class="headerlink" href="#Mesh.set_asset+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Mesh" signature="set_instanced_group(entity : Entity, group_id : String)"></endpoint>
-<signature id="Mesh.set_instanced_group+2">Mesh.set_instanced_group(**entity**: `Entity`, **group_id**: `String`)
-<a class="headerlink" href="#Mesh.set_instanced_group+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Mesh" signature="get_instanced_group(entity : Entity)"></endpoint>
-<signature id="Mesh.get_instanced_group">Mesh.get_instanced_group(**entity**: `Entity`)
-<a class="headerlink" href="#Mesh.get_instanced_group" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js String`
-> no docs found   
-
-<endpoint module="luxe: world" class="Mesh" signature="set_instanced(entity : Entity, state : Bool)"></endpoint>
-<signature id="Mesh.set_instanced+2">Mesh.set_instanced(**entity**: `Entity`, **state**: `Bool`)
-<a class="headerlink" href="#Mesh.set_instanced+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Mesh" signature="get_instanced(entity : Entity)"></endpoint>
-<signature id="Mesh.get_instanced">Mesh.get_instanced(**entity**: `Entity`)
-<a class="headerlink" href="#Mesh.get_instanced" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Bool`
-> no docs found   
-
-<endpoint module="luxe: world" class="Mesh" signature="get_source_id(entity : Entity)"></endpoint>
-<signature id="Mesh.get_source_id">Mesh.get_source_id(**entity**: `Entity`)
-<a class="headerlink" href="#Mesh.get_source_id" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Mesh" signature="get_default_material(entity : Entity)"></endpoint>
-<signature id="Mesh.get_default_material">Mesh.get_default_material(**entity**: `Entity`)
-<a class="headerlink" href="#Mesh.get_default_material" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Mesh" signature="set_default_material(entity : Entity, material : Material)"></endpoint>
-<signature id="Mesh.set_default_material+2">Mesh.set_default_material(**entity**: `Entity`, **material**: `Material`)
-<a class="headerlink" href="#Mesh.set_default_material+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Mesh" signature="get_geometry(entity : Entity, level : Num, element : Num)"></endpoint>
-<signature id="Mesh.get_geometry+3">Mesh.get_geometry(**entity**: `Entity`, **level**: `Num`, **element**: `Num`)
-<a class="headerlink" href="#Mesh.get_geometry+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Mesh" signature="get_geometry(entity : Entity)"></endpoint>
-<signature id="Mesh.get_geometry">Mesh.get_geometry(**entity**: `Entity`)
-<a class="headerlink" href="#Mesh.get_geometry" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Mesh" signature="obb_intersect_ray(entity : Entity, ray_x : Num, ray_y : Num, ray_z : Num, ray_dir_x : Num, ray_dir_y : Num, ray_dir_z : Num)"></endpoint>
-<signature id="Mesh.obb_intersect_ray+7">Mesh.obb_intersect_ray(**entity**: `Entity`, **ray_x**: `Num`, **ray_y**: `Num`, **ray_z**: `Num`, **ray_dir_x**: `Num`, **ray_dir_y**: `Num`, **ray_dir_z**: `Num`)
-<a class="headerlink" href="#Mesh.obb_intersect_ray+7" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
 ### MeshColliderType
@@ -2969,6 +1825,7 @@
 - [set_debug_draw](#Physics3D.set_debug_draw+2)(**world**: `Any`, **state**: `Any`)
 - [set_gravity](#Physics3D.set_gravity+4)(**world**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`)
 - [cast_ray](#Physics3D.cast_ray+3)(**world**: `Any`, **from**: `Any`, **to**: `Any`)
+- [cast_shape](#Physics3D.cast_shape+4)(**entity**: `Any`, **from**: `Any`, **to**: `Any`, **scale**: `Any`)
 - [cast_shape](#Physics3D.cast_shape+3)(**entity**: `Any`, **from**: `Any`, **to**: `Any`)
 - [query_sphere](#Physics3D.query_sphere+3)(**world**: `Any`, **center**: `Any`, **radius**: `Any`)
 - [query_box](#Physics3D.query_box+3)(**world**: `Any`, **center**: `Any`, **size**: `Any`)
@@ -2992,6 +1849,12 @@
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
+<endpoint module="luxe: world" class="Physics3D" signature="cast_shape(entity : Any, from : Any, to : Any, scale : Any)"></endpoint>
+<signature id="Physics3D.cast_shape+4">Physics3D.cast_shape(**entity**: `Any`, **from**: `Any`, **to**: `Any`, **scale**: `Any`)
+<a class="headerlink" href="#Physics3D.cast_shape+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
 <endpoint module="luxe: world" class="Physics3D" signature="cast_shape(entity : Any, from : Any, to : Any)"></endpoint>
 <signature id="Physics3D.cast_shape+3">Physics3D.cast_shape(**entity**: `Any`, **from**: `Any`, **to**: `Any`)
 <a class="headerlink" href="#Physics3D.cast_shape+3" title="Permanent link">¶</a></signature>
@@ -3012,120 +1875,120 @@
 
 ### Prototype
 `:::js import "luxe: world" for Prototype`
-> Prototypes are collections of entities that are stored together and can be instanced together. Protoype instances can be nested in other prototypes as well as scenes. If entities in a prototype have a transform modifier without a transform parent, the prototype root will automatically be set as their parent.
+> Prototypes are collections of entities that are stored together and can be instanced together. Protoype instances can be nested in other prototypes as well as in scenes. If entities in a prototype have a transform modifier without a transform parent, the prototype root will automatically be set as their parent.
 > 
 > Once a prototype is instanced in a world, all its entities behave just like other entities in the world and get assigned unique entity UUIDs. Relative prototype UUIDs, or named entities within a prototype can be accessed via the root entity of the prototype instance.
 
-- [destroy](#Prototype.destroy)(**entity**: `Any`)
-- [has](#Prototype.has)(**entity**: `Any`)
-- [get_type](#Prototype.get_type)(**entity**: `Any`)
-- [get_root](#Prototype.get_root)(**entity**: `Any`)
-- [get_tree](#Prototype.get_tree)(**entity**: `Any`)
-- [has_tree](#Prototype.has_tree)(**entity**: `Any`)
-- [get_ref](#Prototype.get_ref+2)(**entity**: `Any`, **uuid**: `Any`)
-- [get_ref_of](#Prototype.get_ref_of+2)(**entity**: `Any`, **target_entity**: `Any`)
-- [get_named](#Prototype.get_named+2)(**entity**: `Any`, **name**: `Any`)
-- [get_named_all](#Prototype.get_named_all+2)(**entity**: `Any`, **name**: `Any`)
-- [entity_list](#Prototype.entity_list)(**entity**: `Any`)
-- [refs_list](#Prototype.refs_list)(**entity**: `Any`)
-- [create](#Prototype.create+3)(**world**: `Any`, **prototype_id**: `Any`, **instance_id**: `Any`)
-- [create](#Prototype.create+4)(**world**: `Any`, **prototype_id**: `Any`, **instance_id**: `Any`, **position**: `Any`)
-- [create](#Prototype.create+5)(**world**: `Any`, **prototype_id**: `Any`, **instance_id**: `Any`, **position**: `Any`, **rotation**: `Any`)
-- [create](#Prototype.create+6)(**world**: `Any`, **prototype_id**: `Any`, **instance_id**: `Any`, **position**: `Any`, **rotation**: `Any`, **scale**: `Any`)
+- [destroy](#Prototype.destroy)(**entity**: `Entity`)
+- [has](#Prototype.has)(**entity**: `Entity`)
+- [get_type](#Prototype.get_type)(**entity**: `Entity`)
+- [get_root](#Prototype.get_root)(**entity**: `Entity`)
+- [get_tree](#Prototype.get_tree)(**entity**: `Entity`)
+- [has_tree](#Prototype.has_tree)(**entity**: `Entity`)
+- [get_ref](#Prototype.get_ref+2)(**entity**: `Entity`, **uuid**: `String`)
+- [get_ref_of](#Prototype.get_ref_of+2)(**entity**: `Entity`, **target_entity**: `Entity`)
+- [get_named](#Prototype.get_named+2)(**entity**: `Entity`, **name**: `String`)
+- [get_named_all](#Prototype.get_named_all+2)(**entity**: `Entity`, **name**: `String`)
+- [entity_list](#Prototype.entity_list)(**entity**: `Entity`)
+- [refs_list](#Prototype.refs_list)(**entity**: `Entity`)
+- [create](#Prototype.create+3)(**world**: `World`, **prototype_id**: `String`, **instance_id**: `String`)
+- [create](#Prototype.create+4)(**world**: `World`, **prototype_id**: `String`, **instance_id**: `String`, **position**: `Vec`)
+- [create](#Prototype.create+5)(**world**: `World`, **prototype_id**: `String`, **instance_id**: `String`, **position**: `Vec`, **rotation**: `Vec`)
+- [create](#Prototype.create+6)(**world**: `World`, **prototype_id**: `String`, **instance_id**: `String`, **position**: `Vec`, **rotation**: `Vec`, **scale**: `Vec`)
 
 <hr/>
-<endpoint module="luxe: world" class="Prototype" signature="destroy(entity : Any)"></endpoint>
-<signature id="Prototype.destroy">Prototype.destroy(**entity**: `Any`)
+<endpoint module="luxe: world" class="Prototype" signature="destroy(entity : Entity)"></endpoint>
+<signature id="Prototype.destroy">Prototype.destroy(**entity**: `Entity`)
 <a class="headerlink" href="#Prototype.destroy" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
+<span class='api_ret'>returns</span> `:::js None`
 > Destroys the prototype instance. (called on the root entity and will also destroy member entities that were instanced with it)   
 
-<endpoint module="luxe: world" class="Prototype" signature="has(entity : Any)"></endpoint>
-<signature id="Prototype.has">Prototype.has(**entity**: `Any`)
+<endpoint module="luxe: world" class="Prototype" signature="has(entity : Entity)"></endpoint>
+<signature id="Prototype.has">Prototype.has(**entity**: `Entity`)
 <a class="headerlink" href="#Prototype.has" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
+<span class='api_ret'>returns</span> `:::js Bool`
 > Get whether a entity has a prototype modifier (is a prototype instance root).   
 
-<endpoint module="luxe: world" class="Prototype" signature="get_type(entity : Any)"></endpoint>
-<signature id="Prototype.get_type">Prototype.get_type(**entity**: `Any`)
+<endpoint module="luxe: world" class="Prototype" signature="get_type(entity : Entity)"></endpoint>
+<signature id="Prototype.get_type">Prototype.get_type(**entity**: `Entity`)
 <a class="headerlink" href="#Prototype.get_type" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+<span class='api_ret'>returns</span> `:::js ID`
+> Get the prototype id the prototype instance was spawned from.   
 
-<endpoint module="luxe: world" class="Prototype" signature="get_root(entity : Any)"></endpoint>
-<signature id="Prototype.get_root">Prototype.get_root(**entity**: `Any`)
+<endpoint module="luxe: world" class="Prototype" signature="get_root(entity : Entity)"></endpoint>
+<signature id="Prototype.get_root">Prototype.get_root(**entity**: `Entity`)
 <a class="headerlink" href="#Prototype.get_root" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
+<span class='api_ret'>returns</span> `:::js Entity`
 > Get the \"innermost\" prototype root if entity is part of a prototype instance. Returns the entity itself if it is a prototype root. Returns null if entity is not part of a prototype instance.   
 
-<endpoint module="luxe: world" class="Prototype" signature="get_tree(entity : Any)"></endpoint>
-<signature id="Prototype.get_tree">Prototype.get_tree(**entity**: `Any`)
+<endpoint module="luxe: world" class="Prototype" signature="get_tree(entity : Entity)"></endpoint>
+<signature id="Prototype.get_tree">Prototype.get_tree(**entity**: `Entity`)
 <a class="headerlink" href="#Prototype.get_tree" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
+<span class='api_ret'>returns</span> `:::js List`
 > Get the list of prototype instances this entity is a part of. (List will have 1 elements for unnested prototypes and goes from innermost to outermost instance root for nested prototypes.). Null if entity is not part of prototype instance.   
 
-<endpoint module="luxe: world" class="Prototype" signature="has_tree(entity : Any)"></endpoint>
-<signature id="Prototype.has_tree">Prototype.has_tree(**entity**: `Any`)
+<endpoint module="luxe: world" class="Prototype" signature="has_tree(entity : Entity)"></endpoint>
+<signature id="Prototype.has_tree">Prototype.has_tree(**entity**: `Entity`)
 <a class="headerlink" href="#Prototype.has_tree" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
+<span class='api_ret'>returns</span> `:::js Bool`
 > Get whether the entity is part of a prototype instance.   
 
-<endpoint module="luxe: world" class="Prototype" signature="get_ref(entity : Any, uuid : Any)"></endpoint>
-<signature id="Prototype.get_ref+2">Prototype.get_ref(**entity**: `Any`, **uuid**: `Any`)
+<endpoint module="luxe: world" class="Prototype" signature="get_ref(entity : Entity, uuid : String)"></endpoint>
+<signature id="Prototype.get_ref+2">Prototype.get_ref(**entity**: `Entity`, **uuid**: `String`)
 <a class="headerlink" href="#Prototype.get_ref+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
+<span class='api_ret'>returns</span> `:::js Entity`
 > Get an entity by its reference (prototype-relative UUID) from its prototype root. (the same prototype asset may be instanced multiple times, so it may be important to find a specific prototype root and ask it for its version of the entity)   
 
-<endpoint module="luxe: world" class="Prototype" signature="get_ref_of(entity : Any, target_entity : Any)"></endpoint>
-<signature id="Prototype.get_ref_of+2">Prototype.get_ref_of(**entity**: `Any`, **target_entity**: `Any`)
+<endpoint module="luxe: world" class="Prototype" signature="get_ref_of(entity : Entity, target_entity : Entity)"></endpoint>
+<signature id="Prototype.get_ref_of+2">Prototype.get_ref_of(**entity**: `Entity`, **target_entity**: `Entity`)
 <a class="headerlink" href="#Prototype.get_ref_of+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> Get the reference (prototype-relative UUID) of an entity within a prototype instance.   
+<span class='api_ret'>returns</span> `:::js String`
+> Get the reference (prototype-relative UUID) of an entity within a prototype instance. One Entity can be part of multiple nested prototypes and have different references in each context.   
 
-<endpoint module="luxe: world" class="Prototype" signature="get_named(entity : Any, name : Any)"></endpoint>
-<signature id="Prototype.get_named+2">Prototype.get_named(**entity**: `Any`, **name**: `Any`)
+<endpoint module="luxe: world" class="Prototype" signature="get_named(entity : Entity, name : String)"></endpoint>
+<signature id="Prototype.get_named+2">Prototype.get_named(**entity**: `Entity`, **name**: `String`)
 <a class="headerlink" href="#Prototype.get_named+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
+<span class='api_ret'>returns</span> `:::js Entity`
 > Get first entity in a prototype instance with a specific name.   
 
-<endpoint module="luxe: world" class="Prototype" signature="get_named_all(entity : Any, name : Any)"></endpoint>
-<signature id="Prototype.get_named_all+2">Prototype.get_named_all(**entity**: `Any`, **name**: `Any`)
+<endpoint module="luxe: world" class="Prototype" signature="get_named_all(entity : Entity, name : String)"></endpoint>
+<signature id="Prototype.get_named_all+2">Prototype.get_named_all(**entity**: `Entity`, **name**: `String`)
 <a class="headerlink" href="#Prototype.get_named_all+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
+<span class='api_ret'>returns</span> `:::js Entity`
 > Get all entities in a prototype instance with a specific name.   
 
-<endpoint module="luxe: world" class="Prototype" signature="entity_list(entity : Any)"></endpoint>
-<signature id="Prototype.entity_list">Prototype.entity_list(**entity**: `Any`)
+<endpoint module="luxe: world" class="Prototype" signature="entity_list(entity : Entity)"></endpoint>
+<signature id="Prototype.entity_list">Prototype.entity_list(**entity**: `Entity`)
 <a class="headerlink" href="#Prototype.entity_list" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
+<span class='api_ret'>returns</span> `:::js List`
 > Get a list of all entities that are part of a prototype instance.   
 
-<endpoint module="luxe: world" class="Prototype" signature="refs_list(entity : Any)"></endpoint>
-<signature id="Prototype.refs_list">Prototype.refs_list(**entity**: `Any`)
+<endpoint module="luxe: world" class="Prototype" signature="refs_list(entity : Entity)"></endpoint>
+<signature id="Prototype.refs_list">Prototype.refs_list(**entity**: `Entity`)
 <a class="headerlink" href="#Prototype.refs_list" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
+<span class='api_ret'>returns</span> `:::js List`
 > Get a list of all references (prototype-relative UUIDs) to entities within one prototype instance.   
 
-<endpoint module="luxe: world" class="Prototype" signature="create(world : Any, prototype_id : Any, instance_id : Any)"></endpoint>
-<signature id="Prototype.create+3">Prototype.create(**world**: `Any`, **prototype_id**: `Any`, **instance_id**: `Any`)
+<endpoint module="luxe: world" class="Prototype" signature="create(world : World, prototype_id : String, instance_id : String)"></endpoint>
+<signature id="Prototype.create+3">Prototype.create(**world**: `World`, **prototype_id**: `String`, **instance_id**: `String`)
 <a class="headerlink" href="#Prototype.create+3" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
-<endpoint module="luxe: world" class="Prototype" signature="create(world : Any, prototype_id : Any, instance_id : Any, position : Any)"></endpoint>
-<signature id="Prototype.create+4">Prototype.create(**world**: `Any`, **prototype_id**: `Any`, **instance_id**: `Any`, **position**: `Any`)
+<endpoint module="luxe: world" class="Prototype" signature="create(world : World, prototype_id : String, instance_id : String, position : Vec)"></endpoint>
+<signature id="Prototype.create+4">Prototype.create(**world**: `World`, **prototype_id**: `String`, **instance_id**: `String`, **position**: `Vec`)
 <a class="headerlink" href="#Prototype.create+4" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
-<endpoint module="luxe: world" class="Prototype" signature="create(world : Any, prototype_id : Any, instance_id : Any, position : Any, rotation : Any)"></endpoint>
-<signature id="Prototype.create+5">Prototype.create(**world**: `Any`, **prototype_id**: `Any`, **instance_id**: `Any`, **position**: `Any`, **rotation**: `Any`)
+<endpoint module="luxe: world" class="Prototype" signature="create(world : World, prototype_id : String, instance_id : String, position : Vec, rotation : Vec)"></endpoint>
+<signature id="Prototype.create+5">Prototype.create(**world**: `World`, **prototype_id**: `String`, **instance_id**: `String`, **position**: `Vec`, **rotation**: `Vec`)
 <a class="headerlink" href="#Prototype.create+5" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
-<endpoint module="luxe: world" class="Prototype" signature="create(world : Any, prototype_id : Any, instance_id : Any, position : Any, rotation : Any, scale : Any)"></endpoint>
-<signature id="Prototype.create+6">Prototype.create(**world**: `Any`, **prototype_id**: `Any`, **instance_id**: `Any`, **position**: `Any`, **rotation**: `Any`, **scale**: `Any`)
+<endpoint module="luxe: world" class="Prototype" signature="create(world : World, prototype_id : String, instance_id : String, position : Vec, rotation : Vec, scale : Vec)"></endpoint>
+<signature id="Prototype.create+6">Prototype.create(**world**: `World`, **prototype_id**: `String`, **instance_id**: `String`, **position**: `Vec`, **rotation**: `Vec`, **scale**: `Vec`)
 <a class="headerlink" href="#Prototype.create+6" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > Instantiate a new prototype into a world with a new name(instance id), position, rotation and scale.
@@ -3134,2125 +1997,70 @@
 
 ### Scene
 `:::js import "luxe: world" for Scene`
-> no docs found
+> Scenes are collections of entities that are stored together and can be instanced together. If entities in a scene have a transform modifier without a transform parent, the scene root will automatically be set as their parent.
+> 
+> Once a scene is instanced in a world, all its entities behave just like other entities in the world and get assigned unique entity UUIDs. Relative scene UUIDs, or named entities within a scene can be accessed via the root entity of the scene instance.
+> 
+> Scenes are mostly referred to by their scene ID. By default for new scenes, this is their asset id, but it can be changed to allow loading multiple scenes from the same asset and have them exist in the same world.
 
-- [create](#Scene.create+2)(**world**: `Any`, **id**: `Any`)
-- [destroy](#Scene.destroy+2)(**world**: `Any`, **id**: `Any`)
-- [get_list](#Scene.get_list)(**world**: `Any`)
-- [exists](#Scene.exists+2)(**world**: `Any`, **id**: `Any`)
-- [entity_list](#Scene.entity_list+2)(**world**: `Any`, **id**: `Any`)
-- [entity_forget](#Scene.entity_forget+3)(**world**: `Any`, **id**: `Any`, **entity**: `Any`)
-- [set_id](#Scene.set_id+3)(**world**: `Any`, **id**: `Any`, **new_id**: `Any`)
-- [load](#Scene.load+2)(**world**: `Any`, **id**: `Any`)
-- [load_as_clone](#Scene.load_as_clone+2)(**world**: `Any`, **id**: `Any`)
-- [unload](#Scene.unload+2)(**world**: `Any`, **id**: `Any`)
+- [create](#Scene.create+2)(**world**: `World`, **id**: `String`)
+- [destroy](#Scene.destroy+2)(**world**: `World`, **id**: `String`)
+- [get_list](#Scene.get_list)(**world**: `World`)
+- [exists](#Scene.exists+2)(**world**: `World`, **id**: `String`)
+- [entity_list](#Scene.entity_list+2)(**world**: `World`, **id**: `String`)
+- [entity_forget](#Scene.entity_forget+3)(**world**: `World`, **id**: `String`, **entity**: `Entity`)
+- [set_id](#Scene.set_id+3)(**world**: `World`, **id**: `String`, **new_id**: `String`)
 
 <hr/>
-<endpoint module="luxe: world" class="Scene" signature="create(world : Any, id : Any)"></endpoint>
-<signature id="Scene.create+2">Scene.create(**world**: `Any`, **id**: `Any`)
+<endpoint module="luxe: world" class="Scene" signature="create(world : World, id : String)"></endpoint>
+<signature id="Scene.create+2">Scene.create(**world**: `World`, **id**: `String`)
 <a class="headerlink" href="#Scene.create+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+<span class='api_ret'>returns</span> `:::js Entity`
+> Instantiate a new scene into a world.
+> This function returns the root entity of the newly created scene instance.   
 
-<endpoint module="luxe: world" class="Scene" signature="destroy(world : Any, id : Any)"></endpoint>
-<signature id="Scene.destroy+2">Scene.destroy(**world**: `Any`, **id**: `Any`)
+<endpoint module="luxe: world" class="Scene" signature="destroy(world : World, id : String)"></endpoint>
+<signature id="Scene.destroy+2">Scene.destroy(**world**: `World`, **id**: `String`)
 <a class="headerlink" href="#Scene.destroy+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+<span class='api_ret'>returns</span> `:::js Entity`
+> Destroy a scene by its id.
+> 
+> ```js
+>   Scene.create(app.world, "scenes/main")
+>   Scene.destroy(app.world, "scenes/main")
+> ```   
 
-<endpoint module="luxe: world" class="Scene" signature="get_list(world : Any)"></endpoint>
-<signature id="Scene.get_list">Scene.get_list(**world**: `Any`)
+<endpoint module="luxe: world" class="Scene" signature="get_list(world : World)"></endpoint>
+<signature id="Scene.get_list">Scene.get_list(**world**: `World`)
 <a class="headerlink" href="#Scene.get_list" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+<span class='api_ret'>returns</span> `:::js List`
+> Get a list of scenes in a world. The list contains the IDs of the scenes (as string IDs).   
 
-<endpoint module="luxe: world" class="Scene" signature="exists(world : Any, id : Any)"></endpoint>
-<signature id="Scene.exists+2">Scene.exists(**world**: `Any`, **id**: `Any`)
+<endpoint module="luxe: world" class="Scene" signature="exists(world : World, id : String)"></endpoint>
+<signature id="Scene.exists+2">Scene.exists(**world**: `World`, **id**: `String`)
 <a class="headerlink" href="#Scene.exists+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+<span class='api_ret'>returns</span> `:::js Bool`
+> Check if a scene is currently instanced in a world.   
 
-<endpoint module="luxe: world" class="Scene" signature="entity_list(world : Any, id : Any)"></endpoint>
-<signature id="Scene.entity_list+2">Scene.entity_list(**world**: `Any`, **id**: `Any`)
+<endpoint module="luxe: world" class="Scene" signature="entity_list(world : World, id : String)"></endpoint>
+<signature id="Scene.entity_list+2">Scene.entity_list(**world**: `World`, **id**: `String`)
 <a class="headerlink" href="#Scene.entity_list+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+<span class='api_ret'>returns</span> `:::js List`
+> Get all entities that are part of an instanced scene.   
 
-<endpoint module="luxe: world" class="Scene" signature="entity_forget(world : Any, id : Any, entity : Any)"></endpoint>
-<signature id="Scene.entity_forget+3">Scene.entity_forget(**world**: `Any`, **id**: `Any`, **entity**: `Any`)
+<endpoint module="luxe: world" class="Scene" signature="entity_forget(world : World, id : String, entity : Entity)"></endpoint>
+<signature id="Scene.entity_forget+3">Scene.entity_forget(**world**: `World`, **id**: `String`, **entity**: `Entity`)
 <a class="headerlink" href="#Scene.entity_forget+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+<span class='api_ret'>returns</span> `:::js None`
+> Stop associating an entity with a loaded scene.   
 
-<endpoint module="luxe: world" class="Scene" signature="set_id(world : Any, id : Any, new_id : Any)"></endpoint>
-<signature id="Scene.set_id+3">Scene.set_id(**world**: `Any`, **id**: `Any`, **new_id**: `Any`)
+<endpoint module="luxe: world" class="Scene" signature="set_id(world : World, id : String, new_id : String)"></endpoint>
+<signature id="Scene.set_id+3">Scene.set_id(**world**: `World`, **id**: `String`, **new_id**: `String`)
 <a class="headerlink" href="#Scene.set_id+3" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Scene" signature="load(world : Any, id : Any)"></endpoint>
-<signature id="Scene.load+2">Scene.load(**world**: `Any`, **id**: `Any`)
-<a class="headerlink" href="#Scene.load+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Scene" signature="load_as_clone(world : Any, id : Any)"></endpoint>
-<signature id="Scene.load_as_clone+2">Scene.load_as_clone(**world**: `Any`, **id**: `Any`)
-<a class="headerlink" href="#Scene.load_as_clone+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Scene" signature="unload(world : Any, id : Any)"></endpoint>
-<signature id="Scene.unload+2">Scene.unload(**world**: `Any`, **id**: `Any`)
-<a class="headerlink" href="#Scene.unload+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-### Sprite
-`:::js import "luxe: world" for Sprite`
-> A sprite is an image attached to an entity.   
-> The `Sprite` modifier provides flipping, sizing, sub images and more.
-> To attach a sprite to an entity, call `Sprite.create`:
-> 
->   ```js
->   var entity = Entity.create(world)
->   var material = Assets.material("luxe: material/logo")
->   Sprite.create(entity, material, 128, 128)
->   ```
-
-- [create](#Sprite.create+4)(**entity**: `Entity`, **material**: `Material`, **width**: `Num`, **height**: `Num`)
-- [create](#Sprite.create+2)(**entity**: `Entity`, **material**: `Material`)
-- [create](#Sprite.create+3)(**entity**: `Entity`, **atlas**: `Atlas`, **atlas_image**: `String`)
-- [destroy](#Sprite.destroy)(**entity**: `Entity`)
-- [has](#Sprite.has)(**entity**: `Entity`)
-- [contains](#Sprite.contains+3)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`)
-- [set_material](#Sprite.set_material+2)(**entity**: `Entity`, **material**: `Material`)
-- [get_material](#Sprite.get_material)(**entity**: `Entity`)
-- [set_origin](#Sprite.set_origin+3)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`)
-- [get_origin](#Sprite.get_origin)(**entity**: `Entity`)
-- [set_flip_h](#Sprite.set_flip_h+2)(**entity**: `Entity`, **flipped**: `Bool`)
-- [get_flip_h](#Sprite.get_flip_h)(**entity**: `Entity`)
-- [set_flip_v](#Sprite.set_flip_v+2)(**entity**: `Entity`, **flipped**: `Bool`)
-- [get_flip_v](#Sprite.get_flip_v)(**entity**: `Entity`)
-- [set_size](#Sprite.set_size+3)(**entity**: `Entity`, **width**: `Num`, **height**: `Num`)
-- [set_width](#Sprite.set_width+2)(**entity**: `Entity`, **width**: `Num`)
-- [get_width](#Sprite.get_width)(**entity**: `Entity`)
-- [set_height](#Sprite.set_height+2)(**entity**: `Entity`, **height**: `Num`)
-- [get_height](#Sprite.get_height)(**entity**: `Entity`)
-- [set_alpha](#Sprite.set_alpha+2)(**entity**: `Entity`, **alpha**: `Num`)
-- [get_alpha](#Sprite.get_alpha)(**entity**: `Entity`)
-- [set_color](#Sprite.set_color+5)(**entity**: `Entity`, **r**: `Num`, **g**: `Num`, **b**: `Num`, **a**: `Num`)
-- [get_color](#Sprite.get_color)(**entity**: `Entity`)
-- [set_uv](#Sprite.set_uv+5)(**entity**: `Entity`, **x0**: `Num`, **y0**: `Num`, **x1**: `Num`, **y1**: `Num`)
-- [get_uv](#Sprite.get_uv)(**entity**: `Entity`)
-- [set_skew](#Sprite.set_skew+3)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`)
-- [get_skew](#Sprite.get_skew)(**entity**: `Entity`)
-- [get_geometry](#Sprite.get_geometry)(**entity**: `Entity`)
-- [set_geometry](#Sprite.set_geometry+2)(**entity**: `Entity`, **geo**: `Geometry`)
-
-<hr/>
-<endpoint module="luxe: world" class="Sprite" signature="create(entity : Entity, material : Material, width : Num, height : Num)"></endpoint>
-<signature id="Sprite.create+4">Sprite.create(**entity**: `Entity`, **material**: `Material`, **width**: `Num`, **height**: `Num`)
-<a class="headerlink" href="#Sprite.create+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Attach a `Sprite` modifier to `entity`, drawn using `material`,
-> with a size of `width`x`height`.
-> 
->   ```js
->   var entity = Entity.create(world)
->   var material = Assets.material("luxe: material/logo")
->   Sprite.create(entity, material, 128, 128)
->   ```   
-
-<endpoint module="luxe: world" class="Sprite" signature="create(entity : Entity, material : Material)"></endpoint>
-<signature id="Sprite.create+2">Sprite.create(**entity**: `Entity`, **material**: `Material`)
-<a class="headerlink" href="#Sprite.create+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Attach a `Sprite` modifier to `entity`, drawn using `material`.
-> The size of the sprite will be determined by the `sprite.image` slot in the material.
-> 
->   ```js
->   var entity = Entity.create(world)
->   var material = Assets.material("luxe: material/logo")
->   Sprite.create(entity, material)
->   ```   
-
-<endpoint module="luxe: world" class="Sprite" signature="create(entity : Entity, atlas : Atlas, atlas_image : String)"></endpoint>
-<signature id="Sprite.create+3">Sprite.create(**entity**: `Entity`, **atlas**: `Atlas`, **atlas_image**: `String`)
-<a class="headerlink" href="#Sprite.create+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Attach a `Sprite` modifier to `entity`, drawn using the `atlas`, 
-> using the image name in the atlas as `atlas_image`,
-> with a size defined by the image in the atlas.
-> 
->   ```js
->   var entity = Entity.create(world)
->   var atlas = Assets.atlas("atlas/example")
->   var image_name = "images/atlas/example/tree"
->   Sprite.create(entity, atlas, image_name)
->   ```   
-
-<endpoint module="luxe: world" class="Sprite" signature="destroy(entity : Entity)"></endpoint>
-<signature id="Sprite.destroy">Sprite.destroy(**entity**: `Entity`)
-<a class="headerlink" href="#Sprite.destroy" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Detach and destroy the `Sprite` attached to `entity`
-> 
->   ```js
->   Sprite.destroy(entity)
->   ```   
-
-<endpoint module="luxe: world" class="Sprite" signature="has(entity : Entity)"></endpoint>
-<signature id="Sprite.has">Sprite.has(**entity**: `Entity`)
-<a class="headerlink" href="#Sprite.has" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Bool`
-> Returns true if `entity` has a `Sprite` modifier attached.
-> 
->   ```js
->   if(Sprite.has(entity)) {
->     Log.print("found sprite")
->   }
->   ```   
-
-<endpoint module="luxe: world" class="Sprite" signature="contains(entity : Entity, x : Num, y : Num)"></endpoint>
-<signature id="Sprite.contains+3">Sprite.contains(**entity**: `Entity`, **x**: `Num`, **y**: `Num`)
-<a class="headerlink" href="#Sprite.contains+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Bool`
-> Returns true if the `Sprite` attached to `entity` contains the point at `x`,`y` (in world units).
-> Note that the function is based on the sprite `width` and `height`, it is not pixel perfect.
-> 
->   ```js
->   //Convert mouse coords to world units
->   var pos = Camera.screen_point_to_world(
->       app.camera,
->       Input.mouse_x(),
->       Input.mouse_y())
->   //Check if point is inside the sprite
->   if(Sprite.contains(entity, pos.x, pos.y)) {
->     Log.print("mouse inside sprite!")
->   }
->   ```   
-
-<endpoint module="luxe: world" class="Sprite" signature="set_material(entity : Entity, material : Material)"></endpoint>
-<signature id="Sprite.set_material+2">Sprite.set_material(**entity**: `Entity`, **material**: `Material`)
-<a class="headerlink" href="#Sprite.set_material+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Change the material that the `Sprite` attached to `entity` is drawn with, so it will draw with `material` instead.
-> 
->   ```js
->   var material = Assets.material("luxe: material/logo.sprite")
->   Sprite.set_material(entity, material)
->   ```   
-
-<endpoint module="luxe: world" class="Sprite" signature="get_material(entity : Entity)"></endpoint>
-<signature id="Sprite.get_material">Sprite.get_material(**entity**: `Entity`)
-<a class="headerlink" href="#Sprite.get_material" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Material`
-> Returns the current material that the `Sprite` attached to `entity` is drawn with.
-> 
->   ```js
->   var material = Sprite.get_material(entity)
->   ```   
-
-<endpoint module="luxe: world" class="Sprite" signature="set_origin(entity : Entity, x : Num, y : Num)"></endpoint>
-<signature id="Sprite.set_origin+3">Sprite.set_origin(**entity**: `Entity`, **x**: `Num`, **y**: `Num`)
-<a class="headerlink" href="#Sprite.set_origin+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Sets the origin of the sprite in relation to the `Transform` on `entity`. The `x` and `y` values are `0...1` range, where `0, 0` is bottom left, and `1, 1` is top right. A centered sprite is `0.5, 0.5`. To set the origin to the center, bottom you'd use `0.5, 0`.
-> 
->   ```js
->   //centered
->   Sprite.set_origin(entity, 0.5, 0.5)
->   //bottom left
->   Sprite.set_origin(entity, 0, 0)
->   //bottom center
->   Sprite.set_origin(entity, 0.5, 0)
->   ```   
-
-<endpoint module="luxe: world" class="Sprite" signature="get_origin(entity : Entity)"></endpoint>
-<signature id="Sprite.get_origin">Sprite.get_origin(**entity**: `Entity`)
-<a class="headerlink" href="#Sprite.get_origin" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Float2`
-> Returns the current origin for the Sprite attached to `entity`.
->               
->   ```js
->   var origin = Sprite.get_origin(entity)
->   Log.print(origin) //[0.5, 0.5]
->   ```   
-
-<endpoint module="luxe: world" class="Sprite" signature="set_flip_h(entity : Entity, flipped : Bool)"></endpoint>
-<signature id="Sprite.set_flip_h+2">Sprite.set_flip_h(**entity**: `Entity`, **flipped**: `Bool`)
-<a class="headerlink" href="#Sprite.set_flip_h+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Set whether the `Sprite` attached to `entity` is `flipped` horizontally.
-> 
->   ```js
->   Sprite.set_flip_h(entity, true)
->   ```   
-
-<endpoint module="luxe: world" class="Sprite" signature="get_flip_h(entity : Entity)"></endpoint>
-<signature id="Sprite.get_flip_h">Sprite.get_flip_h(**entity**: `Entity`)
-<a class="headerlink" href="#Sprite.get_flip_h" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Bool`
-> Returns true if the `Sprite` attached to `entity` is flipped horizontally.
-> 
->   ```js
->   var flipped = Sprite.get_flip_h(entity)
->   ```   
-
-<endpoint module="luxe: world" class="Sprite" signature="set_flip_v(entity : Entity, flipped : Bool)"></endpoint>
-<signature id="Sprite.set_flip_v+2">Sprite.set_flip_v(**entity**: `Entity`, **flipped**: `Bool`)
-<a class="headerlink" href="#Sprite.set_flip_v+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Set whether the `Sprite` attached to `entity` is `flipped` vertically.
-> 
->   ```js
->   Sprite.set_flip_v(entity, true)
->   ```   
-
-<endpoint module="luxe: world" class="Sprite" signature="get_flip_v(entity : Entity)"></endpoint>
-<signature id="Sprite.get_flip_v">Sprite.get_flip_v(**entity**: `Entity`)
-<a class="headerlink" href="#Sprite.get_flip_v" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Bool`
-> Returns true if the `Sprite` attached to `entity` is flipped vertically.
-> 
->   ```js
->   var flipped = Sprite.get_flip_v(entity)
->   ```   
-
-<endpoint module="luxe: world" class="Sprite" signature="set_size(entity : Entity, width : Num, height : Num)"></endpoint>
-<signature id="Sprite.set_size+3">Sprite.set_size(**entity**: `Entity`, **width**: `Num`, **height**: `Num`)
-<a class="headerlink" href="#Sprite.set_size+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Resize the `Sprite` attached to `entity` to be `width`x`height`.
-> 
->   ```js
->   Sprite.set_size(entity, 256, 256)
->   ```   
-
-<endpoint module="luxe: world" class="Sprite" signature="set_width(entity : Entity, width : Num)"></endpoint>
-<signature id="Sprite.set_width+2">Sprite.set_width(**entity**: `Entity`, **width**: `Num`)
-<a class="headerlink" href="#Sprite.set_width+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Resize the `Sprite` attached to `entity` to have a new `width`.
-> 
->   ```js
->   Sprite.set_width(entity, 64)
->   ```   
-
-<endpoint module="luxe: world" class="Sprite" signature="get_width(entity : Entity)"></endpoint>
-<signature id="Sprite.get_width">Sprite.get_width(**entity**: `Entity`)
-<a class="headerlink" href="#Sprite.get_width" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Num`
-> Returns the width of the `Sprite` attached to `entity`.
-> 
->   ```js
->   var width = Sprite.get_width(entity)
->   ```   
-
-<endpoint module="luxe: world" class="Sprite" signature="set_height(entity : Entity, height : Num)"></endpoint>
-<signature id="Sprite.set_height+2">Sprite.set_height(**entity**: `Entity`, **height**: `Num`)
-<a class="headerlink" href="#Sprite.set_height+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Resize the `Sprite` attached to `entity` to have a new `height`.
-> 
->   ```js
->   Sprite.set_height(entity, 64)
->   ```   
-
-<endpoint module="luxe: world" class="Sprite" signature="get_height(entity : Entity)"></endpoint>
-<signature id="Sprite.get_height">Sprite.get_height(**entity**: `Entity`)
-<a class="headerlink" href="#Sprite.get_height" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Num`
-> Returns the height of the `Sprite` attached to `entity`.
-> 
->   ```js
->   var height = Sprite.get_height(entity)
->   ```   
-
-<endpoint module="luxe: world" class="Sprite" signature="set_alpha(entity : Entity, alpha : Num)"></endpoint>
-<signature id="Sprite.set_alpha+2">Sprite.set_alpha(**entity**: `Entity`, **alpha**: `Num`)
-<a class="headerlink" href="#Sprite.set_alpha+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Change the alpha (transparency) of the `Sprite` attached to `entity` to be `alpha`. Modifies the color.
-> 
->   ```js
->   Sprite.set_alpha(entity, 0.5)
->   ```   
-
-<endpoint module="luxe: world" class="Sprite" signature="get_alpha(entity : Entity)"></endpoint>
-<signature id="Sprite.get_alpha">Sprite.get_alpha(**entity**: `Entity`)
-<a class="headerlink" href="#Sprite.get_alpha" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Num`
-> Returns the current alpha of the `Sprite` attached to `entity`.
-> 
->   ```js
->   var a = Sprite.get_alpha(entity)
->   ```   
-
-<endpoint module="luxe: world" class="Sprite" signature="set_color(entity : Entity, r : Num, g : Num, b : Num, a : Num)"></endpoint>
-<signature id="Sprite.set_color+5">Sprite.set_color(**entity**: `Entity`, **r**: `Num`, **g**: `Num`, **b**: `Num`, **a**: `Num`)
-<a class="headerlink" href="#Sprite.set_color+5" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Set the color of the `Sprite` attached to `entity` to be a color of `r`,`g`,`b`,`a`. :todo: Add `Sprite.set_color(entity, color)` to API. The default color is white, `[1, 1, 1, 1]`, so to undo a color change, set it to that.
-> 
->   ```js
->   Sprite.set_color(entity, r, g, b, a)
->   ```   
-
-<endpoint module="luxe: world" class="Sprite" signature="get_color(entity : Entity)"></endpoint>
-<signature id="Sprite.get_color">Sprite.get_color(**entity**: `Entity`)
-<a class="headerlink" href="#Sprite.get_color" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Color`
-> Returns the current color of the `Sprite` attached to `entity`.
-> 
->   ```js
->   var color = Sprite.get_color(entity)
->   ```   
-
-<endpoint module="luxe: world" class="Sprite" signature="set_uv(entity : Entity, x0 : Num, y0 : Num, x1 : Num, y1 : Num)"></endpoint>
-<signature id="Sprite.set_uv+5">Sprite.set_uv(**entity**: `Entity`, **x0**: `Num`, **y0**: `Num`, **x1**: `Num`, **y1**: `Num`)
-<a class="headerlink" href="#Sprite.set_uv+5" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Set the UV coordinates for the `Sprite` attached to `entity` with top left at `x0`,`y0` and bottom right `x1`,`y1`. The default is `0, 0, 1, 1`, a full rectangle in UV coordinate space. If you want to tile the image on a sprite, set it to values > 1.
-> 
->   ```js
->   //tile 4 times on both x and y
->   Sprite.set_uv(entity, 0, 0, 4, 4)
->   ```   
-
-<endpoint module="luxe: world" class="Sprite" signature="get_uv(entity : Entity)"></endpoint>
-<signature id="Sprite.get_uv">Sprite.get_uv(**entity**: `Entity`)
-<a class="headerlink" href="#Sprite.get_uv" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Float4`
-> Returns the current uv of the `Sprite` attached to `entity`.
-> 
->   ```js
->   var uv = Sprite.get_uv(entity)
->   ```   
-
-<endpoint module="luxe: world" class="Sprite" signature="set_skew(entity : Entity, x : Num, y : Num)"></endpoint>
-<signature id="Sprite.set_skew+3">Sprite.set_skew(**entity**: `Entity`, **x**: `Num`, **y**: `Num`)
-<a class="headerlink" href="#Sprite.set_skew+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Set the skew amounts for the `Sprite` attached to `entity`. The values of `x` and `y` are between `0 ... 1`, where 1 is the most skew and 0 is none.
-> 
->   ```js
->   Sprite.set_skew(entity, 0, 0.25)
->   ```   
-
-<endpoint module="luxe: world" class="Sprite" signature="get_skew(entity : Entity)"></endpoint>
-<signature id="Sprite.get_skew">Sprite.get_skew(**entity**: `Entity`)
-<a class="headerlink" href="#Sprite.get_skew" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Float2`
-> Return the skew for the `Sprite` attached to `entity`.
-> 
->   ```js
->   var skew = Sprite.get_skew(entity)
->   ```   
-
-<endpoint module="luxe: world" class="Sprite" signature="get_geometry(entity : Entity)"></endpoint>
-<signature id="Sprite.get_geometry">Sprite.get_geometry(**entity**: `Entity`)
-<a class="headerlink" href="#Sprite.get_geometry" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Geometry`
-> Returns the render [Geometry](#geometry) for the `Sprite` attached to `entity`. The geometry is owned by the sprite, so be aware when modifying it.
-> 
->   ```js
->   var geometry = Sprite.get_geometry(entity)
->   ```   
-
-<endpoint module="luxe: world" class="Sprite" signature="set_geometry(entity : Entity, geo : Geometry)"></endpoint>
-<signature id="Sprite.set_geometry+2">Sprite.set_geometry(**entity**: `Entity`, **geo**: `Geometry`)
-<a class="headerlink" href="#Sprite.set_geometry+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> Sets the render [Geometry](#geometry) for the `Sprite` attached to `entity`.
-> 
->   ```js
->   Sprite.set_geometry(entity, geo)
->   ```   
-
-### Tags
-`:::js import "luxe: world" for Tags`
-> no docs found
-
-- [create](#Tags.create)(**entity**: `Any`)
-- [destroy](#Tags.destroy)(**entity**: `Any`)
-- [has](#Tags.has)(**entity**: `Any`)
-- [add](#Tags.add+2)(**entity**: `Any`, **tag**: `Any`)
-- [remove](#Tags.remove+2)(**entity**: `Any`, **tag**: `Any`)
-- [list](#Tags.list+2)(**world**: `Any`, **tag**: `Any`)
-- [list](#Tags.list)(**entity**: `Any`)
-- [has_tag](#Tags.has_tag+2)(**entity**: `Any`, **tag**: `Any`)
-
-<hr/>
-<endpoint module="luxe: world" class="Tags" signature="create(entity : Any)"></endpoint>
-<signature id="Tags.create">Tags.create(**entity**: `Any`)
-<a class="headerlink" href="#Tags.create" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tags" signature="destroy(entity : Any)"></endpoint>
-<signature id="Tags.destroy">Tags.destroy(**entity**: `Any`)
-<a class="headerlink" href="#Tags.destroy" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tags" signature="has(entity : Any)"></endpoint>
-<signature id="Tags.has">Tags.has(**entity**: `Any`)
-<a class="headerlink" href="#Tags.has" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tags" signature="add(entity : Any, tag : Any)"></endpoint>
-<signature id="Tags.add+2">Tags.add(**entity**: `Any`, **tag**: `Any`)
-<a class="headerlink" href="#Tags.add+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tags" signature="remove(entity : Any, tag : Any)"></endpoint>
-<signature id="Tags.remove+2">Tags.remove(**entity**: `Any`, **tag**: `Any`)
-<a class="headerlink" href="#Tags.remove+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tags" signature="list(world : Any, tag : Any)"></endpoint>
-<signature id="Tags.list+2">Tags.list(**world**: `Any`, **tag**: `Any`)
-<a class="headerlink" href="#Tags.list+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tags" signature="list(entity : Any)"></endpoint>
-<signature id="Tags.list">Tags.list(**entity**: `Any`)
-<a class="headerlink" href="#Tags.list" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tags" signature="has_tag(entity : Any, tag : Any)"></endpoint>
-<signature id="Tags.has_tag+2">Tags.has_tag(**entity**: `Any`, **tag**: `Any`)
-<a class="headerlink" href="#Tags.has_tag+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-### Text
-`:::js import "luxe: world" for Text`
-> no docs found
-
-- [create](#Text.create+5)(**entity**: `Any`, **material**: `Any`, **default_size**: `Any`, **default_font**: `Any`, **default_color**: `Any`)
-- [destroy](#Text.destroy)(**entity**: `Any`)
-- [set_size](#Text.set_size+2)(**entity**: `Any`, **default_size**: `Any`)
-- [get_size](#Text.get_size)(**entity**: `Any`)
-- [set_font](#Text.set_font+2)(**entity**: `Any`, **default_font**: `Any`)
-- [get_font](#Text.get_font)(**entity**: `Any`)
-- [set_style](#Text.set_style+2)(**entity**: `Entity`, **style**: `TextStyle`)
-- [get_style](#Text.get_style)(**entity**: `Entity`)
-- [set_outline](#Text.set_outline+5)(**entity**: `Entity`, **radius**: `Num`, **softness**: `Num`, **color**: `Color`, **offset**: `Float2`)
-- [set_shadow](#Text.set_shadow+5)(**entity**: `Entity`, **radius**: `Num`, **softness**: `Num`, **color**: `Color`, **offset**: `Float2`)
-- [set_max_visible](#Text.set_max_visible+2)(**entity**: `Entity`, **max_visible**: `Num`)
-- [get_max_visible](#Text.get_max_visible)(**entity**: `Entity`)
-- [set_color](#Text.set_color+2)(**entity**: `Any`, **default_color**: `Any`)
-- [get_color](#Text.get_color)(**entity**: `Any`)
-- [set_align](#Text.set_align+3)(**entity**: `Any`, **align**: `Any`, **align_vertical**: `Any`)
-- [set_align](#Text.set_align+2)(**entity**: `Any`, **align**: `Any`)
-- [get_align](#Text.get_align)(**entity**: `Any`)
-- [set_align_vertical](#Text.set_align_vertical+2)(**entity**: `Any`, **align_vertical**: `Any`)
-- [get_align_vertical](#Text.get_align_vertical)(**entity**: `Any`)
-- [set_bounds](#Text.set_bounds+5)(**entity**: `Any`, **x**: `Any`, **y**: `Any`, **w**: `Any`, **h**: `Any`)
-- [get_bounds](#Text.get_bounds)(**entity**: `Any`)
-- [set_attr](#Text.set_attr+6)(**entity**: `Entity`, **start**: `Num`, **length**: `Num`, **type**: `TextAttrType`, **key**: `String`, **value**: `Any`)
-- [attr_clear](#Text.attr_clear)(**entity**: `Any`)
-- [commit](#Text.commit)(**entity**: `Any`)
-- [get_render_text](#Text.get_render_text)(**entity**: `Any`)
-- [get_geometry](#Text.get_geometry)(**entity**: `Any`)
-- [get_extents](#Text.get_extents+3)(**entity**: `Any`, **offset**: `Any`, **count**: `Any`)
-- [get_extents](#Text.get_extents)(**entity**: `Any`)
-- [contains](#Text.contains+3)(**entity**: `Any`, **x**: `Any`, **y**: `Any`)
-- [has](#Text.has)(**entity**: `Any`)
-- [set_loc](#Text.set_loc+3)(**entity**: `Entity`, **space**: `String`, **key**: `String`)
-- [set_loc](#Text.set_loc+2)(**entity**: `Entity`, **key**: `String`)
-- [set_loc_with_args](#Text.set_loc_with_args+4)(**entity**: `Entity`, **space**: `String`, **key**: `String`, **args**: `List`)
-- [set_loc_with_args](#Text.set_loc_with_args+3)(**entity**: `Entity`, **key**: `String`, **args**: `List`)
-- [get_text](#Text.get_text)(**entity**: `Any`)
-- [set_text_buffer](#Text.set_text_buffer+2)(**entity**: `Any`, **string**: `Any`)
-- [set_text](#Text.set_text+2)(**entity**: `Any`, **string**: `Any`)
-
-<hr/>
-<endpoint module="luxe: world" class="Text" signature="create(entity : Any, material : Any, default_size : Any, default_font : Any, default_color : Any)"></endpoint>
-<signature id="Text.create+5">Text.create(**entity**: `Any`, **material**: `Any`, **default_size**: `Any`, **default_font**: `Any`, **default_color**: `Any`)
-<a class="headerlink" href="#Text.create+5" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Text" signature="destroy(entity : Any)"></endpoint>
-<signature id="Text.destroy">Text.destroy(**entity**: `Any`)
-<a class="headerlink" href="#Text.destroy" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Text" signature="set_size(entity : Any, default_size : Any)"></endpoint>
-<signature id="Text.set_size+2">Text.set_size(**entity**: `Any`, **default_size**: `Any`)
-<a class="headerlink" href="#Text.set_size+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Text" signature="get_size(entity : Any)"></endpoint>
-<signature id="Text.get_size">Text.get_size(**entity**: `Any`)
-<a class="headerlink" href="#Text.get_size" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Text" signature="set_font(entity : Any, default_font : Any)"></endpoint>
-<signature id="Text.set_font+2">Text.set_font(**entity**: `Any`, **default_font**: `Any`)
-<a class="headerlink" href="#Text.set_font+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Text" signature="get_font(entity : Any)"></endpoint>
-<signature id="Text.get_font">Text.get_font(**entity**: `Any`)
-<a class="headerlink" href="#Text.get_font" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Text" signature="set_style(entity : Entity, style : TextStyle)"></endpoint>
-<signature id="Text.set_style+2">Text.set_style(**entity**: `Entity`, **style**: `TextStyle`)
-<a class="headerlink" href="#Text.set_style+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> no docs found   
-
-<endpoint module="luxe: world" class="Text" signature="get_style(entity : Entity)"></endpoint>
-<signature id="Text.get_style">Text.get_style(**entity**: `Entity`)
-<a class="headerlink" href="#Text.get_style" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js TextStyle`
-> no docs found   
-
-<endpoint module="luxe: world" class="Text" signature="set_outline(entity : Entity, radius : Num, softness : Num, color : Color, offset : Float2)"></endpoint>
-<signature id="Text.set_outline+5">Text.set_outline(**entity**: `Entity`, **radius**: `Num`, **softness**: `Num`, **color**: `Color`, **offset**: `Float2`)
-<a class="headerlink" href="#Text.set_outline+5" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Text" signature="set_shadow(entity : Entity, radius : Num, softness : Num, color : Color, offset : Float2)"></endpoint>
-<signature id="Text.set_shadow+5">Text.set_shadow(**entity**: `Entity`, **radius**: `Num`, **softness**: `Num`, **color**: `Color`, **offset**: `Float2`)
-<a class="headerlink" href="#Text.set_shadow+5" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Text" signature="set_max_visible(entity : Entity, max_visible : Num)"></endpoint>
-<signature id="Text.set_max_visible+2">Text.set_max_visible(**entity**: `Entity`, **max_visible**: `Num`)
-<a class="headerlink" href="#Text.set_max_visible+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> no docs found   
-
-<endpoint module="luxe: world" class="Text" signature="get_max_visible(entity : Entity)"></endpoint>
-<signature id="Text.get_max_visible">Text.get_max_visible(**entity**: `Entity`)
-<a class="headerlink" href="#Text.get_max_visible" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Num`
-> no docs found   
-
-<endpoint module="luxe: world" class="Text" signature="set_color(entity : Any, default_color : Any)"></endpoint>
-<signature id="Text.set_color+2">Text.set_color(**entity**: `Any`, **default_color**: `Any`)
-<a class="headerlink" href="#Text.set_color+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Text" signature="get_color(entity : Any)"></endpoint>
-<signature id="Text.get_color">Text.get_color(**entity**: `Any`)
-<a class="headerlink" href="#Text.get_color" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Text" signature="set_align(entity : Any, align : Any, align_vertical : Any)"></endpoint>
-<signature id="Text.set_align+3">Text.set_align(**entity**: `Any`, **align**: `Any`, **align_vertical**: `Any`)
-<a class="headerlink" href="#Text.set_align+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Text" signature="set_align(entity : Any, align : Any)"></endpoint>
-<signature id="Text.set_align+2">Text.set_align(**entity**: `Any`, **align**: `Any`)
-<a class="headerlink" href="#Text.set_align+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Text" signature="get_align(entity : Any)"></endpoint>
-<signature id="Text.get_align">Text.get_align(**entity**: `Any`)
-<a class="headerlink" href="#Text.get_align" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Text" signature="set_align_vertical(entity : Any, align_vertical : Any)"></endpoint>
-<signature id="Text.set_align_vertical+2">Text.set_align_vertical(**entity**: `Any`, **align_vertical**: `Any`)
-<a class="headerlink" href="#Text.set_align_vertical+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Text" signature="get_align_vertical(entity : Any)"></endpoint>
-<signature id="Text.get_align_vertical">Text.get_align_vertical(**entity**: `Any`)
-<a class="headerlink" href="#Text.get_align_vertical" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Text" signature="set_bounds(entity : Any, x : Any, y : Any, w : Any, h : Any)"></endpoint>
-<signature id="Text.set_bounds+5">Text.set_bounds(**entity**: `Any`, **x**: `Any`, **y**: `Any`, **w**: `Any`, **h**: `Any`)
-<a class="headerlink" href="#Text.set_bounds+5" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Text" signature="get_bounds(entity : Any)"></endpoint>
-<signature id="Text.get_bounds">Text.get_bounds(**entity**: `Any`)
-<a class="headerlink" href="#Text.get_bounds" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Text" signature="set_attr(entity : Entity, start : Num, length : Num, type : TextAttrType, key : String, value : Any)"></endpoint>
-<signature id="Text.set_attr+6">Text.set_attr(**entity**: `Entity`, **start**: `Num`, **length**: `Num`, **type**: `TextAttrType`, **key**: `String`, **value**: `Any`)
-<a class="headerlink" href="#Text.set_attr+6" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> no docs found   
-
-<endpoint module="luxe: world" class="Text" signature="attr_clear(entity : Any)"></endpoint>
-<signature id="Text.attr_clear">Text.attr_clear(**entity**: `Any`)
-<a class="headerlink" href="#Text.attr_clear" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Text" signature="commit(entity : Any)"></endpoint>
-<signature id="Text.commit">Text.commit(**entity**: `Any`)
-<a class="headerlink" href="#Text.commit" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Text" signature="get_render_text(entity : Any)"></endpoint>
-<signature id="Text.get_render_text">Text.get_render_text(**entity**: `Any`)
-<a class="headerlink" href="#Text.get_render_text" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Text" signature="get_geometry(entity : Any)"></endpoint>
-<signature id="Text.get_geometry">Text.get_geometry(**entity**: `Any`)
-<a class="headerlink" href="#Text.get_geometry" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Text" signature="get_extents(entity : Any, offset : Any, count : Any)"></endpoint>
-<signature id="Text.get_extents+3">Text.get_extents(**entity**: `Any`, **offset**: `Any`, **count**: `Any`)
-<a class="headerlink" href="#Text.get_extents+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Text" signature="get_extents(entity : Any)"></endpoint>
-<signature id="Text.get_extents">Text.get_extents(**entity**: `Any`)
-<a class="headerlink" href="#Text.get_extents" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Text" signature="contains(entity : Any, x : Any, y : Any)"></endpoint>
-<signature id="Text.contains+3">Text.contains(**entity**: `Any`, **x**: `Any`, **y**: `Any`)
-<a class="headerlink" href="#Text.contains+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Text" signature="has(entity : Any)"></endpoint>
-<signature id="Text.has">Text.has(**entity**: `Any`)
-<a class="headerlink" href="#Text.has" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Text" signature="set_loc(entity : Entity, space : String, key : String)"></endpoint>
-<signature id="Text.set_loc+3">Text.set_loc(**entity**: `Entity`, **space**: `String`, **key**: `String`)
-<a class="headerlink" href="#Text.set_loc+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Text" signature="set_loc(entity : Entity, key : String)"></endpoint>
-<signature id="Text.set_loc+2">Text.set_loc(**entity**: `Entity`, **key**: `String`)
-<a class="headerlink" href="#Text.set_loc+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Text" signature="set_loc_with_args(entity : Entity, space : String, key : String, args : List)"></endpoint>
-<signature id="Text.set_loc_with_args+4">Text.set_loc_with_args(**entity**: `Entity`, **space**: `String`, **key**: `String`, **args**: `List`)
-<a class="headerlink" href="#Text.set_loc_with_args+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Text" signature="set_loc_with_args(entity : Entity, key : String, args : List)"></endpoint>
-<signature id="Text.set_loc_with_args+3">Text.set_loc_with_args(**entity**: `Entity`, **key**: `String`, **args**: `List`)
-<a class="headerlink" href="#Text.set_loc_with_args+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Text" signature="get_text(entity : Any)"></endpoint>
-<signature id="Text.get_text">Text.get_text(**entity**: `Any`)
-<a class="headerlink" href="#Text.get_text" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Text" signature="set_text_buffer(entity : Any, string : Any)"></endpoint>
-<signature id="Text.set_text_buffer+2">Text.set_text_buffer(**entity**: `Any`, **string**: `Any`)
-<a class="headerlink" href="#Text.set_text_buffer+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Text" signature="set_text(entity : Any, string : Any)"></endpoint>
-<signature id="Text.set_text+2">Text.set_text(**entity**: `Any`, **string**: `Any`)
-<a class="headerlink" href="#Text.set_text+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-### Tile
-`:::js import "luxe: world" for Tile`
-> no docs found
-
-- [create](#Tile.create+5)(**entity**: `Any`, **x**: `Any`, **y**: `Any`, **depth**: `Any`, **visual_id**: `Any`)
-- [destroy](#Tile.destroy+2)(**entity**: `Any`, **tile**: `Any`)
-- [destroy_at](#Tile.destroy_at+4)(**entity**: `Any`, **x**: `Any`, **y**: `Any`, **depth**: `Any`)
-- [exists_at](#Tile.exists_at+4)(**entity**: `Any`, **x**: `Any`, **y**: `Any`, **depth**: `Any`)
-- [get_at](#Tile.get_at+4)(**entity**: `Any`, **x**: `Any`, **y**: `Any`, **depth**: `Any`)
-- [get_all](#Tile.get_all+2)(**entity**: `Any`, **into**: `Any`)
-- [get_all_at](#Tile.get_all_at+4)(**entity**: `Any`, **x**: `Any`, **y**: `Any`, **into**: `Any`)
-- [get_all_at_depth](#Tile.get_all_at_depth+3)(**entity**: `Any`, **depth**: `Any`, **into**: `Any`)
-- [get_all_with_tag](#Tile.get_all_with_tag+3)(**entity**: `Any`, **tag**: `Any`, **into**: `Any`)
-- [get_all_with_visual](#Tile.get_all_with_visual+3)(**entity**: `Any`, **visual**: `Any`, **into**: `Any`)
-- [add_tag](#Tile.add_tag+3)(**entity**: `Any`, **tile**: `Any`, **tag**: `Any`)
-- [remove_tag](#Tile.remove_tag+3)(**entity**: `Any`, **tile**: `Any`, **tag**: `Any`)
-- [has_tag](#Tile.has_tag+3)(**entity**: `Any`, **tile**: `Any`, **tag**: `Any`)
-- [get_tags](#Tile.get_tags+2)(**entity**: `Any`, **tile**: `Any`)
-- [clear_tags](#Tile.clear_tags+2)(**entity**: `Any`, **tile**: `Any`)
-- [set](#Tile.set+4)(**entity**: `Any`, **tile**: `Any`, **key**: `Any`, **value**: `Any`)
-- [get](#Tile.get+4)(**entity**: `Any`, **tile**: `Any`, **key**: `Any`, **default**: `Any`)
-- [set_coord](#Tile.set_coord+4)(**entity**: `Any`, **tile**: `Any`, **x**: `Any`, **y**: `Any`)
-- [get_coord_x](#Tile.get_coord_x+2)(**entity**: `Any`, **tile**: `Any`)
-- [get_coord_y](#Tile.get_coord_y+2)(**entity**: `Any`, **tile**: `Any`)
-- [set_depth](#Tile.set_depth+3)(**entity**: `Any`, **tile**: `Any`, **depth**: `Any`)
-- [get_depth](#Tile.get_depth+2)(**entity**: `Any`, **tile**: `Any`)
-- [set_offset](#Tile.set_offset+4)(**entity**: `Any`, **tile**: `Any`, **x**: `Any`, **y**: `Any`)
-- [set_offset_x](#Tile.set_offset_x+3)(**entity**: `Any`, **tile**: `Any`, **x**: `Any`)
-- [set_offset_y](#Tile.set_offset_y+3)(**entity**: `Any`, **tile**: `Any`, **y**: `Any`)
-- [get_offset_x](#Tile.get_offset_x+2)(**entity**: `Any`, **tile**: `Any`)
-- [get_offset_y](#Tile.get_offset_y+2)(**entity**: `Any`, **tile**: `Any`)
-- [reset_size](#Tile.reset_size+2)(**entity**: `Any`, **tile**: `Any`)
-- [set_size](#Tile.set_size+4)(**entity**: `Any`, **tile**: `Any`, **x**: `Any`, **y**: `Any`)
-- [set_size_x](#Tile.set_size_x+3)(**entity**: `Any`, **tile**: `Any`, **x**: `Any`)
-- [set_size_y](#Tile.set_size_y+3)(**entity**: `Any`, **tile**: `Any`, **y**: `Any`)
-- [get_size_x](#Tile.get_size_x+2)(**entity**: `Any`, **tile**: `Any`)
-- [get_size_y](#Tile.get_size_y+2)(**entity**: `Any`, **tile**: `Any`)
-- [set_flip](#Tile.set_flip+4)(**entity**: `Any`, **tile**: `Any`, **x**: `Any`, **y**: `Any`)
-- [set_flip_x](#Tile.set_flip_x+3)(**entity**: `Any`, **tile**: `Any`, **flip**: `Any`)
-- [set_flip_y](#Tile.set_flip_y+3)(**entity**: `Any`, **tile**: `Any`, **flip**: `Any`)
-- [get_flip_x](#Tile.get_flip_x+2)(**entity**: `Any`, **tile**: `Any`)
-- [get_flip_y](#Tile.get_flip_y+2)(**entity**: `Any`, **tile**: `Any`)
-- [set_visual](#Tile.set_visual+3)(**entity**: `Any`, **tile**: `Any`, **visual**: `Any`)
-- [get_visual](#Tile.get_visual+2)(**entity**: `Any`, **tile**: `Any`)
-- [set_angle](#Tile.set_angle+3)(**entity**: `Any`, **tile**: `Any`, **angle**: `Any`)
-- [get_angle](#Tile.get_angle+2)(**entity**: `Any`, **tile**: `Any`)
-- [set_color](#Tile.set_color+3)(**entity**: `Any`, **tile**: `Any`, **color**: `Any`)
-- [get_color](#Tile.get_color+2)(**entity**: `Any`, **tile**: `Any`)
-
-<hr/>
-<endpoint module="luxe: world" class="Tile" signature="create(entity : Any, x : Any, y : Any, depth : Any, visual_id : Any)"></endpoint>
-<signature id="Tile.create+5">Tile.create(**entity**: `Any`, **x**: `Any`, **y**: `Any`, **depth**: `Any`, **visual_id**: `Any`)
-<a class="headerlink" href="#Tile.create+5" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="destroy(entity : Any, tile : Any)"></endpoint>
-<signature id="Tile.destroy+2">Tile.destroy(**entity**: `Any`, **tile**: `Any`)
-<a class="headerlink" href="#Tile.destroy+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="destroy_at(entity : Any, x : Any, y : Any, depth : Any)"></endpoint>
-<signature id="Tile.destroy_at+4">Tile.destroy_at(**entity**: `Any`, **x**: `Any`, **y**: `Any`, **depth**: `Any`)
-<a class="headerlink" href="#Tile.destroy_at+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="exists_at(entity : Any, x : Any, y : Any, depth : Any)"></endpoint>
-<signature id="Tile.exists_at+4">Tile.exists_at(**entity**: `Any`, **x**: `Any`, **y**: `Any`, **depth**: `Any`)
-<a class="headerlink" href="#Tile.exists_at+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="get_at(entity : Any, x : Any, y : Any, depth : Any)"></endpoint>
-<signature id="Tile.get_at+4">Tile.get_at(**entity**: `Any`, **x**: `Any`, **y**: `Any`, **depth**: `Any`)
-<a class="headerlink" href="#Tile.get_at+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="get_all(entity : Any, into : Any)"></endpoint>
-<signature id="Tile.get_all+2">Tile.get_all(**entity**: `Any`, **into**: `Any`)
-<a class="headerlink" href="#Tile.get_all+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="get_all_at(entity : Any, x : Any, y : Any, into : Any)"></endpoint>
-<signature id="Tile.get_all_at+4">Tile.get_all_at(**entity**: `Any`, **x**: `Any`, **y**: `Any`, **into**: `Any`)
-<a class="headerlink" href="#Tile.get_all_at+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="get_all_at_depth(entity : Any, depth : Any, into : Any)"></endpoint>
-<signature id="Tile.get_all_at_depth+3">Tile.get_all_at_depth(**entity**: `Any`, **depth**: `Any`, **into**: `Any`)
-<a class="headerlink" href="#Tile.get_all_at_depth+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="get_all_with_tag(entity : Any, tag : Any, into : Any)"></endpoint>
-<signature id="Tile.get_all_with_tag+3">Tile.get_all_with_tag(**entity**: `Any`, **tag**: `Any`, **into**: `Any`)
-<a class="headerlink" href="#Tile.get_all_with_tag+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="get_all_with_visual(entity : Any, visual : Any, into : Any)"></endpoint>
-<signature id="Tile.get_all_with_visual+3">Tile.get_all_with_visual(**entity**: `Any`, **visual**: `Any`, **into**: `Any`)
-<a class="headerlink" href="#Tile.get_all_with_visual+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="add_tag(entity : Any, tile : Any, tag : Any)"></endpoint>
-<signature id="Tile.add_tag+3">Tile.add_tag(**entity**: `Any`, **tile**: `Any`, **tag**: `Any`)
-<a class="headerlink" href="#Tile.add_tag+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="remove_tag(entity : Any, tile : Any, tag : Any)"></endpoint>
-<signature id="Tile.remove_tag+3">Tile.remove_tag(**entity**: `Any`, **tile**: `Any`, **tag**: `Any`)
-<a class="headerlink" href="#Tile.remove_tag+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="has_tag(entity : Any, tile : Any, tag : Any)"></endpoint>
-<signature id="Tile.has_tag+3">Tile.has_tag(**entity**: `Any`, **tile**: `Any`, **tag**: `Any`)
-<a class="headerlink" href="#Tile.has_tag+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="get_tags(entity : Any, tile : Any)"></endpoint>
-<signature id="Tile.get_tags+2">Tile.get_tags(**entity**: `Any`, **tile**: `Any`)
-<a class="headerlink" href="#Tile.get_tags+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="clear_tags(entity : Any, tile : Any)"></endpoint>
-<signature id="Tile.clear_tags+2">Tile.clear_tags(**entity**: `Any`, **tile**: `Any`)
-<a class="headerlink" href="#Tile.clear_tags+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="set(entity : Any, tile : Any, key : Any, value : Any)"></endpoint>
-<signature id="Tile.set+4">Tile.set(**entity**: `Any`, **tile**: `Any`, **key**: `Any`, **value**: `Any`)
-<a class="headerlink" href="#Tile.set+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="get(entity : Any, tile : Any, key : Any, default : Any)"></endpoint>
-<signature id="Tile.get+4">Tile.get(**entity**: `Any`, **tile**: `Any`, **key**: `Any`, **default**: `Any`)
-<a class="headerlink" href="#Tile.get+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="set_coord(entity : Any, tile : Any, x : Any, y : Any)"></endpoint>
-<signature id="Tile.set_coord+4">Tile.set_coord(**entity**: `Any`, **tile**: `Any`, **x**: `Any`, **y**: `Any`)
-<a class="headerlink" href="#Tile.set_coord+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="get_coord_x(entity : Any, tile : Any)"></endpoint>
-<signature id="Tile.get_coord_x+2">Tile.get_coord_x(**entity**: `Any`, **tile**: `Any`)
-<a class="headerlink" href="#Tile.get_coord_x+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="get_coord_y(entity : Any, tile : Any)"></endpoint>
-<signature id="Tile.get_coord_y+2">Tile.get_coord_y(**entity**: `Any`, **tile**: `Any`)
-<a class="headerlink" href="#Tile.get_coord_y+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="set_depth(entity : Any, tile : Any, depth : Any)"></endpoint>
-<signature id="Tile.set_depth+3">Tile.set_depth(**entity**: `Any`, **tile**: `Any`, **depth**: `Any`)
-<a class="headerlink" href="#Tile.set_depth+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="get_depth(entity : Any, tile : Any)"></endpoint>
-<signature id="Tile.get_depth+2">Tile.get_depth(**entity**: `Any`, **tile**: `Any`)
-<a class="headerlink" href="#Tile.get_depth+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="set_offset(entity : Any, tile : Any, x : Any, y : Any)"></endpoint>
-<signature id="Tile.set_offset+4">Tile.set_offset(**entity**: `Any`, **tile**: `Any`, **x**: `Any`, **y**: `Any`)
-<a class="headerlink" href="#Tile.set_offset+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="set_offset_x(entity : Any, tile : Any, x : Any)"></endpoint>
-<signature id="Tile.set_offset_x+3">Tile.set_offset_x(**entity**: `Any`, **tile**: `Any`, **x**: `Any`)
-<a class="headerlink" href="#Tile.set_offset_x+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="set_offset_y(entity : Any, tile : Any, y : Any)"></endpoint>
-<signature id="Tile.set_offset_y+3">Tile.set_offset_y(**entity**: `Any`, **tile**: `Any`, **y**: `Any`)
-<a class="headerlink" href="#Tile.set_offset_y+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="get_offset_x(entity : Any, tile : Any)"></endpoint>
-<signature id="Tile.get_offset_x+2">Tile.get_offset_x(**entity**: `Any`, **tile**: `Any`)
-<a class="headerlink" href="#Tile.get_offset_x+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="get_offset_y(entity : Any, tile : Any)"></endpoint>
-<signature id="Tile.get_offset_y+2">Tile.get_offset_y(**entity**: `Any`, **tile**: `Any`)
-<a class="headerlink" href="#Tile.get_offset_y+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="reset_size(entity : Any, tile : Any)"></endpoint>
-<signature id="Tile.reset_size+2">Tile.reset_size(**entity**: `Any`, **tile**: `Any`)
-<a class="headerlink" href="#Tile.reset_size+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="set_size(entity : Any, tile : Any, x : Any, y : Any)"></endpoint>
-<signature id="Tile.set_size+4">Tile.set_size(**entity**: `Any`, **tile**: `Any`, **x**: `Any`, **y**: `Any`)
-<a class="headerlink" href="#Tile.set_size+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="set_size_x(entity : Any, tile : Any, x : Any)"></endpoint>
-<signature id="Tile.set_size_x+3">Tile.set_size_x(**entity**: `Any`, **tile**: `Any`, **x**: `Any`)
-<a class="headerlink" href="#Tile.set_size_x+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="set_size_y(entity : Any, tile : Any, y : Any)"></endpoint>
-<signature id="Tile.set_size_y+3">Tile.set_size_y(**entity**: `Any`, **tile**: `Any`, **y**: `Any`)
-<a class="headerlink" href="#Tile.set_size_y+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="get_size_x(entity : Any, tile : Any)"></endpoint>
-<signature id="Tile.get_size_x+2">Tile.get_size_x(**entity**: `Any`, **tile**: `Any`)
-<a class="headerlink" href="#Tile.get_size_x+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="get_size_y(entity : Any, tile : Any)"></endpoint>
-<signature id="Tile.get_size_y+2">Tile.get_size_y(**entity**: `Any`, **tile**: `Any`)
-<a class="headerlink" href="#Tile.get_size_y+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="set_flip(entity : Any, tile : Any, x : Any, y : Any)"></endpoint>
-<signature id="Tile.set_flip+4">Tile.set_flip(**entity**: `Any`, **tile**: `Any`, **x**: `Any`, **y**: `Any`)
-<a class="headerlink" href="#Tile.set_flip+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="set_flip_x(entity : Any, tile : Any, flip : Any)"></endpoint>
-<signature id="Tile.set_flip_x+3">Tile.set_flip_x(**entity**: `Any`, **tile**: `Any`, **flip**: `Any`)
-<a class="headerlink" href="#Tile.set_flip_x+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="set_flip_y(entity : Any, tile : Any, flip : Any)"></endpoint>
-<signature id="Tile.set_flip_y+3">Tile.set_flip_y(**entity**: `Any`, **tile**: `Any`, **flip**: `Any`)
-<a class="headerlink" href="#Tile.set_flip_y+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="get_flip_x(entity : Any, tile : Any)"></endpoint>
-<signature id="Tile.get_flip_x+2">Tile.get_flip_x(**entity**: `Any`, **tile**: `Any`)
-<a class="headerlink" href="#Tile.get_flip_x+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="get_flip_y(entity : Any, tile : Any)"></endpoint>
-<signature id="Tile.get_flip_y+2">Tile.get_flip_y(**entity**: `Any`, **tile**: `Any`)
-<a class="headerlink" href="#Tile.get_flip_y+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="set_visual(entity : Any, tile : Any, visual : Any)"></endpoint>
-<signature id="Tile.set_visual+3">Tile.set_visual(**entity**: `Any`, **tile**: `Any`, **visual**: `Any`)
-<a class="headerlink" href="#Tile.set_visual+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="get_visual(entity : Any, tile : Any)"></endpoint>
-<signature id="Tile.get_visual+2">Tile.get_visual(**entity**: `Any`, **tile**: `Any`)
-<a class="headerlink" href="#Tile.get_visual+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="set_angle(entity : Any, tile : Any, angle : Any)"></endpoint>
-<signature id="Tile.set_angle+3">Tile.set_angle(**entity**: `Any`, **tile**: `Any`, **angle**: `Any`)
-<a class="headerlink" href="#Tile.set_angle+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="get_angle(entity : Any, tile : Any)"></endpoint>
-<signature id="Tile.get_angle+2">Tile.get_angle(**entity**: `Any`, **tile**: `Any`)
-<a class="headerlink" href="#Tile.get_angle+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="set_color(entity : Any, tile : Any, color : Any)"></endpoint>
-<signature id="Tile.set_color+3">Tile.set_color(**entity**: `Any`, **tile**: `Any`, **color**: `Any`)
-<a class="headerlink" href="#Tile.set_color+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tile" signature="get_color(entity : Any, tile : Any)"></endpoint>
-<signature id="Tile.get_color+2">Tile.get_color(**entity**: `Any`, **tile**: `Any`)
-<a class="headerlink" href="#Tile.get_color+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-### Tiles
-`:::js import "luxe: world" for Tiles`
-> no docs found
-
-- [create](#Tiles.create+3)(**entity**: `Any`, **grid_size_x**: `Any`, **grid_size_y**: `Any`)
-- [create](#Tiles.create+2)(**entity**: `Any`, **asset**: `Any`)
-- [destroy](#Tiles.destroy)(**entity**: `Any`)
-- [clear](#Tiles.clear)(**entity**: `Any`)
-- [has](#Tiles.has)(**entity**: `Any`)
-- [commit](#Tiles.commit)(**entity**: `Any`)
-- [set_grid_size](#Tiles.set_grid_size+3)(**entity**: `Any`, **x**: `Any`, **y**: `Any`)
-- [get_grid_size](#Tiles.get_grid_size)(**entity**: `Any`)
-- [set_asset](#Tiles.set_asset+2)(**entity**: `Any`, **asset_id**: `Any`)
-- [get_asset_id](#Tiles.get_asset_id)(**entity**: `Any`)
-- [set_asset_id](#Tiles.set_asset_id+2)(**entity**: `Any`, **asset_id**: `Any`)
-- [define_source](#Tiles.define_source+3)(**entity**: `Any`, **source_id**: `Any`, **material**: `Any`)
-- [undefine_source](#Tiles.undefine_source+2)(**entity**: `Any`, **source_id**: `Any`)
-- [has_source](#Tiles.has_source+2)(**entity**: `Any`, **source_id**: `Any`)
-- [define_visual](#Tiles.define_visual+4)(**entity**: `Any`, **source_id**: `Any`, **visual_id**: `Any`, **options**: `Any`)
-- [undefine_visual](#Tiles.undefine_visual+3)(**entity**: `Any`, **source_id**: `Any`, **visual_id**: `Any`)
-- [has_visual](#Tiles.has_visual+2)(**entity**: `Any`, **visual_id**: `Any`)
-- [get_bounds_rects](#Tiles.get_bounds_rects+3)(**entity**: `Any`, **tiles**: `Any`, **into**: `Any`)
-
-<hr/>
-<endpoint module="luxe: world" class="Tiles" signature="create(entity : Any, grid_size_x : Any, grid_size_y : Any)"></endpoint>
-<signature id="Tiles.create+3">Tiles.create(**entity**: `Any`, **grid_size_x**: `Any`, **grid_size_y**: `Any`)
-<a class="headerlink" href="#Tiles.create+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tiles" signature="create(entity : Any, asset : Any)"></endpoint>
-<signature id="Tiles.create+2">Tiles.create(**entity**: `Any`, **asset**: `Any`)
-<a class="headerlink" href="#Tiles.create+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tiles" signature="destroy(entity : Any)"></endpoint>
-<signature id="Tiles.destroy">Tiles.destroy(**entity**: `Any`)
-<a class="headerlink" href="#Tiles.destroy" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tiles" signature="clear(entity : Any)"></endpoint>
-<signature id="Tiles.clear">Tiles.clear(**entity**: `Any`)
-<a class="headerlink" href="#Tiles.clear" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tiles" signature="has(entity : Any)"></endpoint>
-<signature id="Tiles.has">Tiles.has(**entity**: `Any`)
-<a class="headerlink" href="#Tiles.has" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tiles" signature="commit(entity : Any)"></endpoint>
-<signature id="Tiles.commit">Tiles.commit(**entity**: `Any`)
-<a class="headerlink" href="#Tiles.commit" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tiles" signature="set_grid_size(entity : Any, x : Any, y : Any)"></endpoint>
-<signature id="Tiles.set_grid_size+3">Tiles.set_grid_size(**entity**: `Any`, **x**: `Any`, **y**: `Any`)
-<a class="headerlink" href="#Tiles.set_grid_size+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tiles" signature="get_grid_size(entity : Any)"></endpoint>
-<signature id="Tiles.get_grid_size">Tiles.get_grid_size(**entity**: `Any`)
-<a class="headerlink" href="#Tiles.get_grid_size" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tiles" signature="set_asset(entity : Any, asset_id : Any)"></endpoint>
-<signature id="Tiles.set_asset+2">Tiles.set_asset(**entity**: `Any`, **asset_id**: `Any`)
-<a class="headerlink" href="#Tiles.set_asset+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tiles" signature="get_asset_id(entity : Any)"></endpoint>
-<signature id="Tiles.get_asset_id">Tiles.get_asset_id(**entity**: `Any`)
-<a class="headerlink" href="#Tiles.get_asset_id" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tiles" signature="set_asset_id(entity : Any, asset_id : Any)"></endpoint>
-<signature id="Tiles.set_asset_id+2">Tiles.set_asset_id(**entity**: `Any`, **asset_id**: `Any`)
-<a class="headerlink" href="#Tiles.set_asset_id+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tiles" signature="define_source(entity : Any, source_id : Any, material : Any)"></endpoint>
-<signature id="Tiles.define_source+3">Tiles.define_source(**entity**: `Any`, **source_id**: `Any`, **material**: `Any`)
-<a class="headerlink" href="#Tiles.define_source+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tiles" signature="undefine_source(entity : Any, source_id : Any)"></endpoint>
-<signature id="Tiles.undefine_source+2">Tiles.undefine_source(**entity**: `Any`, **source_id**: `Any`)
-<a class="headerlink" href="#Tiles.undefine_source+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tiles" signature="has_source(entity : Any, source_id : Any)"></endpoint>
-<signature id="Tiles.has_source+2">Tiles.has_source(**entity**: `Any`, **source_id**: `Any`)
-<a class="headerlink" href="#Tiles.has_source+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tiles" signature="define_visual(entity : Any, source_id : Any, visual_id : Any, options : Any)"></endpoint>
-<signature id="Tiles.define_visual+4">Tiles.define_visual(**entity**: `Any`, **source_id**: `Any`, **visual_id**: `Any`, **options**: `Any`)
-<a class="headerlink" href="#Tiles.define_visual+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tiles" signature="undefine_visual(entity : Any, source_id : Any, visual_id : Any)"></endpoint>
-<signature id="Tiles.undefine_visual+3">Tiles.undefine_visual(**entity**: `Any`, **source_id**: `Any`, **visual_id**: `Any`)
-<a class="headerlink" href="#Tiles.undefine_visual+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tiles" signature="has_visual(entity : Any, visual_id : Any)"></endpoint>
-<signature id="Tiles.has_visual+2">Tiles.has_visual(**entity**: `Any`, **visual_id**: `Any`)
-<a class="headerlink" href="#Tiles.has_visual+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="Tiles" signature="get_bounds_rects(entity : Any, tiles : Any, into : Any)"></endpoint>
-<signature id="Tiles.get_bounds_rects+3">Tiles.get_bounds_rects(**entity**: `Any`, **tiles**: `Any`, **into**: `Any`)
-<a class="headerlink" href="#Tiles.get_bounds_rects+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-### Transform
-`:::js import "luxe: world" for Transform`
-> A transform modifier defines where a entity is.
-> That includes position, rotation and scale.
-> A `Transform` can also be linked to another `Transform`, in which case its values are relative to their link target.
->       
-> While not all entities need to be "somewhere" locally, a lot of them do, which is when this modifier is used.
-> Other modifiers on the same entity aren't required to read and react to the `Transform`, but most do, allowing you to use this to move things (like Sprites, Meshes, Physics shapes, etc...).
-
-- [create](#Transform.create+3)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`)
-- [create](#Transform.create+4)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
-- [create](#Transform.create)(**entity**: `Entity`)
-- [destroy](#Transform.destroy)(**entity**: `Entity`)
-- [has](#Transform.has)(**entity**: `Entity`)
-- [get_link](#Transform.get_link)(**entity**: `Entity`)
-- [get_linked](#Transform.get_linked)(**entity**: `Entity`)
-- [link](#Transform.link+3)(**entity**: `Entity`, **target_entity**: `Entity`, **reset_local**: `Bool`)
-- [link](#Transform.link+2)(**entity**: `Entity`, **target_entity**: `Entity`)
-- [unlink](#Transform.unlink+2)(**entity**: `Entity`, **reset_local**: `Bool`)
-- [unlink](#Transform.unlink)(**entity**: `Entity`)
-- [look_at_and_move](#Transform.look_at_and_move+4)(**entity**: `Entity`, **pos**: `Vec`, **target**: `Vec`, **up**: `Vec`)
-- [look_at_and_move](#Transform.look_at_and_move+3)(**entity**: `Entity`, **pos**: `Vec`, **target**: `Vec`)
-- [look_at](#Transform.look_at+3)(**entity**: `Entity`, **target**: `Vec`, **up**: `Vec`)
-- [look_at](#Transform.look_at+2)(**entity**: `Entity`, **target**: `Vec`)
-- [set_snap](#Transform.set_snap+4)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
-- [set_snap](#Transform.set_snap+3)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`)
-- [set_pos](#Transform.set_pos+4)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
-- [set_pos](#Transform.set_pos+3)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`)
-- [set_pos_world](#Transform.set_pos_world+4)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
-- [set_pos_world](#Transform.set_pos_world+3)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`)
-- [set_pos_x](#Transform.set_pos_x+2)(**entity**: `Entity`, **x**: `Num`)
-- [set_pos_y](#Transform.set_pos_y+2)(**entity**: `Entity`, **y**: `Num`)
-- [set_pos_z](#Transform.set_pos_z+2)(**entity**: `Entity`, **z**: `Num`)
-- [set_pos_x_world](#Transform.set_pos_x_world+2)(**entity**: `Entity`, **x**: `Num`)
-- [set_pos_y_world](#Transform.set_pos_y_world+2)(**entity**: `Entity`, **y**: `Num`)
-- [set_pos_z_world](#Transform.set_pos_z_world+2)(**entity**: `Entity`, **z**: `Num`)
-- [set_scale](#Transform.set_scale+3)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`)
-- [set_scale](#Transform.set_scale+4)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
-- [set_rotation_slerp_angle_axis](#Transform.set_rotation_slerp_angle_axis+5)(**entity**: `Entity`, **axis**: `Vec`, **from**: `Num`, **to**: `Num`, **t**: `Num`)
-- [set_rotation_slerp_angle_axis_world](#Transform.set_rotation_slerp_angle_axis_world+5)(**entity**: `Entity`, **axis**: `Vec`, **from**: `Num`, **to**: `Num`, **t**: `Num`)
-- [set_rotation_slerp](#Transform.set_rotation_slerp+4)(**entity**: `Entity`, **from**: `Vec`, **to**: `Vec`, **t**: `Num`)
-- [set_rotation_slerp_world](#Transform.set_rotation_slerp_world+4)(**entity**: `Entity`, **from**: `Vec`, **to**: `Vec`, **t**: `Num`)
-- [set_rotation](#Transform.set_rotation+5)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`, **w**: `Num`)
-- [set_rotation_world](#Transform.set_rotation_world+5)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`, **w**: `Num`)
-- [set_angle_axis](#Transform.set_angle_axis+5)(**entity**: `Entity`, **degrees**: `Any`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
-- [set_angle_axis_world](#Transform.set_angle_axis_world+5)(**entity**: `Entity`, **degrees**: `Any`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
-- [set_euler](#Transform.set_euler+4)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
-- [set_euler_world](#Transform.set_euler_world+4)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
-- [set_euler_x](#Transform.set_euler_x+2)(**entity**: `Entity`, **x**: `Num`)
-- [set_euler_y](#Transform.set_euler_y+2)(**entity**: `Entity`, **y**: `Num`)
-- [set_euler_z](#Transform.set_euler_z+2)(**entity**: `Entity`, **z**: `Num`)
-- [set_euler_x_world](#Transform.set_euler_x_world+2)(**entity**: `Entity`, **x**: `Num`)
-- [set_euler_y_world](#Transform.set_euler_y_world+2)(**entity**: `Entity`, **y**: `Num`)
-- [set_euler_z_world](#Transform.set_euler_z_world+2)(**entity**: `Entity`, **z**: `Num`)
-- [rotate_angle_axis_slerp](#Transform.rotate_angle_axis_slerp+3)(**entity**: `Entity`, **axis**: `Vec`, **angle_amount**: `Num`)
-- [rotate_angle_axis_slerp_world](#Transform.rotate_angle_axis_slerp_world+3)(**entity**: `Entity`, **axis**: `Vec`, **angle_amount**: `Num`)
-- [rotate_around_world](#Transform.rotate_around_world+8)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`, **axis_x**: `Num`, **axis_y**: `Num`, **axis_z**: `Num`, **degrees**: `Num`)
-- [rotate_around](#Transform.rotate_around+8)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`, **axis_x**: `Num`, **axis_y**: `Num`, **axis_z**: `Num`, **degrees**: `Num`)
-- [rotate_angle_axis](#Transform.rotate_angle_axis+5)(**entity**: `Entity`, **degrees**: `Any`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
-- [rotate_angle_axis_world](#Transform.rotate_angle_axis_world+5)(**entity**: `Entity`, **degrees**: `Any`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
-- [rotate_euler](#Transform.rotate_euler+4)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
-- [rotate_euler_world](#Transform.rotate_euler_world+4)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
-- [translate](#Transform.translate+4)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
-- [translate](#Transform.translate+3)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`)
-- [get_pos](#Transform.get_pos)(**entity**: `Entity`)
-- [get_pos_x](#Transform.get_pos_x)(**entity**: `Entity`)
-- [get_pos_y](#Transform.get_pos_y)(**entity**: `Entity`)
-- [get_pos_z](#Transform.get_pos_z)(**entity**: `Entity`)
-- [get_pos_world](#Transform.get_pos_world)(**entity**: `Entity`)
-- [get_pos_world_unsnapped](#Transform.get_pos_world_unsnapped)(**entity**: `Entity`)
-- [get_pos_x_world](#Transform.get_pos_x_world)(**entity**: `Entity`)
-- [get_pos_y_world](#Transform.get_pos_y_world)(**entity**: `Entity`)
-- [get_pos_z_world](#Transform.get_pos_z_world)(**entity**: `Entity`)
-- [rotate2D](#Transform.rotate2D+2)(**entity**: `Entity`, **degrees**: `Num`)
-- [set_angle2D](#Transform.set_angle2D+2)(**entity**: `Entity`, **degrees**: `Num`)
-- [set_angle2D_world](#Transform.set_angle2D_world+2)(**entity**: `Entity`, **degrees**: `Num`)
-- [get_angle2D](#Transform.get_angle2D)(**entity**: `Entity`)
-- [get_angle2D_world](#Transform.get_angle2D_world)(**entity**: `Entity`)
-- [set_depth2D](#Transform.set_depth2D+2)(**entity**: `Entity`, **depth**: `Num`)
-- [get_depth2D](#Transform.get_depth2D)(**entity**: `Entity`)
-- [set_depth2D_world](#Transform.set_depth2D_world+2)(**entity**: `Entity`, **depth**: `Num`)
-- [get_depth2D_world](#Transform.get_depth2D_world)(**entity**: `Entity`)
-- [get_world_matrix](#Transform.get_world_matrix+2)(**entity**: `Entity`, **into_matrix**: `Floats`)
-- [get_rotation](#Transform.get_rotation)(**entity**: `Entity`)
-- [get_rotation_world](#Transform.get_rotation_world)(**entity**: `Entity`)
-- [get_rotation_matrix](#Transform.get_rotation_matrix+2)(**entity**: `Entity`, **into_matrix**: `Floats`)
-- [get_euler](#Transform.get_euler)(**entity**: `Entity`)
-- [get_euler_x](#Transform.get_euler_x)(**entity**: `Entity`)
-- [get_euler_y](#Transform.get_euler_y)(**entity**: `Entity`)
-- [get_euler_z](#Transform.get_euler_z)(**entity**: `Entity`)
-- [get_euler_world](#Transform.get_euler_world)(**entity**: `Entity`)
-- [get_euler_x_world](#Transform.get_euler_x_world)(**entity**: `Entity`)
-- [get_euler_y_world](#Transform.get_euler_y_world)(**entity**: `Entity`)
-- [get_euler_z_world](#Transform.get_euler_z_world)(**entity**: `Entity`)
-- [get_scale](#Transform.get_scale)(**entity**: `Entity`)
-- [get_scale_x](#Transform.get_scale_x)(**entity**: `Entity`)
-- [get_scale_y](#Transform.get_scale_y)(**entity**: `Entity`)
-- [get_scale_z](#Transform.get_scale_z)(**entity**: `Entity`)
-- [get_scale_world](#Transform.get_scale_world)(**entity**: `Entity`)
-- [get_scale_x_world](#Transform.get_scale_x_world)(**entity**: `Entity`)
-- [get_scale_y_world](#Transform.get_scale_y_world)(**entity**: `Entity`)
-- [get_scale_z_world](#Transform.get_scale_z_world)(**entity**: `Entity`)
-- [get_right](#Transform.get_right)(**entity**: `Entity`)
-- [get_forward](#Transform.get_forward)(**entity**: `Entity`)
-- [get_up](#Transform.get_up)(**entity**: `Entity`)
-- [sync](#Transform.sync)(**entity**: `Entity`)
-- [sync_block](#Transform.sync_block+2)(**entity**: `Entity`, **mask**: `TransformApplyMask`)
-- [sync_world](#Transform.sync_world)(**world**: `World`)
-- [transform_by](#Transform.transform_by+2)(**entity**: `Entity`, **other**: `Entity`)
-- [scale_by](#Transform.scale_by+3)(**entity**: `Entity`, **scale**: `Float3`, **origin**: `Float3`)
-- [rotate_euler_by](#Transform.rotate_euler_by+3)(**entity**: `Entity`, **euler**: `Float3`, **origin**: `Float3`)
-- [local_vector_to_world](#Transform.local_vector_to_world+4)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
-- [world_vector_to_local](#Transform.world_vector_to_local+4)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
-- [local_dir_to_world](#Transform.local_dir_to_world+4)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
-- [world_dir_to_local](#Transform.world_dir_to_local+4)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
-- [local_point_to_world](#Transform.local_point_to_world+4)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
-- [world_point_to_local](#Transform.world_point_to_local+4)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
-- [listen_all](#Transform.listen_all+2)(**world**: `World`, **fn**: `Fn`)
-- [unlisten_all](#Transform.unlisten_all+2)(**world**: `World`, **handle**: `Handle`)
-- [listen](#Transform.listen+2)(**entity**: `Entity`, **fn**: `Fn`)
-- [unlisten](#Transform.unlisten+2)(**entity**: `Entity`, **handle**: `Handle`)
-
-<hr/>
-<endpoint module="luxe: world" class="Transform" signature="create(entity : Entity, x : Num, y : Num)"></endpoint>
-<signature id="Transform.create+3">Transform.create(**entity**: `Entity`, **x**: `Num`, **y**: `Num`)
-<a class="headerlink" href="#Transform.create+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Attach a `Transform` modifier to an entity with the given `x` and `y` position (with a z of 0)   
-
-<endpoint module="luxe: world" class="Transform" signature="create(entity : Entity, x : Num, y : Num, z : Num)"></endpoint>
-<signature id="Transform.create+4">Transform.create(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
-<a class="headerlink" href="#Transform.create+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Attach a `Transform` modifier to an entity with the given `x`, `y` and `z` position   
-
-<endpoint module="luxe: world" class="Transform" signature="create(entity : Entity)"></endpoint>
-<signature id="Transform.create">Transform.create(**entity**: `Entity`)
-<a class="headerlink" href="#Transform.create" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Attach a `Transform` modifier to an entity.   
-
-<endpoint module="luxe: world" class="Transform" signature="destroy(entity : Entity)"></endpoint>
-<signature id="Transform.destroy">Transform.destroy(**entity**: `Entity`)
-<a class="headerlink" href="#Transform.destroy" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Detatch a `Transform` modifier from an entity.   
-
-<endpoint module="luxe: world" class="Transform" signature="has(entity : Entity)"></endpoint>
-<signature id="Transform.has">Transform.has(**entity**: `Entity`)
-<a class="headerlink" href="#Transform.has" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Bool`
-> get whether an entity has an attached `Transform`.   
-
-<endpoint module="luxe: world" class="Transform" signature="get_link(entity : Entity)"></endpoint>
-<signature id="Transform.get_link">Transform.get_link(**entity**: `Entity`)
-<a class="headerlink" href="#Transform.get_link" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Entity`
-> Get what entity this entity is linked to. So what entity the position/rotation/scale of this transform are relative to.
-> Linked to entity always has a `Transform` of its own.
-> In case `Transform` isn't linked to anything, returns `null` and transformations are global.   
-
-<endpoint module="luxe: world" class="Transform" signature="get_linked(entity : Entity)"></endpoint>
-<signature id="Transform.get_linked">Transform.get_linked(**entity**: `Entity`)
-<a class="headerlink" href="#Transform.get_linked" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js List`
-> Get what entities are linked to this entity (opposite relationship as `get_link`).
-> Transformation values of linked entities are relative to this entity.   
-
-<endpoint module="luxe: world" class="Transform" signature="link(entity : Entity, target_entity : Entity, reset_local : Bool)"></endpoint>
-<signature id="Transform.link+3">Transform.link(**entity**: `Entity`, **target_entity**: `Entity`, **reset_local**: `Bool`)
-<a class="headerlink" href="#Transform.link+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Link one `Transform` to another.
-> The `Transform` values will now be be relative to the link target, meaning the link target `Transform` position, rotation and scale all apply to the local position, rotation, scale of this `Transform`.
-> When using non-uniform scales somewhere in your transform link hierarchy you can get transform deformations that would not be possible with just a single transform.
-> 
-> In other environments, this transform link is often part of the object hierarchy, but here it's specific to transforms and other hierarchies aren't bound to follow the same links.   
-
-<endpoint module="luxe: world" class="Transform" signature="link(entity : Entity, target_entity : Entity)"></endpoint>
-<signature id="Transform.link+2">Transform.link(**entity**: `Entity`, **target_entity**: `Entity`)
-<a class="headerlink" href="#Transform.link+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> no docs found   
-
-<endpoint module="luxe: world" class="Transform" signature="unlink(entity : Entity, reset_local : Bool)"></endpoint>
-<signature id="Transform.unlink+2">Transform.unlink(**entity**: `Entity`, **reset_local**: `Bool`)
-<a class="headerlink" href="#Transform.unlink+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Unlink a `Transform`. Local position will be kept (unless reset), so if your parent isnt at the origin, expect the transform to move, or save and reapply the world position.   
-
-<endpoint module="luxe: world" class="Transform" signature="unlink(entity : Entity)"></endpoint>
-<signature id="Transform.unlink">Transform.unlink(**entity**: `Entity`)
-<a class="headerlink" href="#Transform.unlink" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Unlink a `Transform`. Local position will be kept, so if your parent isnt at the origin, expect the transform to move, or save and reapply the world position.
-> 
-> ```js
->   //get the current jar position
->   var pos = Transform.get_pos_world(_jar)
->   //unlink the jar from the player first
->   Transform.unlink(_jar)
->   //set the position for the jar, which now refers 
->   //to world space since the jar has no parent
->   //this makes the jar stay in the same place
->   Transform.set_pos(_jar, pos.x, pos.y, pos.z)
-> ```   
-
-<endpoint module="luxe: world" class="Transform" signature="look_at_and_move(entity : Entity, pos : Vec, target : Vec, up : Vec)"></endpoint>
-<signature id="Transform.look_at_and_move+4">Transform.look_at_and_move(**entity**: `Entity`, **pos**: `Vec`, **target**: `Vec`, **up**: `Vec`)
-<a class="headerlink" href="#Transform.look_at_and_move+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Move `Transform` somewhere else, then look towards target position.   
-
-<endpoint module="luxe: world" class="Transform" signature="look_at_and_move(entity : Entity, pos : Vec, target : Vec)"></endpoint>
-<signature id="Transform.look_at_and_move+3">Transform.look_at_and_move(**entity**: `Entity`, **pos**: `Vec`, **target**: `Vec`)
-<a class="headerlink" href="#Transform.look_at_and_move+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Move `Transform` somewhere else, then look towards target position.   
-
-<endpoint module="luxe: world" class="Transform" signature="look_at(entity : Entity, target : Vec, up : Vec)"></endpoint>
-<signature id="Transform.look_at+3">Transform.look_at(**entity**: `Entity`, **target**: `Vec`, **up**: `Vec`)
-<a class="headerlink" href="#Transform.look_at+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Rotate `Transform` to look at a position in worldspace, 
->             rotated around that new view axis so the `Transform` 'up' aligns with the `up` input as closely as possible.   
-
-<endpoint module="luxe: world" class="Transform" signature="look_at(entity : Entity, target : Vec)"></endpoint>
-<signature id="Transform.look_at+2">Transform.look_at(**entity**: `Entity`, **target**: `Vec`)
-<a class="headerlink" href="#Transform.look_at+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Rotate `Transform` to look at a position in worldspace.   
-
-<endpoint module="luxe: world" class="Transform" signature="set_snap(entity : Entity, x : Num, y : Num, z : Num)"></endpoint>
-<signature id="Transform.set_snap+4">Transform.set_snap(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
-<a class="headerlink" href="#Transform.set_snap+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Set `Transform` position to snap at specific intervals. (midpoints round away from 0)
-> 
-> ```js
->   var entity = Entity.create(world)
->   Transform.create(entity)
->   Transform.set_snap(entity, 2, 2, 2)
->   Transform.set_pos(entity, 0.5, 1.5, -3)
->   Log.print(Transform.get_pos(entity)) //[0, 2, -4]
-> ```   
-
-<endpoint module="luxe: world" class="Transform" signature="set_snap(entity : Entity, x : Num, y : Num)"></endpoint>
-<signature id="Transform.set_snap+3">Transform.set_snap(**entity**: `Entity`, **x**: `Num`, **y**: `Num`)
-<a class="headerlink" href="#Transform.set_snap+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Set `Transform` position to snap at specific intervals.   
-
-<endpoint module="luxe: world" class="Transform" signature="set_pos(entity : Entity, x : Num, y : Num, z : Num)"></endpoint>
-<signature id="Transform.set_pos+4">Transform.set_pos(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
-<a class="headerlink" href="#Transform.set_pos+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Set local position of a `Transform`.   
-
-<endpoint module="luxe: world" class="Transform" signature="set_pos(entity : Entity, x : Num, y : Num)"></endpoint>
-<signature id="Transform.set_pos+3">Transform.set_pos(**entity**: `Entity`, **x**: `Num`, **y**: `Num`)
-<a class="headerlink" href="#Transform.set_pos+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Set local position of a `Transform`.   
-
-<endpoint module="luxe: world" class="Transform" signature="set_pos_world(entity : Entity, x : Num, y : Num, z : Num)"></endpoint>
-<signature id="Transform.set_pos_world+4">Transform.set_pos_world(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
-<a class="headerlink" href="#Transform.set_pos_world+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Set global position of a `Transform`.   
-
-<endpoint module="luxe: world" class="Transform" signature="set_pos_world(entity : Entity, x : Num, y : Num)"></endpoint>
-<signature id="Transform.set_pos_world+3">Transform.set_pos_world(**entity**: `Entity`, **x**: `Num`, **y**: `Num`)
-<a class="headerlink" href="#Transform.set_pos_world+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Set global position of a `Transform`.   
-
-<endpoint module="luxe: world" class="Transform" signature="set_pos_x(entity : Entity, x : Num)"></endpoint>
-<signature id="Transform.set_pos_x+2">Transform.set_pos_x(**entity**: `Entity`, **x**: `Num`)
-<a class="headerlink" href="#Transform.set_pos_x+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Set `x` component of local `Transform` pos.   
-
-<endpoint module="luxe: world" class="Transform" signature="set_pos_y(entity : Entity, y : Num)"></endpoint>
-<signature id="Transform.set_pos_y+2">Transform.set_pos_y(**entity**: `Entity`, **y**: `Num`)
-<a class="headerlink" href="#Transform.set_pos_y+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Set `y` component of local `Transform` pos.   
-
-<endpoint module="luxe: world" class="Transform" signature="set_pos_z(entity : Entity, z : Num)"></endpoint>
-<signature id="Transform.set_pos_z+2">Transform.set_pos_z(**entity**: `Entity`, **z**: `Num`)
-<a class="headerlink" href="#Transform.set_pos_z+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Set `z` component of local `Transform` pos.   
-
-<endpoint module="luxe: world" class="Transform" signature="set_pos_x_world(entity : Entity, x : Num)"></endpoint>
-<signature id="Transform.set_pos_x_world+2">Transform.set_pos_x_world(**entity**: `Entity`, **x**: `Num`)
-<a class="headerlink" href="#Transform.set_pos_x_world+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Set `x` component of global `Transform` pos.   
-
-<endpoint module="luxe: world" class="Transform" signature="set_pos_y_world(entity : Entity, y : Num)"></endpoint>
-<signature id="Transform.set_pos_y_world+2">Transform.set_pos_y_world(**entity**: `Entity`, **y**: `Num`)
-<a class="headerlink" href="#Transform.set_pos_y_world+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Set `y` component of global `Transform` pos.   
-
-<endpoint module="luxe: world" class="Transform" signature="set_pos_z_world(entity : Entity, z : Num)"></endpoint>
-<signature id="Transform.set_pos_z_world+2">Transform.set_pos_z_world(**entity**: `Entity`, **z**: `Num`)
-<a class="headerlink" href="#Transform.set_pos_z_world+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Set `z` component of global `Transform` pos.   
-
-<endpoint module="luxe: world" class="Transform" signature="set_scale(entity : Entity, x : Num, y : Num)"></endpoint>
-<signature id="Transform.set_scale+3">Transform.set_scale(**entity**: `Entity`, **x**: `Num`, **y**: `Num`)
-<a class="headerlink" href="#Transform.set_scale+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Set x and y scale of a `Transform`, keeping z scale unchanged.   
-
-<endpoint module="luxe: world" class="Transform" signature="set_scale(entity : Entity, x : Num, y : Num, z : Num)"></endpoint>
-<signature id="Transform.set_scale+4">Transform.set_scale(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
-<a class="headerlink" href="#Transform.set_scale+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Set local scale of a `Transform`.
-> Setting the scale in a global context isnt available, as link hierarchies with rotations and nonuniform scalings can lead to weird and hard to predict states for that.   
-
-<endpoint module="luxe: world" class="Transform" signature="set_rotation_slerp_angle_axis(entity : Entity, axis : Vec, from : Num, to : Num, t : Num)"></endpoint>
-<signature id="Transform.set_rotation_slerp_angle_axis+5">Transform.set_rotation_slerp_angle_axis(**entity**: `Entity`, **axis**: `Vec`, **from**: `Num`, **to**: `Num`, **t**: `Num`)
-<a class="headerlink" href="#Transform.set_rotation_slerp_angle_axis+5" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> no docs found   
-
-<endpoint module="luxe: world" class="Transform" signature="set_rotation_slerp_angle_axis_world(entity : Entity, axis : Vec, from : Num, to : Num, t : Num)"></endpoint>
-<signature id="Transform.set_rotation_slerp_angle_axis_world+5">Transform.set_rotation_slerp_angle_axis_world(**entity**: `Entity`, **axis**: `Vec`, **from**: `Num`, **to**: `Num`, **t**: `Num`)
-<a class="headerlink" href="#Transform.set_rotation_slerp_angle_axis_world+5" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> no docs found   
-
-<endpoint module="luxe: world" class="Transform" signature="set_rotation_slerp(entity : Entity, from : Vec, to : Vec, t : Num)"></endpoint>
-<signature id="Transform.set_rotation_slerp+4">Transform.set_rotation_slerp(**entity**: `Entity`, **from**: `Vec`, **to**: `Vec`, **t**: `Num`)
-<a class="headerlink" href="#Transform.set_rotation_slerp+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> no docs found   
-
-<endpoint module="luxe: world" class="Transform" signature="set_rotation_slerp_world(entity : Entity, from : Vec, to : Vec, t : Num)"></endpoint>
-<signature id="Transform.set_rotation_slerp_world+4">Transform.set_rotation_slerp_world(**entity**: `Entity`, **from**: `Vec`, **to**: `Vec`, **t**: `Num`)
-<a class="headerlink" href="#Transform.set_rotation_slerp_world+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> no docs found   
-
-<endpoint module="luxe: world" class="Transform" signature="set_rotation(entity : Entity, x : Num, y : Num, z : Num, w : Num)"></endpoint>
-<signature id="Transform.set_rotation+5">Transform.set_rotation(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`, **w**: `Num`)
-<a class="headerlink" href="#Transform.set_rotation+5" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Set local rotation in quaternions.
->         
-> (Quaternions are how rotations are handled by the engine internally, though it can be hard to understand how to manipulate them, so feel free to stick to euler angles using `set_euler(entity, x, y, z)`.)   
-
-<endpoint module="luxe: world" class="Transform" signature="set_rotation_world(entity : Entity, x : Num, y : Num, z : Num, w : Num)"></endpoint>
-<signature id="Transform.set_rotation_world+5">Transform.set_rotation_world(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`, **w**: `Num`)
-<a class="headerlink" href="#Transform.set_rotation_world+5" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Set global rotation in quaternions.
->         
-> (Quaternions are how rotations are handled by the engine internally, though it can be hard to understand how to manipulate them, so feel free to stick to euler angles using `set_euler_world(entity, x, y, z)`.)   
-
-<endpoint module="luxe: world" class="Transform" signature="set_angle_axis(entity : Entity, degrees : Any, x : Num, y : Num, z : Num)"></endpoint>
-<signature id="Transform.set_angle_axis+5">Transform.set_angle_axis(**entity**: `Entity`, **degrees**: `Any`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
-<a class="headerlink" href="#Transform.set_angle_axis+5" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Set local rotation as a rotation around an axis.
-> 
-> Rotation direction is left-handed (counter-clockwise when looking in the direction of the axis.)   
-
-<endpoint module="luxe: world" class="Transform" signature="set_angle_axis_world(entity : Entity, degrees : Any, x : Num, y : Num, z : Num)"></endpoint>
-<signature id="Transform.set_angle_axis_world+5">Transform.set_angle_axis_world(**entity**: `Entity`, **degrees**: `Any`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
-<a class="headerlink" href="#Transform.set_angle_axis_world+5" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Set global rotation as a rotation around an axis.
-> 
-> Rotation direction is left-handed (counter-clockwise when looking in the direction of the axis.)   
-
-<endpoint module="luxe: world" class="Transform" signature="set_euler(entity : Entity, x : Num, y : Num, z : Num)"></endpoint>
-<signature id="Transform.set_euler+4">Transform.set_euler(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
-<a class="headerlink" href="#Transform.set_euler+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Set local rotation as xyz euler angles.   
-
-<endpoint module="luxe: world" class="Transform" signature="set_euler_world(entity : Entity, x : Num, y : Num, z : Num)"></endpoint>
-<signature id="Transform.set_euler_world+4">Transform.set_euler_world(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
-<a class="headerlink" href="#Transform.set_euler_world+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Set global rotation as xyz euler angles.   
-
-<endpoint module="luxe: world" class="Transform" signature="set_euler_x(entity : Entity, x : Num)"></endpoint>
-<signature id="Transform.set_euler_x+2">Transform.set_euler_x(**entity**: `Entity`, **x**: `Num`)
-<a class="headerlink" href="#Transform.set_euler_x+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> no docs found   
-
-<endpoint module="luxe: world" class="Transform" signature="set_euler_y(entity : Entity, y : Num)"></endpoint>
-<signature id="Transform.set_euler_y+2">Transform.set_euler_y(**entity**: `Entity`, **y**: `Num`)
-<a class="headerlink" href="#Transform.set_euler_y+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> no docs found   
-
-<endpoint module="luxe: world" class="Transform" signature="set_euler_z(entity : Entity, z : Num)"></endpoint>
-<signature id="Transform.set_euler_z+2">Transform.set_euler_z(**entity**: `Entity`, **z**: `Num`)
-<a class="headerlink" href="#Transform.set_euler_z+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> no docs found   
-
-<endpoint module="luxe: world" class="Transform" signature="set_euler_x_world(entity : Entity, x : Num)"></endpoint>
-<signature id="Transform.set_euler_x_world+2">Transform.set_euler_x_world(**entity**: `Entity`, **x**: `Num`)
-<a class="headerlink" href="#Transform.set_euler_x_world+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> no docs found   
-
-<endpoint module="luxe: world" class="Transform" signature="set_euler_y_world(entity : Entity, y : Num)"></endpoint>
-<signature id="Transform.set_euler_y_world+2">Transform.set_euler_y_world(**entity**: `Entity`, **y**: `Num`)
-<a class="headerlink" href="#Transform.set_euler_y_world+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> no docs found   
-
-<endpoint module="luxe: world" class="Transform" signature="set_euler_z_world(entity : Entity, z : Num)"></endpoint>
-<signature id="Transform.set_euler_z_world+2">Transform.set_euler_z_world(**entity**: `Entity`, **z**: `Num`)
-<a class="headerlink" href="#Transform.set_euler_z_world+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> no docs found   
-
-<endpoint module="luxe: world" class="Transform" signature="rotate_angle_axis_slerp(entity : Entity, axis : Vec, angle_amount : Num)"></endpoint>
-<signature id="Transform.rotate_angle_axis_slerp+3">Transform.rotate_angle_axis_slerp(**entity**: `Entity`, **axis**: `Vec`, **angle_amount**: `Num`)
-<a class="headerlink" href="#Transform.rotate_angle_axis_slerp+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> no docs found   
-
-<endpoint module="luxe: world" class="Transform" signature="rotate_angle_axis_slerp_world(entity : Entity, axis : Vec, angle_amount : Num)"></endpoint>
-<signature id="Transform.rotate_angle_axis_slerp_world+3">Transform.rotate_angle_axis_slerp_world(**entity**: `Entity`, **axis**: `Vec`, **angle_amount**: `Num`)
-<a class="headerlink" href="#Transform.rotate_angle_axis_slerp_world+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> no docs found   
-
-<endpoint module="luxe: world" class="Transform" signature="rotate_around_world(entity : Entity, x : Num, y : Num, z : Num, axis_x : Num, axis_y : Num, axis_z : Num, degrees : Num)"></endpoint>
-<signature id="Transform.rotate_around_world+8">Transform.rotate_around_world(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`, **axis_x**: `Num`, **axis_y**: `Num`, **axis_z**: `Num`, **degrees**: `Num`)
-<a class="headerlink" href="#Transform.rotate_around_world+8" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Rotate around an axis in world space.   
-
-<endpoint module="luxe: world" class="Transform" signature="rotate_around(entity : Entity, x : Num, y : Num, z : Num, axis_x : Num, axis_y : Num, axis_z : Num, degrees : Num)"></endpoint>
-<signature id="Transform.rotate_around+8">Transform.rotate_around(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`, **axis_x**: `Num`, **axis_y**: `Num`, **axis_z**: `Num`, **degrees**: `Num`)
-<a class="headerlink" href="#Transform.rotate_around+8" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Rotate around an axis in local space.   
-
-<endpoint module="luxe: world" class="Transform" signature="rotate_angle_axis(entity : Entity, degrees : Any, x : Num, y : Num, z : Num)"></endpoint>
-<signature id="Transform.rotate_angle_axis+5">Transform.rotate_angle_axis(**entity**: `Entity`, **degrees**: `Any`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
-<a class="headerlink" href="#Transform.rotate_angle_axis+5" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Rotate on the spot around an axis in local coordinates.   
-
-<endpoint module="luxe: world" class="Transform" signature="rotate_angle_axis_world(entity : Entity, degrees : Any, x : Num, y : Num, z : Num)"></endpoint>
-<signature id="Transform.rotate_angle_axis_world+5">Transform.rotate_angle_axis_world(**entity**: `Entity`, **degrees**: `Any`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
-<a class="headerlink" href="#Transform.rotate_angle_axis_world+5" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Rotate on the spot around an axis in global coordinates.   
-
-<endpoint module="luxe: world" class="Transform" signature="rotate_euler(entity : Entity, x : Num, y : Num, z : Num)"></endpoint>
-<signature id="Transform.rotate_euler+4">Transform.rotate_euler(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
-<a class="headerlink" href="#Transform.rotate_euler+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Rotate by euler angles in local space.   
-
-<endpoint module="luxe: world" class="Transform" signature="rotate_euler_world(entity : Entity, x : Num, y : Num, z : Num)"></endpoint>
-<signature id="Transform.rotate_euler_world+4">Transform.rotate_euler_world(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
-<a class="headerlink" href="#Transform.rotate_euler_world+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Rotate by euler angles in global space.   
-
-<endpoint module="luxe: world" class="Transform" signature="translate(entity : Entity, x : Num, y : Num, z : Num)"></endpoint>
-<signature id="Transform.translate+4">Transform.translate(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
-<a class="headerlink" href="#Transform.translate+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Move `Transform` in local space.   
-
-<endpoint module="luxe: world" class="Transform" signature="translate(entity : Entity, x : Num, y : Num)"></endpoint>
-<signature id="Transform.translate+3">Transform.translate(**entity**: `Entity`, **x**: `Num`, **y**: `Num`)
-<a class="headerlink" href="#Transform.translate+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Move `Transform` in local space.   
-
-<endpoint module="luxe: world" class="Transform" signature="get_pos(entity : Entity)"></endpoint>
-<signature id="Transform.get_pos">Transform.get_pos(**entity**: `Entity`)
-<a class="headerlink" href="#Transform.get_pos" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Vec`
-> Get position local space (relative to link `Transform`).   
-
-<endpoint module="luxe: world" class="Transform" signature="get_pos_x(entity : Entity)"></endpoint>
-<signature id="Transform.get_pos_x">Transform.get_pos_x(**entity**: `Entity`)
-<a class="headerlink" href="#Transform.get_pos_x" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Num`
-> no docs found   
-
-<endpoint module="luxe: world" class="Transform" signature="get_pos_y(entity : Entity)"></endpoint>
-<signature id="Transform.get_pos_y">Transform.get_pos_y(**entity**: `Entity`)
-<a class="headerlink" href="#Transform.get_pos_y" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Num`
-> no docs found   
-
-<endpoint module="luxe: world" class="Transform" signature="get_pos_z(entity : Entity)"></endpoint>
-<signature id="Transform.get_pos_z">Transform.get_pos_z(**entity**: `Entity`)
-<a class="headerlink" href="#Transform.get_pos_z" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Num`
-> no docs found   
-
-<endpoint module="luxe: world" class="Transform" signature="get_pos_world(entity : Entity)"></endpoint>
-<signature id="Transform.get_pos_world">Transform.get_pos_world(**entity**: `Entity`)
-<a class="headerlink" href="#Transform.get_pos_world" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> Get position global space.   
-
-<endpoint module="luxe: world" class="Transform" signature="get_pos_world_unsnapped(entity : Entity)"></endpoint>
-<signature id="Transform.get_pos_world_unsnapped">Transform.get_pos_world_unsnapped(**entity**: `Entity`)
-<a class="headerlink" href="#Transform.get_pos_world_unsnapped" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Vec`
-> Get position global space independently of `set_snap` settings.   
-
-<endpoint module="luxe: world" class="Transform" signature="get_pos_x_world(entity : Entity)"></endpoint>
-<signature id="Transform.get_pos_x_world">Transform.get_pos_x_world(**entity**: `Entity`)
-<a class="headerlink" href="#Transform.get_pos_x_world" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Num`
-> no docs found   
-
-<endpoint module="luxe: world" class="Transform" signature="get_pos_y_world(entity : Entity)"></endpoint>
-<signature id="Transform.get_pos_y_world">Transform.get_pos_y_world(**entity**: `Entity`)
-<a class="headerlink" href="#Transform.get_pos_y_world" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Num`
-> no docs found   
-
-<endpoint module="luxe: world" class="Transform" signature="get_pos_z_world(entity : Entity)"></endpoint>
-<signature id="Transform.get_pos_z_world">Transform.get_pos_z_world(**entity**: `Entity`)
-<a class="headerlink" href="#Transform.get_pos_z_world" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Num`
-> no docs found   
-
-<endpoint module="luxe: world" class="Transform" signature="rotate2D(entity : Entity, degrees : Num)"></endpoint>
-<signature id="Transform.rotate2D+2">Transform.rotate2D(**entity**: `Entity`, **degrees**: `Num`)
-<a class="headerlink" href="#Transform.rotate2D+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Rotate the `Transform` in local space.
->           
-> This technically rotates around the z axis, since thats the only axis we care about in 2d contexts.   
-
-<endpoint module="luxe: world" class="Transform" signature="set_angle2D(entity : Entity, degrees : Num)"></endpoint>
-<signature id="Transform.set_angle2D+2">Transform.set_angle2D(**entity**: `Entity`, **degrees**: `Num`)
-<a class="headerlink" href="#Transform.set_angle2D+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Set the 2d angle in local space.
->           
-> This is technically the same as `set_euler_z`(doesnt touch x or y), since thats the only axis we care about in 2d contexts.   
-
-<endpoint module="luxe: world" class="Transform" signature="set_angle2D_world(entity : Entity, degrees : Num)"></endpoint>
-<signature id="Transform.set_angle2D_world+2">Transform.set_angle2D_world(**entity**: `Entity`, **degrees**: `Num`)
-<a class="headerlink" href="#Transform.set_angle2D_world+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Set the 2d angle in global space.
->           
-> This is technically the same as `set_euler_z`(doesnt touch x or y), since thats the only axis we care about in 2d contexts.   
-
-<endpoint module="luxe: world" class="Transform" signature="get_angle2D(entity : Entity)"></endpoint>
-<signature id="Transform.get_angle2D">Transform.get_angle2D(**entity**: `Entity`)
-<a class="headerlink" href="#Transform.get_angle2D" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Num`
-> Get the 2d angle in local space.
->           
-> This is technically the same as `get_euler_z`, since thats the only axis we care about in 2d contexts.   
-
-<endpoint module="luxe: world" class="Transform" signature="get_angle2D_world(entity : Entity)"></endpoint>
-<signature id="Transform.get_angle2D_world">Transform.get_angle2D_world(**entity**: `Entity`)
-<a class="headerlink" href="#Transform.get_angle2D_world" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Num`
-> Get the 2d angle in global space.
->           
-> This is technically the same as `get_euler_z_world`, since thats the only axis we care about in 2d contexts.   
-
-<endpoint module="luxe: world" class="Transform" signature="set_depth2D(entity : Entity, depth : Num)"></endpoint>
-<signature id="Transform.set_depth2D+2">Transform.set_depth2D(**entity**: `Entity`, **depth**: `Num`)
-<a class="headerlink" href="#Transform.set_depth2D+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Set the local depth (relative to link `Transform`).
->           
-> This is technically the same as `set_pos_z`.   
-
-<endpoint module="luxe: world" class="Transform" signature="get_depth2D(entity : Entity)"></endpoint>
-<signature id="Transform.get_depth2D">Transform.get_depth2D(**entity**: `Entity`)
-<a class="headerlink" href="#Transform.get_depth2D" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Num`
-> Get the local depth (relative to link `Transform`).
->           
-> This is technically the same as `get_pos_z`.   
-
-<endpoint module="luxe: world" class="Transform" signature="set_depth2D_world(entity : Entity, depth : Num)"></endpoint>
-<signature id="Transform.set_depth2D_world+2">Transform.set_depth2D_world(**entity**: `Entity`, **depth**: `Num`)
-<a class="headerlink" href="#Transform.set_depth2D_world+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Set the global depth.
->           
-> This is technically the same as `set_pos_z_world`.   
-
-<endpoint module="luxe: world" class="Transform" signature="get_depth2D_world(entity : Entity)"></endpoint>
-<signature id="Transform.get_depth2D_world">Transform.get_depth2D_world(**entity**: `Entity`)
-<a class="headerlink" href="#Transform.get_depth2D_world" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Num`
-> Get the global depth.
->           
-> This is technically the same as `get_pos_z_world`.   
-
-<endpoint module="luxe: world" class="Transform" signature="get_world_matrix(entity : Entity, into_matrix : Floats)"></endpoint>
-<signature id="Transform.get_world_matrix+2">Transform.get_world_matrix(**entity**: `Entity`, **into_matrix**: `Floats`)
-<a class="headerlink" href="#Transform.get_world_matrix+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Get 4x4 world transform matrix (column major array).
-> 
-> ```js
->   var ent = Entity.create(app.world)
->   Transform.create(ent)
->   Transform.set_pos(ent, 2, 3, 4)
->   var matrix = Floats.new(16)
->   Transform.get_world_matrix(ent, matrix)
->   //matrix is now [1,0,0,0, 0,1,0,0, 0,0,1,0, 2,3,4,1]
-> ```   
-
-<endpoint module="luxe: world" class="Transform" signature="get_rotation(entity : Entity)"></endpoint>
-<signature id="Transform.get_rotation">Transform.get_rotation(**entity**: `Entity`)
-<a class="headerlink" href="#Transform.get_rotation" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Quat`
-> Get local quaternion rotation.
->           
-> (Note that quaternions can be unfamiliar and hard to manipulate, so if you're not familiar with them you might want to use `get_euler` instead)   
-
-<endpoint module="luxe: world" class="Transform" signature="get_rotation_world(entity : Entity)"></endpoint>
-<signature id="Transform.get_rotation_world">Transform.get_rotation_world(**entity**: `Entity`)
-<a class="headerlink" href="#Transform.get_rotation_world" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Quat`
-> Get global quaternion rotation.
->           
-> (Note that quaternions can be unfamiliar and hard to manipulate, so if you're not familiar with them you might want to use `get_euler_world` instead)   
-
-<endpoint module="luxe: world" class="Transform" signature="get_rotation_matrix(entity : Entity, into_matrix : Floats)"></endpoint>
-<signature id="Transform.get_rotation_matrix+2">Transform.get_rotation_matrix(**entity**: `Entity`, **into_matrix**: `Floats`)
-<a class="headerlink" href="#Transform.get_rotation_matrix+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Get 4x4 world rotation matrix (column major array).   
-
-<endpoint module="luxe: world" class="Transform" signature="get_euler(entity : Entity)"></endpoint>
-<signature id="Transform.get_euler">Transform.get_euler(**entity**: `Entity`)
-<a class="headerlink" href="#Transform.get_euler" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Vec`
-> Get local euler angles.   
-
-<endpoint module="luxe: world" class="Transform" signature="get_euler_x(entity : Entity)"></endpoint>
-<signature id="Transform.get_euler_x">Transform.get_euler_x(**entity**: `Entity`)
-<a class="headerlink" href="#Transform.get_euler_x" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Num`
-> no docs found   
-
-<endpoint module="luxe: world" class="Transform" signature="get_euler_y(entity : Entity)"></endpoint>
-<signature id="Transform.get_euler_y">Transform.get_euler_y(**entity**: `Entity`)
-<a class="headerlink" href="#Transform.get_euler_y" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Num`
-> no docs found   
-
-<endpoint module="luxe: world" class="Transform" signature="get_euler_z(entity : Entity)"></endpoint>
-<signature id="Transform.get_euler_z">Transform.get_euler_z(**entity**: `Entity`)
-<a class="headerlink" href="#Transform.get_euler_z" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Num`
-> no docs found   
-
-<endpoint module="luxe: world" class="Transform" signature="get_euler_world(entity : Entity)"></endpoint>
-<signature id="Transform.get_euler_world">Transform.get_euler_world(**entity**: `Entity`)
-<a class="headerlink" href="#Transform.get_euler_world" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Vec`
-> Get global euler angles.   
-
-<endpoint module="luxe: world" class="Transform" signature="get_euler_x_world(entity : Entity)"></endpoint>
-<signature id="Transform.get_euler_x_world">Transform.get_euler_x_world(**entity**: `Entity`)
-<a class="headerlink" href="#Transform.get_euler_x_world" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Num`
-> no docs found   
-
-<endpoint module="luxe: world" class="Transform" signature="get_euler_y_world(entity : Entity)"></endpoint>
-<signature id="Transform.get_euler_y_world">Transform.get_euler_y_world(**entity**: `Entity`)
-<a class="headerlink" href="#Transform.get_euler_y_world" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Num`
-> no docs found   
-
-<endpoint module="luxe: world" class="Transform" signature="get_euler_z_world(entity : Entity)"></endpoint>
-<signature id="Transform.get_euler_z_world">Transform.get_euler_z_world(**entity**: `Entity`)
-<a class="headerlink" href="#Transform.get_euler_z_world" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Num`
-> no docs found   
-
-<endpoint module="luxe: world" class="Transform" signature="get_scale(entity : Entity)"></endpoint>
-<signature id="Transform.get_scale">Transform.get_scale(**entity**: `Entity`)
-<a class="headerlink" href="#Transform.get_scale" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Vec`
-> Get local scale.   
-
-<endpoint module="luxe: world" class="Transform" signature="get_scale_x(entity : Entity)"></endpoint>
-<signature id="Transform.get_scale_x">Transform.get_scale_x(**entity**: `Entity`)
-<a class="headerlink" href="#Transform.get_scale_x" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Num`
-> no docs found   
-
-<endpoint module="luxe: world" class="Transform" signature="get_scale_y(entity : Entity)"></endpoint>
-<signature id="Transform.get_scale_y">Transform.get_scale_y(**entity**: `Entity`)
-<a class="headerlink" href="#Transform.get_scale_y" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Num`
-> no docs found   
-
-<endpoint module="luxe: world" class="Transform" signature="get_scale_z(entity : Entity)"></endpoint>
-<signature id="Transform.get_scale_z">Transform.get_scale_z(**entity**: `Entity`)
-<a class="headerlink" href="#Transform.get_scale_z" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Num`
-> no docs found   
-
-<endpoint module="luxe: world" class="Transform" signature="get_scale_world(entity : Entity)"></endpoint>
-<signature id="Transform.get_scale_world">Transform.get_scale_world(**entity**: `Entity`)
-<a class="headerlink" href="#Transform.get_scale_world" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Vec`
-> Get global scale.
-> Note that through rotations and non-uniform scale in the transform link hierarchy, getting an accurate world scale might be impossible, making this lossy.   
-
-<endpoint module="luxe: world" class="Transform" signature="get_scale_x_world(entity : Entity)"></endpoint>
-<signature id="Transform.get_scale_x_world">Transform.get_scale_x_world(**entity**: `Entity`)
-<a class="headerlink" href="#Transform.get_scale_x_world" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Num`
-> no docs found   
-
-<endpoint module="luxe: world" class="Transform" signature="get_scale_y_world(entity : Entity)"></endpoint>
-<signature id="Transform.get_scale_y_world">Transform.get_scale_y_world(**entity**: `Entity`)
-<a class="headerlink" href="#Transform.get_scale_y_world" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Num`
-> no docs found   
-
-<endpoint module="luxe: world" class="Transform" signature="get_scale_z_world(entity : Entity)"></endpoint>
-<signature id="Transform.get_scale_z_world">Transform.get_scale_z_world(**entity**: `Entity`)
-<a class="headerlink" href="#Transform.get_scale_z_world" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Num`
-> no docs found   
-
-<endpoint module="luxe: world" class="Transform" signature="get_right(entity : Entity)"></endpoint>
-<signature id="Transform.get_right">Transform.get_right(**entity**: `Entity`)
-<a class="headerlink" href="#Transform.get_right" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Vec`
-> Get the "right" direction of the `Transform`.
-> Same direction as the red arrow in the translation gizmo in the editor.   
-
-<endpoint module="luxe: world" class="Transform" signature="get_forward(entity : Entity)"></endpoint>
-<signature id="Transform.get_forward">Transform.get_forward(**entity**: `Entity`)
-<a class="headerlink" href="#Transform.get_forward" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Vec`
-> Get the "forward" direction of the `Transform`.
-> Same direction as the green arrow in the translation gizmo in the editor.   
-
-<endpoint module="luxe: world" class="Transform" signature="get_up(entity : Entity)"></endpoint>
-<signature id="Transform.get_up">Transform.get_up(**entity**: `Entity`)
-<a class="headerlink" href="#Transform.get_up" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Vec`
-> Get the "up" direction of the `Transform`.
-> Same direction as the blue arrow in the translation gizmo in the editor.   
-
-<endpoint module="luxe: world" class="Transform" signature="sync(entity : Entity)"></endpoint>
-<signature id="Transform.sync">Transform.sync(**entity**: `Entity`)
-<a class="headerlink" href="#Transform.sync" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Forces a sync of the `Transform`. Will trigger listen functions.
-> This usually shouldn't be needed as `Transform` sync automatically when updated.   
-
-<endpoint module="luxe: world" class="Transform" signature="sync_block(entity : Entity, mask : TransformApplyMask)"></endpoint>
-<signature id="Transform.sync_block+2">Transform.sync_block(**entity**: `Entity`, **mask**: `TransformApplyMask`)
-<a class="headerlink" href="#Transform.sync_block+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Forces a sync of the `Transform` block data. Will trigger block listener functions.
-> This usually shouldn't be needed as `Transform` sync automatically when updated.   
-
-<endpoint module="luxe: world" class="Transform" signature="sync_world(world : World)"></endpoint>
-<signature id="Transform.sync_world">Transform.sync_world(**world**: `World`)
-<a class="headerlink" href="#Transform.sync_world" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Forces a sync of all `Transform` in a world. Will trigger listen functions.
-> This usually shouldn't be needed as `Transform` sync automatically when updated.   
-
-<endpoint module="luxe: world" class="Transform" signature="transform_by(entity : Entity, other : Entity)"></endpoint>
-<signature id="Transform.transform_by+2">Transform.transform_by(**entity**: `Entity`, **other**: `Entity`)
-<a class="headerlink" href="#Transform.transform_by+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Transform the given entity by another entities transform. e.g set world using the other as a parent   
-
-<endpoint module="luxe: world" class="Transform" signature="scale_by(entity : Entity, scale : Float3, origin : Float3)"></endpoint>
-<signature id="Transform.scale_by+3">Transform.scale_by(**entity**: `Entity`, **scale**: `Float3`, **origin**: `Float3`)
-<a class="headerlink" href="#Transform.scale_by+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Transform the given entity scale by the value around the given origin   
-
-<endpoint module="luxe: world" class="Transform" signature="rotate_euler_by(entity : Entity, euler : Float3, origin : Float3)"></endpoint>
-<signature id="Transform.rotate_euler_by+3">Transform.rotate_euler_by(**entity**: `Entity`, **euler**: `Float3`, **origin**: `Float3`)
-<a class="headerlink" href="#Transform.rotate_euler_by+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Transform the given entity rotation around the origin, by euler amount (radians)   
-
-<endpoint module="luxe: world" class="Transform" signature="local_vector_to_world(entity : Entity, x : Num, y : Num, z : Num)"></endpoint>
-<signature id="Transform.local_vector_to_world+4">Transform.local_vector_to_world(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
-<a class="headerlink" href="#Transform.local_vector_to_world+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Vec`
-> Convert a vector from local space to world space. (applies scale and rotation, but not translation)   
-
-<endpoint module="luxe: world" class="Transform" signature="world_vector_to_local(entity : Entity, x : Num, y : Num, z : Num)"></endpoint>
-<signature id="Transform.world_vector_to_local+4">Transform.world_vector_to_local(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
-<a class="headerlink" href="#Transform.world_vector_to_local+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Vec`
-> Convert a vector from world space to local space. (applies scale and rotation, but not translation)   
-
-<endpoint module="luxe: world" class="Transform" signature="local_dir_to_world(entity : Entity, x : Num, y : Num, z : Num)"></endpoint>
-<signature id="Transform.local_dir_to_world+4">Transform.local_dir_to_world(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
-<a class="headerlink" href="#Transform.local_dir_to_world+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Vec`
-> Convert a direction from local space to world space. (applies only rotation, not rotation or translation)   
-
-<endpoint module="luxe: world" class="Transform" signature="world_dir_to_local(entity : Entity, x : Num, y : Num, z : Num)"></endpoint>
-<signature id="Transform.world_dir_to_local+4">Transform.world_dir_to_local(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
-<a class="headerlink" href="#Transform.world_dir_to_local+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Vec`
-> Convert a direction from world space to local space. (applies only rotation, not rotation or translation)   
-
-<endpoint module="luxe: world" class="Transform" signature="local_point_to_world(entity : Entity, x : Num, y : Num, z : Num)"></endpoint>
-<signature id="Transform.local_point_to_world+4">Transform.local_point_to_world(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
-<a class="headerlink" href="#Transform.local_point_to_world+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Vec`
-> Convert a point from local space to world space. (applies translation, rotation and scale)   
-
-<endpoint module="luxe: world" class="Transform" signature="world_point_to_local(entity : Entity, x : Num, y : Num, z : Num)"></endpoint>
-<signature id="Transform.world_point_to_local+4">Transform.world_point_to_local(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
-<a class="headerlink" href="#Transform.world_point_to_local+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Vec`
-> Convert a point from world space to local space. (applies translation, rotation and scale)   
-
-<endpoint module="luxe: world" class="Transform" signature="listen_all(world : World, fn : Fn)"></endpoint>
-<signature id="Transform.listen_all+2">Transform.listen_all(**world**: `World`, **fn**: `Fn`)
-<a class="headerlink" href="#Transform.listen_all+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Handle`
-> no docs found   
-
-<endpoint module="luxe: world" class="Transform" signature="unlisten_all(world : World, handle : Handle)"></endpoint>
-<signature id="Transform.unlisten_all+2">Transform.unlisten_all(**world**: `World`, **handle**: `Handle`)
-<a class="headerlink" href="#Transform.unlisten_all+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> no docs found   
-
-<endpoint module="luxe: world" class="Transform" signature="listen(entity : Entity, fn : Fn)"></endpoint>
-<signature id="Transform.listen+2">Transform.listen(**entity**: `Entity`, **fn**: `Fn`)
-<a class="headerlink" href="#Transform.listen+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Handle`
-> no docs found   
-
-<endpoint module="luxe: world" class="Transform" signature="unlisten(entity : Entity, handle : Handle)"></endpoint>
-<signature id="Transform.unlisten+2">Transform.unlisten(**entity**: `Entity`, **handle**: `Handle`)
-<a class="headerlink" href="#Transform.unlisten+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> no docs found   
-
-### TransformApplyMask
-`:::js import "luxe: world" for TransformApplyMask`
-> no docs found
-
-- [pos](#TransformApplyMask.pos)
-- [scale](#TransformApplyMask.scale)
-- [rotation](#TransformApplyMask.rotation)
-- [modified](#TransformApplyMask.modified)
-- [all_modified](#TransformApplyMask.all_modified)
-
-<hr/>
-<endpoint module="luxe: world" class="TransformApplyMask" signature="pos"></endpoint>
-<signature id="TransformApplyMask.pos">TransformApplyMask.pos
-<a class="headerlink" href="#TransformApplyMask.pos" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="TransformApplyMask" signature="scale"></endpoint>
-<signature id="TransformApplyMask.scale">TransformApplyMask.scale
-<a class="headerlink" href="#TransformApplyMask.scale" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="TransformApplyMask" signature="rotation"></endpoint>
-<signature id="TransformApplyMask.rotation">TransformApplyMask.rotation
-<a class="headerlink" href="#TransformApplyMask.rotation" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="TransformApplyMask" signature="modified"></endpoint>
-<signature id="TransformApplyMask.modified">TransformApplyMask.modified
-<a class="headerlink" href="#TransformApplyMask.modified" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="TransformApplyMask" signature="all_modified"></endpoint>
-<signature id="TransformApplyMask.all_modified">TransformApplyMask.all_modified
-<a class="headerlink" href="#TransformApplyMask.all_modified" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> Change the ID of a scene instance. 
+>     
+> By default this ID is the asset id, but with this function it can be changed and the original scene loaded again without causting conflicts.   
 
 ### UI
 `:::js import "luxe: world" for UI`
@@ -6317,192 +3125,6 @@
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
-### Values
-`:::js import "luxe: world" for Values`
-> Values is a modifier that lets you store Key -> Value pairs. Store values like numbers, 
-> strings, and colors on an entity, which can then be accessed by name (a Key).
-> 
->   ```js
->   //we can use an enum for keys
->   class Keys {
->     static watered { "watered" }
->     static apples { "apples" }
->   }
->   var tree = Entity.create(world)
->   Values.create(tree)
->   Values.set(tree, Keys.watered, true)
->   Values.set(tree, Keys.apples, 10)
->   Values.set(tree, "keys are strings", true)
-> 
->   var watered = Values.get(tree, Keys.watered, false)
->   var apples = Values.get(tree, Keys.apples, -1)
->   Log.print("The tree is %(watered ? "watered" : "thirsty") and has %(apples) apples!")
->   ```
-
-- [create](#Values.create)(**entity**: `Entity`)
-- [destroy](#Values.destroy)(**entity**: `Entity`)
-- [has](#Values.has)(**entity**: `Entity`)
-- [has_key](#Values.has_key+2)(**entity**: `Entity`, **key**: `String`)
-- [remove_key](#Values.remove_key+2)(**entity**: `Entity`, **key**: `String`)
-- [get_keys](#Values.get_keys)(**entity**: `Entity`)
-- [get](#Values.get+3)(**entity**: `Entity`, **key**: `String`, **default**: `Any`)
-- [set](#Values.set+3)(**entity**: `Entity`, **key**: `String`, **value**: `Any`)
-
-<hr/>
-<endpoint module="luxe: world" class="Values" signature="create(entity : Entity)"></endpoint>
-<signature id="Values.create">Values.create(**entity**: `Entity`)
-<a class="headerlink" href="#Values.create" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Attach a `Values` modifier to `entity`.
-> 
->   ```js
->   var entity = Entity.create(world)
->   Values.create(entity)
->   ```   
-
-<endpoint module="luxe: world" class="Values" signature="destroy(entity : Entity)"></endpoint>
-<signature id="Values.destroy">Values.destroy(**entity**: `Entity`)
-<a class="headerlink" href="#Values.destroy" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Detach and destroy the `Values` attached to `entity`
-> 
->   ```js
->   Values.destroy(entity)
->   ```   
-
-<endpoint module="luxe: world" class="Values" signature="has(entity : Entity)"></endpoint>
-<signature id="Values.has">Values.has(**entity**: `Entity`)
-<a class="headerlink" href="#Values.has" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Bool`
-> Returns true if `entity` has a `Values` modifier attached.
-> 
->   ```js
->   if(Values.has(entity)) {
->     Log.print("Has a Values modifier!")
->   }
->   ```   
-
-<endpoint module="luxe: world" class="Values" signature="has_key(entity : Entity, key : String)"></endpoint>
-<signature id="Values.has_key+2">Values.has_key(**entity**: `Entity`, **key**: `String`)
-<a class="headerlink" href="#Values.has_key+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Bool`
-> Returns true the entity's Values modifier has a value with the given 'key'
-> 
->   ```js
->   if(Values.has_key(entity, "apples")) {
->     Log.print("The tree has some apples!")
->   }
->   ```   
-
-<endpoint module="luxe: world" class="Values" signature="remove_key(entity : Entity, key : String)"></endpoint>
-<signature id="Values.remove_key+2">Values.remove_key(**entity**: `Entity`, **key**: `String`)
-<a class="headerlink" href="#Values.remove_key+2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Removes a value by key from 'entity's Values modifier, if it exists
-> 
->   ```js
->   Values.remove_key(tree, "apples")
->   ```   
-
-<endpoint module="luxe: world" class="Values" signature="get_keys(entity : Entity)"></endpoint>
-<signature id="Values.get_keys">Values.get_keys(**entity**: `Entity`)
-<a class="headerlink" href="#Values.get_keys" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js List`
-> Get a List of all the String keys for values on 'entity's Values modifier
-> 
->   ```js
->   var keys = Values.get_keys(grass)
->   for (key in keys) {
->     Log.print("Has Value Key: %(key)")
->   }
->   ```   
-
-<endpoint module="luxe: world" class="Values" signature="get(entity : Entity, key : String, default : Any)"></endpoint>
-<signature id="Values.get+3">Values.get(**entity**: `Entity`, **key**: `String`, **default**: `Any`)
-<a class="headerlink" href="#Values.get+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js Any`
-> Get the current value stored with `key` on the Values modifier on `entity`,
-> with a default value which is returned if the key isn't found.
-> 
->   ```js
->   var seeds = Values.get(watermelon, "seeds", 0)
->   Log.print("The watermelon has %(seeds) seeds!")
->   ```   
-
-<endpoint module="luxe: world" class="Values" signature="set(entity : Entity, key : String, value : Any)"></endpoint>
-<signature id="Values.set+3">Values.set(**entity**: `Entity`, **key**: `String`, **value**: `Any`)
-<a class="headerlink" href="#Values.set+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js None`
-> Set the value stored at the 'key' on the Values modifier on 'entity'.
-> 
->   ```js
->   if(Values.has(seed)) {
->     Values.set(seed, "planted", true)
->   }
->   ```   
-
-### ValuesType
-`:::js import "luxe: world" for ValuesType`
-> no docs found
-
-- [unknown](#ValuesType.unknown)
-- [bool](#ValuesType.bool)
-- [number](#ValuesType.number)
-- [string](#ValuesType.string)
-- [float2](#ValuesType.float2)
-- [float3](#ValuesType.float3)
-- [float4](#ValuesType.float4)
-- [name](#ValuesType.name)(**value**: `Any`)
-
-<hr/>
-<endpoint module="luxe: world" class="ValuesType" signature="unknown"></endpoint>
-<signature id="ValuesType.unknown">ValuesType.unknown
-<a class="headerlink" href="#ValuesType.unknown" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="ValuesType" signature="bool"></endpoint>
-<signature id="ValuesType.bool">ValuesType.bool
-<a class="headerlink" href="#ValuesType.bool" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="ValuesType" signature="number"></endpoint>
-<signature id="ValuesType.number">ValuesType.number
-<a class="headerlink" href="#ValuesType.number" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="ValuesType" signature="string"></endpoint>
-<signature id="ValuesType.string">ValuesType.string
-<a class="headerlink" href="#ValuesType.string" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="ValuesType" signature="float2"></endpoint>
-<signature id="ValuesType.float2">ValuesType.float2
-<a class="headerlink" href="#ValuesType.float2" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="ValuesType" signature="float3"></endpoint>
-<signature id="ValuesType.float3">ValuesType.float3
-<a class="headerlink" href="#ValuesType.float3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="ValuesType" signature="float4"></endpoint>
-<signature id="ValuesType.float4">ValuesType.float4
-<a class="headerlink" href="#ValuesType.float4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: world" class="ValuesType" signature="name(value : Any)"></endpoint>
-<signature id="ValuesType.name">ValuesType.name(**value**: `Any`)
-<a class="headerlink" href="#ValuesType.name" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
 ### WorldEventType
 `:::js import "luxe: world" for WorldEventType`
 > no docs found
@@ -6511,6 +3133,7 @@
 - [create](#WorldEventType.create)
 - [destroy](#WorldEventType.destroy)
 - [tick](#WorldEventType.tick)
+- [modifier_tick](#WorldEventType.modifier_tick)
 - [name](#WorldEventType.name)(**value**: `WorldEventType`)
 
 <hr/>
@@ -6535,6 +3158,12 @@
 <endpoint module="luxe: world" class="WorldEventType" signature="tick"></endpoint>
 <signature id="WorldEventType.tick">WorldEventType.tick
 <a class="headerlink" href="#WorldEventType.tick" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="WorldEventType" signature="modifier_tick"></endpoint>
+<signature id="WorldEventType.modifier_tick">WorldEventType.modifier_tick
+<a class="headerlink" href="#WorldEventType.modifier_tick" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 

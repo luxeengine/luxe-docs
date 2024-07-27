@@ -17,11 +17,25 @@
 > no docs found
 
 - [create](#Scene.create+2)(**world**: `World`, **scene**: `Scene`)
+- [create](#Scene.create+3)(**world**: `World`, **scene**: `Scene`, **on_ready**: `Fn`)
+- [has](#Scene.has)(**entity**: `Entity`)
 
 <hr/>
 <endpoint module="luxe: world/scene" class="Scene" signature="create(world : World, scene : Scene)"></endpoint>
 <signature id="Scene.create+2">Scene.create(**world**: `World`, **scene**: `Scene`)
 <a class="headerlink" href="#Scene.create+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world/scene" class="Scene" signature="create(world : World, scene : Scene, on_ready : Fn)"></endpoint>
+<signature id="Scene.create+3">Scene.create(**world**: `World`, **scene**: `Scene`, **on_ready**: `Fn`)
+<a class="headerlink" href="#Scene.create+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world/scene" class="Scene" signature="has(entity : Entity)"></endpoint>
+<signature id="Scene.has">Scene.has(**entity**: `Entity`)
+<a class="headerlink" href="#Scene.has" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 

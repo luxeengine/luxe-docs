@@ -43,7 +43,7 @@
 <endpoint module="luxe: mat4" class="Matrix" signature="m"></endpoint>
 <signature id="Matrix.m">Matrix.m
 <a class="headerlink" href="#Matrix.m" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
+<span class='api_ret'>returns</span> `:::js Floats`
 > no docs found   
 
 <endpoint module="luxe: mat4" class="Matrix" signature="ortho(left : Any, right : Any, top : Any, bottom : Any, near : Any, far : Any)"></endpoint>

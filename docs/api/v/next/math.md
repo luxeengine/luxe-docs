@@ -15,6 +15,29 @@
 `:::js import "luxe: math" for Math`
 > Utility class with static math functions.
 
+- [add](#Math.add+2)(**a**: `Vec`, **b**: `Vec`)
+- [add2D](#Math.add2D+2)(**a**: `Vec`, **b**: `Vec`)
+- [add_to](#Math.add_to+2)(**a**: `Vec`, **b**: `Vec`)
+- [add2D_to](#Math.add2D_to+2)(**a**: `Vec`, **b**: `Vec`)
+- [sub](#Math.sub+2)(**a**: `Vec`, **b**: `Vec`)
+- [sub2D](#Math.sub2D+2)(**a**: `Vec`, **b**: `Vec`)
+- [sub_to](#Math.sub_to+2)(**a**: `Vec`, **b**: `Vec`)
+- [sub2D_to](#Math.sub2D_to+2)(**a**: `Vec`, **b**: `Vec`)
+- [mults](#Math.mults+2)(**a**: `Vec`, **b**: `Num`)
+- [mult](#Math.mult+2)(**a**: `Vec`, **b**: `Vec`)
+- [mult2D](#Math.mult2D+2)(**a**: `Vec`, **b**: `Vec`)
+- [mult_to](#Math.mult_to+2)(**a**: `Vec`, **b**: `Vec`)
+- [mults_to](#Math.mults_to+2)(**a**: `Vec`, **b**: `Num`)
+- [mult2D_to](#Math.mult2D_to+2)(**a**: `Vec`, **b**: `Vec`)
+- [scale](#Math.scale+2)(**a**: `Vec`, **s**: `Num`)
+- [scale2D](#Math.scale2D+2)(**a**: `Vec`, **s**: `Num`)
+- [scale_to](#Math.scale_to+2)(**a**: `Vec`, **s**: `Num`)
+- [scale2D_to](#Math.scale2D_to+2)(**a**: `Vec`, **s**: `Num`)
+- [div](#Math.div+2)(**a**: `Vec`, **s**: `Num`)
+- [div2D](#Math.div2D+2)(**a**: `Vec`, **s**: `Num`)
+- [div_to](#Math.div_to+2)(**a**: `Vec`, **s**: `Num`)
+- [div2D_to](#Math.div2D_to+2)(**a**: `Vec`, **s**: `Num`)
+- [equal](#Math.equal+2)(**a**: `Vec`, **b**: `Vec`)
 - [length](#Math.length+2)(**x**: `Num`, **y**: `Num`)
 - [length](#Math.length+3)(**x**: `Num`, **y**: `Num`, **z**: `Num`)
 - [length](#Math.length)(**vec**: `Vec`)
@@ -33,6 +56,8 @@
 - [angle2D](#Math.angle2D+2)(**from**: `Vec`, **to**: `Vec`)
 - [angle2D](#Math.angle2D+4)(**from_x**: `Num`, **from_y**: `Num`, **to_x**: `Num`, **to_y**: `Num`)
 - [normalize2D](#Math.normalize2D)(**vec**: `Vec`)
+- [normalized](#Math.normalized)(**vec**: `Vec`)
+- [normalized2D](#Math.normalized2D)(**vec**: `Vec`)
 - [normalize](#Math.normalize)(**vec**: `Vec`)
 - [dist](#Math.dist+6)(**x**: `Num`, **y**: `Num`, **z**: `Num`, **other_x**: `Num`, **other_y**: `Num`, **other_z**: `Num`)
 - [dist](#Math.dist+2)(**vec**: `Vec`, **other**: `Vec`)
@@ -40,10 +65,12 @@
 - [dist2D](#Math.dist2D+4)(**x**: `Num`, **y**: `Num`, **other_x**: `Num`, **other_y**: `Num`)
 - [dir2D](#Math.dir2D+2)(**pos**: `Vec`, **target**: `Vec`)
 - [dir](#Math.dir+2)(**pos**: `Vec`, **target**: `Vec`)
+- [rotate](#Math.rotate+3)(**vec**: `Vec`, **axis**: `Vec`, **angle**: `Num`)
 - [rotate](#Math.rotate+4)(**vec**: `Vec`, **ox**: `Num`, **oy**: `Num`, **angle**: `Num`)
 - [ray_intersect_plane](#Math.ray_intersect_plane+12)(**plane_x**: `Num`, **plane_y**: `Num`, **plane_z**: `Num`, **normal_x**: `Num`, **normal_y**: `Num`, **normal_z**: `Num`, **ray_x**: `Num`, **ray_y**: `Num`, **ray_z**: `Num`, **ray_dir_x**: `Num`, **ray_dir_y**: `Num`, **ray_dir_z**: `Num`)
 - [closest_point_on_plane](#Math.closest_point_on_plane+9)(**plane_x**: `Num`, **plane_y**: `Num`, **plane_z**: `Num`, **normal_x**: `Num`, **normal_y**: `Num`, **normal_z**: `Num`, **point_x**: `Num`, **point_y**: `Num`, **point_z**: `Num`)
 - [closest_point_on_line](#Math.closest_point_on_line+9)(**line_x**: `Num`, **line_y**: `Num`, **line_z**: `Num`, **line_end_x**: `Num`, **line_end_y**: `Num`, **line_end_z**: `Num`, **point_x**: `Num`, **point_y**: `Num`, **point_z**: `Num`)
+- [closest_point_on_line](#Math.closest_point_on_line+3)(**line**: `Vec`, **line_end**: `Vec`, **point**: `Vec`)
 - [in_rect](#Math.in_rect+6)(**x**: `Num`, **y**: `Num`, **rx**: `Num`, **ry**: `Num`, **rw**: `Num`, **rh**: `Num`)
 - [wrap](#Math.wrap+2)(**value**: `Num`, **modulus**: `Num`)
 - [overlaps](#Math.overlaps+8)(**x0**: `Num`, **y0**: `Num`, **w0**: `Num`, **h0**: `Num`, **x1**: `Num`, **y1**: `Num`, **w1**: `Num`, **h1**: `Num`)
@@ -60,6 +87,8 @@
 - [fixed](#Math.fixed)(**value**: `Num`)
 - [fixed](#Math.fixed+2)(**value**: `Num`, **precision**: `Num`)
 - [angle_delta](#Math.angle_delta+2)(**from**: `Num`, **to**: `Num`)
+- [lerp2D](#Math.lerp2D+3)(**a**: `Vec`, **b**: `Vec`, **t**: `Num`)
+- [lerp3D](#Math.lerp3D+3)(**a**: `Vec`, **b**: `Vec`, **t**: `Num`)
 - [lerp](#Math.lerp+3)(**a**: `Num`, **b**: `Num`, **t**: `Num`)
 - [lerp_angle](#Math.lerp_angle+3)(**a**: `Num`, **b**: `Num`, **t**: `Num`)
 - [weighted_avg](#Math.weighted_avg+3)(**value**: `Num`, **target**: `Num`, **slowness**: `Num`)
@@ -76,6 +105,144 @@
 - [random_point_in_unit_circle](#Math.random_point_in_unit_circle)(**rng**: `Random`)
 
 <hr/>
+<endpoint module="luxe: math" class="Math" signature="add(a : Vec, b : Vec)"></endpoint>
+<signature id="Math.add+2">Math.add(**a**: `Vec`, **b**: `Vec`)
+<a class="headerlink" href="#Math.add+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Add two 3D vectors together componentwise, returning the result   
+
+<endpoint module="luxe: math" class="Math" signature="add2D(a : Vec, b : Vec)"></endpoint>
+<signature id="Math.add2D+2">Math.add2D(**a**: `Vec`, **b**: `Vec`)
+<a class="headerlink" href="#Math.add2D+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Add two vector2s together componentwise, returning the result   
+
+<endpoint module="luxe: math" class="Math" signature="add_to(a : Vec, b : Vec)"></endpoint>
+<signature id="Math.add_to+2">Math.add_to(**a**: `Vec`, **b**: `Vec`)
+<a class="headerlink" href="#Math.add_to+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Add two 3D vectors together componentwise, updating the first vector   
+
+<endpoint module="luxe: math" class="Math" signature="add2D_to(a : Vec, b : Vec)"></endpoint>
+<signature id="Math.add2D_to+2">Math.add2D_to(**a**: `Vec`, **b**: `Vec`)
+<a class="headerlink" href="#Math.add2D_to+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Add two 2D vectors together componentwise, updating the first vector   
+
+<endpoint module="luxe: math" class="Math" signature="sub(a : Vec, b : Vec)"></endpoint>
+<signature id="Math.sub+2">Math.sub(**a**: `Vec`, **b**: `Vec`)
+<a class="headerlink" href="#Math.sub+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Subtract two 3D vectors together componentwise, returning the result   
+
+<endpoint module="luxe: math" class="Math" signature="sub2D(a : Vec, b : Vec)"></endpoint>
+<signature id="Math.sub2D+2">Math.sub2D(**a**: `Vec`, **b**: `Vec`)
+<a class="headerlink" href="#Math.sub2D+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Subtract two 2D vectors together componentwise, returning the result   
+
+<endpoint module="luxe: math" class="Math" signature="sub_to(a : Vec, b : Vec)"></endpoint>
+<signature id="Math.sub_to+2">Math.sub_to(**a**: `Vec`, **b**: `Vec`)
+<a class="headerlink" href="#Math.sub_to+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Subtract two 3D vectors together componentwise, updating the first vector   
+
+<endpoint module="luxe: math" class="Math" signature="sub2D_to(a : Vec, b : Vec)"></endpoint>
+<signature id="Math.sub2D_to+2">Math.sub2D_to(**a**: `Vec`, **b**: `Vec`)
+<a class="headerlink" href="#Math.sub2D_to+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Subtract two 2D vectors together componentwise, updating the first vector   
+
+<endpoint module="luxe: math" class="Math" signature="mults(a : Vec, b : Num)"></endpoint>
+<signature id="Math.mults+2">Math.mults(**a**: `Vec`, **b**: `Num`)
+<a class="headerlink" href="#Math.mults+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Multiply a 3D vector by a scalar, returning the result   
+
+<endpoint module="luxe: math" class="Math" signature="mult(a : Vec, b : Vec)"></endpoint>
+<signature id="Math.mult+2">Math.mult(**a**: `Vec`, **b**: `Vec`)
+<a class="headerlink" href="#Math.mult+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Multiply two 3D vectors together componentwise, returning the result   
+
+<endpoint module="luxe: math" class="Math" signature="mult2D(a : Vec, b : Vec)"></endpoint>
+<signature id="Math.mult2D+2">Math.mult2D(**a**: `Vec`, **b**: `Vec`)
+<a class="headerlink" href="#Math.mult2D+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Multiply two 2D vectors together componentwise, returning the result   
+
+<endpoint module="luxe: math" class="Math" signature="mult_to(a : Vec, b : Vec)"></endpoint>
+<signature id="Math.mult_to+2">Math.mult_to(**a**: `Vec`, **b**: `Vec`)
+<a class="headerlink" href="#Math.mult_to+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Multiply two 3D vectors together componentwise, updating the first vector   
+
+<endpoint module="luxe: math" class="Math" signature="mults_to(a : Vec, b : Num)"></endpoint>
+<signature id="Math.mults_to+2">Math.mults_to(**a**: `Vec`, **b**: `Num`)
+<a class="headerlink" href="#Math.mults_to+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Multiply a 3D vector by a scalar, updating the vector   
+
+<endpoint module="luxe: math" class="Math" signature="mult2D_to(a : Vec, b : Vec)"></endpoint>
+<signature id="Math.mult2D_to+2">Math.mult2D_to(**a**: `Vec`, **b**: `Vec`)
+<a class="headerlink" href="#Math.mult2D_to+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Multiply two 2D vectors together componentwise, updating the first vector   
+
+<endpoint module="luxe: math" class="Math" signature="scale(a : Vec, s : Num)"></endpoint>
+<signature id="Math.scale+2">Math.scale(**a**: `Vec`, **s**: `Num`)
+<a class="headerlink" href="#Math.scale+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Multiply a 3D vector by a scalar, returning the result   
+
+<endpoint module="luxe: math" class="Math" signature="scale2D(a : Vec, s : Num)"></endpoint>
+<signature id="Math.scale2D+2">Math.scale2D(**a**: `Vec`, **s**: `Num`)
+<a class="headerlink" href="#Math.scale2D+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Multiply a 2D vector by a scalar, returning the result   
+
+<endpoint module="luxe: math" class="Math" signature="scale_to(a : Vec, s : Num)"></endpoint>
+<signature id="Math.scale_to+2">Math.scale_to(**a**: `Vec`, **s**: `Num`)
+<a class="headerlink" href="#Math.scale_to+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Multiply a 3D vector by a scalar, updating the vector   
+
+<endpoint module="luxe: math" class="Math" signature="scale2D_to(a : Vec, s : Num)"></endpoint>
+<signature id="Math.scale2D_to+2">Math.scale2D_to(**a**: `Vec`, **s**: `Num`)
+<a class="headerlink" href="#Math.scale2D_to+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Multiply a 2D vector by a scalar, updating the vector   
+
+<endpoint module="luxe: math" class="Math" signature="div(a : Vec, s : Num)"></endpoint>
+<signature id="Math.div+2">Math.div(**a**: `Vec`, **s**: `Num`)
+<a class="headerlink" href="#Math.div+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Divide a 3D vector by a scalar, returning the result   
+
+<endpoint module="luxe: math" class="Math" signature="div2D(a : Vec, s : Num)"></endpoint>
+<signature id="Math.div2D+2">Math.div2D(**a**: `Vec`, **s**: `Num`)
+<a class="headerlink" href="#Math.div2D+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Divide a 2D vector by a scalar, returning the result   
+
+<endpoint module="luxe: math" class="Math" signature="div_to(a : Vec, s : Num)"></endpoint>
+<signature id="Math.div_to+2">Math.div_to(**a**: `Vec`, **s**: `Num`)
+<a class="headerlink" href="#Math.div_to+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Divide a 3D vector by a scalar, updating the vector   
+
+<endpoint module="luxe: math" class="Math" signature="div2D_to(a : Vec, s : Num)"></endpoint>
+<signature id="Math.div2D_to+2">Math.div2D_to(**a**: `Vec`, **s**: `Num`)
+<a class="headerlink" href="#Math.div2D_to+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Divide a 2D vector by a scalar, updating the vector   
+
+<endpoint module="luxe: math" class="Math" signature="equal(a : Vec, b : Vec)"></endpoint>
+<signature id="Math.equal+2">Math.equal(**a**: `Vec`, **b**: `Vec`)
+<a class="headerlink" href="#Math.equal+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
+> Checks if two vectors are equal. Vectors of different dimensions (e.g. 2D and 3D) are considered unequal   
+
 <endpoint module="luxe: math" class="Math" signature="length(x : Num, y : Num)"></endpoint>
 <signature id="Math.length+2">Math.length(**x**: `Num`, **y**: `Num`)
 <a class="headerlink" href="#Math.length+2" title="Permanent link">¶</a></signature>
@@ -185,6 +352,18 @@
 <span class='api_ret'>returns</span> `:::js None`
 > Normalize 2d vector. Changes input vector and doesnt return anything. 0 length vectors remain untouched.   
 
+<endpoint module="luxe: math" class="Math" signature="normalized(vec : Vec)"></endpoint>
+<signature id="Math.normalized">Math.normalized(**vec**: `Vec`)
+<a class="headerlink" href="#Math.normalized" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Normalize 3d vector. Returns the result.   
+
+<endpoint module="luxe: math" class="Math" signature="normalized2D(vec : Vec)"></endpoint>
+<signature id="Math.normalized2D">Math.normalized2D(**vec**: `Vec`)
+<a class="headerlink" href="#Math.normalized2D" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Normalize 2d vector. Returns the result.   
+
 <endpoint module="luxe: math" class="Math" signature="normalize(vec : Vec)"></endpoint>
 <signature id="Math.normalize">Math.normalize(**vec**: `Vec`)
 <a class="headerlink" href="#Math.normalize" title="Permanent link">¶</a></signature>
@@ -227,6 +406,12 @@
 <span class='api_ret'>returns</span> `:::js Vec`
 > Directional vector (length 1 unless the arguments are the same) between two 3d vectors.   
 
+<endpoint module="luxe: math" class="Math" signature="rotate(vec : Vec, axis : Vec, angle : Num)"></endpoint>
+<signature id="Math.rotate+3">Math.rotate(**vec**: `Vec`, **axis**: `Vec`, **angle**: `Num`)
+<a class="headerlink" href="#Math.rotate+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Vec`
+> Rotate a 3d vector around the given axis by angle degrees   
+
 <endpoint module="luxe: math" class="Math" signature="rotate(vec : Vec, ox : Num, oy : Num, angle : Num)"></endpoint>
 <signature id="Math.rotate+4">Math.rotate(**vec**: `Vec`, **ox**: `Num`, **oy**: `Num`, **angle**: `Num`)
 <a class="headerlink" href="#Math.rotate+4" title="Permanent link">¶</a></signature>
@@ -249,6 +434,16 @@
 <endpoint module="luxe: math" class="Math" signature="closest_point_on_line(line_x : Num, line_y : Num, line_z : Num, line_end_x : Num, line_end_y : Num, line_end_z : Num, point_x : Num, point_y : Num, point_z : Num)"></endpoint>
 <signature id="Math.closest_point_on_line+9">Math.closest_point_on_line(**line_x**: `Num`, **line_y**: `Num`, **line_z**: `Num`, **line_end_x**: `Num`, **line_end_y**: `Num`, **line_end_z**: `Num`, **point_x**: `Num`, **point_y**: `Num`, **point_z**: `Num`)
 <a class="headerlink" href="#Math.closest_point_on_line+9" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Vec`
+> Closest point on an infinite line to a point.
+> The progress from line start to line end in 4th component of return value.
+> Line is constructed by 2 points on the line, 
+> but the closest point can also be before the start of after the end 
+> (in that case the 4th component of the return value wont be in the 0-1 range).   
+
+<endpoint module="luxe: math" class="Math" signature="closest_point_on_line(line : Vec, line_end : Vec, point : Vec)"></endpoint>
+<signature id="Math.closest_point_on_line+3">Math.closest_point_on_line(**line**: `Vec`, **line_end**: `Vec`, **point**: `Vec`)
+<a class="headerlink" href="#Math.closest_point_on_line+3" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js Vec`
 > Closest point on an infinite line to a point.
 > The progress from line start to line end in 4th component of return value.
@@ -356,6 +551,22 @@
 <a class="headerlink" href="#Math.angle_delta+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js Num`
 > Signed difference between two (degree) angles. Always in -180...180 range.   
+
+<endpoint module="luxe: math" class="Math" signature="lerp2D(a : Vec, b : Vec, t : Num)"></endpoint>
+<signature id="Math.lerp2D+3">Math.lerp2D(**a**: `Vec`, **b**: `Vec`, **t**: `Num`)
+<a class="headerlink" href="#Math.lerp2D+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Vec`
+> Linearly interpolate between two vectors.
+> Returns `a` when `t` is `0` and `b` when `t` is `1`, with values inbetween interpolating inbetween.
+> If `t` is outside 0-1 range, the output will be extrapolated.   
+
+<endpoint module="luxe: math" class="Math" signature="lerp3D(a : Vec, b : Vec, t : Num)"></endpoint>
+<signature id="Math.lerp3D+3">Math.lerp3D(**a**: `Vec`, **b**: `Vec`, **t**: `Num`)
+<a class="headerlink" href="#Math.lerp3D+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Vec`
+> Linearly interpolate between two vectors.
+> Returns `a` when `t` is `0` and `b` when `t` is `1`, with values inbetween interpolating inbetween.
+> If `t` is outside 0-1 range, the output will be extrapolated.   
 
 <endpoint module="luxe: math" class="Math" signature="lerp(a : Num, b : Num, t : Num)"></endpoint>
 <signature id="Math.lerp+3">Math.lerp(**a**: `Num`, **b**: `Num`, **t**: `Num`)

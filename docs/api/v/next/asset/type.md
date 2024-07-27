@@ -56,7 +56,12 @@
 - [id](#AssetContext.id)
 - [db](#AssetContext.db)
 - [artifacts](#AssetContext.artifacts)
+- [ast_for_asset](#AssetContext.ast_for_asset)
+- [errors](#AssetContext.errors)
+- [error](#AssetContext.error)(**info**: `String`)
 - [artifacts_for](#AssetContext.artifacts_for)(**type_id**: `String`)
+- [ast_for](#AssetContext.ast_for)(**asset**: `AssetID`)
+- [emit_block_def_for](#AssetContext.emit_block_def_for+3)(**asset**: `AssetID`, **block_tag**: `String`, **from**: `String`)
 - [tagged](#AssetContext.tagged)(**tag**: `String`)
 - [tag](#AssetContext.tag+2)(**tag**: `String`, **value**: `Any`)
 - [TYPE](#AssetContext.TYPE)
@@ -91,9 +96,39 @@
 <span class='api_ret'>returns</span> `:::js Map`
 > no docs found   
 
+<endpoint module="luxe: asset/type" class="AssetContext" signature="ast_for_asset"></endpoint>
+<signature id="AssetContext.ast_for_asset">AssetContext.ast_for_asset
+<a class="headerlink" href="#AssetContext.ast_for_asset" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Map`
+> no docs found   
+
+<endpoint module="luxe: asset/type" class="AssetContext" signature="errors"></endpoint>
+<signature id="AssetContext.errors">AssetContext.errors
+<a class="headerlink" href="#AssetContext.errors" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js List`
+> no docs found   
+
+<endpoint module="luxe: asset/type" class="AssetContext" signature="error(info : String)"></endpoint>
+<signature id="AssetContext.error">AssetContext.error(**info**: `String`)
+<a class="headerlink" href="#AssetContext.error" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
 <endpoint module="luxe: asset/type" class="AssetContext" signature="artifacts_for(type_id : String)"></endpoint>
 <signature id="AssetContext.artifacts_for">AssetContext.artifacts_for(**type_id**: `String`)
 <a class="headerlink" href="#AssetContext.artifacts_for" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: asset/type" class="AssetContext" signature="ast_for(asset : AssetID)"></endpoint>
+<signature id="AssetContext.ast_for">AssetContext.ast_for(**asset**: `AssetID`)
+<a class="headerlink" href="#AssetContext.ast_for" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Result`
+> no docs found   
+
+<endpoint module="luxe: asset/type" class="AssetContext" signature="emit_block_def_for(asset : AssetID, block_tag : String, from : String)"></endpoint>
+<signature id="AssetContext.emit_block_def_for+3">AssetContext.emit_block_def_for(**asset**: `AssetID`, **block_tag**: `String`, **from**: `String`)
+<a class="headerlink" href="#AssetContext.emit_block_def_for+3" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
@@ -195,6 +230,7 @@
 - [root](#AssetID.root)
 - [meta_uuid](#AssetID.meta_uuid)
 - [new](#AssetID.new+2)(**type_id**: `String`, **map**: `Map`)
+- [from_id](#AssetID.from_id+2)(**type_id**: `String`, **asset_id**: `String`)
 - [refresh](#AssetID.refresh)()
 
 <hr/>
@@ -255,6 +291,12 @@
 <endpoint module="luxe: asset/type" class="AssetID" signature="new(type_id : String, map : Map)"></endpoint>
 <signature id="AssetID.new+2">AssetID.new(**type_id**: `String`, **map**: `Map`)
 <a class="headerlink" href="#AssetID.new+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js AssetID`
+> no docs found   
+
+<endpoint module="luxe: asset/type" class="AssetID" signature="from_id(type_id : String, asset_id : String)"></endpoint>
+<signature id="AssetID.from_id+2">AssetID.from_id(**type_id**: `String`, **asset_id**: `String`)
+<a class="headerlink" href="#AssetID.from_id+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js AssetID`
 > no docs found   
 

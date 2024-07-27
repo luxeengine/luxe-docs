@@ -21,8 +21,10 @@
 
 - [subtype](#Asset.subtype)
 - [ext](#Asset.ext)
+- [after](#Asset.after)
+- [before](#Asset.before)
 - [new](#Asset.new+2)(**type_id**: `String`, **ctx**: `AssetContext`)
-- [process](#Asset.process+2)(**assets**: `List`, **each**: `Fn`)
+- [pre](#Asset.pre)(**assets**: `List`)
 
 <hr/>
 <endpoint module="luxe: type/mesh.preset.asset" class="Asset" signature="subtype"></endpoint>
@@ -37,15 +39,27 @@
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
+<endpoint module="luxe: type/mesh.preset.asset" class="Asset" signature="after"></endpoint>
+<signature id="Asset.after">Asset.after
+<a class="headerlink" href="#Asset.after" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: type/mesh.preset.asset" class="Asset" signature="before"></endpoint>
+<signature id="Asset.before">Asset.before
+<a class="headerlink" href="#Asset.before" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
 <endpoint module="luxe: type/mesh.preset.asset" class="Asset" signature="new(type_id : String, ctx : AssetContext)"></endpoint>
 <signature id="Asset.new+2">Asset.new(**type_id**: `String`, **ctx**: `AssetContext`)
 <a class="headerlink" href="#Asset.new+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js Asset`
 > no docs found   
 
-<endpoint module="luxe: type/mesh.preset.asset" class="Asset" signature="process(assets : List, each : Fn)"></endpoint>
-<signature id="Asset.process+2">Asset.process(**assets**: `List`, **each**: `Fn`)
-<a class="headerlink" href="#Asset.process+2" title="Permanent link">¶</a></signature>
+<endpoint module="luxe: type/mesh.preset.asset" class="Asset" signature="pre(assets : List)"></endpoint>
+<signature id="Asset.pre">Asset.pre(**assets**: `List`)
+<a class="headerlink" href="#Asset.pre" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
@@ -54,13 +68,21 @@
 > no docs found
 
 - [order](#MeshPreset.order)
+- [search_paths](#MeshPreset.search_paths)(**mesh**: `String`)
 - [convert_material](#MeshPreset.convert_material)(**from**: `Map`)
-- [map_material](#MeshPreset.map_material)(**name**: `String`)
+- [convert_material](#MeshPreset.convert_material+2)(**asset**: `AssetID`, **from**: `Map`)
+- [map_material](#MeshPreset.map_material+2)(**asset**: `AssetID`, **name**: `String`)
 
 <hr/>
 <endpoint module="luxe: type/mesh.preset.asset" class="MeshPreset" signature="order"></endpoint>
 <signature id="MeshPreset.order">MeshPreset.order
 <a class="headerlink" href="#MeshPreset.order" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: type/mesh.preset.asset" class="MeshPreset" signature="search_paths(mesh : String)"></endpoint>
+<signature id="MeshPreset.search_paths">MeshPreset.search_paths(**mesh**: `String`)
+<a class="headerlink" href="#MeshPreset.search_paths" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
@@ -70,9 +92,15 @@
 <span class='api_ret'>returns</span> `:::js Map`
 > no docs found   
 
-<endpoint module="luxe: type/mesh.preset.asset" class="MeshPreset" signature="map_material(name : String)"></endpoint>
-<signature id="MeshPreset.map_material">MeshPreset.map_material(**name**: `String`)
-<a class="headerlink" href="#MeshPreset.map_material" title="Permanent link">¶</a></signature>
+<endpoint module="luxe: type/mesh.preset.asset" class="MeshPreset" signature="convert_material(asset : AssetID, from : Map)"></endpoint>
+<signature id="MeshPreset.convert_material+2">MeshPreset.convert_material(**asset**: `AssetID`, **from**: `Map`)
+<a class="headerlink" href="#MeshPreset.convert_material+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Map`
+> no docs found   
+
+<endpoint module="luxe: type/mesh.preset.asset" class="MeshPreset" signature="map_material(asset : AssetID, name : String)"></endpoint>
+<signature id="MeshPreset.map_material+2">MeshPreset.map_material(**asset**: `AssetID`, **name**: `String`)
+<a class="headerlink" href="#MeshPreset.map_material+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js String`
 > no docs found   
 
@@ -186,7 +214,7 @@
 - [get](#Presets.get)()
 - [fix_path](#Presets.fix_path)(**path**: `String`)
 - [post_fix](#Presets.post_fix)(**result**: `Map`)
-- [generate](#Presets.generate+3)(**tag**: `String`, **asset**: `AssetID`, **converter**: `Fn`)
+- [generate](#Presets.generate+4)(**ctx**: `AssetContext`, **tag**: `String`, **asset**: `AssetID`, **converter**: `Fn`)
 
 <hr/>
 <endpoint module="luxe: type/mesh.preset.asset" class="Presets" signature="get()"></endpoint>
@@ -207,9 +235,9 @@
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
-<endpoint module="luxe: type/mesh.preset.asset" class="Presets" signature="generate(tag : String, asset : AssetID, converter : Fn)"></endpoint>
-<signature id="Presets.generate+3">Presets.generate(**tag**: `String`, **asset**: `AssetID`, **converter**: `Fn`)
-<a class="headerlink" href="#Presets.generate+3" title="Permanent link">¶</a></signature>
+<endpoint module="luxe: type/mesh.preset.asset" class="Presets" signature="generate(ctx : AssetContext, tag : String, asset : AssetID, converter : Fn)"></endpoint>
+<signature id="Presets.generate+4">Presets.generate(**ctx**: `AssetContext`, **tag**: `String`, **asset**: `AssetID`, **converter**: `Fn`)
+<a class="headerlink" href="#Presets.generate+4" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 

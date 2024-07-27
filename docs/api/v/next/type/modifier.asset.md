@@ -21,12 +21,15 @@
 - [ext](#Asset.ext)
 - [subtype](#Asset.subtype)
 - [is_data](#Asset.is_data)
+- [before](#Asset.before)
 - [new](#Asset.new+2)(**type_id**: `String`, **ctx**: `AssetContext`)
 - [should_skip](#Asset.should_skip)(**asset**: `AssetID`)
 - [pre](#Asset.pre)(**assets**: `List`)
 - [write_api](#Asset.write_api+2)(**asset**: `AssetID`, **block**: `Map`)
 - [find_class_with_meta](#Asset.find_class_with_meta+2)(**ast**: `Module`, **tag**: `String`)
 - [is_foreign](#Asset.is_foreign)(**asset**: `AssetID`)
+- [is_hidden](#Asset.is_hidden)(**asset**: `AssetID`)
+- [get_expects](#Asset.get_expects)(**asset**: `AssetID`)
 - [write_modifier_meta](#Asset.write_modifier_meta)(**asset**: `AssetID`)
 - [process_meta](#Asset.process_meta)()
 - [process](#Asset.process+2)(**assets**: `List`, **each**: `Fn`)
@@ -47,6 +50,12 @@
 <endpoint module="luxe: type/modifier.asset" class="Asset" signature="is_data"></endpoint>
 <signature id="Asset.is_data">Asset.is_data
 <a class="headerlink" href="#Asset.is_data" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: type/modifier.asset" class="Asset" signature="before"></endpoint>
+<signature id="Asset.before">Asset.before
+<a class="headerlink" href="#Asset.before" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
@@ -84,6 +93,18 @@
 <signature id="Asset.is_foreign">Asset.is_foreign(**asset**: `AssetID`)
 <a class="headerlink" href="#Asset.is_foreign" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js Bool`
+> no docs found   
+
+<endpoint module="luxe: type/modifier.asset" class="Asset" signature="is_hidden(asset : AssetID)"></endpoint>
+<signature id="Asset.is_hidden">Asset.is_hidden(**asset**: `AssetID`)
+<a class="headerlink" href="#Asset.is_hidden" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
+> no docs found   
+
+<endpoint module="luxe: type/modifier.asset" class="Asset" signature="get_expects(asset : AssetID)"></endpoint>
+<signature id="Asset.get_expects">Asset.get_expects(**asset**: `AssetID`)
+<a class="headerlink" href="#Asset.get_expects" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js List`
 > no docs found   
 
 <endpoint module="luxe: type/modifier.asset" class="Asset" signature="write_modifier_meta(asset : AssetID)"></endpoint>

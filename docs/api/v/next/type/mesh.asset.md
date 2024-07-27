@@ -20,6 +20,7 @@
 
 - [subtype](#Asset.subtype)
 - [is_data](#Asset.is_data)
+- [after](#Asset.after)
 - [new](#Asset.new+2)(**type_id**: `String`, **ctx**: `AssetContext`)
 - [pre](#Asset.pre)(**assets**: `List`)
 - [process](#Asset.process+2)(**assets**: `List`, **each**: `Fn`)
@@ -34,6 +35,12 @@
 <endpoint module="luxe: type/mesh.asset" class="Asset" signature="is_data"></endpoint>
 <signature id="Asset.is_data">Asset.is_data
 <a class="headerlink" href="#Asset.is_data" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: type/mesh.asset" class="Asset" signature="after"></endpoint>
+<signature id="Asset.after">Asset.after
+<a class="headerlink" href="#Asset.after" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 

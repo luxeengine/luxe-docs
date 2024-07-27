@@ -17,8 +17,12 @@
 
 - [create](#Modifier.create+2)(**modifier_id**: `String`, **entity**: `Entity`)
 - [destroy](#Modifier.destroy+2)(**modifier_id**: `String`, **entity**: `Entity`)
+- [has](#Modifier.has+3)(**modifier_id**: `String`, **entity**: `Entity`, **ignore_removed_flag**: `Bool`)
 - [has](#Modifier.has+2)(**modifier_id**: `String`, **entity**: `Entity`)
+- [get_missing_expected](#Modifier.get_missing_expected+2)(**modifier_meta**: `ModifierMeta`, **entity**: `Entity`)
+- [has_expected](#Modifier.has_expected+2)(**modifier_meta**: `ModifierMeta`, **entity**: `Entity`)
 - [set_transient](#Modifier.set_transient+3)(**entity**: `Entity`, **modifier_id**: `String`, **state**: `Bool`)
+- [set_transient](#Modifier.set_transient+4)(**entity**: `Entity`, **modifier_id**: `String`, **state**: `Bool`, **commit**: `Bool`)
 - [get_transient](#Modifier.get_transient+2)(**entity**: `Entity`, **modifier_id**: `String`)
 - [get](#Modifier.get+2)(**entity**: `String`, **modifier_id**: `String`)
 - [get_attached](#Modifier.get_attached)(**entity**: `Entity`)
@@ -37,15 +41,39 @@
 <span class='api_ret'>returns</span> `:::js None`
 > no docs found   
 
+<endpoint module="luxe: world/modifier" class="Modifier" signature="has(modifier_id : String, entity : Entity, ignore_removed_flag : Bool)"></endpoint>
+<signature id="Modifier.has+3">Modifier.has(**modifier_id**: `String`, **entity**: `Entity`, **ignore_removed_flag**: `Bool`)
+<a class="headerlink" href="#Modifier.has+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
+> no docs found   
+
 <endpoint module="luxe: world/modifier" class="Modifier" signature="has(modifier_id : String, entity : Entity)"></endpoint>
 <signature id="Modifier.has+2">Modifier.has(**modifier_id**: `String`, **entity**: `Entity`)
 <a class="headerlink" href="#Modifier.has+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js Bool`
 > no docs found   
 
+<endpoint module="luxe: world/modifier" class="Modifier" signature="get_missing_expected(modifier_meta : ModifierMeta, entity : Entity)"></endpoint>
+<signature id="Modifier.get_missing_expected+2">Modifier.get_missing_expected(**modifier_meta**: `ModifierMeta`, **entity**: `Entity`)
+<a class="headerlink" href="#Modifier.get_missing_expected+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world/modifier" class="Modifier" signature="has_expected(modifier_meta : ModifierMeta, entity : Entity)"></endpoint>
+<signature id="Modifier.has_expected+2">Modifier.has_expected(**modifier_meta**: `ModifierMeta`, **entity**: `Entity`)
+<a class="headerlink" href="#Modifier.has_expected+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
 <endpoint module="luxe: world/modifier" class="Modifier" signature="set_transient(entity : Entity, modifier_id : String, state : Bool)"></endpoint>
 <signature id="Modifier.set_transient+3">Modifier.set_transient(**entity**: `Entity`, **modifier_id**: `String`, **state**: `Bool`)
 <a class="headerlink" href="#Modifier.set_transient+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: world/modifier" class="Modifier" signature="set_transient(entity : Entity, modifier_id : String, state : Bool, commit : Bool)"></endpoint>
+<signature id="Modifier.set_transient+4">Modifier.set_transient(**entity**: `Entity`, **modifier_id**: `String`, **state**: `Bool`, **commit**: `Bool`)
+<a class="headerlink" href="#Modifier.set_transient+4" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js None`
 > no docs found   
 

@@ -19,6 +19,7 @@
 - [DESELECT](#Selection.DESELECT)
 - [SELECT](#Selection.SELECT)
 - [INVALID](#Selection.INVALID)
+- [PRE_CHANGE](#Selection.PRE_CHANGE)
 - [id](#Selection.id)
 - [events](#Selection.events)
 - [selected](#Selection.selected)
@@ -69,6 +70,12 @@
 <endpoint module="luxe: selection" class="Selection" signature="INVALID"></endpoint>
 <signature id="Selection.INVALID">Selection.INVALID
 <a class="headerlink" href="#Selection.INVALID" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: selection" class="Selection" signature="PRE_CHANGE"></endpoint>
+<signature id="Selection.PRE_CHANGE">Selection.PRE_CHANGE
+<a class="headerlink" href="#Selection.PRE_CHANGE" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 

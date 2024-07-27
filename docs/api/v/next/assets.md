@@ -27,6 +27,54 @@
 > 
 > Finally, there are functions in the API that shouldn't be used directly (they aren't listed here.)
 
+- [db_init](#Assets.db_init)()
+- [db_commit](#Assets.db_commit)(**db**: `AssetDB`)
+- [db_default](#Assets.db_default)()
+- [db_default_set](#Assets.db_default_set)(**db**: `AssetDB`)
+- [db_commit_post](#Assets.db_commit_post)(**db**: `AssetDB`)
+- [db_commit_refs](#Assets.db_commit_refs)(**db**: `AssetDB`)
+- [db_add_root_path](#Assets.db_add_root_path+4)(**db**: `AssetDB`, **path**: `String`, **subfolder**: `String`, **prefix**: `String`)
+- [db_add_item](#Assets.db_add_item+4)(**db**: `AssetDB`, **root**: `String`, **path**: `String`, **is_directory**: `Bool`)
+- [db_make_item](#Assets.db_make_item+4)(**db**: `AssetDB`, **root**: `String`, **path**: `String`, **is_directory**: `Bool`)
+- [db_make_item](#Assets.db_make_item+3)(**db**: `AssetDB`, **root**: `String`, **path**: `String`)
+- [db_remove_item](#Assets.db_remove_item+2)(**db**: `AssetDB`, **asset_id**: `String`)
+- [db_add_item](#Assets.db_add_item+3)(**db**: `AssetDB`, **root**: `String`, **path**: `String`)
+- [db_add_ignore](#Assets.db_add_ignore+2)(**db**: `AssetDB`, **globs**: `List`)
+- [db_asset_from_path](#Assets.db_asset_from_path+2)(**db**: `AssetDB`, **path**: `String`)
+- [db_asset_from_id](#Assets.db_asset_from_id+2)(**db**: `AssetDB`, **asset_id**: `String`)
+- [db_asset_from_uuid](#Assets.db_asset_from_uuid+2)(**db**: `AssetDB`, **meta_uuid**: `String`)
+- [db_asset_get_root](#Assets.db_asset_get_root+2)(**db**: `AssetDB`, **asset_id**: `String`)
+- [db_compile](#Assets.db_compile)(**db**: `AssetDB`)
+- [db_parse](#Assets.db_parse)(**bytes**: `String`)
+- [db_has](#Assets.db_has+2)(**db**: `AssetDB`, **asset_id**: `String`)
+- [db_add_reference](#Assets.db_add_reference+3)(**db**: `AssetDB`, **from_asset_id**: `String`, **to_asset_id**: `String`)
+- [db_reset_references](#Assets.db_reset_references+2)(**db**: `AssetDB`, **asset_id**: `String`)
+- [db_get_references](#Assets.db_get_references+2)(**db**: `AssetDB`, **asset_id**: `String`)
+- [db_get_referenced_by](#Assets.db_get_referenced_by+2)(**db**: `AssetDB`, **asset_id**: `String`)
+- [list](#Assets.list)(**db**: `AssetDB`)
+- [list](#Assets.list+3)(**db**: `AssetDB`, **ext**: `String`, **subtype**: `String`)
+- [list](#Assets.list+4)(**db**: `AssetDB`, **ext**: `String`, **subtype**: `String`, **root**: `String`)
+- [list](#Assets.list+2)(**db**: `AssetDB`, **ext**: `String`)
+- [list_folders](#Assets.list_folders+3)(**db**: `AssetDB`, **root**: `String`, **use_path**: `Bool`)
+- [db_get_tags](#Assets.db_get_tags+2)(**db**: `AssetDB`, **asset_id**: `String`)
+- [db_get_tagged](#Assets.db_get_tagged+2)(**db**: `AssetDB`, **tag**: `String`)
+- [db_get_tagged_from_list](#Assets.db_get_tagged_from_list+2)(**db**: `AssetDB`, **tags**: `List`)
+- [db_add_tags](#Assets.db_add_tags+3)(**db**: `AssetDB`, **asset_id**: `String`, **tags**: `List`)
+- [db_remove_tags](#Assets.db_remove_tags+3)(**db**: `AssetDB`, **asset_id**: `String`, **tags**: `List`)
+- [modified](#Assets.modified+2)(**db**: `AssetDB`, **query_id**: `String`)
+- [modified](#Assets.modified+4)(**db**: `AssetDB`, **query_id**: `String`, **ext**: `String`, **subtype**: `String`)
+- [modified](#Assets.modified+5)(**db**: `AssetDB`, **query_id**: `String`, **ext**: `String`, **subtype**: `String`, **root**: `String`)
+- [modified](#Assets.modified+3)(**db**: `AssetDB`, **query_id**: `String`, **ext**: `String`)
+- [unmodified](#Assets.unmodified+3)(**db**: `AssetDB`, **query_id**: `String`, **asset_id**: `String`)
+- [modify](#Assets.modify+3)(**db**: `AssetDB`, **query_id**: `String`, **asset_id**: `String`)
+- [is_modified](#Assets.is_modified+3)(**db**: `AssetDB`, **query_id**: `String`, **asset_id**: `String`)
+- [get_data](#Assets.get_data+2)(**type_id**: `String`, **id**: `String`)
+- [get_block](#Assets.get_block)(**type_id**: `String`)
+- [get_handle](#Assets.get_handle+2)(**type_id**: `String`, **id**: `String`)
+- [set_handle](#Assets.set_handle+3)(**type_id**: `String`, **id**: `String`, **handle**: `Num`)
+- [get_dev_version_path](#Assets.get_dev_version_path+2)(**db**: `AssetDB`, **asset_id**: `String`)
+- [get_dev_version_data](#Assets.get_dev_version_data+2)(**db**: `AssetDB`, **asset_id**: `String`)
+- [save_dev_version_data](#Assets.save_dev_version_data+3)(**db**: `AssetDB`, **asset_id**: `String`, **version_data**: `Map`)
 - [image](#Assets.image)(**id**: `String`)
 - [bytes](#Assets.bytes)(**id**: `String`)
 - [material](#Assets.material)(**id**: `String`)
@@ -51,6 +99,294 @@
 - [load_input](#Assets.load_input)(**id**: `String`)
 
 <hr/>
+<endpoint module="luxe: assets" class="Assets" signature="db_init()"></endpoint>
+<signature id="Assets.db_init">Assets.db_init()
+<a class="headerlink" href="#Assets.db_init" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js AssetDB`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="db_commit(db : AssetDB)"></endpoint>
+<signature id="Assets.db_commit">Assets.db_commit(**db**: `AssetDB`)
+<a class="headerlink" href="#Assets.db_commit" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="db_default()"></endpoint>
+<signature id="Assets.db_default">Assets.db_default()
+<a class="headerlink" href="#Assets.db_default" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js AssetDB`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="db_default_set(db : AssetDB)"></endpoint>
+<signature id="Assets.db_default_set">Assets.db_default_set(**db**: `AssetDB`)
+<a class="headerlink" href="#Assets.db_default_set" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="db_commit_post(db : AssetDB)"></endpoint>
+<signature id="Assets.db_commit_post">Assets.db_commit_post(**db**: `AssetDB`)
+<a class="headerlink" href="#Assets.db_commit_post" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="db_commit_refs(db : AssetDB)"></endpoint>
+<signature id="Assets.db_commit_refs">Assets.db_commit_refs(**db**: `AssetDB`)
+<a class="headerlink" href="#Assets.db_commit_refs" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="db_add_root_path(db : AssetDB, path : String, subfolder : String, prefix : String)"></endpoint>
+<signature id="Assets.db_add_root_path+4">Assets.db_add_root_path(**db**: `AssetDB`, **path**: `String`, **subfolder**: `String`, **prefix**: `String`)
+<a class="headerlink" href="#Assets.db_add_root_path+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="db_add_item(db : AssetDB, root : String, path : String, is_directory : Bool)"></endpoint>
+<signature id="Assets.db_add_item+4">Assets.db_add_item(**db**: `AssetDB`, **root**: `String`, **path**: `String`, **is_directory**: `Bool`)
+<a class="headerlink" href="#Assets.db_add_item+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="db_make_item(db : AssetDB, root : String, path : String, is_directory : Bool)"></endpoint>
+<signature id="Assets.db_make_item+4">Assets.db_make_item(**db**: `AssetDB`, **root**: `String`, **path**: `String`, **is_directory**: `Bool`)
+<a class="headerlink" href="#Assets.db_make_item+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Map`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="db_make_item(db : AssetDB, root : String, path : String)"></endpoint>
+<signature id="Assets.db_make_item+3">Assets.db_make_item(**db**: `AssetDB`, **root**: `String`, **path**: `String`)
+<a class="headerlink" href="#Assets.db_make_item+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="db_remove_item(db : AssetDB, asset_id : String)"></endpoint>
+<signature id="Assets.db_remove_item+2">Assets.db_remove_item(**db**: `AssetDB`, **asset_id**: `String`)
+<a class="headerlink" href="#Assets.db_remove_item+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="db_add_item(db : AssetDB, root : String, path : String)"></endpoint>
+<signature id="Assets.db_add_item+3">Assets.db_add_item(**db**: `AssetDB`, **root**: `String`, **path**: `String`)
+<a class="headerlink" href="#Assets.db_add_item+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="db_add_ignore(db : AssetDB, globs : List)"></endpoint>
+<signature id="Assets.db_add_ignore+2">Assets.db_add_ignore(**db**: `AssetDB`, **globs**: `List`)
+<a class="headerlink" href="#Assets.db_add_ignore+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="db_asset_from_path(db : AssetDB, path : String)"></endpoint>
+<signature id="Assets.db_asset_from_path+2">Assets.db_asset_from_path(**db**: `AssetDB`, **path**: `String`)
+<a class="headerlink" href="#Assets.db_asset_from_path+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Map`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="db_asset_from_id(db : AssetDB, asset_id : String)"></endpoint>
+<signature id="Assets.db_asset_from_id+2">Assets.db_asset_from_id(**db**: `AssetDB`, **asset_id**: `String`)
+<a class="headerlink" href="#Assets.db_asset_from_id+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Map`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="db_asset_from_uuid(db : AssetDB, meta_uuid : String)"></endpoint>
+<signature id="Assets.db_asset_from_uuid+2">Assets.db_asset_from_uuid(**db**: `AssetDB`, **meta_uuid**: `String`)
+<a class="headerlink" href="#Assets.db_asset_from_uuid+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Map`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="db_asset_get_root(db : AssetDB, asset_id : String)"></endpoint>
+<signature id="Assets.db_asset_get_root+2">Assets.db_asset_get_root(**db**: `AssetDB`, **asset_id**: `String`)
+<a class="headerlink" href="#Assets.db_asset_get_root+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js String`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="db_compile(db : AssetDB)"></endpoint>
+<signature id="Assets.db_compile">Assets.db_compile(**db**: `AssetDB`)
+<a class="headerlink" href="#Assets.db_compile" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js String`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="db_parse(bytes : String)"></endpoint>
+<signature id="Assets.db_parse">Assets.db_parse(**bytes**: `String`)
+<a class="headerlink" href="#Assets.db_parse" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js AssetDB`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="db_has(db : AssetDB, asset_id : String)"></endpoint>
+<signature id="Assets.db_has+2">Assets.db_has(**db**: `AssetDB`, **asset_id**: `String`)
+<a class="headerlink" href="#Assets.db_has+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="db_add_reference(db : AssetDB, from_asset_id : String, to_asset_id : String)"></endpoint>
+<signature id="Assets.db_add_reference+3">Assets.db_add_reference(**db**: `AssetDB`, **from_asset_id**: `String`, **to_asset_id**: `String`)
+<a class="headerlink" href="#Assets.db_add_reference+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="db_reset_references(db : AssetDB, asset_id : String)"></endpoint>
+<signature id="Assets.db_reset_references+2">Assets.db_reset_references(**db**: `AssetDB`, **asset_id**: `String`)
+<a class="headerlink" href="#Assets.db_reset_references+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="db_get_references(db : AssetDB, asset_id : String)"></endpoint>
+<signature id="Assets.db_get_references+2">Assets.db_get_references(**db**: `AssetDB`, **asset_id**: `String`)
+<a class="headerlink" href="#Assets.db_get_references+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js List`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="db_get_referenced_by(db : AssetDB, asset_id : String)"></endpoint>
+<signature id="Assets.db_get_referenced_by+2">Assets.db_get_referenced_by(**db**: `AssetDB`, **asset_id**: `String`)
+<a class="headerlink" href="#Assets.db_get_referenced_by+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js List`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="list(db : AssetDB)"></endpoint>
+<signature id="Assets.list">Assets.list(**db**: `AssetDB`)
+<a class="headerlink" href="#Assets.list" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js List`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="list(db : AssetDB, ext : String, subtype : String)"></endpoint>
+<signature id="Assets.list+3">Assets.list(**db**: `AssetDB`, **ext**: `String`, **subtype**: `String`)
+<a class="headerlink" href="#Assets.list+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js List`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="list(db : AssetDB, ext : String, subtype : String, root : String)"></endpoint>
+<signature id="Assets.list+4">Assets.list(**db**: `AssetDB`, **ext**: `String`, **subtype**: `String`, **root**: `String`)
+<a class="headerlink" href="#Assets.list+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js List`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="list(db : AssetDB, ext : String)"></endpoint>
+<signature id="Assets.list+2">Assets.list(**db**: `AssetDB`, **ext**: `String`)
+<a class="headerlink" href="#Assets.list+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js List`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="list_folders(db : AssetDB, root : String, use_path : Bool)"></endpoint>
+<signature id="Assets.list_folders+3">Assets.list_folders(**db**: `AssetDB`, **root**: `String`, **use_path**: `Bool`)
+<a class="headerlink" href="#Assets.list_folders+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js List`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="db_get_tags(db : AssetDB, asset_id : String)"></endpoint>
+<signature id="Assets.db_get_tags+2">Assets.db_get_tags(**db**: `AssetDB`, **asset_id**: `String`)
+<a class="headerlink" href="#Assets.db_get_tags+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js List`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="db_get_tagged(db : AssetDB, tag : String)"></endpoint>
+<signature id="Assets.db_get_tagged+2">Assets.db_get_tagged(**db**: `AssetDB`, **tag**: `String`)
+<a class="headerlink" href="#Assets.db_get_tagged+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js List`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="db_get_tagged_from_list(db : AssetDB, tags : List)"></endpoint>
+<signature id="Assets.db_get_tagged_from_list+2">Assets.db_get_tagged_from_list(**db**: `AssetDB`, **tags**: `List`)
+<a class="headerlink" href="#Assets.db_get_tagged_from_list+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js List`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="db_add_tags(db : AssetDB, asset_id : String, tags : List)"></endpoint>
+<signature id="Assets.db_add_tags+3">Assets.db_add_tags(**db**: `AssetDB`, **asset_id**: `String`, **tags**: `List`)
+<a class="headerlink" href="#Assets.db_add_tags+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="db_remove_tags(db : AssetDB, asset_id : String, tags : List)"></endpoint>
+<signature id="Assets.db_remove_tags+3">Assets.db_remove_tags(**db**: `AssetDB`, **asset_id**: `String`, **tags**: `List`)
+<a class="headerlink" href="#Assets.db_remove_tags+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="modified(db : AssetDB, query_id : String)"></endpoint>
+<signature id="Assets.modified+2">Assets.modified(**db**: `AssetDB`, **query_id**: `String`)
+<a class="headerlink" href="#Assets.modified+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js List`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="modified(db : AssetDB, query_id : String, ext : String, subtype : String)"></endpoint>
+<signature id="Assets.modified+4">Assets.modified(**db**: `AssetDB`, **query_id**: `String`, **ext**: `String`, **subtype**: `String`)
+<a class="headerlink" href="#Assets.modified+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js List`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="modified(db : AssetDB, query_id : String, ext : String, subtype : String, root : String)"></endpoint>
+<signature id="Assets.modified+5">Assets.modified(**db**: `AssetDB`, **query_id**: `String`, **ext**: `String`, **subtype**: `String`, **root**: `String`)
+<a class="headerlink" href="#Assets.modified+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js List`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="modified(db : AssetDB, query_id : String, ext : String)"></endpoint>
+<signature id="Assets.modified+3">Assets.modified(**db**: `AssetDB`, **query_id**: `String`, **ext**: `String`)
+<a class="headerlink" href="#Assets.modified+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js List`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="unmodified(db : AssetDB, query_id : String, asset_id : String)"></endpoint>
+<signature id="Assets.unmodified+3">Assets.unmodified(**db**: `AssetDB`, **query_id**: `String`, **asset_id**: `String`)
+<a class="headerlink" href="#Assets.unmodified+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="modify(db : AssetDB, query_id : String, asset_id : String)"></endpoint>
+<signature id="Assets.modify+3">Assets.modify(**db**: `AssetDB`, **query_id**: `String`, **asset_id**: `String`)
+<a class="headerlink" href="#Assets.modify+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="is_modified(db : AssetDB, query_id : String, asset_id : String)"></endpoint>
+<signature id="Assets.is_modified+3">Assets.is_modified(**db**: `AssetDB`, **query_id**: `String`, **asset_id**: `String`)
+<a class="headerlink" href="#Assets.is_modified+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="get_data(type_id : String, id : String)"></endpoint>
+<signature id="Assets.get_data+2">Assets.get_data(**type_id**: `String`, **id**: `String`)
+<a class="headerlink" href="#Assets.get_data+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js String`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="get_block(type_id : String)"></endpoint>
+<signature id="Assets.get_block">Assets.get_block(**type_id**: `String`)
+<a class="headerlink" href="#Assets.get_block" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Block`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="get_handle(type_id : String, id : String)"></endpoint>
+<signature id="Assets.get_handle+2">Assets.get_handle(**type_id**: `String`, **id**: `String`)
+<a class="headerlink" href="#Assets.get_handle+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Num`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="set_handle(type_id : String, id : String, handle : Num)"></endpoint>
+<signature id="Assets.set_handle+3">Assets.set_handle(**type_id**: `String`, **id**: `String`, **handle**: `Num`)
+<a class="headerlink" href="#Assets.set_handle+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="get_dev_version_path(db : AssetDB, asset_id : String)"></endpoint>
+<signature id="Assets.get_dev_version_path+2">Assets.get_dev_version_path(**db**: `AssetDB`, **asset_id**: `String`)
+<a class="headerlink" href="#Assets.get_dev_version_path+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="get_dev_version_data(db : AssetDB, asset_id : String)"></endpoint>
+<signature id="Assets.get_dev_version_data+2">Assets.get_dev_version_data(**db**: `AssetDB`, **asset_id**: `String`)
+<a class="headerlink" href="#Assets.get_dev_version_data+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Map`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="save_dev_version_data(db : AssetDB, asset_id : String, version_data : Map)"></endpoint>
+<signature id="Assets.save_dev_version_data+3">Assets.save_dev_version_data(**db**: `AssetDB`, **asset_id**: `String`, **version_data**: `Map`)
+<a class="headerlink" href="#Assets.save_dev_version_data+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
 <endpoint module="luxe: assets" class="Assets" signature="image(id : String)"></endpoint>
 <signature id="Assets.image">Assets.image(**id**: `String`)
 <a class="headerlink" href="#Assets.image" title="Permanent link">¶</a></signature>

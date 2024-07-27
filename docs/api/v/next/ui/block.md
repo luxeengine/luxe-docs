@@ -96,8 +96,8 @@
 - [set_block_instances](#UIBlock.set_block_instances+3)(**control**: `Control`, **block**: `Block`, **instances**: `List`)
 - [set_sizes](#UIBlock.set_sizes+4)(**control**: `Control`, **label_width**: `Num`, **label_size**: `Num`, **field_height**: `Num`)
 - [refresh](#UIBlock.refresh)(**control**: `Control`)
-- [get_handle_changes](#UIBlock.get_handle_changes)(**control**: `Control`)
-- [set_handle_changes](#UIBlock.set_handle_changes+2)(**control**: `Control`, **yes**: `Bool`)
+- [get_handle_assets](#UIBlock.get_handle_assets)(**control**: `Control`)
+- [set_handle_assets](#UIBlock.set_handle_assets+2)(**control**: `Control`, **yes**: `Bool`)
 
 <hr/>
 <endpoint module="luxe: ui/block" class="UIBlock" signature="create(ui : Entity)"></endpoint>
@@ -130,15 +130,15 @@
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
-<endpoint module="luxe: ui/block" class="UIBlock" signature="get_handle_changes(control : Control)"></endpoint>
-<signature id="UIBlock.get_handle_changes">UIBlock.get_handle_changes(**control**: `Control`)
-<a class="headerlink" href="#UIBlock.get_handle_changes" title="Permanent link">¶</a></signature>
+<endpoint module="luxe: ui/block" class="UIBlock" signature="get_handle_assets(control : Control)"></endpoint>
+<signature id="UIBlock.get_handle_assets">UIBlock.get_handle_assets(**control**: `Control`)
+<a class="headerlink" href="#UIBlock.get_handle_assets" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js Bool`
 > no docs found   
 
-<endpoint module="luxe: ui/block" class="UIBlock" signature="set_handle_changes(control : Control, yes : Bool)"></endpoint>
-<signature id="UIBlock.set_handle_changes+2">UIBlock.set_handle_changes(**control**: `Control`, **yes**: `Bool`)
-<a class="headerlink" href="#UIBlock.set_handle_changes+2" title="Permanent link">¶</a></signature>
+<endpoint module="luxe: ui/block" class="UIBlock" signature="set_handle_assets(control : Control, yes : Bool)"></endpoint>
+<signature id="UIBlock.set_handle_assets+2">UIBlock.set_handle_assets(**control**: `Control`, **yes**: `Bool`)
+<a class="headerlink" href="#UIBlock.set_handle_assets+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js None`
 > no docs found   
 
@@ -146,16 +146,16 @@
 `:::js import "luxe: ui/block" for UIBlockAssetEvent`
 > no docs found
 
-- [tag](#UIBlockAssetEvent.tag)
+- [tags](#UIBlockAssetEvent.tags)
 - [original](#UIBlockAssetEvent.original)
-- [new](#UIBlockAssetEvent.new+3)(**tag_in**: `String`, **original_in**: `String`, **fn**: `Fn`)
+- [new](#UIBlockAssetEvent.new+3)(**tags_in**: `List`, **original_in**: `String`, **fn**: `Fn`)
 - [done](#UIBlockAssetEvent.done)(**value**: `String`)
 
 <hr/>
-<endpoint module="luxe: ui/block" class="UIBlockAssetEvent" signature="tag"></endpoint>
-<signature id="UIBlockAssetEvent.tag">UIBlockAssetEvent.tag
-<a class="headerlink" href="#UIBlockAssetEvent.tag" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js String`
+<endpoint module="luxe: ui/block" class="UIBlockAssetEvent" signature="tags"></endpoint>
+<signature id="UIBlockAssetEvent.tags">UIBlockAssetEvent.tags
+<a class="headerlink" href="#UIBlockAssetEvent.tags" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js List`
 > no docs found   
 
 <endpoint module="luxe: ui/block" class="UIBlockAssetEvent" signature="original"></endpoint>
@@ -164,8 +164,8 @@
 <span class='api_ret'>returns</span> `:::js String`
 > no docs found   
 
-<endpoint module="luxe: ui/block" class="UIBlockAssetEvent" signature="new(tag_in : String, original_in : String, fn : Fn)"></endpoint>
-<signature id="UIBlockAssetEvent.new+3">UIBlockAssetEvent.new(**tag_in**: `String`, **original_in**: `String`, **fn**: `Fn`)
+<endpoint module="luxe: ui/block" class="UIBlockAssetEvent" signature="new(tags_in : List, original_in : String, fn : Fn)"></endpoint>
+<signature id="UIBlockAssetEvent.new+3">UIBlockAssetEvent.new(**tags_in**: `List`, **original_in**: `String`, **fn**: `Fn`)
 <a class="headerlink" href="#UIBlockAssetEvent.new+3" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js UIBlockAssetEvent`
 > no docs found   
@@ -510,13 +510,14 @@
 
 - [new](#UIBlockState.new+2)(**ui**: `Entity`, **control**: `Control`)
 - [clear_listeners](#UIBlockState.clear_listeners)()
-- [handle_changes](#UIBlockState.handle_changes)
-- [handle_changes](#UIBlockState.handle_changes=)=(v : Any)
+- [handle_assets](#UIBlockState.handle_assets)
+- [handle_assets](#UIBlockState.handle_assets=)=(v : Bool)
 - [field_h](#UIBlockState.field_h)
 - [label_w](#UIBlockState.label_w)
 - [set_sizes](#UIBlockState.set_sizes+3)(**label_width**: `Num`, **label_size**: `Num`, **field_height**: `Num`)
 - [set_instance](#UIBlockState.set_instance+2)(**block**: `Block`, **instance**: `BlockInstance`)
 - [set_instances](#UIBlockState.set_instances+2)(**block**: `Block`, **instances**: `List`)
+- [do_refresh](#UIBlockState.do_refresh)()
 - [refresh](#UIBlockState.refresh)()
 - [make_vec](#UIBlockState.make_vec)(**view**: `ValueView`)
 - [make_color](#UIBlockState.make_color)(**view**: `ValueView`)
@@ -542,13 +543,13 @@
 - [p](#UIBlockState.p+2)(**depth**: `Any`, **value**: `Any`)
 - [dump_info](#UIBlockState.dump_info+2)(**control**: `Control`, **d**: `Num`)
 - [make_mod_pip](#UIBlockState.make_mod_pip)(**kind**: `BlockFieldModified`)
-- [reset_to_default](#UIBlockState.reset_to_default+3)(**block**: `Block`, **instance**: `BlockInstance`, **field_idx**: `Num`)
-- [reset_to_default](#UIBlockState.reset_to_default+4)(**block**: `Block`, **instance**: `BlockInstance`, **field_idx**: `Num`, **array_idx**: `Num`)
 - [get_changes](#UIBlockState.get_changes+3)(**kind**: `UIBlockChange`, **value**: `ValueView`, **edit_value**: `Any`)
 - [get_changes](#UIBlockState.get_changes+4)(**kind**: `UIBlockChange`, **value**: `ValueView`, **edit_value**: `Any`, **edit_value_fn**: `Fn`)
 - [get_changes](#UIBlockState.get_changes+5)(**kind**: `UIBlockChange`, **value**: `ValueView`, **change_id**: `String`, **edit_value**: `Any`, **edit_value_fn**: `Fn`)
 - [make_block](#UIBlockState.make_block+2)(**instance_view**: `InstanceView`, **into**: `Control`)
 - [make_block](#UIBlockState.make_block+3)(**instance_view**: `InstanceView`, **into**: `Control`, **indent**: `Num`)
+- [hide_tip](#UIBlockState.hide_tip)(**from**: `Control`)
+- [show_tip](#UIBlockState.show_tip+2)(**tooltip**: `String`, **control**: `Control`)
 - [make_group](#UIBlockState.make_group)(**name**: `Any`)
 
 <hr/>
@@ -564,15 +565,15 @@
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
-<endpoint module="luxe: ui/block" class="UIBlockState" signature="handle_changes"></endpoint>
-<signature id="UIBlockState.handle_changes">UIBlockState.handle_changes
-<a class="headerlink" href="#UIBlockState.handle_changes" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
+<endpoint module="luxe: ui/block" class="UIBlockState" signature="handle_assets"></endpoint>
+<signature id="UIBlockState.handle_assets">UIBlockState.handle_assets
+<a class="headerlink" href="#UIBlockState.handle_assets" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
 > no docs found   
 
-<endpoint module="luxe: ui/block" class="UIBlockState" signature="handle_changes=(v : Any)"></endpoint>
-<signature id="UIBlockState.handle_changes=">UIBlockState.handle_changes=(v : Any)
-<a class="headerlink" href="#UIBlockState.handle_changes=" title="Permanent link">¶</a></signature>
+<endpoint module="luxe: ui/block" class="UIBlockState" signature="handle_assets=(v : Bool)"></endpoint>
+<signature id="UIBlockState.handle_assets=">UIBlockState.handle_assets=(v : Bool)
+<a class="headerlink" href="#UIBlockState.handle_assets=" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
@@ -603,6 +604,12 @@
 <endpoint module="luxe: ui/block" class="UIBlockState" signature="set_instances(block : Block, instances : List)"></endpoint>
 <signature id="UIBlockState.set_instances+2">UIBlockState.set_instances(**block**: `Block`, **instances**: `List`)
 <a class="headerlink" href="#UIBlockState.set_instances+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: ui/block" class="UIBlockState" signature="do_refresh()"></endpoint>
+<signature id="UIBlockState.do_refresh">UIBlockState.do_refresh()
+<a class="headerlink" href="#UIBlockState.do_refresh" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
@@ -753,19 +760,7 @@
 <endpoint module="luxe: ui/block" class="UIBlockState" signature="make_mod_pip(kind : BlockFieldModified)"></endpoint>
 <signature id="UIBlockState.make_mod_pip">UIBlockState.make_mod_pip(**kind**: `BlockFieldModified`)
 <a class="headerlink" href="#UIBlockState.make_mod_pip" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: ui/block" class="UIBlockState" signature="reset_to_default(block : Block, instance : BlockInstance, field_idx : Num)"></endpoint>
-<signature id="UIBlockState.reset_to_default+3">UIBlockState.reset_to_default(**block**: `Block`, **instance**: `BlockInstance`, **field_idx**: `Num`)
-<a class="headerlink" href="#UIBlockState.reset_to_default+3" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
-
-<endpoint module="luxe: ui/block" class="UIBlockState" signature="reset_to_default(block : Block, instance : BlockInstance, field_idx : Num, array_idx : Num)"></endpoint>
-<signature id="UIBlockState.reset_to_default+4">UIBlockState.reset_to_default(**block**: `Block`, **instance**: `BlockInstance`, **field_idx**: `Num`, **array_idx**: `Num`)
-<a class="headerlink" href="#UIBlockState.reset_to_default+4" title="Permanent link">¶</a></signature>
-<span class='api_ret'>returns</span> `:::js unknown`
+<span class='api_ret'>returns</span> `:::js ModifiedPip`
 > no docs found   
 
 <endpoint module="luxe: ui/block" class="UIBlockState" signature="get_changes(kind : UIBlockChange, value : ValueView, edit_value : Any)"></endpoint>
@@ -795,6 +790,18 @@
 <endpoint module="luxe: ui/block" class="UIBlockState" signature="make_block(instance_view : InstanceView, into : Control, indent : Num)"></endpoint>
 <signature id="UIBlockState.make_block+3">UIBlockState.make_block(**instance_view**: `InstanceView`, **into**: `Control`, **indent**: `Num`)
 <a class="headerlink" href="#UIBlockState.make_block+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: ui/block" class="UIBlockState" signature="hide_tip(from : Control)"></endpoint>
+<signature id="UIBlockState.hide_tip">UIBlockState.hide_tip(**from**: `Control`)
+<a class="headerlink" href="#UIBlockState.hide_tip" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: ui/block" class="UIBlockState" signature="show_tip(tooltip : String, control : Control)"></endpoint>
+<signature id="UIBlockState.show_tip+2">UIBlockState.show_tip(**tooltip**: `String`, **control**: `Control`)
+<a class="headerlink" href="#UIBlockState.show_tip+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 

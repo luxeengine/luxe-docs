@@ -13,6 +13,7 @@
 - [BytesWriter](#byteswriter)   
 - [Floats](#floats)   
 - [Uint16](#uint16)   
+- [Uint32](#uint32)   
 
 ---
 
@@ -945,6 +946,82 @@
 <endpoint module="luxe: bytes" class="Uint16" signature="iteratorValue(iter : Any)"></endpoint>
 <signature id="Uint16.iteratorValue">Uint16.iteratorValue(**iter**: `Any`)
 <a class="headerlink" href="#Uint16.iteratorValue" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+### Uint32
+`:::js import "luxe: bytes" for Uint32`
+> Tight uint32 array. Handeled internally as a C++ array, but will properly be deallocated by the wren garbage collector.
+
+- [new](#Uint32.new)(**elements**: `Any`)
+- [length](#Uint32.length)
+- [[index : Any]](#Uint32.[index : Any])
+- [[index : Any]](#Uint32.[index : Any]=)=(value : Any)
+- [get](#Uint32.get)(**at**: `Any`)
+- [set](#Uint32.set+2)(**at**: `Any`, **value**: `Any`)
+- [set](#Uint32.set+4)(**list**: `Any`, **at**: `Any`, **list_offset**: `Any`, **count**: `Any`)
+- [set](#Uint32.set)(**list**: `Any`)
+- [iterate](#Uint32.iterate)(**iter**: `Any`)
+- [iteratorValue](#Uint32.iteratorValue)(**iter**: `Any`)
+
+<hr/>
+<endpoint module="luxe: bytes" class="Uint32" signature="new(elements : Any)"></endpoint>
+<signature id="Uint32.new">Uint32.new(**elements**: `Any`)
+<a class="headerlink" href="#Uint32.new" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Uint32`
+> Create an array with the requested amount of elements   
+
+<endpoint module="luxe: bytes" class="Uint32" signature="length"></endpoint>
+<signature id="Uint32.length">Uint32.length
+<a class="headerlink" href="#Uint32.length" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Get the size of the array in bytes. This is twice the amount of elements it can hold since each element takes up 2 bytes.   
+
+<endpoint module="luxe: bytes" class="Uint32" signature="[index : Any]"></endpoint>
+<signature id="Uint32.[index : Any]">Uint32 [index : Any]
+<a class="headerlink" href="#Uint32.[index : Any]" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Get the int value at a specific index.   
+
+<endpoint module="luxe: bytes" class="Uint32" signature="[index : Any]=(value : Any)"></endpoint>
+<signature id="Uint32.[index : Any]=">Uint32 [index : Any]=(value : Any)
+<a class="headerlink" href="#Uint32.[index : Any]=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Set the int value at a specific index.   
+
+<endpoint module="luxe: bytes" class="Uint32" signature="get(at : Any)"></endpoint>
+<signature id="Uint32.get">Uint32.get(**at**: `Any`)
+<a class="headerlink" href="#Uint32.get" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Get the int value at a specific index.   
+
+<endpoint module="luxe: bytes" class="Uint32" signature="set(at : Any, value : Any)"></endpoint>
+<signature id="Uint32.set+2">Uint32.set(**at**: `Any`, **value**: `Any`)
+<a class="headerlink" href="#Uint32.set+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Set the int value at a specific index.   
+
+<endpoint module="luxe: bytes" class="Uint32" signature="set(list : Any, at : Any, list_offset : Any, count : Any)"></endpoint>
+<signature id="Uint32.set+4">Uint32.set(**list**: `Any`, **at**: `Any`, **list_offset**: `Any`, **count**: `Any`)
+<a class="headerlink" href="#Uint32.set+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Copy a part of a list into this array. This will fail if trying to write outside the array bounds.   
+
+<endpoint module="luxe: bytes" class="Uint32" signature="set(list : Any)"></endpoint>
+<signature id="Uint32.set">Uint32.set(**list**: `Any`)
+<a class="headerlink" href="#Uint32.set" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Set the array to have the contents of a list. This will fail if trying to write outside the array bounds and will leave elements unchanged if list is shorter than array.   
+
+<endpoint module="luxe: bytes" class="Uint32" signature="iterate(iter : Any)"></endpoint>
+<signature id="Uint32.iterate">Uint32.iterate(**iter**: `Any`)
+<a class="headerlink" href="#Uint32.iterate" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: bytes" class="Uint32" signature="iteratorValue(iter : Any)"></endpoint>
+<signature id="Uint32.iteratorValue">Uint32.iteratorValue(**iter**: `Any`)
+<a class="headerlink" href="#Uint32.iteratorValue" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 

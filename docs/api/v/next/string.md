@@ -165,6 +165,7 @@
 - [compare](#Str.compare+2)(**a**: `String`, **b**: `String`)
 - [replace](#Str.replace+3)(**string**: `String`, **sub**: `String`, **repl**: `String`)
 - [is_alphanumeric](#Str.is_alphanumeric)(**str**: `String`)
+- [is_numeric](#Str.is_numeric)(**str**: `String`)
 - [vec](#Str.vec)(**value**: `Vec`)
 - [vec](#Str.vec+2)(**value**: `Vec`, **precision**: `Num`)
 - [vec](#Str.vec+3)(**value**: `Vec`, **precision**: `Num`, **sep**: `String`)
@@ -186,6 +187,7 @@
 - [wrap](#Str.wrap+2)(**string**: `String`, **column**: `Num`)
 - [path](#Str.path)(**path**: `String`)
 - [strip_markup](#Str.strip_markup)(**string**: `String`)
+- [path_normalize](#Str.path_normalize)(**string**: `String`)
 - [format](#Str.format+2)(**string**: `String`, **arg0**: `Any`)
 - [format](#Str.format+3)(**string**: `String`, **arg0**: `Any`, **arg1**: `Any`)
 - [format](#Str.format+4)(**string**: `String`, **arg0**: `Any`, **arg1**: `Any`, **arg2**: `Any`)
@@ -202,6 +204,7 @@
 - [format](#Str.format+15)(**string**: `String`, **arg0**: `Any`, **arg1**: `Any`, **arg2**: `Any`, **arg3**: `Any`, **arg4**: `Any`, **arg5**: `Any`, **arg6**: `Any`, **arg7**: `Any`, **arg8**: `Any`, **arg9**: `Any`, **arg10**: `Any`, **arg11**: `Any`, **arg12**: `Any`, **arg13**: `Any`)
 - [format](#Str.format+16)(**string**: `String`, **arg0**: `Any`, **arg1**: `Any`, **arg2**: `Any`, **arg3**: `Any`, **arg4**: `Any`, **arg5**: `Any`, **arg6**: `Any`, **arg7**: `Any`, **arg8**: `Any`, **arg9**: `Any`, **arg10**: `Any`, **arg11**: `Any`, **arg12**: `Any`, **arg13**: `Any`, **arg14**: `Any`)
 - [format_list](#Str.format_list+2)(**string**: `String`, **args**: `List`)
+- [valid](#Str.valid)(**string**: `String`)
 
 <hr/>
 <endpoint module="luxe: string" class="Str" signature="split_lines(string : String)"></endpoint>
@@ -319,6 +322,19 @@
 >     Log.print(Str.is_alphanumeric("4Leaf")) //true
 >     Log.print(Str.is_alphanumeric("4-leaf")) //false
 >     Log.print(Str.is_alphanumeric("Wørld")) //false
+> ```   
+
+<endpoint module="luxe: string" class="Str" signature="is_numeric(str : String)"></endpoint>
+<signature id="Str.is_numeric">Str.is_numeric(**str**: `String`)
+<a class="headerlink" href="#Str.is_numeric" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
+> Get whether all characters in a string are numeric (arabic numerals)
+> 
+> ```js
+>     Log.print(Str.is_alphanumeric("Leaf")) //false
+>     Log.print(Str.is_alphanumeric("4")) //true
+>     Log.print(Str.is_alphanumeric("4-leaf")) //false
+>     Log.print(Str.is_alphanumeric("3¾")) //false
 > ```   
 
 <endpoint module="luxe: string" class="Str" signature="vec(value : Vec)"></endpoint>
@@ -457,6 +473,12 @@
 <span class='api_ret'>returns</span> `:::js String`
 > Strips the luxe markup formatting from the given string, returning the raw value   
 
+<endpoint module="luxe: string" class="Str" signature="path_normalize(string : String)"></endpoint>
+<signature id="Str.path_normalize">Str.path_normalize(**string**: `String`)
+<a class="headerlink" href="#Str.path_normalize" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js String`
+> Normalizes the path also resolving ../ and ./ and so on   
+
 <endpoint module="luxe: string" class="Str" signature="format(string : String, arg0 : Any)"></endpoint>
 <signature id="Str.format+2">Str.format(**string**: `String`, **arg0**: `Any`)
 <a class="headerlink" href="#Str.format+2" title="Permanent link">¶</a></signature>
@@ -560,4 +582,10 @@
 >     Log.print(Str.format("{2} {1} {0}", "Crown", "Trunk", "Roots")) //Roots Trunk Crown
 >     Log.print(Str.format("{0} {0} {1}", "Duck", "Goose")) //Duck Duck Goose
 > ```   
+
+<endpoint module="luxe: string" class="Str" signature="valid(string : String)"></endpoint>
+<signature id="Str.valid">Str.valid(**string**: `String`)
+<a class="headerlink" href="#Str.valid" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
+> Check if string is null or empty   
 
