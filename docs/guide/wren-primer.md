@@ -65,14 +65,17 @@ hello.luxe()
 Variables in luxe will be familiar as well.
 Scope works as you'd expect, with local variables and class variables.
 
-There is one important distinction though, as we'll see below.
-
 ```js
 class Hello {
 
+  //class fields must come first
+  //and must be initialized. can use any expression
+  var value = 3
+
   construct new() {
-    //A value for this class instance
-    _value = 3
+
+    //a class field that is private
+    _private = 0
   }
 
   print() {
@@ -81,26 +84,27 @@ class Hello {
 
     //we can access our value from here,
     //because it belongs to this class
-    _value = _value + 2
+    value = value + 2
     //prints 5
+    System.print(value)
+    //also prints 5, as _value is a field declared by var value
     System.print(_value)
-    
-    //now the interesting part: prints null
-    System.print(_other_value)
+    //prints 0
+    System.print(_private)
+
   }
 }
 ```
 
 - local variables work as expected!
-- class variables _**are implicitly defined**_ <small>(at this time...)</small>
-- That means, a **class variable is defined on assignment or first use**
-- If no value is assigned, **class variables default to null**
-- I'd recommend defining variables in a constructor by assigning a reasonable default. This makes them explicit and intent clearer
+- class variables _**are typically explicitly defined**_
+- class fields can be local only using the regular wren _field syntax
+- explicit class fields also declare an underscore getter
 
 ## Getters and setters
 
-Variables in a class **cannot be seen from outside**.    
-In other languages terms: all variables are private to this class only.
+Private fields in a class **cannot be seen from outside**.    
+In other languages terms: all private variables (non explicit var) are private to this class only.
 
 In order to make our values accessible from outside, we make them available first.
 We do that with getters and setters, which gives us read/write access control as well.
@@ -108,11 +112,16 @@ We do that with getters and setters, which gives us read/write access control as
 ```js
 class Hello {
 
-  //short form
+  //automatic form
+  //generates `auto { _auto }`
+  //and `auto=(v) { _auto=v }`
+  var auto = true
+
+  //manual short form
   value { _value }
   value=(new_value) { _value = new_value }
 
-  //long form
+  //long form, read only
   other_value {
     return _other_value
   }
@@ -130,6 +139,7 @@ System.print(hello.value)       //prints 6
 System.print(hello.other_value) //prints 5
 ```
 
+- Explicit class var fields declare a getter/setter for you, making them public
 - A getter is a method without arguments, i.e no `()` after the name
 - A setter is a method with `=(one_arg)`, where the incoming value is passed in
 - Short form is a convenient way to say "return whatever I put in a single line", like these:

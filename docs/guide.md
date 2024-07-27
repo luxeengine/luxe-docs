@@ -42,10 +42,11 @@ For example, attaching a `Transform` gives an entity a position in a world. You 
     This may seem familiar, as there are many different varieties (and names) for this concept! The concept has been around for a very long time and are really common in games.
 
 ### Services
-Some systems exist at a lower level, powering everything.    
-We call these low level systems **a service API**.
+Some systems exist at a lower level, powering everything, and some exist outside the world at a higher level.    
 
-These are systems that serve a general need beneath the other systems. For example, rendering (drawing things) is a system that acts as a service. It is used by higher level world systems to provide your game with drawing. 
+We call these systems **a service API**.
+
+These are systems that serve a general need beneath the other systems. For example, rendering (drawing things) is a system that acts as a service. It is used by higher level world systems to provide your game with drawing. The random number generator, is also a service API.
 
 ### Modules
 
@@ -62,6 +63,8 @@ luxe is designed for modules to serve this need, which makes them a fundamental 
 ### Code vs Editor
 
 **With luxe, if you prefer working through code only, you can**. The code focused workflow is complemented by the editor tools. They help you create assets that would be faster to create in a tool, but is optional.
+
+![](images/guide/editor.png){width="100%"}
 
 The same will eventually be true for editor focused workflows. **Right now the engine leans a little toward code focused**, because the editor is a work in progress and higher level modules which provide those workflows are being made now. In the future it would be possible to work only from the editor and make a wide range of content without opening the code.
 

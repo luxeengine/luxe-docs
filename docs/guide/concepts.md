@@ -4,14 +4,6 @@
 
 luxe is created with a design philosophy, having a better understanding of some of the choices, concepts and ideas should help you use it better.
 
-## Commit 
-
-Several APIs in luxe use a concept called `commit`, where changes are made in bulk first,
-and then committed. [2D drawing](../../learn/drawing-2d) for example, you queue up
-drawing by calling the API, and then commit the changes when done. [UI](../../learn/ui/intro/) is also an example.
-
-This makes bulk changes cheaper, and is a good way to make things more efficient.
-
 ## API concepts
 
 ### API patterns
@@ -52,3 +44,11 @@ This makes it easier to find all call sites of any particular API, and instead o
     This design makes instances very cheap to create and maintain, and makes them especially convenient for many use cases in games and game engine APIs. For example when dealing with networking, plugins and other programming languages a primitive value is significantly easier for everyone.
 
     They're also a little bit safer, because using an invalid handle doesn't necessarily generate crashes or null values. Finally, in larger projects, it is not possible to efficiently operate on many instances in memory, but handles are a lot more efficient.
+
+## Commit 
+
+Several APIs in luxe use a concept called `commit`, where changes are made in bulk first,
+and then committed. [2D drawing](../../learn/drawing-2d) for example, you queue up
+drawing by calling the API, and then commit the changes when done. [UI](../../learn/ui/intro/) is also an example.
+
+This makes bulk changes cheaper, and is a good way to make things more efficient.

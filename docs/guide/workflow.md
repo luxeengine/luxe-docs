@@ -16,7 +16,7 @@ This [Wren primer](../wren-primer) is a quick introduction if you're familiar wi
 
 ### code completion
 
-luxe supports code completion and other IDE features through VS Code ([get vscode here](../../get#installing-ide-support)).
+luxe supports code completion and other IDE features through Visual Studio Code ([instructions here](../../get#installing-ide-support)).
 
 !!! tip ""
     The implementation is a work in progress. Some APIs don't complete (`Input` + `IO`).
@@ -24,7 +24,7 @@ luxe supports code completion and other IDE features through VS Code ([get vscod
     and type annotations.
 
 The completion works when the **luxe agent** module is installed and running. 
-**The agent is automatically installed and VS Code automatically runs the agent**.
+**The agent is automatically installed and Visual Studio Code automatically runs the agent**.
 Below you can see it in action (exact specifics might have changed over time, it is frequently improving).
 
 <video preload="auto" autoplay controls="" loop="loop" style="max-width:100%; width:auto; margin:auto; display:block;">  
@@ -160,6 +160,6 @@ Immediate term this template matches the old workflows and is being updated. It 
 
 ### The `pixel art` outline
 
-This outline will be added soon. It includes similar things to the empty outline but handles all the pixel art scaling and content automatically for you. The older tutorial outline is similar but has a bunch of content in it, the ideal is obviously an emptier project. If you're in a hurry, modify the tutorial outline so long.
+This outline includes automatic pixel art scaling and a fixed world size, and handles converting the mouse coordinates for you via `mouse.x`/`mouse.y`.  It includes a UI world and game world as well.
 
 ---

@@ -9,6 +9,11 @@ nav:
       - workflow : guide/workflow.md
       - concepts : guide/concepts.md
       - wren primer : guide/wren-primer.md
+    - tutorials:
+      - overview : tutorials/overview.md
+      - hello : tutorials/hello/overview.md
+      - input : tutorials/input/overview.md
+      - camera : tutorials/camera/overview.md
     - tutorial:
       - overview and goals : tutorial/overview.md
       - creating a project : tutorial/create-and-run-a-project.md
