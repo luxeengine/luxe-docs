@@ -42,9 +42,21 @@ Once open, you should click on `game.wren` on the side so we can run the project
 
 ![](../../images/tutorial/hello/open.2.png)
 
+!!! tip "build + run"
+    Press `ctrl + shift + B` / `cmd + shift + B` to run your project.   
 
+The first run might take a little bit to compile all the module content, but the next run will be much quicker. Try it!
+
+![](../../images/tutorial/hello/run.1.png)
+
+If nothing went wrong you should see a window with the luxe logo that follows the mouse. 
 
 ## `game.wren` 
 
 Your main entry point for your game is a Wren script called `game.wren`.
+
+In that file you can see the `ready` function, and the `tick` function. This is the entry point of your game and controls what happens next.
+Here is where you'll load a level, or make a menu, or code the whole game.
+
+In the next tutorial, we'll learn about input and making a small game.
 
