@@ -12,6 +12,6 @@
 
 ## Getting started
 
-- [Hello luxe!](../hello/overview)
-- [Handling basic input](../input/overview)
-- [Moving the camera](../camera/overview)
+- [Hello luxe!](../hello/)
+- [Handling basic input](../draw-and-input/)
+- [Moving the camera](../camera/)

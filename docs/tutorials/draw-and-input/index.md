@@ -96,7 +96,7 @@ We'll also add one for our drawing context, which we'll talk about next.
 
 !!! note "variables must be initialized to _some_ value!" 
 
-```js hl_lines="3 4 5 6"
+```js hl_lines="3 4 5 6 7 8"
 class Game is Ready {
 
   //A list of pebbles on screen
