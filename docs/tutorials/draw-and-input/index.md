@@ -94,6 +94,8 @@ Add a variable called pebbles, as a list. The syntax for a list is `[]` which ju
 
 We'll also add one for our drawing context, which we'll talk about next.
 
+And lastly, we need a random number generator. Let's make one right here, because you can run code to initialize values.
+
 !!! note "variables must be initialized to _some_ value!" 
 
 ```js hl_lines="3 4 5 6 7 8"
