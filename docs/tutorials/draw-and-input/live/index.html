@@ -75,22 +75,6 @@
         width: 16px;
       }
 
-      #output {
-        width: 75%;
-        height: 20em;
-        margin: 0 auto;
-        margin-top: 10px;
-        border-left: 0px;
-        border-right: 0px;
-        padding-left: 0px;
-        padding-right: 0px;
-        display: none;
-        background-color: #161619;
-        color: rgb(184, 184, 184);
-        font-family: 'Lucida Console', Monaco, monospace;
-        outline: none;
-      }
-
       #info {
         position: absolute;
         display: block;
@@ -114,7 +98,6 @@
     
     <div class="base_border">
       <canvas class="base" id="canvas" oncontextmenu="event.preventDefault()" onmouseenter="window.focus()" onclick="window.focus()"></canvas>
-      <textarea id="output" rows="8"></textarea>
     </div>
 
 
@@ -122,7 +105,6 @@
       var statusElement = document.getElementById('status');
       var progressElement = document.getElementById('progress');
       var spinnerElement = document.getElementById('spinner');
-      var outputElement = document.getElementById('output');
 
       var Module = {
         preRun: [],
@@ -185,7 +167,6 @@
             progressElement.hidden = true;
             if (!text) {
               spinnerElement.style.display = 'none';
-              outputElement.style.display = 'block';
               canvas.style.display = 'block';
             }
           }
@@ -202,7 +183,6 @@
         // TODO: do not warn on ok events like simulating an infinite loop or exitStatus
         Module.setStatus('Exception thrown, see JavaScript console');
         spinnerElement.style.display = 'none';
-        outputElement.style.display = 'block';
         Module.setStatus = function(text) {
           if (text) Module.printErr('[post-exception status] ' + text);
         };

@@ -13,7 +13,7 @@ Drawing primitives and handling basic input.
 
 ## Play it
 
-Click first, then press ++space++ to create pebbles. Scroll to see the log.
+Click first, then press ++space++ to create pebbles.
 
 <iframe src="live/index.html" width="100%" height="405px" style="overflow:hidden; display:block; position: relative; border:none;">
 </iframe>
