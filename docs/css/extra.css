@@ -3,8 +3,9 @@
 [data-md-color-scheme="default"] {
     --md-code-bg-color: #f8f8f8;
     --signature-sep: #eee;
-    --md-code-hl-color: #f0dfff;
     --md-code-fg-color: #ec407a;
+    --md-code-hl-color--light: #4287ff40;
+    --md-code-hl-color: #000000;
 }
 
 [data-md-color-scheme="slate"] {
