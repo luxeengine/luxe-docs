@@ -14,4 +14,4 @@
 
 - [Hello luxe!](../hello/)
 - [Handling basic input](../draw-and-input/)
-- [Moving the camera](../camera/)
+- [The luxe world](../world/)
