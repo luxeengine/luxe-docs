@@ -14,23 +14,6 @@ nav:
       - create project : tutorials/hello/index.md
       - draw + input : tutorials/draw-and-input/index.md
       - the world  : tutorials/world/index.md
-    - tutorial:
-      - overview and goals : tutorial/overview.md
-      - creating a project : tutorial/create-and-run-a-project.md
-      - display a sprite : tutorial/display-a-sprite.md
-      - create a scene : tutorial/create-a-scene.md
-      - input handling : tutorial/input-handling.md
-      - sprite animation : tutorial/sprite-animation.md
-      - camera follow : tutorial/camera-follow.md
-      - scene scripts : tutorial/scene-scripts.md 
-      - curve animation : tutorial/curve-animation.md
-      - create a prototype : tutorial/create-a-prototype.md
-      - using modules : tutorial/using-modules.md
-      - collision callbacks : tutorial/collision-callbacks.md
-      - transform link : tutorial/transform-link.md
-      - animation events : tutorial/animation-events.md
-      - scheduled functions : tutorial/scheduled-functions.md
-      - fading in & out : tutorial/fading-out.md
     - learn ...:
       - overview: learn/overview.md
       - tilemaps : learn/tilemaps.md
@@ -57,6 +40,23 @@ nav:
         - concepts: manual/rendering/concepts.md
         - high level: manual/rendering/high-level.md
         - low level: manual/rendering/low-level.md
+      - old tutorial:
+        - overview and goals : tutorial/overview.md
+        - creating a project : tutorial/create-and-run-a-project.md
+        - display a sprite : tutorial/display-a-sprite.md
+        - create a scene : tutorial/create-a-scene.md
+        - input handling : tutorial/input-handling.md
+        - sprite animation : tutorial/sprite-animation.md
+        - camera follow : tutorial/camera-follow.md
+        - scene scripts : tutorial/scene-scripts.md 
+        - curve animation : tutorial/curve-animation.md
+        - create a prototype : tutorial/create-a-prototype.md
+        - using modules : tutorial/using-modules.md
+        - collision callbacks : tutorial/collision-callbacks.md
+        - transform link : tutorial/transform-link.md
+        - animation events : tutorial/animation-events.md
+        - scheduled functions : tutorial/scheduled-functions.md
+        - fading in & out : tutorial/fading-out.md        
     - release notes:
       - engine : release-notes/engine.md
       - editor : release-notes/editor.md

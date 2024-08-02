@@ -14,7 +14,8 @@ An introduction to working with the luxe world APIs.
 
 ## Play it
 
-Click first, then press ++left-button++, ++up++, ++w++, ++x++ or ++space++ to jump.
+Click first, then press ++left-button++, ++up++, ++w++, ++x++ or ++space++ to jump.    
+Press ++r++ key to reset.
 
 <iframe src="live/index.html" width="100%" height="405px" style="overflow:hidden; display:block; position: relative; border:none;">
 </iframe>
@@ -544,7 +545,7 @@ The check is a little abrupt, and isn't very fun because it's super precise and 
 
 To make the game a bit more fun, we'll add some squishy behaviour. When we hit a collider, we get the height and check the distance. If the distance is less than 32 (half the radius of our bee), we've just hit the edge of the collider with the bottom of the bee and we can ignore it.
 
-And one final tweak, we'll **play a bounce animation** when we hit a flower. This also uses the `Tags` modifier, which allows us to tag entities with specific tags and check for them. In this case, our flower entity inside the pillar prototype already has a tag.
+Another tweak, we'll **play a bounce animation** when we hit a flower. This also uses the `Tags` modifier, which allows us to tag entities with specific tags and check for them. In this case, our flower entity inside the pillar prototype already has a tag.
 
 ```js  hl_lines="8 9 10 11 12 13 17 18 19"
 handle_collision() {
@@ -576,6 +577,73 @@ handle_collision() {
   <source src="../../images/tutorial/world/collision.2.mp4" type="video/mp4"></source>
 </video>
 
+## Reset
+
+One final task is to make it so you can reset the state so you can try again.
+
+We'll add a `reset()` method, first we reset the player position, and unpause the world. 
+This is called from tick using a simple key check.
+
+```js hl_lines="1 2 3 4 8 9 10"
+reset() {
+  Transform.set_pos(player, world_width/4, world_height/2, 0)
+  World.set_rate(world, 1)
+}
+
+tick(delta: Num) {
+
+  if(Input.key_state_released(Key.key_r)) {
+    reset()
+  }
+
+  ...
+```
+
+Now, our pillars will still be there, so we'll need to clear them up.
+We could keep an array of pillars we create, and then clean them up like we did in the draw tutorial? 
+The modifer system we created already knows about all of our pillars though!
+
+We can add a public API to our pillar modifier, e.g `Pillar.reset(world)`. 
+To do this, we'll add a method to the `API` class in our modifier. This method has access to a method called `system_in`, which gives us our system to call into.
+
+```js hl_lines="3 4 5 6"
+class Pillar is API {
+
+  static reset(world: World) {
+    var system: System = system_in(world)
+    system.reset() 
+  }
+
+}
+```
+
+Now inside of our system, we can add the reset method. This method will simply loop through each pillar, and destroy it.
+
+```js hl_lines="5 6 7 8 9"
+class System is Modifier {
+
+  ...
+  
+  reset() {
+    each {|entity: Entity, pillar: Data|
+      Frame.end { Entity.destroy(entity) }
+    }
+  }
+
+```
+
+And of course, don't forget to call it from our reset method:
+
+```js hl_lines="2"
+reset() {
+  Pillar.reset(world)
+  Transform.set_pos(player, world_width/4, world_height/2, 0)
+  World.set_rate(world, 1)
+}
+```
+
+## Debug off
+
 One more tweak, now that we know it is working: turn off the debug drawer!
 
 ```js
@@ -591,9 +659,6 @@ One more tweak, now that we know it is working: turn off the debug drawer!
 !!! tip "Add score"
     Add a `score` variable to the game class, add `1` to it each time a flower is collected. 
 
-!!! tip "Add reset"
-    Add a `reset` method to the class, and when you press `Key.key_r` reset the game. This involves using `Transform` to reset the player position, using `World.set_rate(world, 1)` to unpause the game, and deleting any pillars. You can track them in a list in the main class, or add `Pillar.reset(world)` to the custom modifier that deletes all of them.
-
 !!! tip "Add Game Over and a Win condition"
     Like before, make the experience more complete.
 
@@ -601,6 +666,8 @@ One more tweak, now that we know it is working: turn off the debug drawer!
     Try randomizing pillar speeds, pillar schedule timing, bee velocities and more.
 
 ## Final code
+
+### `game.wren`
 
 ```js
 import "luxe: world" for World, Entity, Transform, Sprite, Tags, Anim
@@ -710,7 +777,17 @@ class Game is Ready {
 
   } //jump
 
+  reset() {
+    Pillar.reset(world)
+    Transform.set_pos(player, world_width/4, world_height/2, 0)
+    World.set_rate(world, 1)
+  }
+
   tick(delta: Num) {
+
+    if(Input.key_state_released(Key.key_r)) {
+      reset()
+    }
 
     Transform.set_pos_x(player, world_width / 4)
 
@@ -725,4 +802,70 @@ class Game is Ready {
   } //tick
 
 } //Game
+```
+
+### `system/pillar.modifier.wren`
+
+```js
+import "system/pillar.modifier.api" for API, Modifier, APIGet, APISet
+import "luxe: world" for Entity, Transform
+import "luxe: render" for Render, Geometry
+import "luxe.project/asset" for Asset
+import "luxe: assets" for Strings
+import "luxe: game" for Frame
+
+#block = data
+class Data {
+  var speed: Num = 100
+}
+
+#api
+#icon = "image/pillar.svg"
+#display = "Pillar"
+#desc = "**A moving pillar**. Moves the pillar horizontally toward the player, then removes itself when offscreen."
+class Pillar is API {
+
+  static reset(world: World) {
+    var system: System = system_in(world)
+    system.reset() 
+  }
+
+}
+
+#system
+#phase(on, tick)
+class System is Modifier {
+
+  init(world: World) {
+    Log.print("init `%(This)` in world `%(world)`")
+  }
+
+  attach(entity: Entity, pillar: Data) {
+    Log.print("attached to `%(Strings.get(Entity.get_name(entity)))` `%(entity)`")
+  }
+
+  detach(entity: Entity, pillar: Data) {
+    Log.print("detached from `%(Strings.get(Entity.get_name(entity)))` `%(entity)`")
+  }
+
+  reset() {
+    each {|entity: Entity, pillar: Data|
+      Frame.end { Entity.destroy(entity) }
+    }
+  }
+
+  tick(delta: Num) {
+    each {|entity: Entity, pillar: Data|
+
+      var x_now = Transform.get_pos_x(entity) - pillar.speed * delta
+      Transform.set_pos_x(entity, x_now)
+
+      if(x_now < -256) {
+        Frame.end { Entity.destroy(entity) }
+      }
+
+    } //each
+  } //tick
+
+}
 ```
