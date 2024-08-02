@@ -4,7 +4,7 @@
 Drawing primitives and handling basic input.
 
 !!! example "outcome"
-    In this step we'll **use the Draw api** to put something on screen.   
+    In this tutorial we'll **use the Draw api** to put something on screen.   
     We'll also use the **Input Query API** for handling prototype style input.
 
     We'll make a simple game where pressing a key will drop   
@@ -56,7 +56,16 @@ class Game is Ready {
 } //Game
 ```
 
-We'll add one line to the background color, and this is what it should look like:
+!!! note "imports"
+    When you want to use a tool (an API) in luxe, you need to import it first.   
+    Since we're about to use the color API, we'll add an import for it at the top of our `game.wren` file
+    with the other imports.
+
+    ```js
+    import "luxe: color" for Color
+    ```
+
+Next, we'll add one line to the background color, and this is what it should look like:
 
 ```js hl_lines="7"
 class Game is Ready {

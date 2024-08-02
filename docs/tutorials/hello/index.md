@@ -4,7 +4,7 @@
 An introduction to working with luxe.
 
 !!! example "outcome"
-    In this step we'll **create a new project using the launcher**.   
+    In this tutorial we'll **create a new project using the launcher**.   
     Then, we'll see how to open + run it via Visual Studio Code.
 
 ## Creating a new project
