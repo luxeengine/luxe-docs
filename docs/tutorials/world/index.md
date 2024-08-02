@@ -12,6 +12,13 @@ An introduction to working with the luxe world APIs.
 
     We'll make a game where you play as a bee, and have to bounce on flowers.
 
+## Play it
+
+Click first, then press ++left-button++, ++up++, ++w++, ++x++ or ++space++ to jump.
+
+<iframe src="live/index.html" width="100%" height="405px" style="overflow:hidden; display:block; position: relative; border:none;">
+</iframe>
+
 ## Creating the project
 
 For this tutorial, create a new project using the launcher,  
@@ -579,6 +586,20 @@ One more tweak, now that we know it is working: turn off the debug drawer!
   <source src="../../images/tutorial/world/final.mp4" type="video/mp4"></source>
 </video>
 
+## Try this
+
+!!! tip "Add score"
+    Add a `score` variable to the game class, add `1` to it each time a flower is collected. 
+
+!!! tip "Add reset"
+    Add a `reset` method to the class, and when you press `Key.key_r` reset the game. This involves using `Transform` to reset the player position, using `World.set_rate(world, 1)` to unpause the game, and deleting any pillars. You can track them in a list in the main class, or add `Pillar.reset(world)` to the custom modifier that deletes all of them.
+
+!!! tip "Add Game Over and a Win condition"
+    Like before, make the experience more complete.
+
+!!! tip "Experiment with values"
+    Try randomizing pillar speeds, pillar schedule timing, bee velocities and more.
+
 ## Final code
 
 ```js
@@ -617,8 +638,6 @@ class Game is Ready {
     super("ready! %(width) x %(height) @ %(scale)x")
 
     draw = Draw.create(World.render_set(world))
-
-    World.set_rate(world, 0)
 
     Scene.create(world, Asset.scene("scene/level"))
     create_player()
@@ -697,11 +716,6 @@ class Game is Ready {
 
     if(Input.event_began(In.jump)) {
       jump()
-    }
-
-
-    if(Input.key_state_released(Key.key_p)) {
-      World.set_rate(world, 1)
     }
 
     if(Input.key_state_released(Key.escape)) {
