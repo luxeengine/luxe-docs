@@ -12,7 +12,7 @@ They're all quick to read, but build important foundations for learning to work 
 
 - **Get started by viewing [the guide](guide).**
     - The guide covers the broad strokes of workflow and concepts in the engine
-- **Once you get the big picture, [the tutorials](tutorial/overview) are next.**
+- **Once you get the big picture, [the tutorials](tutorials/overview) are next.**
     - These teach you the basics of interacting with the engine.
 - **And from there, you can learn more about luxe from [the manual](manual/overview).**
     - The manual includes in depth information about the engine and systems.
