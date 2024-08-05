@@ -92,7 +92,7 @@ Your project will often be created from a template, called a project `outline`. 
 
 **Running via the luxe editor or code editor**   
 
-You can learn how to run the project via code and via the luxe editor from [this page in the tutorial]((../tutorial/create-and-run-a-project/#running-the-project-via-code)).
+You can learn how to run the project via code and via the luxe editor from [this page in the tutorial](../tutorials/hello/#running-the-project).
 
 
 **Running from a command line**   
