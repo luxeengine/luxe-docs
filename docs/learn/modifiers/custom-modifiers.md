@@ -44,6 +44,8 @@ This file contains three important pieces that we'll get into below:
 Take a look at the example below:
 
 ```wren
+import "system/door.modifier.api" for API, Modifier, APIGet, APISet
+
 #block = data
 class Data {
   var locked: Bool = false
