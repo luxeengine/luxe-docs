@@ -120,6 +120,14 @@ class Game is Ready {
   construct ready() {
 ```
 
+!!! tip "import random"
+    Before this code will run, we need to import the random module from Wren. 
+    This one module is a bit different and is imported as
+    `import "random" for Random`
+    
+    Add this line at the top of your file.
+
+
 ## The `Draw` tool
 
 With luxe, there are a bunch of tools and services available to quickly explore ideas and try things out. 
