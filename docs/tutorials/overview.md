@@ -12,6 +12,10 @@
 
 ## Getting started
 
+These tutorials are set up in order, they're fairly short 
+and will teach you to useful concepts that will expand on each other.
+
 - [Hello luxe!](../hello/)
-- [Handling basic input](../draw-and-input/)
+- [Draw and Input](../draw-and-input/)
 - [The luxe world](../world/)
+- [The luxe editor](../editor/)

@@ -46,7 +46,9 @@ Once open, you should click on `game.wren` on the side so we can run the project
     Press ++ctrl+shift+b++ for **Windows/Linux**    
     Press ++cmd+shift+b++ for **MacOS** 
 
-The first run might take a little bit to compile all the module content, but the next run will be much quicker. Try it!
+!!! note "The first run might take a little bit to compile all the module content, but the next run will be much quicker."
+
+ Try it!
 
 ![](../../images/tutorial/hello/run.1.png)
 

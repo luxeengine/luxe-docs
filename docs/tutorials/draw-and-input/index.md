@@ -134,15 +134,6 @@ With luxe, there are a bunch of tools and services available to quickly explore 
 
 One of those, is called `Draw`, it provides shape drawing, text drawing and more. It can be used for debug visualization, for whole games, and for immediate or cached rendering both.
 
-!!! note "imports"
-    When you want to use a tool (an API) in luxe, you need to import it first.   
-
-    In this case, we already have it imported in our `game.wren` at the top:
-
-    ```js
-    import "luxe: draw" for Draw, PathStyle
-    ```
-
 ## Creating a `Draw` context
 
 A context is a bit like a canvas, it remembers the things you drew, and when you're done you can commit the changes to it, which will display it. To create one, we'll have to ask the world for a render set - something you'll learn more about in future - but for now, this is how you do it.
