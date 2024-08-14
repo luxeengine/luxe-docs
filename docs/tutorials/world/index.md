@@ -5,7 +5,7 @@
 An introduction to working with the luxe world APIs.
 
 !!! example "outcome"
-    In this tutorial we'll **use the World api** to put something on screen.
+    In this tutorial we'll **use the World api** to put something on screen.   
     We'll also use a module, called **Arcade** for handling physics + collision.
     We'll load scenes and create prototype instances to populate a world,
     and create a custom **Modifier**.
@@ -14,7 +14,7 @@ An introduction to working with the luxe world APIs.
 
 ## Play it
 
-Click first, then press ++left-button++, ++up++, ++w++, ++x++ or ++space++ to jump.
+Click first, then press ++left-button++, ++up++, ++w++, ++x++ or ++space++ to jump.   
 Press ++r++ key to reset.
 
 <iframe src="live/index.html" width="100%" height="405px" style="overflow:hidden; display:block; position: relative; border:none;">
