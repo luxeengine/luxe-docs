@@ -5,16 +5,16 @@
 An introduction to working with the luxe world APIs.
 
 !!! example "outcome"
-    In this tutorial we'll **use the World api** to put something on screen.   
+    In this tutorial we'll **use the World api** to put something on screen.
     We'll also use a module, called **Arcade** for handling physics + collision.
     We'll load scenes and create prototype instances to populate a world,
-    and create a custom **Modifier**. 
+    and create a custom **Modifier**.
 
     We'll make a game where you play as a bee, and have to bounce on flowers.
 
 ## Play it
 
-Click first, then press ++left-button++, ++up++, ++w++, ++x++ or ++space++ to jump.    
+Click first, then press ++left-button++, ++up++, ++w++, ++x++ or ++space++ to jump.
 Press ++r++ key to reset.
 
 <iframe src="live/index.html" width="100%" height="405px" style="overflow:hidden; display:block; position: relative; border:none;">
@@ -22,7 +22,7 @@ Press ++r++ key to reset.
 
 ## Creating the project
 
-For this tutorial, create a new project using the launcher,  
+For this tutorial, create a new project using the launcher,
 and when choosing an outline, **select the tutorial project outline**.
 This project is pre-configured so we can dive right in.
 
@@ -33,7 +33,7 @@ This project is pre-configured so we can dive right in.
 In order to run our project, we first need to install a module. If you don't, you'll get errors!
 
 You can use the launcher to install modules. Head over to the module page, and search for the arcade module.
-Once you find it, you can click through, and click the download arrow. 
+Once you find it, you can click through, and click the download arrow.
 
 The project is configured to use version `0.0.23`, install that version.
 
@@ -45,7 +45,7 @@ The project is configured to use version `0.0.23`, install that version.
 
 ## Using the module in a project
 
-If you look inside of the `luxe.project/modules.lx` file you'll find the `luxe` and `arcade` modules referenced by version. 
+If you look inside of the `luxe.project/modules.lx` file you'll find the `luxe` and `arcade` modules referenced by version.
 You can use the launcher to add a module to the project using the `+` icon, or you can manually add it to this file.
 
 In this case, it's already there from the outline, so let's move on!
@@ -61,13 +61,13 @@ An Entity in the world can also have modifiers attached that perform logic, and 
 
 To create an entity, we do `Entity.create(world)` - this gives us a blank entity, and is ready to be modified to give it meaning.
 
-The first thing we'll do, is attach a `Transform` modifier. Modifiers use the same `create` pattern, 
+The first thing we'll do, is attach a `Transform` modifier. Modifiers use the same `create` pattern,
 and some modifiers add `create` methods with convenience arguments, like we'll see below from `Sprite.create`.
 
 Let's create a new `player` variable in our game, and then inside ready we'll create an entity, attach a transform and a sprite to it.
 
 ??? note "`world_width/world_height` ?"
-    Since our tutorial outline is based on the pixel outline, we have a fixed world size that will auto scale. This size is set in `outline/settings.settings.lx` and the size of the world is available in `world_width` and `world_height`. This is different from `width`/`height`, which is the window size. 
+    Since our tutorial outline is based on the pixel outline, we have a fixed world size that will auto scale. This size is set in `outline/settings.settings.lx` and the size of the world is available in `world_width` and `world_height`. This is different from `width`/`height`, which is the window size.
 
 !!! tip "add the highlighted code to `ready`"
 
@@ -98,11 +98,11 @@ And just like that, we have our player in the middle of the screen.
 
 ## Arcade physics
 
-The `arcade` module provides collision + physics for a wide range of games, and comes with a bunch of ready to use tools. 
+The `arcade` module provides collision + physics for a wide range of games, and comes with a bunch of ready to use tools.
 
-The first important one is the Arcade modifier, which gives an entity a collider shape, and allows you to choose flags like whether it's solid or a trigger, what shape it is, change the velocity and more. It also gives us a callback for when we collide with something, so we can implement a response to overlapping or colliding with something. 
+The first important one is the Arcade modifier, which gives an entity a collider shape, and allows you to choose flags like whether it's solid or a trigger, what shape it is, change the velocity and more. It also gives us a callback for when we collide with something, so we can implement a response to overlapping or colliding with something.
 
-### Arcade import   
+### Arcade import
 
 We're gonna use the `Arcade` modifier from the `arcade` module to make our bee interact with the world. We'll import that module into the top of our `game.wren` code like this:
 
@@ -139,12 +139,12 @@ create_player() {
   Arcade.create(player)
   Arcade.set_shape_type(player, ShapeType.circle)
   Arcade.set_radius(player, 32)
-  
+
 }
 ```
 
-If we run this, it will look identical to before! That's because there's no gravity or anything on our entity. 
-So how do we know it's working? How do we know the radius matches? We can ask `Arcade` to debug draw the physics state. 
+If we run this, it will look identical to before! That's because there's no gravity or anything on our entity.
+So how do we know it's working? How do we know the radius matches? We can ask `Arcade` to debug draw the physics state.
 
 !!! tip "add the highlighted line to `create_player`"
 
@@ -156,7 +156,7 @@ Arcade.set_debug_draw_enabled(world, true)
 
 ![](../../images/tutorial/world/arcade.1.png)
 
-Gravity is a constant acceleration, so we can use the `Arcade.set_acc` tool to add a downward acceleration. 
+Gravity is a constant acceleration, so we can use the `Arcade.set_acc` tool to add a downward acceleration.
 The value is relative to your world size, and is game specific. For this game, we'll pick `-200` as that feels good.
 You can make it whatever you want!
 
@@ -171,15 +171,15 @@ Arcade.set_debug_draw_enabled(world, true)
 
 If you run this now, you should see the bee falling off the bottom of the world!
 
-<video preload="auto" autoplay controls muted playinsline loop="loop" style="max-width:100%; width:auto; margin:auto; display:block;">  
+<video preload="auto" autoplay controls muted playinsline loop="loop" style="max-width:100%; width:auto; margin:auto; display:block;">
   <source src="../../images/tutorial/world/arcade.2.mp4" type="video/mp4"></source>
 </video>
 
-## Loading a scene 
+## Loading a scene
 
 Our outline includes a scene that has been created for us. This scene includes some background details, and a floor collider which will keep our bee on screen.
 
-A scene is a kind of data based asset, a container for pre-configured entities with their modifiers already attached. 
+A scene is a kind of data based asset, a container for pre-configured entities with their modifiers already attached.
 
 A particular scene can only be loaded once into the same world, but you can load multiple scenes into the same world.
 This makes them useful as a tool to layer or keep things loaded in the world, and much more. Scenes are typically what you would use for stuff like a Menu, or Level based games.
@@ -215,17 +215,17 @@ construct ready() {
 
 With that, we'll see the clouds, some buildings, a gradient and we'll see the floor collider. The bee will bounce off the floor, and we're ready for the next step.
 
-<video preload="auto" autoplay controls muted playinsline loop="loop" style="max-width:100%; width:auto; margin:auto; display:block;">  
+<video preload="auto" autoplay controls muted playinsline loop="loop" style="max-width:100%; width:auto; margin:auto; display:block;">
   <source src="../../images/tutorial/world/arcade.3.mp4" type="video/mp4"></source>
 </video>
 
 ## Named input events
 
-In the first tutorial, we used `Input.key_state_released` to directly query a key. 
+In the first tutorial, we used `Input.key_state_released` to directly query a key.
 This is great for quick prototypes but doesn't allow multiple keys, gamepads, or mouse inputs easily.
 
-For that we'll need to use **named input events**. A named input event is what it sounds like, a name assigned to one or more inputs! 
-We have a few of these already defined by our project, if you look inside of `outline/input.inputs.lx` you'll see this:
+For that we'll need to use **named input events**. A named input event is what it sounds like, a name assigned to one or more inputs!
+We have a few of these already defined by our project, if you look inside of `outline/inputs.input.lx` you'll see this:
 
 ```js
 jump = {
@@ -235,7 +235,7 @@ jump = {
 }
 ```
 
-If we query this instead of the individual key, any of those inputs will trigger the event. 
+If we query this instead of the individual key, any of those inputs will trigger the event.
 Since these are named events we refer to them by a string value, "jump", but using strings all over
 our project can lead to code that can be difficult to change.
 
@@ -273,13 +273,13 @@ tick(delta: Num) {
   if(Input.event_began(In.jump)) {
     jump()
   }
-  
+
 ...
 ```
 
 Now when we run the game and press ++up++, ++w++, ++x++ or ++space++ the bee will jump upward.
 
-<video preload="auto" autoplay controls muted playinsline loop="loop" style="max-width:100%; width:auto; margin:auto; display:block;">  
+<video preload="auto" autoplay controls muted playinsline loop="loop" style="max-width:100%; width:auto; margin:auto; display:block;">
   <source src="../../images/tutorial/world/arcade.4.mp4" type="video/mp4"></source>
 </video>
 
@@ -287,7 +287,7 @@ Now when we run the game and press ++up++, ++w++, ++x++ or ++space++ the bee wil
 
 The bee jump is a little easy to go off screen, so we'll make a minor change to `create_player()` to give them a max speed, and we'll also enforce that the bee is always in the same position on screen, about a quarter of the way in.
 
-```js hl_lines="4"
+```js hl_lines="6"
 create_player() {
 
   ...
@@ -312,16 +312,16 @@ tick(delta: Num) {
 
 Now when we play, we have a couple jumps before we leave the screen, and our bee is in a nice place for the game.
 
-<video preload="auto" autoplay controls muted playinsline loop="loop" style="max-width:100%; width:auto; margin:auto; display:block;">  
+<video preload="auto" autoplay controls muted playinsline loop="loop" style="max-width:100%; width:auto; margin:auto; display:block;">
   <source src="../../images/tutorial/world/arcade.5.mp4" type="video/mp4"></source>
 </video>
 
 ## Create a Prototype instance
 
-Prototypes are similar to a `Scene`, they are pre-configured entities with their modifiers ready to create. 
+Prototypes are similar to a `Scene`, they are pre-configured entities with their modifiers ready to create.
 
 !!! info "Prototype vs Scene"
-    Prototypes are not limited to one per world like scenes. You can create an **instance** as many times as you need. 
+    Prototypes are not limited to one per world like scenes. You can create an **instance** as many times as you need.
 
     They can be created dynamically like we will below, and they can be placed inside a scene, and inside of other prototypes. Each instance can have the values from the prototype overridden when placed that way.
 
@@ -356,7 +356,7 @@ The next step is to move the pillars across the screen, so the player will have 
 
 !!! note "There's a more detailed guide on [custom modifiers](../../learn/modifiers/custom-modifiers.md) here"
 
-To do that, we want to make a modifier that will move any pillar that it is attached to, and when the pillar moves off the left of the screen, clean itself up. 
+To do that, we want to make a modifier that will move any pillar that it is attached to, and when the pillar moves off the left of the screen, clean itself up.
 
 !!! tip "Create a folder called system/ in the project"
 
@@ -404,7 +404,7 @@ class System is Modifier {
   tick(delta: Num) {
     each {|entity: Entity, pillar: Data|
 
-    } 
+    }
   }
 }
 ```
@@ -474,13 +474,13 @@ tick(delta: Num) {
 } //tick
 ```
 
-<video preload="auto" autoplay controls muted playinsline loop="loop" style="max-width:100%; width:auto; margin:auto; display:block;">  
+<video preload="auto" autoplay controls muted playinsline loop="loop" style="max-width:100%; width:auto; margin:auto; display:block;">
   <source src="../../images/tutorial/world/modifier.1.mp4" type="video/mp4"></source>
 </video>
 
 ## More pillars
 
-We probably want more than one pillar to come across the level, so we'll use a tool called `World.schedule(world, time, fn)`. This calls a function every `time` seconds, but the important part is that it is affected by the world rate. 
+We probably want more than one pillar to come across the level, so we'll use a tool called `World.schedule(world, time, fn)`. This calls a function every `time` seconds, but the important part is that it is affected by the world rate.
 
 !!! note "If we used `Frame.schedule(time, fn)` it would be global, and not world specific. With `World.schedule` we can pause by setting the world rate to 0."
 
@@ -489,7 +489,7 @@ We probably want more than one pillar to come across the level, so we'll use a t
   ...
 
   create_player()
-  
+
   create_pillar()
   World.schedule(world, 6, 9999) {
     create_pillar()
@@ -504,11 +504,11 @@ And with that change, we now get a constant stream of pillars to jump over! We h
 
 ## Handling collision
 
-Our last step for this game is handling what happens when you hit something. 
+Our last step for this game is handling what happens when you hit something.
 
 If you saw the moving pillar video above, the player goes through the walls and keeps jumping forward because of our code to keep it in the same spot.
 
-Instead what we'll do is check the direction of the hit, and if you hit a wall (sideways), pause the game world. 
+Instead what we'll do is check the direction of the hit, and if you hit a wall (sideways), pause the game world.
 
 ```js hl_lines="3 7"
   ...
@@ -518,7 +518,7 @@ Instead what we'll do is check the direction of the hit, and if you hit a wall (
 } //ready
 
 handle_collision() {
-  
+
   Arcade.add_collision_callback(player) {|entity_a, entity_b, state, normal, overlap_dist|
     if(state != CollisionEvent.begin) return
 
@@ -535,13 +535,13 @@ handle_collision() {
 
 You can see here we bounce off the top of things, but when we hit the side wall, we stop.
 
-<video preload="auto" autoplay controls muted playinsline loop="loop" style="max-width:100%; width:auto; margin:auto; display:block;">  
+<video preload="auto" autoplay controls muted playinsline loop="loop" style="max-width:100%; width:auto; margin:auto; display:block;">
   <source src="../../images/tutorial/world/collision.1.mp4" type="video/mp4"></source>
 </video>
 
 ## Polishing
 
-The check is a little abrupt, and isn't very fun because it's super precise and you can fail easily. 
+The check is a little abrupt, and isn't very fun because it's super precise and you can fail easily.
 
 To make the game a bit more fun, we'll add some squishy behaviour. When we hit a collider, we get the height and check the distance. If the distance is less than 32 (half the radius of our bee), we've just hit the edge of the collider with the bottom of the bee and we can ignore it.
 
@@ -549,7 +549,7 @@ Another tweak, we'll **play a bounce animation** when we hit a flower. This also
 
 ```js  hl_lines="8 9 10 11 12 13 17 18 19"
 handle_collision() {
-  
+
   Arcade.add_collision_callback(player) {|entity_a, entity_b, state, normal, overlap_dist|
     if(state != CollisionEvent.begin) return
 
@@ -573,7 +573,7 @@ handle_collision() {
 } //handle_collision
 ```
 
-<video preload="auto" autoplay controls muted playinsline loop="loop" style="max-width:100%; width:auto; margin:auto; display:block;">  
+<video preload="auto" autoplay controls muted playinsline loop="loop" style="max-width:100%; width:auto; margin:auto; display:block;">
   <source src="../../images/tutorial/world/collision.2.mp4" type="video/mp4"></source>
 </video>
 
@@ -581,7 +581,7 @@ handle_collision() {
 
 One final task is to make it so you can reset the state so you can try again.
 
-We'll add a `reset()` method, first we reset the player position, and unpause the world. 
+We'll add a `reset()` method, first we reset the player position, and unpause the world.
 This is called from tick using a simple key check.
 
 ```js hl_lines="1 2 3 4 8 9 10"
@@ -600,10 +600,10 @@ tick(delta: Num) {
 ```
 
 Now, our pillars will still be there, so we'll need to clear them up.
-We could keep an array of pillars we create, and then clean them up like we did in the draw tutorial? 
+We could keep an array of pillars we create, and then clean them up like we did in the draw tutorial?
 The modifer system we created already knows about all of our pillars though!
 
-We can add a public API to our pillar modifier, e.g `Pillar.reset(world)`. 
+We can add a public API to our pillar modifier, e.g `Pillar.reset(world)`.
 To do this, we'll add a method to the `API` class in our modifier. This method has access to a method called `system_in`, which gives us our system to call into.
 
 ```js hl_lines="3 4 5 6"
@@ -611,7 +611,7 @@ class Pillar is API {
 
   static reset(world: World) {
     var system: System = system_in(world)
-    system.reset() 
+    system.reset()
   }
 
 }
@@ -623,7 +623,7 @@ Now inside of our system, we can add the reset method. This method will simply l
 class System is Modifier {
 
   ...
-  
+
   reset() {
     each {|entity: Entity, pillar: Data|
       Frame.end { Entity.destroy(entity) }
@@ -650,14 +650,14 @@ One more tweak, now that we know it is working: turn off the debug drawer!
 // Arcade.set_debug_draw_enabled(world, true)
 ```
 
-<video preload="auto" autoplay controls muted playinsline loop="loop" style="max-width:100%; width:auto; margin:auto; display:block;">  
+<video preload="auto" autoplay controls muted playinsline loop="loop" style="max-width:100%; width:auto; margin:auto; display:block;">
   <source src="../../images/tutorial/world/final.mp4" type="video/mp4"></source>
 </video>
 
 ## Try this
 
 !!! tip "Add score"
-    Add a `score` variable to the game class, add `1` to it each time a flower is collected. 
+    Add a `score` variable to the game class, add `1` to it each time a flower is collected.
 
 !!! tip "Add Game Over and a Win condition"
     Like before, make the experience more complete.
@@ -708,7 +708,7 @@ class Game is Ready {
 
     Scene.create(world, Asset.scene("scene/level"))
     create_player()
-    
+
     create_pillar()
     World.schedule(world, 6, 9999) {
       create_pillar()
@@ -719,7 +719,7 @@ class Game is Ready {
   } //ready
 
   handle_collision() {
-    
+
     Arcade.add_collision_callback(player) {|entity_a, entity_b, state, normal, overlap_dist|
       if(state != CollisionEvent.begin) return
 
@@ -827,7 +827,7 @@ class Pillar is API {
 
   static reset(world: World) {
     var system: System = system_in(world)
-    system.reset() 
+    system.reset()
   }
 
 }
