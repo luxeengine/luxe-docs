@@ -18,4 +18,3 @@ and will teach you to useful concepts that will expand on each other.
 - [Hello luxe!](../hello/)
 - [Draw and Input](../draw-and-input/)
 - [The luxe world](../world/)
-- [The luxe editor](../editor/)
