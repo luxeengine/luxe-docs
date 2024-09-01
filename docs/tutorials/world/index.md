@@ -414,7 +414,9 @@ class System is Modifier {
 Now that we have a modifier, we can attach it in the same way that we do for the built in ones.
 We'll also modify our start position for the pillar, by setting it to `world_width + 128` instead.
 
-```js hl_lines="5 6"
+```js hl_lines="7 8"
+import "system/pillar.modifier" for Pillar
+...
 create_pillar() {
 
   var pillar = Prototype.create(world, Asset.prototype("prototype/pillar.0"))
