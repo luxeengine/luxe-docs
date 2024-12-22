@@ -5,15 +5,15 @@ nav:
     - install: get.md
     - guide: 
       - intro : guide.md
-      # - important: guide/important.md
       - workflow : guide/workflow.md
       - concepts : guide/concepts.md
       - wren primer : guide/wren-primer.md
     - tutorials:
       - overview : tutorials/overview.md
-      - create project : tutorials/hello/index.md
-      - draw + input : tutorials/draw-and-input/index.md
-      - the world  : tutorials/world/index.md
+      - create a project : tutorials/hello/index.md
+      - drawing + input : tutorials/draw-and-input/index.md
+      - luxe world : tutorials/world/index.md
+      - luxe editor  : tutorials/editor/index.md
     - learn ...:
       - overview: learn/overview.md
       - tilemaps : learn/tilemaps.md
@@ -21,7 +21,6 @@ nav:
       - modifiers:
         - luxe modifiers : learn/modifiers/luxe-modifiers.md
         - custom modifiers : learn/modifiers/custom-modifiers.md
-        - old custom modifiers : learn/modifiers/old-custom-modifiers.md
       - using UI:
         - overview : learn/ui/intro.md
         - custom controls : learn/ui/custom-controls.md
@@ -40,23 +39,6 @@ nav:
         - concepts: manual/rendering/concepts.md
         - high level: manual/rendering/high-level.md
         - low level: manual/rendering/low-level.md
-      - old tutorial:
-        - overview and goals : tutorial/overview.md
-        - creating a project : tutorial/create-and-run-a-project.md
-        - display a sprite : tutorial/display-a-sprite.md
-        - create a scene : tutorial/create-a-scene.md
-        - input handling : tutorial/input-handling.md
-        - sprite animation : tutorial/sprite-animation.md
-        - camera follow : tutorial/camera-follow.md
-        - scene scripts : tutorial/scene-scripts.md 
-        - curve animation : tutorial/curve-animation.md
-        - create a prototype : tutorial/create-a-prototype.md
-        - using modules : tutorial/using-modules.md
-        - collision callbacks : tutorial/collision-callbacks.md
-        - transform link : tutorial/transform-link.md
-        - animation events : tutorial/animation-events.md
-        - scheduled functions : tutorial/scheduled-functions.md
-        - fading in & out : tutorial/fading-out.md        
     - release notes:
       - engine : release-notes/engine.md
       - editor : release-notes/editor.md
@@ -124,7 +106,10 @@ extra:
     - icon: 'fontawesome/brands/twitter'
       link: 'https://twitter.com/luxeengine'
 use_directory_urls: true
+validation:
+  absolute_links: relative_to_docs
 plugins:
+  - git-revision-date-localized
   - search:
       prebuild_index: true
       min_search_length: 2

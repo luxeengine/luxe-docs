@@ -7,7 +7,7 @@
 
 ## Drawing contexts
 
-In the [intro guide](../guide), a concept called **service APIs** was mentioned, which are general purpose tools that can be used directly. Drawing contexts are one of these services!
+In the [intro guide](../guide.md), a concept called **service APIs** was mentioned, which are general purpose tools that can be used directly. Drawing contexts are one of these services!
 
 !!! note ""
     `:::js import "luxe: draw" for Draw, PathStyle, LineJoin, LineCap`   

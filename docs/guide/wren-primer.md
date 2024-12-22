@@ -15,16 +15,67 @@ you can put Wren expressions inside of a `%( )` section to combine the values.
 
 ```js
 var value = "luxe"
-System.print("hello %(value)")     //prints "hello luxe"
-System.print("hello %(5 + 5 - 2)") //prints "hello 8"
+Log.print("hello %(value)")     //prints "hello luxe"
+Log.print("hello %(5 + 5 - 2)") //prints "hello 8"
 ```
+
+## Annotations
+
+Classes and variables use `#annotations` to signal information to the engine or language.
+
+The most common useful one would be `:::js #doc = "A documentation string"`. 
+
+```js
+#doc = "Whether or not to display the thing"
+var visible : Bool = true
+```
+
+You should add documentation to methods, variables and classes whenever you can. These show up in
+code completion as well as other places. You can also use the raw string (longer string) syntax 
+for documentation. Here's a full example:
+
+```js
+#doc="""
+  Attach a `Sprite` modifier to `entity`, drawn using `image`,
+  with a given size of `width`x`height`.
+
+    ```js
+    var entity = Entity.create(world)
+    var image = Assets.image("luxe: image/logo")
+    Sprite.create(entity, material, 128, 128)
+    ```
+"""
+#args(
+  entity = "The entity to attach the `Sprite` to",
+  image = "The image to display on the sprite",
+  width = "The width in world units for the sprite",
+  height = "The height in world units for the sprite"
+)
+foreign static create(entity: Entity, image: Image, width: Num, height: Num) : None
+```
+
+## A note on typing
+
+The version of Wren in luxe allows optional typing, and the completion handles inferring types.
+
+`:::js var num: Num = 5` can often be written as `:::js var num = 5` and still have a known type.
+
+Types allow error checking when calling methods, and accidental typos on variables. While the
+typing isn't fully whole just yet, it continues to improve. Aim to always type your code, 
+especially at the API edges.  
+
+A variable is typed like this:   
+`:::js var name: Type`   
+
+And a method is typed like this:   
+`:::js method(param: Type) : Return { }`
 
 ## A basic class
 
 ```js
 class Hello {
   construct new() {
-    System.print("hello")
+    Log.print("hello")
   }
 }
 
@@ -44,9 +95,9 @@ Some useful notes:
 
 ```js
 class Hello {
-  construct new() { System.print("hello") }
+  construct new() { Log.print("hello") }
   //simple method
-  luxe() { System.print("luxe") }
+  luxe() { Log.print("luxe") }
 }
 
 //prints:
@@ -68,29 +119,33 @@ Scope works as you'd expect, with local variables and class variables.
 ```js
 class Hello {
 
-  //class fields must come first
-  //and must be initialized. can use any expression
+  //explicit class fields must come first in the class
+  //and must be initialized. can use any expression!
   var value = 3
 
   construct new() {
 
     //a class field that is private
     _private = 0
+
   }
 
   print() {
-    var local = "cannot be seen outside this scope"
-    System.print(local)
 
-    //we can access our value from here,
+    var local = "cannot be seen outside this scope"
+    Log.print(local)
+
+    //we can access our value variable from here,
     //because it belongs to this class
     value = value + 2
     //prints 5
-    System.print(value)
-    //also prints 5, as _value is a field declared by var value
-    System.print(_value)
+    Log.print(value)
+    //also prints 5, as _value is a private field declared by `var value`
+    Log.print(_value)
     //prints 0
-    System.print(_private)
+    Log.print(_private)
+    //prints null, prefer declaring explicit fields instead for errors
+    Log.print(_not_defined)
 
   }
 }
@@ -135,8 +190,8 @@ class Hello {
 
 var hello = Hello.new()
     hello.value = 6             //update value
-System.print(hello.value)       //prints 6
-System.print(hello.other_value) //prints 5
+Log.print(hello.value)       //prints 6
+Log.print(hello.other_value) //prints 5
 ```
 
 - Explicit class var fields declare a getter/setter for you, making them public
@@ -159,14 +214,14 @@ class Hello {
   //static getter
   static get { 5 }
   //static setter
-  static set=(value) { System.print(value) }
+  static set=(value) { Log.print(value) }
   //static method
   static method() {
-    System.print("static method!")
+    Log.print("static method!")
   }
 }
 
-System.print(Hello.get) //prints 5
+Log.print(Hello.get) //prints 5
 Hello.set = "hello"     //prints hello
 Hello.method()          //prints "static method!"
 ```
@@ -191,9 +246,9 @@ class Hello {
 }
 
 Hello.init()
-System.print(Hello.get) //prints 5
+Log.print(Hello.get) //prints 5
 Hello.set = 6           //prints hello
-System.print(Hello.get) //prints 6
+Log.print(Hello.get) //prints 6
 ```
 
 ## Functions 
@@ -203,7 +258,7 @@ The distinction between functions and methods is important.
 
 ```js
 var notify = Fn.new() {
-  System.print("you have been notified!")
+  Log.print("you have been notified!")
 }
 
 notify.call()
@@ -217,7 +272,7 @@ Arguments in a function using the `|arg1, arg2, arg3|` syntax.
 
 ```js
 var notify = Fn.new() {|message|
-  System.print("you have been notified, message: %(message)")
+  Log.print("you have been notified, message: %(message)")
 }
 
 notify.call("the message!")
@@ -247,12 +302,12 @@ class Hello {
 var hello = Hello.new()
 
 //we can store a function in a variable, and pass it into the method
-var variable = Fn.new() {|value| System.print(value) } 
+var variable = Fn.new() {|value| Log.print(value) } 
 hello.set_function("name", variable)
 hello.call_function(5) //print 5
 
 //We can also pass a function directly
-hello.set_function("name", Fn.new() {|value| System.print(value + 8) })
+hello.set_function("name", Fn.new() {|value| Log.print(value + 8) })
 hello.call_function(8) //print 16
 ``` 
 
@@ -264,7 +319,7 @@ Using the same example as before, but with the short form for a function:
 
 ```js
 hello.set_function("name") {|value|
-  System.print("hello %(value)")
+  Log.print("hello %(value)")
 }
 ```
 
@@ -302,13 +357,13 @@ The `where` function is defined as `where(predicate)`, since it's only one argum
 ```js
 var list = [1,2,3,4]
 var even = list.where {|value| value % 2 == 0 }
-System.print(even.toList) //prints [2, 4]
+Log.print(even.toList) //prints [2, 4]
 ```
 
 Many many functions are much nicer this way 
 
 ```js
-["one", "two", "three"].each {|word| System.print(word) }
+["one", "two", "three"].each {|word| Log.print(word) }
 ```
 
 ---

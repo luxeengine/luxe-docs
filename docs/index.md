@@ -10,13 +10,13 @@ There should probably be some more useful info here later.
 This guide has a progression, it's ideal if you read the sections in order.   
 They're all quick to read, but build important foundations for learning to work with luxe.
 
-- **Get started by viewing [the guide](guide).**
+- **Get started by viewing [the guide](guide.md).**
     - The guide covers the broad strokes of workflow and concepts in the engine
-- **Once you get the big picture, [the tutorials](tutorials/overview) are next.**
+- **Once you get the big picture, [the tutorials](tutorials/overview.md) are next.**
     - These teach you the basics of interacting with the engine.
-- **And from there, you can learn more about luxe from [the manual](manual/overview).**
+- **And from there, you can learn more about luxe from [the manual](manual/overview.md).**
     - The manual includes in depth information about the engine and systems.
-- **Finally, there is the [API reference](api).**
+- **Finally, there is the [API reference](api.md).**
     - This is the place to search for API usage and documentation.
 
 ---

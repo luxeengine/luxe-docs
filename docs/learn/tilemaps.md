@@ -193,7 +193,7 @@ When you have an instance of a tiles asset in the world, any changes saved in th
 ## arcade tile collision
 
 And finally, to add collision to a tiles, we'll use the Arcade modules. 
-The details of [adding a module to a project](../../tutorial/using-modules) are in the full tutorial here.
+The details of [adding a module to a project](../tutorials/world/index.md/#using-the-module-in-a-project) are in the full tutorial here.
 
 Once you have arcade in your project, we'll be able to certain tiles that we choose into collidable arcade shapes automatically. You can see the result here, this is a level from the ld46 sample, where each red rectangle is a collision shape in arcade. We didn't have to make those manually.
 

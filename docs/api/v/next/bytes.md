@@ -1,6 +1,6 @@
 #![](../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2023.11.1`)  
+# `luxe` API (`2024.12.4`)  
 
 
 ---
@@ -757,7 +757,7 @@
 
 ### Floats
 `:::js import "luxe: bytes" for Floats`
-> Tight (32bit)float array. Handeled internally as a C++ array, but will properly be deallocated by the wren garbage collector.
+> no docs found
 
 - [new](#Floats.new)(**elements**: `Any`)
 - [length](#Floats.length)

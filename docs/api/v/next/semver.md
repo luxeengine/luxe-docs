@@ -1,6 +1,6 @@
 #![](../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2023.11.1`)  
+# `luxe` API (`2024.12.4`)  
 
 
 ---
@@ -129,6 +129,7 @@
 - [major](#SemVer.major)
 - [minor](#SemVer.minor)
 - [patch](#SemVer.patch)
+- [build](#SemVer.build)
 - [prerelease](#SemVer.prerelease)
 - [raw](#SemVer.raw)
 - [new](#SemVer.new)(**version**: `Any`)
@@ -239,6 +240,12 @@
 <endpoint module="luxe: semver" class="SemVer" signature="patch"></endpoint>
 <signature id="SemVer.patch">SemVer.patch
 <a class="headerlink" href="#SemVer.patch" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: semver" class="SemVer" signature="build"></endpoint>
+<signature id="SemVer.build">SemVer.build
+<a class="headerlink" href="#SemVer.build" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 

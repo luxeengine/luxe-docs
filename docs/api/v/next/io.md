@@ -1,17 +1,66 @@
 #![](../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2023.11.1`)  
+# `luxe` API (`2024.12.4`)  
 
 
 ---
 
 ## `luxe: io` module
 
+- [DirNode](#dirnode)   
 - [Flags](#flags)   
 - [PlotType](#plottype)   
 - [ProcFlags](#procflags)   
 
 ---
+
+### DirNode
+`:::js import "luxe: io" for DirNode`
+> no docs found
+
+- [path](#DirNode.path)
+- [name](#DirNode.name)
+- [ext](#DirNode.ext)
+- [is_regular](#DirNode.is_regular)
+- [is_directory](#DirNode.is_directory)
+- [new](#DirNode.new+5)(**in_path**: `Any`, **in_name**: `Any`, **in_ext**: `Any`, **in_is_regular**: `Any`, **in_is_directory**: `Any`)
+
+<hr/>
+<endpoint module="luxe: io" class="DirNode" signature="path"></endpoint>
+<signature id="DirNode.path">DirNode.path
+<a class="headerlink" href="#DirNode.path" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js String`
+> no docs found   
+
+<endpoint module="luxe: io" class="DirNode" signature="name"></endpoint>
+<signature id="DirNode.name">DirNode.name
+<a class="headerlink" href="#DirNode.name" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js String`
+> no docs found   
+
+<endpoint module="luxe: io" class="DirNode" signature="ext"></endpoint>
+<signature id="DirNode.ext">DirNode.ext
+<a class="headerlink" href="#DirNode.ext" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js String`
+> no docs found   
+
+<endpoint module="luxe: io" class="DirNode" signature="is_regular"></endpoint>
+<signature id="DirNode.is_regular">DirNode.is_regular
+<a class="headerlink" href="#DirNode.is_regular" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
+> no docs found   
+
+<endpoint module="luxe: io" class="DirNode" signature="is_directory"></endpoint>
+<signature id="DirNode.is_directory">DirNode.is_directory
+<a class="headerlink" href="#DirNode.is_directory" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
+> no docs found   
+
+<endpoint module="luxe: io" class="DirNode" signature="new(in_path : Any, in_name : Any, in_ext : Any, in_is_regular : Any, in_is_directory : Any)"></endpoint>
+<signature id="DirNode.new+5">DirNode.new(**in_path**: `Any`, **in_name**: `Any`, **in_ext**: `Any`, **in_is_regular**: `Any`, **in_is_directory**: `Any`)
+<a class="headerlink" href="#DirNode.new+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js DirNode`
+> no docs found   
 
 ### Flags
 `:::js import "luxe: io" for Flags`

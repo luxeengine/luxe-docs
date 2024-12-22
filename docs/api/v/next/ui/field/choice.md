@@ -1,6 +1,6 @@
 #![](../../../../../../../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2023.11.1`)  
+# `luxe` API (`2024.12.4`)  
 
 
 ---
@@ -22,6 +22,8 @@
 - [add](#State.add+2)(**control**: `Any`, **keywords**: `Any`)
 - [remove](#State.remove)(**control**: `Any`)
 - [clear](#State.clear)(**uiclear_action**: `Any`)
+- [count](#State.count)()
+- [get](#State.get)(**index**: `Num`)
 - [refresh](#State.refresh)()
 - [focus](#State.focus)()
 - [placeholder](#State.placeholder=)=(v : Any)
@@ -68,6 +70,18 @@
 <signature id="State.clear">State.clear(**uiclear_action**: `Any`)
 <a class="headerlink" href="#State.clear" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: ui/field/choice" class="State" signature="count()"></endpoint>
+<signature id="State.count">State.count()
+<a class="headerlink" href="#State.count" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Num`
+> no docs found   
+
+<endpoint module="luxe: ui/field/choice" class="State" signature="get(index : Num)"></endpoint>
+<signature id="State.get">State.get(**index**: `Num`)
+<a class="headerlink" href="#State.get" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Control`
 > no docs found   
 
 <endpoint module="luxe: ui/field/choice" class="State" signature="refresh()"></endpoint>
@@ -143,6 +157,8 @@
 - [clear](#UIChoice.clear+2)(**choice**: `Control`, **uiclear_action**: `UIClear`)
 - [refresh](#UIChoice.refresh)(**choice**: `Control`)
 - [focus](#UIChoice.focus)(**choice**: `Control`)
+- [count](#UIChoice.count)(**choice**: `Control`)
+- [get_choice](#UIChoice.get_choice+2)(**choice**: `Control`, **index**: `Num`)
 
 <hr/>
 <endpoint module="luxe: ui/field/choice" class="UIChoice" signature="create(ui : UI)"></endpoint>
@@ -197,5 +213,17 @@
 <signature id="UIChoice.focus">UIChoice.focus(**choice**: `Control`)
 <a class="headerlink" href="#UIChoice.focus" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: ui/field/choice" class="UIChoice" signature="count(choice : Control)"></endpoint>
+<signature id="UIChoice.count">UIChoice.count(**choice**: `Control`)
+<a class="headerlink" href="#UIChoice.count" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Num`
+> no docs found   
+
+<endpoint module="luxe: ui/field/choice" class="UIChoice" signature="get_choice(choice : Control, index : Num)"></endpoint>
+<signature id="UIChoice.get_choice+2">UIChoice.get_choice(**choice**: `Control`, **index**: `Num`)
+<a class="headerlink" href="#UIChoice.get_choice+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Control`
 > no docs found   
 

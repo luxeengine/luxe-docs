@@ -1,6 +1,6 @@
 #![](../../../../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2023.11.1`)  
+# `luxe` API (`2024.12.4`)  
 
 
 ---
@@ -15,6 +15,7 @@
 - [Shadow](#shadow)   
 - [Shine](#shine)   
 - [Sprite](#sprite)   
+- [SpriteBillboard](#spritebillboard)   
 - [System](#system)   
 
 ---
@@ -23,42 +24,85 @@
 `:::js import "luxe: system/sprite.modifier" for Advanced`
 > no docs found
 
+- `:::js var auto_size : Bool = true`
+- `:::js var material_input : String = "sprite.image"`
+- `:::js var HSV : HSV = Object`
+- `:::js var outline : Outline = Object`
+- `:::js var shadow : Shadow = Object`
+- `:::js var dissolve : Dissolve = Object`
+- `:::js var shine : Shine = Object`
 
 <hr/>
 ### Data
 `:::js import "luxe: system/sprite.modifier" for Data`
 > no docs found
 
+- `:::js var image : Asset = "luxe: image/logo"`
+- `:::js var size : Float2 = [64, 64]`
+- `:::js var origin : Float2 = [0.5, 0.5]`
+- `:::js var skew : Float2 = [0, 0]`
+- `:::js var color : Color = [1, 1, 1, 1]`
+- `:::js var uv : Float4 = [0, 0, 1, 1]`
+- `:::js var flip_x : Bool = false`
+- `:::js var flip_y : Bool = false`
+- `:::js var pixelated : Bool = false`
+- `:::js var billboard : SpriteBillboard = SpriteBillboard.none`
+- `:::js var billboard_lock : Float3 = [0, 0, 0]`
+- `:::js var atlas : Asset = null`
+- `:::js var atlas_image_id : String = null`
+- `:::js var material : Asset = null`
+- `:::js var advanced : Advanced = Object`
 
 <hr/>
 ### Dissolve
 `:::js import "luxe: system/sprite.modifier" for Dissolve`
 > no docs found
 
+- `:::js var enabled : Bool = false`
+- `:::js var image : Asset = null`
+- `:::js var uv : Float4 = [0, 0, 1, 1]`
+- `:::js var value : Num = 1`
 
 <hr/>
 ### HSV
 `:::js import "luxe: system/sprite.modifier" for HSV`
 > no docs found
 
+- `:::js var enabled : Bool = false`
+- `:::js var hue_change : Num = 0`
+- `:::js var saturation : Num = 1`
+- `:::js var value : Num = 1`
 
 <hr/>
 ### Outline
 `:::js import "luxe: system/sprite.modifier" for Outline`
 > no docs found
 
+- `:::js var enabled : Bool = false`
+- `:::js var color : Color = [1, 1, 1, 1]`
+- `:::js var thickness : Num = 0`
 
 <hr/>
 ### Shadow
 `:::js import "luxe: system/sprite.modifier" for Shadow`
 > no docs found
 
+- `:::js var enabled : Bool = false`
+- `:::js var offset : Float2 = [0, 0]`
+- `:::js var color : Color = [0, 0, 0, 1]`
+- `:::js var softness : Num = 0`
 
 <hr/>
 ### Shine
 `:::js import "luxe: system/sprite.modifier" for Shine`
 > no docs found
 
+- `:::js var enabled : Bool = false`
+- `:::js var color : Color = [1, 0.92, 0.16, 1]`
+- `:::js var direction : Float2 = [0, 0]`
+- `:::js var width : Num = 0`
+- `:::js var speed : Num = 0`
+- `:::js var spacing : Num = 0`
 
 <hr/>
 ### Sprite
@@ -75,6 +119,7 @@
 
 - [create](#Sprite.create+4)(**entity**: `Entity`, **image**: `Image`, **width**: `Num`, **height**: `Num`)
 - [create](#Sprite.create+2)(**entity**: `Entity`, **image**: `Image`)
+- [create](#Sprite.create)(**entity**: `Entity`)
 - [create_with](#Sprite.create_with+4)(**entity**: `Entity`, **material**: `Material`, **width**: `Num`, **height**: `Num`)
 - [create_with](#Sprite.create_with+2)(**entity**: `Entity`, **material**: `Material`)
 - [create](#Sprite.create+3)(**entity**: `Entity`, **atlas**: `Atlas`, **atlas_image**: `String`)
@@ -83,12 +128,16 @@
 - [contains](#Sprite.contains+3)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`)
 - [set_material](#Sprite.set_material+2)(**entity**: `Entity`, **material**: `Material`)
 - [get_material](#Sprite.get_material)(**entity**: `Entity`)
+- [set_image](#Sprite.set_image+2)(**entity**: `Entity`, **image**: `Image`)
+- [get_image](#Sprite.get_image)(**entity**: `Entity`)
 - [set_origin](#Sprite.set_origin+3)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`)
 - [get_origin](#Sprite.get_origin)(**entity**: `Entity`)
 - [set_flip_h](#Sprite.set_flip_h+2)(**entity**: `Entity`, **flipped**: `Bool`)
 - [get_flip_h](#Sprite.get_flip_h)(**entity**: `Entity`)
 - [set_flip_v](#Sprite.set_flip_v+2)(**entity**: `Entity`, **flipped**: `Bool`)
 - [get_flip_v](#Sprite.get_flip_v)(**entity**: `Entity`)
+- [set_billboard](#Sprite.set_billboard+3)(**entity**: `Entity`, **kind**: `SpriteBillboard`, **lock**: `Float3`)
+- [get_billboard](#Sprite.get_billboard)(**entity**: `Entity`)
 - [set_size](#Sprite.set_size+3)(**entity**: `Entity`, **width**: `Num`, **height**: `Num`)
 - [set_width](#Sprite.set_width+2)(**entity**: `Entity`, **width**: `Num`)
 - [get_width](#Sprite.get_width)(**entity**: `Entity`)
@@ -105,6 +154,60 @@
 - [get_skew](#Sprite.get_skew)(**entity**: `Entity`)
 - [get_geometry](#Sprite.get_geometry)(**entity**: `Entity`)
 - [set_geometry](#Sprite.set_geometry+2)(**entity**: `Entity`, **geo**: `Geometry`)
+- [get_auto_size](#Sprite.get_auto_size)(**entity**: `Entity`)
+- [set_auto_size](#Sprite.set_auto_size+2)(**entity**: `Entity`, **value**: `Bool`)
+- [get_material_input](#Sprite.get_material_input)(**entity**: `Entity`)
+- [set_material_input](#Sprite.set_material_input+2)(**entity**: `Entity`, **value**: `Bool`)
+- [get_hsv_adjust](#Sprite.get_hsv_adjust)(**entity**: `Entity`)
+- [set_hsv_adjust](#Sprite.set_hsv_adjust+5)(**entity**: `Entity`, **enabled**: `Bool`, **hue_change**: `Num`, **saturation**: `Num`, **value**: `Num`)
+- [set_effect_HSV_enabled](#Sprite.set_effect_HSV_enabled+2)(**entity**: `Entity`, **enabled**: `Bool`)
+- [get_effect_HSV_enabled](#Sprite.get_effect_HSV_enabled+2)(**entity**: `Entity`, **enabled**: `Bool`)
+- [set_effect_HSV_hue_change](#Sprite.set_effect_HSV_hue_change+2)(**entity**: `Entity`, **hue_change**: `Num`)
+- [get_effect_HSV_hue_change](#Sprite.get_effect_HSV_hue_change+2)(**entity**: `Entity`, **hue_change**: `Num`)
+- [set_effect_HSV_saturation](#Sprite.set_effect_HSV_saturation+2)(**entity**: `Entity`, **saturation**: `Num`)
+- [get_effect_HSV_saturation](#Sprite.get_effect_HSV_saturation+2)(**entity**: `Entity`, **saturation**: `Num`)
+- [set_effect_HSV_value](#Sprite.set_effect_HSV_value+2)(**entity**: `Entity`, **value**: `Num`)
+- [get_effect_HSV_value](#Sprite.get_effect_HSV_value+2)(**entity**: `Entity`, **value**: `Num`)
+- [get_outline](#Sprite.get_outline)(**entity**: `Entity`)
+- [set_outline](#Sprite.set_outline+4)(**entity**: `Entity`, **enabled**: `Bool`, **color**: `Color`, **thickness**: `Num`)
+- [set_effect_outline_enabled](#Sprite.set_effect_outline_enabled+2)(**entity**: `Entity`, **enabled**: `Bool`)
+- [get_effect_outline_enabled](#Sprite.get_effect_outline_enabled+2)(**entity**: `Entity`, **enabled**: `Bool`)
+- [set_effect_outline_color](#Sprite.set_effect_outline_color+2)(**entity**: `Entity`, **color**: `Color`)
+- [get_effect_outline_color](#Sprite.get_effect_outline_color+2)(**entity**: `Entity`, **color**: `Color`)
+- [set_effect_outline_thickness](#Sprite.set_effect_outline_thickness+2)(**entity**: `Entity`, **thickness**: `Num`)
+- [get_effect_outline_thickness](#Sprite.get_effect_outline_thickness+2)(**entity**: `Entity`, **thickness**: `Num`)
+- [get_shadow](#Sprite.get_shadow)(**entity**: `Entity`)
+- [set_shadow](#Sprite.set_shadow+5)(**entity**: `Entity`, **enabled**: `Bool`, **offset**: `Num`, **color**: `Color`, **softness**: `Num`)
+- [set_effect_shadow_enabled](#Sprite.set_effect_shadow_enabled+2)(**entity**: `Entity`, **enabled**: `Bool`)
+- [get_effect_shadow_enabled](#Sprite.get_effect_shadow_enabled+2)(**entity**: `Entity`, **enabled**: `Bool`)
+- [set_effect_shadow_offset](#Sprite.set_effect_shadow_offset+2)(**entity**: `Entity`, **offset**: `Vector2`)
+- [get_effect_shadow_offset](#Sprite.get_effect_shadow_offset+2)(**entity**: `Entity`, **offset**: `Vector2`)
+- [set_effect_shadow_color](#Sprite.set_effect_shadow_color+2)(**entity**: `Entity`, **color**: `Color`)
+- [get_effect_shadow_color](#Sprite.get_effect_shadow_color+2)(**entity**: `Entity`, **color**: `Color`)
+- [get_dissolve](#Sprite.get_dissolve)(**entity**: `Entity`)
+- [set_dissolve](#Sprite.set_dissolve+5)(**entity**: `Entity`, **enabled**: `Bool`, **image**: `Image`, **uv**: `List`, **value**: `Num`)
+- [set_effect_dissolve_enabled](#Sprite.set_effect_dissolve_enabled+2)(**entity**: `Entity`, **enabled**: `Bool`)
+- [get_effect_dissolve_enabled](#Sprite.get_effect_dissolve_enabled+2)(**entity**: `Entity`, **enabled**: `Bool`)
+- [set_effect_dissolve_image](#Sprite.set_effect_dissolve_image+2)(**entity**: `Entity`, **image**: `Image`)
+- [get_effect_dissolve_image](#Sprite.get_effect_dissolve_image+2)(**entity**: `Entity`, **image**: `Image`)
+- [set_effect_dissolve_uv](#Sprite.set_effect_dissolve_uv+2)(**entity**: `Entity`, **uv**: `Vector4`)
+- [get_effect_dissolve_uv](#Sprite.get_effect_dissolve_uv+2)(**entity**: `Entity`, **uv**: `Vector4`)
+- [set_effect_dissolve_value](#Sprite.set_effect_dissolve_value+2)(**entity**: `Entity`, **value**: `Num`)
+- [get_effect_dissolve_value](#Sprite.get_effect_dissolve_value+2)(**entity**: `Entity`, **value**: `Num`)
+- [get_shine](#Sprite.get_shine)(**entity**: `Entity`)
+- [set_shine](#Sprite.set_shine+7)(**entity**: `Entity`, **enabled**: `Bool`, **color**: `Num`, **direction**: `Vector2`, **width**: `Num`, **speed**: `Num`, **spacing**: `Num`)
+- [set_effect_shine_enabled](#Sprite.set_effect_shine_enabled+2)(**entity**: `Entity`, **enabled**: `Bool`)
+- [get_effect_shine_enabled](#Sprite.get_effect_shine_enabled+2)(**entity**: `Entity`, **enabled**: `Bool`)
+- [set_effect_shine_color](#Sprite.set_effect_shine_color+2)(**entity**: `Entity`, **color**: `Color`)
+- [get_effect_shine_color](#Sprite.get_effect_shine_color+2)(**entity**: `Entity`, **color**: `Color`)
+- [set_effect_shine_direction](#Sprite.set_effect_shine_direction+2)(**entity**: `Entity`, **direction**: `Vector2`)
+- [get_effect_shine_direction](#Sprite.get_effect_shine_direction+2)(**entity**: `Entity`, **direction**: `Vector2`)
+- [set_effect_shine_width](#Sprite.set_effect_shine_width+2)(**entity**: `Entity`, **width**: `Num`)
+- [get_effect_shine_width](#Sprite.get_effect_shine_width+2)(**entity**: `Entity`, **width**: `Num`)
+- [set_effect_shine_speed](#Sprite.set_effect_shine_speed+2)(**entity**: `Entity`, **speed**: `Num`)
+- [get_effect_shine_speed](#Sprite.get_effect_shine_speed+2)(**entity**: `Entity`, **speed**: `Num`)
+- [set_effect_shine_spacing](#Sprite.set_effect_shine_spacing+2)(**entity**: `Entity`, **spacing**: `Num`)
+- [get_effect_shine_spacing](#Sprite.get_effect_shine_spacing+2)(**entity**: `Entity`, **spacing**: `Num`)
 
 <hr/>
 <endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="create(entity : Entity, image : Image, width : Num, height : Num)"></endpoint>
@@ -131,6 +234,18 @@
 >   var entity = Entity.create(world)
 >   var image = Assets.image("luxe: image/logo")
 >   Sprite.create(entity, image)
+>   ```   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="create(entity : Entity)"></endpoint>
+<signature id="Sprite.create">Sprite.create(**entity**: `Entity`)
+<a class="headerlink" href="#Sprite.create" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Attach a `Sprite` modifier to `entity`, drawn using a default `image`.
+> Use `Sprite.set_image` or `Sprite.set_material` to change it later.
+> 
+>   ```js
+>   var entity = Entity.create(world)
+>   Sprite.create(entity)
 >   ```   
 
 <endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="create_with(entity : Entity, material : Material, width : Num, height : Num)"></endpoint>
@@ -236,6 +351,27 @@
 >   var material = Sprite.get_material(entity)
 >   ```   
 
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="set_image(entity : Entity, image : Image)"></endpoint>
+<signature id="Sprite.set_image+2">Sprite.set_image(**entity**: `Entity`, **image**: `Image`)
+<a class="headerlink" href="#Sprite.set_image+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Change the image that the `Sprite` attached to `entity` is drawn with.
+> 
+>   ```js
+>   var image = Assets.image("luxe: image/logo.sprite")
+>   Sprite.set_image(entity, image)
+>   ```   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="get_image(entity : Entity)"></endpoint>
+<signature id="Sprite.get_image">Sprite.get_image(**entity**: `Entity`)
+<a class="headerlink" href="#Sprite.get_image" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Image`
+> Returns the current image that the `Sprite` attached to `entity` is drawn with.
+> 
+>   ```js
+>   var image = Sprite.get_image(entity)
+>   ```   
+
 <endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="set_origin(entity : Entity, x : Num, y : Num)"></endpoint>
 <signature id="Sprite.set_origin+3">Sprite.set_origin(**entity**: `Entity`, **x**: `Num`, **y**: `Num`)
 <a class="headerlink" href="#Sprite.set_origin+3" title="Permanent link">¶</a></signature>
@@ -300,6 +436,28 @@
 > 
 >   ```js
 >   var flipped = Sprite.get_flip_v(entity)
+>   ```   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="set_billboard(entity : Entity, kind : SpriteBillboard, lock : Float3)"></endpoint>
+<signature id="Sprite.set_billboard+3">Sprite.set_billboard(**entity**: `Entity`, **kind**: `SpriteBillboard`, **lock**: `Float3`)
+<a class="headerlink" href="#Sprite.set_billboard+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Set how the `Sprite` attached to `entity` behaves as a `billboard` sprite.
+> The lock field is 0 for unlocked rotation, 1 for locked rotation on that axis.
+> 
+>   ```js
+>   Sprite.set_billboard(entity, SpriteBillboard.fixed_scale, [0,1,0])
+>   ```   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="get_billboard(entity : Entity)"></endpoint>
+<signature id="Sprite.get_billboard">Sprite.get_billboard(**entity**: `Entity`)
+<a class="headerlink" href="#Sprite.get_billboard" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js SpriteBillboard`
+> Get how the `Sprite` attached to `entity` behaves as a `billboard` sprite.
+> 
+>   ```js
+>   var kind = Sprite.get_billboard(entity)
+>   if(kind == SpriteBillboard.fixed_scale) { ... }
 >   ```   
 
 <endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="set_size(entity : Entity, width : Num, height : Num)"></endpoint>
@@ -465,6 +623,371 @@
 >   ```js
 >   Sprite.set_geometry(entity, geo)
 >   ```   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="get_auto_size(entity : Entity)"></endpoint>
+<signature id="Sprite.get_auto_size">Sprite.get_auto_size(**entity**: `Entity`)
+<a class="headerlink" href="#Sprite.get_auto_size" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="set_auto_size(entity : Entity, value : Bool)"></endpoint>
+<signature id="Sprite.set_auto_size+2">Sprite.set_auto_size(**entity**: `Entity`, **value**: `Bool`)
+<a class="headerlink" href="#Sprite.set_auto_size+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> When setting an image or material, resize the sprite to the image size   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="get_material_input(entity : Entity)"></endpoint>
+<signature id="Sprite.get_material_input">Sprite.get_material_input(**entity**: `Entity`)
+<a class="headerlink" href="#Sprite.get_material_input" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="set_material_input(entity : Entity, value : Bool)"></endpoint>
+<signature id="Sprite.set_material_input+2">Sprite.set_material_input(**entity**: `Entity`, **value**: `Bool`)
+<a class="headerlink" href="#Sprite.set_material_input+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> For custom materials, the material input ID for the image.   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="get_hsv_adjust(entity : Entity)"></endpoint>
+<signature id="Sprite.get_hsv_adjust">Sprite.get_hsv_adjust(**entity**: `Entity`)
+<a class="headerlink" href="#Sprite.get_hsv_adjust" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js HSV`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="set_hsv_adjust(entity : Entity, enabled : Bool, hue_change : Num, saturation : Num, value : Num)"></endpoint>
+<signature id="Sprite.set_hsv_adjust+5">Sprite.set_hsv_adjust(**entity**: `Entity`, **enabled**: `Bool`, **hue_change**: `Num`, **saturation**: `Num`, **value**: `Num`)
+<a class="headerlink" href="#Sprite.set_hsv_adjust+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Set the values for the hsv adjustment effect.
+> The effect applies several operations on the colors of the sprite in sRGB HSV space.
+> Saturation and Value changes are applied with exponents as `value ^ adjustment`.   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="set_effect_HSV_enabled(entity : Entity, enabled : Bool)"></endpoint>
+<signature id="Sprite.set_effect_HSV_enabled+2">Sprite.set_effect_HSV_enabled(**entity**: `Entity`, **enabled**: `Bool`)
+<a class="headerlink" href="#Sprite.set_effect_HSV_enabled+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="get_effect_HSV_enabled(entity : Entity, enabled : Bool)"></endpoint>
+<signature id="Sprite.get_effect_HSV_enabled+2">Sprite.get_effect_HSV_enabled(**entity**: `Entity`, **enabled**: `Bool`)
+<a class="headerlink" href="#Sprite.get_effect_HSV_enabled+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="set_effect_HSV_hue_change(entity : Entity, hue_change : Num)"></endpoint>
+<signature id="Sprite.set_effect_HSV_hue_change+2">Sprite.set_effect_HSV_hue_change(**entity**: `Entity`, **hue_change**: `Num`)
+<a class="headerlink" href="#Sprite.set_effect_HSV_hue_change+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="get_effect_HSV_hue_change(entity : Entity, hue_change : Num)"></endpoint>
+<signature id="Sprite.get_effect_HSV_hue_change+2">Sprite.get_effect_HSV_hue_change(**entity**: `Entity`, **hue_change**: `Num`)
+<a class="headerlink" href="#Sprite.get_effect_HSV_hue_change+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="set_effect_HSV_saturation(entity : Entity, saturation : Num)"></endpoint>
+<signature id="Sprite.set_effect_HSV_saturation+2">Sprite.set_effect_HSV_saturation(**entity**: `Entity`, **saturation**: `Num`)
+<a class="headerlink" href="#Sprite.set_effect_HSV_saturation+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="get_effect_HSV_saturation(entity : Entity, saturation : Num)"></endpoint>
+<signature id="Sprite.get_effect_HSV_saturation+2">Sprite.get_effect_HSV_saturation(**entity**: `Entity`, **saturation**: `Num`)
+<a class="headerlink" href="#Sprite.get_effect_HSV_saturation+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="set_effect_HSV_value(entity : Entity, value : Num)"></endpoint>
+<signature id="Sprite.set_effect_HSV_value+2">Sprite.set_effect_HSV_value(**entity**: `Entity`, **value**: `Num`)
+<a class="headerlink" href="#Sprite.set_effect_HSV_value+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="get_effect_HSV_value(entity : Entity, value : Num)"></endpoint>
+<signature id="Sprite.get_effect_HSV_value+2">Sprite.get_effect_HSV_value(**entity**: `Entity`, **value**: `Num`)
+<a class="headerlink" href="#Sprite.get_effect_HSV_value+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="get_outline(entity : Entity)"></endpoint>
+<signature id="Sprite.get_outline">Sprite.get_outline(**entity**: `Entity`)
+<a class="headerlink" href="#Sprite.get_outline" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Outline`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="set_outline(entity : Entity, enabled : Bool, color : Color, thickness : Num)"></endpoint>
+<signature id="Sprite.set_outline+4">Sprite.set_outline(**entity**: `Entity`, **enabled**: `Bool`, **color**: `Color`, **thickness**: `Num`)
+<a class="headerlink" href="#Sprite.set_outline+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Set the values of the outline effect.   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="set_effect_outline_enabled(entity : Entity, enabled : Bool)"></endpoint>
+<signature id="Sprite.set_effect_outline_enabled+2">Sprite.set_effect_outline_enabled(**entity**: `Entity`, **enabled**: `Bool`)
+<a class="headerlink" href="#Sprite.set_effect_outline_enabled+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="get_effect_outline_enabled(entity : Entity, enabled : Bool)"></endpoint>
+<signature id="Sprite.get_effect_outline_enabled+2">Sprite.get_effect_outline_enabled(**entity**: `Entity`, **enabled**: `Bool`)
+<a class="headerlink" href="#Sprite.get_effect_outline_enabled+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="set_effect_outline_color(entity : Entity, color : Color)"></endpoint>
+<signature id="Sprite.set_effect_outline_color+2">Sprite.set_effect_outline_color(**entity**: `Entity`, **color**: `Color`)
+<a class="headerlink" href="#Sprite.set_effect_outline_color+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="get_effect_outline_color(entity : Entity, color : Color)"></endpoint>
+<signature id="Sprite.get_effect_outline_color+2">Sprite.get_effect_outline_color(**entity**: `Entity`, **color**: `Color`)
+<a class="headerlink" href="#Sprite.get_effect_outline_color+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="set_effect_outline_thickness(entity : Entity, thickness : Num)"></endpoint>
+<signature id="Sprite.set_effect_outline_thickness+2">Sprite.set_effect_outline_thickness(**entity**: `Entity`, **thickness**: `Num`)
+<a class="headerlink" href="#Sprite.set_effect_outline_thickness+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="get_effect_outline_thickness(entity : Entity, thickness : Num)"></endpoint>
+<signature id="Sprite.get_effect_outline_thickness+2">Sprite.get_effect_outline_thickness(**entity**: `Entity`, **thickness**: `Num`)
+<a class="headerlink" href="#Sprite.get_effect_outline_thickness+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="get_shadow(entity : Entity)"></endpoint>
+<signature id="Sprite.get_shadow">Sprite.get_shadow(**entity**: `Entity`)
+<a class="headerlink" href="#Sprite.get_shadow" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Shadow`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="set_shadow(entity : Entity, enabled : Bool, offset : Num, color : Color, softness : Num)"></endpoint>
+<signature id="Sprite.set_shadow+5">Sprite.set_shadow(**entity**: `Entity`, **enabled**: `Bool`, **offset**: `Num`, **color**: `Color`, **softness**: `Num`)
+<a class="headerlink" href="#Sprite.set_shadow+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Set the values for the shadow effect.
+> Shadows are the same color as the base sprite image, but only have a single color.   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="set_effect_shadow_enabled(entity : Entity, enabled : Bool)"></endpoint>
+<signature id="Sprite.set_effect_shadow_enabled+2">Sprite.set_effect_shadow_enabled(**entity**: `Entity`, **enabled**: `Bool`)
+<a class="headerlink" href="#Sprite.set_effect_shadow_enabled+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="get_effect_shadow_enabled(entity : Entity, enabled : Bool)"></endpoint>
+<signature id="Sprite.get_effect_shadow_enabled+2">Sprite.get_effect_shadow_enabled(**entity**: `Entity`, **enabled**: `Bool`)
+<a class="headerlink" href="#Sprite.get_effect_shadow_enabled+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="set_effect_shadow_offset(entity : Entity, offset : Vector2)"></endpoint>
+<signature id="Sprite.set_effect_shadow_offset+2">Sprite.set_effect_shadow_offset(**entity**: `Entity`, **offset**: `Vector2`)
+<a class="headerlink" href="#Sprite.set_effect_shadow_offset+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="get_effect_shadow_offset(entity : Entity, offset : Vector2)"></endpoint>
+<signature id="Sprite.get_effect_shadow_offset+2">Sprite.get_effect_shadow_offset(**entity**: `Entity`, **offset**: `Vector2`)
+<a class="headerlink" href="#Sprite.get_effect_shadow_offset+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="set_effect_shadow_color(entity : Entity, color : Color)"></endpoint>
+<signature id="Sprite.set_effect_shadow_color+2">Sprite.set_effect_shadow_color(**entity**: `Entity`, **color**: `Color`)
+<a class="headerlink" href="#Sprite.set_effect_shadow_color+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="get_effect_shadow_color(entity : Entity, color : Color)"></endpoint>
+<signature id="Sprite.get_effect_shadow_color+2">Sprite.get_effect_shadow_color(**entity**: `Entity`, **color**: `Color`)
+<a class="headerlink" href="#Sprite.get_effect_shadow_color+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="get_dissolve(entity : Entity)"></endpoint>
+<signature id="Sprite.get_dissolve">Sprite.get_dissolve(**entity**: `Entity`)
+<a class="headerlink" href="#Sprite.get_dissolve" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Dissolve`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="set_dissolve(entity : Entity, enabled : Bool, image : Image, uv : List, value : Num)"></endpoint>
+<signature id="Sprite.set_dissolve+5">Sprite.set_dissolve(**entity**: `Entity`, **enabled**: `Bool`, **image**: `Image`, **uv**: `List`, **value**: `Num`)
+<a class="headerlink" href="#Sprite.set_dissolve+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Set the values for the hsv adjustment effect.
+> The effect applies several operations on the colors of the sprite in sRGB HSV space.
+> Saturation and Value changes are applied with exponents as `value ^ adjustment`.   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="set_effect_dissolve_enabled(entity : Entity, enabled : Bool)"></endpoint>
+<signature id="Sprite.set_effect_dissolve_enabled+2">Sprite.set_effect_dissolve_enabled(**entity**: `Entity`, **enabled**: `Bool`)
+<a class="headerlink" href="#Sprite.set_effect_dissolve_enabled+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="get_effect_dissolve_enabled(entity : Entity, enabled : Bool)"></endpoint>
+<signature id="Sprite.get_effect_dissolve_enabled+2">Sprite.get_effect_dissolve_enabled(**entity**: `Entity`, **enabled**: `Bool`)
+<a class="headerlink" href="#Sprite.get_effect_dissolve_enabled+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="set_effect_dissolve_image(entity : Entity, image : Image)"></endpoint>
+<signature id="Sprite.set_effect_dissolve_image+2">Sprite.set_effect_dissolve_image(**entity**: `Entity`, **image**: `Image`)
+<a class="headerlink" href="#Sprite.set_effect_dissolve_image+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="get_effect_dissolve_image(entity : Entity, image : Image)"></endpoint>
+<signature id="Sprite.get_effect_dissolve_image+2">Sprite.get_effect_dissolve_image(**entity**: `Entity`, **image**: `Image`)
+<a class="headerlink" href="#Sprite.get_effect_dissolve_image+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="set_effect_dissolve_uv(entity : Entity, uv : Vector4)"></endpoint>
+<signature id="Sprite.set_effect_dissolve_uv+2">Sprite.set_effect_dissolve_uv(**entity**: `Entity`, **uv**: `Vector4`)
+<a class="headerlink" href="#Sprite.set_effect_dissolve_uv+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="get_effect_dissolve_uv(entity : Entity, uv : Vector4)"></endpoint>
+<signature id="Sprite.get_effect_dissolve_uv+2">Sprite.get_effect_dissolve_uv(**entity**: `Entity`, **uv**: `Vector4`)
+<a class="headerlink" href="#Sprite.get_effect_dissolve_uv+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="set_effect_dissolve_value(entity : Entity, value : Num)"></endpoint>
+<signature id="Sprite.set_effect_dissolve_value+2">Sprite.set_effect_dissolve_value(**entity**: `Entity`, **value**: `Num`)
+<a class="headerlink" href="#Sprite.set_effect_dissolve_value+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="get_effect_dissolve_value(entity : Entity, value : Num)"></endpoint>
+<signature id="Sprite.get_effect_dissolve_value+2">Sprite.get_effect_dissolve_value(**entity**: `Entity`, **value**: `Num`)
+<a class="headerlink" href="#Sprite.get_effect_dissolve_value+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="get_shine(entity : Entity)"></endpoint>
+<signature id="Sprite.get_shine">Sprite.get_shine(**entity**: `Entity`)
+<a class="headerlink" href="#Sprite.get_shine" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Shine`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="set_shine(entity : Entity, enabled : Bool, color : Num, direction : Vector2, width : Num, speed : Num, spacing : Num)"></endpoint>
+<signature id="Sprite.set_shine+7">Sprite.set_shine(**entity**: `Entity`, **enabled**: `Bool`, **color**: `Num`, **direction**: `Vector2`, **width**: `Num`, **speed**: `Num`, **spacing**: `Num`)
+<a class="headerlink" href="#Sprite.set_shine+7" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Set the values for the hsv adjustment effect.
+> The effect applies several operations on the colors of the sprite in sRGB HSV space.
+> Saturation and Value changes are applied with exponents as `value ^ adjustment`.   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="set_effect_shine_enabled(entity : Entity, enabled : Bool)"></endpoint>
+<signature id="Sprite.set_effect_shine_enabled+2">Sprite.set_effect_shine_enabled(**entity**: `Entity`, **enabled**: `Bool`)
+<a class="headerlink" href="#Sprite.set_effect_shine_enabled+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="get_effect_shine_enabled(entity : Entity, enabled : Bool)"></endpoint>
+<signature id="Sprite.get_effect_shine_enabled+2">Sprite.get_effect_shine_enabled(**entity**: `Entity`, **enabled**: `Bool`)
+<a class="headerlink" href="#Sprite.get_effect_shine_enabled+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="set_effect_shine_color(entity : Entity, color : Color)"></endpoint>
+<signature id="Sprite.set_effect_shine_color+2">Sprite.set_effect_shine_color(**entity**: `Entity`, **color**: `Color`)
+<a class="headerlink" href="#Sprite.set_effect_shine_color+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="get_effect_shine_color(entity : Entity, color : Color)"></endpoint>
+<signature id="Sprite.get_effect_shine_color+2">Sprite.get_effect_shine_color(**entity**: `Entity`, **color**: `Color`)
+<a class="headerlink" href="#Sprite.get_effect_shine_color+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="set_effect_shine_direction(entity : Entity, direction : Vector2)"></endpoint>
+<signature id="Sprite.set_effect_shine_direction+2">Sprite.set_effect_shine_direction(**entity**: `Entity`, **direction**: `Vector2`)
+<a class="headerlink" href="#Sprite.set_effect_shine_direction+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="get_effect_shine_direction(entity : Entity, direction : Vector2)"></endpoint>
+<signature id="Sprite.get_effect_shine_direction+2">Sprite.get_effect_shine_direction(**entity**: `Entity`, **direction**: `Vector2`)
+<a class="headerlink" href="#Sprite.get_effect_shine_direction+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="set_effect_shine_width(entity : Entity, width : Num)"></endpoint>
+<signature id="Sprite.set_effect_shine_width+2">Sprite.set_effect_shine_width(**entity**: `Entity`, **width**: `Num`)
+<a class="headerlink" href="#Sprite.set_effect_shine_width+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="get_effect_shine_width(entity : Entity, width : Num)"></endpoint>
+<signature id="Sprite.get_effect_shine_width+2">Sprite.get_effect_shine_width(**entity**: `Entity`, **width**: `Num`)
+<a class="headerlink" href="#Sprite.get_effect_shine_width+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="set_effect_shine_speed(entity : Entity, speed : Num)"></endpoint>
+<signature id="Sprite.set_effect_shine_speed+2">Sprite.set_effect_shine_speed(**entity**: `Entity`, **speed**: `Num`)
+<a class="headerlink" href="#Sprite.set_effect_shine_speed+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="get_effect_shine_speed(entity : Entity, speed : Num)"></endpoint>
+<signature id="Sprite.get_effect_shine_speed+2">Sprite.get_effect_shine_speed(**entity**: `Entity`, **speed**: `Num`)
+<a class="headerlink" href="#Sprite.get_effect_shine_speed+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="set_effect_shine_spacing(entity : Entity, spacing : Num)"></endpoint>
+<signature id="Sprite.set_effect_shine_spacing+2">Sprite.set_effect_shine_spacing(**entity**: `Entity`, **spacing**: `Num`)
+<a class="headerlink" href="#Sprite.set_effect_shine_spacing+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="Sprite" signature="get_effect_shine_spacing(entity : Entity, spacing : Num)"></endpoint>
+<signature id="Sprite.get_effect_shine_spacing+2">Sprite.get_effect_shine_spacing(**entity**: `Entity`, **spacing**: `Num`)
+<a class="headerlink" href="#Sprite.get_effect_shine_spacing+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+### SpriteBillboard
+`:::js import "luxe: system/sprite.modifier" for SpriteBillboard`
+> no docs found
+
+- [none](#SpriteBillboard.none)
+- [billboard](#SpriteBillboard.billboard)
+- [fixed_scale](#SpriteBillboard.fixed_scale)
+- [fixed_screen_scale](#SpriteBillboard.fixed_screen_scale)
+
+<hr/>
+<endpoint module="luxe: system/sprite.modifier" class="SpriteBillboard" signature="none"></endpoint>
+<signature id="SpriteBillboard.none">SpriteBillboard.none
+<a class="headerlink" href="#SpriteBillboard.none" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="SpriteBillboard" signature="billboard"></endpoint>
+<signature id="SpriteBillboard.billboard">SpriteBillboard.billboard
+<a class="headerlink" href="#SpriteBillboard.billboard" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="SpriteBillboard" signature="fixed_scale"></endpoint>
+<signature id="SpriteBillboard.fixed_scale">SpriteBillboard.fixed_scale
+<a class="headerlink" href="#SpriteBillboard.fixed_scale" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: system/sprite.modifier" class="SpriteBillboard" signature="fixed_screen_scale"></endpoint>
+<signature id="SpriteBillboard.fixed_screen_scale">SpriteBillboard.fixed_screen_scale
+<a class="headerlink" href="#SpriteBillboard.fixed_screen_scale" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
 
 ### System
 `:::js import "luxe: system/sprite.modifier" for System`

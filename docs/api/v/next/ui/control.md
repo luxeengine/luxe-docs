@@ -1,6 +1,6 @@
 #![](../../../../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2023.11.1`)  
+# `luxe` API (`2024.12.4`)  
 
 
 ---
@@ -72,6 +72,8 @@
 - [set_allow_tab](#Control.set_allow_tab+2)(**control**: `Control`, **allow**: `Bool`)
 - [get_visible](#Control.get_visible)(**control**: `Control`)
 - [set_visible](#Control.set_visible+2)(**control**: `Control`, **visible**: `Bool`)
+- [get_opacity](#Control.get_opacity)(**control**: `Control`)
+- [set_opacity](#Control.set_opacity+2)(**control**: `Control`, **opacity**: `Num`)
 - [get_disabled](#Control.get_disabled)(**control**: `Control`)
 - [set_disabled](#Control.set_disabled+2)(**control**: `Control`, **disabled**: `Bool`)
 - [get_enabled](#Control.get_enabled)(**control**: `Control`)
@@ -466,6 +468,18 @@
 > Set whether a control (or its children) is visible.
 > Note that when a control is not visible, it also doesnt contribute to the layout.   
 
+<endpoint module="luxe: ui/control" class="Control" signature="get_opacity(control : Control)"></endpoint>
+<signature id="Control.get_opacity">Control.get_opacity(**control**: `Control`)
+<a class="headerlink" href="#Control.get_opacity" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Num`
+> Get a control opacity value.   
+
+<endpoint module="luxe: ui/control" class="Control" signature="set_opacity(control : Control, opacity : Num)"></endpoint>
+<signature id="Control.set_opacity+2">Control.set_opacity(**control**: `Control`, **opacity**: `Num`)
+<a class="headerlink" href="#Control.set_opacity+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Set a control opacity value. Affects children opacity as well.   
+
 <endpoint module="luxe: ui/control" class="Control" signature="get_disabled(control : Control)"></endpoint>
 <signature id="Control.get_disabled">Control.get_disabled(**control**: `Control`)
 <a class="headerlink" href="#Control.get_disabled" title="Permanent link">¶</a></signature>
@@ -506,7 +520,7 @@
 <signature id="Control.get_nodes">Control.get_nodes(**control**: `Control`)
 <a class="headerlink" href="#Control.get_nodes" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js Num`
-> Get how many child transforms this transform has recursively.
+> Get how many child controls this control has recursively.
 > So 1 if it doesnt have any children, 2 if it has 1 child, 3 if it has 2 children or if it has 1 child which itself has a child, etc...
 > Only valid after `UI.commit`.   
 

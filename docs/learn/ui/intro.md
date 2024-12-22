@@ -62,7 +62,7 @@ This value is an instance of a control that belongs to this canvas.
 
 Now, this part is important.   
 
-A [concept](../../../guide/concepts#commit) that luxe uses is the `commit` concept.
+A [concept](../../guide/concepts.md#commit) that luxe uses is the `commit` concept.
 
 UI is a great example of this concept, where you want to make several changes
 to the UI that could be expensive, or could have dependencies (like layout being relative).
@@ -99,7 +99,7 @@ Like our button will have a `UIEvent.release` event when clicked.
 ```js
 Control.set_events(button) {|event|
   if(event.type == UIEvent.release) {
-    System.print("The button was clicked! x %(event.x) y %(event.y)")
+    Log.print("The button was clicked! x %(event.x) y %(event.y)")
   }
 }
 ```
@@ -110,7 +110,7 @@ You can also print the events to see what kind of events are happening and when:
 
 ```js
 Control.set_events(button) {|event|
-  System.print("event from button %(event)")
+  Log.print("event from button %(event)")
 }
 ```
 
@@ -161,7 +161,7 @@ class Game is Ready {
 
     Control.set_events(button) {|event|
       if(event.type == UIEvent.release) {
-        System.print("The button was clicked! x %(event.x) y %(event.y)")
+        Log.print("The button was clicked! x %(event.x) y %(event.y)")
       }
     }
 

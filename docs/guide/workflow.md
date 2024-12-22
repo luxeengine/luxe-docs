@@ -10,13 +10,16 @@ like where to put things and how a project functions.
 When making a game in luxe, you'll typically be writing your game in a programming language called Wren.
 Wren is very easy to learn, and is familiar if you're used to C#, lua or js.
 
-This [Wren primer](../wren-primer) is a quick introduction if you're familiar with other languages.
+#### This [Wren primer](wren-primer.md) is a quick introduction if you're familiar with other languages.
 
 <h4>You can <a target="_blank" href="http://wren.io">Read the Wren documentation</a> for more details.</h4>
 
+!!! note ""
+    We'll have our own version of the Wren docs soon as luxe has customized Wren
+
 ### code completion
 
-luxe supports code completion and other IDE features through Visual Studio Code ([instructions here](../../get#installing-ide-support)).
+luxe supports code completion and other IDE features through Visual Studio Code ([instructions here](../get.md#installing-ide-support)).
 
 !!! tip ""
     The implementation is a work in progress. Some APIs don't complete (`Input` + `IO`).

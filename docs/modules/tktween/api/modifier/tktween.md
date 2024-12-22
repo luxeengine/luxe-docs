@@ -7,12 +7,14 @@
 
 ## `tktween: modifier/tktween` module
 
-- [Easing](#easing)   
-- [TKTween](#tktween)   
-- [TweenControl](#tweencontrol)   
-- [TweenSprite](#tweensprite)   
-- [TweenStep](#tweenstep)   
-- [TweenTransform](#tweentransform)   
+- [`tktween` API (`0.0.2`)](#tktween-api-002)
+  - [`tktween: modifier/tktween` module](#tktween-modifiertktween-module)
+    - [Easing](#easing)
+    - [TKTween](#tktween)
+    - [TweenControl](#tweencontrol)
+    - [TweenSprite](#tweensprite)
+    - [TweenStep](#tweenstep)
+    - [TweenTransform](#tweentransform)
 
 ---
 
@@ -279,19 +281,19 @@
 >   // Multi step tween: will first fade in while rising up from 100 to 200 over 3 seconds, 
 >   // then play a sound, then cycle through all the hues over 5 seconds.
 >   TKTween.tween( _logo ) { 
->     System.print("Starting tween...")
+>     Log.print("Starting tween...")
 >     TweenStep.duration( 3.0 ).easing( Easing.cubic ).start { |tval| 
->       System.print("First tween step, tval is %(tval)")
+>       Log.print("First tween step, tval is %(tval)")
 >       Sprite.set_alpha( _logo, tval )
 >       Transform.set_pos_y( _logo, Math.lerp( 100, 200, tval ) )
 >     }
 >     Audio.play("tada") // you can do side effects between tween steps!
 >     TweenStep.duration( 5.0 ).easing( Easing.cubic ).start { |tval| 
->       System.print("Second tween step, tval is %(tval)")
+>       Log.print("Second tween step, tval is %(tval)")
 >       var c = Color.color_from_hue(  tval )
 >       Sprite.set_color( _logo, c.r, c.g, c.b, 1.0 )
 >     }
->     System.print("Tween is finished.")
+>     Log.print("Tween is finished.")
 >     Sprite.set_color( _logo, 1, 1, 1, 1  )
 >   }
 > 
@@ -308,7 +310,7 @@
 >   ```js
 >   // Fades in _ent over 5 seconds
 >   TKTween.make_tween( _ent, 5.0 ).easing( Easing.cubic ).start { |tval|
->     System.print("Tval is %(tval)")
+>     Log.print("Tval is %(tval)")
 >     Sprite.set_opacity( _ent, tval )
 >   }      
 >   ```

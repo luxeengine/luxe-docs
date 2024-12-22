@@ -1,6 +1,6 @@
 #![](../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2023.11.1`)  
+# `luxe` API (`2024.12.4`)  
 
 
 ---
@@ -10,6 +10,7 @@
 - [Atlas](#atlas)   
 - [BlendFactor](#blendfactor)   
 - [BlendOperation](#blendoperation)   
+- [Clip](#clip)   
 - [ColorWriteMask](#colorwritemask)   
 - [CompareFunction](#comparefunction)   
 - [ComputeLayerDesc](#computelayerdesc)   
@@ -35,6 +36,9 @@
 - [MaterialReplace](#materialreplace)   
 - [PassLayerDesc](#passlayerdesc)   
 - [PixelFormat](#pixelformat)   
+- [Pose](#pose)   
+- [PoseGraph](#posegraph)   
+- [PoseNode](#posenode)   
 - [Primitive](#primitive)   
 - [Render](#render)   
 - [RenderDest](#renderdest)   
@@ -317,6 +321,19 @@
 <signature id="BlendOperation.from_string">BlendOperation.from_string(**value**: `Any`)
 <a class="headerlink" href="#BlendOperation.from_string" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+### Clip
+`:::js import "luxe: render" for Clip`
+> no docs found
+
+- [get_duration](#Clip.get_duration)(**clip**: `Clip`)
+
+<hr/>
+<endpoint module="luxe: render" class="Clip" signature="get_duration(clip : Clip)"></endpoint>
+<signature id="Clip.get_duration">Clip.get_duration(**clip**: `Clip`)
+<a class="headerlink" href="#Clip.get_duration" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Num`
 > no docs found   
 
 ### ColorWriteMask
@@ -3136,6 +3153,213 @@
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
+### Pose
+`:::js import "luxe: render" for Pose`
+> no docs found
+
+- [create](#Pose.create)(**skeleton**: `Skeleton`)
+- [destroy](#Pose.destroy)(**pose**: `Pose`)
+- [reset](#Pose.reset)(**pose**: `Pose`)
+- [copy](#Pose.copy+2)(**from**: `Pose`, **to**: `Pose`)
+- [get_bone_pos_joint](#Pose.get_bone_pos_joint+2)(**pose**: `Pose`, **bone_id**: `String`)
+- [get_bone_pos](#Pose.get_bone_pos+2)(**pose**: `Pose`, **bone_id**: `String`)
+- [get_bone_up](#Pose.get_bone_up+2)(**pose**: `Pose`, **bone_id**: `String`)
+- [get_bone_forward](#Pose.get_bone_forward+2)(**pose**: `Pose`, **bone_id**: `String`)
+- [get_bone_right](#Pose.get_bone_right+2)(**pose**: `Pose`, **bone_id**: `String`)
+
+<hr/>
+<endpoint module="luxe: render" class="Pose" signature="create(skeleton : Skeleton)"></endpoint>
+<signature id="Pose.create">Pose.create(**skeleton**: `Skeleton`)
+<a class="headerlink" href="#Pose.create" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Pose`
+> no docs found   
+
+<endpoint module="luxe: render" class="Pose" signature="destroy(pose : Pose)"></endpoint>
+<signature id="Pose.destroy">Pose.destroy(**pose**: `Pose`)
+<a class="headerlink" href="#Pose.destroy" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: render" class="Pose" signature="reset(pose : Pose)"></endpoint>
+<signature id="Pose.reset">Pose.reset(**pose**: `Pose`)
+<a class="headerlink" href="#Pose.reset" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: render" class="Pose" signature="copy(from : Pose, to : Pose)"></endpoint>
+<signature id="Pose.copy+2">Pose.copy(**from**: `Pose`, **to**: `Pose`)
+<a class="headerlink" href="#Pose.copy+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
+<endpoint module="luxe: render" class="Pose" signature="get_bone_pos_joint(pose : Pose, bone_id : String)"></endpoint>
+<signature id="Pose.get_bone_pos_joint+2">Pose.get_bone_pos_joint(**pose**: `Pose`, **bone_id**: `String`)
+<a class="headerlink" href="#Pose.get_bone_pos_joint+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Float3`
+> no docs found   
+
+<endpoint module="luxe: render" class="Pose" signature="get_bone_pos(pose : Pose, bone_id : String)"></endpoint>
+<signature id="Pose.get_bone_pos+2">Pose.get_bone_pos(**pose**: `Pose`, **bone_id**: `String`)
+<a class="headerlink" href="#Pose.get_bone_pos+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Float3`
+> no docs found   
+
+<endpoint module="luxe: render" class="Pose" signature="get_bone_up(pose : Pose, bone_id : String)"></endpoint>
+<signature id="Pose.get_bone_up+2">Pose.get_bone_up(**pose**: `Pose`, **bone_id**: `String`)
+<a class="headerlink" href="#Pose.get_bone_up+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Float3`
+> no docs found   
+
+<endpoint module="luxe: render" class="Pose" signature="get_bone_forward(pose : Pose, bone_id : String)"></endpoint>
+<signature id="Pose.get_bone_forward+2">Pose.get_bone_forward(**pose**: `Pose`, **bone_id**: `String`)
+<a class="headerlink" href="#Pose.get_bone_forward+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Float3`
+> no docs found   
+
+<endpoint module="luxe: render" class="Pose" signature="get_bone_right(pose : Pose, bone_id : String)"></endpoint>
+<signature id="Pose.get_bone_right+2">Pose.get_bone_right(**pose**: `Pose`, **bone_id**: `String`)
+<a class="headerlink" href="#Pose.get_bone_right+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Float3`
+> no docs found   
+
+### PoseGraph
+`:::js import "luxe: render" for PoseGraph`
+> no docs found
+
+- [create](#PoseGraph.create)(**skeleton**: `Skeleton`)
+- [destroy](#PoseGraph.destroy)(**graph**: `PoseGraph`)
+- [valid](#PoseGraph.valid)(**graph**: `PoseGraph`)
+- [tick](#PoseGraph.tick+2)(**graph**: `PoseGraph`, **delta**: `Num`)
+- [pose](#PoseGraph.pose)(**graph**: `PoseGraph`)
+- [set_time](#PoseGraph.set_time+2)(**graph**: `PoseGraph`, **time**: `Num`)
+- [get_time](#PoseGraph.get_time)(**graph**: `PoseGraph`)
+- [node_add](#PoseGraph.node_add+2)(**graph**: `PoseGraph`, **node**: `PoseNode`)
+- [node_remove](#PoseGraph.node_remove+2)(**graph**: `PoseGraph`, **index**: `Num`)
+- [node_at](#PoseGraph.node_at+2)(**graph**: `PoseGraph`, **index**: `Num`)
+- [node_index](#PoseGraph.node_index+2)(**graph**: `PoseGraph`, **node**: `PoseNode`)
+- [node_count](#PoseGraph.node_count)(**graph**: `PoseGraph`)
+
+<hr/>
+<endpoint module="luxe: render" class="PoseGraph" signature="create(skeleton : Skeleton)"></endpoint>
+<signature id="PoseGraph.create">PoseGraph.create(**skeleton**: `Skeleton`)
+<a class="headerlink" href="#PoseGraph.create" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="PoseGraph" signature="destroy(graph : PoseGraph)"></endpoint>
+<signature id="PoseGraph.destroy">PoseGraph.destroy(**graph**: `PoseGraph`)
+<a class="headerlink" href="#PoseGraph.destroy" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="PoseGraph" signature="valid(graph : PoseGraph)"></endpoint>
+<signature id="PoseGraph.valid">PoseGraph.valid(**graph**: `PoseGraph`)
+<a class="headerlink" href="#PoseGraph.valid" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
+> no docs found   
+
+<endpoint module="luxe: render" class="PoseGraph" signature="tick(graph : PoseGraph, delta : Num)"></endpoint>
+<signature id="PoseGraph.tick+2">PoseGraph.tick(**graph**: `PoseGraph`, **delta**: `Num`)
+<a class="headerlink" href="#PoseGraph.tick+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="PoseGraph" signature="pose(graph : PoseGraph)"></endpoint>
+<signature id="PoseGraph.pose">PoseGraph.pose(**graph**: `PoseGraph`)
+<a class="headerlink" href="#PoseGraph.pose" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Pose`
+> no docs found   
+
+<endpoint module="luxe: render" class="PoseGraph" signature="set_time(graph : PoseGraph, time : Num)"></endpoint>
+<signature id="PoseGraph.set_time+2">PoseGraph.set_time(**graph**: `PoseGraph`, **time**: `Num`)
+<a class="headerlink" href="#PoseGraph.set_time+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="PoseGraph" signature="get_time(graph : PoseGraph)"></endpoint>
+<signature id="PoseGraph.get_time">PoseGraph.get_time(**graph**: `PoseGraph`)
+<a class="headerlink" href="#PoseGraph.get_time" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Num`
+> no docs found   
+
+<endpoint module="luxe: render" class="PoseGraph" signature="node_add(graph : PoseGraph, node : PoseNode)"></endpoint>
+<signature id="PoseGraph.node_add+2">PoseGraph.node_add(**graph**: `PoseGraph`, **node**: `PoseNode`)
+<a class="headerlink" href="#PoseGraph.node_add+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="PoseGraph" signature="node_remove(graph : PoseGraph, index : Num)"></endpoint>
+<signature id="PoseGraph.node_remove+2">PoseGraph.node_remove(**graph**: `PoseGraph`, **index**: `Num`)
+<a class="headerlink" href="#PoseGraph.node_remove+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="PoseGraph" signature="node_at(graph : PoseGraph, index : Num)"></endpoint>
+<signature id="PoseGraph.node_at+2">PoseGraph.node_at(**graph**: `PoseGraph`, **index**: `Num`)
+<a class="headerlink" href="#PoseGraph.node_at+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js PoseNode`
+> no docs found   
+
+<endpoint module="luxe: render" class="PoseGraph" signature="node_index(graph : PoseGraph, node : PoseNode)"></endpoint>
+<signature id="PoseGraph.node_index+2">PoseGraph.node_index(**graph**: `PoseGraph`, **node**: `PoseNode`)
+<a class="headerlink" href="#PoseGraph.node_index+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Num`
+> no docs found   
+
+<endpoint module="luxe: render" class="PoseGraph" signature="node_count(graph : PoseGraph)"></endpoint>
+<signature id="PoseGraph.node_count">PoseGraph.node_count(**graph**: `PoseGraph`)
+<a class="headerlink" href="#PoseGraph.node_count" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Num`
+> no docs found   
+
+### PoseNode
+`:::js import "luxe: render" for PoseNode`
+> no docs found
+
+- [create](#PoseNode.create)(**node_type_id**: `String`)
+- [destroy](#PoseNode.destroy)(**node**: `PoseNode`)
+- [valid](#PoseNode.valid)(**node**: `PoseNode`)
+- [pose](#PoseNode.pose)(**node**: `PoseNode`)
+- [block](#PoseNode.block)(**node**: `PoseNode`)
+- [input](#PoseNode.input)(**node**: `PoseNode`)
+
+<hr/>
+<endpoint module="luxe: render" class="PoseNode" signature="create(node_type_id : String)"></endpoint>
+<signature id="PoseNode.create">PoseNode.create(**node_type_id**: `String`)
+<a class="headerlink" href="#PoseNode.create" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="PoseNode" signature="destroy(node : PoseNode)"></endpoint>
+<signature id="PoseNode.destroy">PoseNode.destroy(**node**: `PoseNode`)
+<a class="headerlink" href="#PoseNode.destroy" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="PoseNode" signature="valid(node : PoseNode)"></endpoint>
+<signature id="PoseNode.valid">PoseNode.valid(**node**: `PoseNode`)
+<a class="headerlink" href="#PoseNode.valid" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
+> no docs found   
+
+<endpoint module="luxe: render" class="PoseNode" signature="pose(node : PoseNode)"></endpoint>
+<signature id="PoseNode.pose">PoseNode.pose(**node**: `PoseNode`)
+<a class="headerlink" href="#PoseNode.pose" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Pose`
+> no docs found   
+
+<endpoint module="luxe: render" class="PoseNode" signature="block(node : PoseNode)"></endpoint>
+<signature id="PoseNode.block">PoseNode.block(**node**: `PoseNode`)
+<a class="headerlink" href="#PoseNode.block" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Block`
+> no docs found   
+
+<endpoint module="luxe: render" class="PoseNode" signature="input(node : PoseNode)"></endpoint>
+<signature id="PoseNode.input">PoseNode.input(**node**: `PoseNode`)
+<a class="headerlink" href="#PoseNode.input" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Any`
+> no docs found   
+
 ### Primitive
 `:::js import "luxe: render" for Primitive`
 > no docs found
@@ -3265,6 +3489,7 @@
 - [kMaterialLayerTargets](#Render.kMaterialLayerTargets)
 - [kMaterialInputs](#Render.kMaterialInputs)
 - [kMaterialReplace](#Render.kMaterialReplace)
+- [kMaterialPassUsage](#Render.kMaterialPassUsage)
 - [kStencilUnset](#Render.kStencilUnset)
 
 <hr/>
@@ -3727,6 +3952,12 @@
 <endpoint module="luxe: render" class="Render" signature="kMaterialReplace"></endpoint>
 <signature id="Render.kMaterialReplace">Render.kMaterialReplace
 <a class="headerlink" href="#Render.kMaterialReplace" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: render" class="Render" signature="kMaterialPassUsage"></endpoint>
+<signature id="Render.kMaterialPassUsage">Render.kMaterialPassUsage
+<a class="headerlink" href="#Render.kMaterialPassUsage" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
@@ -4221,6 +4452,7 @@
 - [settings](#RenderPathContext.settings)
 - [new](#RenderPathContext.new+2)(**path**: `String`, **settings**: `Map`)
 - [path](#RenderPathContext.path)
+- [change_path](#RenderPathContext.change_path)(**path**: `String`)
 - [layer_render](#RenderPathContext.layer_render+2)(**name**: `String`, **render_layer_desc**: `RenderLayerDesc`)
 - [layers_render](#RenderPathContext.layers_render+3)(**name**: `Any`, **layers_add**: `Any`, **render_layer_desc**: `Any`)
 - [layers_render](#RenderPathContext.layers_render+4)(**name**: `Any`, **layers_add**: `Any`, **layers_exclude**: `Any`, **render_layer_desc**: `Any`)
@@ -4246,6 +4478,12 @@
 <signature id="RenderPathContext.path">RenderPathContext.path
 <a class="headerlink" href="#RenderPathContext.path" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js String`
+> no docs found   
+
+<endpoint module="luxe: render" class="RenderPathContext" signature="change_path(path : String)"></endpoint>
+<signature id="RenderPathContext.change_path">RenderPathContext.change_path(**path**: `String`)
+<a class="headerlink" href="#RenderPathContext.change_path" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
 <endpoint module="luxe: render" class="RenderPathContext" signature="layer_render(name : String, render_layer_desc : RenderLayerDesc)"></endpoint>

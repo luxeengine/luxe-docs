@@ -1,6 +1,6 @@
 #![](../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2023.11.1`)  
+# `luxe` API (`2024.12.4`)  
 
 
 ---
@@ -56,6 +56,7 @@
 - [list](#Assets.list+4)(**db**: `AssetDB`, **ext**: `String`, **subtype**: `String`, **root**: `String`)
 - [list](#Assets.list+2)(**db**: `AssetDB`, **ext**: `String`)
 - [list_folders](#Assets.list_folders+3)(**db**: `AssetDB`, **root**: `String`, **use_path**: `Bool`)
+- [db_list_tags](#Assets.db_list_tags)(**db**: `AssetDB`)
 - [db_get_tags](#Assets.db_get_tags+2)(**db**: `AssetDB`, **asset_id**: `String`)
 - [db_get_tagged](#Assets.db_get_tagged+2)(**db**: `AssetDB`, **tag**: `String`)
 - [db_get_tagged_from_list](#Assets.db_get_tagged_from_list+2)(**db**: `AssetDB`, **tags**: `List`)
@@ -270,6 +271,12 @@
 <endpoint module="luxe: assets" class="Assets" signature="list_folders(db : AssetDB, root : String, use_path : Bool)"></endpoint>
 <signature id="Assets.list_folders+3">Assets.list_folders(**db**: `AssetDB`, **root**: `String`, **use_path**: `Bool`)
 <a class="headerlink" href="#Assets.list_folders+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js List`
+> no docs found   
+
+<endpoint module="luxe: assets" class="Assets" signature="db_list_tags(db : AssetDB)"></endpoint>
+<signature id="Assets.db_list_tags">Assets.db_list_tags(**db**: `AssetDB`)
+<a class="headerlink" href="#Assets.db_list_tags" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js List`
 > no docs found   
 

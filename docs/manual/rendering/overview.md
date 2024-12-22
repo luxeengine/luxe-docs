@@ -6,7 +6,7 @@
 
 ## Concepts
 
-The [concepts](../concepts) page covers important concepts related to how things are rendered in luxe. 
+The [concepts](concepts.md) page covers important concepts related to how things are rendered in luxe. 
 This covers topics like targets and viewports, for deciding how and where things render.
 
 ## Tiers
@@ -41,5 +41,5 @@ If you bypass that work, you'll have to do more work yourself.
 
 More details on each:
 
-- [High level](../high-level)
-- [Low level](../low-level)
+- [High level](high-level.md)
+- [Low level](low-level.md)

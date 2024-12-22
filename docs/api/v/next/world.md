@@ -1,6 +1,6 @@
 #![](../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2023.11.1`)  
+# `luxe` API (`2024.12.4`)  
 
 
 ---
@@ -757,12 +757,14 @@
 - [get](#Entity.get)(**uuid**: `String`)
 - [get_addressed_in](#Entity.get_addressed_in+2)(**context_root**: `Entity`, **address**: `List`)
 - [get_addressed](#Entity.get_addressed+2)(**relative_to**: `Entity`, **address**: `List`)
+- [resolve](#Entity.resolve+2)(**relative_to**: `Entity`, **address**: `List`)
 - [get_addressed_context](#Entity.get_addressed_context+2)(**relative_to**: `Entity`, **address**: `List`)
 - [get_named](#Entity.get_named+2)(**world**: `World`, **name**: `String`)
 - [get_named_all](#Entity.get_named_all+2)(**world**: `World`, **name**: `String`)
 - [get_named_in](#Entity.get_named_in+2)(**context**: `Entity`, **name**: `String`)
 - [get_named_all_in](#Entity.get_named_all_in+2)(**context**: `Entity`, **name**: `String`)
 - [get_name](#Entity.get_name)(**entity**: `Entity`)
+- [name](#Entity.name)(**entity**: `Entity`)
 - [get_folder](#Entity.get_folder)(**entity**: `Entity`)
 - [set_folder](#Entity.set_folder+2)(**entity**: `Entity`, **folder**: `String`)
 - [get_asset_id](#Entity.get_asset_id)(**entity**: `Entity`)
@@ -778,6 +780,7 @@
 - [list_context_direct](#Entity.list_context_direct)(**context**: `Entity`)
 - [get_context_id](#Entity.get_context_id)(**context**: `Entity`)
 - [get_origin_address](#Entity.get_origin_address)(**entity**: `Entity`)
+- [get_address](#Entity.get_address)(**entity**: `Entity`)
 - [get_context_is_direct](#Entity.get_context_is_direct+2)(**context**: `Entity`, **entity**: `Entity`)
 - [init_into_context](#Entity.init_into_context+2)(**entity**: `Entity`, **context**: `Entity`)
 - [init_into_context](#Entity.init_into_context+3)(**entity**: `Entity`, **context**: `Entity`, **address_uuid**: `UUID`)
@@ -790,6 +793,7 @@
 - [set_uuid](#Entity.set_uuid+2)(**entity**: `Entity`, **uuid_string**: `String`)
 - [destroy](#Entity.destroy)(**entity**: `Entity`)
 - [duplicate](#Entity.duplicate)(**entity**: `Entity`)
+- [duplicate](#Entity.duplicate+2)(**entity**: `Entity`, **world**: `World`)
 
 <hr/>
 <endpoint module="luxe: world" class="Entity" signature="none"></endpoint>
@@ -885,6 +889,15 @@
 > through all contexts in the tree to try and find the addressed entity.
 > The address is a list of uuids.   
 
+<endpoint module="luxe: world" class="Entity" signature="resolve(relative_to : Entity, address : List)"></endpoint>
+<signature id="Entity.resolve+2">Entity.resolve(**relative_to**: `Entity`, **address**: `List`)
+<a class="headerlink" href="#Entity.resolve+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Entity`
+> Find an entity by `address` relative to the given entity, and will search upward
+> through all contexts in the tree to try and find the addressed entity.
+> The address is a list of uuids called a `Link` typically.
+> Alias for `Entity.get_addressed`.   
+
 <endpoint module="luxe: world" class="Entity" signature="get_addressed_context(relative_to : Entity, address : List)"></endpoint>
 <signature id="Entity.get_addressed_context+2">Entity.get_addressed_context(**relative_to**: `Entity`, **address**: `List`)
 <a class="headerlink" href="#Entity.get_addressed_context+2" title="Permanent link">¶</a></signature>
@@ -963,6 +976,20 @@
 >   Entity.set_name(player, "player")
 >   var name_id = Entity.get_name(player)
 >   var name = Strings.get(name_id)
+>   Log.print("Entity name is `%(name)`!")
+>   // prints "Entity name is `player`"
+>   ```   
+
+<endpoint module="luxe: world" class="Entity" signature="name(entity : Entity)"></endpoint>
+<signature id="Entity.name">Entity.name(**entity**: `Entity`)
+<a class="headerlink" href="#Entity.name" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js String`
+> Get the name of a given `entity` as a string.
+> Supports invalid entities (returns `<invalid>`).
+> 
+>   ```js
+>   Entity.set_name(player, "player")
+>   var name = Entity.name(player)
 >   Log.print("Entity name is `%(name)`!")
 >   // prints "Entity name is `player`"
 >   ```   
@@ -1057,6 +1084,12 @@
 <span class='api_ret'>returns</span> `:::js List`
 > get the address of the entity within it's origin context.   
 
+<endpoint module="luxe: world" class="Entity" signature="get_address(entity : Entity)"></endpoint>
+<signature id="Entity.get_address">Entity.get_address(**entity**: `Entity`)
+<a class="headerlink" href="#Entity.get_address" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js List`
+> get the address of the entity within it's origin context.   
+
 <endpoint module="luxe: world" class="Entity" signature="get_context_is_direct(context : Entity, entity : Entity)"></endpoint>
 <signature id="Entity.get_context_is_direct+2">Entity.get_context_is_direct(**context**: `Entity`, **entity**: `Entity`)
 <a class="headerlink" href="#Entity.get_context_is_direct+2" title="Permanent link">¶</a></signature>
@@ -1139,6 +1172,14 @@
 <span class='api_ret'>returns</span> `:::js Entity`
 > Duplicate the given `entity`. 
 > Returns a new entity with the same notes, folder, name and modifiers.   
+
+<endpoint module="luxe: world" class="Entity" signature="duplicate(entity : Entity, world : World)"></endpoint>
+<signature id="Entity.duplicate+2">Entity.duplicate(**entity**: `Entity`, **world**: `World`)
+<a class="headerlink" href="#Entity.duplicate+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Entity`
+> Duplicate the given `entity` into another world.
+> Returns a new entity with the same notes, folder, name and modifiers.
+> Will not duplicate in same context as origin entity if the new world is different.   
 
 ### EntityContextType
 `:::js import "luxe: world" for EntityContextType`
@@ -2016,8 +2057,8 @@
 <signature id="Scene.create+2">Scene.create(**world**: `World`, **id**: `String`)
 <a class="headerlink" href="#Scene.create+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js Entity`
-> Instantiate a new scene into a world.
-> This function returns the root entity of the newly created scene instance.   
+> Create a new scene into a world. Does *not* load a scene asset with the given id.
+> This function returns the root entity of the newly created scene.   
 
 <endpoint module="luxe: world" class="Scene" signature="destroy(world : World, id : String)"></endpoint>
 <signature id="Scene.destroy+2">Scene.destroy(**world**: `World`, **id**: `String`)
@@ -2091,7 +2132,11 @@
 - [set_material_basis](#UI.set_material_basis+3)(**entity**: `Entity`, **solid**: `String`, **text**: `String`)
 - [set_bounds](#UI.set_bounds+6)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **w**: `Num`, **h**: `Num`, **z**: `Num`)
 - [get_pos](#UI.get_pos)(**entity**: `Entity`)
+- [get_opacity](#UI.get_opacity)(**entity**: `Entity`)
+- [set_opacity](#UI.set_opacity+2)(**entity**: `Entity`, **opacity**: `Num`)
 - [get_size](#UI.get_size)(**entity**: `Entity`)
+- [get_debug_control](#UI.get_debug_control)(**entity**: `Entity`)
+- [get_debug_draw_depth](#UI.get_debug_draw_depth)(**entity**: `Entity`)
 - [get_input_node](#UI.get_input_node)(**entity**: `Entity`)
 - [set_input_node](#UI.set_input_node+2)(**entity**: `Entity`, **input_node_id**: `String`)
 - [set_layout_mode](#UI.set_layout_mode+2)(**entity**: `Entity`, **mode**: `UILayoutMode`)
@@ -2131,6 +2176,7 @@
 - [draw_path](#UI.draw_path+4)(**control**: `Control`, **points**: `List`, **style**: `PathStyle`, **closed**: `Bool`)
 - [events_emit](#UI.events_emit+2)(**control**: `Control`, **type**: `UIEvent`)
 - [events_emit](#UI.events_emit+3)(**control**: `Control`, **type**: `UIEvent`, **data**: `Any`)
+- [events_emit](#UI.events_emit+4)(**control**: `Control`, **type**: `UIEvent`, **data**: `Any`, **data_before**: `Any`)
 
 <hr/>
 <endpoint module="luxe: world" class="UI" signature="create(entity : Entity, x : Num, y : Num, w : Num, h : Num, z : Num, camera : Entity)"></endpoint>
@@ -2214,11 +2260,35 @@
 <span class='api_ret'>returns</span> `:::js Vec`
 > Get position of an `UI` modifier.   
 
+<endpoint module="luxe: world" class="UI" signature="get_opacity(entity : Entity)"></endpoint>
+<signature id="UI.get_opacity">UI.get_opacity(**entity**: `Entity`)
+<a class="headerlink" href="#UI.get_opacity" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Num`
+> Get overall UI opacity   
+
+<endpoint module="luxe: world" class="UI" signature="set_opacity(entity : Entity, opacity : Num)"></endpoint>
+<signature id="UI.set_opacity+2">UI.set_opacity(**entity**: `Entity`, **opacity**: `Num`)
+<a class="headerlink" href="#UI.set_opacity+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Num`
+> Set overall UI opacity   
+
 <endpoint module="luxe: world" class="UI" signature="get_size(entity : Entity)"></endpoint>
 <signature id="UI.get_size">UI.get_size(**entity**: `Entity`)
 <a class="headerlink" href="#UI.get_size" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js Vec`
 > Get size of an `UI` modifier.   
+
+<endpoint module="luxe: world" class="UI" signature="get_debug_control(entity : Entity)"></endpoint>
+<signature id="UI.get_debug_control">UI.get_debug_control(**entity**: `Entity`)
+<a class="headerlink" href="#UI.get_debug_control" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Control`
+> no docs found   
+
+<endpoint module="luxe: world" class="UI" signature="get_debug_draw_depth(entity : Entity)"></endpoint>
+<signature id="UI.get_debug_draw_depth">UI.get_debug_draw_depth(**entity**: `Entity`)
+<a class="headerlink" href="#UI.get_debug_draw_depth" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Num`
+> no docs found   
 
 <endpoint module="luxe: world" class="UI" signature="get_input_node(entity : Entity)"></endpoint>
 <signature id="UI.get_input_node">UI.get_input_node(**entity**: `Entity`)
@@ -2296,7 +2366,7 @@
 <signature id="UI.get_marked">UI.get_marked(**entity**: `Entity`)
 <a class="headerlink" href="#UI.get_marked" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js Control`
-> Get captured control, `null` if none is captured. A control being marked means it is hovered over and can be focused.   
+> Get marked control, `null` if none is marked. A control being marked means it is hovered over and can be focused.   
 
 <endpoint module="luxe: world" class="UI" signature="get_control_count(entity : Entity)"></endpoint>
 <signature id="UI.get_control_count">UI.get_control_count(**entity**: `Entity`)
@@ -2480,6 +2550,12 @@
 <span class='api_ret'>returns</span> `:::js None`
 > no docs found   
 
+<endpoint module="luxe: world" class="UI" signature="events_emit(control : Control, type : UIEvent, data : Any, data_before : Any)"></endpoint>
+<signature id="UI.events_emit+4">UI.events_emit(**control**: `Control`, **type**: `UIEvent`, **data**: `Any`, **data_before**: `Any`)
+<a class="headerlink" href="#UI.events_emit+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> no docs found   
+
 ### UIBehave
 `:::js import "luxe: world" for UIBehave`
 > no docs found
@@ -2501,61 +2577,61 @@
 <signature id="UIBehave.left">UIBehave.left
 <a class="headerlink" href="#UIBehave.left" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> Item anchors to the item to its left or left side of parent   
 
 <endpoint module="luxe: world" class="UIBehave" signature="top"></endpoint>
 <signature id="UIBehave.top">UIBehave.top
 <a class="headerlink" href="#UIBehave.top" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> Item anchors to the item above it or top side of parent   
 
 <endpoint module="luxe: world" class="UIBehave" signature="right"></endpoint>
 <signature id="UIBehave.right">UIBehave.right
 <a class="headerlink" href="#UIBehave.right" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> Item anchors to the item to its right or right side of parent   
 
 <endpoint module="luxe: world" class="UIBehave" signature="bottom"></endpoint>
 <signature id="UIBehave.bottom">UIBehave.bottom
 <a class="headerlink" href="#UIBehave.bottom" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> Item anchors to the item below it or bottom side of parent   
 
 <endpoint module="luxe: world" class="UIBehave" signature="hfill"></endpoint>
 <signature id="UIBehave.hfill">UIBehave.hfill
 <a class="headerlink" href="#UIBehave.hfill" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> Item anchors to both left and right item or parent borders   
 
 <endpoint module="luxe: world" class="UIBehave" signature="vfill"></endpoint>
 <signature id="UIBehave.vfill">UIBehave.vfill
 <a class="headerlink" href="#UIBehave.vfill" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> Item anchors to both top and bottom item or parent borders   
 
 <endpoint module="luxe: world" class="UIBehave" signature="hcenter"></endpoint>
 <signature id="UIBehave.hcenter">UIBehave.hcenter
 <a class="headerlink" href="#UIBehave.hcenter" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> Center item horizontally, with left margin as offset   
 
 <endpoint module="luxe: world" class="UIBehave" signature="vcenter"></endpoint>
 <signature id="UIBehave.vcenter">UIBehave.vcenter
 <a class="headerlink" href="#UIBehave.vcenter" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> Center item vertically, with top margin as offset   
 
 <endpoint module="luxe: world" class="UIBehave" signature="center"></endpoint>
 <signature id="UIBehave.center">UIBehave.center
 <a class="headerlink" href="#UIBehave.center" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> Center item in both directions, with left/top margin as offset   
 
 <endpoint module="luxe: world" class="UIBehave" signature="fill"></endpoint>
 <signature id="UIBehave.fill">UIBehave.fill
 <a class="headerlink" href="#UIBehave.fill" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> Anchor item to all four directions   
 
 <endpoint module="luxe: world" class="UIBehave" signature="break_line"></endpoint>
 <signature id="UIBehave.break_line">UIBehave.break_line
@@ -2619,73 +2695,73 @@
 <signature id="UIContain.row">UIContain.row
 <a class="headerlink" href="#UIContain.row" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> Items go from left to right   
 
 <endpoint module="luxe: world" class="UIContain" signature="column"></endpoint>
 <signature id="UIContain.column">UIContain.column
 <a class="headerlink" href="#UIContain.column" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> Items go from top to bottom   
 
 <endpoint module="luxe: world" class="UIContain" signature="layout"></endpoint>
 <signature id="UIContain.layout">UIContain.layout
 <a class="headerlink" href="#UIContain.layout" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> Use Free Layout model   
 
 <endpoint module="luxe: world" class="UIContain" signature="flex"></endpoint>
 <signature id="UIContain.flex">UIContain.flex
 <a class="headerlink" href="#UIContain.flex" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> Use Flex Layout model   
 
 <endpoint module="luxe: world" class="UIContain" signature="nowrap"></endpoint>
 <signature id="UIContain.nowrap">UIContain.nowrap
 <a class="headerlink" href="#UIContain.nowrap" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> Stays on a single line   
 
 <endpoint module="luxe: world" class="UIContain" signature="wrap"></endpoint>
 <signature id="UIContain.wrap">UIContain.wrap
 <a class="headerlink" href="#UIContain.wrap" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> Wraps to multiple lines, wrapping left to right   
 
 <endpoint module="luxe: world" class="UIContain" signature="start"></endpoint>
 <signature id="UIContain.start">UIContain.start
 <a class="headerlink" href="#UIContain.start" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> Items begin at start of row/column   
 
 <endpoint module="luxe: world" class="UIContain" signature="middle"></endpoint>
 <signature id="UIContain.middle">UIContain.middle
 <a class="headerlink" href="#UIContain.middle" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> Items begin at middle of row/column   
 
 <endpoint module="luxe: world" class="UIContain" signature="end"></endpoint>
 <signature id="UIContain.end">UIContain.end
 <a class="headerlink" href="#UIContain.end" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> Items begin at end of row/column   
 
 <endpoint module="luxe: world" class="UIContain" signature="justify"></endpoint>
 <signature id="UIContain.justify">UIContain.justify
 <a class="headerlink" href="#UIContain.justify" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> Insert spacing between items to stretch elements across whole row/column   
 
 <endpoint module="luxe: world" class="UIContain" signature="vfit"></endpoint>
 <signature id="UIContain.vfit">UIContain.vfit
 <a class="headerlink" href="#UIContain.vfit" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> Items stretch height to fill vertical space   
 
 <endpoint module="luxe: world" class="UIContain" signature="hfit"></endpoint>
 <signature id="UIContain.hfit">UIContain.hfit
 <a class="headerlink" href="#UIContain.hfit" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
-> no docs found   
+> Items stretch width to fill horizontal space   
 
 ### UIDebugMode
 `:::js import "luxe: world" for UIDebugMode`

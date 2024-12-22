@@ -8,7 +8,7 @@ The below is a list of key concepts the luxe renderer uses, based on this set of
 - What happens during rendering? (Render Path)
 - Where does the rendering end up? (Resources/Render Targets/Target Region)
 
-Many of these concepts will be expanded in detail in the [pipeline](../pipelines) section, 
+Many of these concepts will be expanded in detail in the pipeline section, 
 but are important to understand how rendering fits together.
 
 ## Geometry

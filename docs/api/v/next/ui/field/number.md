@@ -1,6 +1,6 @@
 #![](../../../../../../../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2023.11.1`)  
+# `luxe` API (`2024.12.4`)  
 
 
 ---
@@ -95,6 +95,7 @@
 - [on_radial_event](#UINumberState.on_radial_event)(**event**: `Any`)
 - [cancel_radial_capture](#UINumberState.cancel_radial_capture)()
 - [render_radial](#UINumberState.render_radial+6)(**control**: `Any`, **state**: `Any`, **x**: `Any`, **y**: `Any`, **w**: `Any`, **h**: `Any`)
+- [make_num](#UINumberState.make_num)(**string**: `String`)
 - [validate](#UINumberState.validate)(**num**: `Num`)
 - [try_expression](#UINumberState.try_expression)(**string**: `String`)
 - [on_text_event](#UINumberState.on_text_event)(**event**: `Any`)
@@ -199,6 +200,12 @@
 <endpoint module="luxe: ui/field/number" class="UINumberState" signature="render_radial(control : Any, state : Any, x : Any, y : Any, w : Any, h : Any)"></endpoint>
 <signature id="UINumberState.render_radial+6">UINumberState.render_radial(**control**: `Any`, **state**: `Any`, **x**: `Any`, **y**: `Any`, **w**: `Any`, **h**: `Any`)
 <a class="headerlink" href="#UINumberState.render_radial+6" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: ui/field/number" class="UINumberState" signature="make_num(string : String)"></endpoint>
+<signature id="UINumberState.make_num">UINumberState.make_num(**string**: `String`)
+<a class="headerlink" href="#UINumberState.make_num" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 

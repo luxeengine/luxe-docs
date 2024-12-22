@@ -1,6 +1,6 @@
 #![](../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2023.11.1`)  
+# `luxe` API (`2024.12.4`)  
 
 
 ---
@@ -45,6 +45,7 @@
 - [select](#Selection.select+2)(**item**: `Any`, **plural**: `Bool`)
 - [select_items](#Selection.select_items)(**items**: `List`)
 - [select_items](#Selection.select_items+2)(**items**: `List`, **plural**: `Bool`)
+- [toggle](#Selection.toggle)(**item**: `Any`)
 - [notify](#Selection.notify)()
 - [set_invalid_handler](#Selection.set_invalid_handler)(**fn**: `Fn`)
 
@@ -234,6 +235,12 @@
 >             are added to the existing selection. If not, the selection
 >             is cleared and only the items are selected afterward. 
 >             Emits `SELECT` with a list containing the items   
+
+<endpoint module="luxe: selection" class="Selection" signature="toggle(item : Any)"></endpoint>
+<signature id="Selection.toggle">Selection.toggle(**item**: `Any`)
+<a class="headerlink" href="#Selection.toggle" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
 
 <endpoint module="luxe: selection" class="Selection" signature="notify()"></endpoint>
 <signature id="Selection.notify">Selection.notify()

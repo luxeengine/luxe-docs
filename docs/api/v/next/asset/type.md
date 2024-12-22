@@ -1,6 +1,6 @@
 #![](../../../../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2023.11.1`)  
+# `luxe` API (`2024.12.4`)  
 
 
 ---
@@ -328,6 +328,7 @@
 - [new](#AssetType.new+2)(**type_id**: `String`, **ctx**: `AssetContext`)
 - [remap](#AssetType.remap+2)(**asset**: `AssetID`, **new_id**: `String`)
 - [get_remap](#AssetType.get_remap)(**map**: `Map`)
+- [modify_affected](#AssetType.modify_affected)(**asset**: `AssetID`)
 - [modify](#AssetType.modify)(**asset**: `AssetID`)
 - [unmodify](#AssetType.unmodify)(**asset**: `AssetID`)
 - [emit_path](#AssetType.emit_path)(**asset**: `AssetID`)
@@ -336,7 +337,7 @@
 - [set_handle](#AssetType.set_handle+2)(**id**: `String`, **handle**: `Num`)
 - [pre](#AssetType.pre)(**assets**: `List`)
 - [process](#AssetType.process+2)(**assets**: `List`, **each**: `Fn`)
-- [loader](#AssetType.loader)(**assets**: `List`)
+- [loader](#AssetType.loader+2)(**assets**: `List`, **artifacts**: `List`)
 
 <hr/>
 <endpoint module="luxe: asset/type" class="AssetType" signature="type_id"></endpoint>
@@ -447,6 +448,12 @@
 <span class='api_ret'>returns</span> `:::js Map`
 > no docs found   
 
+<endpoint module="luxe: asset/type" class="AssetType" signature="modify_affected(asset : AssetID)"></endpoint>
+<signature id="AssetType.modify_affected">AssetType.modify_affected(**asset**: `AssetID`)
+<a class="headerlink" href="#AssetType.modify_affected" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> modify all assets that refer to this one   
+
 <endpoint module="luxe: asset/type" class="AssetType" signature="modify(asset : AssetID)"></endpoint>
 <signature id="AssetType.modify">AssetType.modify(**asset**: `AssetID`)
 <a class="headerlink" href="#AssetType.modify" title="Permanent link">¶</a></signature>
@@ -495,9 +502,9 @@
 <span class='api_ret'>returns</span> `:::js None`
 > no docs found   
 
-<endpoint module="luxe: asset/type" class="AssetType" signature="loader(assets : List)"></endpoint>
-<signature id="AssetType.loader">AssetType.loader(**assets**: `List`)
-<a class="headerlink" href="#AssetType.loader" title="Permanent link">¶</a></signature>
+<endpoint module="luxe: asset/type" class="AssetType" signature="loader(assets : List, artifacts : List)"></endpoint>
+<signature id="AssetType.loader+2">AssetType.loader(**assets**: `List`, **artifacts**: `List`)
+<a class="headerlink" href="#AssetType.loader+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js None`
 > no docs found   
 

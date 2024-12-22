@@ -121,7 +121,7 @@ In this example we've reused the `change` event and given it meaning for our con
 var quadrant = Quadrant.create(ui)
 Control.set_event(quadrant) {|event|
   if(event.type == UIEvent.change) {
-    System.print("quadrant changed! now `%(event.change)`")
+    Log.print("quadrant changed! now `%(event.change)`")
   }
 }
 ```
@@ -177,7 +177,7 @@ Control.set_render(custom) {|control, state, x,y,w,h|
 There are several drawing functions, [found here in the UI API](../../../api/world/#ui). 
 
 They offer drawing either solid or outlined versions of basic shapes similar 
-to the [Draw](../../basics/drawing-2d) API). There's also text and images as you'd expect.
+to the [Draw API](../../tutorials/draw-and-input/index.md). There's also text and images as you'd expect.
 
 One side effect of this style of rendering, is that you have access to state outside of the control.
 

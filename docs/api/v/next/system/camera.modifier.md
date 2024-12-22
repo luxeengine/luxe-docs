@@ -1,6 +1,6 @@
 #![](../../../../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2023.11.1`)  
+# `luxe` API (`2024.12.4`)  
 
 
 ---
@@ -11,6 +11,7 @@
 - [CameraProjection](#cameraprojection)   
 - [CameraViewType](#cameraviewtype)   
 - [Data](#data)   
+- [PerEntityInfo](#perentityinfo)   
 - [System](#system)   
 
 ---
@@ -52,6 +53,9 @@
 - [set_projection_matrix](#Camera.set_projection_matrix+2)(**entity**: `Any`, **matrix**: `Any`)
 - [cull](#Camera.cull+2)(**camera**: `Any`, **render_set**: `Any`)
 - [froxelize](#Camera.froxelize+5)(**camera**: `Any`, **slices**: `Any`, **entity_info_list**: `Any`, **cluster_image**: `Any`, **items_image**: `Any`)
+- [cut](#Camera.cut+2)(**camera**: `Entity`, **to_camera**: `Entity`)
+- [blend](#Camera.blend+4)(**camera**: `Entity`, **from_camera**: `Entity`, **to_camera**: `Entity`, **t**: `Num`)
+- [blend](#Camera.blend+3)(**camera**: `Entity`, **to_camera**: `Entity`, **t**: `Num`)
 
 <hr/>
 <endpoint module="luxe: system/camera.modifier" class="Camera" signature="create(entity : Any)"></endpoint>
@@ -252,6 +256,24 @@
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
+<endpoint module="luxe: system/camera.modifier" class="Camera" signature="cut(camera : Entity, to_camera : Entity)"></endpoint>
+<signature id="Camera.cut+2">Camera.cut(**camera**: `Entity`, **to_camera**: `Entity`)
+<a class="headerlink" href="#Camera.cut+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: system/camera.modifier" class="Camera" signature="blend(camera : Entity, from_camera : Entity, to_camera : Entity, t : Num)"></endpoint>
+<signature id="Camera.blend+4">Camera.blend(**camera**: `Entity`, **from_camera**: `Entity`, **to_camera**: `Entity`, **t**: `Num`)
+<a class="headerlink" href="#Camera.blend+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: system/camera.modifier" class="Camera" signature="blend(camera : Entity, to_camera : Entity, t : Num)"></endpoint>
+<signature id="Camera.blend+3">Camera.blend(**camera**: `Entity`, **to_camera**: `Entity`, **t**: `Num`)
+<a class="headerlink" href="#Camera.blend+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
 ### CameraProjection
 `:::js import "luxe: system/camera.modifier" for CameraProjection`
 > no docs found
@@ -310,18 +332,126 @@
 `:::js import "luxe: system/camera.modifier" for Data`
 > no docs found
 
+- `:::js var align_to_view : Num = 0`
+- `:::js var kind : CameraViewType = CameraViewType.view_2D`
+- `:::js var offset : Float2 = [0, 0]`
+- `:::js var size : Float2 = [0, 0]`
+- `:::js var near_2d : Num = -2000`
+- `:::js var far_2d : Num = 2000`
+- `:::js var zoom : Num = 1`
+- `:::js var fov_vertical : Num = 60`
+- `:::js var aspect : Num = 0`
+- `:::js var near_3d : Num = 0.1`
+- `:::js var far_3d : Num = 100`
+- `:::js var default : Bool = false`
+- `:::js var debug_draw : Bool = false`
+- `:::js var debug_color : Color = [0.965, 0, 0.486, 1]`
+- `:::js var debug_thickness : Num = 1`
 
 <hr/>
+### PerEntityInfo
+`:::js import "luxe: system/camera.modifier" for PerEntityInfo`
+> no docs found
+
+- `:::js var entity : Num = 0`
+- `:::js var window : Any = null`
+- `:::js var preview : Any = null`
+- `:::js var world_edit : Any = null`
+- [new](#PerEntityInfo.new)(**in_entity**: `Any`)
+- [destroy](#PerEntityInfo.destroy)()
+- [show](#PerEntityInfo.show)(**state**: `Bool`)
+- [update](#PerEntityInfo.update)()
+
+<hr/>
+<endpoint module="luxe: system/camera.modifier" class="PerEntityInfo" signature="new(in_entity : Any)"></endpoint>
+<signature id="PerEntityInfo.new">PerEntityInfo.new(**in_entity**: `Any`)
+<a class="headerlink" href="#PerEntityInfo.new" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js PerEntityInfo`
+> no docs found   
+
+<endpoint module="luxe: system/camera.modifier" class="PerEntityInfo" signature="destroy()"></endpoint>
+<signature id="PerEntityInfo.destroy">PerEntityInfo.destroy()
+<a class="headerlink" href="#PerEntityInfo.destroy" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: system/camera.modifier" class="PerEntityInfo" signature="show(state : Bool)"></endpoint>
+<signature id="PerEntityInfo.show">PerEntityInfo.show(**state**: `Bool`)
+<a class="headerlink" href="#PerEntityInfo.show" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: system/camera.modifier" class="PerEntityInfo" signature="update()"></endpoint>
+<signature id="PerEntityInfo.update">PerEntityInfo.update()
+<a class="headerlink" href="#PerEntityInfo.update" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
 ### System
 `:::js import "luxe: system/camera.modifier" for System`
 > no docs found
 
+- `:::js var draw : Draw = null`
+- `:::js var style : null = PathStyle.new`
+- `:::js var window : Any = null`
+- `:::js var preview : Any = null`
+- `:::js var world_edit : Any = null`
+- `:::js var current_selection : PerEntityInfo = null`
 - [new](#System.new)(**world**: `World`)
+- [editor_init](#System.editor_init)(**world**: `World`)
+- [init](#System.init)(**world**: `World`)
+- [editor_attach](#System.editor_attach+2)(**entity**: `Entity`, **data**: `Data`)
+- [editor_detach](#System.editor_detach+2)(**entity**: `Entity`, **data**: `Data`)
+- [tick](#System.tick)(**delta**: `Num`)
+- [editor_change](#System.editor_change+2)(**entity**: `Entity`, **change**: `ModifierChange`)
+- [editor_tick](#System.editor_tick)(**delta**: `Num`)
 
 <hr/>
 <endpoint module="luxe: system/camera.modifier" class="System" signature="new(world : World)"></endpoint>
 <signature id="System.new">System.new(**world**: `World`)
 <a class="headerlink" href="#System.new" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js System`
+> no docs found   
+
+<endpoint module="luxe: system/camera.modifier" class="System" signature="editor_init(world : World)"></endpoint>
+<signature id="System.editor_init">System.editor_init(**world**: `World`)
+<a class="headerlink" href="#System.editor_init" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: system/camera.modifier" class="System" signature="init(world : World)"></endpoint>
+<signature id="System.init">System.init(**world**: `World`)
+<a class="headerlink" href="#System.init" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: system/camera.modifier" class="System" signature="editor_attach(entity : Entity, data : Data)"></endpoint>
+<signature id="System.editor_attach+2">System.editor_attach(**entity**: `Entity`, **data**: `Data`)
+<a class="headerlink" href="#System.editor_attach+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: system/camera.modifier" class="System" signature="editor_detach(entity : Entity, data : Data)"></endpoint>
+<signature id="System.editor_detach+2">System.editor_detach(**entity**: `Entity`, **data**: `Data`)
+<a class="headerlink" href="#System.editor_detach+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: system/camera.modifier" class="System" signature="tick(delta : Num)"></endpoint>
+<signature id="System.tick">System.tick(**delta**: `Num`)
+<a class="headerlink" href="#System.tick" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: system/camera.modifier" class="System" signature="editor_change(entity : Entity, change : ModifierChange)"></endpoint>
+<signature id="System.editor_change+2">System.editor_change(**entity**: `Entity`, **change**: `ModifierChange`)
+<a class="headerlink" href="#System.editor_change+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: system/camera.modifier" class="System" signature="editor_tick(delta : Num)"></endpoint>
+<signature id="System.editor_tick">System.editor_tick(**delta**: `Num`)
+<a class="headerlink" href="#System.editor_tick" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 

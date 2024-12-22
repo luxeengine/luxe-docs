@@ -1,6 +1,6 @@
 #![](../../../../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2023.11.1`)  
+# `luxe` API (`2024.12.4`)  
 
 
 ---
@@ -17,6 +17,8 @@
 `:::js import "luxe: system/skin.modifier" for Data`
 > no docs found
 
+- `:::js var mesh_entity : Link = null`
+- `:::js var skeleton_entity : Link = null`
 
 <hr/>
 ### Skin

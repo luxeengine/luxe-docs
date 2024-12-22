@@ -1,6 +1,6 @@
 #![](../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2023.11.1`)  
+# `luxe` API (`2024.12.4`)  
 
 
 ---
@@ -31,6 +31,7 @@
 - [contains](#Lists.contains+2)(**list**: `Any`, **item**: `Any`)
 - [remove](#Lists.remove+2)(**list**: `Any`, **to_remove**: `Any`)
 - [index_of](#Lists.index_of+2)(**list**: `Any`, **item**: `Any`)
+- [index_of_where](#Lists.index_of_where+2)(**list**: `List`, **fn**: `Fn`)
 - [index_of_where](#Lists.index_of_where+3)(**list**: `List`, **value**: `Any`, **fn**: `Fn`)
 - [bubble_sort](#Lists.bubble_sort+2)(**list**: `List`, **compare**: `Fn`)
 - [quicksort](#Lists.quicksort+2)(**list**: `List`, **compare**: `Fn`)
@@ -215,6 +216,18 @@
 <span class='api_ret'>returns</span> `:::js unknown`
 > Deprecated. Use list.indexOf(item)
 > Returns the index, or -1 if the item isn't found.   
+
+<endpoint module="luxe: containers" class="Lists" signature="index_of_where(list : List, fn : Fn)"></endpoint>
+<signature id="Lists.index_of_where+2">Lists.index_of_where(**list**: `List`, **fn**: `Fn`)
+<a class="headerlink" href="#Lists.index_of_where+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Num`
+> Returns the index of `value` in `list` or `-1` if not found,
+> where comparison is handled by a callback function.
+> 
+>   ```js
+>   var list = [1,2,3]
+>   Lists.index_of_where(list, 3) {|value, other| value == other } //2
+>   ```   
 
 <endpoint module="luxe: containers" class="Lists" signature="index_of_where(list : List, value : Any, fn : Fn)"></endpoint>
 <signature id="Lists.index_of_where+3">Lists.index_of_where(**list**: `List`, **value**: `Any`, **fn**: `Fn`)

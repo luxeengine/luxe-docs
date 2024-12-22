@@ -1,6 +1,6 @@
 #![](../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2023.11.1`)  
+# `luxe` API (`2024.12.4`)  
 
 
 ---
@@ -61,6 +61,9 @@
 - [get](#Loc.get+2)(**space**: `String`, **key**: `String`)
 - [get](#Loc.get)(**key**: `String`)
 - [has](#Loc.has)(**key**: `String`)
+- [load_primary](#Loc.load_primary)(**asset_id**: `String`)
+- [load_language](#Loc.load_language)(**asset_id**: `String`)
+- [load_language](#Loc.load_language+2)(**asset_id**: `String`, **primary**: `Bool`)
 
 <hr/>
 <endpoint module="luxe: string" class="Loc" signature="default_space"></endpoint>
@@ -153,6 +156,24 @@
 <span class='api_ret'>returns</span> `:::js Bool`
 > Check if the string for a key exists in the localisation system for the current language and default space   
 
+<endpoint module="luxe: string" class="Loc" signature="load_primary(asset_id : String)"></endpoint>
+<signature id="Loc.load_primary">Loc.load_primary(**asset_id**: `String`)
+<a class="headerlink" href="#Loc.load_primary" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
+> no docs found   
+
+<endpoint module="luxe: string" class="Loc" signature="load_language(asset_id : String)"></endpoint>
+<signature id="Loc.load_language">Loc.load_language(**asset_id**: `String`)
+<a class="headerlink" href="#Loc.load_language" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
+> no docs found   
+
+<endpoint module="luxe: string" class="Loc" signature="load_language(asset_id : String, primary : Bool)"></endpoint>
+<signature id="Loc.load_language+2">Loc.load_language(**asset_id**: `String`, **primary**: `Bool`)
+<a class="headerlink" href="#Loc.load_language+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Bool`
+> no docs found   
+
 ### Str
 `:::js import "luxe: string" for Str`
 > Utility class for String functions.
@@ -166,6 +187,7 @@
 - [replace](#Str.replace+3)(**string**: `String`, **sub**: `String`, **repl**: `String`)
 - [is_alphanumeric](#Str.is_alphanumeric)(**str**: `String`)
 - [is_numeric](#Str.is_numeric)(**str**: `String`)
+- [increment_end](#Str.increment_end)(**string**: `String`)
 - [vec](#Str.vec)(**value**: `Vec`)
 - [vec](#Str.vec+2)(**value**: `Vec`, **precision**: `Num`)
 - [vec](#Str.vec+3)(**value**: `Vec`, **precision**: `Num`, **sep**: `String`)
@@ -205,6 +227,7 @@
 - [format](#Str.format+16)(**string**: `String`, **arg0**: `Any`, **arg1**: `Any`, **arg2**: `Any`, **arg3**: `Any`, **arg4**: `Any`, **arg5**: `Any`, **arg6**: `Any`, **arg7**: `Any`, **arg8**: `Any`, **arg9**: `Any`, **arg10**: `Any`, **arg11**: `Any`, **arg12**: `Any`, **arg13**: `Any`, **arg14**: `Any`)
 - [format_list](#Str.format_list+2)(**string**: `String`, **args**: `List`)
 - [valid](#Str.valid)(**string**: `String`)
+- [template](#Str.template+2)(**string**: `String`, **key_value_context**: `Map`)
 
 <hr/>
 <endpoint module="luxe: string" class="Str" signature="split_lines(string : String)"></endpoint>
@@ -336,6 +359,12 @@
 >     Log.print(Str.is_alphanumeric("4-leaf")) //false
 >     Log.print(Str.is_alphanumeric("3¾")) //false
 > ```   
+
+<endpoint module="luxe: string" class="Str" signature="increment_end(string : String)"></endpoint>
+<signature id="Str.increment_end">Str.increment_end(**string**: `String`)
+<a class="headerlink" href="#Str.increment_end" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js String`
+> no docs found   
 
 <endpoint module="luxe: string" class="Str" signature="vec(value : Vec)"></endpoint>
 <signature id="Str.vec">Str.vec(**value**: `Vec`)
@@ -588,4 +617,18 @@
 <a class="headerlink" href="#Str.valid" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js Bool`
 > Check if string is null or empty   
+
+<endpoint module="luxe: string" class="Str" signature="template(string : String, key_value_context : Map)"></endpoint>
+<signature id="Str.template+2">Str.template(**string**: `String`, **key_value_context**: `Map`)
+<a class="headerlink" href="#Str.template+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> A simple templating helper. Replace parts of the text with data from a given context map, by simple (non nested) string keys.
+> For example, given the string `"hello <[user.name]>"` we can do `Str.template(string, {"user.name": name})`.
+> The keys are delimited with `<[` and ended with `]>` in the string. Any not matched, won't be replaced.
+> If you have a wren map with nested values, `LX.flatten()` can convert to simple key values for you.
+> Values in the map are converted with `toString` if not a string.
+> 
+> ```js
+>   Log.print(Str.template("hello <[user.name]>", {"user.name" : "luxe"})) //hello luxe
+> ```   
 

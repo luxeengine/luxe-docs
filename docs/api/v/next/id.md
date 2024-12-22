@@ -1,6 +1,6 @@
 #![](../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2023.11.1`)  
+# `luxe` API (`2024.12.4`)  
 
 
 ---
@@ -19,6 +19,7 @@
 - [unique](#ID.unique)(**length**: `Num`)
 - [index](#ID.index)(**index**: `Num`)
 - [uuid](#ID.uuid)()
+- [uuid](#ID.uuid)(**from**: `String`)
 - [uuid_validate](#ID.uuid_validate)(**uuid**: `String`)
 - [uuid_base62](#ID.uuid_base62)()
 - [uuid_combine](#ID.uuid_combine+2)(**uuid_a**: `String`, **uuid_b**: `String`)
@@ -73,6 +74,18 @@
 >   Log.print(ID.uuid()) //5606ba0f-968a-4ab7-8230-ba46cdb345da
 >   Log.print(ID.uuid()) //48e3d469-e9fa-4a24-aa22-d653de9af5b2
 >   Log.print(ID.uuid()) //a4861cc5-c2e4-4656-a3a4-176bc63e5d05
+>   ```   
+
+<endpoint module="luxe: id" class="ID" signature="uuid(from : String)"></endpoint>
+<signature id="ID.uuid">ID.uuid(**from**: `String`)
+<a class="headerlink" href="#ID.uuid" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js String`
+> Returns a UUID v4 from the given string (treated as bytes).
+> This runs a 128 bit hash (spooky v2) over the string, converting the bits to a uuid string.
+> 
+>   ```js
+>   Log.print(ID.uuid("hello")) //3768826a-d382-e6ca-5c94-1ed1c71ae043
+>   Log.print(ID.uuid("luxe")) //7281a4a8-abc4-dc50-52ae-7f59626f242a
 >   ```   
 
 <endpoint module="luxe: id" class="ID" signature="uuid_validate(uuid : String)"></endpoint>

@@ -1,6 +1,6 @@
 #![](../../../../../../../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2023.11.1`)  
+# `luxe` API (`2024.12.4`)  
 
 
 ---
@@ -29,6 +29,7 @@
 `:::js import "luxe: ui/field/framemarks" for UIFrameMarksState`
 > no docs found
 
+- `:::js var style : null = PathStyle.new`
 - [new](#UIFrameMarksState.new+2)(**ui**: `Entity`, **ctrl**: `Control`)
 
 <hr/>

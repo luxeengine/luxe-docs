@@ -1,6 +1,6 @@
 #![](../../../../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2023.11.1`)  
+# `luxe` API (`2024.12.4`)  
 
 
 ---
@@ -19,12 +19,22 @@
 `:::js import "luxe: system/values.modifier" for Data`
 > no docs found
 
+- `:::js var values : List = []`
 
 <hr/>
 ### Value
 `:::js import "luxe: system/values.modifier" for Value`
 > no docs found
 
+- `:::js var kind : ValuesKind = ValuesKind.number`
+- `:::js var name : String = "value"`
+- `:::js var number : Num = 0`
+- `:::js var string : String = ""`
+- `:::js var boolean : Bool = false`
+- `:::js var float2 : Float2 = [0, 0]`
+- `:::js var float3 : Float3 = [0, 0, 0]`
+- `:::js var float4 : Float4 = [0, 0, 0, 0]`
+- `:::js var color : Color = [1, 1, 1, 1]`
 
 <hr/>
 ### Values

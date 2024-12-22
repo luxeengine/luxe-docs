@@ -1,6 +1,6 @@
 #![](../../../../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2023.11.1`)  
+# `luxe` API (`2024.12.4`)  
 
 
 ---
@@ -20,6 +20,8 @@
 - [get_text](#UIText.get_text)(**control**: `Any`)
 - [set_font](#UIText.set_font+2)(**control**: `Any`, **font**: `Any`)
 - [get_font](#UIText.get_font)(**control**: `Any`)
+- [set_colors](#UIText.set_colors+5)(**control**: `Any`, **bg**: `Color`, **border**: `Color`, **border_hover**: `Color`, **border_focused**: `Color`)
+- [set_radius](#UIText.set_radius+3)(**control**: `Control`, **radius**: `Float4`, **smoothness**: `Float4`)
 - [set_color](#UIText.set_color+2)(**control**: `Any`, **color**: `Any`)
 - [get_color](#UIText.get_color)(**control**: `Any`)
 - [set_text_size](#UIText.set_text_size+2)(**control**: `Any`, **size**: `Any`)
@@ -62,6 +64,18 @@
 <signature id="UIText.get_font">UIText.get_font(**control**: `Any`)
 <a class="headerlink" href="#UIText.get_font" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: ui/text" class="UIText" signature="set_colors(control : Any, bg : Color, border : Color, border_hover : Color, border_focused : Color)"></endpoint>
+<signature id="UIText.set_colors+5">UIText.set_colors(**control**: `Any`, **bg**: `Color`, **border**: `Color`, **border_hover**: `Color`, **border_focused**: `Color`)
+<a class="headerlink" href="#UIText.set_colors+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: ui/text" class="UIText" signature="set_radius(control : Control, radius : Float4, smoothness : Float4)"></endpoint>
+<signature id="UIText.set_radius+3">UIText.set_radius(**control**: `Control`, **radius**: `Float4`, **smoothness**: `Float4`)
+<a class="headerlink" href="#UIText.set_radius+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
 > no docs found   
 
 <endpoint module="luxe: ui/text" class="UIText" signature="set_color(control : Any, color : Any)"></endpoint>

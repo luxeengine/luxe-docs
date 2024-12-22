@@ -1,6 +1,6 @@
 #![](../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2023.11.1`)  
+# `luxe` API (`2024.12.4`)  
 
 
 ---
@@ -24,6 +24,7 @@
 - [get_ast_for_path](#DocGen.get_ast_for_path+2)(**module_prefix**: `String`, **path**: `String`)
 - [generate](#DocGen.generate)()
 - [generate_from_project](#DocGen.generate_from_project)(**config**: `Any`)
+- [expr_to_string](#DocGen.expr_to_string)(**expr**: `Expr`)
 - [generate_from_ast_nodes](#DocGen.generate_from_ast_nodes+2)(**config**: `Map`, **nodes**: `Map`)
 - [format_docs](#DocGen.format_docs)(**meta_list**: `Any`)
 - [get_alias](#DocGen.get_alias+2)(**meta**: `Any`, **name**: `Any`)
@@ -83,6 +84,12 @@
 <endpoint module="luxe: docgen" class="DocGen" signature="generate_from_project(config : Any)"></endpoint>
 <signature id="DocGen.generate_from_project">DocGen.generate_from_project(**config**: `Any`)
 <a class="headerlink" href="#DocGen.generate_from_project" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: docgen" class="DocGen" signature="expr_to_string(expr : Expr)"></endpoint>
+<signature id="DocGen.expr_to_string">DocGen.expr_to_string(**expr**: `Expr`)
+<a class="headerlink" href="#DocGen.expr_to_string" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 

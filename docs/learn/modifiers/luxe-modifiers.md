@@ -2,7 +2,7 @@
 
 # luxe modifiers
 
-As we found out in the [guide](../../../guide), luxe often works based on modifiers attached to an entity to give it the ability to do things.
+As we found out in the [guide](../../guide.md), luxe often works based on modifiers attached to an entity to give it the ability to do things.
 Below, we'll do a real brief tour of the base modifiers luxe provides, before looking at how to make our own systems.
 
 ## Anim 
@@ -49,7 +49,7 @@ To move an entity with `Text` attached around, set the transform position.
 
 ## Tiles
 
-Displays a `tiles` asset attached to an entity. This is what you'd use to bring a [tilemap](../../tilemaps) into the world.
+Displays a `tiles` asset attached to an entity. This is what you'd use to bring a [tilemap](../tilemaps.md) into the world.
 
 ---
 

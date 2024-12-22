@@ -1,4 +1,4 @@
-#![](images/luxe-dark.svg){width="96em"}
+#![](/images/luxe-dark.svg){width="96em"}
 
 ## luxe user guide
 
@@ -64,7 +64,7 @@ luxe is designed for modules to serve this need, which makes them a fundamental 
 
 **With luxe, if you prefer working through code only, you can**. The code focused workflow is complemented by the editor tools. They help you create assets that would be faster to create in a tool, but is optional.
 
-![](images/guide/editor.png){width="100%"}
+![](/images/guide/editor.png){width="100%"}
 
 The same will eventually be true for editor focused workflows. **Right now the engine leans a little toward code focused**, because the editor is a work in progress and higher level modules which provide those workflows are being made now. In the future it would be possible to work only from the editor and make a wide range of content without opening the code.
 
@@ -92,7 +92,7 @@ Your project will often be created from a template, called a project `outline`. 
 
 **Running via the luxe editor or code editor**   
 
-You can learn how to run the project via code and via the luxe editor from [this page in the tutorial](../tutorials/hello/#running-the-project).
+You can learn how to run the project via code and via the luxe editor from [this page in the tutorial](tutorials/hello/index.md#running-the-project).
 
 
 **Running from a command line**   

@@ -1,6 +1,6 @@
 #![](../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2023.11.1`)  
+# `luxe` API (`2024.12.4`)  
 
 
 ---
@@ -33,6 +33,8 @@
 - [scale2D](#Math.scale2D+2)(**a**: `Vec`, **s**: `Num`)
 - [scale_to](#Math.scale_to+2)(**a**: `Vec`, **s**: `Num`)
 - [scale2D_to](#Math.scale2D_to+2)(**a**: `Vec`, **s**: `Num`)
+- [divide](#Math.divide+2)(**a**: `Vec`, **b**: `Vec`)
+- [divide_to](#Math.divide_to+2)(**vec**: `Vec`, **other**: `Vec`)
 - [div](#Math.div+2)(**a**: `Vec`, **s**: `Num`)
 - [div2D](#Math.div2D+2)(**a**: `Vec`, **s**: `Num`)
 - [div_to](#Math.div_to+2)(**a**: `Vec`, **s**: `Num`)
@@ -66,6 +68,8 @@
 - [dir2D](#Math.dir2D+2)(**pos**: `Vec`, **target**: `Vec`)
 - [dir](#Math.dir+2)(**pos**: `Vec`, **target**: `Vec`)
 - [rotate](#Math.rotate+3)(**vec**: `Vec`, **axis**: `Vec`, **angle**: `Num`)
+- [rotate_by_quat](#Math.rotate_by_quat+2)(**vec**: `Vec`, **quat**: `Float4`)
+- [quat_from_euler](#Math.quat_from_euler)(**vec**: `Vec`)
 - [rotate](#Math.rotate+4)(**vec**: `Vec`, **ox**: `Num`, **oy**: `Num`, **angle**: `Num`)
 - [ray_intersect_plane](#Math.ray_intersect_plane+12)(**plane_x**: `Num`, **plane_y**: `Num`, **plane_z**: `Num`, **normal_x**: `Num`, **normal_y**: `Num`, **normal_z**: `Num`, **ray_x**: `Num`, **ray_y**: `Num`, **ray_z**: `Num`, **ray_dir_x**: `Num`, **ray_dir_y**: `Num`, **ray_dir_z**: `Num`)
 - [closest_point_on_plane](#Math.closest_point_on_plane+9)(**plane_x**: `Num`, **plane_y**: `Num`, **plane_z**: `Num`, **normal_x**: `Num`, **normal_y**: `Num`, **normal_z**: `Num`, **point_x**: `Num`, **point_y**: `Num`, **point_z**: `Num`)
@@ -89,6 +93,8 @@
 - [angle_delta](#Math.angle_delta+2)(**from**: `Num`, **to**: `Num`)
 - [lerp2D](#Math.lerp2D+3)(**a**: `Vec`, **b**: `Vec`, **t**: `Num`)
 - [lerp3D](#Math.lerp3D+3)(**a**: `Vec`, **b**: `Vec`, **t**: `Num`)
+- [smooth_t](#Math.smooth_t+2)(**t**: `Num`, **smoothness**: `Num`)
+- [smoother_t](#Math.smoother_t+2)(**t**: `Num`, **smoothness**: `Num`)
 - [lerp](#Math.lerp+3)(**a**: `Num`, **b**: `Num`, **t**: `Num`)
 - [lerp_angle](#Math.lerp_angle+3)(**a**: `Num`, **b**: `Num`, **t**: `Num`)
 - [weighted_avg](#Math.weighted_avg+3)(**value**: `Num`, **target**: `Num`, **slowness**: `Num`)
@@ -102,7 +108,9 @@
 - [map_linear](#Math.map_linear+5)(**value**: `Num`, **a1**: `Num`, **a2**: `Num`, **b1**: `Num`, **b2**: `Num`)
 - [smoothstep](#Math.smoothstep+3)(**x**: `Num`, **min**: `Num`, **max**: `Num`)
 - [smootherstep](#Math.smootherstep+3)(**x**: `Num`, **min**: `Num`, **max**: `Num`)
+- [smoothstepx](#Math.smoothstepx+3)(**x**: `Num`, **round**: `Num`, **steep**: `Num`)
 - [random_point_in_unit_circle](#Math.random_point_in_unit_circle)(**rng**: `Random`)
+- [slerp](#Math.slerp+3)(**a**: `Quat`, **b**: `Quat`, **t**: `Num`)
 
 <hr/>
 <endpoint module="luxe: math" class="Math" signature="add(a : Vec, b : Vec)"></endpoint>
@@ -212,6 +220,18 @@
 <a class="headerlink" href="#Math.scale2D_to+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > Multiply a 2D vector by a scalar, updating the vector   
+
+<endpoint module="luxe: math" class="Math" signature="divide(a : Vec, b : Vec)"></endpoint>
+<signature id="Math.divide+2">Math.divide(**a**: `Vec`, **b**: `Vec`)
+<a class="headerlink" href="#Math.divide+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Divide a 3D vector by another, returning the result   
+
+<endpoint module="luxe: math" class="Math" signature="divide_to(vec : Vec, other : Vec)"></endpoint>
+<signature id="Math.divide_to+2">Math.divide_to(**vec**: `Vec`, **other**: `Vec`)
+<a class="headerlink" href="#Math.divide_to+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Divide a 3D vector by another, updating the vector   
 
 <endpoint module="luxe: math" class="Math" signature="div(a : Vec, s : Num)"></endpoint>
 <signature id="Math.div+2">Math.div(**a**: `Vec`, **s**: `Num`)
@@ -412,6 +432,18 @@
 <span class='api_ret'>returns</span> `:::js Vec`
 > Rotate a 3d vector around the given axis by angle degrees   
 
+<endpoint module="luxe: math" class="Math" signature="rotate_by_quat(vec : Vec, quat : Float4)"></endpoint>
+<signature id="Math.rotate_by_quat+2">Math.rotate_by_quat(**vec**: `Vec`, **quat**: `Float4`)
+<a class="headerlink" href="#Math.rotate_by_quat+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Vec`
+> Rotate a 3d vector using the given quaternion   
+
+<endpoint module="luxe: math" class="Math" signature="quat_from_euler(vec : Vec)"></endpoint>
+<signature id="Math.quat_from_euler">Math.quat_from_euler(**vec**: `Vec`)
+<a class="headerlink" href="#Math.quat_from_euler" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Float4`
+> Create a quaternion from float3 euler (radians)   
+
 <endpoint module="luxe: math" class="Math" signature="rotate(vec : Vec, ox : Num, oy : Num, angle : Num)"></endpoint>
 <signature id="Math.rotate+4">Math.rotate(**vec**: `Vec`, **ox**: `Num`, **oy**: `Num`, **angle**: `Num`)
 <a class="headerlink" href="#Math.rotate+4" title="Permanent link">¶</a></signature>
@@ -568,6 +600,18 @@
 > Returns `a` when `t` is `0` and `b` when `t` is `1`, with values inbetween interpolating inbetween.
 > If `t` is outside 0-1 range, the output will be extrapolated.   
 
+<endpoint module="luxe: math" class="Math" signature="smooth_t(t : Num, smoothness : Num)"></endpoint>
+<signature id="Math.smooth_t+2">Math.smooth_t(**t**: `Num`, **smoothness**: `Num`)
+<a class="headerlink" href="#Math.smooth_t+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Num`
+> Get a smooth time t for lerping, based on a smoothness value. e.g t = smooth_t(delta, 1.25). exponential decay   
+
+<endpoint module="luxe: math" class="Math" signature="smoother_t(t : Num, smoothness : Num)"></endpoint>
+<signature id="Math.smoother_t+2">Math.smoother_t(**t**: `Num`, **smoothness**: `Num`)
+<a class="headerlink" href="#Math.smoother_t+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Num`
+> Get a smooth time t for lerping, based on a smoothness value. e.g t = smoother_t(delta, 1.25). s curve like shape   
+
 <endpoint module="luxe: math" class="Math" signature="lerp(a : Num, b : Num, t : Num)"></endpoint>
 <signature id="Math.lerp+3">Math.lerp(**a**: `Num`, **b**: `Num`, **t**: `Num`)
 <a class="headerlink" href="#Math.lerp+3" title="Permanent link">¶</a></signature>
@@ -648,9 +692,21 @@
 <span class='api_ret'>returns</span> `:::js Num`
 > Alternate smooth inverse interpolation with derivative of 0 at min and max points. Output is clamped between 0 and 1.   
 
+<endpoint module="luxe: math" class="Math" signature="smoothstepx(x : Num, round : Num, steep : Num)"></endpoint>
+<signature id="Math.smoothstepx+3">Math.smoothstepx(**x**: `Num`, **round**: `Num`, **steep**: `Num`)
+<a class="headerlink" href="#Math.smoothstepx+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
 <endpoint module="luxe: math" class="Math" signature="random_point_in_unit_circle(rng : Random)"></endpoint>
 <signature id="Math.random_point_in_unit_circle">Math.random_point_in_unit_circle(**rng**: `Random`)
 <a class="headerlink" href="#Math.random_point_in_unit_circle" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js Num`
 > Random 2d point in circle of radius 1. Has uniform distribution.   
+
+<endpoint module="luxe: math" class="Math" signature="slerp(a : Quat, b : Quat, t : Num)"></endpoint>
+<signature id="Math.slerp+3">Math.slerp(**a**: `Quat`, **b**: `Quat`, **t**: `Num`)
+<a class="headerlink" href="#Math.slerp+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
 

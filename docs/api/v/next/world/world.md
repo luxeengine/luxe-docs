@@ -1,6 +1,6 @@
 #![](../../../../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2023.11.1`)  
+# `luxe` API (`2024.12.4`)  
 
 
 ---
@@ -8,6 +8,7 @@
 ## `luxe: world/world` module
 
 - [OldEvent](#oldevent)   
+- [Wire](#wire)   
 - [World](#world)   
 
 ---
@@ -32,11 +33,72 @@
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 
+### Wire
+`:::js import "luxe: world/world" for Wire`
+> no docs found
+
+- `:::js var id : Num = null`
+- `:::js var uuid : String = null`
+- `:::js var type : String = null`
+- `:::js var target : String = null`
+- [create](#Wire.create)()
+- [send](#Wire.send)(**entity**: `Entity`)
+- [send](#Wire.send+2)(**entity**: `Entity`, **data**: `Any`)
+- [prepare](#Wire.prepare)()
+- [connect](#Wire.connect+3)(**world**: `World`, **uuid**: `String`, **fn**: `Fn`)
+- [send](#Wire.send+3)(**world**: `World`, **uuid**: `String`, **entity**: `Entity`)
+- [send](#Wire.send+4)(**world**: `World`, **uuid**: `String`, **entity**: `Entity`, **args**: `Any`)
+
+<hr/>
+<endpoint module="luxe: world/world" class="Wire" signature="create()"></endpoint>
+<signature id="Wire.create">Wire.create()
+<a class="headerlink" href="#Wire.create" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Wire`
+> no docs found   
+
+<endpoint module="luxe: world/world" class="Wire" signature="send(entity : Entity)"></endpoint>
+<signature id="Wire.send">Wire.send(**entity**: `Entity`)
+<a class="headerlink" href="#Wire.send" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world/world" class="Wire" signature="send(entity : Entity, data : Any)"></endpoint>
+<signature id="Wire.send+2">Wire.send(**entity**: `Entity`, **data**: `Any`)
+<a class="headerlink" href="#Wire.send+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world/world" class="Wire" signature="prepare()"></endpoint>
+<signature id="Wire.prepare">Wire.prepare()
+<a class="headerlink" href="#Wire.prepare" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Any`
+> no docs found   
+
+<endpoint module="luxe: world/world" class="Wire" signature="connect(world : World, uuid : String, fn : Fn)"></endpoint>
+<signature id="Wire.connect+3">Wire.connect(**world**: `World`, **uuid**: `String`, **fn**: `Fn`)
+<a class="headerlink" href="#Wire.connect+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world/world" class="Wire" signature="send(world : World, uuid : String, entity : Entity)"></endpoint>
+<signature id="Wire.send+3">Wire.send(**world**: `World`, **uuid**: `String`, **entity**: `Entity`)
+<a class="headerlink" href="#Wire.send+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world/world" class="Wire" signature="send(world : World, uuid : String, entity : Entity, args : Any)"></endpoint>
+<signature id="Wire.send+4">Wire.send(**world**: `World`, **uuid**: `String`, **entity**: `Entity`, **args**: `Any`)
+<a class="headerlink" href="#Wire.send+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
 ### World
 `:::js import "luxe: world/world" for World`
 > no docs found
 
 - [get_system](#World.get_system+2)(**world**: `World`, **modifier_id**: `String`)
+- [get_scene](#World.get_scene+2)(**world**: `World`, **scene_id**: `String`)
+- [get_scene_for](#World.get_scene_for+2)(**world**: `World`, **scene**: `Entity`)
 - [exists](#World.exists)(**id**: `String`)
 - [valid](#World.valid)(**world**: `World`)
 - [get](#World.get)(**id**: `String`)
@@ -100,6 +162,18 @@
 <endpoint module="luxe: world/world" class="World" signature="get_system(world : World, modifier_id : String)"></endpoint>
 <signature id="World.get_system+2">World.get_system(**world**: `World`, **modifier_id**: `String`)
 <a class="headerlink" href="#World.get_system+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world/world" class="World" signature="get_scene(world : World, scene_id : String)"></endpoint>
+<signature id="World.get_scene+2">World.get_scene(**world**: `World`, **scene_id**: `String`)
+<a class="headerlink" href="#World.get_scene+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world/world" class="World" signature="get_scene_for(world : World, scene : Entity)"></endpoint>
+<signature id="World.get_scene_for+2">World.get_scene_for(**world**: `World`, **scene**: `Entity`)
+<a class="headerlink" href="#World.get_scene_for+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > no docs found   
 

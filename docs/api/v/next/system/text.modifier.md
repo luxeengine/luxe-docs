@@ -1,6 +1,6 @@
 #![](../../../../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2023.11.1`)  
+# `luxe` API (`2024.12.4`)  
 
 
 ---
@@ -19,6 +19,14 @@
 `:::js import "luxe: system/text.modifier" for Data`
 > no docs found
 
+- `:::js var text : String = "hello"`
+- `:::js var size : Num = 16`
+- `:::js var align : TextAlignH = TextAlignH.center`
+- `:::js var vertical : TextAlignV = TextAlignV.center`
+- `:::js var color : Color = [1, 1, 1, 1]`
+- `:::js var bounds : Float4 = [0, 0, 0, 0]`
+- `:::js var font : Asset = "luxe: font/lato"`
+- `:::js var material : Asset = "luxe: material/font"`
 
 <hr/>
 ### System

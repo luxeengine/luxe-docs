@@ -1,6 +1,6 @@
 #![](../../../../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2023.11.1`)  
+# `luxe` API (`2024.12.4`)  
 
 
 ---
@@ -18,6 +18,10 @@
 `:::js import "luxe: system/transform.modifier" for Data`
 > no docs found
 
+- `:::js var pos : Double3 = [0, 0, 0]`
+- `:::js var rotation : Float3 = [0, 0, 0]`
+- `:::js var scale : Float3 = [1, 1, 1]`
+- `:::js var link : Link = null`
 
 <hr/>
 ### System
@@ -42,6 +46,7 @@
 > While not all entities need to be "somewhere" locally, a lot of them do, which is when this modifier is used.
 > Other modifiers on the same entity aren't required to read and react to the `Transform`, but most do, allowing you to use this to move things (like Sprites, Meshes, Physics shapes, etc...).
 
+- [id](#Transform.id)
 - [create](#Transform.create+3)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`)
 - [create](#Transform.create+4)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
 - [create](#Transform.create)(**entity**: `Entity`)
@@ -53,8 +58,10 @@
 - [link](#Transform.link+2)(**entity**: `Entity`, **target_entity**: `Entity`)
 - [unlink](#Transform.unlink+2)(**entity**: `Entity`, **reset_local**: `Bool`)
 - [unlink](#Transform.unlink)(**entity**: `Entity`)
+- [look_at_and_move](#Transform.look_at_and_move+5)(**entity**: `Entity`, **pos**: `Vec`, **target**: `Vec`, **up**: `Vec`, **invert**: `Bool`)
 - [look_at_and_move](#Transform.look_at_and_move+4)(**entity**: `Entity`, **pos**: `Vec`, **target**: `Vec`, **up**: `Vec`)
 - [look_at_and_move](#Transform.look_at_and_move+3)(**entity**: `Entity`, **pos**: `Vec`, **target**: `Vec`)
+- [look_at](#Transform.look_at+4)(**entity**: `Entity`, **target**: `Vec`, **up**: `Vec`, **invert**: `Bool`)
 - [look_at](#Transform.look_at+3)(**entity**: `Entity`, **target**: `Vec`, **up**: `Vec`)
 - [look_at](#Transform.look_at+2)(**entity**: `Entity`, **target**: `Vec`)
 - [set_snap](#Transform.set_snap+4)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
@@ -149,13 +156,21 @@
 - [local_dir_to_world](#Transform.local_dir_to_world+4)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
 - [world_dir_to_local](#Transform.world_dir_to_local+4)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
 - [local_point_to_world](#Transform.local_point_to_world+4)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
+- [local_point_to_world](#Transform.local_point_to_world+5)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`, **scaled**: `Bool`)
 - [world_point_to_local](#Transform.world_point_to_local+4)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
+- [world_point_to_local](#Transform.world_point_to_local+5)(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`, **scaled**: `Bool`)
 - [listen_all](#Transform.listen_all+2)(**world**: `World`, **fn**: `Fn`)
 - [unlisten_all](#Transform.unlisten_all+2)(**world**: `World`, **handle**: `Handle`)
 - [listen](#Transform.listen+2)(**entity**: `Entity`, **fn**: `Fn`)
 - [unlisten](#Transform.unlisten+2)(**entity**: `Entity`, **handle**: `Handle`)
 
 <hr/>
+<endpoint module="luxe: system/transform.modifier" class="Transform" signature="id"></endpoint>
+<signature id="Transform.id">Transform.id
+<a class="headerlink" href="#Transform.id" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
 <endpoint module="luxe: system/transform.modifier" class="Transform" signature="create(entity : Entity, x : Num, y : Num)"></endpoint>
 <signature id="Transform.create+3">Transform.create(**entity**: `Entity`, **x**: `Num`, **y**: `Num`)
 <a class="headerlink" href="#Transform.create+3" title="Permanent link">¶</a></signature>
@@ -244,6 +259,12 @@
 >   Transform.set_pos(_jar, pos.x, pos.y, pos.z)
 > ```   
 
+<endpoint module="luxe: system/transform.modifier" class="Transform" signature="look_at_and_move(entity : Entity, pos : Vec, target : Vec, up : Vec, invert : Bool)"></endpoint>
+<signature id="Transform.look_at_and_move+5">Transform.look_at_and_move(**entity**: `Entity`, **pos**: `Vec`, **target**: `Vec`, **up**: `Vec`, **invert**: `Bool`)
+<a class="headerlink" href="#Transform.look_at_and_move+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Move `Transform` somewhere else, then look towards target position.   
+
 <endpoint module="luxe: system/transform.modifier" class="Transform" signature="look_at_and_move(entity : Entity, pos : Vec, target : Vec, up : Vec)"></endpoint>
 <signature id="Transform.look_at_and_move+4">Transform.look_at_and_move(**entity**: `Entity`, **pos**: `Vec`, **target**: `Vec`, **up**: `Vec`)
 <a class="headerlink" href="#Transform.look_at_and_move+4" title="Permanent link">¶</a></signature>
@@ -255,6 +276,13 @@
 <a class="headerlink" href="#Transform.look_at_and_move+3" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js None`
 > Move `Transform` somewhere else, then look towards target position.   
+
+<endpoint module="luxe: system/transform.modifier" class="Transform" signature="look_at(entity : Entity, target : Vec, up : Vec, invert : Bool)"></endpoint>
+<signature id="Transform.look_at+4">Transform.look_at(**entity**: `Entity`, **target**: `Vec`, **up**: `Vec`, **invert**: `Bool`)
+<a class="headerlink" href="#Transform.look_at+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Rotate `Transform` to look at a position in worldspace, 
+>       rotated around that new view axis so the `Transform` 'up' aligns with the `up` input as closely as possible.   
 
 <endpoint module="luxe: system/transform.modifier" class="Transform" signature="look_at(entity : Entity, target : Vec, up : Vec)"></endpoint>
 <signature id="Transform.look_at+3">Transform.look_at(**entity**: `Entity`, **target**: `Vec`, **up**: `Vec`)
@@ -876,11 +904,23 @@
 <span class='api_ret'>returns</span> `:::js Vec`
 > Convert a point from local space to world space. (applies translation, rotation and scale)   
 
+<endpoint module="luxe: system/transform.modifier" class="Transform" signature="local_point_to_world(entity : Entity, x : Num, y : Num, z : Num, scaled : Bool)"></endpoint>
+<signature id="Transform.local_point_to_world+5">Transform.local_point_to_world(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`, **scaled**: `Bool`)
+<a class="headerlink" href="#Transform.local_point_to_world+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Vec`
+> Convert a point from local space to world space. (applies translation, rotation and optionally, scale)   
+
 <endpoint module="luxe: system/transform.modifier" class="Transform" signature="world_point_to_local(entity : Entity, x : Num, y : Num, z : Num)"></endpoint>
 <signature id="Transform.world_point_to_local+4">Transform.world_point_to_local(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`)
 <a class="headerlink" href="#Transform.world_point_to_local+4" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js Vec`
 > Convert a point from world space to local space. (applies translation, rotation and scale)   
+
+<endpoint module="luxe: system/transform.modifier" class="Transform" signature="world_point_to_local(entity : Entity, x : Num, y : Num, z : Num, scaled : Bool)"></endpoint>
+<signature id="Transform.world_point_to_local+5">Transform.world_point_to_local(**entity**: `Entity`, **x**: `Num`, **y**: `Num`, **z**: `Num`, **scaled**: `Bool`)
+<a class="headerlink" href="#Transform.world_point_to_local+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js Vec`
+> Convert a point from world space to local space. (applies translation, rotation and optionally, scale)   
 
 <endpoint module="luxe: system/transform.modifier" class="Transform" signature="listen_all(world : World, fn : Fn)"></endpoint>
 <signature id="Transform.listen_all+2">Transform.listen_all(**world**: `World`, **fn**: `Fn`)

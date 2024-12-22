@@ -1,6 +1,6 @@
 #![](../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2023.11.1`)  
+# `luxe` API (`2024.12.4`)  
 
 
 ---
@@ -60,9 +60,11 @@
 - [frustum](#Draw.frustum+3)(**context**: `Draw`, **corners**: `List`, **style**: `PathStyle`)
 - [text](#Draw.text+12)(**context**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **w**: `Any`, **h**: `Any`, **string**: `Any`, **size**: `Any`, **font**: `Any`, **color**: `Any`, **align**: `Any`, **align_vertical**: `Any`)
 - [text](#Draw.text+10)(**context**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **string**: `Any`, **size**: `Any`, **font**: `Any`, **color**: `Any`, **align**: `Any`, **align_vertical**: `Any`)
+- [text](#Draw.text+7)(**context**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **string**: `Any`, **size**: `Any`, **color**: `Any`)
 - [image](#Draw.image+8)(**context**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **w**: `Any`, **h**: `Any`, **angle**: `Any`, **material**: `Any`)
 - [image](#Draw.image+10)(**context**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **w**: `Any`, **h**: `Any`, **angle**: `Any`, **color**: `Any`, **uv**: `Any`, **material**: `Any`)
 - [cross](#Draw.cross+7)(**context**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **radius**: `Any`, **angle**: `Any`, **style**: `Any`)
+- [sphere3D_slice](#Draw.sphere3D_slice+7)(**context**: `Draw`, **pos**: `Vec3`, **radius**: `Vec2`, **start_angle**: `Num`, **end_angle**: `Num`, **layers**: `Num`, **style**: `PathStyle`)
 
 <hr/>
 <endpoint module="luxe: draw" class="Draw" signature="create(set : Any)"></endpoint>
@@ -515,6 +517,20 @@
 >   Draw.text(canvas, 32, 32, depth, "hello", size, Asset.font("luxe: font/lato"), red, TextAlign.center, TextAlign.bottom)
 >   ```   
 
+<endpoint module="luxe: draw" class="Draw" signature="text(context : Any, x : Any, y : Any, z : Any, string : Any, size : Any, color : Any)"></endpoint>
+<signature id="Draw.text+7">Draw.text(**context**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **string**: `Any`, **size**: `Any`, **color**: `Any`)
+<a class="headerlink" href="#Draw.text+7" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Draw the specified `string` at `x`,`y`, `z`.
+> The `size` specifies the text size, and `color` the color. 
+> 
+>   ```js
+>   var depth = 0
+>   var size = 24
+>   var red = [1,0,0,1]
+>   Draw.text(canvas, 32, 32, depth, "hello", size, red)
+>   ```   
+
 <endpoint module="luxe: draw" class="Draw" signature="image(context : Any, x : Any, y : Any, z : Any, w : Any, h : Any, angle : Any, material : Any)"></endpoint>
 <signature id="Draw.image+8">Draw.image(**context**: `Any`, **x**: `Any`, **y**: `Any`, **z**: `Any`, **w**: `Any`, **h**: `Any`, **angle**: `Any`, **material**: `Any`)
 <a class="headerlink" href="#Draw.image+8" title="Permanent link">¶</a></signature>
@@ -554,6 +570,16 @@
 <a class="headerlink" href="#Draw.cross+7" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js unknown`
 > Draws a cross, an x shape   
+
+<endpoint module="luxe: draw" class="Draw" signature="sphere3D_slice(context : Draw, pos : Vec3, radius : Vec2, start_angle : Num, end_angle : Num, layers : Num, style : PathStyle)"></endpoint>
+<signature id="Draw.sphere3D_slice+7">Draw.sphere3D_slice(**context**: `Draw`, **pos**: `Vec3`, **radius**: `Vec2`, **start_angle**: `Num`, **end_angle**: `Num`, **layers**: `Num`, **style**: `PathStyle`)
+<a class="headerlink" href="#Draw.sphere3D_slice+7" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> Draw a 3D sphere made from layered circles with `layers` number of circles and `radius` radius. Make the `start_angle` 0 and the `end_angle` 360 to make a full sphere, or 0/180 for a half sphere.
+> 
+>   ```js
+>   Draw.sphere3D_slice(canvas, [0, 2, 0], 1, 0, 360, 16, PathStyle.new())
+>   ```   
 
 ### LineCap
 `:::js import "luxe: draw" for LineCap`
@@ -670,6 +696,9 @@
 
 - [array](#PathStyle.array)
 - [color](#PathStyle.color)
+- [alpha](#PathStyle.alpha)(**value**: `Any`)
+- [color](#PathStyle.color)(**value**: `Any`)
+- [thickness](#PathStyle.thickness)(**value**: `Any`)
 - [color](#PathStyle.color=)=(value : Any)
 - [alpha](#PathStyle.alpha)
 - [alpha](#PathStyle.alpha=)=(value : Any)
@@ -702,6 +731,24 @@
 >   var style = PathStyle.new()
 >   var color = style.color //the default color
 >   ```   
+
+<endpoint module="luxe: draw" class="PathStyle" signature="alpha(value : Any)"></endpoint>
+<signature id="PathStyle.alpha">PathStyle.alpha(**value**: `Any`)
+<a class="headerlink" href="#PathStyle.alpha" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: draw" class="PathStyle" signature="color(value : Any)"></endpoint>
+<signature id="PathStyle.color">PathStyle.color(**value**: `Any`)
+<a class="headerlink" href="#PathStyle.color" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: draw" class="PathStyle" signature="thickness(value : Any)"></endpoint>
+<signature id="PathStyle.thickness">PathStyle.thickness(**value**: `Any`)
+<a class="headerlink" href="#PathStyle.thickness" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
 
 <endpoint module="luxe: draw" class="PathStyle" signature="color=(value : Any)"></endpoint>
 <signature id="PathStyle.color=">PathStyle.color=(value : Any)
