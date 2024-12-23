@@ -18,3 +18,5 @@ and will teach you to useful concepts that will expand on each other.
 - [Hello luxe!](hello/index.md)
 - [Draw and Input](draw-and-input/index.md)
 - [The luxe world](world/index.md)
+- [The luxe editor](editor/index.md)
+- [Deploy a build](deploy/index.md)

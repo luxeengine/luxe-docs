@@ -14,6 +14,7 @@ nav:
       - drawing + input : tutorials/draw-and-input/index.md
       - luxe world : tutorials/world/index.md
       - luxe editor  : tutorials/editor/index.md
+      - deploy a build  : tutorials/deploy/index.md
     - learn ...:
       - overview: learn/overview.md
       - tilemaps : learn/tilemaps.md
