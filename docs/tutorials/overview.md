@@ -20,3 +20,4 @@ and will teach you to useful concepts that will expand on each other.
 - [The luxe world](world/index.md)
 - [The luxe editor](editor/index.md)
 - [Deploy a build](deploy/index.md)
+- [Playing Audio](audio/index.md)

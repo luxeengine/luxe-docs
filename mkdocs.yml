@@ -15,6 +15,7 @@ nav:
       - luxe world : tutorials/world/index.md
       - luxe editor  : tutorials/editor/index.md
       - deploy a build  : tutorials/deploy/index.md
+      - playing audio  : tutorials/audio/index.md
     - learn ...:
       - overview: learn/overview.md
       - tilemaps : learn/tilemaps.md
@@ -127,7 +128,6 @@ plugins:
           md-nav: [nav, class]
   - exclude:
       glob:
-        - usage.md
         # - api.md
         # - api/**
 
