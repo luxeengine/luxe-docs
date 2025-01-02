@@ -422,7 +422,7 @@ We can easily tell when a pebble has been missed by using `inside_y` when `insid
 
 And, when any pebble hits the edge of the screen, we'll remove it from the game.
 
-!!! tip "Add the highlighted lines
+!!! tip "Add the highlighted lines"
 
 ```js hl_lines="5 11 12 17 18 19 20 21 22"
 update_player() {
@@ -469,7 +469,7 @@ update_player() {
     Add a losing condition, like if you have 5 lives and each time you miss, you lose one. When you have 0, display a game over message. You'll probably want to want make ++space++ key restart the game, which will require resetting the state and `pebbles.clear()` 
 
 !!! tip "Add win state"
-    Add a win condition, like if you collect 20 pebbles or survive for a certain amount of time. You can use `IO.timestamp()` to get a time in seconds and display it (once at the beginning of the game and then `start - now`)
+    Add a win condition, like if you collect 20 pebbles or survive for a certain amount of time. You can use `IO.timestamp()` to get a time in seconds and display it (once at the beginning of the game and then `now - start`)
 
 !!! tip "Automatic pebbles"
     Try making a `var timer = 0` and `if(timer_ready) { create_pebble() }` with a random time value each time. The random time can get faster the more you play. 
