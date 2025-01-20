@@ -4,8 +4,9 @@
 
 In this tutorial we'll:
 
-- Import a tile sheet
 - Create a tile map
+- Add visuals to it to paint with
+- Paint some tiles, make some brushes
 - Use that tile map in the world
 - Add collision to it using the Arcade modifier
 
@@ -29,7 +30,7 @@ and match the background color to the tiles. You can use `#cbcac5` as the color.
 
 ![project](../images/learn/tilemaps/project.png)
 
-## tiles editor context
+## Tiles editor context
 
 We can find the tile editor using the context menu:
 
@@ -39,7 +40,7 @@ Once we enter it, this is what it looks like:
 
 ![](../images/learn/tilemaps/tiles.context.1.png)
 
-## create a tilemap
+## Create a tilemap
 
 We'll need a tiles asset to paint into. The editor can open and edit multiple at once, but we'll just need one for now.
 Omni has a create button just for this, so let's use it to create a tiles asset.
@@ -63,7 +64,7 @@ Once we do, we'll see something along these lines: The brush tool is selected, a
 
 !!! warning "WIP: Note there are multiple assets involved, so make sure to save all!"
 
-## adding visuals
+## Adding visuals
 
 Since there was a visual asset created for our tiles, we can go straight to adding visuals. 
 
@@ -157,7 +158,7 @@ Once we select `done >` we will see all the individual tiles added to our tile p
 
 ![](../images/learn/tilemaps/tiles.sheets.7.png)
 
-## tile grid size
+## Tile grid size
 
 If we paint a tile we should notice that it doesn't fit as expected!
 
@@ -166,5 +167,106 @@ If we paint a tile we should notice that it doesn't fit as expected!
 If you select the tilemap itself, instead of a layer to paint on, you can configure the grid size of the tile map as well as the background color. Our grid should be 16x16 for this one, and immediately it updates to look correct:
 
 ![](../images/learn/tilemaps/tiles.grid.1.png)
+
+## Brushes
+
+The benefit of tile maps, is that painting tiles is all about the sum of parts. We combine small repetitive pieces into much larger images.
+
+This is very often a recursive process. We combine 4 tiles to make a window. We combine 2 windows and a door to make a house. We combine many houses to make a city and so on. 
+
+To facilitate this workflow, luxe tiles work based on combining tiles into brushes. This doesn't just apply when you make a brush manually, it actually applies to every operation. Painting is brush based, copy takes the selection and makes a brush, cut creates a brush and so on.
+
+### brush history
+
+Any time you do an operation that creates a brush, the brush history panel will remember it, so you can return to it and use it to build more elaborate things:
+
+![](../images/learn/tilemaps/tiles.brush.6.png)
+
+You'll also be able to save that brush into an asset, so that it's reusable across tile maps + sessions using the save icon. After that it'll exist in the brush tab instead of brush history! Making brushes reusable is important, but a significant amount of the brushes can be temporary because you can always select and copy them.
+
+This is also true while painting, using a corner of the tilemap to compose a complex brush, then copying it out, optionally saving it is a very important part of the workflow!
+
+### making a brush
+
+We'll start by painting a window. For this we used flip (++f++ or ++v++ key by default) and rotate (++r++) to reuse the same tile in different ways.
+
+![](../images/learn/tilemaps/tiles.brush.0.png)
+
+We switch to the select tool by pressing ++q++ or using the select tool icon.
+
+![](../images/learn/tilemaps/tiles.brush.1.png)
+
+We can drag a rectangle in order to select the region of tiles we care about:
+
+![](../images/learn/tilemaps/tiles.brush.2.png)
+
+When we release the rectangle each tile will show as selected:
+
+![](../images/learn/tilemaps/tiles.brush.3.png)
+
+When we press copy (++ctrl+c++) it will copy our selection into a brush, and we can now paint with the whole window as a brush!
+
+![](../images/learn/tilemaps/tiles.brush.4.png)
+
+If we draw with the brush around on the tile map you'll notice that the brush will be treated as a whole unit, it won't paint over itself, so we can lay down windows side by side easily:
+
+![](../images/learn/tilemaps/tiles.brush.5.png)
+
+You can control this behaviour from the top toolbar, there's a few modes. Selecting the icon will cycle through modes for painting.
+
+![](../images/learn/tilemaps/tiles.brush.7.png)
+
+And as mentioned, we created a brush by copying, so it shows in the brush history.
+
+![](../images/learn/tilemaps/tiles.brush.6.png)
+
+## The tiles modifier
+
+To use the tile map we just created, we use the typical workflow using modifiers in the world editor. 
+
+Create an entity, attach the `Tiles` modifier, and select the tiles asset you created.
+
+!!! bug "Automatic updates/hot updating of the tiles assets in the world are still being finalized, you might need to reload the editor to see the latest version of your tilemap."
+
+To demonstrate, here's a painted tilemap:
+
+![](../images/learn/tilemaps/tiles.world.0.png)
+
+Once we attach them to an entity, we can see and use them in the world:
+
+![](../images/learn/tilemaps/tiles.world.1.png)
+
+And since they're an entity with a modifier, we can duplicate, scale, transform them as usual using `Transform`.
+
+![](../images/learn/tilemaps/tiles.world.2.png)
+
+## Tile collision with Arcade
+
+If you're using the arcade collision module, it provides a modifier that can convert tiles into solid shapes.
+This combines nearby tiles into rectangles to make the least amount of rectangles.
+
+![](../images/learn/tilemaps/tiles.arcade.2.png)
+
+### tile tags
+
+To start, we have to tag our tiles with a tag. The default one the arcade tiles collision uses is `solid`. 
+We select the tiles we want to be solid collision, and edit the tags to include `solid`.
+
+![](../images/learn/tilemaps/tiles.arcade.3.png)
+
+### arcade collision
+
+In the world editor, you attach the `Arcade: Tile collision` modifier it to the entity with the `Tiles` on:
+
+![](../images/learn/tilemaps/tiles.arcade.0.png)
+
+Once you have, you can match the tag so that the collision is automatically generated!
+
+![](../images/learn/tilemaps/tiles.arcade.1.png)
+
+## New tile editor
+
+Note that this iteration of the tile editor is brand new, please report any issues, workflow quirks and so on. We'll be polishing it up as we go! 
+
 
 
