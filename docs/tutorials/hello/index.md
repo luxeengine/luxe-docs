@@ -3,6 +3,9 @@
 # Hello luxe
 An introduction to working with luxe.
 
+!!! warn "setup steps"
+    Before we begin, make sure you've installed the extension for Visual Studio Code. [Visit Installing IDE support](../../get.md).
+
 !!! example "outcome"
     In this tutorial we'll **create a new project using the launcher**.   
     Then, we'll see how to open + run it via Visual Studio Code.
