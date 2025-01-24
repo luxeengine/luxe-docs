@@ -2,7 +2,7 @@
 # Install
 
 ## Installing luxe
-- Get the luxe launcher from [the preview forum thread](https://community.luxeengine.com/t/welcome-to-the-luxe-closed-preview-read-this/276)
+- [Get the luxe launcher](https://luxeengine.com/get)
 - Run the launcher, it'll offer to install the latest version
 - This will install the engine, editor and agent
 
