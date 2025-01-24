@@ -2,3 +2,4 @@ mkdocs
 mkdocs-exclude
 mkdocs-encryptcontent-plugin
 mkdocs-material
+mkdocs-git-revision-date-localized-plugin
