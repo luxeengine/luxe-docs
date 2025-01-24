@@ -1,6 +1,6 @@
 #![](../../../../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2024.12.4`)  
+# `luxe` API (`2025.1.2`)  
 
 
 ---
@@ -30,6 +30,8 @@
 - [set_color](#UIImage.set_color+2)(**control**: `UIImage`, **color**: `Color`)
 - [get_color](#UIImage.get_color)(**control**: `UIImage`)
 - [set_angle](#UIImage.set_angle+2)(**control**: `UIImage`, **degrees**: `Num`)
+- [set_fit](#UIImage.set_fit+2)(**control**: `UIImage`, **fit**: `UIImageFit`)
+- [get_fit](#UIImage.get_fit)(**control**: `UIImage`)
 
 <hr/>
 <endpoint module="luxe: ui/image" class="UIImage" signature="create(ui_entity : Entity)"></endpoint>
@@ -92,5 +94,17 @@
 <signature id="UIImage.set_angle+2">UIImage.set_angle(**control**: `UIImage`, **degrees**: `Num`)
 <a class="headerlink" href="#UIImage.set_angle+2" title="Permanent link">¶</a></signature>
 <span class='api_ret'>returns</span> `:::js None`
-> Get the angle of the `UIImage` control. Note that this will not affect child controls.   
+> Set the angle of the `UIImage` control. Note that this will not affect child controls.   
+
+<endpoint module="luxe: ui/image" class="UIImage" signature="set_fit(control : UIImage, fit : UIImageFit)"></endpoint>
+<signature id="UIImage.set_fit+2">UIImage.set_fit(**control**: `UIImage`, **fit**: `UIImageFit`)
+<a class="headerlink" href="#UIImage.set_fit+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js None`
+> Set the fit mode   
+
+<endpoint module="luxe: ui/image" class="UIImage" signature="get_fit(control : UIImage)"></endpoint>
+<signature id="UIImage.get_fit">UIImage.get_fit(**control**: `UIImage`)
+<a class="headerlink" href="#UIImage.get_fit" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js UIImageFit`
+> Get the fit mode   
 

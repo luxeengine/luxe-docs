@@ -1,6 +1,6 @@
 #![](../../../../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2024.12.4`)  
+# `luxe` API (`2025.1.2`)  
 
 
 ---
@@ -35,7 +35,7 @@
 `:::js import "luxe: system/wires.modifier" for System`
 > no docs found
 
-- `:::js var nodes : Map = {...}`
+- `:::js var nodes : Map = {}`
 - `:::js var nodes_from_panel : Map = {}`
 - `:::js var right_panel : Control = 0`
 - `:::js var left_panel : Control = 0`

@@ -1,6 +1,6 @@
 #![](../../../../../../../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2024.12.4`)  
+# `luxe` API (`2025.1.2`)  
 
 
 ---
@@ -39,7 +39,7 @@
 `:::js import "luxe: system/physics/body3D.modifier" for Data`
 > no docs found
 
-- `:::js var motion_type : MotionType = MotionType.is_dynamic`
+- `:::js var motion_type : MotionType = MotionType.is_static`
 - `:::js var motion_quality : MotionQuality = MotionQuality.discrete`
 - `:::js var is_sensor : Bool = false`
 - `:::js var allow_sleeping : Bool = true`

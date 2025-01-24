@@ -1,6 +1,6 @@
 #![](../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2024.12.4`)  
+# `luxe` API (`2025.1.2`)  
 
 
 ---
@@ -31,6 +31,7 @@
 - [UIDebugMode](#uidebugmode)   
 - [UIDrop](#uidrop)   
 - [UIEvent](#uievent)   
+- [UIImageFit](#uiimagefit)   
 - [UIImageFlags](#uiimageflags)   
 - [UILayoutMode](#uilayoutmode)   
 - [UIRenderMode](#uirendermode)   
@@ -3126,6 +3127,47 @@
 >     Log.print("control drag changed.. %(event.data)")
 >   }
 >   ```   
+
+### UIImageFit
+`:::js import "luxe: world" for UIImageFit`
+> no docs found
+
+- [fill](#UIImageFit.fill)
+- [contain](#UIImageFit.contain)
+- [cover](#UIImageFit.cover)
+- [keep_width](#UIImageFit.keep_width)
+- [keep_height](#UIImageFit.keep_height)
+
+<hr/>
+<endpoint module="luxe: world" class="UIImageFit" signature="fill"></endpoint>
+<signature id="UIImageFit.fill">UIImageFit.fill
+<a class="headerlink" href="#UIImageFit.fill" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="UIImageFit" signature="contain"></endpoint>
+<signature id="UIImageFit.contain">UIImageFit.contain
+<a class="headerlink" href="#UIImageFit.contain" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="UIImageFit" signature="cover"></endpoint>
+<signature id="UIImageFit.cover">UIImageFit.cover
+<a class="headerlink" href="#UIImageFit.cover" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="UIImageFit" signature="keep_width"></endpoint>
+<signature id="UIImageFit.keep_width">UIImageFit.keep_width
+<a class="headerlink" href="#UIImageFit.keep_width" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
+
+<endpoint module="luxe: world" class="UIImageFit" signature="keep_height"></endpoint>
+<signature id="UIImageFit.keep_height">UIImageFit.keep_height
+<a class="headerlink" href="#UIImageFit.keep_height" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
 
 ### UIImageFlags
 `:::js import "luxe: world" for UIImageFlags`

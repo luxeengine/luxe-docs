@@ -1,6 +1,6 @@
 #![](../../../../../../images/luxe-dark.svg){width="96em"}
 
-# `luxe` API (`2024.12.4`)  
+# `luxe` API (`2025.1.2`)  
 
 
 ---
@@ -41,6 +41,7 @@
 - [set_align_vertical](#UIButton.set_align_vertical+2)(**control**: `UIButton`, **align**: `TextAlign`)
 - [get_align_vertical](#UIButton.get_align_vertical)(**control**: `UIButton`)
 - [get_render_text](#UIButton.get_render_text)(**control**: `UIButton`)
+- [set_colors](#UIButton.set_colors+5)(**control**: `UIButton`, **bg**: `Color`, **bg_hover**: `Color`, **border**: `Color`, **border_hover**: `Color`)
 
 <hr/>
 <endpoint module="luxe: ui/button" class="UIButton" signature="create(ui_entity : Entity)"></endpoint>
@@ -140,4 +141,10 @@
 <span class='api_ret'>returns</span> `:::js RenderText`
 > Get the underlying lowlevel text render object.
 > Usable with the `Render.text_*` API.   
+
+<endpoint module="luxe: ui/button" class="UIButton" signature="set_colors(control : UIButton, bg : Color, bg_hover : Color, border : Color, border_hover : Color)"></endpoint>
+<signature id="UIButton.set_colors+5">UIButton.set_colors(**control**: `UIButton`, **bg**: `Color`, **bg_hover**: `Color`, **border**: `Color`, **border_hover**: `Color`)
+<a class="headerlink" href="#UIButton.set_colors+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> `:::js unknown`
+> no docs found   
 
