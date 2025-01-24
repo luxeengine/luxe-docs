@@ -41,15 +41,15 @@ nav:
         - concepts: manual/rendering/concepts.md
         - high level: manual/rendering/high-level.md
         - low level: manual/rendering/low-level.md
-    - release notes:
-      - engine : release-notes/engine.md
-      - editor : release-notes/editor.md
-      - launcher : release-notes/launcher.md
-      - agent : release-notes/agent.md
-    - modules:
-      - overview : modules.md
-      - arcade : modules/arcade/api.md
-      - tktween : modules/tktween/api.md
+    # - release notes:
+    #   - engine : release-notes/engine.md
+    #   - editor : release-notes/editor.md
+    #   - launcher : release-notes/launcher.md
+    #   - agent : release-notes/agent.md
+    # - modules:
+    #   - overview : modules.md
+    #   - arcade : modules/arcade/api.md
+    #   - tktween : modules/tktween/api.md
     - API: api.md
 theme:
   name: material
@@ -105,8 +105,6 @@ extra:
   social:
     - icon: 'octicons/mark-github-16'
       link: 'https://github.com/luxeengine'
-    - icon: 'fontawesome/brands/twitter'
-      link: 'https://twitter.com/luxeengine'
 use_directory_urls: true
 validation:
   absolute_links: relative_to_docs
@@ -115,17 +113,6 @@ plugins:
   - search:
       prebuild_index: true
       min_search_length: 2
-  - encryptcontent:
-      global_password: 'create with luxe'
-      title_prefix: ''
-      summary: 'docs will be public soon'
-      encryption_info_message: 'for now enter your access code'
-      password_button_text: 'go'
-      webcrypto: true
-      # search_index: 'clear'
-      encrypted_something:
-          md-footer__inner: [nav, class]
-          md-nav: [nav, class]
   - exclude:
       glob:
         # - api.md
