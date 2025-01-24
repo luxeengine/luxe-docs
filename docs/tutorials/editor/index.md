@@ -140,7 +140,7 @@ If we switch back manually we'll see the `world` selector is active on the left 
 
 You can open a scene to inspect it.  
 
-!!! tip "Open the `scene/level`" scene for editing
+!!! tip "Open the `scene/level` scene for editing"
 
 ![](../../images/tutorial/editor/editor.world.9.png)
 
@@ -203,7 +203,7 @@ This will present you with a list of all available modifiers in your project.
 
 Like always, you can search in this list. We're looking for `Transform. 
 
-!!! tip "Find and attach a `Transform` modifier by selecting it
+!!! tip "Find and attach a `Transform` modifier by selecting it"
 
 ![](../../images/tutorial/editor/entity.attach.2.png)
 
@@ -219,7 +219,7 @@ Each modifier has their own properties, a sprite has an image field as the first
 
 We're going to customize it to be a wall for the base of our pillar.
 
-!!! tip "Select `image/prop/wall2` for the sprite image
+!!! tip "Select `image/prop/wall2` for the sprite image"
 
 To do that we first look for the asset selector icon next to the field (It's a right arrow):
 
@@ -241,7 +241,7 @@ This will change our sprite size + visuals to match the selected image:
 
 In order to know what we're going for, we're going to look at the existing pillar.
 
-!!! tip "Open the `prototype/pillar.0` prototype for inspection.
+!!! tip "Open the `prototype/pillar.0` prototype for inspection."
 
 This will take us to another world, and we'll be able to switch back and forth between them to compare notes.
 
@@ -275,7 +275,7 @@ If we change the y value of the origin to 1 (before we moved it), we'll notice t
 
 The last piece we'll do step by step, is creating an instance of the flower prototype. The flower is part of the challenge in the game, to bounce on it, so we'll create one in our pillar. The game already has a prototype created and ready to use, so all we need to do is make an instance of it.
 
-!!! tip "Ppen the create menu, and select Instance"
+!!! tip "Open the create menu, and select Instance"
 
 If we open the create menu, we can find `Instance` in the list:
 
