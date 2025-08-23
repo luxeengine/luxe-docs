@@ -217,20 +217,25 @@ except for the static keyword up front. Like in other languages,
 you can't access class variables or methods from static methods.
 
 ```js
-class Hello {
+class Dog {
+  
   //static getter
-  static get { 5 }
+  static noise { "woof" }
+  
   //static setter
-  static set=(value) { Log.print(value) }
+  static latinName=(value) { 
+    Log.print("Latin name setter called: " + value)
+  }
+  
   //static method
-  static method() {
-    Log.print("static method!")
+  static makeNoise() {
+    Log.print("The dog goes " + noise)
   }
 }
 
-Log.print(Hello.get) //prints 5
-Hello.set = "hello"     //prints hello
-Hello.method()          //prints "static method!"
+Log.print(Dog.noise)    //prints "woof"
+Dog.latinName = "Canis" //prints "Latin name setter called: Canis"
+Dog.makeNoise()         //prints "The dog goes woof"
 ```
 
 - You call the methods directly on the class itself
@@ -241,21 +246,26 @@ Static variables work the same as class variables, except for an extra underscor
 
 
 ```js
-class Hello {
+class Fish {
   //static getter
-  static get { __value }
+  static noise { __noise }
+
   //static setter
-  static set=(value) { __value = value }
+  static noise=(v) { 
+    Log.print("updating Fish noise")
+    __noise = v
+  }
+  
   //static method
-  static init() {
-    __value = 5
+  static setDefaultNoise() {
+    __noise = "blub blub"
   }
 }
 
-Hello.init()
-Log.print(Hello.get) //prints 5
-Hello.set = 6           //prints hello
-Log.print(Hello.get) //prints 6
+Fish.setDefaultNoise()    //initialises the private variable
+Log.print(Fish.noise)     //prints "blub blub"
+Fish.noise = "plip plip"  //prints "updating Fish noise" and sets the value
+Log.print(Fish.noise)     //prints "plip plip"
 ```
 
 ## Functions 
