@@ -270,8 +270,10 @@ Log.print(Fish.noise)     //prints "plip plip"
 
 ## Functions 
 
+In Wren, **the distinction between functions and methods is important.**
+
 Wren can store functions in variables and pass them to other functions and methods.
-The distinction between functions and methods is important.
+
 
 ```js
 var notify = Fn.new() {
