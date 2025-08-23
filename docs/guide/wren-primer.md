@@ -117,33 +117,38 @@ Variables in luxe will be familiar as well.
 Scope works as you'd expect, with local variables and class variables.
 
 ```js
-class Hello {
+class Cat {
 
   //explicit class fields must come first in the class
   //and must be initialized. can use any expression!
-  var value = 3
+  var latinName = "Felis catus"
 
   construct new() {
 
     //a class field that is private
-    _private = 0
+    _numberOfLegs = 4
 
   }
 
-  print() {
+  makeNoise() {
 
-    var local = "cannot be seen outside this scope"
-    Log.print(local)
+    //local variable, cannot be seen outside this scope
+    var noise = "meow"
+    Log.print(noise)
 
-    //we can access our value variable from here,
+    //we can access our latinName variable from here,
     //because it belongs to this class
-    value = value + 2
-    //prints 5
-    Log.print(value)
-    //also prints 5, as _value is a private field declared by `var value`
-    Log.print(_value)
-    //prints 0
-    Log.print(_private)
+    latinName = latinName + "(aka domestic cat)"
+    
+    //prints "Felis catus (aka domestic cat)"
+    Log.print(latinName)
+    
+    //also prints the same, as _latinName is a private field declared by `var latinName`
+    Log.print(_latinName)
+    
+    //prints 4
+    Log.print(_numberOfLegs)
+    
     //prints null, prefer declaring explicit fields instead for errors
     Log.print(_not_defined)
 
@@ -165,33 +170,35 @@ In order to make our values accessible from outside, we make them available firs
 We do that with getters and setters, which gives us read/write access control as well.
 
 ```js
-class Hello {
+class Enemy {
 
   //automatic form
-  //generates `auto { _auto }`
-  //and `auto=(v) { _auto=v }`
-  var auto = true
+  //generates `alive { _alive }`
+  //and `alive=(v) { _alive=v }`
+  var alive = true
 
   //manual short form
-  value { _value }
-  value=(new_value) { _value = new_value }
+  health { _health }
+  health=(new_health) { _health = new_health }
 
   //long form, read only
-  other_value {
-    return _other_value
+  max_health {
+    return _max_health
   }
   
   construct new() { 
-    _value = 4
-    _other_value = 5
+    _health = 50
+    _max_health = 100
   }
 
 }
 
-var hello = Hello.new()
-    hello.value = 6             //update value
-Log.print(hello.value)       //prints 6
-Log.print(hello.other_value) //prints 5
+var enemy = Enemy.new()
+enemy.health = 20           //updates health
+Log.print(enemy.health)     //prints 20
+Log.print(enemy.max_health) //prints 100
+
+// enemy.max_health = 1000     //compilation error - enemy.max_health is read-only
 ```
 
 - Explicit class var fields declare a getter/setter for you, making them public
