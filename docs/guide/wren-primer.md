@@ -205,10 +205,10 @@ Log.print(enemy.max_health) //prints 100
 - A getter is a method without arguments, i.e no `()` after the name
 - A setter is a method with `=(one_arg)`, where the incoming value is passed in
 - Short form is a convenient way to say "return whatever I put in a single line", like these:
-- `number { 3 }`, `string { "string" }`, `list { [] }` 
-- (This comes in really handy later as you'll see)
+  - `age { 30 }`, `engineName { "luxe" }`, `colors { ["green", "red"] }` 
+  - (This really comes in handy later as you'll see)
 - If you need to use more than one line/one expression, you must use `return` 
-- note that `other_value` doesn't have a setter, it can't be set from outside
+- note that `max_health` doesn't have a setter, it can't be set from outside
 
 ## Static methods and variables
 
