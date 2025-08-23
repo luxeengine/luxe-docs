@@ -303,31 +303,33 @@ You can pass functions to other functions or methods.
 Note that **you cannot pass a method this way**. 
 
 ```js
-class Hello {
+class Person {
+  
   construct new() {
-    _function = null
-    _name = null
-  }
-  set_function(name, fn) {
-    _name = name
-    _function = fn
+    _greetingFunction = null
+    _favoriteColor = "Green"
   }
 
-  call_function(value) {
-    if(_function != null) _function.call(value) 
+  updateVariables(color, fn) {
+    _favoriteColor = color
+    _greetingFunction = fn
+  }
+
+  greet(otherPersonsName) {
+    if(_greetingFunction != null) _greetingFunction.call(otherPersonsName) 
   }
 }
 
-var hello = Hello.new()
+var person = Person.new()
 
 //we can store a function in a variable, and pass it into the method
-var variable = Fn.new() {|value| Log.print(value) } 
-hello.set_function("name", variable)
-hello.call_function(5) //print 5
+var greetFn = Fn.new() {|value| Log.print("Hey %(value), what's up?") } 
+person.updateVariables("blue", greetFn)
+person.greet("luxe") //prints "Hey luxe, what's up?"
 
 //We can also pass a function directly
-hello.set_function("name", Fn.new() {|value| Log.print(value + 8) })
-hello.call_function(8) //print 16
+person.updateVariables("purple", Fn.new() {|name| Log.print("Hi %(name)! How's it going?") })
+person.greet("luxe") //prints "Hi luxe! How's it going?"
 ``` 
 
 ## Function short form syntax
@@ -337,7 +339,7 @@ This relates to the "short form: where a single expression is a return value" me
 Using the same example as before, but with the short form for a function:
 
 ```js
-hello.set_function("name") {|value|
+person.updateVariables("red") {|value|
   Log.print("hello %(value)")
 }
 ```
@@ -353,15 +355,16 @@ When does this work?
 - The below example doesn't work, we have to use a variable or a longer form
 
 ```js
-  set_function(fn, name) {
-    _name = name
-    _function = fn
+  // Signature changed - last argument no longer a function:
+  updateVariables(fn, color) {
+    _favoriteColor = color
+    _greetingFunction = fn
   }
   
   ...
   
   //requires the long form!
-  hello.set_function(Fn.new(){|value| }, "name")
+  person.updateVariables(Fn.new(){|value| }, "orange")
 ```
 
 ## Why short form is nice
