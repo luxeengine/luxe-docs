@@ -35,9 +35,9 @@ In order to run our project, we first need to install a module. If you don't, yo
 You can use the launcher to install modules. Head over to the module page, and search for the arcade module.
 Once you find it, you can click through, and click the download arrow.
 
-The project is configured to use version `0.0.23`, install that version.
+The project is configured to use version `0.0.24`, install that version.
 
-!!! tip "Install `arcade` version `0.0.23` to continue!"
+!!! tip "Install `arcade` version `0.0.24` to continue!"
 
 ![](../../images/tutorial/world/modules.1.png)
 ![](../../images/tutorial/world/modules.2.png)
