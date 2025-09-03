@@ -1,0 +1,1102 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../../../images/luxe-favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Camera.modifier - luxe engine</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../css/extra.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="luxe engine" class="md-header__button md-logo" aria-label="luxe engine" data-md-component="logo">
+      
+  <img src="../../../../../images/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            luxe engine
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Camera.modifier
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="pink" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="luxe engine" class="md-nav__button md-logo" aria-label="luxe engine" data-md-component="logo">
+      
+  <img src="../../../../../images/logo.svg" alt="logo">
+
+    </a>
+    luxe engine
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    about
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../get/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    install
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    guide
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../tutorials/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    tutorials
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../learn/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    learn ...
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../manual/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    manual
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1"><img alt="" src="../../../../../../images/luxe-dark.svg" width="96em" /><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h1 id="luxe-api-202512"><code>luxe</code> API (<code>2025.1.2</code>)<a class="headerlink" href="#luxe-api-202512" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="luxe-systemcameramodifier-module"><code>luxe: system/camera.modifier</code> module<a class="headerlink" href="#luxe-systemcameramodifier-module" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#camera">Camera</a>   </li>
+<li><a href="#cameraprojection">CameraProjection</a>   </li>
+<li><a href="#cameraviewtype">CameraViewType</a>   </li>
+<li><a href="#data">Data</a>   </li>
+<li><a href="#perentityinfo">PerEntityInfo</a>   </li>
+<li><a href="#system">System</a>   </li>
+</ul>
+<hr />
+<h3 id="camera">Camera<a class="headerlink" href="#camera" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: system/camera.modifier&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">Camera</span></code></p>
+<blockquote>
+<p>no docs found</p>
+</blockquote>
+<ul>
+<li><a href="#Camera.create">create</a>(<strong>entity</strong>: <code>Any</code>)</li>
+<li><a href="#Camera.destroy">destroy</a>(<strong>entity</strong>: <code>Any</code>)</li>
+<li><a href="#Camera.has">has</a>(<strong>entity</strong>: <code>Any</code>)</li>
+<li><a href="#Camera.get_default">get_default</a>(<strong>world</strong>: <code>Any</code>)</li>
+<li><a href="#Camera.set_default+2">set_default</a>(<strong>world</strong>: <code>Any</code>, <strong>camera</strong>: <code>Any</code>)</li>
+<li><a href="#Camera.set_fov_vertical+2">set_fov_vertical</a>(<strong>entity</strong>: <code>Any</code>, <strong>fov_vertical</strong>: <code>Any</code>)</li>
+<li><a href="#Camera.get_fov_vertical">get_fov_vertical</a>(<strong>entity</strong>: <code>Any</code>)</li>
+<li><a href="#Camera.get_projection">get_projection</a>(<strong>entity</strong>: <code>Any</code>)</li>
+<li><a href="#Camera.set_zoom2D+2">set_zoom2D</a>(<strong>entity</strong>: <code>Entity</code>, <strong>zoom</strong>: <code>Num</code>)</li>
+<li><a href="#Camera.get_zoom2D">get_zoom2D</a>(<strong>entity</strong>: <code>Any</code>)</li>
+<li><a href="#Camera.get_near">get_near</a>(<strong>entity</strong>: <code>Any</code>)</li>
+<li><a href="#Camera.get_far">get_far</a>(<strong>entity</strong>: <code>Any</code>)</li>
+<li><a href="#Camera.get_aspect">get_aspect</a>(<strong>entity</strong>: <code>Any</code>)</li>
+<li><a href="#Camera.get_frustum">get_frustum</a>(<strong>entity</strong>: <code>Any</code>)</li>
+<li><a href="#Camera.perspective+5">perspective</a>(<strong>entity</strong>: <code>Any</code>, <strong>fov_vertical</strong>: <code>Any</code>, <strong>aspect</strong>: <code>Any</code>, <strong>near</strong>: <code>Any</code>, <strong>far</strong>: <code>Any</code>)</li>
+<li><a href="#Camera.ortho+7">ortho</a>(<strong>entity</strong>: <code>Any</code>, <strong>left</strong>: <code>Any</code>, <strong>top</strong>: <code>Any</code>, <strong>right</strong>: <code>Any</code>, <strong>bottom</strong>: <code>Any</code>, <strong>near</strong>: <code>Any</code>, <strong>far</strong>: <code>Any</code>)</li>
+<li><a href="#Camera.look_at+4">look_at</a>(<strong>entity</strong>: <code>Any</code>, <strong>from</strong>: <code>Any</code>, <strong>to</strong>: <code>Any</code>, <strong>up</strong>: <code>Any</code>)</li>
+<li><a href="#Camera.set2D+7">set2D</a>(<strong>entity</strong>: <code>Any</code>, <strong>x</strong>: <code>Any</code>, <strong>y</strong>: <code>Any</code>, <strong>width</strong>: <code>Any</code>, <strong>height</strong>: <code>Any</code>, <strong>near</strong>: <code>Any</code>, <strong>far</strong>: <code>Any</code>)</li>
+<li><a href="#Camera.set3D+5">set3D</a>(<strong>entity</strong>: <code>Any</code>, <strong>fov_vertical</strong>: <code>Any</code>, <strong>aspect</strong>: <code>Any</code>, <strong>near</strong>: <code>Any</code>, <strong>far</strong>: <code>Any</code>)</li>
+<li><a href="#Camera.screen_point_to_world+3">screen_point_to_world</a>(<strong>entity</strong>: <code>Any</code>, <strong>pos_x</strong>: <code>Any</code>, <strong>pos_y</strong>: <code>Any</code>)</li>
+<li><a href="#Camera.world_point_to_screen+4">world_point_to_screen</a>(<strong>entity</strong>: <code>Any</code>, <strong>pos_x</strong>: <code>Any</code>, <strong>pos_y</strong>: <code>Any</code>, <strong>pos_z</strong>: <code>Any</code>)</li>
+<li><a href="#Camera.world_point_to_view+5">world_point_to_view</a>(<strong>entity</strong>: <code>Any</code>, <strong>pos_x</strong>: <code>Any</code>, <strong>pos_y</strong>: <code>Any</code>, <strong>pos_z</strong>: <code>Any</code>, <strong>into</strong>: <code>Any</code>)</li>
+<li><a href="#Camera.world_point_to_view+4">world_point_to_view</a>(<strong>entity</strong>: <code>Any</code>, <strong>pos_x</strong>: <code>Any</code>, <strong>pos_y</strong>: <code>Any</code>, <strong>pos_z</strong>: <code>Any</code>)</li>
+<li><a href="#Camera.view_point_to_world+4">view_point_to_world</a>(<strong>entity</strong>: <code>Any</code>, <strong>pos_x</strong>: <code>Any</code>, <strong>pos_y</strong>: <code>Any</code>, <strong>pos_z</strong>: <code>Any</code>)</li>
+<li><a href="#Camera.world_point_to_clip+4">world_point_to_clip</a>(<strong>entity</strong>: <code>Any</code>, <strong>pos_x</strong>: <code>Any</code>, <strong>pos_y</strong>: <code>Any</code>, <strong>pos_z</strong>: <code>Any</code>)</li>
+<li><a href="#Camera.clip_point_to_world+4">clip_point_to_world</a>(<strong>entity</strong>: <code>Any</code>, <strong>pos_x</strong>: <code>Any</code>, <strong>pos_y</strong>: <code>Any</code>, <strong>pos_z</strong>: <code>Any</code>)</li>
+<li><a href="#Camera.get_view_matrix+2">get_view_matrix</a>(<strong>entity</strong>: <code>Any</code>, <strong>into_matrix</strong>: <code>Any</code>)</li>
+<li><a href="#Camera.get_projection_matrix+2">get_projection_matrix</a>(<strong>entity</strong>: <code>Any</code>, <strong>into_matrix</strong>: <code>Any</code>)</li>
+<li><a href="#Camera.get_view_projection_matrix+2">get_view_projection_matrix</a>(<strong>entity</strong>: <code>Any</code>, <strong>into_matrix</strong>: <code>Any</code>)</li>
+<li><a href="#Camera.set_view_matrix+2">set_view_matrix</a>(<strong>entity</strong>: <code>Any</code>, <strong>matrix</strong>: <code>Any</code>)</li>
+<li><a href="#Camera.set_projection_matrix+2">set_projection_matrix</a>(<strong>entity</strong>: <code>Any</code>, <strong>matrix</strong>: <code>Any</code>)</li>
+<li><a href="#Camera.cull+2">cull</a>(<strong>camera</strong>: <code>Any</code>, <strong>render_set</strong>: <code>Any</code>)</li>
+<li><a href="#Camera.froxelize+5">froxelize</a>(<strong>camera</strong>: <code>Any</code>, <strong>slices</strong>: <code>Any</code>, <strong>entity_info_list</strong>: <code>Any</code>, <strong>cluster_image</strong>: <code>Any</code>, <strong>items_image</strong>: <code>Any</code>)</li>
+<li><a href="#Camera.cut+2">cut</a>(<strong>camera</strong>: <code>Entity</code>, <strong>to_camera</strong>: <code>Entity</code>)</li>
+<li><a href="#Camera.blend+4">blend</a>(<strong>camera</strong>: <code>Entity</code>, <strong>from_camera</strong>: <code>Entity</code>, <strong>to_camera</strong>: <code>Entity</code>, <strong>t</strong>: <code>Num</code>)</li>
+<li><a href="#Camera.blend+3">blend</a>(<strong>camera</strong>: <code>Entity</code>, <strong>to_camera</strong>: <code>Entity</code>, <strong>t</strong>: <code>Num</code>)</li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: system/camera.modifier" class="Camera" signature="create(entity : Any)"></endpoint>
+<signature id="Camera.create">Camera.create(<strong>entity</strong>: <code>Any</code>)
+<a class="headerlink" href="#Camera.create" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="Camera" signature="destroy(entity : Any)"></endpoint>
+<signature id="Camera.destroy">Camera.destroy(<strong>entity</strong>: <code>Any</code>)
+<a class="headerlink" href="#Camera.destroy" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="Camera" signature="has(entity : Any)"></endpoint>
+<signature id="Camera.has">Camera.has(<strong>entity</strong>: <code>Any</code>)
+<a class="headerlink" href="#Camera.has" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="Camera" signature="get_default(world : Any)"></endpoint>
+<signature id="Camera.get_default">Camera.get_default(<strong>world</strong>: <code>Any</code>)
+<a class="headerlink" href="#Camera.get_default" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="Camera" signature="set_default(world : Any, camera : Any)"></endpoint>
+<signature id="Camera.set_default+2">Camera.set_default(<strong>world</strong>: <code>Any</code>, <strong>camera</strong>: <code>Any</code>)
+<a class="headerlink" href="#Camera.set_default+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="Camera" signature="set_fov_vertical(entity : Any, fov_vertical : Any)"></endpoint>
+<signature id="Camera.set_fov_vertical+2">Camera.set_fov_vertical(<strong>entity</strong>: <code>Any</code>, <strong>fov_vertical</strong>: <code>Any</code>)
+<a class="headerlink" href="#Camera.set_fov_vertical+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="Camera" signature="get_fov_vertical(entity : Any)"></endpoint>
+<signature id="Camera.get_fov_vertical">Camera.get_fov_vertical(<strong>entity</strong>: <code>Any</code>)
+<a class="headerlink" href="#Camera.get_fov_vertical" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="Camera" signature="get_projection(entity : Any)"></endpoint>
+<signature id="Camera.get_projection">Camera.get_projection(<strong>entity</strong>: <code>Any</code>)
+<a class="headerlink" href="#Camera.get_projection" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">CameraProjection</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="Camera" signature="set_zoom2D(entity : Entity, zoom : Num)"></endpoint>
+<signature id="Camera.set_zoom2D+2">Camera.set_zoom2D(<strong>entity</strong>: <code>Entity</code>, <strong>zoom</strong>: <code>Num</code>)
+<a class="headerlink" href="#Camera.set_zoom2D+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="Camera" signature="get_zoom2D(entity : Any)"></endpoint>
+<signature id="Camera.get_zoom2D">Camera.get_zoom2D(<strong>entity</strong>: <code>Any</code>)
+<a class="headerlink" href="#Camera.get_zoom2D" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="Camera" signature="get_near(entity : Any)"></endpoint>
+<signature id="Camera.get_near">Camera.get_near(<strong>entity</strong>: <code>Any</code>)
+<a class="headerlink" href="#Camera.get_near" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="Camera" signature="get_far(entity : Any)"></endpoint>
+<signature id="Camera.get_far">Camera.get_far(<strong>entity</strong>: <code>Any</code>)
+<a class="headerlink" href="#Camera.get_far" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="Camera" signature="get_aspect(entity : Any)"></endpoint>
+<signature id="Camera.get_aspect">Camera.get_aspect(<strong>entity</strong>: <code>Any</code>)
+<a class="headerlink" href="#Camera.get_aspect" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="Camera" signature="get_frustum(entity : Any)"></endpoint>
+<signature id="Camera.get_frustum">Camera.get_frustum(<strong>entity</strong>: <code>Any</code>)
+<a class="headerlink" href="#Camera.get_frustum" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="Camera" signature="perspective(entity : Any, fov_vertical : Any, aspect : Any, near : Any, far : Any)"></endpoint>
+<signature id="Camera.perspective+5">Camera.perspective(<strong>entity</strong>: <code>Any</code>, <strong>fov_vertical</strong>: <code>Any</code>, <strong>aspect</strong>: <code>Any</code>, <strong>near</strong>: <code>Any</code>, <strong>far</strong>: <code>Any</code>)
+<a class="headerlink" href="#Camera.perspective+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="Camera" signature="ortho(entity : Any, left : Any, top : Any, right : Any, bottom : Any, near : Any, far : Any)"></endpoint>
+<signature id="Camera.ortho+7">Camera.ortho(<strong>entity</strong>: <code>Any</code>, <strong>left</strong>: <code>Any</code>, <strong>top</strong>: <code>Any</code>, <strong>right</strong>: <code>Any</code>, <strong>bottom</strong>: <code>Any</code>, <strong>near</strong>: <code>Any</code>, <strong>far</strong>: <code>Any</code>)
+<a class="headerlink" href="#Camera.ortho+7" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="Camera" signature="look_at(entity : Any, from : Any, to : Any, up : Any)"></endpoint>
+<signature id="Camera.look_at+4">Camera.look_at(<strong>entity</strong>: <code>Any</code>, <strong>from</strong>: <code>Any</code>, <strong>to</strong>: <code>Any</code>, <strong>up</strong>: <code>Any</code>)
+<a class="headerlink" href="#Camera.look_at+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="Camera" signature="set2D(entity : Any, x : Any, y : Any, width : Any, height : Any, near : Any, far : Any)"></endpoint>
+<signature id="Camera.set2D+7">Camera.set2D(<strong>entity</strong>: <code>Any</code>, <strong>x</strong>: <code>Any</code>, <strong>y</strong>: <code>Any</code>, <strong>width</strong>: <code>Any</code>, <strong>height</strong>: <code>Any</code>, <strong>near</strong>: <code>Any</code>, <strong>far</strong>: <code>Any</code>)
+<a class="headerlink" href="#Camera.set2D+7" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="Camera" signature="set3D(entity : Any, fov_vertical : Any, aspect : Any, near : Any, far : Any)"></endpoint>
+<signature id="Camera.set3D+5">Camera.set3D(<strong>entity</strong>: <code>Any</code>, <strong>fov_vertical</strong>: <code>Any</code>, <strong>aspect</strong>: <code>Any</code>, <strong>near</strong>: <code>Any</code>, <strong>far</strong>: <code>Any</code>)
+<a class="headerlink" href="#Camera.set3D+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="Camera" signature="screen_point_to_world(entity : Any, pos_x : Any, pos_y : Any)"></endpoint>
+<signature id="Camera.screen_point_to_world+3">Camera.screen_point_to_world(<strong>entity</strong>: <code>Any</code>, <strong>pos_x</strong>: <code>Any</code>, <strong>pos_y</strong>: <code>Any</code>)
+<a class="headerlink" href="#Camera.screen_point_to_world+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="Camera" signature="world_point_to_screen(entity : Any, pos_x : Any, pos_y : Any, pos_z : Any)"></endpoint>
+<signature id="Camera.world_point_to_screen+4">Camera.world_point_to_screen(<strong>entity</strong>: <code>Any</code>, <strong>pos_x</strong>: <code>Any</code>, <strong>pos_y</strong>: <code>Any</code>, <strong>pos_z</strong>: <code>Any</code>)
+<a class="headerlink" href="#Camera.world_point_to_screen+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="Camera" signature="world_point_to_view(entity : Any, pos_x : Any, pos_y : Any, pos_z : Any, into : Any)"></endpoint>
+<signature id="Camera.world_point_to_view+5">Camera.world_point_to_view(<strong>entity</strong>: <code>Any</code>, <strong>pos_x</strong>: <code>Any</code>, <strong>pos_y</strong>: <code>Any</code>, <strong>pos_z</strong>: <code>Any</code>, <strong>into</strong>: <code>Any</code>)
+<a class="headerlink" href="#Camera.world_point_to_view+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="Camera" signature="world_point_to_view(entity : Any, pos_x : Any, pos_y : Any, pos_z : Any)"></endpoint>
+<signature id="Camera.world_point_to_view+4">Camera.world_point_to_view(<strong>entity</strong>: <code>Any</code>, <strong>pos_x</strong>: <code>Any</code>, <strong>pos_y</strong>: <code>Any</code>, <strong>pos_z</strong>: <code>Any</code>)
+<a class="headerlink" href="#Camera.world_point_to_view+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="Camera" signature="view_point_to_world(entity : Any, pos_x : Any, pos_y : Any, pos_z : Any)"></endpoint>
+<signature id="Camera.view_point_to_world+4">Camera.view_point_to_world(<strong>entity</strong>: <code>Any</code>, <strong>pos_x</strong>: <code>Any</code>, <strong>pos_y</strong>: <code>Any</code>, <strong>pos_z</strong>: <code>Any</code>)
+<a class="headerlink" href="#Camera.view_point_to_world+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="Camera" signature="world_point_to_clip(entity : Any, pos_x : Any, pos_y : Any, pos_z : Any)"></endpoint>
+<signature id="Camera.world_point_to_clip+4">Camera.world_point_to_clip(<strong>entity</strong>: <code>Any</code>, <strong>pos_x</strong>: <code>Any</code>, <strong>pos_y</strong>: <code>Any</code>, <strong>pos_z</strong>: <code>Any</code>)
+<a class="headerlink" href="#Camera.world_point_to_clip+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="Camera" signature="clip_point_to_world(entity : Any, pos_x : Any, pos_y : Any, pos_z : Any)"></endpoint>
+<signature id="Camera.clip_point_to_world+4">Camera.clip_point_to_world(<strong>entity</strong>: <code>Any</code>, <strong>pos_x</strong>: <code>Any</code>, <strong>pos_y</strong>: <code>Any</code>, <strong>pos_z</strong>: <code>Any</code>)
+<a class="headerlink" href="#Camera.clip_point_to_world+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="Camera" signature="get_view_matrix(entity : Any, into_matrix : Any)"></endpoint>
+<signature id="Camera.get_view_matrix+2">Camera.get_view_matrix(<strong>entity</strong>: <code>Any</code>, <strong>into_matrix</strong>: <code>Any</code>)
+<a class="headerlink" href="#Camera.get_view_matrix+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="Camera" signature="get_projection_matrix(entity : Any, into_matrix : Any)"></endpoint>
+<signature id="Camera.get_projection_matrix+2">Camera.get_projection_matrix(<strong>entity</strong>: <code>Any</code>, <strong>into_matrix</strong>: <code>Any</code>)
+<a class="headerlink" href="#Camera.get_projection_matrix+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="Camera" signature="get_view_projection_matrix(entity : Any, into_matrix : Any)"></endpoint>
+<signature id="Camera.get_view_projection_matrix+2">Camera.get_view_projection_matrix(<strong>entity</strong>: <code>Any</code>, <strong>into_matrix</strong>: <code>Any</code>)
+<a class="headerlink" href="#Camera.get_view_projection_matrix+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="Camera" signature="set_view_matrix(entity : Any, matrix : Any)"></endpoint>
+<signature id="Camera.set_view_matrix+2">Camera.set_view_matrix(<strong>entity</strong>: <code>Any</code>, <strong>matrix</strong>: <code>Any</code>)
+<a class="headerlink" href="#Camera.set_view_matrix+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="Camera" signature="set_projection_matrix(entity : Any, matrix : Any)"></endpoint>
+<signature id="Camera.set_projection_matrix+2">Camera.set_projection_matrix(<strong>entity</strong>: <code>Any</code>, <strong>matrix</strong>: <code>Any</code>)
+<a class="headerlink" href="#Camera.set_projection_matrix+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="Camera" signature="cull(camera : Any, render_set : Any)"></endpoint>
+<signature id="Camera.cull+2">Camera.cull(<strong>camera</strong>: <code>Any</code>, <strong>render_set</strong>: <code>Any</code>)
+<a class="headerlink" href="#Camera.cull+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="Camera" signature="froxelize(camera : Any, slices : Any, entity_info_list : Any, cluster_image : Any, items_image : Any)"></endpoint>
+<signature id="Camera.froxelize+5">Camera.froxelize(<strong>camera</strong>: <code>Any</code>, <strong>slices</strong>: <code>Any</code>, <strong>entity_info_list</strong>: <code>Any</code>, <strong>cluster_image</strong>: <code>Any</code>, <strong>items_image</strong>: <code>Any</code>)
+<a class="headerlink" href="#Camera.froxelize+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="Camera" signature="cut(camera : Entity, to_camera : Entity)"></endpoint>
+<signature id="Camera.cut+2">Camera.cut(<strong>camera</strong>: <code>Entity</code>, <strong>to_camera</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Camera.cut+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="Camera" signature="blend(camera : Entity, from_camera : Entity, to_camera : Entity, t : Num)"></endpoint>
+<signature id="Camera.blend+4">Camera.blend(<strong>camera</strong>: <code>Entity</code>, <strong>from_camera</strong>: <code>Entity</code>, <strong>to_camera</strong>: <code>Entity</code>, <strong>t</strong>: <code>Num</code>)
+<a class="headerlink" href="#Camera.blend+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="Camera" signature="blend(camera : Entity, to_camera : Entity, t : Num)"></endpoint>
+<signature id="Camera.blend+3">Camera.blend(<strong>camera</strong>: <code>Entity</code>, <strong>to_camera</strong>: <code>Entity</code>, <strong>t</strong>: <code>Num</code>)
+<a class="headerlink" href="#Camera.blend+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<h3 id="cameraprojection">CameraProjection<a class="headerlink" href="#cameraprojection" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: system/camera.modifier&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">CameraProjection</span></code></p>
+<blockquote>
+<p>no docs found</p>
+</blockquote>
+<ul>
+<li><a href="#CameraProjection.ortho">ortho</a></li>
+<li><a href="#CameraProjection.perspective">perspective</a></li>
+<li><a href="#CameraProjection.custom">custom</a></li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: system/camera.modifier" class="CameraProjection" signature="ortho"></endpoint>
+<signature id="CameraProjection.ortho">CameraProjection.ortho
+<a class="headerlink" href="#CameraProjection.ortho" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="CameraProjection" signature="perspective"></endpoint>
+<signature id="CameraProjection.perspective">CameraProjection.perspective
+<a class="headerlink" href="#CameraProjection.perspective" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="CameraProjection" signature="custom"></endpoint>
+<signature id="CameraProjection.custom">CameraProjection.custom
+<a class="headerlink" href="#CameraProjection.custom" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<h3 id="cameraviewtype">CameraViewType<a class="headerlink" href="#cameraviewtype" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: system/camera.modifier&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">CameraViewType</span></code></p>
+<blockquote>
+<p>no docs found</p>
+</blockquote>
+<ul>
+<li><a href="#CameraViewType.view_2D">view_2D</a></li>
+<li><a href="#CameraViewType.view_3D">view_3D</a></li>
+<li><a href="#CameraViewType.custom">custom</a></li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: system/camera.modifier" class="CameraViewType" signature="view_2D"></endpoint>
+<signature id="CameraViewType.view_2D">CameraViewType.view_2D
+<a class="headerlink" href="#CameraViewType.view_2D" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="CameraViewType" signature="view_3D"></endpoint>
+<signature id="CameraViewType.view_3D">CameraViewType.view_3D
+<a class="headerlink" href="#CameraViewType.view_3D" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="CameraViewType" signature="custom"></endpoint>
+<signature id="CameraViewType.custom">CameraViewType.custom
+<a class="headerlink" href="#CameraViewType.custom" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<h3 id="data">Data<a class="headerlink" href="#data" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: system/camera.modifier&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">Data</span></code></p>
+<blockquote>
+<p>no docs found</p>
+</blockquote>
+<ul>
+<li><code class="highlight"><span class="kd">var</span><span class="w"> </span><span class="nx">align_to_view</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">Num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span></code></li>
+<li><code class="highlight"><span class="kd">var</span><span class="w"> </span><span class="nx">kind</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">CameraViewType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">CameraViewType</span><span class="p">.</span><span class="nx">view_2D</span></code></li>
+<li><code class="highlight"><span class="kd">var</span><span class="w"> </span><span class="nx">offset</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">Float2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">]</span></code></li>
+<li><code class="highlight"><span class="kd">var</span><span class="w"> </span><span class="nx">size</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">Float2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">]</span></code></li>
+<li><code class="highlight"><span class="kd">var</span><span class="w"> </span><span class="nx">near_2d</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">Num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mf">2000</span></code></li>
+<li><code class="highlight"><span class="kd">var</span><span class="w"> </span><span class="nx">far_2d</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">Num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2000</span></code></li>
+<li><code class="highlight"><span class="kd">var</span><span class="w"> </span><span class="nx">zoom</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">Num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span></code></li>
+<li><code class="highlight"><span class="kd">var</span><span class="w"> </span><span class="nx">fov_vertical</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">Num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">60</span></code></li>
+<li><code class="highlight"><span class="kd">var</span><span class="w"> </span><span class="nx">aspect</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">Num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span></code></li>
+<li><code class="highlight"><span class="kd">var</span><span class="w"> </span><span class="nx">near_3d</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">Num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.1</span></code></li>
+<li><code class="highlight"><span class="kd">var</span><span class="w"> </span><span class="nx">far_3d</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">Num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">100</span></code></li>
+<li><code class="highlight"><span class="kd">var</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">Bool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span></code></li>
+<li><code class="highlight"><span class="kd">var</span><span class="w"> </span><span class="nx">debug_draw</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">Bool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span></code></li>
+<li><code class="highlight"><span class="kd">var</span><span class="w"> </span><span class="nx">debug_color</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">Color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">0.965</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.486</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">]</span></code></li>
+<li><code class="highlight"><span class="kd">var</span><span class="w"> </span><span class="nx">debug_thickness</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">Num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span></code></li>
+</ul>
+<hr/>
+<h3 id="perentityinfo">PerEntityInfo<a class="headerlink" href="#perentityinfo" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: system/camera.modifier&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">PerEntityInfo</span></code></p>
+<blockquote>
+<p>no docs found</p>
+</blockquote>
+<ul>
+<li><code class="highlight"><span class="kd">var</span><span class="w"> </span><span class="nx">entity</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">Num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span></code></li>
+<li><code class="highlight"><span class="kd">var</span><span class="w"> </span><span class="nb">window</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">Any</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span></code></li>
+<li><code class="highlight"><span class="kd">var</span><span class="w"> </span><span class="nx">preview</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">Any</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span></code></li>
+<li><code class="highlight"><span class="kd">var</span><span class="w"> </span><span class="nx">world_edit</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">Any</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span></code></li>
+<li><a href="#PerEntityInfo.new">new</a>(<strong>in_entity</strong>: <code>Any</code>)</li>
+<li><a href="#PerEntityInfo.destroy">destroy</a>()</li>
+<li><a href="#PerEntityInfo.show">show</a>(<strong>state</strong>: <code>Bool</code>)</li>
+<li><a href="#PerEntityInfo.update">update</a>()</li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: system/camera.modifier" class="PerEntityInfo" signature="new(in_entity : Any)"></endpoint>
+<signature id="PerEntityInfo.new">PerEntityInfo.new(<strong>in_entity</strong>: <code>Any</code>)
+<a class="headerlink" href="#PerEntityInfo.new" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">PerEntityInfo</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="PerEntityInfo" signature="destroy()"></endpoint>
+<signature id="PerEntityInfo.destroy">PerEntityInfo.destroy()
+<a class="headerlink" href="#PerEntityInfo.destroy" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="PerEntityInfo" signature="show(state : Bool)"></endpoint>
+<signature id="PerEntityInfo.show">PerEntityInfo.show(<strong>state</strong>: <code>Bool</code>)
+<a class="headerlink" href="#PerEntityInfo.show" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="PerEntityInfo" signature="update()"></endpoint>
+<signature id="PerEntityInfo.update">PerEntityInfo.update()
+<a class="headerlink" href="#PerEntityInfo.update" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<h3 id="system">System<a class="headerlink" href="#system" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: system/camera.modifier&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">System</span></code></p>
+<blockquote>
+<p>no docs found</p>
+</blockquote>
+<ul>
+<li><code class="highlight"><span class="kd">var</span><span class="w"> </span><span class="nx">draw</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">Draw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span></code></li>
+<li><code class="highlight"><span class="kd">var</span><span class="w"> </span><span class="nx">style</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">PathStyle</span><span class="p">.</span><span class="ow">new</span></code></li>
+<li><code class="highlight"><span class="kd">var</span><span class="w"> </span><span class="nb">window</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">Any</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span></code></li>
+<li><code class="highlight"><span class="kd">var</span><span class="w"> </span><span class="nx">preview</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">Any</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span></code></li>
+<li><code class="highlight"><span class="kd">var</span><span class="w"> </span><span class="nx">world_edit</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">Any</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span></code></li>
+<li><code class="highlight"><span class="kd">var</span><span class="w"> </span><span class="nx">current_selection</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">PerEntityInfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span></code></li>
+<li><a href="#System.new">new</a>(<strong>world</strong>: <code>World</code>)</li>
+<li><a href="#System.editor_init">editor_init</a>(<strong>world</strong>: <code>World</code>)</li>
+<li><a href="#System.init">init</a>(<strong>world</strong>: <code>World</code>)</li>
+<li><a href="#System.editor_attach+2">editor_attach</a>(<strong>entity</strong>: <code>Entity</code>, <strong>data</strong>: <code>Data</code>)</li>
+<li><a href="#System.editor_detach+2">editor_detach</a>(<strong>entity</strong>: <code>Entity</code>, <strong>data</strong>: <code>Data</code>)</li>
+<li><a href="#System.tick">tick</a>(<strong>delta</strong>: <code>Num</code>)</li>
+<li><a href="#System.editor_change+2">editor_change</a>(<strong>entity</strong>: <code>Entity</code>, <strong>change</strong>: <code>ModifierChange</code>)</li>
+<li><a href="#System.editor_tick">editor_tick</a>(<strong>delta</strong>: <code>Num</code>)</li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: system/camera.modifier" class="System" signature="new(world : World)"></endpoint>
+<signature id="System.new">System.new(<strong>world</strong>: <code>World</code>)
+<a class="headerlink" href="#System.new" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">System</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="System" signature="editor_init(world : World)"></endpoint>
+<signature id="System.editor_init">System.editor_init(<strong>world</strong>: <code>World</code>)
+<a class="headerlink" href="#System.editor_init" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="System" signature="init(world : World)"></endpoint>
+<signature id="System.init">System.init(<strong>world</strong>: <code>World</code>)
+<a class="headerlink" href="#System.init" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="System" signature="editor_attach(entity : Entity, data : Data)"></endpoint>
+<signature id="System.editor_attach+2">System.editor_attach(<strong>entity</strong>: <code>Entity</code>, <strong>data</strong>: <code>Data</code>)
+<a class="headerlink" href="#System.editor_attach+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="System" signature="editor_detach(entity : Entity, data : Data)"></endpoint>
+<signature id="System.editor_detach+2">System.editor_detach(<strong>entity</strong>: <code>Entity</code>, <strong>data</strong>: <code>Data</code>)
+<a class="headerlink" href="#System.editor_detach+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="System" signature="tick(delta : Num)"></endpoint>
+<signature id="System.tick">System.tick(<strong>delta</strong>: <code>Num</code>)
+<a class="headerlink" href="#System.tick" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="System" signature="editor_change(entity : Entity, change : ModifierChange)"></endpoint>
+<signature id="System.editor_change+2">System.editor_change(<strong>entity</strong>: <code>Entity</code>, <strong>change</strong>: <code>ModifierChange</code>)
+<a class="headerlink" href="#System.editor_change+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/camera.modifier" class="System" signature="editor_tick(delta : Num)"></endpoint>
+<signature id="System.editor_tick">System.editor_tick(<strong>delta</strong>: <code>Num</code>)
+<a class="headerlink" href="#System.editor_tick" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 3, 2025 06:41:06 UTC">September 3, 2025</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/luxeengine" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 0c4.42 0 8 3.58 8 8a8.01 8.01 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27s-1.36.09-2 .27c-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8"/></svg>
+    </a>
+  
+</div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../../..", "features": ["instant", "navigation.prune"], "search": "../../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>

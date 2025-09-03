@@ -1,0 +1,1758 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../../images/luxe-favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Bytes - luxe engine</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../css/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="luxe engine" class="md-header__button md-logo" aria-label="luxe engine" data-md-component="logo">
+      
+  <img src="../../../../images/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            luxe engine
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Bytes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="pink" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="luxe engine" class="md-nav__button md-logo" aria-label="luxe engine" data-md-component="logo">
+      
+  <img src="../../../../images/logo.svg" alt="logo">
+
+    </a>
+    luxe engine
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    about
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../get/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    install
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    guide
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../tutorials/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    tutorials
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../learn/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    learn ...
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../manual/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    manual
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1"><img alt="" src="../../../../images/luxe-dark.svg" width="96em" /><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h1 id="luxe-api-202511"><code>luxe</code> API (<code>2025.1.1</code>)<a class="headerlink" href="#luxe-api-202511" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="luxe-bytes-module"><code>luxe: bytes</code> module<a class="headerlink" href="#luxe-bytes-module" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#byter">Byter</a>   </li>
+<li><a href="#bytes">Bytes</a>   </li>
+<li><a href="#bytesreader">BytesReader</a>   </li>
+<li><a href="#byteswriter">BytesWriter</a>   </li>
+<li><a href="#floats">Floats</a>   </li>
+<li><a href="#uint16">Uint16</a>   </li>
+<li><a href="#uint32">Uint32</a>   </li>
+</ul>
+<hr />
+<h3 id="byter">Byter<a class="headerlink" href="#byter" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: bytes&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">Byter</span></code></p>
+<blockquote>
+<p>no docs found</p>
+</blockquote>
+<ul>
+<li><a href="#Byter.pos">pos</a></li>
+<li><a href="#Byter.inner">inner</a></li>
+<li><a href="#Byter.new">new</a>(<strong>size</strong>: <code>Any</code>)</li>
+<li><a href="#Byter.bytes">bytes</a>()</li>
+<li><a href="#Byter.write_string">write_string</a>(<strong>string</strong>: <code>Any</code>)</li>
+<li><a href="#Byter.write_string+2">write_string</a>(<strong>string</strong>: <code>Any</code>, <strong>length</strong>: <code>Any</code>)</li>
+<li><a href="#Byter.write_string_aligned4">write_string_aligned4</a>(<strong>string</strong>: <code>Any</code>)</li>
+<li><a href="#Byter.write_string_aligned4+2">write_string_aligned4</a>(<strong>string</strong>: <code>Any</code>, <strong>length</strong>: <code>Any</code>)</li>
+<li><a href="#Byter.write_int8">write_int8</a>(<strong>value</strong>: <code>Any</code>)</li>
+<li><a href="#Byter.write_uint8">write_uint8</a>(<strong>value</strong>: <code>Any</code>)</li>
+<li><a href="#Byter.write_int16">write_int16</a>(<strong>value</strong>: <code>Any</code>)</li>
+<li><a href="#Byter.write_int32">write_int32</a>(<strong>value</strong>: <code>Any</code>)</li>
+<li><a href="#Byter.write_int64">write_int64</a>(<strong>value</strong>: <code>Any</code>)</li>
+<li><a href="#Byter.write_uint16">write_uint16</a>(<strong>value</strong>: <code>Any</code>)</li>
+<li><a href="#Byter.write_uint32">write_uint32</a>(<strong>value</strong>: <code>Any</code>)</li>
+<li><a href="#Byter.write_uint64">write_uint64</a>(<strong>value</strong>: <code>Any</code>)</li>
+<li><a href="#Byter.write_float32">write_float32</a>(<strong>value</strong>: <code>Any</code>)</li>
+<li><a href="#Byter.write_float64">write_float64</a>(<strong>value</strong>: <code>Any</code>)</li>
+<li><a href="#Byter.write_uuid">write_uuid</a>(<strong>uuid</strong>: <code>Any</code>)</li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: bytes" class="Byter" signature="pos"></endpoint>
+<signature id="Byter.pos">Byter.pos
+<a class="headerlink" href="#Byter.pos" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Byter" signature="inner"></endpoint>
+<signature id="Byter.inner">Byter.inner
+<a class="headerlink" href="#Byter.inner" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Byter" signature="new(size : Any)"></endpoint>
+<signature id="Byter.new">Byter.new(<strong>size</strong>: <code>Any</code>)
+<a class="headerlink" href="#Byter.new" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Byter</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Byter" signature="bytes()"></endpoint>
+<signature id="Byter.bytes">Byter.bytes()
+<a class="headerlink" href="#Byter.bytes" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Byter" signature="write_string(string : Any)"></endpoint>
+<signature id="Byter.write_string">Byter.write_string(<strong>string</strong>: <code>Any</code>)
+<a class="headerlink" href="#Byter.write_string" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Byter" signature="write_string(string : Any, length : Any)"></endpoint>
+<signature id="Byter.write_string+2">Byter.write_string(<strong>string</strong>: <code>Any</code>, <strong>length</strong>: <code>Any</code>)
+<a class="headerlink" href="#Byter.write_string+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Byter" signature="write_string_aligned4(string : Any)"></endpoint>
+<signature id="Byter.write_string_aligned4">Byter.write_string_aligned4(<strong>string</strong>: <code>Any</code>)
+<a class="headerlink" href="#Byter.write_string_aligned4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Byter" signature="write_string_aligned4(string : Any, length : Any)"></endpoint>
+<signature id="Byter.write_string_aligned4+2">Byter.write_string_aligned4(<strong>string</strong>: <code>Any</code>, <strong>length</strong>: <code>Any</code>)
+<a class="headerlink" href="#Byter.write_string_aligned4+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Byter" signature="write_int8(value : Any)"></endpoint>
+<signature id="Byter.write_int8">Byter.write_int8(<strong>value</strong>: <code>Any</code>)
+<a class="headerlink" href="#Byter.write_int8" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Byter" signature="write_uint8(value : Any)"></endpoint>
+<signature id="Byter.write_uint8">Byter.write_uint8(<strong>value</strong>: <code>Any</code>)
+<a class="headerlink" href="#Byter.write_uint8" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Byter" signature="write_int16(value : Any)"></endpoint>
+<signature id="Byter.write_int16">Byter.write_int16(<strong>value</strong>: <code>Any</code>)
+<a class="headerlink" href="#Byter.write_int16" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Byter" signature="write_int32(value : Any)"></endpoint>
+<signature id="Byter.write_int32">Byter.write_int32(<strong>value</strong>: <code>Any</code>)
+<a class="headerlink" href="#Byter.write_int32" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Byter" signature="write_int64(value : Any)"></endpoint>
+<signature id="Byter.write_int64">Byter.write_int64(<strong>value</strong>: <code>Any</code>)
+<a class="headerlink" href="#Byter.write_int64" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Byter" signature="write_uint16(value : Any)"></endpoint>
+<signature id="Byter.write_uint16">Byter.write_uint16(<strong>value</strong>: <code>Any</code>)
+<a class="headerlink" href="#Byter.write_uint16" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Byter" signature="write_uint32(value : Any)"></endpoint>
+<signature id="Byter.write_uint32">Byter.write_uint32(<strong>value</strong>: <code>Any</code>)
+<a class="headerlink" href="#Byter.write_uint32" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Byter" signature="write_uint64(value : Any)"></endpoint>
+<signature id="Byter.write_uint64">Byter.write_uint64(<strong>value</strong>: <code>Any</code>)
+<a class="headerlink" href="#Byter.write_uint64" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Byter" signature="write_float32(value : Any)"></endpoint>
+<signature id="Byter.write_float32">Byter.write_float32(<strong>value</strong>: <code>Any</code>)
+<a class="headerlink" href="#Byter.write_float32" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Byter" signature="write_float64(value : Any)"></endpoint>
+<signature id="Byter.write_float64">Byter.write_float64(<strong>value</strong>: <code>Any</code>)
+<a class="headerlink" href="#Byter.write_float64" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Byter" signature="write_uuid(uuid : Any)"></endpoint>
+<signature id="Byter.write_uuid">Byter.write_uuid(<strong>uuid</strong>: <code>Any</code>)
+<a class="headerlink" href="#Byter.write_uuid" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<h3 id="bytes">Bytes<a class="headerlink" href="#bytes" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: bytes&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">Bytes</span></code></p>
+<blockquote>
+<p>no docs found</p>
+</blockquote>
+<ul>
+<li><a href="#Bytes.new">new</a>(<strong>elements</strong>: <code>Any</code>)</li>
+<li><a href="#Bytes.length">length</a></li>
+<li><a href="#Bytes.[index : Any]">[index : Any]</a></li>
+<li><a href="#Bytes.[index : Any]=">[index : Any]</a>=(value : Any)</li>
+<li><a href="#Bytes.from_string">from_string</a>(<strong>string</strong>: <code>Any</code>)</li>
+<li><a href="#Bytes.set_from">set_from</a>(<strong>other</strong>: <code>Any</code>)</li>
+<li><a href="#Bytes.copy+3">copy</a>(<strong>other</strong>: <code>Any</code>, <strong>at</strong>: <code>Any</code>, <strong>length</strong>: <code>Any</code>)</li>
+<li><a href="#Bytes.copy+4">copy</a>(<strong>other</strong>: <code>Any</code>, <strong>to</strong>: <code>Any</code>, <strong>from</strong>: <code>Any</code>, <strong>length</strong>: <code>Any</code>)</li>
+<li><a href="#Bytes.set_string+2">set_string</a>(<strong>at</strong>: <code>Any</code>, <strong>value</strong>: <code>Any</code>)</li>
+<li><a href="#Bytes.set_string+3">set_string</a>(<strong>at</strong>: <code>Any</code>, <strong>value</strong>: <code>Any</code>, <strong>length</strong>: <code>Any</code>)</li>
+<li><a href="#Bytes.get_string+2">get_string</a>(<strong>at</strong>: <code>Any</code>, <strong>length</strong>: <code>Any</code>)</li>
+<li><a href="#Bytes.set_int8+2">set_int8</a>(<strong>at</strong>: <code>Any</code>, <strong>value</strong>: <code>Any</code>)</li>
+<li><a href="#Bytes.set_int16+2">set_int16</a>(<strong>at</strong>: <code>Any</code>, <strong>value</strong>: <code>Any</code>)</li>
+<li><a href="#Bytes.set_int32+2">set_int32</a>(<strong>at</strong>: <code>Any</code>, <strong>value</strong>: <code>Any</code>)</li>
+<li><a href="#Bytes.set_int64+2">set_int64</a>(<strong>at</strong>: <code>Any</code>, <strong>value</strong>: <code>Any</code>)</li>
+<li><a href="#Bytes.set_uint8+2">set_uint8</a>(<strong>at</strong>: <code>Any</code>, <strong>value</strong>: <code>Any</code>)</li>
+<li><a href="#Bytes.set_uint16+2">set_uint16</a>(<strong>at</strong>: <code>Any</code>, <strong>value</strong>: <code>Any</code>)</li>
+<li><a href="#Bytes.set_uint32+2">set_uint32</a>(<strong>at</strong>: <code>Any</code>, <strong>value</strong>: <code>Any</code>)</li>
+<li><a href="#Bytes.set_uint64+2">set_uint64</a>(<strong>at</strong>: <code>Any</code>, <strong>value</strong>: <code>Any</code>)</li>
+<li><a href="#Bytes.set_float32+2">set_float32</a>(<strong>at</strong>: <code>Any</code>, <strong>value</strong>: <code>Any</code>)</li>
+<li><a href="#Bytes.set_float64+2">set_float64</a>(<strong>at</strong>: <code>Any</code>, <strong>value</strong>: <code>Any</code>)</li>
+<li><a href="#Bytes.get_int8">get_int8</a>(<strong>at</strong>: <code>Any</code>)</li>
+<li><a href="#Bytes.get_int16">get_int16</a>(<strong>at</strong>: <code>Any</code>)</li>
+<li><a href="#Bytes.get_int32">get_int32</a>(<strong>at</strong>: <code>Any</code>)</li>
+<li><a href="#Bytes.get_int64">get_int64</a>(<strong>at</strong>: <code>Any</code>)</li>
+<li><a href="#Bytes.get_uint8">get_uint8</a>(<strong>at</strong>: <code>Any</code>)</li>
+<li><a href="#Bytes.get_uint16">get_uint16</a>(<strong>at</strong>: <code>Any</code>)</li>
+<li><a href="#Bytes.get_uint32">get_uint32</a>(<strong>at</strong>: <code>Any</code>)</li>
+<li><a href="#Bytes.get_uint64">get_uint64</a>(<strong>at</strong>: <code>Any</code>)</li>
+<li><a href="#Bytes.get_float32">get_float32</a>(<strong>at</strong>: <code>Any</code>)</li>
+<li><a href="#Bytes.get_float64">get_float64</a>(<strong>at</strong>: <code>Any</code>)</li>
+<li><a href="#Bytes.get">get</a>(<strong>at</strong>: <code>Any</code>)</li>
+<li><a href="#Bytes.set+2">set</a>(<strong>at</strong>: <code>Any</code>, <strong>value</strong>: <code>Any</code>)</li>
+<li><a href="#Bytes.bytes">bytes</a>()</li>
+<li><a href="#Bytes.clear">clear</a>()</li>
+<li><a href="#Bytes.padding+2">padding</a>(<strong>length</strong>: <code>Any</code>, <strong>align</strong>: <code>Any</code>)</li>
+<li><a href="#Bytes.padding">padding</a>(<strong>length</strong>: <code>Any</code>)</li>
+<li><a href="#Bytes.iterate">iterate</a>(<strong>iter</strong>: <code>Any</code>)</li>
+<li><a href="#Bytes.iteratorValue">iteratorValue</a>(<strong>iter</strong>: <code>Any</code>)</li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: bytes" class="Bytes" signature="new(elements : Any)"></endpoint>
+<signature id="Bytes.new">Bytes.new(<strong>elements</strong>: <code>Any</code>)
+<a class="headerlink" href="#Bytes.new" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Bytes</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Bytes" signature="length"></endpoint>
+<signature id="Bytes.length">Bytes.length
+<a class="headerlink" href="#Bytes.length" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Bytes" signature="[index : Any]"></endpoint>
+<signature id="Bytes.[index : Any]">Bytes [index : Any]
+<a class="headerlink" href="#Bytes.[index : Any]" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Bytes" signature="[index : Any]=(value : Any)"></endpoint>
+<signature id="Bytes.[index : Any]=">Bytes [index : Any]=(value : Any)
+<a class="headerlink" href="#Bytes.[index : Any]=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Bytes" signature="from_string(string : Any)"></endpoint>
+<signature id="Bytes.from_string">Bytes.from_string(<strong>string</strong>: <code>Any</code>)
+<a class="headerlink" href="#Bytes.from_string" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Bytes" signature="set_from(other : Any)"></endpoint>
+<signature id="Bytes.set_from">Bytes.set_from(<strong>other</strong>: <code>Any</code>)
+<a class="headerlink" href="#Bytes.set_from" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Bytes" signature="copy(other : Any, at : Any, length : Any)"></endpoint>
+<signature id="Bytes.copy+3">Bytes.copy(<strong>other</strong>: <code>Any</code>, <strong>at</strong>: <code>Any</code>, <strong>length</strong>: <code>Any</code>)
+<a class="headerlink" href="#Bytes.copy+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Bytes" signature="copy(other : Any, to : Any, from : Any, length : Any)"></endpoint>
+<signature id="Bytes.copy+4">Bytes.copy(<strong>other</strong>: <code>Any</code>, <strong>to</strong>: <code>Any</code>, <strong>from</strong>: <code>Any</code>, <strong>length</strong>: <code>Any</code>)
+<a class="headerlink" href="#Bytes.copy+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Bytes" signature="set_string(at : Any, value : Any)"></endpoint>
+<signature id="Bytes.set_string+2">Bytes.set_string(<strong>at</strong>: <code>Any</code>, <strong>value</strong>: <code>Any</code>)
+<a class="headerlink" href="#Bytes.set_string+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Bytes" signature="set_string(at : Any, value : Any, length : Any)"></endpoint>
+<signature id="Bytes.set_string+3">Bytes.set_string(<strong>at</strong>: <code>Any</code>, <strong>value</strong>: <code>Any</code>, <strong>length</strong>: <code>Any</code>)
+<a class="headerlink" href="#Bytes.set_string+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Bytes" signature="get_string(at : Any, length : Any)"></endpoint>
+<signature id="Bytes.get_string+2">Bytes.get_string(<strong>at</strong>: <code>Any</code>, <strong>length</strong>: <code>Any</code>)
+<a class="headerlink" href="#Bytes.get_string+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Bytes" signature="set_int8(at : Any, value : Any)"></endpoint>
+<signature id="Bytes.set_int8+2">Bytes.set_int8(<strong>at</strong>: <code>Any</code>, <strong>value</strong>: <code>Any</code>)
+<a class="headerlink" href="#Bytes.set_int8+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Bytes" signature="set_int16(at : Any, value : Any)"></endpoint>
+<signature id="Bytes.set_int16+2">Bytes.set_int16(<strong>at</strong>: <code>Any</code>, <strong>value</strong>: <code>Any</code>)
+<a class="headerlink" href="#Bytes.set_int16+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Bytes" signature="set_int32(at : Any, value : Any)"></endpoint>
+<signature id="Bytes.set_int32+2">Bytes.set_int32(<strong>at</strong>: <code>Any</code>, <strong>value</strong>: <code>Any</code>)
+<a class="headerlink" href="#Bytes.set_int32+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Bytes" signature="set_int64(at : Any, value : Any)"></endpoint>
+<signature id="Bytes.set_int64+2">Bytes.set_int64(<strong>at</strong>: <code>Any</code>, <strong>value</strong>: <code>Any</code>)
+<a class="headerlink" href="#Bytes.set_int64+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Bytes" signature="set_uint8(at : Any, value : Any)"></endpoint>
+<signature id="Bytes.set_uint8+2">Bytes.set_uint8(<strong>at</strong>: <code>Any</code>, <strong>value</strong>: <code>Any</code>)
+<a class="headerlink" href="#Bytes.set_uint8+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Bytes" signature="set_uint16(at : Any, value : Any)"></endpoint>
+<signature id="Bytes.set_uint16+2">Bytes.set_uint16(<strong>at</strong>: <code>Any</code>, <strong>value</strong>: <code>Any</code>)
+<a class="headerlink" href="#Bytes.set_uint16+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Bytes" signature="set_uint32(at : Any, value : Any)"></endpoint>
+<signature id="Bytes.set_uint32+2">Bytes.set_uint32(<strong>at</strong>: <code>Any</code>, <strong>value</strong>: <code>Any</code>)
+<a class="headerlink" href="#Bytes.set_uint32+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Bytes" signature="set_uint64(at : Any, value : Any)"></endpoint>
+<signature id="Bytes.set_uint64+2">Bytes.set_uint64(<strong>at</strong>: <code>Any</code>, <strong>value</strong>: <code>Any</code>)
+<a class="headerlink" href="#Bytes.set_uint64+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Bytes" signature="set_float32(at : Any, value : Any)"></endpoint>
+<signature id="Bytes.set_float32+2">Bytes.set_float32(<strong>at</strong>: <code>Any</code>, <strong>value</strong>: <code>Any</code>)
+<a class="headerlink" href="#Bytes.set_float32+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Bytes" signature="set_float64(at : Any, value : Any)"></endpoint>
+<signature id="Bytes.set_float64+2">Bytes.set_float64(<strong>at</strong>: <code>Any</code>, <strong>value</strong>: <code>Any</code>)
+<a class="headerlink" href="#Bytes.set_float64+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Bytes" signature="get_int8(at : Any)"></endpoint>
+<signature id="Bytes.get_int8">Bytes.get_int8(<strong>at</strong>: <code>Any</code>)
+<a class="headerlink" href="#Bytes.get_int8" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Bytes" signature="get_int16(at : Any)"></endpoint>
+<signature id="Bytes.get_int16">Bytes.get_int16(<strong>at</strong>: <code>Any</code>)
+<a class="headerlink" href="#Bytes.get_int16" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Bytes" signature="get_int32(at : Any)"></endpoint>
+<signature id="Bytes.get_int32">Bytes.get_int32(<strong>at</strong>: <code>Any</code>)
+<a class="headerlink" href="#Bytes.get_int32" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Bytes" signature="get_int64(at : Any)"></endpoint>
+<signature id="Bytes.get_int64">Bytes.get_int64(<strong>at</strong>: <code>Any</code>)
+<a class="headerlink" href="#Bytes.get_int64" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Bytes" signature="get_uint8(at : Any)"></endpoint>
+<signature id="Bytes.get_uint8">Bytes.get_uint8(<strong>at</strong>: <code>Any</code>)
+<a class="headerlink" href="#Bytes.get_uint8" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Bytes" signature="get_uint16(at : Any)"></endpoint>
+<signature id="Bytes.get_uint16">Bytes.get_uint16(<strong>at</strong>: <code>Any</code>)
+<a class="headerlink" href="#Bytes.get_uint16" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Bytes" signature="get_uint32(at : Any)"></endpoint>
+<signature id="Bytes.get_uint32">Bytes.get_uint32(<strong>at</strong>: <code>Any</code>)
+<a class="headerlink" href="#Bytes.get_uint32" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Bytes" signature="get_uint64(at : Any)"></endpoint>
+<signature id="Bytes.get_uint64">Bytes.get_uint64(<strong>at</strong>: <code>Any</code>)
+<a class="headerlink" href="#Bytes.get_uint64" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Bytes" signature="get_float32(at : Any)"></endpoint>
+<signature id="Bytes.get_float32">Bytes.get_float32(<strong>at</strong>: <code>Any</code>)
+<a class="headerlink" href="#Bytes.get_float32" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Bytes" signature="get_float64(at : Any)"></endpoint>
+<signature id="Bytes.get_float64">Bytes.get_float64(<strong>at</strong>: <code>Any</code>)
+<a class="headerlink" href="#Bytes.get_float64" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Bytes" signature="get(at : Any)"></endpoint>
+<signature id="Bytes.get">Bytes.get(<strong>at</strong>: <code>Any</code>)
+<a class="headerlink" href="#Bytes.get" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Bytes" signature="set(at : Any, value : Any)"></endpoint>
+<signature id="Bytes.set+2">Bytes.set(<strong>at</strong>: <code>Any</code>, <strong>value</strong>: <code>Any</code>)
+<a class="headerlink" href="#Bytes.set+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Bytes" signature="bytes()"></endpoint>
+<signature id="Bytes.bytes">Bytes.bytes()
+<a class="headerlink" href="#Bytes.bytes" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Bytes" signature="clear()"></endpoint>
+<signature id="Bytes.clear">Bytes.clear()
+<a class="headerlink" href="#Bytes.clear" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Bytes" signature="padding(length : Any, align : Any)"></endpoint>
+<signature id="Bytes.padding+2">Bytes.padding(<strong>length</strong>: <code>Any</code>, <strong>align</strong>: <code>Any</code>)
+<a class="headerlink" href="#Bytes.padding+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Bytes" signature="padding(length : Any)"></endpoint>
+<signature id="Bytes.padding">Bytes.padding(<strong>length</strong>: <code>Any</code>)
+<a class="headerlink" href="#Bytes.padding" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Bytes" signature="iterate(iter : Any)"></endpoint>
+<signature id="Bytes.iterate">Bytes.iterate(<strong>iter</strong>: <code>Any</code>)
+<a class="headerlink" href="#Bytes.iterate" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Bytes" signature="iteratorValue(iter : Any)"></endpoint>
+<signature id="Bytes.iteratorValue">Bytes.iteratorValue(<strong>iter</strong>: <code>Any</code>)
+<a class="headerlink" href="#Bytes.iteratorValue" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<h3 id="bytesreader">BytesReader<a class="headerlink" href="#bytesreader" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: bytes&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">BytesReader</span></code></p>
+<blockquote>
+<p>no docs found</p>
+</blockquote>
+<ul>
+<li><a href="#BytesReader.pos">pos</a></li>
+<li><a href="#BytesReader.pos=">pos</a>=(v : Any)</li>
+<li><a href="#BytesReader.bytes">bytes</a></li>
+<li><a href="#BytesReader.new">new</a>(<strong>source_bytes</strong>: <code>Any</code>)</li>
+<li><a href="#BytesReader.from_string">from_string</a>(<strong>string</strong>: <code>Any</code>)</li>
+<li><a href="#BytesReader.skip">skip</a>(<strong>count</strong>: <code>Any</code>)</li>
+<li><a href="#BytesReader.check_bounds">check_bounds</a>(<strong>to_read</strong>: <code>Any</code>)</li>
+<li><a href="#BytesReader.get_string">get_string</a>(<strong>length</strong>: <code>Any</code>)</li>
+<li><a href="#BytesReader.get_int8">get_int8</a>()</li>
+<li><a href="#BytesReader.get_int16">get_int16</a>()</li>
+<li><a href="#BytesReader.get_int32">get_int32</a>()</li>
+<li><a href="#BytesReader.get_int64">get_int64</a>()</li>
+<li><a href="#BytesReader.get_uint8">get_uint8</a>()</li>
+<li><a href="#BytesReader.get_uint16">get_uint16</a>()</li>
+<li><a href="#BytesReader.get_uint32">get_uint32</a>()</li>
+<li><a href="#BytesReader.get_uint64">get_uint64</a>()</li>
+<li><a href="#BytesReader.get_float32">get_float32</a>()</li>
+<li><a href="#BytesReader.get_float64">get_float64</a>()</li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: bytes" class="BytesReader" signature="pos"></endpoint>
+<signature id="BytesReader.pos">BytesReader.pos
+<a class="headerlink" href="#BytesReader.pos" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="BytesReader" signature="pos=(v : Any)"></endpoint>
+<signature id="BytesReader.pos=">BytesReader.pos=(v : Any)
+<a class="headerlink" href="#BytesReader.pos=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="BytesReader" signature="bytes"></endpoint>
+<signature id="BytesReader.bytes">BytesReader.bytes
+<a class="headerlink" href="#BytesReader.bytes" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="BytesReader" signature="new(source_bytes : Any)"></endpoint>
+<signature id="BytesReader.new">BytesReader.new(<strong>source_bytes</strong>: <code>Any</code>)
+<a class="headerlink" href="#BytesReader.new" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">BytesReader</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="BytesReader" signature="from_string(string : Any)"></endpoint>
+<signature id="BytesReader.from_string">BytesReader.from_string(<strong>string</strong>: <code>Any</code>)
+<a class="headerlink" href="#BytesReader.from_string" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="BytesReader" signature="skip(count : Any)"></endpoint>
+<signature id="BytesReader.skip">BytesReader.skip(<strong>count</strong>: <code>Any</code>)
+<a class="headerlink" href="#BytesReader.skip" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="BytesReader" signature="check_bounds(to_read : Any)"></endpoint>
+<signature id="BytesReader.check_bounds">BytesReader.check_bounds(<strong>to_read</strong>: <code>Any</code>)
+<a class="headerlink" href="#BytesReader.check_bounds" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="BytesReader" signature="get_string(length : Any)"></endpoint>
+<signature id="BytesReader.get_string">BytesReader.get_string(<strong>length</strong>: <code>Any</code>)
+<a class="headerlink" href="#BytesReader.get_string" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="BytesReader" signature="get_int8()"></endpoint>
+<signature id="BytesReader.get_int8">BytesReader.get_int8()
+<a class="headerlink" href="#BytesReader.get_int8" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="BytesReader" signature="get_int16()"></endpoint>
+<signature id="BytesReader.get_int16">BytesReader.get_int16()
+<a class="headerlink" href="#BytesReader.get_int16" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="BytesReader" signature="get_int32()"></endpoint>
+<signature id="BytesReader.get_int32">BytesReader.get_int32()
+<a class="headerlink" href="#BytesReader.get_int32" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="BytesReader" signature="get_int64()"></endpoint>
+<signature id="BytesReader.get_int64">BytesReader.get_int64()
+<a class="headerlink" href="#BytesReader.get_int64" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="BytesReader" signature="get_uint8()"></endpoint>
+<signature id="BytesReader.get_uint8">BytesReader.get_uint8()
+<a class="headerlink" href="#BytesReader.get_uint8" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="BytesReader" signature="get_uint16()"></endpoint>
+<signature id="BytesReader.get_uint16">BytesReader.get_uint16()
+<a class="headerlink" href="#BytesReader.get_uint16" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="BytesReader" signature="get_uint32()"></endpoint>
+<signature id="BytesReader.get_uint32">BytesReader.get_uint32()
+<a class="headerlink" href="#BytesReader.get_uint32" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="BytesReader" signature="get_uint64()"></endpoint>
+<signature id="BytesReader.get_uint64">BytesReader.get_uint64()
+<a class="headerlink" href="#BytesReader.get_uint64" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="BytesReader" signature="get_float32()"></endpoint>
+<signature id="BytesReader.get_float32">BytesReader.get_float32()
+<a class="headerlink" href="#BytesReader.get_float32" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="BytesReader" signature="get_float64()"></endpoint>
+<signature id="BytesReader.get_float64">BytesReader.get_float64()
+<a class="headerlink" href="#BytesReader.get_float64" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<h3 id="byteswriter">BytesWriter<a class="headerlink" href="#byteswriter" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: bytes&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">BytesWriter</span></code></p>
+<blockquote>
+<p>no docs found</p>
+</blockquote>
+<ul>
+<li><a href="#BytesWriter.pos">pos</a></li>
+<li><a href="#BytesWriter.pos=">pos</a>=(v : Num)</li>
+<li><a href="#BytesWriter.count">count</a></li>
+<li><a href="#BytesWriter.capacity">capacity</a></li>
+<li><a href="#BytesWriter.bytes">bytes</a></li>
+<li><a href="#BytesWriter.inner">inner</a></li>
+<li><a href="#BytesWriter.new">new</a>(<strong>initial_length</strong>: <code>Num</code>)</li>
+<li><a href="#BytesWriter.resize">resize</a>(<strong>new_capacity</strong>: <code>Num</code>)</li>
+<li><a href="#BytesWriter.ensure">ensure</a>(<strong>write_length</strong>: <code>Num</code>)</li>
+<li><a href="#BytesWriter.write_string+2">write_string</a>(<strong>string</strong>: <code>String</code>, <strong>length</strong>: <code>Num</code>)</li>
+<li><a href="#BytesWriter.write_string">write_string</a>(<strong>string</strong>: <code>String</code>)</li>
+<li><a href="#BytesWriter.write_string_aligned4+2">write_string_aligned4</a>(<strong>string</strong>: <code>String</code>, <strong>length</strong>: <code>Num</code>)</li>
+<li><a href="#BytesWriter.write_string_aligned4">write_string_aligned4</a>(<strong>string</strong>: <code>String</code>)</li>
+<li><a href="#BytesWriter.write_string_and_length+2">write_string_and_length</a>(<strong>string</strong>: <code>String</code>, <strong>length</strong>: <code>Num</code>)</li>
+<li><a href="#BytesWriter.write_string_and_length">write_string_and_length</a>(<strong>string</strong>: <code>String</code>)</li>
+<li><a href="#BytesWriter.write_int8">write_int8</a>(<strong>value</strong>: <code>Num</code>)</li>
+<li><a href="#BytesWriter.write_uint8">write_uint8</a>(<strong>value</strong>: <code>Num</code>)</li>
+<li><a href="#BytesWriter.write_int16">write_int16</a>(<strong>value</strong>: <code>Num</code>)</li>
+<li><a href="#BytesWriter.write_int32">write_int32</a>(<strong>value</strong>: <code>Num</code>)</li>
+<li><a href="#BytesWriter.write_int64">write_int64</a>(<strong>value</strong>: <code>Num</code>)</li>
+<li><a href="#BytesWriter.write_uint16">write_uint16</a>(<strong>value</strong>: <code>Num</code>)</li>
+<li><a href="#BytesWriter.write_uint32">write_uint32</a>(<strong>value</strong>: <code>Num</code>)</li>
+<li><a href="#BytesWriter.write_uint64">write_uint64</a>(<strong>value</strong>: <code>Num</code>)</li>
+<li><a href="#BytesWriter.write_float32">write_float32</a>(<strong>value</strong>: <code>Num</code>)</li>
+<li><a href="#BytesWriter.write_float64">write_float64</a>(<strong>value</strong>: <code>Num</code>)</li>
+<li><a href="#BytesWriter.write_uuid">write_uuid</a>(<strong>uuid</strong>: <code>String</code>)</li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: bytes" class="BytesWriter" signature="pos"></endpoint>
+<signature id="BytesWriter.pos">BytesWriter.pos
+<a class="headerlink" href="#BytesWriter.pos" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="BytesWriter" signature="pos=(v : Num)"></endpoint>
+<signature id="BytesWriter.pos=">BytesWriter.pos=(v : Num)
+<a class="headerlink" href="#BytesWriter.pos=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="BytesWriter" signature="count"></endpoint>
+<signature id="BytesWriter.count">BytesWriter.count
+<a class="headerlink" href="#BytesWriter.count" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="BytesWriter" signature="capacity"></endpoint>
+<signature id="BytesWriter.capacity">BytesWriter.capacity
+<a class="headerlink" href="#BytesWriter.capacity" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="BytesWriter" signature="bytes"></endpoint>
+<signature id="BytesWriter.bytes">BytesWriter.bytes
+<a class="headerlink" href="#BytesWriter.bytes" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="BytesWriter" signature="inner"></endpoint>
+<signature id="BytesWriter.inner">BytesWriter.inner
+<a class="headerlink" href="#BytesWriter.inner" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Bytes</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="BytesWriter" signature="new(initial_length : Num)"></endpoint>
+<signature id="BytesWriter.new">BytesWriter.new(<strong>initial_length</strong>: <code>Num</code>)
+<a class="headerlink" href="#BytesWriter.new" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">BytesWriter</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="BytesWriter" signature="resize(new_capacity : Num)"></endpoint>
+<signature id="BytesWriter.resize">BytesWriter.resize(<strong>new_capacity</strong>: <code>Num</code>)
+<a class="headerlink" href="#BytesWriter.resize" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="BytesWriter" signature="ensure(write_length : Num)"></endpoint>
+<signature id="BytesWriter.ensure">BytesWriter.ensure(<strong>write_length</strong>: <code>Num</code>)
+<a class="headerlink" href="#BytesWriter.ensure" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="BytesWriter" signature="write_string(string : String, length : Num)"></endpoint>
+<signature id="BytesWriter.write_string+2">BytesWriter.write_string(<strong>string</strong>: <code>String</code>, <strong>length</strong>: <code>Num</code>)
+<a class="headerlink" href="#BytesWriter.write_string+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="BytesWriter" signature="write_string(string : String)"></endpoint>
+<signature id="BytesWriter.write_string">BytesWriter.write_string(<strong>string</strong>: <code>String</code>)
+<a class="headerlink" href="#BytesWriter.write_string" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="BytesWriter" signature="write_string_aligned4(string : String, length : Num)"></endpoint>
+<signature id="BytesWriter.write_string_aligned4+2">BytesWriter.write_string_aligned4(<strong>string</strong>: <code>String</code>, <strong>length</strong>: <code>Num</code>)
+<a class="headerlink" href="#BytesWriter.write_string_aligned4+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="BytesWriter" signature="write_string_aligned4(string : String)"></endpoint>
+<signature id="BytesWriter.write_string_aligned4">BytesWriter.write_string_aligned4(<strong>string</strong>: <code>String</code>)
+<a class="headerlink" href="#BytesWriter.write_string_aligned4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="BytesWriter" signature="write_string_and_length(string : String, length : Num)"></endpoint>
+<signature id="BytesWriter.write_string_and_length+2">BytesWriter.write_string_and_length(<strong>string</strong>: <code>String</code>, <strong>length</strong>: <code>Num</code>)
+<a class="headerlink" href="#BytesWriter.write_string_and_length+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="BytesWriter" signature="write_string_and_length(string : String)"></endpoint>
+<signature id="BytesWriter.write_string_and_length">BytesWriter.write_string_and_length(<strong>string</strong>: <code>String</code>)
+<a class="headerlink" href="#BytesWriter.write_string_and_length" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="BytesWriter" signature="write_int8(value : Num)"></endpoint>
+<signature id="BytesWriter.write_int8">BytesWriter.write_int8(<strong>value</strong>: <code>Num</code>)
+<a class="headerlink" href="#BytesWriter.write_int8" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="BytesWriter" signature="write_uint8(value : Num)"></endpoint>
+<signature id="BytesWriter.write_uint8">BytesWriter.write_uint8(<strong>value</strong>: <code>Num</code>)
+<a class="headerlink" href="#BytesWriter.write_uint8" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="BytesWriter" signature="write_int16(value : Num)"></endpoint>
+<signature id="BytesWriter.write_int16">BytesWriter.write_int16(<strong>value</strong>: <code>Num</code>)
+<a class="headerlink" href="#BytesWriter.write_int16" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="BytesWriter" signature="write_int32(value : Num)"></endpoint>
+<signature id="BytesWriter.write_int32">BytesWriter.write_int32(<strong>value</strong>: <code>Num</code>)
+<a class="headerlink" href="#BytesWriter.write_int32" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="BytesWriter" signature="write_int64(value : Num)"></endpoint>
+<signature id="BytesWriter.write_int64">BytesWriter.write_int64(<strong>value</strong>: <code>Num</code>)
+<a class="headerlink" href="#BytesWriter.write_int64" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="BytesWriter" signature="write_uint16(value : Num)"></endpoint>
+<signature id="BytesWriter.write_uint16">BytesWriter.write_uint16(<strong>value</strong>: <code>Num</code>)
+<a class="headerlink" href="#BytesWriter.write_uint16" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="BytesWriter" signature="write_uint32(value : Num)"></endpoint>
+<signature id="BytesWriter.write_uint32">BytesWriter.write_uint32(<strong>value</strong>: <code>Num</code>)
+<a class="headerlink" href="#BytesWriter.write_uint32" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="BytesWriter" signature="write_uint64(value : Num)"></endpoint>
+<signature id="BytesWriter.write_uint64">BytesWriter.write_uint64(<strong>value</strong>: <code>Num</code>)
+<a class="headerlink" href="#BytesWriter.write_uint64" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="BytesWriter" signature="write_float32(value : Num)"></endpoint>
+<signature id="BytesWriter.write_float32">BytesWriter.write_float32(<strong>value</strong>: <code>Num</code>)
+<a class="headerlink" href="#BytesWriter.write_float32" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="BytesWriter" signature="write_float64(value : Num)"></endpoint>
+<signature id="BytesWriter.write_float64">BytesWriter.write_float64(<strong>value</strong>: <code>Num</code>)
+<a class="headerlink" href="#BytesWriter.write_float64" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="BytesWriter" signature="write_uuid(uuid : String)"></endpoint>
+<signature id="BytesWriter.write_uuid">BytesWriter.write_uuid(<strong>uuid</strong>: <code>String</code>)
+<a class="headerlink" href="#BytesWriter.write_uuid" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<h3 id="floats">Floats<a class="headerlink" href="#floats" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: bytes&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">Floats</span></code></p>
+<blockquote>
+<p>no docs found</p>
+</blockquote>
+<ul>
+<li><a href="#Floats.new">new</a>(<strong>elements</strong>: <code>Any</code>)</li>
+<li><a href="#Floats.length">length</a></li>
+<li><a href="#Floats.capacity">capacity</a></li>
+<li><a href="#Floats.size">size</a></li>
+<li><a href="#Floats.[index : Any]">[index : Any]</a></li>
+<li><a href="#Floats.[index : Any]=">[index : Any]</a>=(value : Any)</li>
+<li><a href="#Floats.resize">resize</a>(<strong>elements</strong>: <code>Any</code>)</li>
+<li><a href="#Floats.get">get</a>(<strong>at</strong>: <code>Any</code>)</li>
+<li><a href="#Floats.set+2">set</a>(<strong>at</strong>: <code>Any</code>, <strong>value</strong>: <code>Any</code>)</li>
+<li><a href="#Floats.set+4">set</a>(<strong>list</strong>: <code>Any</code>, <strong>at</strong>: <code>Any</code>, <strong>list_offset</strong>: <code>Any</code>, <strong>count</strong>: <code>Any</code>)</li>
+<li><a href="#Floats.set">set</a>(<strong>list</strong>: <code>Any</code>)</li>
+<li><a href="#Floats.ortho+6">ortho</a>(<strong>left</strong>: <code>Any</code>, <strong>top</strong>: <code>Any</code>, <strong>right</strong>: <code>Any</code>, <strong>bottom</strong>: <code>Any</code>, <strong>near</strong>: <code>Any</code>, <strong>far</strong>: <code>Any</code>)</li>
+<li><a href="#Floats.perspective+4">perspective</a>(<strong>fov_vertical</strong>: <code>Any</code>, <strong>aspect</strong>: <code>Any</code>, <strong>near</strong>: <code>Any</code>, <strong>far</strong>: <code>Any</code>)</li>
+<li><a href="#Floats.transform+9">transform</a>(<strong>px</strong>: <code>Any</code>, <strong>py</strong>: <code>Any</code>, <strong>pz</strong>: <code>Any</code>, <strong>rx</strong>: <code>Any</code>, <strong>ry</strong>: <code>Any</code>, <strong>rz</strong>: <code>Any</code>, <strong>sx</strong>: <code>Any</code>, <strong>sy</strong>: <code>Any</code>, <strong>sz</strong>: <code>Any</code>)</li>
+<li><a href="#Floats.iterate">iterate</a>(<strong>iter</strong>: <code>Any</code>)</li>
+<li><a href="#Floats.iteratorValue">iteratorValue</a>(<strong>iter</strong>: <code>Any</code>)</li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: bytes" class="Floats" signature="new(elements : Any)"></endpoint>
+<signature id="Floats.new">Floats.new(<strong>elements</strong>: <code>Any</code>)
+<a class="headerlink" href="#Floats.new" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Floats</span></code></p>
+<blockquote>
+<p>Create a new Floats instance that can store the amount of elements specified.   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Floats" signature="length"></endpoint>
+<signature id="Floats.length">Floats.length
+<a class="headerlink" href="#Floats.length" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Get the size of the array in bytes. Since a float is 4 bytes, this should always be <code>value.size * 4</code>.   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Floats" signature="capacity"></endpoint>
+<signature id="Floats.capacity">Floats.capacity
+<a class="headerlink" href="#Floats.capacity" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Get the capacity of the underlying array. When resizing up to this amount of elements, the array does not need to be reallocated. You can ignore this most of the time.   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Floats" signature="size"></endpoint>
+<signature id="Floats.size">Floats.size
+<a class="headerlink" href="#Floats.size" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Get the amount of elements in the array.   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Floats" signature="[index : Any]"></endpoint>
+<signature id="Floats.[index : Any]">Floats [index : Any]
+<a class="headerlink" href="#Floats.[index : Any]" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Get the float value at a specific index.   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Floats" signature="[index : Any]=(value : Any)"></endpoint>
+<signature id="Floats.[index : Any]=">Floats [index : Any]=(value : Any)
+<a class="headerlink" href="#Floats.[index : Any]=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Set the float value at a specific index.   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Floats" signature="resize(elements : Any)"></endpoint>
+<signature id="Floats.resize">Floats.resize(<strong>elements</strong>: <code>Any</code>)
+<a class="headerlink" href="#Floats.resize" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Resize array to new size.   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Floats" signature="get(at : Any)"></endpoint>
+<signature id="Floats.get">Floats.get(<strong>at</strong>: <code>Any</code>)
+<a class="headerlink" href="#Floats.get" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Get the float value at a specific index.   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Floats" signature="set(at : Any, value : Any)"></endpoint>
+<signature id="Floats.set+2">Floats.set(<strong>at</strong>: <code>Any</code>, <strong>value</strong>: <code>Any</code>)
+<a class="headerlink" href="#Floats.set+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Set the float value at a specific index.   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Floats" signature="set(list : Any, at : Any, list_offset : Any, count : Any)"></endpoint>
+<signature id="Floats.set+4">Floats.set(<strong>list</strong>: <code>Any</code>, <strong>at</strong>: <code>Any</code>, <strong>list_offset</strong>: <code>Any</code>, <strong>count</strong>: <code>Any</code>)
+<a class="headerlink" href="#Floats.set+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Copy a part of a list into this array. This will grow the array if nessecary.   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Floats" signature="set(list : Any)"></endpoint>
+<signature id="Floats.set">Floats.set(<strong>list</strong>: <code>Any</code>)
+<a class="headerlink" href="#Floats.set" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Set the array to have the contents of a list. The array will be resized to have the same count as the list   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Floats" signature="ortho(left : Any, top : Any, right : Any, bottom : Any, near : Any, far : Any)"></endpoint>
+<signature id="Floats.ortho+6">Floats.ortho(<strong>left</strong>: <code>Any</code>, <strong>top</strong>: <code>Any</code>, <strong>right</strong>: <code>Any</code>, <strong>bottom</strong>: <code>Any</code>, <strong>near</strong>: <code>Any</code>, <strong>far</strong>: <code>Any</code>)
+<a class="headerlink" href="#Floats.ortho+6" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Makes the array a 4x4 (16 elements) orthographic projection matrix for camera rendering.   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Floats" signature="perspective(fov_vertical : Any, aspect : Any, near : Any, far : Any)"></endpoint>
+<signature id="Floats.perspective+4">Floats.perspective(<strong>fov_vertical</strong>: <code>Any</code>, <strong>aspect</strong>: <code>Any</code>, <strong>near</strong>: <code>Any</code>, <strong>far</strong>: <code>Any</code>)
+<a class="headerlink" href="#Floats.perspective+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Makes the array a 4x4 (16 elements) perspective projection matrix for camera rendering.   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Floats" signature="transform(px : Any, py : Any, pz : Any, rx : Any, ry : Any, rz : Any, sx : Any, sy : Any, sz : Any)"></endpoint>
+<signature id="Floats.transform+9">Floats.transform(<strong>px</strong>: <code>Any</code>, <strong>py</strong>: <code>Any</code>, <strong>pz</strong>: <code>Any</code>, <strong>rx</strong>: <code>Any</code>, <strong>ry</strong>: <code>Any</code>, <strong>rz</strong>: <code>Any</code>, <strong>sx</strong>: <code>Any</code>, <strong>sy</strong>: <code>Any</code>, <strong>sz</strong>: <code>Any</code>)
+<a class="headerlink" href="#Floats.transform+9" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Makes the array a 4x4 (16 elements) model/transform matrix.   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Floats" signature="iterate(iter : Any)"></endpoint>
+<signature id="Floats.iterate">Floats.iterate(<strong>iter</strong>: <code>Any</code>)
+<a class="headerlink" href="#Floats.iterate" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Floats" signature="iteratorValue(iter : Any)"></endpoint>
+<signature id="Floats.iteratorValue">Floats.iteratorValue(<strong>iter</strong>: <code>Any</code>)
+<a class="headerlink" href="#Floats.iteratorValue" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<h3 id="uint16">Uint16<a class="headerlink" href="#uint16" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: bytes&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">Uint16</span></code></p>
+<blockquote>
+<p>Tight uint16 array. Handeled internally as a C++ array, but will properly be deallocated by the wren garbage collector.</p>
+</blockquote>
+<ul>
+<li><a href="#Uint16.new">new</a>(<strong>elements</strong>: <code>Any</code>)</li>
+<li><a href="#Uint16.length">length</a></li>
+<li><a href="#Uint16.[index : Any]">[index : Any]</a></li>
+<li><a href="#Uint16.[index : Any]=">[index : Any]</a>=(value : Any)</li>
+<li><a href="#Uint16.get">get</a>(<strong>at</strong>: <code>Any</code>)</li>
+<li><a href="#Uint16.set+2">set</a>(<strong>at</strong>: <code>Any</code>, <strong>value</strong>: <code>Any</code>)</li>
+<li><a href="#Uint16.set+4">set</a>(<strong>list</strong>: <code>Any</code>, <strong>at</strong>: <code>Any</code>, <strong>list_offset</strong>: <code>Any</code>, <strong>count</strong>: <code>Any</code>)</li>
+<li><a href="#Uint16.set">set</a>(<strong>list</strong>: <code>Any</code>)</li>
+<li><a href="#Uint16.iterate">iterate</a>(<strong>iter</strong>: <code>Any</code>)</li>
+<li><a href="#Uint16.iteratorValue">iteratorValue</a>(<strong>iter</strong>: <code>Any</code>)</li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: bytes" class="Uint16" signature="new(elements : Any)"></endpoint>
+<signature id="Uint16.new">Uint16.new(<strong>elements</strong>: <code>Any</code>)
+<a class="headerlink" href="#Uint16.new" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Uint16</span></code></p>
+<blockquote>
+<p>Create an array with the requested amount of elements   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Uint16" signature="length"></endpoint>
+<signature id="Uint16.length">Uint16.length
+<a class="headerlink" href="#Uint16.length" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Get the size of the array in bytes. This is twice the amount of elements it can hold since each element takes up 2 bytes.   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Uint16" signature="[index : Any]"></endpoint>
+<signature id="Uint16.[index : Any]">Uint16 [index : Any]
+<a class="headerlink" href="#Uint16.[index : Any]" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Get the int value at a specific index.   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Uint16" signature="[index : Any]=(value : Any)"></endpoint>
+<signature id="Uint16.[index : Any]=">Uint16 [index : Any]=(value : Any)
+<a class="headerlink" href="#Uint16.[index : Any]=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Set the int value at a specific index.   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Uint16" signature="get(at : Any)"></endpoint>
+<signature id="Uint16.get">Uint16.get(<strong>at</strong>: <code>Any</code>)
+<a class="headerlink" href="#Uint16.get" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Get the int value at a specific index.   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Uint16" signature="set(at : Any, value : Any)"></endpoint>
+<signature id="Uint16.set+2">Uint16.set(<strong>at</strong>: <code>Any</code>, <strong>value</strong>: <code>Any</code>)
+<a class="headerlink" href="#Uint16.set+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Set the int value at a specific index.   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Uint16" signature="set(list : Any, at : Any, list_offset : Any, count : Any)"></endpoint>
+<signature id="Uint16.set+4">Uint16.set(<strong>list</strong>: <code>Any</code>, <strong>at</strong>: <code>Any</code>, <strong>list_offset</strong>: <code>Any</code>, <strong>count</strong>: <code>Any</code>)
+<a class="headerlink" href="#Uint16.set+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Copy a part of a list into this array. This will fail if trying to write outside the array bounds.   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Uint16" signature="set(list : Any)"></endpoint>
+<signature id="Uint16.set">Uint16.set(<strong>list</strong>: <code>Any</code>)
+<a class="headerlink" href="#Uint16.set" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Set the array to have the contents of a list. This will fail if trying to write outside the array bounds and will leave elements unchanged if list is shorter than array.   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Uint16" signature="iterate(iter : Any)"></endpoint>
+<signature id="Uint16.iterate">Uint16.iterate(<strong>iter</strong>: <code>Any</code>)
+<a class="headerlink" href="#Uint16.iterate" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Uint16" signature="iteratorValue(iter : Any)"></endpoint>
+<signature id="Uint16.iteratorValue">Uint16.iteratorValue(<strong>iter</strong>: <code>Any</code>)
+<a class="headerlink" href="#Uint16.iteratorValue" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<h3 id="uint32">Uint32<a class="headerlink" href="#uint32" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: bytes&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">Uint32</span></code></p>
+<blockquote>
+<p>Tight uint32 array. Handeled internally as a C++ array, but will properly be deallocated by the wren garbage collector.</p>
+</blockquote>
+<ul>
+<li><a href="#Uint32.new">new</a>(<strong>elements</strong>: <code>Any</code>)</li>
+<li><a href="#Uint32.length">length</a></li>
+<li><a href="#Uint32.[index : Any]">[index : Any]</a></li>
+<li><a href="#Uint32.[index : Any]=">[index : Any]</a>=(value : Any)</li>
+<li><a href="#Uint32.get">get</a>(<strong>at</strong>: <code>Any</code>)</li>
+<li><a href="#Uint32.set+2">set</a>(<strong>at</strong>: <code>Any</code>, <strong>value</strong>: <code>Any</code>)</li>
+<li><a href="#Uint32.set+4">set</a>(<strong>list</strong>: <code>Any</code>, <strong>at</strong>: <code>Any</code>, <strong>list_offset</strong>: <code>Any</code>, <strong>count</strong>: <code>Any</code>)</li>
+<li><a href="#Uint32.set">set</a>(<strong>list</strong>: <code>Any</code>)</li>
+<li><a href="#Uint32.iterate">iterate</a>(<strong>iter</strong>: <code>Any</code>)</li>
+<li><a href="#Uint32.iteratorValue">iteratorValue</a>(<strong>iter</strong>: <code>Any</code>)</li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: bytes" class="Uint32" signature="new(elements : Any)"></endpoint>
+<signature id="Uint32.new">Uint32.new(<strong>elements</strong>: <code>Any</code>)
+<a class="headerlink" href="#Uint32.new" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Uint32</span></code></p>
+<blockquote>
+<p>Create an array with the requested amount of elements   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Uint32" signature="length"></endpoint>
+<signature id="Uint32.length">Uint32.length
+<a class="headerlink" href="#Uint32.length" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Get the size of the array in bytes. This is twice the amount of elements it can hold since each element takes up 2 bytes.   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Uint32" signature="[index : Any]"></endpoint>
+<signature id="Uint32.[index : Any]">Uint32 [index : Any]
+<a class="headerlink" href="#Uint32.[index : Any]" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Get the int value at a specific index.   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Uint32" signature="[index : Any]=(value : Any)"></endpoint>
+<signature id="Uint32.[index : Any]=">Uint32 [index : Any]=(value : Any)
+<a class="headerlink" href="#Uint32.[index : Any]=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Set the int value at a specific index.   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Uint32" signature="get(at : Any)"></endpoint>
+<signature id="Uint32.get">Uint32.get(<strong>at</strong>: <code>Any</code>)
+<a class="headerlink" href="#Uint32.get" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Get the int value at a specific index.   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Uint32" signature="set(at : Any, value : Any)"></endpoint>
+<signature id="Uint32.set+2">Uint32.set(<strong>at</strong>: <code>Any</code>, <strong>value</strong>: <code>Any</code>)
+<a class="headerlink" href="#Uint32.set+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Set the int value at a specific index.   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Uint32" signature="set(list : Any, at : Any, list_offset : Any, count : Any)"></endpoint>
+<signature id="Uint32.set+4">Uint32.set(<strong>list</strong>: <code>Any</code>, <strong>at</strong>: <code>Any</code>, <strong>list_offset</strong>: <code>Any</code>, <strong>count</strong>: <code>Any</code>)
+<a class="headerlink" href="#Uint32.set+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Copy a part of a list into this array. This will fail if trying to write outside the array bounds.   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Uint32" signature="set(list : Any)"></endpoint>
+<signature id="Uint32.set">Uint32.set(<strong>list</strong>: <code>Any</code>)
+<a class="headerlink" href="#Uint32.set" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Set the array to have the contents of a list. This will fail if trying to write outside the array bounds and will leave elements unchanged if list is shorter than array.   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Uint32" signature="iterate(iter : Any)"></endpoint>
+<signature id="Uint32.iterate">Uint32.iterate(<strong>iter</strong>: <code>Any</code>)
+<a class="headerlink" href="#Uint32.iterate" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: bytes" class="Uint32" signature="iteratorValue(iter : Any)"></endpoint>
+<signature id="Uint32.iteratorValue">Uint32.iteratorValue(<strong>iter</strong>: <code>Any</code>)
+<a class="headerlink" href="#Uint32.iteratorValue" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 3, 2025 06:41:06 UTC">September 3, 2025</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/luxeengine" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 0c4.42 0 8 3.58 8 8a8.01 8.01 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27s-1.36.09-2 .27c-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8"/></svg>
+    </a>
+  
+</div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["instant", "navigation.prune"], "search": "../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>

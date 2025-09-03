@@ -1,0 +1,1348 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../deploy/">
+      
+      
+        <link rel="next" href="../../learn/overview/">
+      
+      
+      <link rel="icon" href="../../images/luxe-favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>playing audio - luxe engine</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#audio" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="luxe engine" class="md-header__button md-logo" aria-label="luxe engine" data-md-component="logo">
+      
+  <img src="../../images/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            luxe engine
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              playing audio
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="pink" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="luxe engine" class="md-nav__button md-logo" aria-label="luxe engine" data-md-component="logo">
+      
+  <img src="../../images/logo.svg" alt="logo">
+
+    </a>
+    luxe engine
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    about
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../get/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    install
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    guide
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    tutorials
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hello/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    create a project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../draw-and-input/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    drawing + input
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../world/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    luxe world
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../editor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    luxe editor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deploy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    deploy a build
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    playing audio
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    playing audio
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#audio-roadmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Audio Roadmap
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#importing-audio-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      Importing audio content
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Importing audio content">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sounds-well-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sounds we'll use
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#playing-some-audio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Playing some audio
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Playing some audio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#looping-a-sound" class="md-nav__link">
+    <span class="md-ellipsis">
+      Looping a sound
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bounce-sound" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bounce sound
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bounce sound">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sound-spam" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sound spam
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flower-sound" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flower sound
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-audio-bus" class="md-nav__link">
+    <span class="md-ellipsis">
+      The audio bus
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The audio bus">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-bus-asset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating a bus asset
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-a-bus-asset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using a bus asset
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-the-volumes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting the volumes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting the volumes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#individual-sound-volume" class="md-nav__link">
+    <span class="md-ellipsis">
+      Individual sound volume
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bus-volume" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bus volume
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#global-volume" class="md-nav__link">
+    <span class="md-ellipsis">
+      Global volume
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try this
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learn/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    learn ...
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../manual/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    manual
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#audio-roadmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Audio Roadmap
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#importing-audio-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      Importing audio content
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Importing audio content">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sounds-well-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sounds we'll use
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#playing-some-audio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Playing some audio
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Playing some audio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#looping-a-sound" class="md-nav__link">
+    <span class="md-ellipsis">
+      Looping a sound
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bounce-sound" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bounce sound
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bounce sound">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sound-spam" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sound spam
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flower-sound" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flower sound
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-audio-bus" class="md-nav__link">
+    <span class="md-ellipsis">
+      The audio bus
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The audio bus">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-bus-asset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating a bus asset
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-a-bus-asset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using a bus asset
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-the-volumes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting the volumes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting the volumes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#individual-sound-volume" class="md-nav__link">
+    <span class="md-ellipsis">
+      Individual sound volume
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bus-volume" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bus volume
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#global-volume" class="md-nav__link">
+    <span class="md-ellipsis">
+      Global volume
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try this
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p><img alt="" src="../../images/luxe-dark.svg" width="96em" /></p>
+<h1 id="audio">Audio<a class="headerlink" href="#audio" title="Permanent link">&para;</a></h1>
+<p>Audio is a major and important part of making a game feel good. 
+It is often underlooked and can make a huge difference in how a game feels.</p>
+<div class="admonition example">
+<p class="admonition-title">outcome</p>
+<p>In this tutorial we'll <strong>add audio to our bee game</strong>. <br />
+We'll see how to import audio content, play sounds and use audio buses for volume control.</p>
+</div>
+<h2 id="audio-roadmap">Audio Roadmap<a class="headerlink" href="#audio-roadmap" title="Permanent link">&para;</a></h2>
+<p>While the basic audio system is usable and works, there's a more extensive version we are implementing. It was designed/spec'ed with the good folks at <a href="https://ashellinthepit.com/">A Shell In The Pit</a> as they have a lot of experience doing and implementing audio at our target scale. </p>
+<h2 id="importing-audio-content">Importing audio content<a class="headerlink" href="#importing-audio-content" title="Permanent link">&para;</a></h2>
+<p>Since audio tends to be fairly straight forward from a content perspective, all we need to do is drop some audio assets into our project. When we build, the asset pipeline will automatically generate the necessary <code>audio.lx</code> metadata files for us to use!</p>
+<p>For our bee game example, we're going to use a useful website called <a href="https://freesound.org">Freesound.org</a> - they provide an invaluable service for getting audio to prototype with or use for your game. <strong>Make sure you pay attention to the requirements for each sound that you download!</strong>. </p>
+<div class="admonition note">
+<p>It is good practice to credit every sound properly as well, even if it doesn't require it.</p>
+</div>
+<h3 id="sounds-well-use">Sounds we'll use<a class="headerlink" href="#sounds-well-use" title="Permanent link">&para;</a></h3>
+<p>Instead of music, we're going to be using ambience. We know our game takes place above the rooftops, so we'd like a sort of city atmosphere. We also have a bouncing sound - one when the bee bounces without a flower, and one when we do bounce on the flower. In our case, we aim to find some sounds that don't require editing, and can be used roughly as is. </p>
+<ul>
+<li><a href="https://freesound.org/people/klankbeeld/sounds/659752/">City sound</a> - <a href="https://freesound.org/people/klankbeeld/">author</a> </li>
+<li><a href="https://freesound.org/people/Rudmer_Rotteveel/sounds/536409/">Flower bounce</a> - <a href="https://freesound.org/people/Rudmer_Rotteveel/">author</a></li>
+<li><a href="https://freesound.org/people/rvdw2004/sounds/709678/">Bee bounce</a> - <a href="https://freesound.org/people/rvdw2004/">author</a></li>
+</ul>
+<p>We'll bring these into a folder called <code>audio/</code> along with the credits file (this way when it's time to credit properly we can make sure we didn't forget anything):</p>
+<p><img alt="" src="../../images/tutorial/audio/audio.0.png" /></p>
+<p>If we run a build, we can see that the asset pipeline took care of generating the data needed to load + use the audio already:</p>
+<p><img alt="" src="../../images/tutorial/audio/audio.1.png" /></p>
+<h2 id="playing-some-audio">Playing some audio<a class="headerlink" href="#playing-some-audio" title="Permanent link">&para;</a></h2>
+<p>The background sound is an easy one - we simply play it in the <code>ready</code> function in our game. </p>
+<div class="admonition tip">
+<p class="admonition-title">Import the audio API in game.wren if it isn't there</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="s">&quot;luxe: audio&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nc">Audio</span>
+</code></pre></div>
+<h3 id="looping-a-sound">Looping a sound<a class="headerlink" href="#looping-a-sound" title="Permanent link">&para;</a></h3>
+<p>Often we'll want a sound to loop continously - the API makes this easy with <code class="highlight"><span class="nx">Audio</span><span class="p">.</span><span class="nx">loop</span><span class="p">(...)</span></code>. Like with other assets, we should see them in code completion when we go reach for one using the <code>Asset.audio</code> api like this:</p>
+<p><img alt="" src="../../images/tutorial/audio/audio.2.png" /></p>
+<p>That's it really! The basic usage of audio is really simple. There's also <code class="highlight"><span class="nx">Audio</span><span class="p">.</span><span class="nx">play</span></code> for one shot sounds.</p>
+<div class="admonition tip">
+<p class="admonition-title">Play the background sound right before you load the scene in your game!</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="hll"><span class="k">var</span><span class="w"> </span><span class="n">bg_sound</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Asset</span><span class="o">.</span><span class="n">audio</span><span class="p">(</span><span class="s">&quot;audio/city&quot;</span><span class="p">)</span><span class="w"> </span>
+</span><span class="hll"><span class="nc">Audio</span><span class="o">.</span><span class="n">loop</span><span class="p">(</span><span class="n">bg_sound</span><span class="p">)</span>
+</span>
+<span class="nc">Scene</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">world</span><span class="p">,</span><span class="w"> </span><span class="nc">Asset</span><span class="o">.</span><span class="n">scene</span><span class="p">(</span><span class="s">&quot;scene/level&quot;</span><span class="p">))</span>
+</code></pre></div>
+<h3 id="bounce-sound">Bounce sound<a class="headerlink" href="#bounce-sound" title="Permanent link">&para;</a></h3>
+<p>When the bee collides with something, we'll play our bounce sound.
+We already have a function that does stuff when we collide with something, so for now we just play our sound in here.</p>
+<div class="highlight"><pre><span></span><code><span class="n">handle_collision</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="nc">Arcade</span><span class="o">.</span><span class="n">add_collision_callback</span><span class="p">(</span><span class="n">player</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="o">|</span><span class="n">entity_a</span><span class="p">,</span><span class="w"> </span><span class="n">entity_b</span><span class="p">,</span><span class="w"> </span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">normal</span><span class="p">,</span><span class="w"> </span><span class="n">overlap_dist</span><span class="o">|</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">state</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nc">CollisionEvent</span><span class="o">.</span><span class="n">begin</span><span class="p">)</span><span class="w"> </span><span class="k">return</span>
+
+<span class="hll"><span class="w">    </span><span class="nc">Audio</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="nc">Asset</span><span class="o">.</span><span class="n">audio</span><span class="p">(</span><span class="s">&quot;audio/bounce.bee&quot;</span><span class="p">))</span>
+</span>
+<span class="w">  </span><span class="o">...</span>
+
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span><span class="w"> </span><span class="c1">//handle_collision</span>
+</code></pre></div>
+<h4 id="sound-spam">Sound spam<a class="headerlink" href="#sound-spam" title="Permanent link">&para;</a></h4>
+<p>If you play the game and bounce around, you should hear the sound playing. This works well, but sometimes we land on a surface and it plays the sound way too many times in rapid succession! This is a common problem with audio, so we need to not play it too frequently. We'll do a very simple timer to prevent it spamming the sound.</p>
+<p>To do that we'll add a new variable to our class:</p>
+<div class="highlight"><pre><span></span><code><span class="k">var</span><span class="w"> </span><span class="n">last_bounce</span><span class="o">:</span><span class="w"> </span><span class="nc">Num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+</code></pre></div>
+<p>And change our audio play line to check how much time has passed, and don't play it if it was already played recently (we use 0.25 seconds):</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="p">(</span><span class="nc">World</span><span class="o">.</span><span class="n">time</span><span class="p">(</span><span class="n">world</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">last_bounce</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.25</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">last_bounce</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">World</span><span class="o">.</span><span class="n">time</span><span class="p">(</span><span class="n">world</span><span class="p">)</span>
+<span class="w">  </span><span class="nc">Audio</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="nc">Asset</span><span class="o">.</span><span class="n">audio</span><span class="p">(</span><span class="s">&quot;audio/bounce.bee&quot;</span><span class="p">))</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="flower-sound">Flower sound<a class="headerlink" href="#flower-sound" title="Permanent link">&para;</a></h3>
+<p>We also play an <strong>additional</strong> sound when we bounce on the flower. The sounds combining is intentional, as it should create a nice mix of sound in this case.</p>
+<p>We already have code handling what happens when you bounce on a flower, so it's as easy as adding one line:</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="p">(</span><span class="nc">Tags</span><span class="o">.</span><span class="n">has_tag</span><span class="p">(</span><span class="n">entity_b</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;flower&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nc">Anim</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">entity_b</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;anim/bounce&quot;</span><span class="p">)</span>
+<span class="hll"><span class="w">  </span><span class="nc">Audio</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="nc">Asset</span><span class="o">.</span><span class="n">audio</span><span class="p">(</span><span class="s">&quot;audio/bounce.flower&quot;</span><span class="p">))</span>
+</span><span class="p">}</span>
+</code></pre></div>
+<h2 id="the-audio-bus">The audio bus<a class="headerlink" href="#the-audio-bus" title="Permanent link">&para;</a></h2>
+<p>It's common for games to have a volume slider for Sounds, Music and Voices as separate sliders. The term for that is "audio bus", we play sounds on the SFX bus and so on. We always have global volume control as well, as everything will eventually come out the main bus (global bus). So how do we do that in luxe?</p>
+<div class="admonition note">
+<p>It's possible your outline has created default buses for you! We'll cover how they're made either way.</p>
+</div>
+<h3 id="creating-a-bus-asset">Creating a bus asset<a class="headerlink" href="#creating-a-bus-asset" title="Permanent link">&para;</a></h3>
+<p>Defining a bus is often done as an asset so it can be referenced easily in the Audio API. 
+We'll do that inside <code>audio/bus/</code> by creating a <code>sounds.bus.lx</code> and <code>ambience.bus.lx</code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Create a file called <code>audio/bus/sounds.bus.lx</code></p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Create a file called <code>audio/bus/ambience.bus.lx</code></p>
+</div>
+<p>Inside both files, we have a very simple volume value! </p>
+<div class="admonition note">
+<p class="admonition-title">Typically, we don't default sounds to 100% - this is bad practice. The user can adjust the audio themselves as needed.</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="n">bus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">volume</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.75</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="using-a-bus-asset">Using a bus asset<a class="headerlink" href="#using-a-bus-asset" title="Permanent link">&para;</a></h3>
+<div class="admonition bug">
+<p class="admonition-title">There should be a simpler API for playing the sound on a bus without many args, and the function to move a sound to a bus is missing on the Wren side of the API. This is a WIP!</p>
+</div>
+<p>Here's the variant of <code>Audio.play</code> (and <code>Audio.loop</code>) that accepts a bus:</p>
+<p><code class="highlight"><span class="nc">Audio</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">source</span><span class="o">:</span><span class="w"> </span><span class="nc">AudioAsset</span><span class="p">,</span><span class="w"> </span><span class="n">as3D</span><span class="o">:</span><span class="w"> </span><span class="nc">Bool</span><span class="p">,</span><span class="w"> </span><span class="n">bus</span><span class="o">:</span><span class="w"> </span><span class="nc">AudioBus</span><span class="p">,</span><span class="w"> </span><span class="n">volume</span><span class="o">:</span><span class="w"> </span><span class="nc">Num</span><span class="p">)</span></code></p>
+<p>Like before, we get the completion since our bus is an asset, and we grab it from <code>Audio.bus</code>:</p>
+<p><img alt="" src="../../images/tutorial/audio/audio.3.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Change your sound effects to use the sounds bus, and the city ambience to use the ambience bus!</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="p">(</span><span class="nc">World</span><span class="o">.</span><span class="n">time</span><span class="p">(</span><span class="n">world</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">last_bounce</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.25</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">last_bounce</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">World</span><span class="o">.</span><span class="n">time</span><span class="p">(</span><span class="n">world</span><span class="p">)</span>
+<span class="hll"><span class="w">  </span><span class="nc">Audio</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="nc">Asset</span><span class="o">.</span><span class="n">audio</span><span class="p">(</span><span class="s">&quot;audio/bounce.bee&quot;</span><span class="p">),</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nc">Asset</span><span class="o">.</span><span class="n">bus</span><span class="p">(</span><span class="s">&quot;audio/bus/sounds&quot;</span><span class="p">),</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span>
+</span><span class="p">}</span>
+</code></pre></div>
+<p>And the ambience:</p>
+<div class="highlight"><pre><span></span><code><span class="nc">Audio</span><span class="o">.</span><span class="n">loop</span><span class="p">(</span><span class="n">bg_sound</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nc">Asset</span><span class="o">.</span><span class="n">bus</span><span class="p">(</span><span class="s">&quot;audio/bus/ambience&quot;</span><span class="p">),</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition note">
+<p>Notice that each sound has it's own relative volume as well! The flower bounce sound, sounds a bit too loud compared to the bounce, so the flower bounce volume when playing the sound can be tweaked in the play call e.g to <code>0.5</code> volume.</p>
+</div>
+<h2 id="setting-the-volumes">Setting the volumes<a class="headerlink" href="#setting-the-volumes" title="Permanent link">&para;</a></h2>
+<p>So we have a few layers of sound volumes to control:</p>
+<h3 id="individual-sound-volume">Individual sound volume<a class="headerlink" href="#individual-sound-volume" title="Permanent link">&para;</a></h3>
+<p>There's two places typically, on <code>play/loop</code> you can specify a volume to start with or you can use the audio api to change the volume after playing it:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">//change flower bounce audio manually</span>
+<span class="k">var</span><span class="w"> </span><span class="n">sound</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Audio</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="nc">Audio</span><span class="o">.</span><span class="n">volume</span><span class="p">(</span><span class="n">sound</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="bus-volume">Bus volume<a class="headerlink" href="#bus-volume" title="Permanent link">&para;</a></h3>
+<p>To control the bus volume for <code>sounds</code> or <code>ambience</code> (as you might do in a UI!) we use the <code>Bus</code> API.</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="s">&quot;luxe: audio&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nc">Audio</span><span class="p">,</span><span class="w"> </span><span class="nc">Bus</span>
+</code></pre></div>
+<p>And then we can call the set (or get) the volume:</p>
+<div class="highlight"><pre><span></span><code><span class="nc">Bus</span><span class="o">.</span><span class="n">set_volume</span><span class="p">(</span><span class="nc">Asset</span><span class="o">.</span><span class="n">bus</span><span class="p">(</span><span class="s">&quot;audio/bus/ambience&quot;</span><span class="p">),</span><span class="w"> </span><span class="mf">0.75</span><span class="p">)</span>
+<span class="nc">Bus</span><span class="o">.</span><span class="n">set_volume</span><span class="p">(</span><span class="nc">Asset</span><span class="o">.</span><span class="n">bus</span><span class="p">(</span><span class="s">&quot;audio/bus/sounds&quot;</span><span class="p">),</span><span class="w"> </span><span class="mf">0.75</span><span class="p">)</span>
+</code></pre></div>
+<p>If you'd like to experiment, add this to your <code>tick</code> method in your game.
+What this does is calculate a <code>0...1</code> value (ratio) of where your mouse is horizontally on the window.
+The further left the mouse is the quieter the volume of the ambience, and the further right the louder it will be.</p>
+<div class="highlight"><pre><span></span><code><span class="k">var</span><span class="w"> </span><span class="n">dx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Input</span><span class="o">.</span><span class="n">mouse_x</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">width</span><span class="w"> </span>
+<span class="nc">Bus</span><span class="o">.</span><span class="n">set_volume</span><span class="p">(</span><span class="nc">Asset</span><span class="o">.</span><span class="n">bus</span><span class="p">(</span><span class="s">&quot;audio/bus/ambience&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">dx</span><span class="p">)</span>
+</code></pre></div>
+<p>When you do this, you'll notice the sounds are unaffected by the volume change.</p>
+<h3 id="global-volume">Global volume<a class="headerlink" href="#global-volume" title="Permanent link">&para;</a></h3>
+<div class="admonition bug">
+<p class="admonition-title">Woops! The global volume API wasn't exposed to Wren - it will be in the next build</p>
+</div>
+<h2 id="try-this">Try this<a class="headerlink" href="#try-this" title="Permanent link">&para;</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Experiment with the audio api using the sound instances returned by playing a sound</p>
+</div>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 3, 2025 06:41:06 UTC">September 3, 2025</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="footer.title">
+      
+        <a href="../deploy/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+                 
+                  <span class="md-footer-nav__parent">tutorials</span> 
+                
+              </span>
+              deploy a build
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../../learn/overview/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+                 
+                  <span class="md-footer-nav__parent">learn ...</span> 
+                
+              </span>
+              overview
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/luxeengine" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 0c4.42 0 8 3.58 8 8a8.01 8.01 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27s-1.36.09-2 .27c-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8"/></svg>
+    </a>
+  
+</div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["instant", "navigation.prune"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>

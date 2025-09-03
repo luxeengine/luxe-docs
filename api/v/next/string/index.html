@@ -1,0 +1,1256 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../../images/luxe-favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>String - luxe engine</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../css/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="luxe engine" class="md-header__button md-logo" aria-label="luxe engine" data-md-component="logo">
+      
+  <img src="../../../../images/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            luxe engine
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              String
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="pink" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="luxe engine" class="md-nav__button md-logo" aria-label="luxe engine" data-md-component="logo">
+      
+  <img src="../../../../images/logo.svg" alt="logo">
+
+    </a>
+    luxe engine
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    about
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../get/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    install
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    guide
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../tutorials/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    tutorials
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../learn/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    learn ...
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../manual/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    manual
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1"><img alt="" src="../../../../images/luxe-dark.svg" width="96em" /><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h1 id="luxe-api-202512"><code>luxe</code> API (<code>2025.1.2</code>)<a class="headerlink" href="#luxe-api-202512" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="luxe-string-module"><code>luxe: string</code> module<a class="headerlink" href="#luxe-string-module" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#loc">Loc</a>   </li>
+<li><a href="#str">Str</a>   </li>
+</ul>
+<hr />
+<h3 id="loc">Loc<a class="headerlink" href="#loc" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: string&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">Loc</span></code></p>
+<blockquote>
+<p>Interface for the localisation system.</p>
+<p>Each translation always exists in a space and in a language.
+Spaces are contexts, so you might want different spaces for dialogue/menus/icons. Or you can leave everything in the default "game" translation space.</p>
+<p>Unless specified otherwise, the system will fetch the string from the currently active language if possible, if its not available there it will fall back to the set primary language. If the key isn't registered for that either, "MISSING.STRING" will be returned.</p>
+<p>By default there is no active active language set and the primary language is "en".</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="c1">//by default language is not set and primary language is `en` with no registered strings</span>
+<span class="w">    </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">Strings</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">Loc</span><span class="p">.</span><span class="nx">get_language</span><span class="p">()))</span><span class="w"> </span><span class="c1">//null</span>
+<span class="w">    </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">Strings</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">Loc</span><span class="p">.</span><span class="nx">get_primary</span><span class="p">()))</span><span class="w"> </span><span class="c1">//en</span>
+<span class="w">    </span><span class="nx">Loc</span><span class="p">.</span><span class="nx">set_language</span><span class="p">(</span><span class="s2">&quot;en&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">Loc</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;start_game&quot;</span><span class="p">))</span><span class="w"> </span><span class="c1">//MISSING.STRING</span>
+
+<span class="w">    </span><span class="c1">//as soon as we add a line, we can query it</span>
+<span class="w">    </span><span class="nx">Loc</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;en&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">Loc</span><span class="p">.</span><span class="nx">default_space</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;start_game&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Start Game!&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">Loc</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;start_game&quot;</span><span class="p">))</span><span class="w"> </span><span class="c1">//Start Game!</span>
+
+<span class="w">    </span><span class="c1">//if we query a word in a language where that translation doesnt exist yet (like toki pona here), it falls back to the primary language</span>
+<span class="w">    </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">Loc</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;tp&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">Loc</span><span class="p">.</span><span class="nx">default_space</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;start_game&quot;</span><span class="p">))</span><span class="w"> </span><span class="c1">//Start Game!</span>
+
+<span class="w">    </span><span class="c1">//but as soon as it is registered, the translation in the respective language is returned</span>
+<span class="w">    </span><span class="nx">Loc</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;tp&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">Loc</span><span class="p">.</span><span class="nx">default_space</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;start_game&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;o open e musi!&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">Loc</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;tp&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">Loc</span><span class="p">.</span><span class="nx">default_space</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;start_game&quot;</span><span class="p">))</span><span class="w"> </span><span class="c1">//o open e musi!</span>
+<span class="w">        </span>
+<span class="w">    </span><span class="c1">//same when we set the current language and use the shorthand get</span>
+<span class="w">    </span><span class="nx">Loc</span><span class="p">.</span><span class="nx">set_language</span><span class="p">(</span><span class="s2">&quot;tp&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">Loc</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;start_game&quot;</span><span class="p">))</span><span class="w"> </span><span class="c1">//o open e musi!</span>
+</code></pre></div>
+</blockquote>
+<ul>
+<li><a href="#Loc.default_space">default_space</a></li>
+<li><a href="#Loc.missing_string">missing_string</a></li>
+<li><a href="#Loc.set_primary">set_primary</a>(<strong>language</strong>: <code>String</code>)</li>
+<li><a href="#Loc.get_primary">get_primary</a>()</li>
+<li><a href="#Loc.set_language">set_language</a>(<strong>language</strong>: <code>String</code>)</li>
+<li><a href="#Loc.get_language">get_language</a>()</li>
+<li><a href="#Loc.add_language+2">add_language</a>(<strong>language</strong>: <code>String</code>, <strong>plural_form</strong>: <code>String</code>)</li>
+<li><a href="#Loc.add+4">add</a>(<strong>language</strong>: <code>String</code>, <strong>space</strong>: <code>String</code>, <strong>key</strong>: <code>String</code>, <strong>string</strong>: <code>String</code>)</li>
+<li><a href="#Loc.add_plural+4">add_plural</a>(<strong>language</strong>: <code>String</code>, <strong>space</strong>: <code>String</code>, <strong>key</strong>: <code>String</code>, <strong>strings</strong>: <code>List</code>)</li>
+<li><a href="#Loc.get+3">get</a>(<strong>language</strong>: <code>String</code>, <strong>space</strong>: <code>String</code>, <strong>key</strong>: <code>String</code>)</li>
+<li><a href="#Loc.has+3">has</a>(<strong>language</strong>: <code>String</code>, <strong>space</strong>: <code>String</code>, <strong>key</strong>: <code>String</code>)</li>
+<li><a href="#Loc.get_plural+4">get_plural</a>(<strong>language</strong>: <code>String</code>, <strong>space</strong>: <code>String</code>, <strong>key</strong>: <code>String</code>, <strong>count</strong>: <code>Num</code>)</li>
+<li><a href="#Loc.get+2">get</a>(<strong>space</strong>: <code>String</code>, <strong>key</strong>: <code>String</code>)</li>
+<li><a href="#Loc.get">get</a>(<strong>key</strong>: <code>String</code>)</li>
+<li><a href="#Loc.has">has</a>(<strong>key</strong>: <code>String</code>)</li>
+<li><a href="#Loc.load_primary">load_primary</a>(<strong>asset_id</strong>: <code>String</code>)</li>
+<li><a href="#Loc.load_language">load_language</a>(<strong>asset_id</strong>: <code>String</code>)</li>
+<li><a href="#Loc.load_language+2">load_language</a>(<strong>asset_id</strong>: <code>String</code>, <strong>primary</strong>: <code>Bool</code>)</li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: string" class="Loc" signature="default_space"></endpoint>
+<signature id="Loc.default_space">Loc.default_space
+<a class="headerlink" href="#Loc.default_space" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>The default space for localisations, \"game\".   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Loc" signature="missing_string"></endpoint>
+<signature id="Loc.missing_string">Loc.missing_string
+<a class="headerlink" href="#Loc.missing_string" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>The missing string fallback for the engine, typically \"MISSING.STRING\".   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Loc" signature="set_primary(language : String)"></endpoint>
+<signature id="Loc.set_primary">Loc.set_primary(<strong>language</strong>: <code>String</code>)
+<a class="headerlink" href="#Loc.set_primary" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Set the primary language that is used as fallback if a key can't be found in another language.   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Loc" signature="get_primary()"></endpoint>
+<signature id="Loc.get_primary">Loc.get_primary()
+<a class="headerlink" href="#Loc.get_primary" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Get the primary language.   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Loc" signature="set_language(language : String)"></endpoint>
+<signature id="Loc.set_language">Loc.set_language(<strong>language</strong>: <code>String</code>)
+<a class="headerlink" href="#Loc.set_language" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Set the current language that strings are gotten for unless specified otherwise.   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Loc" signature="get_language()"></endpoint>
+<signature id="Loc.get_language">Loc.get_language()
+<a class="headerlink" href="#Loc.get_language" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Get the current language.   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Loc" signature="add_language(language : String, plural_form : String)"></endpoint>
+<signature id="Loc.add_language+2">Loc.add_language(<strong>language</strong>: <code>String</code>, <strong>plural_form</strong>: <code>String</code>)
+<a class="headerlink" href="#Loc.add_language+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Add a language with the given <code>id</code> and <code>plural_form</code> expression string (just the expression part, not the whole header).   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Loc" signature="add(language : String, space : String, key : String, string : String)"></endpoint>
+<signature id="Loc.add+4">Loc.add(<strong>language</strong>: <code>String</code>, <strong>space</strong>: <code>String</code>, <strong>key</strong>: <code>String</code>, <strong>string</strong>: <code>String</code>)
+<a class="headerlink" href="#Loc.add+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Add a string to the localisation system.   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Loc" signature="add_plural(language : String, space : String, key : String, strings : List)"></endpoint>
+<signature id="Loc.add_plural+4">Loc.add_plural(<strong>language</strong>: <code>String</code>, <strong>space</strong>: <code>String</code>, <strong>key</strong>: <code>String</code>, <strong>strings</strong>: <code>List</code>)
+<a class="headerlink" href="#Loc.add_plural+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Add a plural string to the localisation system.   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Loc" signature="get(language : String, space : String, key : String)"></endpoint>
+<signature id="Loc.get+3">Loc.get(<strong>language</strong>: <code>String</code>, <strong>space</strong>: <code>String</code>, <strong>key</strong>: <code>String</code>)
+<a class="headerlink" href="#Loc.get+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>Get the string for a key (or fallback in primary language) from the localisation system for a specific language/space.   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Loc" signature="has(language : String, space : String, key : String)"></endpoint>
+<signature id="Loc.has+3">Loc.has(<strong>language</strong>: <code>String</code>, <strong>space</strong>: <code>String</code>, <strong>key</strong>: <code>String</code>)
+<a class="headerlink" href="#Loc.has+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Bool</span></code></p>
+<blockquote>
+<p>Check if the string for a key exists in the localisation system for a specific language/space.   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Loc" signature="get_plural(language : String, space : String, key : String, count : Num)"></endpoint>
+<signature id="Loc.get_plural+4">Loc.get_plural(<strong>language</strong>: <code>String</code>, <strong>space</strong>: <code>String</code>, <strong>key</strong>: <code>String</code>, <strong>count</strong>: <code>Num</code>)
+<a class="headerlink" href="#Loc.get_plural+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>Get the string for a key from the localisation system for a specific language/space, with the plural count.   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Loc" signature="get(space : String, key : String)"></endpoint>
+<signature id="Loc.get+2">Loc.get(<strong>space</strong>: <code>String</code>, <strong>key</strong>: <code>String</code>)
+<a class="headerlink" href="#Loc.get+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>Get the string for a key (or fallback in primary language) from the localisation system in the current language and in a specific space.   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Loc" signature="get(key : String)"></endpoint>
+<signature id="Loc.get">Loc.get(<strong>key</strong>: <code>String</code>)
+<a class="headerlink" href="#Loc.get" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>Get the string for a key (or fallback in primary language) from the localisation system in the current language and in the default space.   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Loc" signature="has(key : String)"></endpoint>
+<signature id="Loc.has">Loc.has(<strong>key</strong>: <code>String</code>)
+<a class="headerlink" href="#Loc.has" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Bool</span></code></p>
+<blockquote>
+<p>Check if the string for a key exists in the localisation system for the current language and default space   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Loc" signature="load_primary(asset_id : String)"></endpoint>
+<signature id="Loc.load_primary">Loc.load_primary(<strong>asset_id</strong>: <code>String</code>)
+<a class="headerlink" href="#Loc.load_primary" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Bool</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Loc" signature="load_language(asset_id : String)"></endpoint>
+<signature id="Loc.load_language">Loc.load_language(<strong>asset_id</strong>: <code>String</code>)
+<a class="headerlink" href="#Loc.load_language" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Bool</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Loc" signature="load_language(asset_id : String, primary : Bool)"></endpoint>
+<signature id="Loc.load_language+2">Loc.load_language(<strong>asset_id</strong>: <code>String</code>, <strong>primary</strong>: <code>Bool</code>)
+<a class="headerlink" href="#Loc.load_language+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Bool</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<h3 id="str">Str<a class="headerlink" href="#str" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: string&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">Str</span></code></p>
+<blockquote>
+<p>Utility class for String functions.</p>
+</blockquote>
+<ul>
+<li><a href="#Str.split_lines">split_lines</a>(<strong>string</strong>: <code>String</code>)</li>
+<li><a href="#Str.split+2">split</a>(<strong>string</strong>: <code>String</code>, <strong>delim</strong>: <code>String</code>)</li>
+<li><a href="#Str.indent_strip">indent_strip</a>(<strong>string</strong>: <code>String</code>)</li>
+<li><a href="#Str.indent">indent</a>(<strong>string</strong>: <code>String</code>)</li>
+<li><a href="#Str.trim">trim</a>(<strong>string</strong>: <code>String</code>)</li>
+<li><a href="#Str.compare+2">compare</a>(<strong>a</strong>: <code>String</code>, <strong>b</strong>: <code>String</code>)</li>
+<li><a href="#Str.replace+3">replace</a>(<strong>string</strong>: <code>String</code>, <strong>sub</strong>: <code>String</code>, <strong>repl</strong>: <code>String</code>)</li>
+<li><a href="#Str.is_alphanumeric">is_alphanumeric</a>(<strong>str</strong>: <code>String</code>)</li>
+<li><a href="#Str.is_numeric">is_numeric</a>(<strong>str</strong>: <code>String</code>)</li>
+<li><a href="#Str.increment_end">increment_end</a>(<strong>string</strong>: <code>String</code>)</li>
+<li><a href="#Str.vec">vec</a>(<strong>value</strong>: <code>Vec</code>)</li>
+<li><a href="#Str.vec+2">vec</a>(<strong>value</strong>: <code>Vec</code>, <strong>precision</strong>: <code>Num</code>)</li>
+<li><a href="#Str.vec+3">vec</a>(<strong>value</strong>: <code>Vec</code>, <strong>precision</strong>: <code>Num</code>, <strong>sep</strong>: <code>String</code>)</li>
+<li><a href="#Str.fixed+2">fixed</a>(<strong>number</strong>: <code>Num</code>, <strong>precision</strong>: <code>Num</code>)</li>
+<li><a href="#Str.fixed">fixed</a>(<strong>number</strong>: <code>Num</code>)</li>
+<li><a href="#Str.fixed+3">fixed</a>(<strong>number</strong>: <code>Num</code>, <strong>precision</strong>: <code>Num</code>, <strong>padded</strong>: <code>Bool</code>)</li>
+<li><a href="#Str.hex">hex</a>(<strong>number</strong>: <code>Num</code>)</li>
+<li><a href="#Str.binary">binary</a>(<strong>number</strong>: <code>Num</code>)</li>
+<li><a href="#Str.binary+2">binary</a>(<strong>number</strong>: <code>Num</code>, <strong>bit_width</strong>: <code>Num</code>)</li>
+<li><a href="#Str.path_is_absolute">path_is_absolute</a>(<strong>path</strong>: <code>String</code>)</li>
+<li><a href="#Str.path_directory">path_directory</a>(<strong>path</strong>: <code>String</code>)</li>
+<li><a href="#Str.path_filename">path_filename</a>(<strong>path</strong>: <code>String</code>)</li>
+<li><a href="#Str.path_extension">path_extension</a>(<strong>path</strong>: <code>String</code>)</li>
+<li><a href="#Str.path_extensionless">path_extensionless</a>(<strong>path</strong>: <code>String</code>)</li>
+<li><a href="#Str.bytes_formatted">bytes_formatted</a>(<strong>byte_count</strong>: <code>Num</code>)</li>
+<li><a href="#Str.bytes_formatted+2">bytes_formatted</a>(<strong>byte_count</strong>: <code>Num</code>, <strong>precision</strong>: <code>Num</code>)</li>
+<li><a href="#Str.upper">upper</a>(<strong>string</strong>: <code>String</code>)</li>
+<li><a href="#Str.lower">lower</a>(<strong>string</strong>: <code>String</code>)</li>
+<li><a href="#Str.wrap+2">wrap</a>(<strong>string</strong>: <code>String</code>, <strong>column</strong>: <code>Num</code>)</li>
+<li><a href="#Str.path">path</a>(<strong>path</strong>: <code>String</code>)</li>
+<li><a href="#Str.strip_markup">strip_markup</a>(<strong>string</strong>: <code>String</code>)</li>
+<li><a href="#Str.path_normalize">path_normalize</a>(<strong>string</strong>: <code>String</code>)</li>
+<li><a href="#Str.format+2">format</a>(<strong>string</strong>: <code>String</code>, <strong>arg0</strong>: <code>Any</code>)</li>
+<li><a href="#Str.format+3">format</a>(<strong>string</strong>: <code>String</code>, <strong>arg0</strong>: <code>Any</code>, <strong>arg1</strong>: <code>Any</code>)</li>
+<li><a href="#Str.format+4">format</a>(<strong>string</strong>: <code>String</code>, <strong>arg0</strong>: <code>Any</code>, <strong>arg1</strong>: <code>Any</code>, <strong>arg2</strong>: <code>Any</code>)</li>
+<li><a href="#Str.format+5">format</a>(<strong>string</strong>: <code>String</code>, <strong>arg0</strong>: <code>Any</code>, <strong>arg1</strong>: <code>Any</code>, <strong>arg2</strong>: <code>Any</code>, <strong>arg3</strong>: <code>Any</code>)</li>
+<li><a href="#Str.format+6">format</a>(<strong>string</strong>: <code>String</code>, <strong>arg0</strong>: <code>Any</code>, <strong>arg1</strong>: <code>Any</code>, <strong>arg2</strong>: <code>Any</code>, <strong>arg3</strong>: <code>Any</code>, <strong>arg4</strong>: <code>Any</code>)</li>
+<li><a href="#Str.format+7">format</a>(<strong>string</strong>: <code>String</code>, <strong>arg0</strong>: <code>Any</code>, <strong>arg1</strong>: <code>Any</code>, <strong>arg2</strong>: <code>Any</code>, <strong>arg3</strong>: <code>Any</code>, <strong>arg4</strong>: <code>Any</code>, <strong>arg5</strong>: <code>Any</code>)</li>
+<li><a href="#Str.format+8">format</a>(<strong>string</strong>: <code>String</code>, <strong>arg0</strong>: <code>Any</code>, <strong>arg1</strong>: <code>Any</code>, <strong>arg2</strong>: <code>Any</code>, <strong>arg3</strong>: <code>Any</code>, <strong>arg4</strong>: <code>Any</code>, <strong>arg5</strong>: <code>Any</code>, <strong>arg6</strong>: <code>Any</code>)</li>
+<li><a href="#Str.format+9">format</a>(<strong>string</strong>: <code>String</code>, <strong>arg0</strong>: <code>Any</code>, <strong>arg1</strong>: <code>Any</code>, <strong>arg2</strong>: <code>Any</code>, <strong>arg3</strong>: <code>Any</code>, <strong>arg4</strong>: <code>Any</code>, <strong>arg5</strong>: <code>Any</code>, <strong>arg6</strong>: <code>Any</code>, <strong>arg7</strong>: <code>Any</code>)</li>
+<li><a href="#Str.format+10">format</a>(<strong>string</strong>: <code>String</code>, <strong>arg0</strong>: <code>Any</code>, <strong>arg1</strong>: <code>Any</code>, <strong>arg2</strong>: <code>Any</code>, <strong>arg3</strong>: <code>Any</code>, <strong>arg4</strong>: <code>Any</code>, <strong>arg5</strong>: <code>Any</code>, <strong>arg6</strong>: <code>Any</code>, <strong>arg7</strong>: <code>Any</code>, <strong>arg8</strong>: <code>Any</code>)</li>
+<li><a href="#Str.format+11">format</a>(<strong>string</strong>: <code>String</code>, <strong>arg0</strong>: <code>Any</code>, <strong>arg1</strong>: <code>Any</code>, <strong>arg2</strong>: <code>Any</code>, <strong>arg3</strong>: <code>Any</code>, <strong>arg4</strong>: <code>Any</code>, <strong>arg5</strong>: <code>Any</code>, <strong>arg6</strong>: <code>Any</code>, <strong>arg7</strong>: <code>Any</code>, <strong>arg8</strong>: <code>Any</code>, <strong>arg9</strong>: <code>Any</code>)</li>
+<li><a href="#Str.format+12">format</a>(<strong>string</strong>: <code>String</code>, <strong>arg0</strong>: <code>Any</code>, <strong>arg1</strong>: <code>Any</code>, <strong>arg2</strong>: <code>Any</code>, <strong>arg3</strong>: <code>Any</code>, <strong>arg4</strong>: <code>Any</code>, <strong>arg5</strong>: <code>Any</code>, <strong>arg6</strong>: <code>Any</code>, <strong>arg7</strong>: <code>Any</code>, <strong>arg8</strong>: <code>Any</code>, <strong>arg9</strong>: <code>Any</code>, <strong>arg10</strong>: <code>Any</code>)</li>
+<li><a href="#Str.format+13">format</a>(<strong>string</strong>: <code>String</code>, <strong>arg0</strong>: <code>Any</code>, <strong>arg1</strong>: <code>Any</code>, <strong>arg2</strong>: <code>Any</code>, <strong>arg3</strong>: <code>Any</code>, <strong>arg4</strong>: <code>Any</code>, <strong>arg5</strong>: <code>Any</code>, <strong>arg6</strong>: <code>Any</code>, <strong>arg7</strong>: <code>Any</code>, <strong>arg8</strong>: <code>Any</code>, <strong>arg9</strong>: <code>Any</code>, <strong>arg10</strong>: <code>Any</code>, <strong>arg11</strong>: <code>Any</code>)</li>
+<li><a href="#Str.format+14">format</a>(<strong>string</strong>: <code>String</code>, <strong>arg0</strong>: <code>Any</code>, <strong>arg1</strong>: <code>Any</code>, <strong>arg2</strong>: <code>Any</code>, <strong>arg3</strong>: <code>Any</code>, <strong>arg4</strong>: <code>Any</code>, <strong>arg5</strong>: <code>Any</code>, <strong>arg6</strong>: <code>Any</code>, <strong>arg7</strong>: <code>Any</code>, <strong>arg8</strong>: <code>Any</code>, <strong>arg9</strong>: <code>Any</code>, <strong>arg10</strong>: <code>Any</code>, <strong>arg11</strong>: <code>Any</code>, <strong>arg12</strong>: <code>Any</code>)</li>
+<li><a href="#Str.format+15">format</a>(<strong>string</strong>: <code>String</code>, <strong>arg0</strong>: <code>Any</code>, <strong>arg1</strong>: <code>Any</code>, <strong>arg2</strong>: <code>Any</code>, <strong>arg3</strong>: <code>Any</code>, <strong>arg4</strong>: <code>Any</code>, <strong>arg5</strong>: <code>Any</code>, <strong>arg6</strong>: <code>Any</code>, <strong>arg7</strong>: <code>Any</code>, <strong>arg8</strong>: <code>Any</code>, <strong>arg9</strong>: <code>Any</code>, <strong>arg10</strong>: <code>Any</code>, <strong>arg11</strong>: <code>Any</code>, <strong>arg12</strong>: <code>Any</code>, <strong>arg13</strong>: <code>Any</code>)</li>
+<li><a href="#Str.format+16">format</a>(<strong>string</strong>: <code>String</code>, <strong>arg0</strong>: <code>Any</code>, <strong>arg1</strong>: <code>Any</code>, <strong>arg2</strong>: <code>Any</code>, <strong>arg3</strong>: <code>Any</code>, <strong>arg4</strong>: <code>Any</code>, <strong>arg5</strong>: <code>Any</code>, <strong>arg6</strong>: <code>Any</code>, <strong>arg7</strong>: <code>Any</code>, <strong>arg8</strong>: <code>Any</code>, <strong>arg9</strong>: <code>Any</code>, <strong>arg10</strong>: <code>Any</code>, <strong>arg11</strong>: <code>Any</code>, <strong>arg12</strong>: <code>Any</code>, <strong>arg13</strong>: <code>Any</code>, <strong>arg14</strong>: <code>Any</code>)</li>
+<li><a href="#Str.format_list+2">format_list</a>(<strong>string</strong>: <code>String</code>, <strong>args</strong>: <code>List</code>)</li>
+<li><a href="#Str.valid">valid</a>(<strong>string</strong>: <code>String</code>)</li>
+<li><a href="#Str.template+2">template</a>(<strong>string</strong>: <code>String</code>, <strong>key_value_context</strong>: <code>Map</code>)</li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: string" class="Str" signature="split_lines(string : String)"></endpoint>
+<signature id="Str.split_lines">Str.split_lines(<strong>string</strong>: <code>String</code>)
+<a class="headerlink" href="#Str.split_lines" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">List</span></code></p>
+<blockquote>
+<p>Split a string into its lines.
+Returns <code>[""]</code> for empty strings.</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">multiline_string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">\&quot;\&quot;\&quot;</span>
+<span class="w">    </span><span class="nx">leaf</span>
+<span class="w">    </span><span class="nx">tree</span>
+<span class="w">    </span><span class="nx">fruit</span>
+<span class="w">    </span><span class="nx">mushroom</span>
+<span class="w">    </span><span class="err">\&quot;\&quot;\&quot;</span>
+
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">split_string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Str</span><span class="p">.</span><span class="nx">split_lines</span><span class="p">(</span><span class="nx">multiline_string</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">split_string</span><span class="p">)</span><span class="w"> </span><span class="c1">//[leaf, tree, fruit, mushroom]</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="split(string : String, delim : String)"></endpoint>
+<signature id="Str.split+2">Str.split(<strong>string</strong>: <code>String</code>, <strong>delim</strong>: <code>String</code>)
+<a class="headerlink" href="#Str.split+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">List</span></code></p>
+<blockquote>
+<p><strong>Deprecated</strong> use <code>string.split(delim)</code>
+Split a string at every occurance of an delimiter.</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Owl eats Squirrel eats Nuts&quot;</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">split_string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Str</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="nx">input</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot; eats &quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">split_string</span><span class="p">)</span><span class="w"> </span><span class="c1">//[Owl, Squirrel, Nuts]</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="indent_strip(string : String)"></endpoint>
+<signature id="Str.indent_strip">Str.indent_strip(<strong>string</strong>: <code>String</code>)
+<a class="headerlink" href="#Str.indent_strip" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>Removes indentation from the first line of a string, and the same amount from subsequent lines if any. 
+Lines with shorter indentation than the first line are skipped.</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">\&quot;\&quot;\&quot;</span>
+<span class="w">        </span><span class="nx">Sparrow</span>
+<span class="w">        </span><span class="nx">Pidgeon</span>
+<span class="w">            </span><span class="nx">Crow</span>
+<span class="w">    </span><span class="err">\&quot;\&quot;\&quot;</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">unindented</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Str</span><span class="p">.</span><span class="nx">indent_strip</span><span class="p">(</span><span class="nx">input</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">unindented</span><span class="p">)</span><span class="w"> </span><span class="c1">//Sparrow\nPidgeon\n    Crow</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="indent(string : String)"></endpoint>
+<signature id="Str.indent">Str.indent(<strong>string</strong>: <code>String</code>)
+<a class="headerlink" href="#Str.indent" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>returns how much indentation characters (whitespace or tabs) a string has.</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;\t  text&quot;</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">indent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Str</span><span class="p">.</span><span class="nx">indent</span><span class="p">(</span><span class="nx">line</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">indent</span><span class="p">)</span><span class="w"> </span><span class="c1">//3</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="trim(string : String)"></endpoint>
+<signature id="Str.trim">Str.trim(<strong>string</strong>: <code>String</code>)
+<a class="headerlink" href="#Str.trim" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>Trims whitespace characters (" ", "\n", "\t") from front and end of an string.
+Calls wren core <code>String.trim</code> internally.</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;  \n\t   Pallas&#39;s cat   \n\t  &quot;</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">trimmed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Str</span><span class="p">.</span><span class="nx">trim</span><span class="p">(</span><span class="nx">input</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">trimmed</span><span class="p">)</span><span class="w"> </span><span class="c1">//Pallas&#39;s cat</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="compare(a : String, b : String)"></endpoint>
+<signature id="Str.compare+2">Str.compare(<strong>a</strong>: <code>String</code>, <strong>b</strong>: <code>String</code>)
+<a class="headerlink" href="#Str.compare+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Comparison function for strings. Order is based on the unicode number of the first non-equal codepoint or length.
+Returns <code>1</code> when <code>a &gt; b</code>
+Returns <code>-1</code> when <code>a &lt; b</code>
+returns <code>0</code> when theyre equal</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">Str</span><span class="p">.</span><span class="nx">compare</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;b&quot;</span><span class="p">))</span><span class="w"> </span><span class="c1">// -1</span>
+<span class="w">    </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">Str</span><span class="p">.</span><span class="nx">compare</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Z&quot;</span><span class="p">))</span><span class="w"> </span><span class="c1">// 1</span>
+<span class="w">    </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">Str</span><span class="p">.</span><span class="nx">compare</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;abc&quot;</span><span class="p">))</span><span class="w"> </span><span class="c1">// 0</span>
+<span class="w">    </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">Str</span><span class="p">.</span><span class="nx">compare</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;abcd&quot;</span><span class="p">))</span><span class="w"> </span><span class="c1">// -1</span>
+<span class="w">    </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">Str</span><span class="p">.</span><span class="nx">compare</span><span class="p">(</span><span class="s2">&quot;ö&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ä&quot;</span><span class="p">))</span><span class="w"> </span><span class="c1">// 1</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="replace(string : String, sub : String, repl : String)"></endpoint>
+<signature id="Str.replace+3">Str.replace(<strong>string</strong>: <code>String</code>, <strong>sub</strong>: <code>String</code>, <strong>repl</strong>: <code>String</code>)
+<a class="headerlink" href="#Str.replace+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>Replace all occurances of one substring with another.
+Call wren core <code>String.replace</code> internally.</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Hello World&quot;</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">replaced</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Str</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">input</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;o&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ø&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">replaced</span><span class="p">)</span><span class="w"> </span><span class="c1">//Hellø Wørld</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="is_alphanumeric(str : String)"></endpoint>
+<signature id="Str.is_alphanumeric">Str.is_alphanumeric(<strong>str</strong>: <code>String</code>)
+<a class="headerlink" href="#Str.is_alphanumeric" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Bool</span></code></p>
+<blockquote>
+<p>Get whether all characters in a string are alphanumeric (uppercase or lowercase latin characters or arabic numerals)</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">Str</span><span class="p">.</span><span class="nx">is_alphanumeric</span><span class="p">(</span><span class="s2">&quot;Leaf&quot;</span><span class="p">))</span><span class="w"> </span><span class="c1">//true</span>
+<span class="w">    </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">Str</span><span class="p">.</span><span class="nx">is_alphanumeric</span><span class="p">(</span><span class="s2">&quot;4Leaf&quot;</span><span class="p">))</span><span class="w"> </span><span class="c1">//true</span>
+<span class="w">    </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">Str</span><span class="p">.</span><span class="nx">is_alphanumeric</span><span class="p">(</span><span class="s2">&quot;4-leaf&quot;</span><span class="p">))</span><span class="w"> </span><span class="c1">//false</span>
+<span class="w">    </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">Str</span><span class="p">.</span><span class="nx">is_alphanumeric</span><span class="p">(</span><span class="s2">&quot;Wørld&quot;</span><span class="p">))</span><span class="w"> </span><span class="c1">//false</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="is_numeric(str : String)"></endpoint>
+<signature id="Str.is_numeric">Str.is_numeric(<strong>str</strong>: <code>String</code>)
+<a class="headerlink" href="#Str.is_numeric" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Bool</span></code></p>
+<blockquote>
+<p>Get whether all characters in a string are numeric (arabic numerals)</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">Str</span><span class="p">.</span><span class="nx">is_alphanumeric</span><span class="p">(</span><span class="s2">&quot;Leaf&quot;</span><span class="p">))</span><span class="w"> </span><span class="c1">//false</span>
+<span class="w">    </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">Str</span><span class="p">.</span><span class="nx">is_alphanumeric</span><span class="p">(</span><span class="s2">&quot;4&quot;</span><span class="p">))</span><span class="w"> </span><span class="c1">//true</span>
+<span class="w">    </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">Str</span><span class="p">.</span><span class="nx">is_alphanumeric</span><span class="p">(</span><span class="s2">&quot;4-leaf&quot;</span><span class="p">))</span><span class="w"> </span><span class="c1">//false</span>
+<span class="w">    </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">Str</span><span class="p">.</span><span class="nx">is_alphanumeric</span><span class="p">(</span><span class="s2">&quot;3¾&quot;</span><span class="p">))</span><span class="w"> </span><span class="c1">//false</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="increment_end(string : String)"></endpoint>
+<signature id="Str.increment_end">Str.increment_end(<strong>string</strong>: <code>String</code>)
+<a class="headerlink" href="#Str.increment_end" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="vec(value : Vec)"></endpoint>
+<signature id="Str.vec">Str.vec(<strong>value</strong>: <code>Vec</code>)
+<a class="headerlink" href="#Str.vec" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>Get the string representation of a vector. (uses 6 digits after decimal point and spaces between numbers)   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="vec(value : Vec, precision : Num)"></endpoint>
+<signature id="Str.vec+2">Str.vec(<strong>value</strong>: <code>Vec</code>, <strong>precision</strong>: <code>Num</code>)
+<a class="headerlink" href="#Str.vec+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>Get the string representation of a vector with the specified digits after the decimal point. (puts spaces between numbers)   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="vec(value : Vec, precision : Num, sep : String)"></endpoint>
+<signature id="Str.vec+3">Str.vec(<strong>value</strong>: <code>Vec</code>, <strong>precision</strong>: <code>Num</code>, <strong>sep</strong>: <code>String</code>)
+<a class="headerlink" href="#Str.vec+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>Get the string representation of a vector.
+You can specify both the precision (digits after decimal point) and the seperator of how the vector is rendered.</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">vector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3.14159265359</span><span class="p">]</span>
+<span class="w">    </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">Str</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">vector</span><span class="p">))</span><span class="w"> </span><span class="c1">//1 2 3.141593</span>
+<span class="w">    </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">Str</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">vector</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">))</span><span class="w"> </span><span class="c1">//1 2 3.14</span>
+<span class="w">    </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">Str</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">vector</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;, &quot;</span><span class="p">))</span><span class="w"> </span><span class="c1">//1, 2, 3.1</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="fixed(number : Num, precision : Num)"></endpoint>
+<signature id="Str.fixed+2">Str.fixed(<strong>number</strong>: <code>Num</code>, <strong>precision</strong>: <code>Num</code>)
+<a class="headerlink" href="#Str.fixed+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>Get the string representation of a number with a specified amount of digits after the decimal point.   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="fixed(number : Num)"></endpoint>
+<signature id="Str.fixed">Str.fixed(<strong>number</strong>: <code>Num</code>)
+<a class="headerlink" href="#Str.fixed" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>Get the string representation of a number with 6 digits after the decimal points.   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="fixed(number : Num, precision : Num, padded : Bool)"></endpoint>
+<signature id="Str.fixed+3">Str.fixed(<strong>number</strong>: <code>Num</code>, <strong>precision</strong>: <code>Num</code>, <strong>padded</strong>: <code>Bool</code>)
+<a class="headerlink" href="#Str.fixed+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>Get the string representation of a number with a specified amount of digits after the decimal point.
+If padded is true, this function adds zeroes until the requested amount of digits after the decimal point is reached.   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="hex(number : Num)"></endpoint>
+<signature id="Str.hex">Str.hex(<strong>number</strong>: <code>Num</code>)
+<a class="headerlink" href="#Str.hex" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>Get string representation of number in base-16/hexadecimal.   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="binary(number : Num)"></endpoint>
+<signature id="Str.binary">Str.binary(<strong>number</strong>: <code>Num</code>)
+<a class="headerlink" href="#Str.binary" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>Get string representation of number in base-2/binary.   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="binary(number : Num, bit_width : Num)"></endpoint>
+<signature id="Str.binary+2">Str.binary(<strong>number</strong>: <code>Num</code>, <strong>bit_width</strong>: <code>Num</code>)
+<a class="headerlink" href="#Str.binary+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>Get string representation of (positive integer) number in base-2/binary.
+<code>bit_width</code> declares to how many digits the number should be expanded (adds zeroes to left of it).   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="path_is_absolute(path : String)"></endpoint>
+<signature id="Str.path_is_absolute">Str.path_is_absolute(<strong>path</strong>: <code>String</code>)
+<a class="headerlink" href="#Str.path_is_absolute" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Bool</span></code></p>
+<blockquote>
+<p>Get whether a path is absolute (instead of relative).   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="path_directory(path : String)"></endpoint>
+<signature id="Str.path_directory">Str.path_directory(<strong>path</strong>: <code>String</code>)
+<a class="headerlink" href="#Str.path_directory" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>Get the directory path of a path pointing to a file.   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="path_filename(path : String)"></endpoint>
+<signature id="Str.path_filename">Str.path_filename(<strong>path</strong>: <code>String</code>)
+<a class="headerlink" href="#Str.path_filename" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>Get the filename (including extension) of a path pointing to a file.   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="path_extension(path : String)"></endpoint>
+<signature id="Str.path_extension">Str.path_extension(<strong>path</strong>: <code>String</code>)
+<a class="headerlink" href="#Str.path_extension" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>Get the extension of a path pointing to a file.   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="path_extensionless(path : String)"></endpoint>
+<signature id="Str.path_extensionless">Str.path_extensionless(<strong>path</strong>: <code>String</code>)
+<a class="headerlink" href="#Str.path_extensionless" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>Get the filename (excluding extension) of a path pointing to a file.   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="bytes_formatted(byte_count : Num)"></endpoint>
+<signature id="Str.bytes_formatted">Str.bytes_formatted(<strong>byte_count</strong>: <code>Num</code>)
+<a class="headerlink" href="#Str.bytes_formatted" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>Get a byte size as bytes/KB/MB/GB/TB (whichever is the biggest unit that is at least 1) with 3 digits after the decimal place.   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="bytes_formatted(byte_count : Num, precision : Num)"></endpoint>
+<signature id="Str.bytes_formatted+2">Str.bytes_formatted(<strong>byte_count</strong>: <code>Num</code>, <strong>precision</strong>: <code>Num</code>)
+<a class="headerlink" href="#Str.bytes_formatted+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>Get a byte size as bytes/KB/MB/GB/TB (whichever is the biggest unit that is at least 1) with <code>precision</code> digits after the decimal place.   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="upper(string : String)"></endpoint>
+<signature id="Str.upper">Str.upper(<strong>string</strong>: <code>String</code>)
+<a class="headerlink" href="#Str.upper" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>Converts a string to all uppercase.   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="lower(string : String)"></endpoint>
+<signature id="Str.lower">Str.lower(<strong>string</strong>: <code>String</code>)
+<a class="headerlink" href="#Str.lower" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>Converts a string to all lowercase.   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="wrap(string : String, column : Num)"></endpoint>
+<signature id="Str.wrap+2">Str.wrap(<strong>string</strong>: <code>String</code>, <strong>column</strong>: <code>Num</code>)
+<a class="headerlink" href="#Str.wrap+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>Wraps text on spaces to keep line length within column width. Does not break words that are longer than column width.   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="path(path : String)"></endpoint>
+<signature id="Str.path">Str.path(<strong>path</strong>: <code>String</code>)
+<a class="headerlink" href="#Str.path" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>Normalize a path.   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="strip_markup(string : String)"></endpoint>
+<signature id="Str.strip_markup">Str.strip_markup(<strong>string</strong>: <code>String</code>)
+<a class="headerlink" href="#Str.strip_markup" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>Strips the luxe markup formatting from the given string, returning the raw value   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="path_normalize(string : String)"></endpoint>
+<signature id="Str.path_normalize">Str.path_normalize(<strong>string</strong>: <code>String</code>)
+<a class="headerlink" href="#Str.path_normalize" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>Normalizes the path also resolving ../ and ./ and so on   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="format(string : String, arg0 : Any)"></endpoint>
+<signature id="Str.format+2">Str.format(<strong>string</strong>: <code>String</code>, <strong>arg0</strong>: <code>Any</code>)
+<a class="headerlink" href="#Str.format+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="format(string : String, arg0 : Any, arg1 : Any)"></endpoint>
+<signature id="Str.format+3">Str.format(<strong>string</strong>: <code>String</code>, <strong>arg0</strong>: <code>Any</code>, <strong>arg1</strong>: <code>Any</code>)
+<a class="headerlink" href="#Str.format+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="format(string : String, arg0 : Any, arg1 : Any, arg2 : Any)"></endpoint>
+<signature id="Str.format+4">Str.format(<strong>string</strong>: <code>String</code>, <strong>arg0</strong>: <code>Any</code>, <strong>arg1</strong>: <code>Any</code>, <strong>arg2</strong>: <code>Any</code>)
+<a class="headerlink" href="#Str.format+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="format(string : String, arg0 : Any, arg1 : Any, arg2 : Any, arg3 : Any)"></endpoint>
+<signature id="Str.format+5">Str.format(<strong>string</strong>: <code>String</code>, <strong>arg0</strong>: <code>Any</code>, <strong>arg1</strong>: <code>Any</code>, <strong>arg2</strong>: <code>Any</code>, <strong>arg3</strong>: <code>Any</code>)
+<a class="headerlink" href="#Str.format+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="format(string : String, arg0 : Any, arg1 : Any, arg2 : Any, arg3 : Any, arg4 : Any)"></endpoint>
+<signature id="Str.format+6">Str.format(<strong>string</strong>: <code>String</code>, <strong>arg0</strong>: <code>Any</code>, <strong>arg1</strong>: <code>Any</code>, <strong>arg2</strong>: <code>Any</code>, <strong>arg3</strong>: <code>Any</code>, <strong>arg4</strong>: <code>Any</code>)
+<a class="headerlink" href="#Str.format+6" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="format(string : String, arg0 : Any, arg1 : Any, arg2 : Any, arg3 : Any, arg4 : Any, arg5 : Any)"></endpoint>
+<signature id="Str.format+7">Str.format(<strong>string</strong>: <code>String</code>, <strong>arg0</strong>: <code>Any</code>, <strong>arg1</strong>: <code>Any</code>, <strong>arg2</strong>: <code>Any</code>, <strong>arg3</strong>: <code>Any</code>, <strong>arg4</strong>: <code>Any</code>, <strong>arg5</strong>: <code>Any</code>)
+<a class="headerlink" href="#Str.format+7" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="format(string : String, arg0 : Any, arg1 : Any, arg2 : Any, arg3 : Any, arg4 : Any, arg5 : Any, arg6 : Any)"></endpoint>
+<signature id="Str.format+8">Str.format(<strong>string</strong>: <code>String</code>, <strong>arg0</strong>: <code>Any</code>, <strong>arg1</strong>: <code>Any</code>, <strong>arg2</strong>: <code>Any</code>, <strong>arg3</strong>: <code>Any</code>, <strong>arg4</strong>: <code>Any</code>, <strong>arg5</strong>: <code>Any</code>, <strong>arg6</strong>: <code>Any</code>)
+<a class="headerlink" href="#Str.format+8" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="format(string : String, arg0 : Any, arg1 : Any, arg2 : Any, arg3 : Any, arg4 : Any, arg5 : Any, arg6 : Any, arg7 : Any)"></endpoint>
+<signature id="Str.format+9">Str.format(<strong>string</strong>: <code>String</code>, <strong>arg0</strong>: <code>Any</code>, <strong>arg1</strong>: <code>Any</code>, <strong>arg2</strong>: <code>Any</code>, <strong>arg3</strong>: <code>Any</code>, <strong>arg4</strong>: <code>Any</code>, <strong>arg5</strong>: <code>Any</code>, <strong>arg6</strong>: <code>Any</code>, <strong>arg7</strong>: <code>Any</code>)
+<a class="headerlink" href="#Str.format+9" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="format(string : String, arg0 : Any, arg1 : Any, arg2 : Any, arg3 : Any, arg4 : Any, arg5 : Any, arg6 : Any, arg7 : Any, arg8 : Any)"></endpoint>
+<signature id="Str.format+10">Str.format(<strong>string</strong>: <code>String</code>, <strong>arg0</strong>: <code>Any</code>, <strong>arg1</strong>: <code>Any</code>, <strong>arg2</strong>: <code>Any</code>, <strong>arg3</strong>: <code>Any</code>, <strong>arg4</strong>: <code>Any</code>, <strong>arg5</strong>: <code>Any</code>, <strong>arg6</strong>: <code>Any</code>, <strong>arg7</strong>: <code>Any</code>, <strong>arg8</strong>: <code>Any</code>)
+<a class="headerlink" href="#Str.format+10" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="format(string : String, arg0 : Any, arg1 : Any, arg2 : Any, arg3 : Any, arg4 : Any, arg5 : Any, arg6 : Any, arg7 : Any, arg8 : Any, arg9 : Any)"></endpoint>
+<signature id="Str.format+11">Str.format(<strong>string</strong>: <code>String</code>, <strong>arg0</strong>: <code>Any</code>, <strong>arg1</strong>: <code>Any</code>, <strong>arg2</strong>: <code>Any</code>, <strong>arg3</strong>: <code>Any</code>, <strong>arg4</strong>: <code>Any</code>, <strong>arg5</strong>: <code>Any</code>, <strong>arg6</strong>: <code>Any</code>, <strong>arg7</strong>: <code>Any</code>, <strong>arg8</strong>: <code>Any</code>, <strong>arg9</strong>: <code>Any</code>)
+<a class="headerlink" href="#Str.format+11" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="format(string : String, arg0 : Any, arg1 : Any, arg2 : Any, arg3 : Any, arg4 : Any, arg5 : Any, arg6 : Any, arg7 : Any, arg8 : Any, arg9 : Any, arg10 : Any)"></endpoint>
+<signature id="Str.format+12">Str.format(<strong>string</strong>: <code>String</code>, <strong>arg0</strong>: <code>Any</code>, <strong>arg1</strong>: <code>Any</code>, <strong>arg2</strong>: <code>Any</code>, <strong>arg3</strong>: <code>Any</code>, <strong>arg4</strong>: <code>Any</code>, <strong>arg5</strong>: <code>Any</code>, <strong>arg6</strong>: <code>Any</code>, <strong>arg7</strong>: <code>Any</code>, <strong>arg8</strong>: <code>Any</code>, <strong>arg9</strong>: <code>Any</code>, <strong>arg10</strong>: <code>Any</code>)
+<a class="headerlink" href="#Str.format+12" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="format(string : String, arg0 : Any, arg1 : Any, arg2 : Any, arg3 : Any, arg4 : Any, arg5 : Any, arg6 : Any, arg7 : Any, arg8 : Any, arg9 : Any, arg10 : Any, arg11 : Any)"></endpoint>
+<signature id="Str.format+13">Str.format(<strong>string</strong>: <code>String</code>, <strong>arg0</strong>: <code>Any</code>, <strong>arg1</strong>: <code>Any</code>, <strong>arg2</strong>: <code>Any</code>, <strong>arg3</strong>: <code>Any</code>, <strong>arg4</strong>: <code>Any</code>, <strong>arg5</strong>: <code>Any</code>, <strong>arg6</strong>: <code>Any</code>, <strong>arg7</strong>: <code>Any</code>, <strong>arg8</strong>: <code>Any</code>, <strong>arg9</strong>: <code>Any</code>, <strong>arg10</strong>: <code>Any</code>, <strong>arg11</strong>: <code>Any</code>)
+<a class="headerlink" href="#Str.format+13" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="format(string : String, arg0 : Any, arg1 : Any, arg2 : Any, arg3 : Any, arg4 : Any, arg5 : Any, arg6 : Any, arg7 : Any, arg8 : Any, arg9 : Any, arg10 : Any, arg11 : Any, arg12 : Any)"></endpoint>
+<signature id="Str.format+14">Str.format(<strong>string</strong>: <code>String</code>, <strong>arg0</strong>: <code>Any</code>, <strong>arg1</strong>: <code>Any</code>, <strong>arg2</strong>: <code>Any</code>, <strong>arg3</strong>: <code>Any</code>, <strong>arg4</strong>: <code>Any</code>, <strong>arg5</strong>: <code>Any</code>, <strong>arg6</strong>: <code>Any</code>, <strong>arg7</strong>: <code>Any</code>, <strong>arg8</strong>: <code>Any</code>, <strong>arg9</strong>: <code>Any</code>, <strong>arg10</strong>: <code>Any</code>, <strong>arg11</strong>: <code>Any</code>, <strong>arg12</strong>: <code>Any</code>)
+<a class="headerlink" href="#Str.format+14" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="format(string : String, arg0 : Any, arg1 : Any, arg2 : Any, arg3 : Any, arg4 : Any, arg5 : Any, arg6 : Any, arg7 : Any, arg8 : Any, arg9 : Any, arg10 : Any, arg11 : Any, arg12 : Any, arg13 : Any)"></endpoint>
+<signature id="Str.format+15">Str.format(<strong>string</strong>: <code>String</code>, <strong>arg0</strong>: <code>Any</code>, <strong>arg1</strong>: <code>Any</code>, <strong>arg2</strong>: <code>Any</code>, <strong>arg3</strong>: <code>Any</code>, <strong>arg4</strong>: <code>Any</code>, <strong>arg5</strong>: <code>Any</code>, <strong>arg6</strong>: <code>Any</code>, <strong>arg7</strong>: <code>Any</code>, <strong>arg8</strong>: <code>Any</code>, <strong>arg9</strong>: <code>Any</code>, <strong>arg10</strong>: <code>Any</code>, <strong>arg11</strong>: <code>Any</code>, <strong>arg12</strong>: <code>Any</code>, <strong>arg13</strong>: <code>Any</code>)
+<a class="headerlink" href="#Str.format+15" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="format(string : String, arg0 : Any, arg1 : Any, arg2 : Any, arg3 : Any, arg4 : Any, arg5 : Any, arg6 : Any, arg7 : Any, arg8 : Any, arg9 : Any, arg10 : Any, arg11 : Any, arg12 : Any, arg13 : Any, arg14 : Any)"></endpoint>
+<signature id="Str.format+16">Str.format(<strong>string</strong>: <code>String</code>, <strong>arg0</strong>: <code>Any</code>, <strong>arg1</strong>: <code>Any</code>, <strong>arg2</strong>: <code>Any</code>, <strong>arg3</strong>: <code>Any</code>, <strong>arg4</strong>: <code>Any</code>, <strong>arg5</strong>: <code>Any</code>, <strong>arg6</strong>: <code>Any</code>, <strong>arg7</strong>: <code>Any</code>, <strong>arg8</strong>: <code>Any</code>, <strong>arg9</strong>: <code>Any</code>, <strong>arg10</strong>: <code>Any</code>, <strong>arg11</strong>: <code>Any</code>, <strong>arg12</strong>: <code>Any</code>, <strong>arg13</strong>: <code>Any</code>, <strong>arg14</strong>: <code>Any</code>)
+<a class="headerlink" href="#Str.format+16" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="format_list(string : String, args : List)"></endpoint>
+<signature id="Str.format_list+2">Str.format_list(<strong>string</strong>: <code>String</code>, <strong>args</strong>: <code>List</code>)
+<a class="headerlink" href="#Str.format_list+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>Format the string, replacing placeholder with other text.
+Placeholders are in the format <code>{x}</code>, where <code>x</code> is an index into the arguments list of <code>format_list</code>, or a numbered argument in the <code>format</code> function.
+Placeholders can appear multiple times and do not need to appear in order.</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">Str</span><span class="p">.</span><span class="nx">format</span><span class="p">(</span><span class="s2">&quot;{0} {1} {2}&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Crown&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Trunk&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Roots&quot;</span><span class="p">))</span><span class="w"> </span><span class="c1">//Crown Trunk Roots</span>
+<span class="w">    </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">Str</span><span class="p">.</span><span class="nx">format</span><span class="p">(</span><span class="s2">&quot;{2} {1} {0}&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Crown&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Trunk&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Roots&quot;</span><span class="p">))</span><span class="w"> </span><span class="c1">//Roots Trunk Crown</span>
+<span class="w">    </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">Str</span><span class="p">.</span><span class="nx">format</span><span class="p">(</span><span class="s2">&quot;{0} {0} {1}&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Duck&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Goose&quot;</span><span class="p">))</span><span class="w"> </span><span class="c1">//Duck Duck Goose</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="valid(string : String)"></endpoint>
+<signature id="Str.valid">Str.valid(<strong>string</strong>: <code>String</code>)
+<a class="headerlink" href="#Str.valid" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Bool</span></code></p>
+<blockquote>
+<p>Check if string is null or empty   </p>
+</blockquote>
+<p><endpoint module="luxe: string" class="Str" signature="template(string : String, key_value_context : Map)"></endpoint>
+<signature id="Str.template+2">Str.template(<strong>string</strong>: <code>String</code>, <strong>key_value_context</strong>: <code>Map</code>)
+<a class="headerlink" href="#Str.template+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>A simple templating helper. Replace parts of the text with data from a given context map, by simple (non nested) string keys.
+For example, given the string <code>"hello &lt;[user.name]&gt;"</code> we can do <code>Str.template(string, {"user.name": name})</code>.
+The keys are delimited with <code>&lt;[</code> and ended with <code>]&gt;</code> in the string. Any not matched, won't be replaced.
+If you have a wren map with nested values, <code>LX.flatten()</code> can convert to simple key values for you.
+Values in the map are converted with <code>toString</code> if not a string.</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">Str</span><span class="p">.</span><span class="nx">template</span><span class="p">(</span><span class="s2">&quot;hello &lt;[user.name]&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s2">&quot;user.name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;luxe&quot;</span><span class="p">}))</span><span class="w"> </span><span class="c1">//hello luxe</span>
+</code></pre></div>
+</blockquote>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 3, 2025 06:41:06 UTC">September 3, 2025</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/luxeengine" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 0c4.42 0 8 3.58 8 8a8.01 8.01 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27s-1.36.09-2 .27c-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8"/></svg>
+    </a>
+  
+</div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["instant", "navigation.prune"], "search": "../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>

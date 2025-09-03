@@ -1,0 +1,1244 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../../../images/luxe-favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Type - luxe engine</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../css/extra.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="luxe engine" class="md-header__button md-logo" aria-label="luxe engine" data-md-component="logo">
+      
+  <img src="../../../../../images/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            luxe engine
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Type
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="pink" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="luxe engine" class="md-nav__button md-logo" aria-label="luxe engine" data-md-component="logo">
+      
+  <img src="../../../../../images/logo.svg" alt="logo">
+
+    </a>
+    luxe engine
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    about
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../get/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    install
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    guide
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../tutorials/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    tutorials
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../learn/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    learn ...
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../manual/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    manual
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1"><img alt="" src="../../../../../../images/luxe-dark.svg" width="96em" /><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h1 id="luxe-api-202512"><code>luxe</code> API (<code>2025.1.2</code>)<a class="headerlink" href="#luxe-api-202512" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="luxe-assettype-module"><code>luxe: asset/type</code> module<a class="headerlink" href="#luxe-assettype-module" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#assetartifact">AssetArtifact</a>   </li>
+<li><a href="#assetcontext">AssetContext</a>   </li>
+<li><a href="#assetid">AssetID</a>   </li>
+<li><a href="#assettype">AssetType</a>   </li>
+<li><a href="#assettypeid">AssetTypeID</a>   </li>
+</ul>
+<hr />
+<h3 id="assetartifact">AssetArtifact<a class="headerlink" href="#assetartifact" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: asset/type&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">AssetArtifact</span></code></p>
+<blockquote>
+<p>no docs found</p>
+</blockquote>
+<ul>
+<li><a href="#AssetArtifact.id">id</a></li>
+<li><a href="#AssetArtifact.type">type</a></li>
+<li><a href="#AssetArtifact.path">path</a></li>
+<li><a href="#AssetArtifact.new+3">new</a>(<strong>type</strong>: <code>String</code>, <strong>id</strong>: <code>String</code>, <strong>path</strong>: <code>String</code>)</li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: asset/type" class="AssetArtifact" signature="id"></endpoint>
+<signature id="AssetArtifact.id">AssetArtifact.id
+<a class="headerlink" href="#AssetArtifact.id" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetArtifact" signature="type"></endpoint>
+<signature id="AssetArtifact.type">AssetArtifact.type
+<a class="headerlink" href="#AssetArtifact.type" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetArtifact" signature="path"></endpoint>
+<signature id="AssetArtifact.path">AssetArtifact.path
+<a class="headerlink" href="#AssetArtifact.path" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetArtifact" signature="new(type : String, id : String, path : String)"></endpoint>
+<signature id="AssetArtifact.new+3">AssetArtifact.new(<strong>type</strong>: <code>String</code>, <strong>id</strong>: <code>String</code>, <strong>path</strong>: <code>String</code>)
+<a class="headerlink" href="#AssetArtifact.new+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">AssetArtifact</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<h3 id="assetcontext">AssetContext<a class="headerlink" href="#assetcontext" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: asset/type&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">AssetContext</span></code></p>
+<blockquote>
+<p>no docs found</p>
+</blockquote>
+<ul>
+<li><a href="#AssetContext.id">id</a></li>
+<li><a href="#AssetContext.db">db</a></li>
+<li><a href="#AssetContext.artifacts">artifacts</a></li>
+<li><a href="#AssetContext.ast_for_asset">ast_for_asset</a></li>
+<li><a href="#AssetContext.errors">errors</a></li>
+<li><a href="#AssetContext.error">error</a>(<strong>info</strong>: <code>String</code>)</li>
+<li><a href="#AssetContext.artifacts_for">artifacts_for</a>(<strong>type_id</strong>: <code>String</code>)</li>
+<li><a href="#AssetContext.ast_for">ast_for</a>(<strong>asset</strong>: <code>AssetID</code>)</li>
+<li><a href="#AssetContext.emit_block_def_for+3">emit_block_def_for</a>(<strong>asset</strong>: <code>AssetID</code>, <strong>block_tag</strong>: <code>String</code>, <strong>from</strong>: <code>String</code>)</li>
+<li><a href="#AssetContext.tagged">tagged</a>(<strong>tag</strong>: <code>String</code>)</li>
+<li><a href="#AssetContext.tag+2">tag</a>(<strong>tag</strong>: <code>String</code>, <strong>value</strong>: <code>Any</code>)</li>
+<li><a href="#AssetContext.TYPE">TYPE</a></li>
+<li><a href="#AssetContext.DEV">DEV</a></li>
+<li><a href="#AssetContext.RELEASE">RELEASE</a></li>
+<li><a href="#AssetContext.new+3">new</a>(<strong>id</strong>: <code>String</code>, <strong>db</strong>: <code>Any</code>, <strong>artifact_root</strong>: <code>String</code>)</li>
+<li><a href="#AssetContext.set_modified+2">set_modified</a>(<strong>type</strong>: <code>String</code>, <strong>modified</strong>: <code>List</code>)</li>
+<li><a href="#AssetContext.get_modified">get_modified</a>(<strong>type</strong>: <code>String</code>)</li>
+<li><a href="#AssetContext.get_modified">get_modified</a>()</li>
+<li><a href="#AssetContext.skip">skip</a>(<strong>id</strong>: <code>String</code>)</li>
+<li><a href="#AssetContext.skipped">skipped</a>(<strong>id</strong>: <code>String</code>)</li>
+<li><a href="#AssetContext.emit_path">emit_path</a>(<strong>id</strong>: <code>String</code>)</li>
+<li><a href="#AssetContext.emit_path+2">emit_path</a>(<strong>id</strong>: <code>String</code>, <strong>extra</strong>: <code>String</code>)</li>
+<li><a href="#AssetContext.emit+3">emit</a>(<strong>type_id</strong>: <code>String</code>, <strong>artifact_id</strong>: <code>String</code>, <strong>artifact_path</strong>: <code>String</code>)</li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: asset/type" class="AssetContext" signature="id"></endpoint>
+<signature id="AssetContext.id">AssetContext.id
+<a class="headerlink" href="#AssetContext.id" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetContext" signature="db"></endpoint>
+<signature id="AssetContext.db">AssetContext.db
+<a class="headerlink" href="#AssetContext.db" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetContext" signature="artifacts"></endpoint>
+<signature id="AssetContext.artifacts">AssetContext.artifacts
+<a class="headerlink" href="#AssetContext.artifacts" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">Map</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetContext" signature="ast_for_asset"></endpoint>
+<signature id="AssetContext.ast_for_asset">AssetContext.ast_for_asset
+<a class="headerlink" href="#AssetContext.ast_for_asset" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">Map</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetContext" signature="errors"></endpoint>
+<signature id="AssetContext.errors">AssetContext.errors
+<a class="headerlink" href="#AssetContext.errors" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">List</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetContext" signature="error(info : String)"></endpoint>
+<signature id="AssetContext.error">AssetContext.error(<strong>info</strong>: <code>String</code>)
+<a class="headerlink" href="#AssetContext.error" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetContext" signature="artifacts_for(type_id : String)"></endpoint>
+<signature id="AssetContext.artifacts_for">AssetContext.artifacts_for(<strong>type_id</strong>: <code>String</code>)
+<a class="headerlink" href="#AssetContext.artifacts_for" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetContext" signature="ast_for(asset : AssetID)"></endpoint>
+<signature id="AssetContext.ast_for">AssetContext.ast_for(<strong>asset</strong>: <code>AssetID</code>)
+<a class="headerlink" href="#AssetContext.ast_for" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Result</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetContext" signature="emit_block_def_for(asset : AssetID, block_tag : String, from : String)"></endpoint>
+<signature id="AssetContext.emit_block_def_for+3">AssetContext.emit_block_def_for(<strong>asset</strong>: <code>AssetID</code>, <strong>block_tag</strong>: <code>String</code>, <strong>from</strong>: <code>String</code>)
+<a class="headerlink" href="#AssetContext.emit_block_def_for+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetContext" signature="tagged(tag : String)"></endpoint>
+<signature id="AssetContext.tagged">AssetContext.tagged(<strong>tag</strong>: <code>String</code>)
+<a class="headerlink" href="#AssetContext.tagged" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Any</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetContext" signature="tag(tag : String, value : Any)"></endpoint>
+<signature id="AssetContext.tag+2">AssetContext.tag(<strong>tag</strong>: <code>String</code>, <strong>value</strong>: <code>Any</code>)
+<a class="headerlink" href="#AssetContext.tag+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetContext" signature="TYPE"></endpoint>
+<signature id="AssetContext.TYPE">AssetContext.TYPE
+<a class="headerlink" href="#AssetContext.TYPE" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetContext" signature="DEV"></endpoint>
+<signature id="AssetContext.DEV">AssetContext.DEV
+<a class="headerlink" href="#AssetContext.DEV" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetContext" signature="RELEASE"></endpoint>
+<signature id="AssetContext.RELEASE">AssetContext.RELEASE
+<a class="headerlink" href="#AssetContext.RELEASE" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetContext" signature="new(id : String, db : Any, artifact_root : String)"></endpoint>
+<signature id="AssetContext.new+3">AssetContext.new(<strong>id</strong>: <code>String</code>, <strong>db</strong>: <code>Any</code>, <strong>artifact_root</strong>: <code>String</code>)
+<a class="headerlink" href="#AssetContext.new+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">AssetContext</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetContext" signature="set_modified(type : String, modified : List)"></endpoint>
+<signature id="AssetContext.set_modified+2">AssetContext.set_modified(<strong>type</strong>: <code>String</code>, <strong>modified</strong>: <code>List</code>)
+<a class="headerlink" href="#AssetContext.set_modified+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetContext" signature="get_modified(type : String)"></endpoint>
+<signature id="AssetContext.get_modified">AssetContext.get_modified(<strong>type</strong>: <code>String</code>)
+<a class="headerlink" href="#AssetContext.get_modified" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">List</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetContext" signature="get_modified()"></endpoint>
+<signature id="AssetContext.get_modified">AssetContext.get_modified()
+<a class="headerlink" href="#AssetContext.get_modified" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">Map</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetContext" signature="skip(id : String)"></endpoint>
+<signature id="AssetContext.skip">AssetContext.skip(<strong>id</strong>: <code>String</code>)
+<a class="headerlink" href="#AssetContext.skip" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetContext" signature="skipped(id : String)"></endpoint>
+<signature id="AssetContext.skipped">AssetContext.skipped(<strong>id</strong>: <code>String</code>)
+<a class="headerlink" href="#AssetContext.skipped" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetContext" signature="emit_path(id : String)"></endpoint>
+<signature id="AssetContext.emit_path">AssetContext.emit_path(<strong>id</strong>: <code>String</code>)
+<a class="headerlink" href="#AssetContext.emit_path" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetContext" signature="emit_path(id : String, extra : String)"></endpoint>
+<signature id="AssetContext.emit_path+2">AssetContext.emit_path(<strong>id</strong>: <code>String</code>, <strong>extra</strong>: <code>String</code>)
+<a class="headerlink" href="#AssetContext.emit_path+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetContext" signature="emit(type_id : String, artifact_id : String, artifact_path : String)"></endpoint>
+<signature id="AssetContext.emit+3">AssetContext.emit(<strong>type_id</strong>: <code>String</code>, <strong>artifact_id</strong>: <code>String</code>, <strong>artifact_path</strong>: <code>String</code>)
+<a class="headerlink" href="#AssetContext.emit+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<h3 id="assetid">AssetID<a class="headerlink" href="#assetid" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: asset/type&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">AssetID</span></code></p>
+<blockquote>
+<p>no docs found</p>
+</blockquote>
+<ul>
+<li><a href="#AssetID.type_id">type_id</a></li>
+<li><a href="#AssetID.id">id</a></li>
+<li><a href="#AssetID.asset">asset</a></li>
+<li><a href="#AssetID.path">path</a></li>
+<li><a href="#AssetID.ext">ext</a></li>
+<li><a href="#AssetID.subtype">subtype</a></li>
+<li><a href="#AssetID.prefix">prefix</a></li>
+<li><a href="#AssetID.root">root</a></li>
+<li><a href="#AssetID.meta_uuid">meta_uuid</a></li>
+<li><a href="#AssetID.new+2">new</a>(<strong>type_id</strong>: <code>String</code>, <strong>map</strong>: <code>Map</code>)</li>
+<li><a href="#AssetID.from_id+2">from_id</a>(<strong>type_id</strong>: <code>String</code>, <strong>asset_id</strong>: <code>String</code>)</li>
+<li><a href="#AssetID.refresh">refresh</a>()</li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: asset/type" class="AssetID" signature="type_id"></endpoint>
+<signature id="AssetID.type_id">AssetID.type_id
+<a class="headerlink" href="#AssetID.type_id" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetID" signature="id"></endpoint>
+<signature id="AssetID.id">AssetID.id
+<a class="headerlink" href="#AssetID.id" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetID" signature="asset"></endpoint>
+<signature id="AssetID.asset">AssetID.asset
+<a class="headerlink" href="#AssetID.asset" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetID" signature="path"></endpoint>
+<signature id="AssetID.path">AssetID.path
+<a class="headerlink" href="#AssetID.path" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetID" signature="ext"></endpoint>
+<signature id="AssetID.ext">AssetID.ext
+<a class="headerlink" href="#AssetID.ext" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetID" signature="subtype"></endpoint>
+<signature id="AssetID.subtype">AssetID.subtype
+<a class="headerlink" href="#AssetID.subtype" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetID" signature="prefix"></endpoint>
+<signature id="AssetID.prefix">AssetID.prefix
+<a class="headerlink" href="#AssetID.prefix" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetID" signature="root"></endpoint>
+<signature id="AssetID.root">AssetID.root
+<a class="headerlink" href="#AssetID.root" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetID" signature="meta_uuid"></endpoint>
+<signature id="AssetID.meta_uuid">AssetID.meta_uuid
+<a class="headerlink" href="#AssetID.meta_uuid" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetID" signature="new(type_id : String, map : Map)"></endpoint>
+<signature id="AssetID.new+2">AssetID.new(<strong>type_id</strong>: <code>String</code>, <strong>map</strong>: <code>Map</code>)
+<a class="headerlink" href="#AssetID.new+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">AssetID</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetID" signature="from_id(type_id : String, asset_id : String)"></endpoint>
+<signature id="AssetID.from_id+2">AssetID.from_id(<strong>type_id</strong>: <code>String</code>, <strong>asset_id</strong>: <code>String</code>)
+<a class="headerlink" href="#AssetID.from_id+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">AssetID</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetID" signature="refresh()"></endpoint>
+<signature id="AssetID.refresh">AssetID.refresh()
+<a class="headerlink" href="#AssetID.refresh" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<h3 id="assettype">AssetType<a class="headerlink" href="#assettype" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: asset/type&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">AssetType</span></code></p>
+<blockquote>
+<p>no docs found</p>
+</blockquote>
+<ul>
+<li><a href="#AssetType.type_id">type_id</a></li>
+<li><a href="#AssetType.version_id">version_id</a></li>
+<li><a href="#AssetType.ext">ext</a></li>
+<li><a href="#AssetType.subtype">subtype</a></li>
+<li><a href="#AssetType.ctx">ctx</a></li>
+<li><a href="#AssetType.is_loader">is_loader</a></li>
+<li><a href="#AssetType.is_data">is_data</a></li>
+<li><a href="#AssetType.is_handle">is_handle</a></li>
+<li><a href="#AssetType.version">version</a></li>
+<li><a href="#AssetType.load_before">load_before</a></li>
+<li><a href="#AssetType.load_after">load_after</a></li>
+<li><a href="#AssetType.before">before</a></li>
+<li><a href="#AssetType.after">after</a></li>
+<li><a href="#AssetType.pre_early">pre_early</a></li>
+<li><a href="#AssetType.pre_late">pre_late</a></li>
+<li><a href="#AssetType.new+2">new</a>(<strong>type_id</strong>: <code>String</code>, <strong>ctx</strong>: <code>AssetContext</code>)</li>
+<li><a href="#AssetType.remap+2">remap</a>(<strong>asset</strong>: <code>AssetID</code>, <strong>new_id</strong>: <code>String</code>)</li>
+<li><a href="#AssetType.get_remap">get_remap</a>(<strong>map</strong>: <code>Map</code>)</li>
+<li><a href="#AssetType.modify_affected">modify_affected</a>(<strong>asset</strong>: <code>AssetID</code>)</li>
+<li><a href="#AssetType.modify">modify</a>(<strong>asset</strong>: <code>AssetID</code>)</li>
+<li><a href="#AssetType.unmodify">unmodify</a>(<strong>asset</strong>: <code>AssetID</code>)</li>
+<li><a href="#AssetType.emit_path">emit_path</a>(<strong>asset</strong>: <code>AssetID</code>)</li>
+<li><a href="#AssetType.skip">skip</a>(<strong>asset</strong>: <code>AssetID</code>)</li>
+<li><a href="#AssetType.get_data">get_data</a>(<strong>id</strong>: <code>String</code>)</li>
+<li><a href="#AssetType.set_handle+2">set_handle</a>(<strong>id</strong>: <code>String</code>, <strong>handle</strong>: <code>Num</code>)</li>
+<li><a href="#AssetType.pre">pre</a>(<strong>assets</strong>: <code>List</code>)</li>
+<li><a href="#AssetType.process+2">process</a>(<strong>assets</strong>: <code>List</code>, <strong>each</strong>: <code>Fn</code>)</li>
+<li><a href="#AssetType.loader+2">loader</a>(<strong>assets</strong>: <code>List</code>, <strong>artifacts</strong>: <code>List</code>)</li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: asset/type" class="AssetType" signature="type_id"></endpoint>
+<signature id="AssetType.type_id">AssetType.type_id
+<a class="headerlink" href="#AssetType.type_id" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetType" signature="version_id"></endpoint>
+<signature id="AssetType.version_id">AssetType.version_id
+<a class="headerlink" href="#AssetType.version_id" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetType" signature="ext"></endpoint>
+<signature id="AssetType.ext">AssetType.ext
+<a class="headerlink" href="#AssetType.ext" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetType" signature="subtype"></endpoint>
+<signature id="AssetType.subtype">AssetType.subtype
+<a class="headerlink" href="#AssetType.subtype" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetType" signature="ctx"></endpoint>
+<signature id="AssetType.ctx">AssetType.ctx
+<a class="headerlink" href="#AssetType.ctx" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">AssetContext</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetType" signature="is_loader"></endpoint>
+<signature id="AssetType.is_loader">AssetType.is_loader
+<a class="headerlink" href="#AssetType.is_loader" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Bool</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetType" signature="is_data"></endpoint>
+<signature id="AssetType.is_data">AssetType.is_data
+<a class="headerlink" href="#AssetType.is_data" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Bool</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetType" signature="is_handle"></endpoint>
+<signature id="AssetType.is_handle">AssetType.is_handle
+<a class="headerlink" href="#AssetType.is_handle" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Bool</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetType" signature="version"></endpoint>
+<signature id="AssetType.version">AssetType.version
+<a class="headerlink" href="#AssetType.version" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetType" signature="load_before"></endpoint>
+<signature id="AssetType.load_before">AssetType.load_before
+<a class="headerlink" href="#AssetType.load_before" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">List</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetType" signature="load_after"></endpoint>
+<signature id="AssetType.load_after">AssetType.load_after
+<a class="headerlink" href="#AssetType.load_after" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">List</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetType" signature="before"></endpoint>
+<signature id="AssetType.before">AssetType.before
+<a class="headerlink" href="#AssetType.before" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">List</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetType" signature="after"></endpoint>
+<signature id="AssetType.after">AssetType.after
+<a class="headerlink" href="#AssetType.after" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">List</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetType" signature="pre_early"></endpoint>
+<signature id="AssetType.pre_early">AssetType.pre_early
+<a class="headerlink" href="#AssetType.pre_early" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetType" signature="pre_late"></endpoint>
+<signature id="AssetType.pre_late">AssetType.pre_late
+<a class="headerlink" href="#AssetType.pre_late" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetType" signature="new(type_id : String, ctx : AssetContext)"></endpoint>
+<signature id="AssetType.new+2">AssetType.new(<strong>type_id</strong>: <code>String</code>, <strong>ctx</strong>: <code>AssetContext</code>)
+<a class="headerlink" href="#AssetType.new+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">AssetType</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetType" signature="remap(asset : AssetID, new_id : String)"></endpoint>
+<signature id="AssetType.remap+2">AssetType.remap(<strong>asset</strong>: <code>AssetID</code>, <strong>new_id</strong>: <code>String</code>)
+<a class="headerlink" href="#AssetType.remap+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetType" signature="get_remap(map : Map)"></endpoint>
+<signature id="AssetType.get_remap">AssetType.get_remap(<strong>map</strong>: <code>Map</code>)
+<a class="headerlink" href="#AssetType.get_remap" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">Map</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetType" signature="modify_affected(asset : AssetID)"></endpoint>
+<signature id="AssetType.modify_affected">AssetType.modify_affected(<strong>asset</strong>: <code>AssetID</code>)
+<a class="headerlink" href="#AssetType.modify_affected" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>modify all assets that refer to this one   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetType" signature="modify(asset : AssetID)"></endpoint>
+<signature id="AssetType.modify">AssetType.modify(<strong>asset</strong>: <code>AssetID</code>)
+<a class="headerlink" href="#AssetType.modify" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetType" signature="unmodify(asset : AssetID)"></endpoint>
+<signature id="AssetType.unmodify">AssetType.unmodify(<strong>asset</strong>: <code>AssetID</code>)
+<a class="headerlink" href="#AssetType.unmodify" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetType" signature="emit_path(asset : AssetID)"></endpoint>
+<signature id="AssetType.emit_path">AssetType.emit_path(<strong>asset</strong>: <code>AssetID</code>)
+<a class="headerlink" href="#AssetType.emit_path" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetType" signature="skip(asset : AssetID)"></endpoint>
+<signature id="AssetType.skip">AssetType.skip(<strong>asset</strong>: <code>AssetID</code>)
+<a class="headerlink" href="#AssetType.skip" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetType" signature="get_data(id : String)"></endpoint>
+<signature id="AssetType.get_data">AssetType.get_data(<strong>id</strong>: <code>String</code>)
+<a class="headerlink" href="#AssetType.get_data" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetType" signature="set_handle(id : String, handle : Num)"></endpoint>
+<signature id="AssetType.set_handle+2">AssetType.set_handle(<strong>id</strong>: <code>String</code>, <strong>handle</strong>: <code>Num</code>)
+<a class="headerlink" href="#AssetType.set_handle+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetType" signature="pre(assets : List)"></endpoint>
+<signature id="AssetType.pre">AssetType.pre(<strong>assets</strong>: <code>List</code>)
+<a class="headerlink" href="#AssetType.pre" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetType" signature="process(assets : List, each : Fn)"></endpoint>
+<signature id="AssetType.process+2">AssetType.process(<strong>assets</strong>: <code>List</code>, <strong>each</strong>: <code>Fn</code>)
+<a class="headerlink" href="#AssetType.process+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetType" signature="loader(assets : List, artifacts : List)"></endpoint>
+<signature id="AssetType.loader+2">AssetType.loader(<strong>assets</strong>: <code>List</code>, <strong>artifacts</strong>: <code>List</code>)
+<a class="headerlink" href="#AssetType.loader+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<h3 id="assettypeid">AssetTypeID<a class="headerlink" href="#assettypeid" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: asset/type&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">AssetTypeID</span></code></p>
+<blockquote>
+<p>no docs found</p>
+</blockquote>
+<ul>
+<li><a href="#AssetTypeID.block">block</a></li>
+<li><a href="#AssetTypeID.block=">block</a>=(v : Any)</li>
+<li><a href="#AssetTypeID.block_class">block_class</a></li>
+<li><a href="#AssetTypeID.block_class=">block_class</a>=(v : Any)</li>
+<li><a href="#AssetTypeID.loader">loader</a></li>
+<li><a href="#AssetTypeID.loader=">loader</a>=(v : Any)</li>
+<li><a href="#AssetTypeID.handler">handler</a></li>
+<li><a href="#AssetTypeID.handler=">handler</a>=(v : Any)</li>
+<li><a href="#AssetTypeID.new">new</a>(<strong>map</strong>: <code>Map</code>)</li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: asset/type" class="AssetTypeID" signature="block"></endpoint>
+<signature id="AssetTypeID.block">AssetTypeID.block
+<a class="headerlink" href="#AssetTypeID.block" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetTypeID" signature="block=(v : Any)"></endpoint>
+<signature id="AssetTypeID.block=">AssetTypeID.block=(v : Any)
+<a class="headerlink" href="#AssetTypeID.block=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetTypeID" signature="block_class"></endpoint>
+<signature id="AssetTypeID.block_class">AssetTypeID.block_class
+<a class="headerlink" href="#AssetTypeID.block_class" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetTypeID" signature="block_class=(v : Any)"></endpoint>
+<signature id="AssetTypeID.block_class=">AssetTypeID.block_class=(v : Any)
+<a class="headerlink" href="#AssetTypeID.block_class=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetTypeID" signature="loader"></endpoint>
+<signature id="AssetTypeID.loader">AssetTypeID.loader
+<a class="headerlink" href="#AssetTypeID.loader" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetTypeID" signature="loader=(v : Any)"></endpoint>
+<signature id="AssetTypeID.loader=">AssetTypeID.loader=(v : Any)
+<a class="headerlink" href="#AssetTypeID.loader=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetTypeID" signature="handler"></endpoint>
+<signature id="AssetTypeID.handler">AssetTypeID.handler
+<a class="headerlink" href="#AssetTypeID.handler" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">AssetType</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetTypeID" signature="handler=(v : Any)"></endpoint>
+<signature id="AssetTypeID.handler=">AssetTypeID.handler=(v : Any)
+<a class="headerlink" href="#AssetTypeID.handler=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">AssetType</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: asset/type" class="AssetTypeID" signature="new(map : Map)"></endpoint>
+<signature id="AssetTypeID.new">AssetTypeID.new(<strong>map</strong>: <code>Map</code>)
+<a class="headerlink" href="#AssetTypeID.new" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">AssetTypeID</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 3, 2025 06:41:06 UTC">September 3, 2025</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/luxeengine" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 0c4.42 0 8 3.58 8 8a8.01 8.01 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27s-1.36.09-2 .27c-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8"/></svg>
+    </a>
+  
+</div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../../..", "features": ["instant", "navigation.prune"], "search": "../../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>

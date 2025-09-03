@@ -1,0 +1,1346 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../modifiers/custom-modifiers/">
+      
+      
+        <link rel="next" href="../custom-controls/">
+      
+      
+      <link rel="icon" href="../../../images/luxe-favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>overview - luxe engine</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ui-in-luxe" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="luxe engine" class="md-header__button md-logo" aria-label="luxe engine" data-md-component="logo">
+      
+  <img src="../../../images/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            luxe engine
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              overview
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="pink" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="luxe engine" class="md-nav__button md-logo" aria-label="luxe engine" data-md-component="logo">
+      
+  <img src="../../../images/logo.svg" alt="logo">
+
+    </a>
+    luxe engine
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    about
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    install
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    guide
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../tutorials/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    tutorials
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    learn ...
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            learn ...
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tilemaps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    tilemaps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../drawing-2d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2D drawing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../modifiers/luxe-modifiers/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    modifiers
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    using UI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            using UI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    overview
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    overview
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ui-is-a-modifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      UI is a Modifier
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-canvas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating a canvas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating a control
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#committing-ui-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Committing UI Changes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controls-and-specialized-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Controls and Specialized Controls
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#control-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      Control events
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#empty-controls-as-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Empty controls as containers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#full-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Full example
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debug-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debug Visualization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-note-specialized-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Final Note: Specialized Containers
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../custom-controls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    custom controls
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basic-layout/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    basic layout
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../random-numbers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    random numbers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../multiple-wren-files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    multiple wren files
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    using modules
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../manual/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    manual
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ui-is-a-modifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      UI is a Modifier
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-canvas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating a canvas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating a control
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#committing-ui-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Committing UI Changes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controls-and-specialized-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Controls and Specialized Controls
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#control-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      Control events
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#empty-controls-as-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Empty controls as containers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#full-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Full example
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debug-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debug Visualization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-note-specialized-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Final Note: Specialized Containers
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p><img alt="" src="../../../images/luxe-dark.svg" width="96em" /></p>
+<h1 id="ui-in-luxe">UI in luxe<a class="headerlink" href="#ui-in-luxe" title="Permanent link">&para;</a></h1>
+<div class="admonition note">
+<p class="admonition-title">work in progress</p>
+<p>The UI has parts that are still being defined, but the basics are there.</p>
+</div>
+<h2 id="ui-is-a-modifier">UI is a Modifier<a class="headerlink" href="#ui-is-a-modifier" title="Permanent link">&para;</a></h2>
+<p>UI exists within a <code>World</code>, and is attached to an <code>Entity</code> like other modifiers.
+This means that a UI can easily follow the entity if it is moved.</p>
+<p>When you create a UI on an <code>Entity</code>, you're creating a <em>canvas</em>.
+A canvas is like an isolated little space, dedicated to elements within that canvas.</p>
+<p>These elements are called <em>controls</em>, a canvas is a container for <em>controls</em>. 
+UI controls don't belong to the world (they are not entities), they belong to the canvas.
+We'll see how that looks below.</p>
+<p>A canvas also has it's own coordinate space, where 0,0 is top left for the origin,
+and Y values increase downward. This is different from world space, where Y+ is up.</p>
+<h2 id="creating-a-canvas">Creating a canvas<a class="headerlink" href="#creating-a-canvas" title="Permanent link">&para;</a></h2>
+<p>To create a UI, we need an entity to attach it to.</p>
+<p>When we attach the UI, we also give it a camera, which it will use to calculate input.
+That means if your object is in a 3D world, input should work as expected without extra effort.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">ui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Entity</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">app</span><span class="p">.</span><span class="nx">world</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ui&quot;</span><span class="p">)</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">500</span><span class="w"> </span><span class="c1">//these are in world units</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">500</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">depth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="nx">UI</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">ui</span><span class="p">,</span><span class="w"> </span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">,</span><span class="w"> </span><span class="nx">w</span><span class="p">,</span><span class="w"> </span><span class="nx">h</span><span class="p">,</span><span class="w"> </span><span class="nx">depth</span><span class="p">,</span><span class="w"> </span><span class="nx">app</span><span class="p">.</span><span class="nx">camera</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="creating-a-control">Creating a control<a class="headerlink" href="#creating-a-control" title="Permanent link">&para;</a></h2>
+<p>Now that we have a canvas, we can create controls inside it.
+Controls are positioned relative to the canvas unless they're a child of another control.
+Controls have a <code>bounds</code>, which is a rectangle, and is also top left, y+ going down.</p>
+<p>Let's create a panel, as a background, so we can see our canvas.</p>
+<p>To create a control, we pass in the canvas that it will be created in. Once created, we can configure it.
+The first step is usually setting the size or the bounds, via <code>Control.set_bounds(control, x,y,w,h)</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">//we&#39;ll use the same w/h from above</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">bg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">UIPanel</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">ui</span><span class="p">)</span>
+<span class="nx">Control</span><span class="p">.</span><span class="nx">set_bounds</span><span class="p">(</span><span class="nx">bg</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="mf">0</span><span class="p">,</span><span class="nx">w</span><span class="p">,</span><span class="nx">h</span><span class="p">)</span>
+<span class="nx">UIPanel</span><span class="p">.</span><span class="nx">set_color</span><span class="p">(</span><span class="nx">bg</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mf">0</span><span class="p">,</span><span class="mf">0</span><span class="p">,</span><span class="mf">0</span><span class="p">,</span><span class="mf">0.25</span><span class="p">])</span>
+</code></pre></div>
+<p>So here we can see that we got a panel control in return from <code>create</code>. <br />
+This value is an instance of a control that belongs to this canvas.</p>
+<h2 id="committing-ui-changes">Committing UI Changes<a class="headerlink" href="#committing-ui-changes" title="Permanent link">&para;</a></h2>
+<p>Now, this part is important.   </p>
+<p>A <a href="../../../guide/concepts/#commit">concept</a> that luxe uses is the <code>commit</code> concept.</p>
+<p>UI is a great example of this concept, where you want to make several changes
+to the UI that could be expensive, or could have dependencies (like layout being relative).</p>
+<p><strong>Once you've made a series of changes, you MUST call commit to finalize them.</strong></p>
+<p>In fact, in this example, if you don't, nothing will render! 
+So we must call <code>UI.commit(ui)</code> to make sure it shows up.</p>
+<h2 id="controls-and-specialized-controls">Controls and Specialized Controls<a class="headerlink" href="#controls-and-specialized-controls" title="Permanent link">&para;</a></h2>
+<p>All controls are a <code>Control</code>, but not all controls are a <code>UIPanel</code>.</p>
+<p>Controls like <code>UIPanel</code> <em>specialize</em> a control, and offer their own API
+on top of the <code>Control</code> API, like <code>UIPanel.set_color</code>. The <code>Control</code> API
+is valid for all controls, regardless of their type, but specialized controls 
+only work with the same API that their create function is from.</p>
+<p>Let's also create a button that takes up the upper right hand side of our canvas.
+This would be half the size on width and height, and be positioned at the middle of the canvas on x.
+We'll use this to hook up an event!</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">button</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">UIButton</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">ui</span><span class="p">)</span>
+<span class="nx">Control</span><span class="p">.</span><span class="nx">set_bounds</span><span class="p">(</span><span class="nx">button</span><span class="p">,</span><span class="w"> </span><span class="nx">w</span><span class="o">/</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">w</span><span class="o">/</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">h</span><span class="o">/</span><span class="mf">2</span><span class="p">)</span>
+<span class="nx">UIButton</span><span class="p">.</span><span class="nx">set_text</span><span class="p">(</span><span class="nx">button</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;click!&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="control-events">Control events<a class="headerlink" href="#control-events" title="Permanent link">&para;</a></h2>
+<p>When we have a control, we can listen for events on that control and respond to them as needed. 
+Like our button will have a <code>UIEvent.release</code> event when clicked.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">Control</span><span class="p">.</span><span class="nx">set_events</span><span class="p">(</span><span class="nx">button</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="o">|</span><span class="nx">event</span><span class="o">|</span>
+<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">UIEvent</span><span class="p">.</span><span class="nx">release</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s2">&quot;The button was clicked! x %(event.x) y %(event.y)&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>There are <a href="../../../api/world/#uievent">many default events</a> for a control, but it's possible for controls to send custom events too. Some events are dependent on settings like <code>Control.set_allow_input</code>/<code>Control.set_allow_keys</code>, which determine if a control will receive mouse and keyboard input. </p>
+<p>You can also print the events to see what kind of events are happening and when:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">Control</span><span class="p">.</span><span class="nx">set_events</span><span class="p">(</span><span class="nx">button</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="o">|</span><span class="nx">event</span><span class="o">|</span>
+<span class="w">  </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s2">&quot;event from button %(event)&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="empty-controls-as-containers">Empty controls as containers<a class="headerlink" href="#empty-controls-as-containers" title="Permanent link">&para;</a></h2>
+<p>If you don't use a specialized <code>create</code> function, 
+you get a blank control that has all the default behaviours of a control, 
+like input and bounds.</p>
+<p>A blank control is often used as a container to make groups, 
+so you can easily refer to a single control to move a bunch of controls.</p>
+<h2 id="full-example">Full example<a class="headerlink" href="#full-example" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: io&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">IO</span>
+<span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: game&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">Ready</span>
+<span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: input&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">Input</span><span class="p">,</span><span class="w"> </span><span class="nx">Key</span>
+<span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: world&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">UI</span><span class="p">,</span><span class="w"> </span><span class="nx">UIEvent</span><span class="p">,</span><span class="w"> </span><span class="nx">Entity</span>
+<span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: ui&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">UIButton</span><span class="p">,</span><span class="w"> </span><span class="nx">Control</span><span class="p">,</span><span class="w"> </span><span class="nx">UILabel</span><span class="p">,</span><span class="w"> </span><span class="nx">UISlider</span><span class="p">,</span><span class="w"> </span><span class="nx">UIPanel</span>
+
+<span class="k">import</span><span class="w"> </span><span class="s2">&quot;outline/app&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">App</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nx">Game</span><span class="w"> </span><span class="nx">is</span><span class="w"> </span><span class="nx">Ready</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="nx">construct</span><span class="w"> </span><span class="nx">ready</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="k">super</span><span class="p">(</span><span class="s2">&quot;ready!&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">App</span><span class="p">.</span><span class="ow">new</span><span class="p">()</span>
+
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">ui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Entity</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">app</span><span class="p">.</span><span class="nx">world</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ui&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">500</span><span class="w"> </span><span class="c1">//these are in world units</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">500</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">depth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">    </span><span class="nx">UI</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">ui</span><span class="p">,</span><span class="w"> </span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">,</span><span class="w"> </span><span class="nx">w</span><span class="p">,</span><span class="w"> </span><span class="nx">h</span><span class="p">,</span><span class="w"> </span><span class="nx">depth</span><span class="p">,</span><span class="w"> </span><span class="nx">app</span><span class="p">.</span><span class="nx">camera</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">bg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">UIPanel</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">ui</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">Control</span><span class="p">.</span><span class="nx">set_bounds</span><span class="p">(</span><span class="nx">bg</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="mf">0</span><span class="p">,</span><span class="nx">w</span><span class="p">,</span><span class="nx">h</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">UIPanel</span><span class="p">.</span><span class="nx">set_color</span><span class="p">(</span><span class="nx">bg</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mf">0</span><span class="p">,</span><span class="mf">0</span><span class="p">,</span><span class="mf">0</span><span class="p">,</span><span class="mf">0.25</span><span class="p">])</span>
+
+<span class="w">    </span><span class="c1">//we&#39;ll use the ui w/h from above</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">button</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">UIButton</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">ui</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">Control</span><span class="p">.</span><span class="nx">set_bounds</span><span class="p">(</span><span class="nx">button</span><span class="p">,</span><span class="w"> </span><span class="nx">w</span><span class="o">/</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">w</span><span class="o">/</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">h</span><span class="o">/</span><span class="mf">2</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">UIButton</span><span class="p">.</span><span class="nx">set_text</span><span class="p">(</span><span class="nx">button</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;click!&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nx">Control</span><span class="p">.</span><span class="nx">set_events</span><span class="p">(</span><span class="nx">button</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="o">|</span><span class="nx">event</span><span class="o">|</span>
+<span class="w">      </span><span class="k">if</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">UIEvent</span><span class="p">.</span><span class="nx">release</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s2">&quot;The button was clicked! x %(event.x) y %(event.y)&quot;</span><span class="p">)</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">//create a blank container</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">container</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Control</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">ui</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">Control</span><span class="p">.</span><span class="nx">set_bounds</span><span class="p">(</span><span class="nx">container</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">h</span><span class="o">/</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">128</span><span class="p">,</span><span class="w"> </span><span class="mf">32</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">//create a background as well</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">container_bg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">UIPanel</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">ui</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">Control</span><span class="p">.</span><span class="nx">set_bounds</span><span class="p">(</span><span class="nx">container_bg</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="mf">0</span><span class="p">,</span><span class="mf">128</span><span class="p">,</span><span class="mf">32</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">UIPanel</span><span class="p">.</span><span class="nx">set_color</span><span class="p">(</span><span class="nx">container_bg</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mf">0</span><span class="p">,</span><span class="mf">0</span><span class="p">,</span><span class="mf">0</span><span class="p">,</span><span class="mf">1</span><span class="p">])</span>
+
+<span class="w">    </span><span class="c1">//create some controls to put inside it</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">UILabel</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">ui</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">Control</span><span class="p">.</span><span class="nx">set_bounds</span><span class="p">(</span><span class="nx">label</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">64</span><span class="p">,</span><span class="w"> </span><span class="mf">30</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">UILabel</span><span class="p">.</span><span class="nx">set_text</span><span class="p">(</span><span class="nx">label</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;progress&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">slider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">UISlider</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">ui</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">Control</span><span class="p">.</span><span class="nx">set_bounds</span><span class="p">(</span><span class="nx">slider</span><span class="p">,</span><span class="w"> </span><span class="mf">64</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="mf">60</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">//now add them to the container</span>
+<span class="w">    </span><span class="nx">Control</span><span class="p">.</span><span class="nx">child_add</span><span class="p">(</span><span class="nx">container</span><span class="p">,</span><span class="w"> </span><span class="nx">container_bg</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">Control</span><span class="p">.</span><span class="nx">child_add</span><span class="p">(</span><span class="nx">container</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">Control</span><span class="p">.</span><span class="nx">child_add</span><span class="p">(</span><span class="nx">container</span><span class="p">,</span><span class="w"> </span><span class="nx">slider</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nx">UI</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="nx">ui</span><span class="p">)</span>
+
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="c1">//ready</span>
+
+<span class="w">  </span><span class="nx">tick</span><span class="p">(</span><span class="nx">delta</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="nx">Input</span><span class="p">.</span><span class="nx">key_state_released</span><span class="p">(</span><span class="nx">Key</span><span class="p">.</span><span class="nx">escape</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">IO</span><span class="p">.</span><span class="nx">shutdown</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="c1">//tick</span>
+
+<span class="w">  </span><span class="nx">app</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">_app</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="nx">app</span><span class="o">=</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">_app</span><span class="o">=</span><span class="nx">v</span><span class="w"> </span><span class="p">}</span>
+
+<span class="p">}</span><span class="w"> </span><span class="c1">//Game</span>
+</code></pre></div>
+<h2 id="debug-visualization">Debug Visualization<a class="headerlink" href="#debug-visualization" title="Permanent link">&para;</a></h2>
+<p>In your settings file (like <code>outline/settings.settings.lx</code>), we can specify a debug flag
+that will draw outlines for each control, and show some info about what controls are hovered.
+Inside the settings file, put <code>engine.ui.debug_vis = true</code> at the root. </p>
+<p>Also relevant: A <code>Control</code> doesn't have a name by default, you have to set one using <code>Control.set_id(control, "some name")</code>.</p>
+<h2 id="final-note-specialized-containers">Final Note: Specialized Containers<a class="headerlink" href="#final-note-specialized-containers" title="Permanent link">&para;</a></h2>
+<p>Some containers are specialized because they provide additional behaviour.
+UIList and UIScroll are two examples of such controls, as the both provide scrolling.</p>
+<p>In both cases, adding a child (via <code>Control.child_add</code>) to the control itself <em>does not</em> count 
+as adding it to the container, but is treated as a regular child of the control. 
+You would need to use <code>UIScroll.add(scroll, control)</code> or <code>UIList.add(scroll, control)</code> instead.</p>
+<p><strong>why?</strong>  <br />
+Imagine you had a scroll area (or a list), and you wanted to place a button on the top right. 
+You wouldn't want this button to scroll as part of the container, but instead be fixed at the top.
+If the scroll used <code>Control.child_add</code> it wouldn't have a way (currently) to distinguish this type
+of child, from one you did want to scroll around as part of the container.</p>
+<div class="admonition note">
+<p class="admonition-title">potential change</p>
+<p>This behaviour may change, as I think it's got its own set of quirks.</p>
+</div>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 3, 2025 06:41:06 UTC">September 3, 2025</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="footer.title">
+      
+        <a href="../../modifiers/custom-modifiers/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+                 
+                  <span class="md-footer-nav__parent">modifiers</span> 
+                
+              </span>
+              custom modifiers
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../custom-controls/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+                 
+                  <span class="md-footer-nav__parent">using UI</span> 
+                
+              </span>
+              custom controls
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/luxeengine" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 0c4.42 0 8 3.58 8 8a8.01 8.01 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27s-1.36.09-2 .27c-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8"/></svg>
+    </a>
+  
+</div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["instant", "navigation.prune"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>

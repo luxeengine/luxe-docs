@@ -1,0 +1,1389 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../../images/luxe-favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Math - luxe engine</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../css/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="luxe engine" class="md-header__button md-logo" aria-label="luxe engine" data-md-component="logo">
+      
+  <img src="../../../../images/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            luxe engine
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Math
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="pink" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="luxe engine" class="md-nav__button md-logo" aria-label="luxe engine" data-md-component="logo">
+      
+  <img src="../../../../images/logo.svg" alt="logo">
+
+    </a>
+    luxe engine
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    about
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../get/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    install
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    guide
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../tutorials/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    tutorials
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../learn/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    learn ...
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../manual/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    manual
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1"><img alt="" src="../../../../images/luxe-dark.svg" width="96em" /><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h1 id="luxe-api-2024123"><code>luxe</code> API (<code>2024.12.3</code>)<a class="headerlink" href="#luxe-api-2024123" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="luxe-math-module"><code>luxe: math</code> module<a class="headerlink" href="#luxe-math-module" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#math">Math</a>   </li>
+</ul>
+<hr />
+<h3 id="math">Math<a class="headerlink" href="#math" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: math&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nb">Math</span></code></p>
+<blockquote>
+<p>Utility class with static math functions.</p>
+</blockquote>
+<ul>
+<li><a href="#Math.add+2">add</a>(<strong>a</strong>: <code>Vec</code>, <strong>b</strong>: <code>Vec</code>)</li>
+<li><a href="#Math.add2D+2">add2D</a>(<strong>a</strong>: <code>Vec</code>, <strong>b</strong>: <code>Vec</code>)</li>
+<li><a href="#Math.add_to+2">add_to</a>(<strong>a</strong>: <code>Vec</code>, <strong>b</strong>: <code>Vec</code>)</li>
+<li><a href="#Math.add2D_to+2">add2D_to</a>(<strong>a</strong>: <code>Vec</code>, <strong>b</strong>: <code>Vec</code>)</li>
+<li><a href="#Math.sub+2">sub</a>(<strong>a</strong>: <code>Vec</code>, <strong>b</strong>: <code>Vec</code>)</li>
+<li><a href="#Math.sub2D+2">sub2D</a>(<strong>a</strong>: <code>Vec</code>, <strong>b</strong>: <code>Vec</code>)</li>
+<li><a href="#Math.sub_to+2">sub_to</a>(<strong>a</strong>: <code>Vec</code>, <strong>b</strong>: <code>Vec</code>)</li>
+<li><a href="#Math.sub2D_to+2">sub2D_to</a>(<strong>a</strong>: <code>Vec</code>, <strong>b</strong>: <code>Vec</code>)</li>
+<li><a href="#Math.mults+2">mults</a>(<strong>a</strong>: <code>Vec</code>, <strong>b</strong>: <code>Num</code>)</li>
+<li><a href="#Math.mult+2">mult</a>(<strong>a</strong>: <code>Vec</code>, <strong>b</strong>: <code>Vec</code>)</li>
+<li><a href="#Math.mult2D+2">mult2D</a>(<strong>a</strong>: <code>Vec</code>, <strong>b</strong>: <code>Vec</code>)</li>
+<li><a href="#Math.mult_to+2">mult_to</a>(<strong>a</strong>: <code>Vec</code>, <strong>b</strong>: <code>Vec</code>)</li>
+<li><a href="#Math.mults_to+2">mults_to</a>(<strong>a</strong>: <code>Vec</code>, <strong>b</strong>: <code>Num</code>)</li>
+<li><a href="#Math.mult2D_to+2">mult2D_to</a>(<strong>a</strong>: <code>Vec</code>, <strong>b</strong>: <code>Vec</code>)</li>
+<li><a href="#Math.scale+2">scale</a>(<strong>a</strong>: <code>Vec</code>, <strong>s</strong>: <code>Num</code>)</li>
+<li><a href="#Math.scale2D+2">scale2D</a>(<strong>a</strong>: <code>Vec</code>, <strong>s</strong>: <code>Num</code>)</li>
+<li><a href="#Math.scale_to+2">scale_to</a>(<strong>a</strong>: <code>Vec</code>, <strong>s</strong>: <code>Num</code>)</li>
+<li><a href="#Math.scale2D_to+2">scale2D_to</a>(<strong>a</strong>: <code>Vec</code>, <strong>s</strong>: <code>Num</code>)</li>
+<li><a href="#Math.divide+2">divide</a>(<strong>a</strong>: <code>Vec</code>, <strong>b</strong>: <code>Vec</code>)</li>
+<li><a href="#Math.divide_to+2">divide_to</a>(<strong>vec</strong>: <code>Vec</code>, <strong>other</strong>: <code>Vec</code>)</li>
+<li><a href="#Math.div+2">div</a>(<strong>a</strong>: <code>Vec</code>, <strong>s</strong>: <code>Num</code>)</li>
+<li><a href="#Math.div2D+2">div2D</a>(<strong>a</strong>: <code>Vec</code>, <strong>s</strong>: <code>Num</code>)</li>
+<li><a href="#Math.div_to+2">div_to</a>(<strong>a</strong>: <code>Vec</code>, <strong>s</strong>: <code>Num</code>)</li>
+<li><a href="#Math.div2D_to+2">div2D_to</a>(<strong>a</strong>: <code>Vec</code>, <strong>s</strong>: <code>Num</code>)</li>
+<li><a href="#Math.equal+2">equal</a>(<strong>a</strong>: <code>Vec</code>, <strong>b</strong>: <code>Vec</code>)</li>
+<li><a href="#Math.length+2">length</a>(<strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>)</li>
+<li><a href="#Math.length+3">length</a>(<strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)</li>
+<li><a href="#Math.length">length</a>(<strong>vec</strong>: <code>Vec</code>)</li>
+<li><a href="#Math.length2D">length2D</a>(<strong>vec</strong>: <code>Vec</code>)</li>
+<li><a href="#Math.length_sq+2">length_sq</a>(<strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>)</li>
+<li><a href="#Math.length_sq+3">length_sq</a>(<strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)</li>
+<li><a href="#Math.length_sq">length_sq</a>(<strong>vec</strong>: <code>Vec</code>)</li>
+<li><a href="#Math.length_sq2D">length_sq2D</a>(<strong>vec</strong>: <code>Vec</code>)</li>
+<li><a href="#Math.dot+6">dot</a>(<strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>, <strong>other_x</strong>: <code>Num</code>, <strong>other_y</strong>: <code>Num</code>, <strong>other_z</strong>: <code>Num</code>)</li>
+<li><a href="#Math.dot+4">dot</a>(<strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>other_x</strong>: <code>Num</code>, <strong>other_y</strong>: <code>Num</code>)</li>
+<li><a href="#Math.dot+2">dot</a>(<strong>vec</strong>: <code>Vec</code>, <strong>other</strong>: <code>Vec</code>)</li>
+<li><a href="#Math.dot2D+2">dot2D</a>(<strong>vec</strong>: <code>Vec</code>, <strong>other</strong>: <code>Vec</code>)</li>
+<li><a href="#Math.cross+2">cross</a>(<strong>a</strong>: <code>Vec</code>, <strong>b</strong>: <code>Vec</code>)</li>
+<li><a href="#Math.angle+2">angle</a>(<strong>from</strong>: <code>Vec</code>, <strong>to</strong>: <code>Vec</code>)</li>
+<li><a href="#Math.angle+3">angle</a>(<strong>v1</strong>: <code>Vec</code>, <strong>v2</strong>: <code>Vec</code>, <strong>up</strong>: <code>Vec</code>)</li>
+<li><a href="#Math.angle2D+2">angle2D</a>(<strong>from</strong>: <code>Vec</code>, <strong>to</strong>: <code>Vec</code>)</li>
+<li><a href="#Math.angle2D+4">angle2D</a>(<strong>from_x</strong>: <code>Num</code>, <strong>from_y</strong>: <code>Num</code>, <strong>to_x</strong>: <code>Num</code>, <strong>to_y</strong>: <code>Num</code>)</li>
+<li><a href="#Math.normalize2D">normalize2D</a>(<strong>vec</strong>: <code>Vec</code>)</li>
+<li><a href="#Math.normalized">normalized</a>(<strong>vec</strong>: <code>Vec</code>)</li>
+<li><a href="#Math.normalized2D">normalized2D</a>(<strong>vec</strong>: <code>Vec</code>)</li>
+<li><a href="#Math.normalize">normalize</a>(<strong>vec</strong>: <code>Vec</code>)</li>
+<li><a href="#Math.dist+6">dist</a>(<strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>, <strong>other_x</strong>: <code>Num</code>, <strong>other_y</strong>: <code>Num</code>, <strong>other_z</strong>: <code>Num</code>)</li>
+<li><a href="#Math.dist+2">dist</a>(<strong>vec</strong>: <code>Vec</code>, <strong>other</strong>: <code>Vec</code>)</li>
+<li><a href="#Math.dist2D+2">dist2D</a>(<strong>vec</strong>: <code>Vec</code>, <strong>other</strong>: <code>Vec</code>)</li>
+<li><a href="#Math.dist2D+4">dist2D</a>(<strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>other_x</strong>: <code>Num</code>, <strong>other_y</strong>: <code>Num</code>)</li>
+<li><a href="#Math.dir2D+2">dir2D</a>(<strong>pos</strong>: <code>Vec</code>, <strong>target</strong>: <code>Vec</code>)</li>
+<li><a href="#Math.dir+2">dir</a>(<strong>pos</strong>: <code>Vec</code>, <strong>target</strong>: <code>Vec</code>)</li>
+<li><a href="#Math.rotate+3">rotate</a>(<strong>vec</strong>: <code>Vec</code>, <strong>axis</strong>: <code>Vec</code>, <strong>angle</strong>: <code>Num</code>)</li>
+<li><a href="#Math.rotate_by_quat+2">rotate_by_quat</a>(<strong>vec</strong>: <code>Vec</code>, <strong>quat</strong>: <code>Float4</code>)</li>
+<li><a href="#Math.quat_from_euler">quat_from_euler</a>(<strong>vec</strong>: <code>Vec</code>)</li>
+<li><a href="#Math.rotate+4">rotate</a>(<strong>vec</strong>: <code>Vec</code>, <strong>ox</strong>: <code>Num</code>, <strong>oy</strong>: <code>Num</code>, <strong>angle</strong>: <code>Num</code>)</li>
+<li><a href="#Math.ray_intersect_plane+12">ray_intersect_plane</a>(<strong>plane_x</strong>: <code>Num</code>, <strong>plane_y</strong>: <code>Num</code>, <strong>plane_z</strong>: <code>Num</code>, <strong>normal_x</strong>: <code>Num</code>, <strong>normal_y</strong>: <code>Num</code>, <strong>normal_z</strong>: <code>Num</code>, <strong>ray_x</strong>: <code>Num</code>, <strong>ray_y</strong>: <code>Num</code>, <strong>ray_z</strong>: <code>Num</code>, <strong>ray_dir_x</strong>: <code>Num</code>, <strong>ray_dir_y</strong>: <code>Num</code>, <strong>ray_dir_z</strong>: <code>Num</code>)</li>
+<li><a href="#Math.closest_point_on_plane+9">closest_point_on_plane</a>(<strong>plane_x</strong>: <code>Num</code>, <strong>plane_y</strong>: <code>Num</code>, <strong>plane_z</strong>: <code>Num</code>, <strong>normal_x</strong>: <code>Num</code>, <strong>normal_y</strong>: <code>Num</code>, <strong>normal_z</strong>: <code>Num</code>, <strong>point_x</strong>: <code>Num</code>, <strong>point_y</strong>: <code>Num</code>, <strong>point_z</strong>: <code>Num</code>)</li>
+<li><a href="#Math.closest_point_on_line+9">closest_point_on_line</a>(<strong>line_x</strong>: <code>Num</code>, <strong>line_y</strong>: <code>Num</code>, <strong>line_z</strong>: <code>Num</code>, <strong>line_end_x</strong>: <code>Num</code>, <strong>line_end_y</strong>: <code>Num</code>, <strong>line_end_z</strong>: <code>Num</code>, <strong>point_x</strong>: <code>Num</code>, <strong>point_y</strong>: <code>Num</code>, <strong>point_z</strong>: <code>Num</code>)</li>
+<li><a href="#Math.closest_point_on_line+3">closest_point_on_line</a>(<strong>line</strong>: <code>Vec</code>, <strong>line_end</strong>: <code>Vec</code>, <strong>point</strong>: <code>Vec</code>)</li>
+<li><a href="#Math.in_rect+6">in_rect</a>(<strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>rx</strong>: <code>Num</code>, <strong>ry</strong>: <code>Num</code>, <strong>rw</strong>: <code>Num</code>, <strong>rh</strong>: <code>Num</code>)</li>
+<li><a href="#Math.wrap+2">wrap</a>(<strong>value</strong>: <code>Num</code>, <strong>modulus</strong>: <code>Num</code>)</li>
+<li><a href="#Math.overlaps+8">overlaps</a>(<strong>x0</strong>: <code>Num</code>, <strong>y0</strong>: <code>Num</code>, <strong>w0</strong>: <code>Num</code>, <strong>h0</strong>: <code>Num</code>, <strong>x1</strong>: <code>Num</code>, <strong>y1</strong>: <code>Num</code>, <strong>w1</strong>: <code>Num</code>, <strong>h1</strong>: <code>Num</code>)</li>
+<li><a href="#Math.sign">sign</a>(<strong>x</strong>: <code>Num</code>)</li>
+<li><a href="#Math.sign0">sign0</a>(<strong>x</strong>: <code>Num</code>)</li>
+<li><a href="#Math.atan2+2">atan2</a>(<strong>y</strong>: <code>Num</code>, <strong>x</strong>: <code>Num</code>)</li>
+<li><a href="#Math.degrees">degrees</a>(<strong>radians</strong>: <code>Num</code>)</li>
+<li><a href="#Math.radians">radians</a>(<strong>degrees</strong>: <code>Num</code>)</li>
+<li><a href="#Math.clamp+3">clamp</a>(<strong>value</strong>: <code>Num</code>, <strong>a</strong>: <code>Num</code>, <strong>b</strong>: <code>Num</code>)</li>
+<li><a href="#Math.min+2">min</a>(<strong>a</strong>: <code>Num</code>, <strong>b</strong>: <code>Num</code>)</li>
+<li><a href="#Math.max+2">max</a>(<strong>a</strong>: <code>Num</code>, <strong>b</strong>: <code>Num</code>)</li>
+<li><a href="#Math.floor_around_zero">floor_around_zero</a>(<strong>a</strong>: <code>Num</code>)</li>
+<li><a href="#Math.ceil_around_zero">ceil_around_zero</a>(<strong>a</strong>: <code>Num</code>)</li>
+<li><a href="#Math.fixed">fixed</a>(<strong>value</strong>: <code>Num</code>)</li>
+<li><a href="#Math.fixed+2">fixed</a>(<strong>value</strong>: <code>Num</code>, <strong>precision</strong>: <code>Num</code>)</li>
+<li><a href="#Math.angle_delta+2">angle_delta</a>(<strong>from</strong>: <code>Num</code>, <strong>to</strong>: <code>Num</code>)</li>
+<li><a href="#Math.lerp2D+3">lerp2D</a>(<strong>a</strong>: <code>Vec</code>, <strong>b</strong>: <code>Vec</code>, <strong>t</strong>: <code>Num</code>)</li>
+<li><a href="#Math.lerp3D+3">lerp3D</a>(<strong>a</strong>: <code>Vec</code>, <strong>b</strong>: <code>Vec</code>, <strong>t</strong>: <code>Num</code>)</li>
+<li><a href="#Math.smooth_t+2">smooth_t</a>(<strong>t</strong>: <code>Num</code>, <strong>smoothness</strong>: <code>Num</code>)</li>
+<li><a href="#Math.smoother_t+2">smoother_t</a>(<strong>t</strong>: <code>Num</code>, <strong>smoothness</strong>: <code>Num</code>)</li>
+<li><a href="#Math.lerp+3">lerp</a>(<strong>a</strong>: <code>Num</code>, <strong>b</strong>: <code>Num</code>, <strong>t</strong>: <code>Num</code>)</li>
+<li><a href="#Math.lerp_angle+3">lerp_angle</a>(<strong>a</strong>: <code>Num</code>, <strong>b</strong>: <code>Num</code>, <strong>t</strong>: <code>Num</code>)</li>
+<li><a href="#Math.weighted_avg+3">weighted_avg</a>(<strong>value</strong>: <code>Num</code>, <strong>target</strong>: <code>Num</code>, <strong>slowness</strong>: <code>Num</code>)</li>
+<li><a href="#Math.within_range+3">within_range</a>(<strong>value</strong>: <code>Num</code>, <strong>start_range</strong>: <code>Num</code>, <strong>end_range</strong>: <code>Num</code>)</li>
+<li><a href="#Math.approx+2">approx</a>(<strong>one</strong>: <code>Num</code>, <strong>other</strong>: <code>Num</code>)</li>
+<li><a href="#Math.approx+3">approx</a>(<strong>one</strong>: <code>Num</code>, <strong>other</strong>: <code>Num</code>, <strong>epsilon</strong>: <code>Num</code>)</li>
+<li><a href="#Math.wrap_angle">wrap_angle</a>(<strong>degrees</strong>: <code>Num</code>)</li>
+<li><a href="#Math.wrap_angle+3">wrap_angle</a>(<strong>degrees</strong>: <code>Num</code>, <strong>lower</strong>: <code>Num</code>, <strong>upper</strong>: <code>Num</code>)</li>
+<li><a href="#Math.wrap_radians+3">wrap_radians</a>(<strong>radians</strong>: <code>Num</code>, <strong>lower</strong>: <code>Num</code>, <strong>upper</strong>: <code>Num</code>)</li>
+<li><a href="#Math.nearest_power_of_two">nearest_power_of_two</a>(<strong>value</strong>: <code>Num</code>)</li>
+<li><a href="#Math.map_linear+5">map_linear</a>(<strong>value</strong>: <code>Num</code>, <strong>a1</strong>: <code>Num</code>, <strong>a2</strong>: <code>Num</code>, <strong>b1</strong>: <code>Num</code>, <strong>b2</strong>: <code>Num</code>)</li>
+<li><a href="#Math.smoothstep+3">smoothstep</a>(<strong>x</strong>: <code>Num</code>, <strong>min</strong>: <code>Num</code>, <strong>max</strong>: <code>Num</code>)</li>
+<li><a href="#Math.smootherstep+3">smootherstep</a>(<strong>x</strong>: <code>Num</code>, <strong>min</strong>: <code>Num</code>, <strong>max</strong>: <code>Num</code>)</li>
+<li><a href="#Math.smoothstepx+3">smoothstepx</a>(<strong>x</strong>: <code>Num</code>, <strong>round</strong>: <code>Num</code>, <strong>steep</strong>: <code>Num</code>)</li>
+<li><a href="#Math.random_point_in_unit_circle">random_point_in_unit_circle</a>(<strong>rng</strong>: <code>Random</code>)</li>
+<li><a href="#Math.slerp+3">slerp</a>(<strong>a</strong>: <code>Quat</code>, <strong>b</strong>: <code>Quat</code>, <strong>t</strong>: <code>Num</code>)</li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: math" class="Math" signature="add(a : Vec, b : Vec)"></endpoint>
+<signature id="Math.add+2">Math.add(<strong>a</strong>: <code>Vec</code>, <strong>b</strong>: <code>Vec</code>)
+<a class="headerlink" href="#Math.add+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Add two 3D vectors together componentwise, returning the result   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="add2D(a : Vec, b : Vec)"></endpoint>
+<signature id="Math.add2D+2">Math.add2D(<strong>a</strong>: <code>Vec</code>, <strong>b</strong>: <code>Vec</code>)
+<a class="headerlink" href="#Math.add2D+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Add two vector2s together componentwise, returning the result   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="add_to(a : Vec, b : Vec)"></endpoint>
+<signature id="Math.add_to+2">Math.add_to(<strong>a</strong>: <code>Vec</code>, <strong>b</strong>: <code>Vec</code>)
+<a class="headerlink" href="#Math.add_to+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Add two 3D vectors together componentwise, updating the first vector   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="add2D_to(a : Vec, b : Vec)"></endpoint>
+<signature id="Math.add2D_to+2">Math.add2D_to(<strong>a</strong>: <code>Vec</code>, <strong>b</strong>: <code>Vec</code>)
+<a class="headerlink" href="#Math.add2D_to+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Add two 2D vectors together componentwise, updating the first vector   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="sub(a : Vec, b : Vec)"></endpoint>
+<signature id="Math.sub+2">Math.sub(<strong>a</strong>: <code>Vec</code>, <strong>b</strong>: <code>Vec</code>)
+<a class="headerlink" href="#Math.sub+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Subtract two 3D vectors together componentwise, returning the result   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="sub2D(a : Vec, b : Vec)"></endpoint>
+<signature id="Math.sub2D+2">Math.sub2D(<strong>a</strong>: <code>Vec</code>, <strong>b</strong>: <code>Vec</code>)
+<a class="headerlink" href="#Math.sub2D+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Subtract two 2D vectors together componentwise, returning the result   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="sub_to(a : Vec, b : Vec)"></endpoint>
+<signature id="Math.sub_to+2">Math.sub_to(<strong>a</strong>: <code>Vec</code>, <strong>b</strong>: <code>Vec</code>)
+<a class="headerlink" href="#Math.sub_to+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Subtract two 3D vectors together componentwise, updating the first vector   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="sub2D_to(a : Vec, b : Vec)"></endpoint>
+<signature id="Math.sub2D_to+2">Math.sub2D_to(<strong>a</strong>: <code>Vec</code>, <strong>b</strong>: <code>Vec</code>)
+<a class="headerlink" href="#Math.sub2D_to+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Subtract two 2D vectors together componentwise, updating the first vector   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="mults(a : Vec, b : Num)"></endpoint>
+<signature id="Math.mults+2">Math.mults(<strong>a</strong>: <code>Vec</code>, <strong>b</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.mults+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Multiply a 3D vector by a scalar, returning the result   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="mult(a : Vec, b : Vec)"></endpoint>
+<signature id="Math.mult+2">Math.mult(<strong>a</strong>: <code>Vec</code>, <strong>b</strong>: <code>Vec</code>)
+<a class="headerlink" href="#Math.mult+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Multiply two 3D vectors together componentwise, returning the result   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="mult2D(a : Vec, b : Vec)"></endpoint>
+<signature id="Math.mult2D+2">Math.mult2D(<strong>a</strong>: <code>Vec</code>, <strong>b</strong>: <code>Vec</code>)
+<a class="headerlink" href="#Math.mult2D+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Multiply two 2D vectors together componentwise, returning the result   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="mult_to(a : Vec, b : Vec)"></endpoint>
+<signature id="Math.mult_to+2">Math.mult_to(<strong>a</strong>: <code>Vec</code>, <strong>b</strong>: <code>Vec</code>)
+<a class="headerlink" href="#Math.mult_to+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Multiply two 3D vectors together componentwise, updating the first vector   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="mults_to(a : Vec, b : Num)"></endpoint>
+<signature id="Math.mults_to+2">Math.mults_to(<strong>a</strong>: <code>Vec</code>, <strong>b</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.mults_to+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Multiply a 3D vector by a scalar, updating the vector   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="mult2D_to(a : Vec, b : Vec)"></endpoint>
+<signature id="Math.mult2D_to+2">Math.mult2D_to(<strong>a</strong>: <code>Vec</code>, <strong>b</strong>: <code>Vec</code>)
+<a class="headerlink" href="#Math.mult2D_to+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Multiply two 2D vectors together componentwise, updating the first vector   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="scale(a : Vec, s : Num)"></endpoint>
+<signature id="Math.scale+2">Math.scale(<strong>a</strong>: <code>Vec</code>, <strong>s</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.scale+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Multiply a 3D vector by a scalar, returning the result   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="scale2D(a : Vec, s : Num)"></endpoint>
+<signature id="Math.scale2D+2">Math.scale2D(<strong>a</strong>: <code>Vec</code>, <strong>s</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.scale2D+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Multiply a 2D vector by a scalar, returning the result   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="scale_to(a : Vec, s : Num)"></endpoint>
+<signature id="Math.scale_to+2">Math.scale_to(<strong>a</strong>: <code>Vec</code>, <strong>s</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.scale_to+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Multiply a 3D vector by a scalar, updating the vector   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="scale2D_to(a : Vec, s : Num)"></endpoint>
+<signature id="Math.scale2D_to+2">Math.scale2D_to(<strong>a</strong>: <code>Vec</code>, <strong>s</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.scale2D_to+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Multiply a 2D vector by a scalar, updating the vector   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="divide(a : Vec, b : Vec)"></endpoint>
+<signature id="Math.divide+2">Math.divide(<strong>a</strong>: <code>Vec</code>, <strong>b</strong>: <code>Vec</code>)
+<a class="headerlink" href="#Math.divide+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Divide a 3D vector by another, returning the result   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="divide_to(vec : Vec, other : Vec)"></endpoint>
+<signature id="Math.divide_to+2">Math.divide_to(<strong>vec</strong>: <code>Vec</code>, <strong>other</strong>: <code>Vec</code>)
+<a class="headerlink" href="#Math.divide_to+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Divide a 3D vector by another, updating the vector   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="div(a : Vec, s : Num)"></endpoint>
+<signature id="Math.div+2">Math.div(<strong>a</strong>: <code>Vec</code>, <strong>s</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.div+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Divide a 3D vector by a scalar, returning the result   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="div2D(a : Vec, s : Num)"></endpoint>
+<signature id="Math.div2D+2">Math.div2D(<strong>a</strong>: <code>Vec</code>, <strong>s</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.div2D+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Divide a 2D vector by a scalar, returning the result   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="div_to(a : Vec, s : Num)"></endpoint>
+<signature id="Math.div_to+2">Math.div_to(<strong>a</strong>: <code>Vec</code>, <strong>s</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.div_to+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Divide a 3D vector by a scalar, updating the vector   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="div2D_to(a : Vec, s : Num)"></endpoint>
+<signature id="Math.div2D_to+2">Math.div2D_to(<strong>a</strong>: <code>Vec</code>, <strong>s</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.div2D_to+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Divide a 2D vector by a scalar, updating the vector   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="equal(a : Vec, b : Vec)"></endpoint>
+<signature id="Math.equal+2">Math.equal(<strong>a</strong>: <code>Vec</code>, <strong>b</strong>: <code>Vec</code>)
+<a class="headerlink" href="#Math.equal+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Bool</span></code></p>
+<blockquote>
+<p>Checks if two vectors are equal. Vectors of different dimensions (e.g. 2D and 3D) are considered unequal   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="length(x : Num, y : Num)"></endpoint>
+<signature id="Math.length+2">Math.length(<strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.length+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Length of a 2d vector.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="length(x : Num, y : Num, z : Num)"></endpoint>
+<signature id="Math.length+3">Math.length(<strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.length+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Length of a 3d vector.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="length(vec : Vec)"></endpoint>
+<signature id="Math.length">Math.length(<strong>vec</strong>: <code>Vec</code>)
+<a class="headerlink" href="#Math.length" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Length of a 3d vector.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="length2D(vec : Vec)"></endpoint>
+<signature id="Math.length2D">Math.length2D(<strong>vec</strong>: <code>Vec</code>)
+<a class="headerlink" href="#Math.length2D" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Length of a 2d vector.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="length_sq(x : Num, y : Num)"></endpoint>
+<signature id="Math.length_sq+2">Math.length_sq(<strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.length_sq+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Squared length of a 2d vector (slightly cheaper than length).   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="length_sq(x : Num, y : Num, z : Num)"></endpoint>
+<signature id="Math.length_sq+3">Math.length_sq(<strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.length_sq+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Squared length of a 3d vector (slightly cheaper than length).   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="length_sq(vec : Vec)"></endpoint>
+<signature id="Math.length_sq">Math.length_sq(<strong>vec</strong>: <code>Vec</code>)
+<a class="headerlink" href="#Math.length_sq" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Squared length of a 3d vector.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="length_sq2D(vec : Vec)"></endpoint>
+<signature id="Math.length_sq2D">Math.length_sq2D(<strong>vec</strong>: <code>Vec</code>)
+<a class="headerlink" href="#Math.length_sq2D" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Squared length of a 2d vector.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="dot(x : Num, y : Num, z : Num, other_x : Num, other_y : Num, other_z : Num)"></endpoint>
+<signature id="Math.dot+6">Math.dot(<strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>, <strong>other_x</strong>: <code>Num</code>, <strong>other_y</strong>: <code>Num</code>, <strong>other_z</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.dot+6" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Dot product (or scalar product) of two 3d vectors.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="dot(x : Num, y : Num, other_x : Num, other_y : Num)"></endpoint>
+<signature id="Math.dot+4">Math.dot(<strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>other_x</strong>: <code>Num</code>, <strong>other_y</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.dot+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Dot product (or scalar product) of two 2d vectors.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="dot(vec : Vec, other : Vec)"></endpoint>
+<signature id="Math.dot+2">Math.dot(<strong>vec</strong>: <code>Vec</code>, <strong>other</strong>: <code>Vec</code>)
+<a class="headerlink" href="#Math.dot+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Dot product (or scalar product) of two 3d vectors.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="dot2D(vec : Vec, other : Vec)"></endpoint>
+<signature id="Math.dot2D+2">Math.dot2D(<strong>vec</strong>: <code>Vec</code>, <strong>other</strong>: <code>Vec</code>)
+<a class="headerlink" href="#Math.dot2D+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Dot product (or scalar product) of two 2d vectors.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="cross(a : Vec, b : Vec)"></endpoint>
+<signature id="Math.cross+2">Math.cross(<strong>a</strong>: <code>Vec</code>, <strong>b</strong>: <code>Vec</code>)
+<a class="headerlink" href="#Math.cross+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Vec</span></code></p>
+<blockquote>
+<p>Cross product of two 3d vectors. 
+Result will always be orthogonal to both input vectors (and [0, 0, 0] if the arguments are parallel)   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="angle(from : Vec, to : Vec)"></endpoint>
+<signature id="Math.angle+2">Math.angle(<strong>from</strong>: <code>Vec</code>, <strong>to</strong>: <code>Vec</code>)
+<a class="headerlink" href="#Math.angle+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Unsigned angle between two 3d vectors.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="angle(v1 : Vec, v2 : Vec, up : Vec)"></endpoint>
+<signature id="Math.angle+3">Math.angle(<strong>v1</strong>: <code>Vec</code>, <strong>v2</strong>: <code>Vec</code>, <strong>up</strong>: <code>Vec</code>)
+<a class="headerlink" href="#Math.angle+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Signed angle between two 3d vectors.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="angle2D(from : Vec, to : Vec)"></endpoint>
+<signature id="Math.angle2D+2">Math.angle2D(<strong>from</strong>: <code>Vec</code>, <strong>to</strong>: <code>Vec</code>)
+<a class="headerlink" href="#Math.angle2D+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Signed angle between two 2d vectors.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="angle2D(from_x : Num, from_y : Num, to_x : Num, to_y : Num)"></endpoint>
+<signature id="Math.angle2D+4">Math.angle2D(<strong>from_x</strong>: <code>Num</code>, <strong>from_y</strong>: <code>Num</code>, <strong>to_x</strong>: <code>Num</code>, <strong>to_y</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.angle2D+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Signed angle between two 2d vectors.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="normalize2D(vec : Vec)"></endpoint>
+<signature id="Math.normalize2D">Math.normalize2D(<strong>vec</strong>: <code>Vec</code>)
+<a class="headerlink" href="#Math.normalize2D" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Normalize 2d vector. Changes input vector and doesnt return anything. 0 length vectors remain untouched.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="normalized(vec : Vec)"></endpoint>
+<signature id="Math.normalized">Math.normalized(<strong>vec</strong>: <code>Vec</code>)
+<a class="headerlink" href="#Math.normalized" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Normalize 3d vector. Returns the result.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="normalized2D(vec : Vec)"></endpoint>
+<signature id="Math.normalized2D">Math.normalized2D(<strong>vec</strong>: <code>Vec</code>)
+<a class="headerlink" href="#Math.normalized2D" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Normalize 2d vector. Returns the result.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="normalize(vec : Vec)"></endpoint>
+<signature id="Math.normalize">Math.normalize(<strong>vec</strong>: <code>Vec</code>)
+<a class="headerlink" href="#Math.normalize" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Normalize 3d vector. Changes input vector and doesnt return anything. 0 length vectors remain untouched.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="dist(x : Num, y : Num, z : Num, other_x : Num, other_y : Num, other_z : Num)"></endpoint>
+<signature id="Math.dist+6">Math.dist(<strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>, <strong>other_x</strong>: <code>Num</code>, <strong>other_y</strong>: <code>Num</code>, <strong>other_z</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.dist+6" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Distance between two 3d vectors.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="dist(vec : Vec, other : Vec)"></endpoint>
+<signature id="Math.dist+2">Math.dist(<strong>vec</strong>: <code>Vec</code>, <strong>other</strong>: <code>Vec</code>)
+<a class="headerlink" href="#Math.dist+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Distance between two 3d vectors.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="dist2D(vec : Vec, other : Vec)"></endpoint>
+<signature id="Math.dist2D+2">Math.dist2D(<strong>vec</strong>: <code>Vec</code>, <strong>other</strong>: <code>Vec</code>)
+<a class="headerlink" href="#Math.dist2D+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Distance between two 2d vectors.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="dist2D(x : Num, y : Num, other_x : Num, other_y : Num)"></endpoint>
+<signature id="Math.dist2D+4">Math.dist2D(<strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>other_x</strong>: <code>Num</code>, <strong>other_y</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.dist2D+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Distance between two 2d vectors.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="dir2D(pos : Vec, target : Vec)"></endpoint>
+<signature id="Math.dir2D+2">Math.dir2D(<strong>pos</strong>: <code>Vec</code>, <strong>target</strong>: <code>Vec</code>)
+<a class="headerlink" href="#Math.dir2D+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Vec</span></code></p>
+<blockquote>
+<p>Directional vector (length 1 unless the arguments are the same) between two 2d vectors.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="dir(pos : Vec, target : Vec)"></endpoint>
+<signature id="Math.dir+2">Math.dir(<strong>pos</strong>: <code>Vec</code>, <strong>target</strong>: <code>Vec</code>)
+<a class="headerlink" href="#Math.dir+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Vec</span></code></p>
+<blockquote>
+<p>Directional vector (length 1 unless the arguments are the same) between two 3d vectors.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="rotate(vec : Vec, axis : Vec, angle : Num)"></endpoint>
+<signature id="Math.rotate+3">Math.rotate(<strong>vec</strong>: <code>Vec</code>, <strong>axis</strong>: <code>Vec</code>, <strong>angle</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.rotate+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Vec</span></code></p>
+<blockquote>
+<p>Rotate a 3d vector around the given axis by angle degrees   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="rotate_by_quat(vec : Vec, quat : Float4)"></endpoint>
+<signature id="Math.rotate_by_quat+2">Math.rotate_by_quat(<strong>vec</strong>: <code>Vec</code>, <strong>quat</strong>: <code>Float4</code>)
+<a class="headerlink" href="#Math.rotate_by_quat+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Vec</span></code></p>
+<blockquote>
+<p>Rotate a 3d vector using the given quaternion   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="quat_from_euler(vec : Vec)"></endpoint>
+<signature id="Math.quat_from_euler">Math.quat_from_euler(<strong>vec</strong>: <code>Vec</code>)
+<a class="headerlink" href="#Math.quat_from_euler" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Float4</span></code></p>
+<blockquote>
+<p>Create a quaternion from float3 euler (radians)   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="rotate(vec : Vec, ox : Num, oy : Num, angle : Num)"></endpoint>
+<signature id="Math.rotate+4">Math.rotate(<strong>vec</strong>: <code>Vec</code>, <strong>ox</strong>: <code>Num</code>, <strong>oy</strong>: <code>Num</code>, <strong>angle</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.rotate+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Rotate 2d vector around another 2d vector. This rotates the input vector and doesnt return anything.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="ray_intersect_plane(plane_x : Num, plane_y : Num, plane_z : Num, normal_x : Num, normal_y : Num, normal_z : Num, ray_x : Num, ray_y : Num, ray_z : Num, ray_dir_x : Num, ray_dir_y : Num, ray_dir_z : Num)"></endpoint>
+<signature id="Math.ray_intersect_plane+12">Math.ray_intersect_plane(<strong>plane_x</strong>: <code>Num</code>, <strong>plane_y</strong>: <code>Num</code>, <strong>plane_z</strong>: <code>Num</code>, <strong>normal_x</strong>: <code>Num</code>, <strong>normal_y</strong>: <code>Num</code>, <strong>normal_z</strong>: <code>Num</code>, <strong>ray_x</strong>: <code>Num</code>, <strong>ray_y</strong>: <code>Num</code>, <strong>ray_z</strong>: <code>Num</code>, <strong>ray_dir_x</strong>: <code>Num</code>, <strong>ray_dir_y</strong>: <code>Num</code>, <strong>ray_dir_z</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.ray_intersect_plane+12" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Vec</span></code></p>
+<blockquote>
+<p>Intersection point between an infinitely long ray and a infinitely big plane.
+Returns <code>null</code> if parallel.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="closest_point_on_plane(plane_x : Num, plane_y : Num, plane_z : Num, normal_x : Num, normal_y : Num, normal_z : Num, point_x : Num, point_y : Num, point_z : Num)"></endpoint>
+<signature id="Math.closest_point_on_plane+9">Math.closest_point_on_plane(<strong>plane_x</strong>: <code>Num</code>, <strong>plane_y</strong>: <code>Num</code>, <strong>plane_z</strong>: <code>Num</code>, <strong>normal_x</strong>: <code>Num</code>, <strong>normal_y</strong>: <code>Num</code>, <strong>normal_z</strong>: <code>Num</code>, <strong>point_x</strong>: <code>Num</code>, <strong>point_y</strong>: <code>Num</code>, <strong>point_z</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.closest_point_on_plane+9" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Vec</span></code></p>
+<blockquote>
+<p>Closest point on an infinite plane to a point.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="closest_point_on_line(line_x : Num, line_y : Num, line_z : Num, line_end_x : Num, line_end_y : Num, line_end_z : Num, point_x : Num, point_y : Num, point_z : Num)"></endpoint>
+<signature id="Math.closest_point_on_line+9">Math.closest_point_on_line(<strong>line_x</strong>: <code>Num</code>, <strong>line_y</strong>: <code>Num</code>, <strong>line_z</strong>: <code>Num</code>, <strong>line_end_x</strong>: <code>Num</code>, <strong>line_end_y</strong>: <code>Num</code>, <strong>line_end_z</strong>: <code>Num</code>, <strong>point_x</strong>: <code>Num</code>, <strong>point_y</strong>: <code>Num</code>, <strong>point_z</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.closest_point_on_line+9" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Vec</span></code></p>
+<blockquote>
+<p>Closest point on an infinite line to a point.
+The progress from line start to line end in 4<sup>th</sup> component of return value.
+Line is constructed by 2 points on the line, 
+but the closest point can also be before the start of after the end 
+(in that case the 4<sup>th</sup> component of the return value wont be in the 0-1 range).   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="closest_point_on_line(line : Vec, line_end : Vec, point : Vec)"></endpoint>
+<signature id="Math.closest_point_on_line+3">Math.closest_point_on_line(<strong>line</strong>: <code>Vec</code>, <strong>line_end</strong>: <code>Vec</code>, <strong>point</strong>: <code>Vec</code>)
+<a class="headerlink" href="#Math.closest_point_on_line+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Vec</span></code></p>
+<blockquote>
+<p>Closest point on an infinite line to a point.
+The progress from line start to line end in 4<sup>th</sup> component of return value.
+Line is constructed by 2 points on the line, 
+but the closest point can also be before the start of after the end 
+(in that case the 4<sup>th</sup> component of the return value wont be in the 0-1 range).   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="in_rect(x : Num, y : Num, rx : Num, ry : Num, rw : Num, rh : Num)"></endpoint>
+<signature id="Math.in_rect+6">Math.in_rect(<strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>rx</strong>: <code>Num</code>, <strong>ry</strong>: <code>Num</code>, <strong>rw</strong>: <code>Num</code>, <strong>rh</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.in_rect+6" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Bool</span></code></p>
+<blockquote>
+<p>Checks if a 2d point is inside a rectangle.
+Only works for positive rectangle sizes.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="wrap(value : Num, modulus : Num)"></endpoint>
+<signature id="Math.wrap+2">Math.wrap(<strong>value</strong>: <code>Num</code>, <strong>modulus</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.wrap+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="overlaps(x0 : Num, y0 : Num, w0 : Num, h0 : Num, x1 : Num, y1 : Num, w1 : Num, h1 : Num)"></endpoint>
+<signature id="Math.overlaps+8">Math.overlaps(<strong>x0</strong>: <code>Num</code>, <strong>y0</strong>: <code>Num</code>, <strong>w0</strong>: <code>Num</code>, <strong>h0</strong>: <code>Num</code>, <strong>x1</strong>: <code>Num</code>, <strong>y1</strong>: <code>Num</code>, <strong>w1</strong>: <code>Num</code>, <strong>h1</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.overlaps+8" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Bool</span></code></p>
+<blockquote>
+<p>Checks if two rectangles overlap.
+Only works for positive rectangle sizes.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="sign(x : Num)"></endpoint>
+<signature id="Math.sign">Math.sign(<strong>x</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.sign" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>The sign of the number, expressed as a -1, 1 or 0, for negative and positive numbers, and zero.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="sign0(x : Num)"></endpoint>
+<signature id="Math.sign0">Math.sign0(<strong>x</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.sign0" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>The sign of the number, expressed as a -1 0r 1, for negative and positive numbers, zero is positive.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="atan2(y : Num, x : Num)"></endpoint>
+<signature id="Math.atan2+2">Math.atan2(<strong>y</strong>: <code>Num</code>, <strong>x</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.atan2+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>The arc tangent of <code>y</code> when divided by <code>x</code>, 
+    using the signs of the two numbers to determine the quadrant of the result. 
+    (equivalient to <code>y.atan(x)</code>)   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="degrees(radians : Num)"></endpoint>
+<signature id="Math.degrees">Math.degrees(<strong>radians</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.degrees" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Convert radians (0...2*PI) to degree (0...360).   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="radians(degrees : Num)"></endpoint>
+<signature id="Math.radians">Math.radians(<strong>degrees</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.radians" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Convert degree (0...360) to radians (0...2*PI).   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="clamp(value : Num, a : Num, b : Num)"></endpoint>
+<signature id="Math.clamp+3">Math.clamp(<strong>value</strong>: <code>Num</code>, <strong>a</strong>: <code>Num</code>, <strong>b</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.clamp+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Clamp <code>value</code> between <code>a</code> and <code>b</code> (result will never be smaller than a or bigger than b). 
+    Equivalent to <code>value.clamp(a, b)</code>.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="min(a : Num, b : Num)"></endpoint>
+<signature id="Math.min+2">Math.min(<strong>a</strong>: <code>Num</code>, <strong>b</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.min+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>The smaller of two numbers. Eqivalent to <code>a.min(b)</code>.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="max(a : Num, b : Num)"></endpoint>
+<signature id="Math.max+2">Math.max(<strong>a</strong>: <code>Num</code>, <strong>b</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.max+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>The larger of two numbers. Eqivalent to <code>a.max(b)</code>.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="floor_around_zero(a : Num)"></endpoint>
+<signature id="Math.floor_around_zero">Math.floor_around_zero(<strong>a</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.floor_around_zero" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Round towards zero. (floor when positive, ceil when negative)   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="ceil_around_zero(a : Num)"></endpoint>
+<signature id="Math.ceil_around_zero">Math.ceil_around_zero(<strong>a</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.ceil_around_zero" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Round away from zero. (ceil when positive, floor when negative)   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="fixed(value : Num)"></endpoint>
+<signature id="Math.fixed">Math.fixed(<strong>value</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.fixed" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Round number to 3 digits after comma precision.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="fixed(value : Num, precision : Num)"></endpoint>
+<signature id="Math.fixed+2">Math.fixed(<strong>value</strong>: <code>Num</code>, <strong>precision</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.fixed+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Round number to <code>precision</code> digits after comma precision.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="angle_delta(from : Num, to : Num)"></endpoint>
+<signature id="Math.angle_delta+2">Math.angle_delta(<strong>from</strong>: <code>Num</code>, <strong>to</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.angle_delta+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Signed difference between two (degree) angles. Always in -180...180 range.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="lerp2D(a : Vec, b : Vec, t : Num)"></endpoint>
+<signature id="Math.lerp2D+3">Math.lerp2D(<strong>a</strong>: <code>Vec</code>, <strong>b</strong>: <code>Vec</code>, <strong>t</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.lerp2D+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Vec</span></code></p>
+<blockquote>
+<p>Linearly interpolate between two vectors.
+Returns <code>a</code> when <code>t</code> is <code>0</code> and <code>b</code> when <code>t</code> is <code>1</code>, with values inbetween interpolating inbetween.
+If <code>t</code> is outside 0-1 range, the output will be extrapolated.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="lerp3D(a : Vec, b : Vec, t : Num)"></endpoint>
+<signature id="Math.lerp3D+3">Math.lerp3D(<strong>a</strong>: <code>Vec</code>, <strong>b</strong>: <code>Vec</code>, <strong>t</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.lerp3D+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Vec</span></code></p>
+<blockquote>
+<p>Linearly interpolate between two vectors.
+Returns <code>a</code> when <code>t</code> is <code>0</code> and <code>b</code> when <code>t</code> is <code>1</code>, with values inbetween interpolating inbetween.
+If <code>t</code> is outside 0-1 range, the output will be extrapolated.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="smooth_t(t : Num, smoothness : Num)"></endpoint>
+<signature id="Math.smooth_t+2">Math.smooth_t(<strong>t</strong>: <code>Num</code>, <strong>smoothness</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.smooth_t+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Get a smooth time t for lerping, based on a smoothness value. e.g t = smooth_t(delta, 1.25). exponential decay   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="smoother_t(t : Num, smoothness : Num)"></endpoint>
+<signature id="Math.smoother_t+2">Math.smoother_t(<strong>t</strong>: <code>Num</code>, <strong>smoothness</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.smoother_t+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Get a smooth time t for lerping, based on a smoothness value. e.g t = smoother_t(delta, 1.25). s curve like shape   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="lerp(a : Num, b : Num, t : Num)"></endpoint>
+<signature id="Math.lerp+3">Math.lerp(<strong>a</strong>: <code>Num</code>, <strong>b</strong>: <code>Num</code>, <strong>t</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.lerp+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Linearly interpolate between two numbers.
+Returns <code>a</code> when <code>t</code> is <code>0</code> and <code>b</code> when <code>t</code> is <code>1</code>, with values inbetween interpolating inbetween.
+If <code>t</code> is outside 0-1 range, the output will be extrapolated.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="lerp_angle(a : Num, b : Num, t : Num)"></endpoint>
+<signature id="Math.lerp_angle+3">Math.lerp_angle(<strong>a</strong>: <code>Num</code>, <strong>b</strong>: <code>Num</code>, <strong>t</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.lerp_angle+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Interpolates between angles. Always in 0...360 range.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="weighted_avg(value : Num, target : Num, slowness : Num)"></endpoint>
+<signature id="Math.weighted_avg+3">Math.weighted_avg(<strong>value</strong>: <code>Num</code>, <strong>target</strong>: <code>Num</code>, <strong>slowness</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.weighted_avg+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="within_range(value : Num, start_range : Num, end_range : Num)"></endpoint>
+<signature id="Math.within_range+3">Math.within_range(<strong>value</strong>: <code>Num</code>, <strong>start_range</strong>: <code>Num</code>, <strong>end_range</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.within_range+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Checks whether <code>value</code> is inbetween <code>start_range</code> and <code>end_range</code> (inclusive).   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="approx(one : Num, other : Num)"></endpoint>
+<signature id="Math.approx+2">Math.approx(<strong>one</strong>: <code>Num</code>, <strong>other</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.approx+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Bool</span></code></p>
+<blockquote>
+<p>Checks whether two values are approximately the same (with a max difference of 0.001).   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="approx(one : Num, other : Num, epsilon : Num)"></endpoint>
+<signature id="Math.approx+3">Math.approx(<strong>one</strong>: <code>Num</code>, <strong>other</strong>: <code>Num</code>, <strong>epsilon</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.approx+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Bool</span></code></p>
+<blockquote>
+<p>Checks whether two values are approximately the same (with a max difference of <code>epsilon</code>).   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="wrap_angle(degrees : Num)"></endpoint>
+<signature id="Math.wrap_angle">Math.wrap_angle(<strong>degrees</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.wrap_angle" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Bring angle into 0...360 degree space.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="wrap_angle(degrees : Num, lower : Num, upper : Num)"></endpoint>
+<signature id="Math.wrap_angle+3">Math.wrap_angle(<strong>degrees</strong>: <code>Num</code>, <strong>lower</strong>: <code>Num</code>, <strong>upper</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.wrap_angle+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Bring angle into lower...upper degree space.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="wrap_radians(radians : Num, lower : Num, upper : Num)"></endpoint>
+<signature id="Math.wrap_radians+3">Math.wrap_radians(<strong>radians</strong>: <code>Num</code>, <strong>lower</strong>: <code>Num</code>, <strong>upper</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.wrap_radians+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="nearest_power_of_two(value : Num)"></endpoint>
+<signature id="Math.nearest_power_of_two">Math.nearest_power_of_two(<strong>value</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.nearest_power_of_two" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="map_linear(value : Num, a1 : Num, a2 : Num, b1 : Num, b2 : Num)"></endpoint>
+<signature id="Math.map_linear+5">Math.map_linear(<strong>value</strong>: <code>Num</code>, <strong>a1</strong>: <code>Num</code>, <strong>a2</strong>: <code>Num</code>, <strong>b1</strong>: <code>Num</code>, <strong>b2</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.map_linear+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Remap value from <code>a1...a2</code> space to <code>b1...b2</code> space (unclamped).   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="smoothstep(x : Num, min : Num, max : Num)"></endpoint>
+<signature id="Math.smoothstep+3">Math.smoothstep(<strong>x</strong>: <code>Num</code>, <strong>min</strong>: <code>Num</code>, <strong>max</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.smoothstep+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Smoothed inverse lerp using cubic hermite interpolation. Output is clamped between 0 and 1.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="smootherstep(x : Num, min : Num, max : Num)"></endpoint>
+<signature id="Math.smootherstep+3">Math.smootherstep(<strong>x</strong>: <code>Num</code>, <strong>min</strong>: <code>Num</code>, <strong>max</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.smootherstep+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Alternate smooth inverse interpolation with derivative of 0 at min and max points. Output is clamped between 0 and 1.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="smoothstepx(x : Num, round : Num, steep : Num)"></endpoint>
+<signature id="Math.smoothstepx+3">Math.smoothstepx(<strong>x</strong>: <code>Num</code>, <strong>round</strong>: <code>Num</code>, <strong>steep</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.smoothstepx+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="random_point_in_unit_circle(rng : Random)"></endpoint>
+<signature id="Math.random_point_in_unit_circle">Math.random_point_in_unit_circle(<strong>rng</strong>: <code>Random</code>)
+<a class="headerlink" href="#Math.random_point_in_unit_circle" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Random 2d point in circle of radius 1. Has uniform distribution.   </p>
+</blockquote>
+<p><endpoint module="luxe: math" class="Math" signature="slerp(a : Quat, b : Quat, t : Num)"></endpoint>
+<signature id="Math.slerp+3">Math.slerp(<strong>a</strong>: <code>Quat</code>, <strong>b</strong>: <code>Quat</code>, <strong>t</strong>: <code>Num</code>)
+<a class="headerlink" href="#Math.slerp+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 3, 2025 06:41:06 UTC">September 3, 2025</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/luxeengine" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 0c4.42 0 8 3.58 8 8a8.01 8.01 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27s-1.36.09-2 .27c-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8"/></svg>
+    </a>
+  
+</div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["instant", "navigation.prune"], "search": "../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,973 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../../images/luxe-favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Containers - luxe engine</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../css/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="luxe engine" class="md-header__button md-logo" aria-label="luxe engine" data-md-component="logo">
+      
+  <img src="../../../../images/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            luxe engine
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Containers
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="pink" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="luxe engine" class="md-nav__button md-logo" aria-label="luxe engine" data-md-component="logo">
+      
+  <img src="../../../../images/logo.svg" alt="logo">
+
+    </a>
+    luxe engine
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    about
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../get/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    install
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    guide
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../tutorials/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    tutorials
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../learn/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    learn ...
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../manual/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    manual
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1"><img alt="" src="../../../../images/luxe-dark.svg" width="96em" /><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h1 id="luxe-api-2024123"><code>luxe</code> API (<code>2024.12.3</code>)<a class="headerlink" href="#luxe-api-2024123" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="luxe-containers-module"><code>luxe: containers</code> module<a class="headerlink" href="#luxe-containers-module" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#lists">Lists</a>   </li>
+<li><a href="#mapordered">MapOrdered</a>   </li>
+</ul>
+<hr />
+<h3 id="lists">Lists<a class="headerlink" href="#lists" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: containers&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">Lists</span></code></p>
+<blockquote>
+<p>The <code>Lists</code> API works with the built in Wren <code>List</code> type,
+offering more tools to operate on them.</p>
+</blockquote>
+<ul>
+<li><a href="#Lists.first">first</a>(<strong>list</strong>: <code>Sequence</code>)</li>
+<li><a href="#Lists.first+2">first</a>(<strong>list</strong>: <code>Sequence</code>, <strong>callback</strong>: <code>Fn</code>)</li>
+<li><a href="#Lists.binary_search+2">binary_search</a>(<strong>list</strong>: <code>List</code>, <strong>value</strong>: <code>Any</code>)</li>
+<li><a href="#Lists.binary_search_first+3">binary_search_first</a>(<strong>list</strong>: <code>List</code>, <strong>value</strong>: <code>Any</code>, <strong>fn</strong>: <code>Fn</code>)</li>
+<li><a href="#Lists.equal+2">equal</a>(<strong>a</strong>: <code>List</code>, <strong>b</strong>: <code>List</code>)</li>
+<li><a href="#Lists.equalish+2">equalish</a>(<strong>a</strong>: <code>List</code>, <strong>b</strong>: <code>List</code>)</li>
+<li><a href="#Lists.flatten">flatten</a>(<strong>list</strong>: <code>List</code>)</li>
+<li><a href="#Lists.add_unique+2">add_unique</a>(<strong>list</strong>: <code>List</code>, <strong>value</strong>: <code>Any</code>)</li>
+<li><a href="#Lists.append+2">append</a>(<strong>into</strong>: <code>List</code>, <strong>list</strong>: <code>List</code>)</li>
+<li><a href="#Lists.prepend+2">prepend</a>(<strong>into</strong>: <code>List</code>, <strong>list</strong>: <code>List</code>)</li>
+<li><a href="#Lists.remove_where+3">remove_where</a>(<strong>list</strong>: <code>List</code>, <strong>value</strong>: <code>Any</code>, <strong>fn</strong>: <code>Fn</code>)</li>
+<li><a href="#Lists.contains+2">contains</a>(<strong>list</strong>: <code>Any</code>, <strong>item</strong>: <code>Any</code>)</li>
+<li><a href="#Lists.remove+2">remove</a>(<strong>list</strong>: <code>Any</code>, <strong>to_remove</strong>: <code>Any</code>)</li>
+<li><a href="#Lists.index_of+2">index_of</a>(<strong>list</strong>: <code>Any</code>, <strong>item</strong>: <code>Any</code>)</li>
+<li><a href="#Lists.index_of_where+2">index_of_where</a>(<strong>list</strong>: <code>List</code>, <strong>fn</strong>: <code>Fn</code>)</li>
+<li><a href="#Lists.index_of_where+3">index_of_where</a>(<strong>list</strong>: <code>List</code>, <strong>value</strong>: <code>Any</code>, <strong>fn</strong>: <code>Fn</code>)</li>
+<li><a href="#Lists.bubble_sort+2">bubble_sort</a>(<strong>list</strong>: <code>List</code>, <strong>compare</strong>: <code>Fn</code>)</li>
+<li><a href="#Lists.quicksort+2">quicksort</a>(<strong>list</strong>: <code>List</code>, <strong>compare</strong>: <code>Fn</code>)</li>
+<li><a href="#Lists.quicksort+4">quicksort</a>(<strong>list</strong>: <code>List</code>, <strong>low</strong>: <code>Num</code>, <strong>high</strong>: <code>Num</code>, <strong>compare</strong>: <code>Fn</code>)</li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: containers" class="Lists" signature="first(list : Sequence)"></endpoint>
+<signature id="Lists.first">Lists.first(<strong>list</strong>: <code>Sequence</code>)
+<a class="headerlink" href="#Lists.first" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Any</span></code></p>
+<blockquote>
+<p>Returns the first element of a Sequence, null if the sequence is empty.</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;twig&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;tree&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;petals&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;faeries&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">9</span><span class="p">]</span>
+<span class="w">  </span><span class="nx">Lists</span><span class="p">.</span><span class="nx">first</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span><span class="w"> </span><span class="c1">//&quot;twig&quot;</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: containers" class="Lists" signature="first(list : Sequence, callback : Fn)"></endpoint>
+<signature id="Lists.first+2">Lists.first(<strong>list</strong>: <code>Sequence</code>, <strong>callback</strong>: <code>Fn</code>)
+<a class="headerlink" href="#Lists.first+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Any</span></code></p>
+<blockquote>
+<p>Searches for the first element in a sequence that fulfills a requirement and returns it.
+If no element fulfills the requirement, null is returned.</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;twig&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;tree&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;petals&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;faeries&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">9</span><span class="p">]</span>
+<span class="w">  </span><span class="nx">Lists</span><span class="p">.</span><span class="nx">first</span><span class="p">(</span><span class="nx">list</span><span class="p">){</span><span class="o">|</span><span class="nx">elem</span><span class="o">|</span><span class="w"> </span><span class="nx">elem</span><span class="w"> </span><span class="nx">is</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">elem</span><span class="p">.</span><span class="nx">count</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">4</span><span class="p">}</span><span class="w"> </span><span class="c1">//&quot;petals&quot;</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: containers" class="Lists" signature="binary_search(list : List, value : Any)"></endpoint>
+<signature id="Lists.binary_search+2">Lists.binary_search(<strong>list</strong>: <code>List</code>, <strong>value</strong>: <code>Any</code>)
+<a class="headerlink" href="#Lists.binary_search+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Searches for <code>value</code> in <code>list</code> using a binary search. 
+Binary searches can be more efficient for finding items when there are many.
+This requires the list to be sorted, and values in the list to be comparable with <code>&gt;</code>/<code>&lt;</code>.</p>
+<p>Returns the index in the list, or <code>-1</code> if not found.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">to_find</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">9</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="mf">3</span><span class="p">,</span><span class="mf">7</span><span class="p">,</span><span class="mf">9</span><span class="p">,</span><span class="mf">23</span><span class="p">,</span><span class="mf">54</span><span class="p">]</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Lists</span><span class="p">.</span><span class="nx">binary_search</span><span class="p">(</span><span class="nx">list</span><span class="p">,</span><span class="w"> </span><span class="nx">to_find</span><span class="p">)</span><span class="w"> </span><span class="c1">//index is 3</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: containers" class="Lists" signature="binary_search_first(list : List, value : Any, fn : Fn)"></endpoint>
+<signature id="Lists.binary_search_first+3">Lists.binary_search_first(<strong>list</strong>: <code>List</code>, <strong>value</strong>: <code>Any</code>, <strong>fn</strong>: <code>Fn</code>)
+<a class="headerlink" href="#Lists.binary_search_first+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Similar to <code>binary_search</code> but handles comparison via a callback.
+The callback should return 0 for equal, -1 for lower and 1 for higher.
+The callback puts the input value in the first argument.</p>
+<p>Returns the index in the list, or <code>-1</code> if not found.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="mf">3</span><span class="p">,</span><span class="mf">7</span><span class="p">,</span><span class="mf">9</span><span class="p">,</span><span class="mf">23</span><span class="p">,</span><span class="mf">54</span><span class="p">]</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Lists</span><span class="p">.</span><span class="nx">binary_search_first</span><span class="p">(</span><span class="nx">list</span><span class="p">,</span><span class="w"> </span><span class="mf">9</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="o">|</span><span class="nx">value</span><span class="p">,</span><span class="w"> </span><span class="nx">other</span><span class="o">|</span>
+<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="nx">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">to_find</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="nx">value</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">to_find</span><span class="p">)</span><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mf">1</span>
+<span class="p">}</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: containers" class="Lists" signature="equal(a : List, b : List)"></endpoint>
+<signature id="Lists.equal+2">Lists.equal(<strong>a</strong>: <code>List</code>, <strong>b</strong>: <code>List</code>)
+<a class="headerlink" href="#Lists.equal+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Bool</span></code></p>
+<blockquote>
+<p>Compares two flat lists, returning true if the contents are the same and in the same order.
+Does not recurse nested lists. Uses <code>a[i] != b[i]</code> to compare.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">listA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="mf">9</span><span class="p">,</span><span class="mf">7</span><span class="p">]</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">listB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="mf">7</span><span class="p">,</span><span class="mf">9</span><span class="p">]</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">equalA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Lists</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">listA</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="mf">7</span><span class="p">,</span><span class="mf">9</span><span class="p">])</span><span class="w"> </span><span class="c1">//false</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">equalB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Lists</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">listB</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="mf">7</span><span class="p">,</span><span class="mf">9</span><span class="p">])</span><span class="w"> </span><span class="c1">//true</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: containers" class="Lists" signature="equalish(a : List, b : List)"></endpoint>
+<signature id="Lists.equalish+2">Lists.equalish(<strong>a</strong>: <code>List</code>, <strong>b</strong>: <code>List</code>)
+<a class="headerlink" href="#Lists.equalish+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Bool</span></code></p>
+<blockquote>
+<p>Similar to <code>equal</code> but values don't need to be in the same order.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">listA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="mf">9</span><span class="p">,</span><span class="mf">7</span><span class="p">]</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">listB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="mf">7</span><span class="p">,</span><span class="mf">9</span><span class="p">]</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">equalA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Lists</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">listA</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="mf">7</span><span class="p">,</span><span class="mf">9</span><span class="p">])</span><span class="w"> </span><span class="c1">//true</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">equalB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Lists</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">listB</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="mf">7</span><span class="p">,</span><span class="mf">9</span><span class="p">])</span><span class="w"> </span><span class="c1">//true</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: containers" class="Lists" signature="flatten(list : List)"></endpoint>
+<signature id="Lists.flatten">Lists.flatten(<strong>list</strong>: <code>List</code>)
+<a class="headerlink" href="#Lists.flatten" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">List</span></code></p>
+<blockquote>
+<p>Converts a nested list of lists to a single flat list of values.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,[</span><span class="mf">2</span><span class="p">,</span><span class="mf">3</span><span class="p">,[</span><span class="mf">4</span><span class="p">,[</span><span class="mf">5</span><span class="p">]]]]</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">flat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Lists</span><span class="p">.</span><span class="nx">flatten</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span><span class="w"> </span><span class="c1">//[1,2,3,4,5]</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: containers" class="Lists" signature="add_unique(list : List, value : Any)"></endpoint>
+<signature id="Lists.add_unique+2">Lists.add_unique(<strong>list</strong>: <code>List</code>, <strong>value</strong>: <code>Any</code>)
+<a class="headerlink" href="#Lists.add_unique+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Bool</span></code></p>
+<blockquote>
+<p>Add an item to a list if the value doesn't already exist in the list.
+Uses <code>list.indexOf</code> to check. </p>
+<p>Returns true if the value was unique and added to the list.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="mf">2</span><span class="p">,</span><span class="mf">3</span><span class="p">]</span>
+<span class="nx">Lists</span><span class="p">.</span><span class="nx">add_unique</span><span class="p">(</span><span class="nx">list</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="c1">//true</span>
+<span class="nx">Lists</span><span class="p">.</span><span class="nx">add_unique</span><span class="p">(</span><span class="nx">list</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="c1">//false, already found</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: containers" class="Lists" signature="append(into : List, list : List)"></endpoint>
+<signature id="Lists.append+2">Lists.append(<strong>into</strong>: <code>List</code>, <strong>list</strong>: <code>List</code>)
+<a class="headerlink" href="#Lists.append+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Append <code>list</code> at the end of <code>into</code> without allocating a new list. 
+This function modifies <code>into</code>.</p>
+<p>Note that in Wren, <code>List</code> implements <code>+</code>, which is append too, 
+but that makes a new list with the two combined. <code>[1] + [2] = [1, 2]</code></p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="mf">2</span><span class="p">]</span>
+<span class="nx">Lists</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">list</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mf">3</span><span class="p">,</span><span class="mf">4</span><span class="p">,</span><span class="mf">5</span><span class="p">])</span>
+<span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span><span class="w"> </span><span class="c1">//[1,2,3,4,5]</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: containers" class="Lists" signature="prepend(into : List, list : List)"></endpoint>
+<signature id="Lists.prepend+2">Lists.prepend(<strong>into</strong>: <code>List</code>, <strong>list</strong>: <code>List</code>)
+<a class="headerlink" href="#Lists.prepend+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Similar to <code>append</code>, but adds the items from <code>list</code> to the front of <code>into</code>.
+This function modifies <code>into</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="mf">2</span><span class="p">]</span>
+<span class="nx">Lists</span><span class="p">.</span><span class="nx">prepend</span><span class="p">(</span><span class="nx">list</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mf">3</span><span class="p">,</span><span class="mf">4</span><span class="p">,</span><span class="mf">5</span><span class="p">])</span>
+<span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span><span class="w"> </span><span class="c1">//[3,4,5,1,2]</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: containers" class="Lists" signature="remove_where(list : List, value : Any, fn : Fn)"></endpoint>
+<signature id="Lists.remove_where+3">Lists.remove_where(<strong>list</strong>: <code>List</code>, <strong>value</strong>: <code>Any</code>, <strong>fn</strong>: <code>Fn</code>)
+<a class="headerlink" href="#Lists.remove_where+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Any</span></code></p>
+<blockquote>
+<p>Similar to <code>list.remove</code> but uses a function for the find/equality check.
+Uses <code>Lists.index_of_where</code> to find the index, so the callback 
+msut return true if the values are equal or false if not.</p>
+<p>Returns the value if it was removed, or null if it wasn't found.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="mf">2</span><span class="p">,</span><span class="mf">3</span><span class="p">]</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">fn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Fn</span><span class="p">.</span><span class="ow">new</span><span class="w"> </span><span class="p">{</span><span class="o">|</span><span class="nx">value</span><span class="p">,</span><span class="w"> </span><span class="nx">other</span><span class="o">|</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">other</span><span class="w"> </span><span class="p">}</span>
+<span class="nx">Lists</span><span class="p">.</span><span class="nx">remove_where</span><span class="p">(</span><span class="nx">list</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">fn</span><span class="p">)</span><span class="w">  </span><span class="c1">//3</span>
+<span class="nx">Lists</span><span class="p">.</span><span class="nx">remove_where</span><span class="p">(</span><span class="nx">list</span><span class="p">,</span><span class="w"> </span><span class="mf">6</span><span class="p">,</span><span class="w"> </span><span class="nx">fn</span><span class="p">)</span><span class="w">  </span><span class="c1">//null</span>
+<span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span><span class="w">               </span><span class="c1">//[1,2]</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: containers" class="Lists" signature="contains(list : Any, item : Any)"></endpoint>
+<signature id="Lists.contains+2">Lists.contains(<strong>list</strong>: <code>Any</code>, <strong>item</strong>: <code>Any</code>)
+<a class="headerlink" href="#Lists.contains+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Deprecated. Use list.contains(item)
+Returns true if the list contains the item.   </p>
+</blockquote>
+<p><endpoint module="luxe: containers" class="Lists" signature="remove(list : Any, to_remove : Any)"></endpoint>
+<signature id="Lists.remove+2">Lists.remove(<strong>list</strong>: <code>Any</code>, <strong>to_remove</strong>: <code>Any</code>)
+<a class="headerlink" href="#Lists.remove+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Deprecated. Use list.remove(item)
+Returns the item if removed, or null.   </p>
+</blockquote>
+<p><endpoint module="luxe: containers" class="Lists" signature="index_of(list : Any, item : Any)"></endpoint>
+<signature id="Lists.index_of+2">Lists.index_of(<strong>list</strong>: <code>Any</code>, <strong>item</strong>: <code>Any</code>)
+<a class="headerlink" href="#Lists.index_of+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Deprecated. Use list.indexOf(item)
+Returns the index, or -1 if the item isn't found.   </p>
+</blockquote>
+<p><endpoint module="luxe: containers" class="Lists" signature="index_of_where(list : List, fn : Fn)"></endpoint>
+<signature id="Lists.index_of_where+2">Lists.index_of_where(<strong>list</strong>: <code>List</code>, <strong>fn</strong>: <code>Fn</code>)
+<a class="headerlink" href="#Lists.index_of_where+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Returns the index of <code>value</code> in <code>list</code> or <code>-1</code> if not found,
+where comparison is handled by a callback function.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="mf">2</span><span class="p">,</span><span class="mf">3</span><span class="p">]</span>
+<span class="nx">Lists</span><span class="p">.</span><span class="nx">index_of_where</span><span class="p">(</span><span class="nx">list</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="o">|</span><span class="nx">value</span><span class="p">,</span><span class="w"> </span><span class="nx">other</span><span class="o">|</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">other</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">//2</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: containers" class="Lists" signature="index_of_where(list : List, value : Any, fn : Fn)"></endpoint>
+<signature id="Lists.index_of_where+3">Lists.index_of_where(<strong>list</strong>: <code>List</code>, <strong>value</strong>: <code>Any</code>, <strong>fn</strong>: <code>Fn</code>)
+<a class="headerlink" href="#Lists.index_of_where+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Returns the index of <code>item</code> in <code>list</code> or <code>-1</code> if not found,
+where comparison is handled by a callback function.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="mf">2</span><span class="p">,</span><span class="mf">3</span><span class="p">]</span>
+<span class="nx">Lists</span><span class="p">.</span><span class="nx">index_of_where</span><span class="p">(</span><span class="nx">list</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="o">|</span><span class="nx">value</span><span class="p">,</span><span class="w"> </span><span class="nx">other</span><span class="o">|</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">other</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">//2</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: containers" class="Lists" signature="bubble_sort(list : List, compare : Fn)"></endpoint>
+<signature id="Lists.bubble_sort+2">Lists.bubble_sort(<strong>list</strong>: <code>List</code>, <strong>compare</strong>: <code>Fn</code>)
+<a class="headerlink" href="#Lists.bubble_sort+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>In-place sorting of <code>list</code> using the <code>compare</code> function. Modifies <code>list</code>. Uses bubble sort.
+The compare function should return <code>0</code> for equal, <code>-1</code> for lower values and <code>1</code> for higher values.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">5</span><span class="p">,</span><span class="mf">2</span><span class="p">,</span><span class="mf">67</span><span class="p">,</span><span class="mf">23</span><span class="p">]</span>
+<span class="nx">Lists</span><span class="p">.</span><span class="nx">bubble_sort</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="o">|</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="o">|</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="p">}</span>
+<span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span><span class="w"> </span><span class="c1">// [67, 23, 5, 2]</span>
+
+<span class="nx">Lists</span><span class="p">.</span><span class="nx">bubble_sort</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="o">|</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="o">|</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="p">}</span>
+<span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span><span class="w"> </span><span class="c1">// [2, 5, 23, 67]</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: containers" class="Lists" signature="quicksort(list : List, compare : Fn)"></endpoint>
+<signature id="Lists.quicksort+2">Lists.quicksort(<strong>list</strong>: <code>List</code>, <strong>compare</strong>: <code>Fn</code>)
+<a class="headerlink" href="#Lists.quicksort+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">List</span></code></p>
+<blockquote>
+<p>In-place sorting of <code>list</code> using the <code>compare</code> function. Modifies <code>list</code>. Uses quick sort.
+The compare function should return <code>0</code> for equal, <code>-1</code> for lower values and <code>1</code> for higher values.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">5</span><span class="p">,</span><span class="mf">2</span><span class="p">,</span><span class="mf">67</span><span class="p">,</span><span class="mf">23</span><span class="p">]</span>
+<span class="nx">Lists</span><span class="p">.</span><span class="nx">quicksort</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="o">|</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="o">|</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="p">}</span>
+<span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span><span class="w"> </span><span class="c1">// [67, 23, 5, 2]</span>
+
+<span class="nx">Lists</span><span class="p">.</span><span class="nx">quicksort</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="o">|</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="o">|</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="p">}</span>
+<span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span><span class="w"> </span><span class="c1">// [2, 5, 23, 67]</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: containers" class="Lists" signature="quicksort(list : List, low : Num, high : Num, compare : Fn)"></endpoint>
+<signature id="Lists.quicksort+4">Lists.quicksort(<strong>list</strong>: <code>List</code>, <strong>low</strong>: <code>Num</code>, <strong>high</strong>: <code>Num</code>, <strong>compare</strong>: <code>Fn</code>)
+<a class="headerlink" href="#Lists.quicksort+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">List</span></code></p>
+<blockquote>
+<p>Same as <code>quicksort</code> but a low and high index can be specified to sort just a portion of a list.
+The default for <code>quicksort(list, compare)</code> is <code>low = 0</code>, <code>high = list.count-1</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">5</span><span class="p">,</span><span class="mf">2</span><span class="p">,</span><span class="mf">34</span><span class="p">,</span><span class="mf">89</span><span class="p">,</span><span class="mf">11</span><span class="p">,</span><span class="mf">60</span><span class="p">,</span><span class="mf">45</span><span class="p">]</span>
+<span class="nx">Lists</span><span class="p">.</span><span class="nx">quicksort</span><span class="p">(</span><span class="nx">list</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="o">|</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="o">|</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="p">}</span>
+<span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span><span class="w"> </span><span class="c1">// [5, 2, |11, 34, 60, 89|, 45]</span>
+<span class="c1">//note only the range between | was sorted</span>
+</code></pre></div>
+</blockquote>
+<h3 id="mapordered">MapOrdered<a class="headerlink" href="#mapordered" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: containers&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">MapOrdered</span></code></p>
+<blockquote>
+<p>A <code>Map</code> wrapper that keeps the order of the keys the same in which they're added.
+Note: The Wren <code>Map</code> class doesn't guarantee order of keys.</p>
+</blockquote>
+<ul>
+<li><a href="#MapOrdered.keys">keys</a></li>
+<li><a href="#MapOrdered.map">map</a></li>
+<li><a href="#MapOrdered.new">new</a>()</li>
+<li><a href="#MapOrdered.get">get</a>(<strong>key</strong>: <code>Any</code>)</li>
+<li><a href="#MapOrdered.set+2">set</a>(<strong>key</strong>: <code>Any</code>, <strong>value</strong>: <code>Any</code>)</li>
+<li><a href="#MapOrdered.containsKey">containsKey</a>(<strong>key</strong>: <code>Any</code>)</li>
+<li><a href="#MapOrdered.[key : Any]">[key : Any]</a></li>
+<li><a href="#MapOrdered.[key : Any]=">[key : Any]</a>=(value : Any)</li>
+<li><a href="#MapOrdered.iterate">iterate</a>(<strong>iterator</strong>: <code>Any</code>)</li>
+<li><a href="#MapOrdered.iteratorValue">iteratorValue</a>(<strong>iterator</strong>: <code>Any</code>)</li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: containers" class="MapOrdered" signature="keys"></endpoint>
+<signature id="MapOrdered.keys">MapOrdered.keys
+<a class="headerlink" href="#MapOrdered.keys" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">List</span></code></p>
+<blockquote>
+<p>Returns the list of <code>keys</code> in the Map.
+Don't modify this.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">MapOrdered</span><span class="p">.</span><span class="ow">new</span><span class="p">()</span>
+<span class="nx">map</span><span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span>
+<span class="nx">map</span><span class="p">[</span><span class="s2">&quot;two&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2</span>
+<span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">map</span><span class="p">.</span><span class="nx">keys</span><span class="p">)</span><span class="w"> </span><span class="c1">//[&quot;one&quot;, &quot;two&quot;]</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: containers" class="MapOrdered" signature="map"></endpoint>
+<signature id="MapOrdered.map">MapOrdered.map
+<a class="headerlink" href="#MapOrdered.map" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">Map</span></code></p>
+<blockquote>
+<p>Access to the underlying Wren <code>Map</code> data.
+Normally you don't modify this directly.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">MapOrdered</span><span class="p">.</span><span class="ow">new</span><span class="p">()</span>
+<span class="nx">map</span><span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span>
+<span class="nx">map</span><span class="p">[</span><span class="s2">&quot;two&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2</span>
+<span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">map</span><span class="p">.</span><span class="nx">map</span><span class="p">)</span><span class="w"> </span><span class="c1">//{two: 2, one: 1}</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: containers" class="MapOrdered" signature="new()"></endpoint>
+<signature id="MapOrdered.new">MapOrdered.new()
+<a class="headerlink" href="#MapOrdered.new" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">MapOrdered</span></code></p>
+<blockquote>
+<p>Create a new ordered map.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">MapOrdered</span><span class="p">.</span><span class="ow">new</span><span class="p">()</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: containers" class="MapOrdered" signature="get(key : Any)"></endpoint>
+<signature id="MapOrdered.get">MapOrdered.get(<strong>key</strong>: <code>Any</code>)
+<a class="headerlink" href="#MapOrdered.get" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Return the value associated with <code>key</code>, or <code>null</code> if not found.
+You can also use <code>map[key]</code> as an alternative.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">MapOrdered</span><span class="p">.</span><span class="ow">new</span><span class="p">()</span>
+<span class="nx">map</span><span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span>
+<span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">map</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;one&quot;</span><span class="p">))</span><span class="w">  </span><span class="c1">//1</span>
+<span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">map</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;two&quot;</span><span class="p">))</span><span class="w">  </span><span class="c1">//null</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: containers" class="MapOrdered" signature="set(key : Any, value : Any)"></endpoint>
+<signature id="MapOrdered.set+2">MapOrdered.set(<strong>key</strong>: <code>Any</code>, <strong>value</strong>: <code>Any</code>)
+<a class="headerlink" href="#MapOrdered.set+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Set a <code>value</code> for a given <code>key</code>.
+You can also use <code>map[key] = value</code> as an alternative.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">MapOrdered</span><span class="p">.</span><span class="ow">new</span><span class="p">()</span>
+<span class="nx">map</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;one&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: containers" class="MapOrdered" signature="containsKey(key : Any)"></endpoint>
+<signature id="MapOrdered.containsKey">MapOrdered.containsKey(<strong>key</strong>: <code>Any</code>)
+<a class="headerlink" href="#MapOrdered.containsKey" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Returns true if <code>key</code> is found in the map.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">MapOrdered</span><span class="p">.</span><span class="ow">new</span><span class="p">()</span>
+<span class="nx">map</span><span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span>
+<span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">map</span><span class="p">.</span><span class="nx">containsKey</span><span class="p">(</span><span class="s2">&quot;one&quot;</span><span class="p">))</span><span class="w">  </span><span class="c1">//true</span>
+<span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">map</span><span class="p">.</span><span class="nx">containsKey</span><span class="p">(</span><span class="s2">&quot;two&quot;</span><span class="p">))</span><span class="w">  </span><span class="c1">//false</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: containers" class="MapOrdered" signature="[key : Any]"></endpoint>
+<signature id="MapOrdered.[key : Any]">MapOrdered [key : Any]
+<a class="headerlink" href="#MapOrdered.[key : Any]" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Return the value associated with <code>key</code>, or <code>null</code> if not found.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">MapOrdered</span><span class="p">.</span><span class="ow">new</span><span class="p">()</span>
+<span class="nx">map</span><span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span>
+<span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">map</span><span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">])</span><span class="w">  </span><span class="c1">//1</span>
+<span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">map</span><span class="p">[</span><span class="s2">&quot;two&quot;</span><span class="p">])</span><span class="w">  </span><span class="c1">//null</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: containers" class="MapOrdered" signature="[key : Any]=(value : Any)"></endpoint>
+<signature id="MapOrdered.[key : Any]=">MapOrdered [key : Any]=(value : Any)
+<a class="headerlink" href="#MapOrdered.[key : Any]=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote></blockquote>
+<p><endpoint module="luxe: containers" class="MapOrdered" signature="iterate(iterator : Any)"></endpoint>
+<signature id="MapOrdered.iterate">MapOrdered.iterate(<strong>iterator</strong>: <code>Any</code>)
+<a class="headerlink" href="#MapOrdered.iterate" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Implementation details for the Wren iterator protocol.   </p>
+</blockquote>
+<p><endpoint module="luxe: containers" class="MapOrdered" signature="iteratorValue(iterator : Any)"></endpoint>
+<signature id="MapOrdered.iteratorValue">MapOrdered.iteratorValue(<strong>iterator</strong>: <code>Any</code>)
+<a class="headerlink" href="#MapOrdered.iteratorValue" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Implementation details for the Wren iterator protocol.   </p>
+</blockquote>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 3, 2025 06:41:06 UTC">September 3, 2025</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/luxeengine" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 0c4.42 0 8 3.58 8 8a8.01 8.01 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27s-1.36.09-2 .27c-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8"/></svg>
+    </a>
+  
+</div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["instant", "navigation.prune"], "search": "../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>

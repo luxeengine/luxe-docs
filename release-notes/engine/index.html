@@ -1,0 +1,2543 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../images/luxe-favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>luxe release notes - luxe engine</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#luxe-release-notes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="luxe engine" class="md-header__button md-logo" aria-label="luxe engine" data-md-component="logo">
+      
+  <img src="../../images/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            luxe engine
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              luxe release notes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="pink" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="luxe engine" class="md-nav__button md-logo" aria-label="luxe engine" data-md-component="logo">
+      
+  <img src="../../images/logo.svg" alt="logo">
+
+    </a>
+    luxe engine
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    about
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../get/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    install
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    guide
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../tutorials/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    tutorials
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learn/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    learn ...
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../manual/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    manual
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#202423" class="md-nav__link">
+    <span class="md-ellipsis">
+      2024.2.3
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202422" class="md-nav__link">
+    <span class="md-ellipsis">
+      2024.2.2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202421" class="md-nav__link">
+    <span class="md-ellipsis">
+      2024.2.1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2023112" class="md-nav__link">
+    <span class="md-ellipsis">
+      2023.11.2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2023111" class="md-nav__link">
+    <span class="md-ellipsis">
+      2023.11.1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2023110" class="md-nav__link">
+    <span class="md-ellipsis">
+      2023.11.0
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2023.11.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#asset-db" class="md-nav__link">
+    <span class="md-ellipsis">
+      Asset db
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-project-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      New project format
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rendering-and-shaders" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rendering and Shaders
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ui-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      UI Layout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-code-completion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agent + Code completion
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wren" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wren
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Wren">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explicit-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explicit fields
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#random-sampling-of-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Random sampling of changes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202205" class="md-nav__link">
+    <span class="md-ellipsis">
+      2022.0.5
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202204" class="md-nav__link">
+    <span class="md-ellipsis">
+      2022.0.4
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2022.0.4">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sprite-import-autofill" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sprite Import Autofill
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asset-id-completion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Asset ID completion
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows-unicode-path-fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Windows unicode path fixes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202203" class="md-nav__link">
+    <span class="md-ellipsis">
+      2022.0.3
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202202" class="md-nav__link">
+    <span class="md-ellipsis">
+      2022.0.2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202201" class="md-nav__link">
+    <span class="md-ellipsis">
+      2022.0.1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2021010" class="md-nav__link">
+    <span class="md-ellipsis">
+      2021.0.10
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2021.0.10">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wren-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      wren changes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#completion-stuff" class="md-nav__link">
+    <span class="md-ellipsis">
+      completion stuff
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#render-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      render changes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202109" class="md-nav__link">
+    <span class="md-ellipsis">
+      2021.0.9
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202108" class="md-nav__link">
+    <span class="md-ellipsis">
+      2021.0.8
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202107" class="md-nav__link">
+    <span class="md-ellipsis">
+      2021.0.7
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202106" class="md-nav__link">
+    <span class="md-ellipsis">
+      2021.0.6
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202105" class="md-nav__link">
+    <span class="md-ellipsis">
+      2021.0.5
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202104" class="md-nav__link">
+    <span class="md-ellipsis">
+      2021.0.4
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202103" class="md-nav__link">
+    <span class="md-ellipsis">
+      2021.0.3
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202102" class="md-nav__link">
+    <span class="md-ellipsis">
+      2021.0.2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202101" class="md-nav__link">
+    <span class="md-ellipsis">
+      2021.0.1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202100" class="md-nav__link">
+    <span class="md-ellipsis">
+      2021.0.0
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202035" class="md-nav__link">
+    <span class="md-ellipsis">
+      2020.3.5
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2020.3.5">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stability-fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      stability fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lots-of-physics-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      lots of physics work
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lots-of-transform-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      lots of transform work
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202034" class="md-nav__link">
+    <span class="md-ellipsis">
+      2020.3.4
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202033" class="md-nav__link">
+    <span class="md-ellipsis">
+      2020.3.3
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202032" class="md-nav__link">
+    <span class="md-ellipsis">
+      2020.3.2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202031" class="md-nav__link">
+    <span class="md-ellipsis">
+      2020.3.1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202030" class="md-nav__link">
+    <span class="md-ellipsis">
+      2020.3.0
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2020.3.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#new-game-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      new game class
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-project-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      New project class
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access-your-game-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      Access your Game class
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#default-input-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      default input maps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-main-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      New main loop
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#animation-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      Animation events
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ui-layout-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      UI Layout API
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#material-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Material changes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202020" class="md-nav__link">
+    <span class="md-ellipsis">
+      2020.2.0
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2020.2.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ui-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      UI Controls
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#image-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Image API
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transform-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transform API
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202012" class="md-nav__link">
+    <span class="md-ellipsis">
+      2020.1.2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202011" class="md-nav__link">
+    <span class="md-ellipsis">
+      2020.1.1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202010" class="md-nav__link">
+    <span class="md-ellipsis">
+      2020.1.0
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2020.1.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#new-versioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      new versioning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-projectmoduleslx" class="md-nav__link">
+    <span class="md-ellipsis">
+      new project.modules.lx
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#latest-wren" class="md-nav__link">
+    <span class="md-ellipsis">
+      latest wren
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-prototypes" class="md-nav__link">
+    <span class="md-ellipsis">
+      new prototypes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#y-is-now-up-in-2d" class="md-nav__link">
+    <span class="md-ellipsis">
+      Y+ is now up in 2D
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updated-samples" class="md-nav__link">
+    <span class="md-ellipsis">
+      updated samples
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_luxedata-is-gone-luxe-is-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      _luxe.data is gone, .luxe is used
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      changes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#100-dev86" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.0.0-dev.86
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#100-dev85" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.0.0-dev.85
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#100-dev84" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.0.0-dev.84
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#100-dev83" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.0.0-dev.83
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#100-dev82" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.0.0-dev.82
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#100-dev81" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.0.0-dev.81
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#100-dev80" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.0.0-dev.80
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#100-dev79" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.0.0-dev.79
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#100-dev78" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.0.0-dev.78
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="luxe-release-notes">luxe release notes<a class="headerlink" href="#luxe-release-notes" title="Permanent link">&para;</a></h1>
+<h2 id="202423">2024.2.3<a class="headerlink" href="#202423" title="Permanent link">&para;</a></h2>
+<p>This build fixes issues from last build + more big beta todos.</p>
+<ul>
+<li>Color; add Color.hex_string </li>
+<li>Frame; mark; add a history so it doesn't crash after time</li>
+<li>Text; another color fix</li>
+<li>Mesh; new mesh importer pipeline merged in (to document)</li>
+<li>Render; fix issue with shadows in 3d render module</li>
+<li>Text Style; fix asset types not finding fonts</li>
+</ul>
+<h2 id="202422">2024.2.2<a class="headerlink" href="#202422" title="Permanent link">&para;</a></h2>
+<p>More work on stabilizing new modifiers and world tick!
+The changes to world tick may take time to finalize but 
+for most content works as is and shouldn't be visible.</p>
+<ul>
+<li>Render; fix some text color bugs </li>
+<li>UI; more tweaks on UI layout/auto size interactions</li>
+<li>Outlines; Fix copying .gitignore and .vscode as intended</li>
+<li>Frame; add initial Frame.mark helper for seeing frame timelines</li>
+<li>World; changes in how world tick world</li>
+<li>World; modifiers now use init instead of new() removing need for super()</li>
+<li>Editor; Editor api for accessing editor instance in modifiers</li>
+<li>Text; add initial shadow/outline effects (Ronja)</li>
+<li>Agent; fix some minor issues and auto restart agent as needed</li>
+<li>Assets; fix off by one error by moving generated assets into project</li>
+<li>Scene 2.0; fix scene scripts running in editor</li>
+<li>Scene 2.0; fix scene scripts not running tick</li>
+<li>Scene 2.0; scene scripts have parent class now (no required functions)</li>
+</ul>
+<h2 id="202421">2024.2.1<a class="headerlink" href="#202421" title="Permanent link">&para;</a></h2>
+<p>Lots of stability and bug fixes on the new modifier workflows, 
+scene/prototypes and editor this time around. Not necessarily
+fully complete yet, but much closer to parity and much more reliable.</p>
+<ul>
+<li>Scene 2.0; add scene scripts</li>
+<li>Scene 2.0; fix wrong modifier APIs used</li>
+<li>Scene 2.0; add unload for scene/prototype (Entity.destroy(root))</li>
+<li>Text; fix jumpy text</li>
+<li>Wren; allow { on new line in more places</li>
+<li>World; revise how attach/detach and modifier events work</li>
+<li>Assets; fix font face gen not being found on first compile</li>
+<li>Assets; fix crashes when certain apis are used certain ways</li>
+<li>Toggle; add get() api</li>
+<li>Tiles; fix crash in certain cases</li>
+<li>Blocks; several major bugs found + fixed </li>
+<li>Blocks; fix arrays being incorrect for lx inputs in new data</li>
+<li>Blocks; add destroy</li>
+<li>Engine; clean up wip memory from in dev code</li>
+<li>Engine; fix a couple memory corruption issues</li>
+</ul>
+<h2 id="2023112">2023.11.2<a class="headerlink" href="#2023112" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Outline; fix pixel art project dependency version</li>
+<li>Fix uninitialized crash in new var fields (thanks msminotaur!)</li>
+</ul>
+<h2 id="2023111">2023.11.1<a class="headerlink" href="#2023111" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Outline; add pixel art outline with auto scaling and all that</li>
+<li>Wren; fix a few issues with new fields in completion</li>
+<li>Wren; fix explicit fields not initializing parent class fields</li>
+<li>Basis; add pixelated AA shader + basis for scaling pixel art</li>
+<li>UI; add UIColor control + ColorPicker control</li>
+</ul>
+<h2 id="2023110">2023.11.0<a class="headerlink" href="#2023110" title="Permanent link">&para;</a></h2>
+<p>Whew. Important to note that this build was 1.5 ish years of constant use and change,
+so the list of changes and fixes is incomplete at best. There's also a lot of 
+foundation changes that shift the engine to it's more final form for open beta.</p>
+<p>There's a huge list, not all listed here.</p>
+<p>Some of these things are still in flight and will land in the next few versions,
+but we're switching back to the rapid iterative builds where we have frequent builds instead.</p>
+<h3 id="asset-db">Asset db<a class="headerlink" href="#asset-db" title="Permanent link">&para;</a></h3>
+<p>There's a new wip asset database which tracks missing assets or assets moving around, 
+and will be able to answer questions about references and lots more. </p>
+<p>Currently the new asset system co-exists with the old one. Some assets are handled
+by the old system and some handled by the new. This is all pretty transparent but,
+there are things that are less efficient or things that are doing extra work cos of it.
+Those will go away as we finish this up, but shouldn't affect your day to day use much.</p>
+<h3 id="new-project-format">New project format<a class="headerlink" href="#new-project-format" title="Permanent link">&para;</a></h3>
+<p>The project has changed shape a bit, there's now a <code>luxe.project/</code> folder which 
+contains things like the version.lx, modules.lx, ignore and so on. This folder
+will be where all project configuration lives and keeps the root clean for your content.</p>
+<p>This also makes those things more machine editable, for example you can write to version.build.lx
+and it'll automatically be available as a setting <code>project.build</code> to display in game.
+We use this to write git version hashes into that.</p>
+<h3 id="rendering-and-shaders">Rendering and Shaders<a class="headerlink" href="#rendering-and-shaders" title="Permanent link">&para;</a></h3>
+<p>The shaders have evolved a lot, make sure if you had project local shaders you look at the 
+module shaders.emsl for the new Draw, View, Frame inputs. These change the <code>input.view.mvp</code> 
+and friends to <code>input.draw.mvp</code> and so on. </p>
+<p>Shaders also now send their data as buffers (more modern) which allows a lot of stuff
+like compute and other things to use the data more effectively. This is largely transparent for you.</p>
+<h3 id="ui-layout">UI Layout<a class="headerlink" href="#ui-layout" title="Permanent link">&para;</a></h3>
+<p>Controls in the UI now have flex layout built in. You opt in with <code>UI.set_layout_mode</code>,
+and use <code>Control.set_behave</code> and <code>Control.set_contain</code> to control the layout.</p>
+<h3 id="agent-code-completion">Agent + Code completion<a class="headerlink" href="#agent-code-completion" title="Permanent link">&para;</a></h3>
+<p>The agent has seen many improvements! Code completion, references and jump to
+definition should work better now. There are more places with annotations and 
+inferred types and more to come.</p>
+<h3 id="wren">Wren<a class="headerlink" href="#wren" title="Permanent link">&para;</a></h3>
+<p>We've been improving the baseline wren as well. There's a new GC that is aware
+it's running in a game and does work on a frame level, allowing things to spread 
+out and not spike as much. Still wip, but significantly smoother in a bigger game 
+like Mossfield Origins.</p>
+<h4 id="explicit-fields">Explicit fields<a class="headerlink" href="#explicit-fields" title="Permanent link">&para;</a></h4>
+<p>We've also now got explicit field declarations! 
+They go first in a class, must be initialized.</p>
+<p>This reduces boilerplate a lot for one thing. 
+Before you had to write this for every field:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">field</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">_field</span><span class="w"> </span><span class="p">}</span>
+<span class="nx">field</span><span class="o">=</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">_field</span><span class="o">=</span><span class="nx">v</span><span class="w"> </span><span class="p">}</span>
+<span class="c1">// ... initialize</span>
+<span class="nx">_field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3</span>
+</code></pre></div>
+<p>But now, you can just do this:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3</span>
+</code></pre></div>
+<p>This generates the get/set for you, but you still have the <code>_field</code> though.
+It will only generate it if one doesn't exist, so you can override the behavior
+and still treat them as regular methods, and existing code is compatible.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nx">Example</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2</span>
+<span class="w">  </span><span class="nx">construct</span><span class="w"> </span><span class="ow">new</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">number</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">2</span>
+<span class="w">    </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">_number</span><span class="p">)</span><span class="w"> </span><span class="c1">//4</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Fields like this can be initialized with any expression since the initializer 
+is executed when an instance is constructed. So you can do things like</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">entity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Some</span><span class="p">.</span><span class="nx">code</span><span class="p">(</span><span class="nx">here</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="random-sampling-of-changes">Random sampling of changes<a class="headerlink" href="#random-sampling-of-changes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Topograph sort service API</li>
+<li>Frame; add Frame.skip(N)</li>
+<li>Render; expose write mask to pass layer</li>
+<li>Input; add display name for keys</li>
+<li>Draw; add plane3D, bounds3D and aabb3D for geo</li>
+<li>Selection; add selection service api</li>
+<li>UI; add wip world inspector control (view scene in game)</li>
+<li>Add fuzzy search for strings</li>
+<li>UI; add filtered list api</li>
+<li>IO; add wip Ptr and Uint64 type</li>
+<li>Str; add format api</li>
+<li>Str; is_alphanumeric</li>
+<li>LX; deterministic key serialization</li>
+<li>Sprite; add create where it'll infer the size from the image</li>
+<li>Wren; var field</li>
+<li>Mac; Universal Intel/Apple Silicon binary</li>
+<li>Mesh; auto instancing, with location and tag options</li>
+<li>UI; wip drag and drop</li>
+<li>UI; send destroy events</li>
+<li>Fix clipboard corruption on some platforms</li>
+<li>Render; vsync setting can be changed dynamically</li>
+<li>UI; make commits more efficient</li>
+<li>Text; add wrap, styles, markup, shaping and more</li>
+<li>Fonts; new font compiler + latest MTSDF </li>
+<li>Jobs; add new task system (internal atm)</li>
+<li>Render; add writable buffers for compute</li>
+<li>Render; expose compute properly</li>
+<li>Wren; new wip frame based GC with better dials</li>
+<li>Sprite; add set geometry</li>
+<li>UI; add set_system_cursor to control (wip)</li>
+<li>Input; add system + custom mouse cursors on desktop</li>
+<li>Atlas; add rect exists </li>
+<li>Render; clean up mat4 vertex inputs </li>
+<li>UI; nicer debug visualization and control over it</li>
+<li>Video; wip simple video player (mpg1)</li>
+<li>Entity; add on create/destroy listeners</li>
+<li>UI; add any_focused query</li>
+<li>UI; Label; add auto size width/height/both </li>
+<li>Draw; expose mat basis on create</li>
+<li>Camera; add zoom 2d</li>
+<li>Geometry; add get_aabb</li>
+<li>Entity; destroy changed a bit, no defer needed, safe in loops</li>
+<li>Text; add loc to text objects</li>
+<li>Loc; add PO/POT parsing and handling</li>
+<li>Loc; add initial Localization apis</li>
+<li>UI; add localization to label</li>
+<li>UI; fixed control destroy should take children with</li>
+<li>UI; control enter/exit consistency</li>
+<li>UI; fix events being missed sometimes</li>
+<li>Transform; euler&lt;&gt;quat cache for more stable to and from</li>
+<li>UI; move layout to built in</li>
+<li>Draw; add line3d, camera, frustum, plus, plus3d, ring3d</li>
+<li>Camera; add get_frustum</li>
+<li>Render; remove Float3 types from inputs</li>
+<li>Render; Input buffers now use buffer objects </li>
+<li>Wren; add Log.print(...) instead of System.print</li>
+<li>Wren; add Sys.stackCaller() for debugging</li>
+<li>Wren; renamed System -&gt; Sys</li>
+<li>add IO.date_and_time(from: Num)</li>
+<li>add IO.date_and_time(from: Num, format: String)</li>
+<li>Input; fix graph node events</li>
+<li>Sprite; new sprite incoming</li>
+<li>Sort render geo by basis as well</li>
+<li>Crash; Initial crash handling (windows only atm, wip)</li>
+<li>Plot; add plot service for storing numbers over time</li>
+<li>Toggle; add Toggle service API (multi boolean for e.g pause)</li>
+<li>SVG; add experimental svg -&gt; geo + svg -&gt; image apis</li>
+<li>Triangulate; add initial triangulate helper apis</li>
+<li>Noise; add Noise API with various flavours of noise</li>
+<li>Wren; add orderedKeys to map</li>
+<li>Audio; add playing? query</li>
+<li>Audio; add pause and pause_of api</li>
+<li>UI; Panel; border is now interior to the control</li>
+<li>search for set border and half the size if breaking</li>
+<li>Transform; fix get_angle2D_world returning local angle</li>
+<li>Mesh; clean up some memory on destroy</li>
+<li>Render; fix headless crashes</li>
+<li>Render; perf; use frame allocator for queue data</li>
+<li>LX; parse errors and surface them (via Result)</li>
+<li>Wren; add Result type to core</li>
+<li>Wren; add Option type to core</li>
+<li>UI; Control; add get pos/size</li>
+<li>UI; Control; add get UI from control api</li>
+<li>LX: use canonical Wren NaN to avoid bugs</li>
+<li>Transform: fix issue with unlink previous parent</li>
+</ul>
+<h2 id="202205">2022.0.5<a class="headerlink" href="#202205" title="Permanent link">&para;</a></h2>
+<p>This build is largely bug fixes and foundations that aren't visible just yet.</p>
+<ul>
+<li>Engine; fix a bunch of memory leaks and issues </li>
+<li>Zip; fix unzipping files on linux/mac</li>
+<li>Outlines; new format for outlines which will show up in new build</li>
+<li>Assets; add get_script which can return script code in release builds</li>
+<li>UI; add UIImageFlags for pixelated images or images with mips</li>
+<li>UI; add Control docs (ronja)</li>
+<li>UI; add UITabs control with tabs</li>
+<li>UI; fix Control.destroy_children not cleaning up parent properly (ronja)</li>
+<li>Loc; initial Localization api; Not in use yet</li>
+<li>Physics; add Body3D.get_aabb</li>
+<li>Blocks; BLOCKS BLOCKS BLOCKS</li>
+<li>UI; add UIBlock control for displaying blocks</li>
+<li>World; fix Layer destroy </li>
+<li>Mesh; move all lods when transform changes as intended</li>
+<li>Render; fix MRT clear color issues</li>
+<li>Render; support PBO style uploads for images</li>
+<li>Render; use scratch memory for submissions instead of allocating</li>
+</ul>
+<h2 id="202204">2022.0.4<a class="headerlink" href="#202204" title="Permanent link">&para;</a></h2>
+<h3 id="sprite-import-autofill">Sprite Import Autofill<a class="headerlink" href="#sprite-import-autofill" title="Permanent link">&para;</a></h3>
+<p>When importing a sprite, the material and image name will now default to the file name of the imported sprite. This speeds up workflow (thanks miniglitch for the suggestion).</p>
+<h3 id="asset-id-completion">Asset ID completion<a class="headerlink" href="#asset-id-completion" title="Permanent link">&para;</a></h3>
+<p>When an API signals to completion that it accepts an asset type, completion can now show the list of assets of that type. All thanks to Ronja.</p>
+<h3 id="windows-unicode-path-fixes">Windows unicode path fixes<a class="headerlink" href="#windows-unicode-path-fixes" title="Permanent link">&para;</a></h3>
+<p>If your user name on Windows included a non ascii character it could confuse the path APIs of the engine, causing trouble when trying to install luxe. This should be fixed where any user name or project folder name can work as intended, even if named with emoji etc. Thanks to Cepukka and Nomad_Hermit for debugging!</p>
+<hr />
+<ul>
+<li>Runtime; fix more bugs in schedules </li>
+<li>Render; use Uint16 for index buffer replace/update as intended</li>
+<li>UI; fix bugs in destroying ui </li>
+<li>Mesh; fix first item ignoring transforms in editor</li>
+<li>Values; fix memory issue causing weird bugs</li>
+<li>Transform; add <code>get_world_matrix(entitym into_matrix)</code></li>
+<li>Tiles; add clearer errors for set_visual </li>
+<li>Draw; path3d + path report errors for invalid point counts</li>
+<li>Sprite; add clearer errors for contains </li>
+<li>Docs; add pqueue and AnimEvent docs</li>
+<li>Fix \" causing code coloring issues</li>
+<li>UI; tweak contrast of toggle control</li>
+<li>UI; tweak contrast of toggle control</li>
+<li>Input; add <code>mouse_state_wheel()</code> query, returns a float2</li>
+<li>Math; add angle2d for signed 2d angles between directions</li>
+<li>Completion; add "asset_type" annotations </li>
+<li>luxeignore; ignore log files so they aren't loaded as assets</li>
+</ul>
+<h2 id="202203">2022.0.3<a class="headerlink" href="#202203" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Save; add initial save system</li>
+<li>IO; image save now has an extra hdr bool variant</li>
+<li>Web; don't do background sleep, it can lock up the browser</li>
+<li>Web; fix IDBFS mounting and access for save data</li>
+<li>Web; template includes fixes for deploying direct to e.g itch.io</li>
+<li>Web; emsdk 3.1.1</li>
+</ul>
+<h2 id="202202">2022.0.2<a class="headerlink" href="#202202" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Render; don't skip rendering geometry in multiple layers if found in the first</li>
+<li>Draw; add Draw.ngon/ngon_solid for drawing triangles, hexagons, etc</li>
+<li>Draw; fix a few ring + circle bugs when non-uniform radius</li>
+<li>Transform; add get_scale_world and component getters</li>
+<li>UI; Control; add can_see/can_see_area/can_see_point</li>
+<li>Render; fix bug in layer passes that could cause crashes</li>
+<li>Math; add documentation (ronja)</li>
+</ul>
+<h2 id="202201">2022.0.1<a class="headerlink" href="#202201" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Wren; fix some script compiler errors when tabs are present, and other minor bugs</li>
+<li>Mesh; fix some build errors creating new errors</li>
+<li>Mesh; fix texture parsing creating errors </li>
+<li>UI; add missing UIImage.get_color</li>
+<li>UI; add missing UIButton.get_render_text</li>
+<li>UI; fix weird clipping issue (caused by compiler inlining)</li>
+<li>UI; fix recursive events bug causing sliders to explode</li>
+<li>IO; fix processes sharing stdio handles causing a crash </li>
+</ul>
+<h2 id="2021010">2021.0.10<a class="headerlink" href="#2021010" title="Permanent link">&para;</a></h2>
+<h4 id="wren-changes">wren changes<a class="headerlink" href="#wren-changes" title="Permanent link">&para;</a></h4>
+<p>The way errors are handled and printed by the engine/language now allow vscode to <em>correctly</em>
+jump to the right line when alt clicked in the terminal. Additionally, only the actual error
+is promoted to a "problem" in the Problem tab, rather than every line of the callstack. </p>
+<h4 id="completion-stuff">completion stuff<a class="headerlink" href="#completion-stuff" title="Permanent link">&para;</a></h4>
+<p>Ronja has been hard at work making the experience in vscode better for completion.
+They're rewritten it to be able to handle inheritance, not randomly silently fail over time,
+and a whole lot more. </p>
+<p>There's at least a dozen fixes, make sure you grab the latest agent version when it's available.</p>
+<h4 id="render-changes">render changes<a class="headerlink" href="#render-changes" title="Permanent link">&para;</a></h4>
+<p>A lot of work has been going into improving meshes workflow, like automatic instancing and various features.
+These are most useful in 3D but it's worth noting that if you're using 3D and run into issues please report them.
+There are parts still undocumented too, since they're new/potentially volatile. If you wanna use them, you know where to ask!</p>
+<ul>
+<li>Project; add <code>postdeploy()</code> hook in project.luxe (for web build templates)</li>
+<li>Input; add <code>set_mouse_pos(x: Num, y: Num)</code></li>
+<li>Input; add <code>set_mouse_visible(state: Bool)</code></li>
+<li>Draw; add initial <code>path3D(context, points, style)</code> for 3D lines</li>
+<li>Draw; add alpha to <code>PathStyle</code></li>
+<li>Color; fix bug in hsv conversion (ronja)</li>
+<li>Color; add <code>hex_color(color: Color, include_alpha: Bool)</code> to get hex int from color (ronja)</li>
+<li>Color; add <code>Color.pink</code> for the luxe pink color</li>
+<li>Math; add <code>Math.approx</code> for comparing float numbers</li>
+<li>Build; fix asset extensions causing issues with non-luxe assets with the same extension</li>
+<li>Build; Mesh; fix compiler error when trying to report a mesh error</li>
+<li>Build; Mesh; fix material imports from assets (for later importing)</li>
+<li>World; Mesh; add initial instanced flag for automatic mesh instancing</li>
+<li>World; optimize transform change event sets from allocating every time</li>
+<li>Render; optimize image input setting in backend</li>
+<li>Render; optimize render passes a bunch</li>
+<li>Render; add "replace tags" to material basis for direct pipeline control </li>
+<li>Render; add <code>engine.render.metrics.gpu</code> setting, exposing the opengl GPU timer</li>
+<li>Runtime; fix crash when things queue something during shutdown</li>
+<li>Runtime; emit <code>engine.ready</code> for scripts opting into ready from elsewhere</li>
+<li>Runtime; add <code>debug</code> section in frame after <code>visual</code>, before <code>end</code></li>
+<li>Runtime; logs are rotated for log.txt, log.1.txt etc instead of overwriting each time</li>
+<li>Runtime; fix tick functions being rearranged</li>
+<li>Runtime; exposed logs to user facing code for display</li>
+<li>Release; disable windows console window in release builds</li>
+<li>IO; regex now allows 32 groups/sub matches (was 16)</li>
+<li>IO; fix missing image_failure_reason() endpoint</li>
+<li>IO; work on UV backed process API, not finished</li>
+<li>UI; add <code>UI.set_layout_mode(mode: UILayoutMode)</code> to opt into flex layout</li>
+<li>UI; add wip <code>luxe: ui/field/number</code> for consistent number fields with precision radial</li>
+<li>UI; add wip <code>luxe: ui/field/vector</code> for consistent float&#8532;/4 fields using number fields</li>
+<li>UI; add wip <code>luxe: ui/field/choice</code> a filtered dropdown list (wip name)</li>
+<li>UI; add wip <code>luxe: ui/field/path</code> a path selector field</li>
+<li>UI; display control + id + type below mouse in debug vis</li>
+<li>UI; add <code>UI.mouse_to_canvas(ui: Entity, x: Num, y: Num)</code> for Input -&gt; UI conversion</li>
+<li>UI; add <code>UI.set_debug_mode(mode: UIDebugMode)</code> for individual debug vis</li>
+<li>UI; Panel; add missing <code>UIPanel.get_color(panel: Control)</code> API</li>
+<li>UI; Slider; now emits change/commit events for drag vs release </li>
+<li>UI; add missing <code>UI.has(entity: Entity)</code> API</li>
+<li>UI; optimize UI drawing creating a new material each time, reuses them</li>
+<li>UI; make layout part of the UI system itself, and allow partial layouts</li>
+<li>UI; layout now contains UIContain.vfit and UIContain.hfit to explicitly ensure size to children</li>
+<li>UI; fix children_at_point behaviour for controls outside of parent</li>
+<li>UI; fix marked control not getting reset when leaving canvas (nihilocrat)</li>
+<li>UI; fix text change events sending previous text as well</li>
+<li>UI; fix text double click time counting when unfocused</li>
+<li>UI; fix invalid ui crashing the events processing (e.g destroy a ui from an event)</li>
+<li>UI; redo checkbox visual behaviour</li>
+<li>UI; add quad_detailed to ui draw</li>
+<li>Lists; remove_where now returns the value like the rest of wren (non breaking change)</li>
+<li>API; remove old <code>luxe: array</code> - replace with <code>luxe: containers</code></li>
+<li>API; remove old <code>luxe: geometry</code>, no longer used (moved to old lines sample)</li>
+<li>Wren; make error messages line up when using tabs (ronja)</li>
+<li>Wren; fix blank wren files erroring as not found</li>
+<li>Wren; fix missing debug info for class locations (ronja)</li>
+<li>Wren; work on exposing the debugger, use <code>--wren-debugger</code> to enable</li>
+<li>Wren; work on vm level profiling built in (not exposed yet)</li>
+<li>Wren; add line + module to runtime errors</li>
+<li>Wren; change how stacks + errors are reported for vscode</li>
+<li>internal; fix imgui implementation (not exposed yet)</li>
+<li>internal; significant work on the new blocks (not user facing yet)</li>
+</ul>
+<h2 id="202109">2021.0.9<a class="headerlink" href="#202109" title="Permanent link">&para;</a></h2>
+<ul>
+<li>render; allow setting depth_write/depth_compare for a pass layer</li>
+<li>render; fix rendering to array textures</li>
+<li>world; ui; error on cancelling events without a ui attached</li>
+</ul>
+<h2 id="202108">2021.0.8<a class="headerlink" href="#202108" title="Permanent link">&para;</a></h2>
+<ul>
+<li>materials; add error when specifying a missing input to a basis for debugging</li>
+<li>render; add <code>Render.valid_text(text)</code></li>
+<li>render; cache render passes by id to avoid create materials infinitely</li>
+<li>astar; add a second infinite loop guard for rare edge case (couldn't find why)</li>
+<li>window; don't sleep at all if background time is set to 0</li>
+<li>ui; control; add get/set_enabled</li>
+<li>ui; disable "last line doesn't justify" behaviour of layout</li>
+<li>web; fix emscripten preload cache being aggressive</li>
+<li>draw; draw text returns render text object as intended</li>
+<li>draw; fix circles going one step too many</li>
+<li>IO; add <code>IO.date_and_time()</code> for printing current time</li>
+<li>fix crash when removing a tick from inside a tick</li>
+<li>fix assert on Entity.set_name when name isn't a string</li>
+<li>potential fix for unicode names being weird on windows</li>
+<li>io; return "web" for IO.os() on web target</li>
+<li>tiles; error when trying to create a tile without a Tiles modifier</li>
+<li>world; prototype now errors when asking on non prototypes</li>
+</ul>
+<h2 id="202107">2021.0.7<a class="headerlink" href="#202107" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Fix regression from imports added in 2021.0.6, paths should work as intended</li>
+<li>UI; double click setting added <code>engine.runtime.input.rapid_press_interval</code></li>
+<li>UI; double click time default increased to 0.45s (was 0.2s)</li>
+<li>Anim; Sprite Value Track now exposes uv.horizontal/uv.vertical</li>
+<li>Anim; Sprite Value Track now exposes uv.left/uv.right/uv.top/uv.bottom</li>
+</ul>
+<h2 id="202106">2021.0.6<a class="headerlink" href="#202106" title="Permanent link">&para;</a></h2>
+<ul>
+<li>mac; fixes for build deployment target (now 10.13)</li>
+<li>Str.path normalizes drive letters for windows paths</li>
+<li>outline; fix tutorial background sleep, add logo for clarity</li>
+<li>UI; control; move tab concerns to control level so it works everywhere</li>
+</ul>
+<h2 id="202105">2021.0.5<a class="headerlink" href="#202105" title="Permanent link">&para;</a></h2>
+<ul>
+<li>latest SDL - 2.0.14</li>
+<li>latest emsdk - 2.0.25</li>
+<li>Draw - fix rect_detailed for y+ up and clamped radius</li>
+<li>Draw - add rect detailed example/test to sample</li>
+<li>LX - fix bug serializing vectors of bool</li>
+</ul>
+<h2 id="202104">2021.0.4<a class="headerlink" href="#202104" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Fix Assets class being special, so now it gets proper completion</li>
+<li>Docs + types for code completion for several classes</li>
+<li>Assets, Anim, Assert, Strings, Audio, Color</li>
+<li>modules: containers, draw, editor, events, game, id, sat2d</li>
+<li>UI - add commit event to text fields</li>
+<li>UI - text field now cancels input on escape, commits on enter, and can tab forward</li>
+<li>UI - recursively handle UI events properly, so no events are lost</li>
+<li>Sprite - in editor, update size on changing material automatically</li>
+<li>Assets - import for sprite shows warnings for existing content not errors</li>
+<li>Transform - add <code>set_snap(x, y)</code></li>
+</ul>
+<h2 id="202103">2021.0.3<a class="headerlink" href="#202103" title="Permanent link">&para;</a></h2>
+<p>Minor breaking change: If you had a constructor that returns any value (including <code>this</code>), that's invalid.
+Often you can just convert to <code>static new() {}</code> or similar and have an internal <code>construct</code> method instead.</p>
+<ul>
+<li><code>Str.fixed</code> now uses a reliable format where 0.1 remains 0.1 instead of 0.1000001231</li>
+<li>add <code>Str.vec</code> which formats a vec using Str.fixed</li>
+<li><code>LX</code> now stringifies numbers using <code>Str.fixed</code> with 6 digits precision (:todo: configurable)</li>
+<li>Wren - clean up attributes spam</li>
+<li>Wren - latest version of 0.4.0 <a href="https://github.com/wren-lang/wren/releases/tag/0.4.0">https://github.com/wren-lang/wren/releases/tag/0.4.0</a></li>
+<li>Wren - fix crashy behaviour in much bigger projects due to unitialized value</li>
+<li>Wren - fix newlines being different based on file newlines within strings</li>
+<li>Anim - Sprite frames track resets material on reset</li>
+<li>Anim - Sprite frames track now sets the material if it's not a match, as intended</li>
+<li>Anim - Sprite frames track allow inverted ranges for start/end index</li>
+<li>Anim - Sprite values track now allows animating sprite properties as a curve</li>
+<li>Anim - Transform - relative animations now work as intended</li>
+<li>Anim - add <code>set_interval_time</code>, sets the time in 0...1 range for a live anim</li>
+<li>Anim - add <code>track_get_range</code>/<code>track_set_range</code>, sets the range for a track in a live anim</li>
+<li>Anim - <code>play</code>/<code>play_only</code> now error properly if you pass a null asset id</li>
+<li>Anim - fix crash when animation modifier accessed an old entity</li>
+<li>World - when requesting a system, return a new one if not present (instead of error)</li>
+<li>Transform - fix some ways to set a position not respecting snap</li>
+<li>Transform - fix unlink without a parent asserting, error properly instead</li>
+<li>Transform - fix linking to self being an infinite loop + crash, error properly instead</li>
+<li>Transform - add experimental <code>get_pos_world_unsnapped</code></li>
+<li>Runtime - add <code>engine.runtime.quit</code> setting, if false, quit will do nothing and fire an event</li>
+<li>Render - add error for missing material basis on <code>Material.create</code></li>
+<li>UI - add <code>UI.make</code> experimentally (it's like spawn but returns a properly sized container)</li>
+<li>Sprite - initial annotations for completion/docs</li>
+<li>Math - add <code>dir2D(pos, target)</code></li>
+</ul>
+<h2 id="202102">2021.0.2<a class="headerlink" href="#202102" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Windows - fix resize/moving a window from blocking the game</li>
+<li>Wren - add annotations (available at runtime as SomeClass.meta)</li>
+<li>Wren - add raw string literal """like this""", can cross lines and include anything</li>
+<li>Wren - add list.remove(item)</li>
+<li>Wren - add experimental way to call a function by name</li>
+<li>Transform - fix bugs due to use of euler in animation track</li>
+<li>Transform - add global default snap setting e.g pixels <code>engine.transform.snap = [1,1,0]</code></li>
+<li>Transform - experiment with applying transforms on spawning prototypes more</li>
+<li>World - clean up some memory properly</li>
+<li>IO - fix creating paths across drive boundaries, fixes launcher</li>
+<li>LX - add raw string support to lx files</li>
+<li>LX - escape some json content correctly when saving json</li>
+<li>Mesh - fix a bug where changing the mesh asset could crash if done a certain way</li>
+<li>Runtime - queued ticks will process recursively queued ticks correctly now</li>
+<li>String - add indent(string) and indent_strip(string) for convenience</li>
+<li>Outline - add vscode default tasks to empty outline</li>
+<li>Tiles - add Tile.get/Tile.set for storing values on a tile</li>
+<li>Color - add hex(value, alpha)</li>
+<li>Result - add Result type experimentally</li>
+<li>World - modifiers have find_entity(relative_entity, uuid) for finding entities</li>
+<li>Camera - if no default camera exists when one is created, set it as default</li>
+<li>UI - fix obscure timing issue with dead controls being marked</li>
+<li>UI - add <code>Control.destroy_children(control)</code></li>
+<li>Wren - fix infinite loop in some parsing cases</li>
+<li>Wren - error on missing imports up front</li>
+<li>Wren - warn on single quote strings</li>
+<li>Wren - warn when imports mismatch case</li>
+<li>Math - vector angle between <code>angle(v1, v2, up)</code></li>
+<li>fix some dev mode issues</li>
+<li>fix crash when asset reloading fails to compile</li>
+<li>add debug file to find issues in lx parse till there's real errors</li>
+</ul>
+<h2 id="202101">2021.0.1<a class="headerlink" href="#202101" title="Permanent link">&para;</a></h2>
+<ul>
+<li>UI - fix nasty text focus bug (eduardo, bach)</li>
+<li>UI - when setting text, error properly on not-a-string</li>
+<li>Render - add atlas API and assets for atlas support</li>
+<li>Sprite - add atlas support via Sprite.create(entity, atlas, atlas_image_id)</li>
+<li>Sprite - add origin setting (0.5, 0.5 center default. 0,0 is bottom left)</li>
+<li>Anim - Sprite track now has proper frame based information instead of keys</li>
+<li>Bytes - subscript [] returns uint8 (instead of int8) as intended</li>
+<li>Render - add window_hide(state)</li>
+<li>Render - add <code>engine.runtime.window.allow_screensaver</code> to not block</li>
+<li>Render - add VertexInputRate for per instance vs per vert</li>
+<li>Render - add get/set_instance_count for geometry</li>
+<li>Shaders - add pixel perfect aspect upscaling shader for outlines</li>
+<li>Shaders - add input.view.time to shaders</li>
+<li>World - add proper errors on invalid material for Sprite</li>
+<li>Samples - add previews and sample.lx for new launcher</li>
+<li>Deploy - add experimental custom icon support + a default icon</li>
+<li>Compiler - print success status</li>
+<li>Docs - work on tutorial</li>
+</ul>
+<h2 id="202100">2021.0.0<a class="headerlink" href="#202100" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Fix major font rendering bug.... </li>
+<li>Fix filewatch again</li>
+<li>Scripts - add an error for missing imports</li>
+<li>Game - add <code>Frame.schedule</code> for calling functions in future, absolute time</li>
+<li>World - add <code>World.schedule</code> for calling functions in future, world relative time</li>
+<li>World - add Camera.cull and some tools for frustum culling when rendering</li>
+<li>World - add World.render with a second camera to cull with (can be same as render cam)</li>
+<li>World - experimental render view descriptors</li>
+<li>Settings - add <code>has</code> query</li>
+<li>UI - add <code>UIList.can_scroll</code></li>
+<li>UI - add <code>UIWindow.get_collapsed</code></li>
+<li>UI - fix some event ids being stomped</li>
+<li>UI - fix events being sent to parents even if they didn't want them</li>
+<li>UI - visual polish for several things</li>
+<li>Math - add <code>dist2D</code> for non vector</li>
+<li>Anim - transform tracks now have an absolute flag</li>
+<li>Anim - fix reverse rate not working as intended. reverse now works again</li>
+<li>Material - add depth bias setting to basis</li>
+<li>Expand color class with some constants, hsv functions and lerp</li>
+<li>Render - explore plural tags for render layers</li>
+<li>Regex - fix bugs and update lib for utf8 support + for substitutions </li>
+</ul>
+<h2 id="202035">2020.3.5<a class="headerlink" href="#202035" title="Permanent link">&para;</a></h2>
+<h4 id="stability-fixes">stability fixes<a class="headerlink" href="#stability-fixes" title="Permanent link">&para;</a></h4>
+<p>There were a few vague crashes that happened occasionally when running a (bigger) project, and re-running normally worked.
+This was introduced not long ago by mistake when I was testing the new native lx parser. </p>
+<p>All instances of weird behaviour have been found and fixed, so things are back to being stable + reliable again.
+I've also optimized a couple places for script compilation to be much more snappy when iterating.</p>
+<h4 id="lots-of-physics-work">lots of physics work<a class="headerlink" href="#lots-of-physics-work" title="Permanent link">&para;</a></h4>
+<p>For 7DFPS I was making a physics game, that necessitated a bunch of work on physics.
+Instead of doing the minimum, I took the opportunity to implement the intended filtering + collision model,
+add collision callbacks, physics materials, and body settings assets.</p>
+<p>This filtering model is based on "ignore/overlap/collide" being the 3 settings for a body. 
+When two bodies overlap, the "least" type is used. e.g ignore vs collide = ignore. overlap vs collide = overlap.
+This means any body can be collidable (solid) or overlapping (triggers, etc).</p>
+<p>The callbacks send events for overlap <code>begin</code>, <code>active</code>, and <code>end</code>. 
+A collide event is also sent if the result is <code>collide</code>.</p>
+<p>These are only applied to 3D at the moment, but the same code + model applies to 2D and will make it's way there soon.</p>
+<h4 id="lots-of-transform-work">lots of transform work<a class="headerlink" href="#lots-of-transform-work" title="Permanent link">&para;</a></h4>
+<p>Similiarly, I needed some special transformation stuff, so instead of just adding the one I needed I added a
+lot of the fundamentals for dealing with transforms. This is still based on the idea that transforms should be
+possible to use without resorting to math constructs like matrix or quaternions. Lot of progress here!</p>
+<p>There's lots to see otherwise: </p>
+<ul>
+<li>Window - Fix fullscreen to be borderless windowed, add alt+enter handling</li>
+<li>Scripts - optimize recompilation a lot for faster iteration</li>
+<li>Wren - 0.4.0 - changes here - <a href="https://github.com/wren-lang/wren/releases/tag/0.4.0-pre">https://github.com/wren-lang/wren/releases/tag/0.4.0-pre</a></li>
+<li>Wren - fix corruption in GC due to an unmarked value I added</li>
+<li>Wren - fix potential access of uninitializd memory</li>
+<li>Wren - fix corruption in GC due LX parsing - <a href="https://github.com/wren-lang/wren/issues/869">https://github.com/wren-lang/wren/issues/869</a></li>
+<li>Draw - add <code>Draw.cross(context, x, y, z, radius, angle, style)</code></li>
+<li>Draw - add simple ring variant <code>Draw.ring(context, ox, oy, oz, radius, smoothness, style)</code></li>
+<li>Math - Add <code>Math.length(vec)</code>, <code>Math.length_sq(vec)</code>, <code>Math.length_sq2D(vec)</code></li>
+<li>Math - Add <code>Math.angle(vec, other_vec)</code></li>
+<li>String - fix <code>Str.fixed(string, precision)</code> affecting the number</li>
+<li>Assets - Meshes now auto triangulate, so no need to triangulate inputs</li>
+<li>Assets - Mesh compiler prints more useful nested info for choosing a node</li>
+<li>Physics 3D - fix bugs when editing physics bodies in editor (tilman)</li>
+<li>Physics 3D - add body config asset</li>
+<li>Physics 3D - add collider materials asset</li>
+<li>Physics 3D - fix mesh collider when meshes were indexed</li>
+<li>Physics 3D - fix mesh internal seam collisions for smooth collisions</li>
+<li>Physics 3D - add mesh MeshColliderType for controlling behaviour</li>
+<li>Physics 3D - add callbacks for overlap + collide events</li>
+<li>Physics 3D - add initial wip filtering for collide/overlap/ignore</li>
+<li>Physics - Fix debug vis in editor</li>
+<li>UI - add <code>UIText.select_all(control)</code></li>
+<li>Transform - fix look_at when linked to another transform (tilman)</li>
+<li>Transform - fix bugs in world rotation setting (tilman)</li>
+<li>Transform - add <code>rotate_around(entity, x, y, z, axis_x, axis_y, axis_z, degrees)</code></li>
+<li>Transform - add <code>rotate_around_world(entity, x, y, z, axis_x, axis_y, axis_z, degrees)</code></li>
+<li>Transform - add <code>world_point_to_local(entity, x, y, z)</code></li>
+<li>Transform - add <code>local_point_to_world(entity, x, y, z)</code></li>
+<li>Transform - add <code>local_dir_to_world(entity, x, y, z)</code></li>
+<li>Transform - add <code>world_dir_to_local(entity, x, y, z)</code></li>
+<li>Transform - add <code>local_vector_to_world(entity, x, y, z)</code></li>
+<li>Transform - add <code>world_vector_to_local(entity, x, y, z)</code></li>
+<li>Transform - add <code>set_rotation_slerp(entity, from, to, t)</code></li>
+<li>Transform - add <code>set_rotation_slerp_world(entity, from, to, t)</code></li>
+<li>Transform - add <code>set_rotation_slerp_angle_axis(entity, axis, from, to, t)</code></li>
+<li>Transform - add <code>set_rotation_slerp_angle_axis_world(entity, axis, from, to, t)</code></li>
+<li>Transform - add <code>rotate_angle_axis_slerp(entity, axis, angle_amount)</code></li>
+<li>Transform - add <code>rotate_angle_axis_slerp_world(entity, axis, angle_amount)</code></li>
+</ul>
+<h2 id="202034">2020.3.4<a class="headerlink" href="#202034" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Runtime - allow background_sleep to affect headless apps</li>
+<li>World - add Scene.entity_forget for moving entities around manually</li>
+<li>UI - don't abort on &gt; 1000 events (can happen when file dialog is up)</li>
+<li>Compiler - add transient concept for compiling transient data in editor</li>
+</ul>
+<h2 id="202033">2020.3.3<a class="headerlink" href="#202033" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Wren - add continue keyword to use in loops</li>
+<li>Wren - skip type-style annotations in several places</li>
+<li>Wren - method arity checks are now reported as an error where possible</li>
+<li>Wren - method max parameters is now a compile time check</li>
+<li>Wren - improvements to the script check parsing + graceful failure</li>
+<li>Math - <code>random_point_in_unit_circle</code> streamlined by ronja</li>
+<li>Input - fix <code>Input.set_mouse_capture</code> to work as intended across platforms (tilman)</li>
+<li>Input - add <code>Input.mouse_x_rel()</code>/<code>Input.mouse_y_rel()</code> for capture use</li>
+<li>LX - add a stringify to json flag for strict json output</li>
+<li>UI - fix crash when control is destroyed while another is captured (ronja)</li>
+<li>UI - fix events not being cancelled for listeners (ronja)</li>
+<li>UI - fix a rogue wrenalyzer complaint about UIWindowChange (ronja)</li>
+<li>Assets - auto generated images have a <code>generate_mipmaps_at_load</code> added</li>
+<li>Camera - set2D/set3D for less confusion (set2D uses x/y/w/h and converts internally)</li>
+<li>Render - Resource IDs like images are passed to debug tools (e.g renderdoc)</li>
+<li>Render - Fix material override bug being wrong on web</li>
+<li>Render - Refactor FBO handling to be more strictly conformant (webgl2)</li>
+<li>Render - fix some issues running headless builds</li>
+<li>IO - fix http server issue on some platforms (tilman)</li>
+</ul>
+<h2 id="202032">2020.3.2<a class="headerlink" href="#202032" title="Permanent link">&para;</a></h2>
+<ul>
+<li>IO - add logging for failure to create directories</li>
+<li>Anim - fix validation of animations so script errors happen (eva)</li>
+<li>UI - fix destroyed controls not updating marked state (ronja)</li>
+<li>UI - fix relative mouse offsets being wrong (ronja)</li>
+<li>UI - fix crash when marked update finds destroyed controls</li>
+<li>UI - custom events now have proper cancellable IDs and can be cancelled</li>
+<li>UI - fix bug where captured controls lose events due to new marked fix</li>
+<li>UI - fix scroll areas not updating when resized, they do now</li>
+<li>Render - fix bug in opengl backend causing many sprites to fail (jonathan)</li>
+<li>Transform - add change callbacks <code>listen(entity, fn)</code> / <code>listen_all(world, fn)</code> </li>
+<li>World - add <code>World.valid(world)</code></li>
+</ul>
+<h2 id="202031">2020.3.1<a class="headerlink" href="#202031" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Wren - Allow newline before a dot so you can do fluent syntax</li>
+<li>Wren - List now has <code>indexOf(item)</code> and <code>swap(index, other)</code></li>
+<li>Wren - Num now has <code>var max = 3.max(7)</code>, <code>.min(other)</code> and <code>num.clamp(0, 1)</code></li>
+<li>Astar - add 2D pathfinding API </li>
+<li>Anim - fix crashing when the entity an autoplay was queued for is gone</li>
+<li>Settings - fix string settings being stored as bool (??)</li>
+<li>luxe: pqueue - add MinPQ and MaxPQ priority queues</li>
+<li>Lists - <code>binary_search_first</code>, <code>remove_where</code>, <code>index_of_where</code> args</li>
+<li>Render - add vsync flag (<code>engine.render.vsync</code> now works)</li>
+<li>Render - pass layer can now use a basis</li>
+<li>Render - pass layer can now access <code>.dest</code> directly</li>
+<li>Render - add <code>Render.submit_fn</code></li>
+<li>Render - backend fixes for some incorrect strings (shader errors)</li>
+<li>Render - fix important viewport bug </li>
+<li>Render - can now correctly render to cubemaps</li>
+<li>Render - can now correctly render to mip levels of images</li>
+<li>Render - add missing <code>Image.destroy</code> and <code>Image.valid</code></li>
+<li>Render - add <code>view_inverse</code>, <code>proj_inverse</code>, and more to <code>View</code> inputs</li>
+<li>Runtime - filewatch fixes + also now respects dupes, ignores for N frames</li>
+<li>Runtime - fix a bunch of plugin bugs while testing a rust plugin</li>
+<li>Input - fix <code>set_mouse_capture(state)</code> capturing cursor like FPS games need</li>
+<li>World - add optional <code>into</code> arg to <code>World.world_point_to_view</code></li>
+<li>World - add <code>World.set_default(world)</code>/<code>World.get_default()</code></li>
+<li>World - add <code>Modifiers.has_system_in_world(modifier_id, world)</code></li>
+<li>World - wip: <code>Entity.valid</code> checked for modifier tick before sending</li>
+<li>World - Transform now has <code>sync_world(world)</code> and <code>sync(entity)</code></li>
+<li>UI - Fix custom events firing incorrectly (ronja)</li>
+<li>UI - Fix Text taking focus when things are above it (like editor scene buttons)</li>
+<li>UI - Fix text rendering (button/window/text/label) being delayed by a rendered frame</li>
+<li>UI - querying label metrics is now accurate at all times (brody)</li>
+<li>UI - Fix layout bugs (update recommendation from layout dev)</li>
+<li>UI - Fix enter/exit only happening on mouse move, and exit other bugs (ronja)</li>
+<li>docs - fix how to for <code>random</code> (jonathan)</li>
+<li>docs - document <code>Assets</code> API</li>
+<li>docs - document <code>luxe: containers</code>/<code>Lists</code>/<code>MapOrdered</code> API</li>
+<li>docs - document <code>luxe: draw</code>/<code>LineCap</code>/<code>LineJoin</code>/<code>PathStyle</code>/ API</li>
+<li>docs - document <code>luxe: editor</code>/<code>Editor</code> API</li>
+<li>docs - document <code>luxe: events</code>/<code>Events</code> API</li>
+<li>docs - document <code>luxe: game</code>/<code>Frame</code>/<code>Ready</code> API</li>
+<li>docs - document <code>luxe: id</code>/<code>ID</code> API</li>
+</ul>
+<h2 id="202030">2020.3.0<a class="headerlink" href="#202030" title="Permanent link">&para;</a></h2>
+<p>Time for some clean up, yay project changes!</p>
+<h4 id="new-game-class">new game class<a class="headerlink" href="#new-game-class" title="Permanent link">&para;</a></h4>
+<p>In it's simplest form, a game class
+before 2020.3.0 looked like this:
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: game&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">Game</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">game</span><span class="w"> </span><span class="nx">is</span><span class="w"> </span><span class="nx">Game</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">construct</span><span class="w"> </span><span class="nx">ready</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">System</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s2">&quot;ready!&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>This has changed to the following, as a more final form. 
+Notes: the <code>super</code> is required, the base class is now <code>Ready</code>, 
+       and the actual class is called <code>Game</code>.
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: game&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">Ready</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">Game</span><span class="w"> </span><span class="nx">is</span><span class="w"> </span><span class="nx">Ready</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">construct</span><span class="w"> </span><span class="nx">ready</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">super</span><span class="p">(</span><span class="s2">&quot;ready!&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">//or just super() is fine</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<h4 id="new-project-class">New project class<a class="headerlink" href="#new-project-class" title="Permanent link">&para;</a></h4>
+<p>Similarly, the project class has been finalized too.
+Before 2020.3.0:
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: project&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">Project</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">project</span><span class="w"> </span><span class="nx">is</span><span class="w"> </span><span class="nx">Project</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">construct</span><span class="w"> </span><span class="ow">new</span><span class="p">(</span><span class="nx">target</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>And after: The base class is <code>Entry</code>, the actual class is <code>Project</code>, 
+and the constructor is called <code>entry</code> too.
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: project&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">Entry</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">Project</span><span class="w"> </span><span class="nx">is</span><span class="w"> </span><span class="nx">Entry</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">construct</span><span class="w"> </span><span class="nx">entry</span><span class="p">(</span><span class="nx">target</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<h4 id="access-your-game-class">Access your Game class<a class="headerlink" href="#access-your-game-class" title="Permanent link">&para;</a></h4>
+<p>You can now reach the live instance of your game class anywhere.</p>
+<p>Just use <code>import "luxe: game" for Game</code>, this variable contains your game instance.
+For example, <code>Game.app</code> would be accessible from other scripts now.</p>
+<h4 id="default-input-maps">default input maps<a class="headerlink" href="#default-input-maps" title="Permanent link">&para;</a></h4>
+<p>Previously input maps weren't loaded by the editor and the template didn't have one.
+This is better now, if you set <code>engine.input.entry</code> in your entry settings file,
+then the editor + the game will automatically load this input config for you. </p>
+<p>This means for example, previewing a scene in editor would work with the arcade module again,
+since it used input maps for input but there wasn't any loaded before.</p>
+<h4 id="new-main-loop">New main loop<a class="headerlink" href="#new-main-loop" title="Permanent link">&para;</a></h4>
+<p><strong>Renaming</strong>: Note that <code>World.tick_world</code> was renamed to <code>World.tick</code>, 
+and <code>World.tick_systems</code> was removed. We just use <code>World.tick</code> now.</p>
+<p>The main loop is getting closer to done too, so you now have access
+to it from anywhere and can schedule callbacks within it. 
+You can access it via <code>luxe: game</code> for <code>Frame</code> atm. 
+The system is a work in progress, but useful so far.</p>
+<p>The loop works based on sections, and at the moment those are predefined by luxe.
+They are <code>begin, init, sim, visual, end</code> in that order. Sim being simulation, as in the update function.</p>
+<p>You can use <code>Frame.on</code>, <code>Frame.before</code> and <code>Frame.after</code> to place callbacks in or around
+a section. These ones are recurring callbacks and happen every tick, they return a handle 
+that can be used with <code>Frame.off</code> to remove them.</p>
+<p>The other ones are once off callbacks.
+<code>Frame.queue</code> will run the callback at the end of the section that's running.
+<code>Frame.next</code> will run the callback at the start of a frame (before any sections)
+and <code>Frame.end</code> will runt the callback right at the end of the current frame (after all sections).</p>
+<p>As an example, empty project outline and samples now use it to update and render worlds.
+<strong>Note that you don't need to change anything</strong> in your project, it should still work as before even if you don't use this new form.
+<div class="highlight"><pre><span></span><code><span class="c1">//update our worlds</span>
+<span class="w">  </span><span class="nx">Frame</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="nx">Frame</span><span class="p">.</span><span class="nx">sim</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="o">|</span><span class="nx">delta</span><span class="o">|</span>
+<span class="w">    </span><span class="nx">World</span><span class="p">.</span><span class="nx">tick</span><span class="p">(</span><span class="nx">_world</span><span class="p">,</span><span class="w"> </span><span class="nx">delta</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">World</span><span class="p">.</span><span class="nx">tick</span><span class="p">(</span><span class="nx">_ui_world</span><span class="p">,</span><span class="w"> </span><span class="nx">delta</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="c1">//render our worlds</span>
+<span class="w">  </span><span class="nx">Frame</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="nx">Frame</span><span class="p">.</span><span class="nx">visual</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="o">|</span><span class="nx">delta</span><span class="o">|</span>
+<span class="w">    </span><span class="nx">World</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nx">_world</span><span class="p">,</span><span class="w"> </span><span class="nx">_camera</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;game&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s2">&quot;clear_color&quot;</span><span class="o">:</span><span class="nx">_color</span><span class="p">})</span>
+<span class="w">    </span><span class="nx">World</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nx">_ui_world</span><span class="p">,</span><span class="w"> </span><span class="nx">_ui_camera</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ui&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div></p>
+<h4 id="animation-events">Animation events<a class="headerlink" href="#animation-events" title="Permanent link">&para;</a></h4>
+<p>Animation tracks now have events, default ones, custom ones and a tick event.</p>
+<p>The default events are <code>start</code> and <code>complete</code> which fire when an animation
+begins playing and when it ends (via stop or otherwise). Note that these are 
+for the entire animation, not a particular track.</p>
+<p>For tracks, if you set <code>tick_event = true</code> in your anim asset for that track, 
+it will fire an event every time the animation is updated. This means you can
+now use an animation track to drive other things directly. Example below.</p>
+<p>The track also can have a list of custom events, which behave like keyframes.
+In this example, the animation is 0...1 on the timeline, but in the middle and quarter
+of the way through, a custom event will get fired each time that time is crossed.
+This let's you respond to keyframes directly, such as playing sounds or effects at key points.
+<em>(note that an audio track is still coming, but this means you can use them already).</em></p>
+<div class="highlight"><pre><span></span><code><span class="nx">events</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nx">time</span><span class="o">=</span><span class="mf">0.25</span><span class="w"> </span><span class="nx">event</span><span class="o">=</span><span class="s2">&quot;quarter&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nx">time</span><span class="o">=</span><span class="mf">0.5</span><span class="w"> </span><span class="nx">event</span><span class="o">=</span><span class="s2">&quot;middle&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+<p><strong>Listening to the events</strong> <br />
+The event handler is set on an animation instance, one that is returned from <code>Anim.play</code>.
+In the example below, the animation is fading in a mesh, but I'm using the tick event to also
+scale the mesh based on the values in the animation curve. 
+You can see it in action here: <a href="https://i.imgur.com/uYHNbOS.mp4">https://i.imgur.com/uYHNbOS.mp4</a>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">anim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Anim</span><span class="p">.</span><span class="nx">play</span><span class="p">(</span><span class="nx">entity</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;anims/example&quot;</span><span class="p">)</span>
+<span class="nx">Anim</span><span class="p">.</span><span class="nx">on_event</span><span class="p">(</span><span class="nx">entity</span><span class="p">,</span><span class="w"> </span><span class="nx">anim</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="o">|</span><span class="nx">entity</span><span class="p">,</span><span class="w"> </span><span class="nx">anim</span><span class="p">,</span><span class="w"> </span><span class="nx">time</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">,</span><span class="w"> </span><span class="nx">track_type</span><span class="p">,</span><span class="w"> </span><span class="nx">track</span><span class="p">,</span><span class="w"> </span><span class="nx">event</span><span class="o">|</span>
+<span class="w">  </span><span class="c1">//event will be `tick`, `start`, `complete` or a custom value.</span>
+<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="nx">Strings</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;tick&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">Entity</span><span class="p">.</span><span class="nx">valid</span><span class="p">(</span><span class="nx">entity</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">scale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">9.5</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mf">0.5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">value</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">Transform</span><span class="p">.</span><span class="nx">set_scale</span><span class="p">(</span><span class="nx">entity</span><span class="p">,</span><span class="w"> </span><span class="nx">scale</span><span class="p">,</span><span class="w"> </span><span class="nx">scale</span><span class="p">,</span><span class="w"> </span><span class="nx">scale</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<h4 id="ui-layout-api">UI Layout API<a class="headerlink" href="#ui-layout-api" title="Permanent link">&para;</a></h4>
+<p>There's a new modifier for doing dynamic layout with UI.
+It's documented in the <a href="../../learn/ui/basic-layout/">layout tutorial here</a>.</p>
+<h4 id="material-changes">Material changes<a class="headerlink" href="#material-changes" title="Permanent link">&para;</a></h4>
+<p>The format of the material basis has changed a bit. 
+Some of the changes are a warning and some are an error.
+You can look at the default assets to see more examples, but here's the changes:</p>
+<p>Write mask used to be a string, and is now a map, like <code>write_mask = { red=true green=true blue=true alpha=true }</code>. Any values left out will mean false, so <code>write_mask = { red=true }</code> will write only to the red channel. </p>
+<p><code>samplers</code> have been removed, images are now a regular input and not in a separate section. This affects the basis file (<code>.material_basis.lx</code>), the material instances (<code>.material.lx</code>) and the <code>Material.set_image</code>/<code>Material.get_image</code> API. </p>
+<p>Images are accessed by name (not index like before), like other material inputs, so the API is now <code>Material.set_input(material, "sprite.image", image)</code> and <code>var image = Material.get_input_image(material, "sprite.image")</code>.</p>
+<p>Before (this is from <code>sprite.material_basis.lx</code>):</p>
+<div class="highlight"><pre><span></span><code><span class="nx">samplers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">sprite</span><span class="p">.</span><span class="nx">image</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">    </span><span class="nx">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;image2D&quot;</span>
+<span class="w">    </span><span class="nx">sampler_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;linear_repeat&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">inputs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">sprite</span><span class="p">.</span><span class="nx">uv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;float4&quot;</span>
+<span class="w">    </span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="p">...</span>
+</code></pre></div>
+<p>After:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">inputs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">sprite</span><span class="p">.</span><span class="nx">image</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;image&quot;</span>
+<span class="w">    </span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;image2D&quot;</span>
+<span class="w">      </span><span class="nx">sampler_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;linear_repeat&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="nx">sprite</span><span class="p">.</span><span class="nx">uv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;float4&quot;</span>
+<span class="w">    </span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="p">...</span>
+</code></pre></div>
+<p>That's the basis, this is the material instances (this is from <code>logo.material.lx</code>):
+<div class="highlight"><pre><span></span><code><span class="nx">material</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">basis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;luxe: material_basis/sprite&quot;</span>
+<span class="w">  </span><span class="nx">samplers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;luxe: image/logo&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="nx">inputs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">sprite</span><span class="p">.</span><span class="nx">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="p">]</span>
+<span class="w">    </span><span class="nx">sprite</span><span class="p">.</span><span class="nx">uv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>After:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">material</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">basis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;luxe: material_basis/sprite&quot;</span>
+<span class="w">  </span><span class="nx">inputs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">sprite</span><span class="p">.</span><span class="nx">image</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;luxe: image/logo&quot;</span>
+<span class="w">    </span><span class="nx">sprite</span><span class="p">.</span><span class="nx">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="p">]</span>
+<span class="w">    </span><span class="nx">sprite</span><span class="p">.</span><span class="nx">uv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="mf">1</span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>docs - add wren intro</li>
+<li>docs - expand rendering concepts page</li>
+<li>docs - add UI basics + custom controls tutorial</li>
+<li>docs - document <code>UIEvent</code> </li>
+<li>input - add <code>all</code> node for convenience</li>
+<li>project - fix .luxeignore folders, <code>path/</code> now ignores path</li>
+<li>project - project class refactored and cleaned up</li>
+<li>project - added injected settings to entry settings </li>
+<li>project - magic settings: <code>project.name</code>, <code>project.version</code>, <code>project.package</code></li>
+<li>project - magic setting <code>project.build_type</code>, one of <code>dev</code> or <code>release</code></li>
+<li>outline - add default input map so e.g <code>arcade</code> just works</li>
+<li>samples - clear out old samples that were wrong, update ones that stay</li>
+<li>API - block in <code>Set</code> concept which will get used soon in more places</li>
+<li>game - add <code>engine.input.entry</code>, entry input asset to load</li>
+<li>game - main loop now running as sections with ranges + priorities</li>
+<li>game - main loop now accessible via <code>Frame</code> in <code>luxe: game</code></li>
+<li>game - add <code>Frame.next</code>, <code>Frame.end</code> and <code>Frame.queue</code></li>
+<li>game - game class refactored and cleaned up</li>
+<li>game - <code>luxe: game</code> for <code>Game</code>,<code>Renderer</code> for access from anywhere</li>
+<li>build - cache binary hash of binaries, so new builds trigger rebuilds</li>
+<li>world - renamed <code>World.tick_world</code> -&gt; <code>World.tick</code></li>
+<li>world - remove <code>World.tick_systems</code>, just <code>World.tick</code> is enough</li>
+<li>world - <code>Scene</code> scripts use <code>new(world)</code> + don't take an arg from <code>Scene.load</code></li>
+<li>world - add <code>World.clear(world)</code> which empties the world</li>
+<li>world - fix bug in <code>Entity.create</code> causing an internal assert (Whuop)</li>
+<li>tiles - add <code>get_color</code> and <code>set_color</code> per tile, in data + editor as well</li>
+<li>render - fix missing arg in Image.redefine (Ronja)</li>
+<li>render - material now has stencil refs (basis-&gt;material-&gt;geo)</li>
+<li>render - text now uses an array of images for fonts</li>
+<li>render - fixed bug with text bounds + vertical align being inverted</li>
+<li>render - mesh data in assets can specify stencil refs</li>
+<li>ui - add UIWindowChange for window change events </li>
+<li>ui - add layout helper (code only atm)</li>
+<li>ui - removed 'root' concepts in rendering, fixing several bugs + more efficient</li>
+<li>ui - <code>Control.set_events</code> is now plural, returns ID for <code>Control.unset_events</code></li>
+<li>ui - fix <code>enter</code> and <code>exit</code> meaning something different, now works as intended</li>
+<li>ui - fix scroll handles stealing focus even when not visible (Ronja)</li>
+<li>ui - add <code>UI.set_material_basis(ui, solid, text)</code></li>
+<li>strings - removed old <code>Glob</code> API (use <code>IO.wildcard_match(needle, haystack)</code>)</li>
+<li>material - shader library can now be specified per stage</li>
+<li>material - remove old samplers concepts + API (<code>Material.get_image/set_image</code>)</li>
+<li>material - write mask now a map <code>write_mask = { red=true green=true blue=true alpha=true }</code></li>
+<li>anim - tracks now have custom events <code>events=[{ time=0.5 event="event" }, ...]</code></li>
+<li>anim - anim now fires <code>start</code> and <code>complete</code> events on begin/end</li>
+<li>anim - use <code>Anim.on_event</code> + <code>|entity, anim, time, value, track_type, track, event|</code></li>
+<li>log - fix bug in log error checking that caused an SDL_RW error on log.txt</li>
+<li>wren - add <code>Num.tau</code>, on instances: <code>num.max(val)</code>, <code>num.min(val)</code>, <code>num.clamp(min,max)</code>. </li>
+</ul>
+<h2 id="202020">2020.2.0<a class="headerlink" href="#202020" title="Permanent link">&para;</a></h2>
+<p>Because of breaking changes, it's time for 2020.2.x
+Note that there may be a few more changes related to the same work in 2020.2.x, 
+it will always be clear what is changed.</p>
+<h4 id="ui-controls">UI Controls<a class="headerlink" href="#ui-controls" title="Permanent link">&para;</a></h4>
+<p>All UI controls (except Control itself, for now) now have 
+the UI prefix for consistency. That means <code>Button</code> becomes 
+<code>UIButton</code>, <code>Panel</code> =&gt; <code>UIPanel</code> etc. </p>
+<h4 id="image-api">Image API<a class="headerlink" href="#image-api" title="Permanent link">&para;</a></h4>
+<p>Previously the Image API was minimal and tucked under <code>Render.image_*</code>.
+<code>luxe: render</code> now has a proper <code>Image</code> class with a bunch of queries,
+a destroy function which was missing, and a <code>redefine</code> function, for
+resizing or recreating the same handle under a new ImageDesc.</p>
+<h4 id="transform-api">Transform API<a class="headerlink" href="#transform-api" title="Permanent link">&para;</a></h4>
+<p>Some of the 2D focused APIs, namely <code>Transform.set_depth</code> changed to 
+<code>set_depth2D</code>, as well as <code>get_depth2D</code>. <code>set_angle2D</code> now has <code>get_angle2D</code>,
+and in both cases a <code>_world</code> variant for world vs local space exists too.</p>
+<ul>
+<li>paths - fix for windows mklink needing root first (bin link)</li>
+<li>Added 2D depth + angle get/set for world + local</li>
+<li>modifiers tick in order of their priority (tilman)</li>
+<li>material inputs fix potential bug for defaults</li>
+<li>UI controls renamed</li>
+<li>UI canvas now requires a camera (technically was optional before)</li>
+<li>UI - text was flickering weirdly on some GPUs (ronja)</li>
+<li>UI - renamed entity arg to ui_entity for clarity</li>
+</ul>
+<h2 id="202012">2020.1.2<a class="headerlink" href="#202012" title="Permanent link">&para;</a></h2>
+<ul>
+<li>wren - fix some stack issues causing false script errors</li>
+<li>modules - fix some crashes in weird old code</li>
+<li>filewatch - fix some crashes due to pulling the rug on uv</li>
+<li>filewatch - paths normalized for consistency</li>
+<li>filewatch - fix bugs in add/remove e.g (bool same = strcmp(a,b))</li>
+<li>docs - document assert usage</li>
+<li>docs - update some sprite usage docs for clarity (eduardo)</li>
+<li>Lists.add_unique now returns true/false (true if added)</li>
+<li>ui - label now has color_hover options</li>
+<li>lx - add apply</li>
+</ul>
+<h2 id="202011">2020.1.1<a class="headerlink" href="#202011" title="Permanent link">&para;</a></h2>
+<ul>
+<li>block in Render.submit_now()</li>
+<li>Str.path uses native path normalization for consistency</li>
+<li>new luxe root folder support</li>
+<li>fix newlines in descriptions for modifiers</li>
+<li><code>luxe: events</code> now uses proper hash combining</li>
+<li>webgl1 support fixes, including new shader support</li>
+</ul>
+<h2 id="202010">2020.1.0<a class="headerlink" href="#202010" title="Permanent link">&para;</a></h2>
+<p>Another big release, lots of changes not listed likely...</p>
+<h4 id="new-versioning">new versioning<a class="headerlink" href="#new-versioning" title="Permanent link">&para;</a></h4>
+<p>The new 2020.x.x format is in use. 
+luxe 2020.1.x is compatible with editor 2020.1.x, 
+and will generally be stable or minor changes.
+This means any 2020.1.x update is safe, 
+where 2020.2.x might change bigger things.</p>
+<h4 id="new-projectmoduleslx">new project.modules.lx<a class="headerlink" href="#new-projectmoduleslx" title="Permanent link">&para;</a></h4>
+<p>This file tracks dependencies and metadata, including
+the version of luxe your project is using.</p>
+<h4 id="latest-wren">latest wren<a class="headerlink" href="#latest-wren" title="Permanent link">&para;</a></h4>
+<p>Previously luxe was a few years behind wren for reasons.
+It's now using the latest version.</p>
+<h4 id="new-prototypes">new prototypes<a class="headerlink" href="#new-prototypes" title="Permanent link">&para;</a></h4>
+<p>The new runtime based prototypes are online and 
+mostly working, variants too. They're editable in the editor
+and can be spawned and created from there. Modifiers can be 
+attached to instances once spawned, and overrides applied.
+There's also a newer api for dealing with the inner elements.
+Prototypes are now also an entity that is returned.</p>
+<h4 id="y-is-now-up-in-2d">Y+ is now up in 2D<a class="headerlink" href="#y-is-now-up-in-2d" title="Permanent link">&para;</a></h4>
+<p>Matches with 3D, fixes math to be consistent with trig functions,
+makes animation curves not upside down, and much more.
+Note that UI is still y+ down from top left origin.</p>
+<h4 id="updated-samples">updated samples<a class="headerlink" href="#updated-samples" title="Permanent link">&para;</a></h4>
+<p>Many samples were migrated for Y+ up and moved to system tests.
+This means they're a bit easier to read and understand, 
+have a readme and more. The sample template is now 
+also part of the API meaning samples share the same code.</p>
+<h4 id="_luxedata-is-gone-luxe-is-used"><code>_luxe.data</code> is gone, <code>.luxe</code> is used<a class="headerlink" href="#_luxedata-is-gone-luxe-is-used" title="Permanent link">&para;</a></h4>
+<p>Delete <code>_luxe.data</code> from any project, it will error on random issues.</p>
+<h4 id="changes">changes<a class="headerlink" href="#changes" title="Permanent link">&para;</a></h4>
+<ul>
+<li>audio - latest soloud</li>
+<li>script - fix clang windows + computed gotos (faster)</li>
+<li>script - fix memory leak on certain (failed) file reads</li>
+<li>script - fix leaks from scripts loaded to wren</li>
+<li>assets - fix size limit of 2gb on parcels</li>
+<li>lx - API usage now tracks source names for better errors</li>
+<li>lx - fix keys with dots in working with get/set/remove</li>
+<li>lx - now using native LX parser, much faster overall</li>
+<li>io - add time_since_epoch_utc</li>
+<li>io - add hash file</li>
+<li>events - add clear_all for tag</li>
+<li>spaces - in user names shouldn't break anymore</li>
+<li>shaders - add ref keyword</li>
+<li>text - fix many alignment and layout bugs</li>
+<li>anim - fix memory leaks on certain tracks</li>
+<li>anim - interpolation is now per key, fallback to track</li>
+<li>anim - layers -&gt; tracks</li>
+<li>anim - fix autoplay happening too early, fixes crashes</li>
+<li>anim - fix major bug on anim stop, affecting other anims</li>
+<li>tags - fix bug when removing tag that doesn't exist crashes</li>
+<li>draw - added rect detailed</li>
+<li>draw - circle conventions made consistent</li>
+<li>draw - fix circles having off by one error</li>
+<li>draw - ui - text now uses unique material, so no glitching</li>
+<li>transform - fix bug where linked entities stayed on destroy</li>
+<li>transform - add get_link/get_linked</li>
+<li>transform - add get/set world component wise</li>
+<li>transform - add set_euler_*_world</li>
+<li>transform - add get_euler_*_world</li>
+<li>transform - links in data are now uuid, not name</li>
+<li>transform - initial snap setting (for pixel snap, set to 1)</li>
+<li>UI - added draw rect detailed</li>
+<li>UI - add render mode settings (in world vs to image)</li>
+<li>UI - now works as intended in world space automatically</li>
+<li>UI - control/scroll/list: add get index for control</li>
+<li>UI - fix bug when control is invalid breaks further events</li>
+<li>UI - add window text/title size, redefine set_collapsed</li>
+<li>UI - fix dead entities existing in the UI &lt;-&gt; entity map</li>
+<li>UI - fix entities not destroying UI on destroy</li>
+<li>UI - fix render data cleanup on destroy</li>
+<li>bytes - add BytesWriter</li>
+<li>outlines - empty - add cameras to defaults</li>
+<li>deploy - fix luxe path when version is dev</li>
+<li>project - use <strong>project.modules.lx</strong> for dependencies</li>
+<li>project - now uses native wildcard, speeds up a lot</li>
+<li><code>luxe: array</code> - renamed to <code>luxe: containers</code></li>
+<li>Lists - add prepend/append</li>
+<li>added <code>luxe: test</code>, initial unit testing basis</li>
+<li>modules - version solver integrated (not active yet)</li>
+<li>text - Text.get_extents(entity) (no args)</li>
+<li>text - add get/set material</li>
+<li>modifiers - fix bug where path doesn't exist on create (tilman)</li>
+<li>modifiers - fix cached build state being wrong, now reliable</li>
+<li>modifiers - blocks are now refactored for the new workflow</li>
+<li>string - add quick wrap() helper</li>
+<li>string - add path_is_absolute</li>
+<li>input - add Input.deadzone(x, y, zone) for convenience</li>
+<li>scenes - fix multiple modifiers of same type in many layers</li>
+<li>scenes - fix compiling scenes from modules</li>
+<li>shape2d - add destroy</li>
+<li>shape2d - add get_bounds</li>
+<li>phys3d - add capsule shape</li>
+<li>phys3d - add cast_shape</li>
+<li>phys3d - add set_allow_rotation</li>
+<li>phys3d - add query_sphere and query_box</li>
+<li>phys3d - fix major bug in debug mode vs release (scaling)</li>
+<li>tiles - add get_all</li>
+<li>tiles - add get all with visual</li>
+<li>tiles - fix bugs with pairing functions on web target</li>
+<li>tiles - fix bug with tile not changing</li>
+<li>values - add has_key</li>
+<li>values - fix editor changing values</li>
+<li>values - add clear</li>
+<li>math - add random_point_in_unit_circle</li>
+<li>math - add smoothstep, smootherstep, weighted_avg</li>
+<li>math - add map_linear, nearest_power_of_two, within_range</li>
+<li>math - add wrap_radians, wrap_angle, lerp_angle, angle_delta</li>
+<li>render - add trilinear sampler states</li>
+<li>render - add material input blocks</li>
+<li>render - refactor material inputs for consistency and usage</li>
+<li>render - render pass layers now use material inputs (breaking)</li>
+<li>render - layers + images now have a display_id (renderdoc)</li>
+<li>image - add generate_mips flag in image.lx</li>
+<li>image - load before basis since they can be used as defaults now</li>
+<li>settings - load settings before game.wren</li>
+<li>build - fix script compiler error about a newline after a dot</li>
+</ul>
+<h2 id="100-dev86">1.0.0-dev.86<a class="headerlink" href="#100-dev86" title="Permanent link">&para;</a></h2>
+<ul>
+<li>tiles - fixed crash on querying empty tilemap for tags</li>
+<li>tiles - fixed crash in removing tiles in editor</li>
+<li>script - allow release builds access to modules opt in</li>
+</ul>
+<h2 id="100-dev85">1.0.0-dev.85<a class="headerlink" href="#100-dev85" title="Permanent link">&para;</a></h2>
+<ul>
+<li>io - added file watch events on desktop</li>
+<li>log - try more resilient log writes over cwd</li>
+<li>log - add log level control from entry settings</li>
+<li>settings - add Settings.apply</li>
+<li>render - blocked in image redefinition for later</li>
+<li>world - add <code>Scene.entity_list</code></li>
+<li>world - add <code>Prototype.entity_list</code></li>
+<li>modifiers - require 'class' field in modifier.lx</li>
+<li>modifiers - prevent using keywords in fields (tilman)</li>
+<li>modifiers - fix bugs in modifiers with booleans</li>
+<li>moduler - disable old auto download properly</li>
+</ul>
+<h2 id="100-dev84">1.0.0-dev.84<a class="headerlink" href="#100-dev84" title="Permanent link">&para;</a></h2>
+<ul>
+<li>docs - new docs for <code>Sprite</code>, <code>Anim</code> and more.</li>
+<li>settings - add background_sleep setting to window</li>
+<li>debug - fixed wren debugger on linux</li>
+<li>sat2d - fix returns no overlap on missed circle collision</li>
+<li>render - fix crash accessing out of bounds images</li>
+<li>tiles - add Tile api for set/get tile size</li>
+<li>tiles - fixed internal data desync as depth/coord change</li>
+<li>wren - fixed += etc not being allowed by script compiler</li>
+</ul>
+<h2 id="100-dev83">1.0.0-dev.83<a class="headerlink" href="#100-dev83" title="Permanent link">&para;</a></h2>
+<ul>
+<li>web - web deploy should work again</li>
+<li>world - Scene, Layer, Prototype now exist (not on World.*)</li>
+<li>anim - renamed animation layers -&gt; tracks</li>
+<li>text - fixed vertical align with bounds &gt; 1 line</li>
+<li>render - added sort_by_z, sort_by_z_reverse, none</li>
+<li>build - fixed bug causing run to fail on prior errors</li>
+<li>build - fixed jump to error for project.luxe files</li>
+<li>docs - added link to wren in workflow</li>
+<li>docs - added a few more tutorials</li>
+<li>docs - cleaned up some details</li>
+<li>Sprite - added <code>Sprite.contains(entity, x, y)</code></li>
+<li>ui - scroll handles block mouse events leaking</li>
+<li>engine - added event stream for e.g resized</li>
+</ul>
+<h2 id="100-dev82">1.0.0-dev.82<a class="headerlink" href="#100-dev82" title="Permanent link">&para;</a></h2>
+<ul>
+<li>anim - system refactored, data changed. see samples!</li>
+<li>anim - return instance handles, api uses them now</li>
+<li>anim - repeats renamed to play_count</li>
+<li>anim - loop=true/false added to data files</li>
+<li>anim - added anim modifier, with auto play list</li>
+<li>anim - fixed transform anims in edit mode</li>
+<li>anim - add reset on stop, so state can be reverted</li>
+<li>anim - add y range (so y can be relative or absolute)</li>
+<li>anim - add play_only for solo playing</li>
+<li>tiles - fix bugs in painting tiles</li>
+<li>camera - add get/set default for a world</li>
+<li>camera - get_fov_vertical, get_near, get_far, get_aspect</li>
+<li>camera - get_projection</li>
+<li>entity - Entity.world -&gt; Entity.get_world</li>
+<li>world - systems have a priorty to sort by (temporary)</li>
+<li>transform - add get_rotation_matrix</li>
+<li>transform - add look at, set angle axis, rotate angle axis</li>
+<li>transform - scene load now tries linking objects on load</li>
+<li>mesh - add control over enabled and active mesh levels</li>
+<li>mesh - add level/element count getters</li>
+<li>ui - select all with cmd-a/ctrl-a in text fields</li>
+<li>ui - add component-wise size getters for controls</li>
+<li>ui - fix controls crossing UI canvas owners</li>
+<li>ui - add engine.ui.debug_vis setting</li>
+<li>ui - add input graph node setting to canvas</li>
+<li>ui - add window close/collapse functions</li>
+<li>ui - add canvas enumeration</li>
+<li>sat2d - fix shape sweeps, poly vs poly edge case</li>
+<li>sat2d - return intersected, normals for sweeps</li>
+<li>physics - don't simulate in edit mode</li>
+<li>physics2d - now using bullet only, liquidfun is gone</li>
+<li>physics2d - refactor APIs a lot. Body2D. see samples</li>
+<li>physics3d - blocking in 3d apis</li>
+<li>bytes - add clear, write_uuid</li>
+<li>math - add distance for vectors, lerp</li>
+<li>string - fix for fixed function broke on non decimals</li>
+<li>assets - string data loaded in release builds</li>
+<li>assets - wip packable modules</li>
+<li>io - added zip_decompress for byte decompression</li>
+<li>settings - fixed bool type (fullscreen flag now works)</li>
+<li>window - x/y positions can be set from settings</li>
+<li>window - engine.runtime.window.display for which monitor</li>
+<li>render - better error messages in several places</li>
+<li>render - fix array images internally (data driven atm)</li>
+<li>render - added array types to material inputs/shaders</li>
+<li>render - send camera pos and world matrix to shaders</li>
+<li>render - add image generate mipmaps helper</li>
+<li>render - add tick to renderer script</li>
+<li>render - add R and RG image types</li>
+<li>wren - experimental debugger support via vscode</li>
+<li>wren - added Num log2 and exp</li>
+<li>wren - fixed script compiler missing new fields</li>
+<li>wren - optimized script compiling, more reliable now</li>
+<li>wren - added <code>+= -= /= *= &amp;= |= &gt;&gt;= &lt;&lt;= ^= %=</code></li>
+</ul>
+<h2 id="100-dev81">1.0.0-dev.81<a class="headerlink" href="#100-dev81" title="Permanent link">&para;</a></h2>
+<ul>
+<li>web builds are back (<code>luxe deploy --target web</code>)</li>
+<li>image - add api for getting bytes from an image</li>
+<li>camera - add apis for get/set matrices</li>
+<li>camera - add look at, clip to world and world to clip</li>
+<li>tiles - apis for grabbing tiles by tag and depth</li>
+<li>fonts - fix accessing invalid pages sometimes</li>
+<li>bytes - fix <code>pos=</code> assertions</li>
+<li>fix CI for linux builds + include linux build</li>
+</ul>
+<h2 id="100-dev80">1.0.0-dev.80<a class="headerlink" href="#100-dev80" title="Permanent link">&para;</a></h2>
+<ul>
+<li>important world bug fixes</li>
+<li>added settings.lx loading </li>
+</ul>
+<h2 id="100-dev79">1.0.0-dev.79<a class="headerlink" href="#100-dev79" title="Permanent link">&para;</a></h2>
+<ul>
+<li>update samples and readmes for samples</li>
+</ul>
+<h2 id="100-dev78">1.0.0-dev.78<a class="headerlink" href="#100-dev78" title="Permanent link">&para;</a></h2>
+<ul>
+<li>fixed custom modifiers</li>
+<li>lots of other stuff</li>
+</ul>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 3, 2025 06:41:06 UTC">September 3, 2025</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/luxeengine" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 0c4.42 0 8 3.58 8 8a8.01 8.01 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27s-1.36.09-2 .27c-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8"/></svg>
+    </a>
+  
+</div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["instant", "navigation.prune"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1254 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../../../images/luxe-favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Arcade - luxe engine</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../css/extra.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="luxe engine" class="md-header__button md-logo" aria-label="luxe engine" data-md-component="logo">
+      
+  <img src="../../../../../images/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            luxe engine
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Arcade
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="pink" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="luxe engine" class="md-nav__button md-logo" aria-label="luxe engine" data-md-component="logo">
+      
+  <img src="../../../../../images/logo.svg" alt="logo">
+
+    </a>
+    luxe engine
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    about
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../get/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    install
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    guide
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../tutorials/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    tutorials
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../learn/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    learn ...
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../manual/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    manual
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1"><img alt="" src="../../../images/luxe-dark.svg" width="96em" /><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h1 id="arcade-api-0015"><code>arcade</code> API (<code>0.0.15</code>)<a class="headerlink" href="#arcade-api-0015" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="arcade-modifierarcade-module"><code>arcade: modifier/arcade</code> module<a class="headerlink" href="#arcade-modifierarcade-module" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#arcade">Arcade</a>   </li>
+<li><a href="#collisionevent">CollisionEvent</a>   </li>
+<li><a href="#contactcache">ContactCache</a>   </li>
+<li><a href="#contactstate">ContactState</a>   </li>
+<li><a href="#shape2ddraw">Shape2DDraw</a>   </li>
+<li><a href="#shapetype">ShapeType</a>   </li>
+<li><a href="#simplespatialhash">SimpleSpatialHash</a>   </li>
+</ul>
+<hr />
+<h3 id="arcade">Arcade<a class="headerlink" href="#arcade" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;arcade: modifier/arcade&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">Arcade</span></code></p>
+<blockquote>
+<p>no docs found</p>
+</blockquote>
+<ul>
+<li><a href="#Arcade.create">create</a>(<strong>entity</strong>: <code>Any</code>)</li>
+<li><a href="#Arcade.destroy">destroy</a>(<strong>entity</strong>: <code>Any</code>)</li>
+<li><a href="#Arcade.has">has</a>(<strong>entity</strong>: <code>Any</code>)</li>
+<li><a href="#Arcade.get_vel">get_vel</a>(<strong>entity</strong>: <code>Any</code>)</li>
+<li><a href="#Arcade.set_vel+2">set_vel</a>(<strong>entity</strong>: <code>Any</code>, <strong>vel</strong>: <code>Any</code>)</li>
+<li><a href="#Arcade.get_vel_min">get_vel_min</a>(<strong>entity</strong>: <code>Any</code>)</li>
+<li><a href="#Arcade.set_vel_min+2">set_vel_min</a>(<strong>entity</strong>: <code>Any</code>, <strong>min</strong>: <code>Any</code>)</li>
+<li><a href="#Arcade.get_acc">get_acc</a>(<strong>entity</strong>: <code>Any</code>)</li>
+<li><a href="#Arcade.set_acc+2">set_acc</a>(<strong>entity</strong>: <code>Any</code>, <strong>acc</strong>: <code>Any</code>)</li>
+<li><a href="#Arcade.get_max_speed">get_max_speed</a>(<strong>entity</strong>: <code>Any</code>)</li>
+<li><a href="#Arcade.set_max_speed+2">set_max_speed</a>(<strong>entity</strong>: <code>Any</code>, <strong>max_speed</strong>: <code>Any</code>)</li>
+<li><a href="#Arcade.get_solid">get_solid</a>(<strong>entity</strong>: <code>Any</code>)</li>
+<li><a href="#Arcade.set_solid+2">set_solid</a>(<strong>entity</strong>: <code>Any</code>, <strong>solid</strong>: <code>Any</code>)</li>
+<li><a href="#Arcade.get_dynamic">get_dynamic</a>(<strong>entity</strong>: <code>Any</code>)</li>
+<li><a href="#Arcade.set_dynamic+2">set_dynamic</a>(<strong>entity</strong>: <code>Any</code>, <strong>dynamic</strong>: <code>Any</code>)</li>
+<li><a href="#Arcade.get_restitution">get_restitution</a>(<strong>entity</strong>: <code>Any</code>)</li>
+<li><a href="#Arcade.set_restitution+2">set_restitution</a>(<strong>entity</strong>: <code>Any</code>, <strong>restitution</strong>: <code>Any</code>)</li>
+<li><a href="#Arcade.get_drag">get_drag</a>(<strong>entity</strong>: <code>Any</code>)</li>
+<li><a href="#Arcade.set_drag+2">set_drag</a>(<strong>entity</strong>: <code>Any</code>, <strong>drag</strong>: <code>Any</code>)</li>
+<li><a href="#Arcade.set_drag_x+2">set_drag_x</a>(<strong>entity</strong>: <code>Any</code>, <strong>drag_x</strong>: <code>Any</code>)</li>
+<li><a href="#Arcade.set_drag_y+2">set_drag_y</a>(<strong>entity</strong>: <code>Any</code>, <strong>drag_y</strong>: <code>Any</code>)</li>
+<li><a href="#Arcade.add_collision_callback+2">add_collision_callback</a>(<strong>entity</strong>: <code>Any</code>, <strong>fn</strong>: <code>Any</code>)</li>
+<li><a href="#Arcade.remove_collision_callback+2">remove_collision_callback</a>(<strong>entity</strong>: <code>Any</code>, <strong>fn</strong>: <code>Any</code>)</li>
+<li><a href="#Arcade.get_frame_collision_normals">get_frame_collision_normals</a>(<strong>entity</strong>: <code>Any</code>)</li>
+<li><a href="#Arcade.collided_with_normal_angle+3">collided_with_normal_angle</a>(<strong>entity</strong>: <code>Any</code>, <strong>angle_center</strong>: <code>Any</code>, <strong>angle_spread</strong>: <code>Any</code>)</li>
+<li><a href="#Arcade.set_shape_type+2">set_shape_type</a>(<strong>entity</strong>: <code>Any</code>, <strong>shape_type</strong>: <code>Any</code>)</li>
+<li><a href="#Arcade.get_shape_type">get_shape_type</a>(<strong>entity</strong>: <code>Any</code>)</li>
+<li><a href="#Arcade.get_width">get_width</a>(<strong>entity</strong>: <code>Any</code>)</li>
+<li><a href="#Arcade.get_height">get_height</a>(<strong>entity</strong>: <code>Any</code>)</li>
+<li><a href="#Arcade.set_width+2">set_width</a>(<strong>entity</strong>: <code>Any</code>, <strong>width</strong>: <code>Any</code>)</li>
+<li><a href="#Arcade.set_height+2">set_height</a>(<strong>entity</strong>: <code>Any</code>, <strong>height</strong>: <code>Any</code>)</li>
+<li><a href="#Arcade.set_centered+2">set_centered</a>(<strong>entity</strong>: <code>Any</code>, <strong>centered</strong>: <code>Any</code>)</li>
+<li><a href="#Arcade.set_radius+2">set_radius</a>(<strong>entity</strong>: <code>Any</code>, <strong>radius</strong>: <code>Any</code>)</li>
+<li><a href="#Arcade.set_broadphase_cell_size+2">set_broadphase_cell_size</a>(<strong>world</strong>: <code>Any</code>, <strong>size</strong>: <code>Any</code>)</li>
+<li><a href="#Arcade.set_debug_draw_enabled+2">set_debug_draw_enabled</a>(<strong>world</strong>: <code>Any</code>, <strong>enabled</strong>: <code>Any</code>)</li>
+<li><a href="#Arcade.get_debug_draw_enabled">get_debug_draw_enabled</a>(<strong>world</strong>: <code>Any</code>)</li>
+<li><a href="#Arcade.toggle_debug_draw_enabled">toggle_debug_draw_enabled</a>(<strong>world</strong>: <code>Any</code>)</li>
+<li><a href="#Arcade.set_ignored+3">set_ignored</a>(<strong>entity</strong>: <code>Any</code>, <strong>other</strong>: <code>Any</code>, <strong>state</strong>: <code>Any</code>)</li>
+<li><a href="#Arcade.refresh">refresh</a>(<strong>entity</strong>: <code>Any</code>)</li>
+</ul>
+<hr/>
+<p><endpoint module="arcade: modifier/arcade" class="Arcade" signature="create(entity : Any)"></endpoint>
+<signature id="Arcade.create">Arcade.create(<strong>entity</strong>: <code>Any</code>)
+<a class="headerlink" href="#Arcade.create" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="Arcade" signature="destroy(entity : Any)"></endpoint>
+<signature id="Arcade.destroy">Arcade.destroy(<strong>entity</strong>: <code>Any</code>)
+<a class="headerlink" href="#Arcade.destroy" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="Arcade" signature="has(entity : Any)"></endpoint>
+<signature id="Arcade.has">Arcade.has(<strong>entity</strong>: <code>Any</code>)
+<a class="headerlink" href="#Arcade.has" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="Arcade" signature="get_vel(entity : Any)"></endpoint>
+<signature id="Arcade.get_vel">Arcade.get_vel(<strong>entity</strong>: <code>Any</code>)
+<a class="headerlink" href="#Arcade.get_vel" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="Arcade" signature="set_vel(entity : Any, vel : Any)"></endpoint>
+<signature id="Arcade.set_vel+2">Arcade.set_vel(<strong>entity</strong>: <code>Any</code>, <strong>vel</strong>: <code>Any</code>)
+<a class="headerlink" href="#Arcade.set_vel+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="Arcade" signature="get_vel_min(entity : Any)"></endpoint>
+<signature id="Arcade.get_vel_min">Arcade.get_vel_min(<strong>entity</strong>: <code>Any</code>)
+<a class="headerlink" href="#Arcade.get_vel_min" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="Arcade" signature="set_vel_min(entity : Any, min : Any)"></endpoint>
+<signature id="Arcade.set_vel_min+2">Arcade.set_vel_min(<strong>entity</strong>: <code>Any</code>, <strong>min</strong>: <code>Any</code>)
+<a class="headerlink" href="#Arcade.set_vel_min+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="Arcade" signature="get_acc(entity : Any)"></endpoint>
+<signature id="Arcade.get_acc">Arcade.get_acc(<strong>entity</strong>: <code>Any</code>)
+<a class="headerlink" href="#Arcade.get_acc" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="Arcade" signature="set_acc(entity : Any, acc : Any)"></endpoint>
+<signature id="Arcade.set_acc+2">Arcade.set_acc(<strong>entity</strong>: <code>Any</code>, <strong>acc</strong>: <code>Any</code>)
+<a class="headerlink" href="#Arcade.set_acc+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="Arcade" signature="get_max_speed(entity : Any)"></endpoint>
+<signature id="Arcade.get_max_speed">Arcade.get_max_speed(<strong>entity</strong>: <code>Any</code>)
+<a class="headerlink" href="#Arcade.get_max_speed" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="Arcade" signature="set_max_speed(entity : Any, max_speed : Any)"></endpoint>
+<signature id="Arcade.set_max_speed+2">Arcade.set_max_speed(<strong>entity</strong>: <code>Any</code>, <strong>max_speed</strong>: <code>Any</code>)
+<a class="headerlink" href="#Arcade.set_max_speed+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="Arcade" signature="get_solid(entity : Any)"></endpoint>
+<signature id="Arcade.get_solid">Arcade.get_solid(<strong>entity</strong>: <code>Any</code>)
+<a class="headerlink" href="#Arcade.get_solid" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="Arcade" signature="set_solid(entity : Any, solid : Any)"></endpoint>
+<signature id="Arcade.set_solid+2">Arcade.set_solid(<strong>entity</strong>: <code>Any</code>, <strong>solid</strong>: <code>Any</code>)
+<a class="headerlink" href="#Arcade.set_solid+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="Arcade" signature="get_dynamic(entity : Any)"></endpoint>
+<signature id="Arcade.get_dynamic">Arcade.get_dynamic(<strong>entity</strong>: <code>Any</code>)
+<a class="headerlink" href="#Arcade.get_dynamic" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="Arcade" signature="set_dynamic(entity : Any, dynamic : Any)"></endpoint>
+<signature id="Arcade.set_dynamic+2">Arcade.set_dynamic(<strong>entity</strong>: <code>Any</code>, <strong>dynamic</strong>: <code>Any</code>)
+<a class="headerlink" href="#Arcade.set_dynamic+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="Arcade" signature="get_restitution(entity : Any)"></endpoint>
+<signature id="Arcade.get_restitution">Arcade.get_restitution(<strong>entity</strong>: <code>Any</code>)
+<a class="headerlink" href="#Arcade.get_restitution" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="Arcade" signature="set_restitution(entity : Any, restitution : Any)"></endpoint>
+<signature id="Arcade.set_restitution+2">Arcade.set_restitution(<strong>entity</strong>: <code>Any</code>, <strong>restitution</strong>: <code>Any</code>)
+<a class="headerlink" href="#Arcade.set_restitution+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="Arcade" signature="get_drag(entity : Any)"></endpoint>
+<signature id="Arcade.get_drag">Arcade.get_drag(<strong>entity</strong>: <code>Any</code>)
+<a class="headerlink" href="#Arcade.get_drag" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="Arcade" signature="set_drag(entity : Any, drag : Any)"></endpoint>
+<signature id="Arcade.set_drag+2">Arcade.set_drag(<strong>entity</strong>: <code>Any</code>, <strong>drag</strong>: <code>Any</code>)
+<a class="headerlink" href="#Arcade.set_drag+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="Arcade" signature="set_drag_x(entity : Any, drag_x : Any)"></endpoint>
+<signature id="Arcade.set_drag_x+2">Arcade.set_drag_x(<strong>entity</strong>: <code>Any</code>, <strong>drag_x</strong>: <code>Any</code>)
+<a class="headerlink" href="#Arcade.set_drag_x+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="Arcade" signature="set_drag_y(entity : Any, drag_y : Any)"></endpoint>
+<signature id="Arcade.set_drag_y+2">Arcade.set_drag_y(<strong>entity</strong>: <code>Any</code>, <strong>drag_y</strong>: <code>Any</code>)
+<a class="headerlink" href="#Arcade.set_drag_y+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="Arcade" signature="add_collision_callback(entity : Any, fn : Any)"></endpoint>
+<signature id="Arcade.add_collision_callback+2">Arcade.add_collision_callback(<strong>entity</strong>: <code>Any</code>, <strong>fn</strong>: <code>Any</code>)
+<a class="headerlink" href="#Arcade.add_collision_callback+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="Arcade" signature="remove_collision_callback(entity : Any, fn : Any)"></endpoint>
+<signature id="Arcade.remove_collision_callback+2">Arcade.remove_collision_callback(<strong>entity</strong>: <code>Any</code>, <strong>fn</strong>: <code>Any</code>)
+<a class="headerlink" href="#Arcade.remove_collision_callback+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="Arcade" signature="get_frame_collision_normals(entity : Any)"></endpoint>
+<signature id="Arcade.get_frame_collision_normals">Arcade.get_frame_collision_normals(<strong>entity</strong>: <code>Any</code>)
+<a class="headerlink" href="#Arcade.get_frame_collision_normals" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="Arcade" signature="collided_with_normal_angle(entity : Any, angle_center : Any, angle_spread : Any)"></endpoint>
+<signature id="Arcade.collided_with_normal_angle+3">Arcade.collided_with_normal_angle(<strong>entity</strong>: <code>Any</code>, <strong>angle_center</strong>: <code>Any</code>, <strong>angle_spread</strong>: <code>Any</code>)
+<a class="headerlink" href="#Arcade.collided_with_normal_angle+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="Arcade" signature="set_shape_type(entity : Any, shape_type : Any)"></endpoint>
+<signature id="Arcade.set_shape_type+2">Arcade.set_shape_type(<strong>entity</strong>: <code>Any</code>, <strong>shape_type</strong>: <code>Any</code>)
+<a class="headerlink" href="#Arcade.set_shape_type+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="Arcade" signature="get_shape_type(entity : Any)"></endpoint>
+<signature id="Arcade.get_shape_type">Arcade.get_shape_type(<strong>entity</strong>: <code>Any</code>)
+<a class="headerlink" href="#Arcade.get_shape_type" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="Arcade" signature="get_width(entity : Any)"></endpoint>
+<signature id="Arcade.get_width">Arcade.get_width(<strong>entity</strong>: <code>Any</code>)
+<a class="headerlink" href="#Arcade.get_width" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="Arcade" signature="get_height(entity : Any)"></endpoint>
+<signature id="Arcade.get_height">Arcade.get_height(<strong>entity</strong>: <code>Any</code>)
+<a class="headerlink" href="#Arcade.get_height" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="Arcade" signature="set_width(entity : Any, width : Any)"></endpoint>
+<signature id="Arcade.set_width+2">Arcade.set_width(<strong>entity</strong>: <code>Any</code>, <strong>width</strong>: <code>Any</code>)
+<a class="headerlink" href="#Arcade.set_width+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="Arcade" signature="set_height(entity : Any, height : Any)"></endpoint>
+<signature id="Arcade.set_height+2">Arcade.set_height(<strong>entity</strong>: <code>Any</code>, <strong>height</strong>: <code>Any</code>)
+<a class="headerlink" href="#Arcade.set_height+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="Arcade" signature="set_centered(entity : Any, centered : Any)"></endpoint>
+<signature id="Arcade.set_centered+2">Arcade.set_centered(<strong>entity</strong>: <code>Any</code>, <strong>centered</strong>: <code>Any</code>)
+<a class="headerlink" href="#Arcade.set_centered+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="Arcade" signature="set_radius(entity : Any, radius : Any)"></endpoint>
+<signature id="Arcade.set_radius+2">Arcade.set_radius(<strong>entity</strong>: <code>Any</code>, <strong>radius</strong>: <code>Any</code>)
+<a class="headerlink" href="#Arcade.set_radius+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="Arcade" signature="set_broadphase_cell_size(world : Any, size : Any)"></endpoint>
+<signature id="Arcade.set_broadphase_cell_size+2">Arcade.set_broadphase_cell_size(<strong>world</strong>: <code>Any</code>, <strong>size</strong>: <code>Any</code>)
+<a class="headerlink" href="#Arcade.set_broadphase_cell_size+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="Arcade" signature="set_debug_draw_enabled(world : Any, enabled : Any)"></endpoint>
+<signature id="Arcade.set_debug_draw_enabled+2">Arcade.set_debug_draw_enabled(<strong>world</strong>: <code>Any</code>, <strong>enabled</strong>: <code>Any</code>)
+<a class="headerlink" href="#Arcade.set_debug_draw_enabled+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="Arcade" signature="get_debug_draw_enabled(world : Any)"></endpoint>
+<signature id="Arcade.get_debug_draw_enabled">Arcade.get_debug_draw_enabled(<strong>world</strong>: <code>Any</code>)
+<a class="headerlink" href="#Arcade.get_debug_draw_enabled" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="Arcade" signature="toggle_debug_draw_enabled(world : Any)"></endpoint>
+<signature id="Arcade.toggle_debug_draw_enabled">Arcade.toggle_debug_draw_enabled(<strong>world</strong>: <code>Any</code>)
+<a class="headerlink" href="#Arcade.toggle_debug_draw_enabled" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="Arcade" signature="set_ignored(entity : Any, other : Any, state : Any)"></endpoint>
+<signature id="Arcade.set_ignored+3">Arcade.set_ignored(<strong>entity</strong>: <code>Any</code>, <strong>other</strong>: <code>Any</code>, <strong>state</strong>: <code>Any</code>)
+<a class="headerlink" href="#Arcade.set_ignored+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="Arcade" signature="refresh(entity : Any)"></endpoint>
+<signature id="Arcade.refresh">Arcade.refresh(<strong>entity</strong>: <code>Any</code>)
+<a class="headerlink" href="#Arcade.refresh" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<h3 id="collisionevent">CollisionEvent<a class="headerlink" href="#collisionevent" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;arcade: modifier/arcade&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">CollisionEvent</span></code></p>
+<blockquote>
+<p>no docs found</p>
+</blockquote>
+<ul>
+<li><a href="#CollisionEvent.begin">begin</a></li>
+<li><a href="#CollisionEvent.overlap">overlap</a></li>
+<li><a href="#CollisionEvent.end">end</a></li>
+<li><a href="#CollisionEvent.name">name</a>(<strong>value</strong>: <code>Any</code>)</li>
+</ul>
+<hr/>
+<p><endpoint module="arcade: modifier/arcade" class="CollisionEvent" signature="begin"></endpoint>
+<signature id="CollisionEvent.begin">CollisionEvent.begin
+<a class="headerlink" href="#CollisionEvent.begin" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="CollisionEvent" signature="overlap"></endpoint>
+<signature id="CollisionEvent.overlap">CollisionEvent.overlap
+<a class="headerlink" href="#CollisionEvent.overlap" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="CollisionEvent" signature="end"></endpoint>
+<signature id="CollisionEvent.end">CollisionEvent.end
+<a class="headerlink" href="#CollisionEvent.end" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="CollisionEvent" signature="name(value : Any)"></endpoint>
+<signature id="CollisionEvent.name">CollisionEvent.name(<strong>value</strong>: <code>Any</code>)
+<a class="headerlink" href="#CollisionEvent.name" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<h3 id="contactcache">ContactCache<a class="headerlink" href="#contactcache" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;arcade: modifier/arcade&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">ContactCache</span></code></p>
+<blockquote>
+<p>no docs found</p>
+</blockquote>
+<ul>
+<li><a href="#ContactCache.new">new</a>()</li>
+<li><a href="#ContactCache.listen+2">listen</a>(<strong>entity</strong>: <code>Any</code>, <strong>fn</strong>: <code>Any</code>)</li>
+<li><a href="#ContactCache.unlisten+2">unlisten</a>(<strong>entity</strong>: <code>Any</code>, <strong>fn</strong>: <code>Any</code>)</li>
+<li><a href="#ContactCache.track">track</a>(<strong>entity</strong>: <code>Any</code>)</li>
+<li><a href="#ContactCache.untrack">untrack</a>(<strong>entity</strong>: <code>Any</code>)</li>
+<li><a href="#ContactCache.overlapped+4">overlapped</a>(<strong>entity_a</strong>: <code>Any</code>, <strong>entity_b</strong>: <code>Any</code>, <strong>normal</strong>: <code>Any</code>, <strong>overlap_dist</strong>: <code>Any</code>)</li>
+<li><a href="#ContactCache.send_event+6">send_event</a>(<strong>entity_a</strong>: <code>Any</code>, <strong>entity_b</strong>: <code>Any</code>, <strong>state</strong>: <code>Any</code>, <strong>normal</strong>: <code>Any</code>, <strong>overlap_dist</strong>: <code>Any</code>, <strong>flip</strong>: <code>Any</code>)</li>
+<li><a href="#ContactCache.set_ignored+3">set_ignored</a>(<strong>entity_a</strong>: <code>Any</code>, <strong>entity_b</strong>: <code>Any</code>, <strong>ignored</strong>: <code>Any</code>)</li>
+<li><a href="#ContactCache.is_ignored+2">is_ignored</a>(<strong>entity_a</strong>: <code>Any</code>, <strong>entity_b</strong>: <code>Any</code>)</li>
+<li><a href="#ContactCache.post_collision">post_collision</a>()</li>
+</ul>
+<hr/>
+<p><endpoint module="arcade: modifier/arcade" class="ContactCache" signature="new()"></endpoint>
+<signature id="ContactCache.new">ContactCache.new()
+<a class="headerlink" href="#ContactCache.new" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">ContactCache</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="ContactCache" signature="listen(entity : Any, fn : Any)"></endpoint>
+<signature id="ContactCache.listen+2">ContactCache.listen(<strong>entity</strong>: <code>Any</code>, <strong>fn</strong>: <code>Any</code>)
+<a class="headerlink" href="#ContactCache.listen+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="ContactCache" signature="unlisten(entity : Any, fn : Any)"></endpoint>
+<signature id="ContactCache.unlisten+2">ContactCache.unlisten(<strong>entity</strong>: <code>Any</code>, <strong>fn</strong>: <code>Any</code>)
+<a class="headerlink" href="#ContactCache.unlisten+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="ContactCache" signature="track(entity : Any)"></endpoint>
+<signature id="ContactCache.track">ContactCache.track(<strong>entity</strong>: <code>Any</code>)
+<a class="headerlink" href="#ContactCache.track" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="ContactCache" signature="untrack(entity : Any)"></endpoint>
+<signature id="ContactCache.untrack">ContactCache.untrack(<strong>entity</strong>: <code>Any</code>)
+<a class="headerlink" href="#ContactCache.untrack" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="ContactCache" signature="overlapped(entity_a : Any, entity_b : Any, normal : Any, overlap_dist : Any)"></endpoint>
+<signature id="ContactCache.overlapped+4">ContactCache.overlapped(<strong>entity_a</strong>: <code>Any</code>, <strong>entity_b</strong>: <code>Any</code>, <strong>normal</strong>: <code>Any</code>, <strong>overlap_dist</strong>: <code>Any</code>)
+<a class="headerlink" href="#ContactCache.overlapped+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="ContactCache" signature="send_event(entity_a : Any, entity_b : Any, state : Any, normal : Any, overlap_dist : Any, flip : Any)"></endpoint>
+<signature id="ContactCache.send_event+6">ContactCache.send_event(<strong>entity_a</strong>: <code>Any</code>, <strong>entity_b</strong>: <code>Any</code>, <strong>state</strong>: <code>Any</code>, <strong>normal</strong>: <code>Any</code>, <strong>overlap_dist</strong>: <code>Any</code>, <strong>flip</strong>: <code>Any</code>)
+<a class="headerlink" href="#ContactCache.send_event+6" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="ContactCache" signature="set_ignored(entity_a : Any, entity_b : Any, ignored : Any)"></endpoint>
+<signature id="ContactCache.set_ignored+3">ContactCache.set_ignored(<strong>entity_a</strong>: <code>Any</code>, <strong>entity_b</strong>: <code>Any</code>, <strong>ignored</strong>: <code>Any</code>)
+<a class="headerlink" href="#ContactCache.set_ignored+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="ContactCache" signature="is_ignored(entity_a : Any, entity_b : Any)"></endpoint>
+<signature id="ContactCache.is_ignored+2">ContactCache.is_ignored(<strong>entity_a</strong>: <code>Any</code>, <strong>entity_b</strong>: <code>Any</code>)
+<a class="headerlink" href="#ContactCache.is_ignored+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="ContactCache" signature="post_collision()"></endpoint>
+<signature id="ContactCache.post_collision">ContactCache.post_collision()
+<a class="headerlink" href="#ContactCache.post_collision" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<h3 id="contactstate">ContactState<a class="headerlink" href="#contactstate" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;arcade: modifier/arcade&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">ContactState</span></code></p>
+<blockquote>
+<p>no docs found</p>
+</blockquote>
+<ul>
+<li><a href="#ContactState.not_seen">not_seen</a></li>
+<li><a href="#ContactState.seen_last_frame">seen_last_frame</a></li>
+<li><a href="#ContactState.seen_this_frame">seen_this_frame</a></li>
+</ul>
+<hr/>
+<p><endpoint module="arcade: modifier/arcade" class="ContactState" signature="not_seen"></endpoint>
+<signature id="ContactState.not_seen">ContactState.not_seen
+<a class="headerlink" href="#ContactState.not_seen" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="ContactState" signature="seen_last_frame"></endpoint>
+<signature id="ContactState.seen_last_frame">ContactState.seen_last_frame
+<a class="headerlink" href="#ContactState.seen_last_frame" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="ContactState" signature="seen_this_frame"></endpoint>
+<signature id="ContactState.seen_this_frame">ContactState.seen_this_frame
+<a class="headerlink" href="#ContactState.seen_this_frame" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<h3 id="shape2ddraw">Shape2DDraw<a class="headerlink" href="#shape2ddraw" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;arcade: modifier/arcade&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">Shape2DDraw</span></code></p>
+<blockquote>
+<p>no docs found</p>
+</blockquote>
+<ul>
+<li><a href="#Shape2DDraw.draw_shape+4">draw_shape</a>(<strong>shape</strong>: <code>Any</code>, <strong>ctx</strong>: <code>Any</code>, <strong>style</strong>: <code>Any</code>, <strong>depth</strong>: <code>Any</code>)</li>
+<li><a href="#Shape2DDraw.draw_poly+4">draw_poly</a>(<strong>verts</strong>: <code>Any</code>, <strong>ctx</strong>: <code>Any</code>, <strong>style</strong>: <code>Any</code>, <strong>depth</strong>: <code>Any</code>)</li>
+</ul>
+<hr/>
+<p><endpoint module="arcade: modifier/arcade" class="Shape2DDraw" signature="draw_shape(shape : Any, ctx : Any, style : Any, depth : Any)"></endpoint>
+<signature id="Shape2DDraw.draw_shape+4">Shape2DDraw.draw_shape(<strong>shape</strong>: <code>Any</code>, <strong>ctx</strong>: <code>Any</code>, <strong>style</strong>: <code>Any</code>, <strong>depth</strong>: <code>Any</code>)
+<a class="headerlink" href="#Shape2DDraw.draw_shape+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="Shape2DDraw" signature="draw_poly(verts : Any, ctx : Any, style : Any, depth : Any)"></endpoint>
+<signature id="Shape2DDraw.draw_poly+4">Shape2DDraw.draw_poly(<strong>verts</strong>: <code>Any</code>, <strong>ctx</strong>: <code>Any</code>, <strong>style</strong>: <code>Any</code>, <strong>depth</strong>: <code>Any</code>)
+<a class="headerlink" href="#Shape2DDraw.draw_poly+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<h3 id="shapetype">ShapeType<a class="headerlink" href="#shapetype" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;arcade: modifier/arcade&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">ShapeType</span></code></p>
+<blockquote>
+<p>no docs found</p>
+</blockquote>
+<ul>
+<li><a href="#ShapeType.rect">rect</a></li>
+<li><a href="#ShapeType.circle">circle</a></li>
+</ul>
+<hr/>
+<p><endpoint module="arcade: modifier/arcade" class="ShapeType" signature="rect"></endpoint>
+<signature id="ShapeType.rect">ShapeType.rect
+<a class="headerlink" href="#ShapeType.rect" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="ShapeType" signature="circle"></endpoint>
+<signature id="ShapeType.circle">ShapeType.circle
+<a class="headerlink" href="#ShapeType.circle" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<h3 id="simplespatialhash">SimpleSpatialHash<a class="headerlink" href="#simplespatialhash" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;arcade: modifier/arcade&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">SimpleSpatialHash</span></code></p>
+<blockquote>
+<p>no docs found</p>
+</blockquote>
+<ul>
+<li><a href="#SimpleSpatialHash.new">new</a>(<strong>world</strong>: <code>Any</code>)</li>
+<li><a href="#SimpleSpatialHash.set_cell_size">set_cell_size</a>(<strong>size</strong>: <code>Any</code>)</li>
+<li><a href="#SimpleSpatialHash.bounds_to_grid">bounds_to_grid</a>(<strong>bounds</strong>: <code>Any</code>)</li>
+<li><a href="#SimpleSpatialHash.bounds+5">bounds</a>(<strong>x</strong>: <code>Any</code>, <strong>y</strong>: <code>Any</code>, <strong>aabb_w</strong>: <code>Any</code>, <strong>aabb_h</strong>: <code>Any</code>, <strong>into</strong>: <code>Any</code>)</li>
+<li><a href="#SimpleSpatialHash.bounds_uncentered+5">bounds_uncentered</a>(<strong>x</strong>: <code>Any</code>, <strong>y</strong>: <code>Any</code>, <strong>aabb_w</strong>: <code>Any</code>, <strong>aabb_h</strong>: <code>Any</code>, <strong>into</strong>: <code>Any</code>)</li>
+<li><a href="#SimpleSpatialHash.has_changed+6">has_changed</a>(<strong>entity</strong>: <code>Any</code>, <strong>x</strong>: <code>Any</code>, <strong>y</strong>: <code>Any</code>, <strong>w</strong>: <code>Any</code>, <strong>h</strong>: <code>Any</code>, <strong>centered</strong>: <code>Any</code>)</li>
+<li><a href="#SimpleSpatialHash.query_area+5">query_area</a>(<strong>x</strong>: <code>Any</code>, <strong>y</strong>: <code>Any</code>, <strong>w</strong>: <code>Any</code>, <strong>h</strong>: <code>Any</code>, <strong>fn</strong>: <code>Any</code>)</li>
+<li><a href="#SimpleSpatialHash.update+6">update</a>(<strong>entity</strong>: <code>Any</code>, <strong>x</strong>: <code>Any</code>, <strong>y</strong>: <code>Any</code>, <strong>aabb_w</strong>: <code>Any</code>, <strong>aabb_h</strong>: <code>Any</code>, <strong>centered</strong>: <code>Any</code>)</li>
+<li><a href="#SimpleSpatialHash.refresh+6">refresh</a>(<strong>entity</strong>: <code>Any</code>, <strong>x</strong>: <code>Any</code>, <strong>y</strong>: <code>Any</code>, <strong>aabb_w</strong>: <code>Any</code>, <strong>aabb_h</strong>: <code>Any</code>, <strong>centered</strong>: <code>Any</code>)</li>
+<li><a href="#SimpleSpatialHash.remove">remove</a>(<strong>entity</strong>: <code>Any</code>)</li>
+<li><a href="#SimpleSpatialHash.remove+2">remove</a>(<strong>entity</strong>: <code>Any</code>, <strong>completely</strong>: <code>Any</code>)</li>
+<li><a href="#SimpleSpatialHash.draw+3">draw</a>(<strong>ctx</strong>: <code>Any</code>, <strong>ctx_ui</strong>: <code>Any</code>, <strong>style</strong>: <code>Any</code>)</li>
+<li><a href="#SimpleSpatialHash.text+6">text</a>(<strong>draw</strong>: <code>Any</code>, <strong>x</strong>: <code>Any</code>, <strong>y</strong>: <code>Any</code>, <strong>z</strong>: <code>Any</code>, <strong>size</strong>: <code>Any</code>, <strong>text</strong>: <code>Any</code>)</li>
+<li><a href="#SimpleSpatialHash.get_depth+4">get_depth</a>(<strong>count</strong>: <code>Any</code>, <strong>min</strong>: <code>Any</code>, <strong>max</strong>: <code>Any</code>, <strong>value</strong>: <code>Any</code>)</li>
+<li><a href="#SimpleSpatialHash.get_color+5">get_color</a>(<strong>colors</strong>: <code>Any</code>, <strong>min</strong>: <code>Any</code>, <strong>max</strong>: <code>Any</code>, <strong>value</strong>: <code>Any</code>, <strong>into</strong>: <code>Any</code>)</li>
+</ul>
+<hr/>
+<p><endpoint module="arcade: modifier/arcade" class="SimpleSpatialHash" signature="new(world : Any)"></endpoint>
+<signature id="SimpleSpatialHash.new">SimpleSpatialHash.new(<strong>world</strong>: <code>Any</code>)
+<a class="headerlink" href="#SimpleSpatialHash.new" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">SimpleSpatialHash</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="SimpleSpatialHash" signature="set_cell_size(size : Any)"></endpoint>
+<signature id="SimpleSpatialHash.set_cell_size">SimpleSpatialHash.set_cell_size(<strong>size</strong>: <code>Any</code>)
+<a class="headerlink" href="#SimpleSpatialHash.set_cell_size" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="SimpleSpatialHash" signature="bounds_to_grid(bounds : Any)"></endpoint>
+<signature id="SimpleSpatialHash.bounds_to_grid">SimpleSpatialHash.bounds_to_grid(<strong>bounds</strong>: <code>Any</code>)
+<a class="headerlink" href="#SimpleSpatialHash.bounds_to_grid" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="SimpleSpatialHash" signature="bounds(x : Any, y : Any, aabb_w : Any, aabb_h : Any, into : Any)"></endpoint>
+<signature id="SimpleSpatialHash.bounds+5">SimpleSpatialHash.bounds(<strong>x</strong>: <code>Any</code>, <strong>y</strong>: <code>Any</code>, <strong>aabb_w</strong>: <code>Any</code>, <strong>aabb_h</strong>: <code>Any</code>, <strong>into</strong>: <code>Any</code>)
+<a class="headerlink" href="#SimpleSpatialHash.bounds+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="SimpleSpatialHash" signature="bounds_uncentered(x : Any, y : Any, aabb_w : Any, aabb_h : Any, into : Any)"></endpoint>
+<signature id="SimpleSpatialHash.bounds_uncentered+5">SimpleSpatialHash.bounds_uncentered(<strong>x</strong>: <code>Any</code>, <strong>y</strong>: <code>Any</code>, <strong>aabb_w</strong>: <code>Any</code>, <strong>aabb_h</strong>: <code>Any</code>, <strong>into</strong>: <code>Any</code>)
+<a class="headerlink" href="#SimpleSpatialHash.bounds_uncentered+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="SimpleSpatialHash" signature="has_changed(entity : Any, x : Any, y : Any, w : Any, h : Any, centered : Any)"></endpoint>
+<signature id="SimpleSpatialHash.has_changed+6">SimpleSpatialHash.has_changed(<strong>entity</strong>: <code>Any</code>, <strong>x</strong>: <code>Any</code>, <strong>y</strong>: <code>Any</code>, <strong>w</strong>: <code>Any</code>, <strong>h</strong>: <code>Any</code>, <strong>centered</strong>: <code>Any</code>)
+<a class="headerlink" href="#SimpleSpatialHash.has_changed+6" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="SimpleSpatialHash" signature="query_area(x : Any, y : Any, w : Any, h : Any, fn : Any)"></endpoint>
+<signature id="SimpleSpatialHash.query_area+5">SimpleSpatialHash.query_area(<strong>x</strong>: <code>Any</code>, <strong>y</strong>: <code>Any</code>, <strong>w</strong>: <code>Any</code>, <strong>h</strong>: <code>Any</code>, <strong>fn</strong>: <code>Any</code>)
+<a class="headerlink" href="#SimpleSpatialHash.query_area+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="SimpleSpatialHash" signature="update(entity : Any, x : Any, y : Any, aabb_w : Any, aabb_h : Any, centered : Any)"></endpoint>
+<signature id="SimpleSpatialHash.update+6">SimpleSpatialHash.update(<strong>entity</strong>: <code>Any</code>, <strong>x</strong>: <code>Any</code>, <strong>y</strong>: <code>Any</code>, <strong>aabb_w</strong>: <code>Any</code>, <strong>aabb_h</strong>: <code>Any</code>, <strong>centered</strong>: <code>Any</code>)
+<a class="headerlink" href="#SimpleSpatialHash.update+6" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="SimpleSpatialHash" signature="refresh(entity : Any, x : Any, y : Any, aabb_w : Any, aabb_h : Any, centered : Any)"></endpoint>
+<signature id="SimpleSpatialHash.refresh+6">SimpleSpatialHash.refresh(<strong>entity</strong>: <code>Any</code>, <strong>x</strong>: <code>Any</code>, <strong>y</strong>: <code>Any</code>, <strong>aabb_w</strong>: <code>Any</code>, <strong>aabb_h</strong>: <code>Any</code>, <strong>centered</strong>: <code>Any</code>)
+<a class="headerlink" href="#SimpleSpatialHash.refresh+6" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="SimpleSpatialHash" signature="remove(entity : Any)"></endpoint>
+<signature id="SimpleSpatialHash.remove">SimpleSpatialHash.remove(<strong>entity</strong>: <code>Any</code>)
+<a class="headerlink" href="#SimpleSpatialHash.remove" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="SimpleSpatialHash" signature="remove(entity : Any, completely : Any)"></endpoint>
+<signature id="SimpleSpatialHash.remove+2">SimpleSpatialHash.remove(<strong>entity</strong>: <code>Any</code>, <strong>completely</strong>: <code>Any</code>)
+<a class="headerlink" href="#SimpleSpatialHash.remove+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="SimpleSpatialHash" signature="draw(ctx : Any, ctx_ui : Any, style : Any)"></endpoint>
+<signature id="SimpleSpatialHash.draw+3">SimpleSpatialHash.draw(<strong>ctx</strong>: <code>Any</code>, <strong>ctx_ui</strong>: <code>Any</code>, <strong>style</strong>: <code>Any</code>)
+<a class="headerlink" href="#SimpleSpatialHash.draw+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="SimpleSpatialHash" signature="text(draw : Any, x : Any, y : Any, z : Any, size : Any, text : Any)"></endpoint>
+<signature id="SimpleSpatialHash.text+6">SimpleSpatialHash.text(<strong>draw</strong>: <code>Any</code>, <strong>x</strong>: <code>Any</code>, <strong>y</strong>: <code>Any</code>, <strong>z</strong>: <code>Any</code>, <strong>size</strong>: <code>Any</code>, <strong>text</strong>: <code>Any</code>)
+<a class="headerlink" href="#SimpleSpatialHash.text+6" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="SimpleSpatialHash" signature="get_depth(count : Any, min : Any, max : Any, value : Any)"></endpoint>
+<signature id="SimpleSpatialHash.get_depth+4">SimpleSpatialHash.get_depth(<strong>count</strong>: <code>Any</code>, <strong>min</strong>: <code>Any</code>, <strong>max</strong>: <code>Any</code>, <strong>value</strong>: <code>Any</code>)
+<a class="headerlink" href="#SimpleSpatialHash.get_depth+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="arcade: modifier/arcade" class="SimpleSpatialHash" signature="get_color(colors : Any, min : Any, max : Any, value : Any, into : Any)"></endpoint>
+<signature id="SimpleSpatialHash.get_color+5">SimpleSpatialHash.get_color(<strong>colors</strong>: <code>Any</code>, <strong>min</strong>: <code>Any</code>, <strong>max</strong>: <code>Any</code>, <strong>value</strong>: <code>Any</code>, <strong>into</strong>: <code>Any</code>)
+<a class="headerlink" href="#SimpleSpatialHash.get_color+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 3, 2025 06:41:06 UTC">September 3, 2025</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/luxeengine" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 0c4.42 0 8 3.58 8 8a8.01 8.01 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27s-1.36.09-2 .27c-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8"/></svg>
+    </a>
+  
+</div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../../..", "features": ["instant", "navigation.prune"], "search": "../../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>

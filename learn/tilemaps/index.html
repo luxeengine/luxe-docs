@@ -1,0 +1,1369 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../overview/">
+      
+      
+        <link rel="next" href="../drawing-2d/">
+      
+      
+      <link rel="icon" href="../../images/luxe-favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>tilemaps - luxe engine</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#using-tilemaps" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="luxe engine" class="md-header__button md-logo" aria-label="luxe engine" data-md-component="logo">
+      
+  <img src="../../images/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            luxe engine
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              tilemaps
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="pink" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="luxe engine" class="md-nav__button md-logo" aria-label="luxe engine" data-md-component="logo">
+      
+  <img src="../../images/logo.svg" alt="logo">
+
+    </a>
+    luxe engine
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    about
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../get/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    install
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    guide
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../tutorials/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    tutorials
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    learn ...
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            learn ...
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    tilemaps
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    tilemaps
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-the-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create the project
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tiles-editor-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tiles editor context
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-tilemap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a tilemap
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-visuals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding visuals
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Adding visuals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      adding images
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-tile-sheets" class="md-nav__link">
+    <span class="md-ellipsis">
+      adding tile sheets
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tile-grid-size" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tile grid size
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#brushes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Brushes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Brushes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brush-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      brush history
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#making-a-brush" class="md-nav__link">
+    <span class="md-ellipsis">
+      making a brush
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-tiles-modifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      The tiles modifier
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tile-collision-with-arcade" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tile collision with Arcade
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tile collision with Arcade">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tile-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      tile tags
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arcade-collision" class="md-nav__link">
+    <span class="md-ellipsis">
+      arcade collision
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#new-tile-editor" class="md-nav__link">
+    <span class="md-ellipsis">
+      New tile editor
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../drawing-2d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2D drawing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../modifiers/luxe-modifiers/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    modifiers
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../ui/intro/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    using UI
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../random-numbers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    random numbers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../multiple-wren-files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    multiple wren files
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    using modules
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../manual/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    manual
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-the-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create the project
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tiles-editor-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tiles editor context
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-tilemap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a tilemap
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-visuals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding visuals
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Adding visuals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      adding images
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-tile-sheets" class="md-nav__link">
+    <span class="md-ellipsis">
+      adding tile sheets
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tile-grid-size" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tile grid size
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#brushes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Brushes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Brushes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brush-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      brush history
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#making-a-brush" class="md-nav__link">
+    <span class="md-ellipsis">
+      making a brush
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-tiles-modifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      The tiles modifier
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tile-collision-with-arcade" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tile collision with Arcade
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tile collision with Arcade">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tile-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      tile tags
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arcade-collision" class="md-nav__link">
+    <span class="md-ellipsis">
+      arcade collision
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#new-tile-editor" class="md-nav__link">
+    <span class="md-ellipsis">
+      New tile editor
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p><img alt="" src="../../images/luxe-dark.svg" width="96em" /></p>
+<h1 id="using-tilemaps">Using tilemaps<a class="headerlink" href="#using-tilemaps" title="Permanent link">&para;</a></h1>
+<p>In this tutorial we'll:</p>
+<ul>
+<li>Create a tile map</li>
+<li>Add visuals to it to paint with</li>
+<li>Paint some tiles, make some brushes</li>
+<li>Use that tile map in the world</li>
+<li>Add collision to it using the Arcade modifier</li>
+</ul>
+<p><strong>Assets</strong></p>
+<p><strong>This tutorial is using the <a href="https://adamatomic.itch.io/amarelo">Amarelo</a> tilesheet.</strong> </p>
+<p><img alt="" src="../../images/learn/tilemaps/amarelo_tiles.sample.png" /></p>
+<p>You can grab it for free from the link above, or save the image below into your project.</p>
+<div class="admonition note">
+<p class="admonition-title">The image is small because it is pixel art. We'll use the <code>pixel</code> outline to work at this scale</p>
+</div>
+<p><img alt="" src="../../images/learn/tilemaps/amarelo_tiles.png" /></p>
+<h2 id="create-the-project">Create the project<a class="headerlink" href="#create-the-project" title="Permanent link">&para;</a></h2>
+<p>We'll use the launcher to create the project, and use the pixel project outline.
+When creating the project, is offers the choice of a background color. We'll pick custom,
+and match the background color to the tiles. You can use <code>#cbcac5</code> as the color.</p>
+<p><img alt="project" src="../../images/learn/tilemaps/project.png" /></p>
+<h2 id="tiles-editor-context">Tiles editor context<a class="headerlink" href="#tiles-editor-context" title="Permanent link">&para;</a></h2>
+<p>We can find the tile editor using the context menu:</p>
+<p><img alt="" src="../../images/learn/tilemaps/tiles.context.0.png" /></p>
+<p>Once we enter it, this is what it looks like:</p>
+<p><img alt="" src="../../images/learn/tilemaps/tiles.context.1.png" /></p>
+<h2 id="create-a-tilemap">Create a tilemap<a class="headerlink" href="#create-a-tilemap" title="Permanent link">&para;</a></h2>
+<p>We'll need a tiles asset to paint into. The editor can open and edit multiple at once, but we'll just need one for now.
+Omni has a create button just for this, so let's use it to create a tiles asset.</p>
+<p><img alt="" src="../../images/learn/tilemaps/tiles.create.0.png" /></p>
+<p>This will present you with the asset location, where we'll name our asset <code>outside</code> and hit the create 'tiles' asset button.</p>
+<p><img alt="" src="../../images/learn/tilemaps/tiles.create.1.png" /></p>
+<p>Once we do, we'll see something along these lines: The brush tool is selected, and it has a visuals panel with no visuals yet.</p>
+<p><img alt="" src="../../images/learn/tilemaps/tiles.create.2.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Tiles visual assets</p>
+<p>When you create tile based games, it's often common for multiple areas in a game to share the same visuals.</p>
+<p>If you had a snowy outdoor tile set, it can often be used in a few different tile map assets around different locations in the game. 
+In luxe there is a <strong><em>tiles visual asset</em></strong> that can be shared across tile maps, and one is created for your tiles by default (for now).</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">WIP: Note there are multiple assets involved, so make sure to save all!</p>
+</div>
+<h2 id="adding-visuals">Adding visuals<a class="headerlink" href="#adding-visuals" title="Permanent link">&para;</a></h2>
+<p>Since there was a visual asset created for our tiles, we can go straight to adding visuals. </p>
+<p>Let's take a walk through adding regular images (often used to break up the tile grid), and tile sheets (multiple tiles packed into one image).</p>
+<p>When the brush tool is active, and a visual asset is selected, there's a <code>+</code> button to add tile visuals.</p>
+<p><img alt="" src="../../images/learn/tilemaps/tiles.visual.0.png" /></p>
+<p>Once we hit the <code>+</code> button we'll be presented with a list of options to add:</p>
+<p><img alt="" src="../../images/learn/tilemaps/tiles.visual.0.1.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">We have added some images from the tutorial project for example</p>
+</div>
+<h3 id="adding-images">adding images<a class="headerlink" href="#adding-images" title="Permanent link">&para;</a></h3>
+<p>If we choose <code>add images...</code> we'll be presented with the asset picker, which allows us to select <em>multiple</em> assets at once.</p>
+<p><img alt="" src="../../images/learn/tilemaps/tiles.visual.1.png" /></p>
+<p>Selecting an asset will highlight it, allowing us to pick a few, and then hit continue. We'll not do this yet, and use <code>select none</code> to cancel the test selection.</p>
+<p><img alt="" src="../../images/learn/tilemaps/tiles.visual.2.png" /></p>
+<p>Instead, since we have <code>image/prop</code> and <code>image/rooftop</code> folders, let's say we want to add just the rooftop assets for now. We can use the folders filtering to limit the list:</p>
+<p><img alt="" src="../../images/learn/tilemaps/tiles.visual.3.png" /></p>
+<p>We can add multiple folders if we like:</p>
+<p><img alt="" src="../../images/learn/tilemaps/tiles.visual.4.png" /></p>
+<p>Once we have filtered our list, we can use select all, and multi select to add or remove items from the selection.</p>
+<p><img alt="" src="../../images/learn/tilemaps/tiles.visual.5.png" /></p>
+<p>If you select <code>continue &gt;</code> we are given the chance to customize the visuals, typically the <strong>uv</strong> and <strong>size</strong> field. The size is how big the actual tile will be when painted as a tile, so this is typically something to take note of. It defaults to the image size, for our example we'll change it to 10x smaller, e.g <code>29.3 x 22.7</code>.</p>
+<p>If you select the <code>all</code> button, you can quickly edit the uv or size of any of the added visuals in one go.</p>
+<p><img alt="" src="../../images/learn/tilemaps/tiles.visual.6.png" /></p>
+<p>Once we're <code>done &gt;</code> we can see the visuals have been added to our tile palette, this is where we can select a tile to paint with. </p>
+<p><img alt="" src="../../images/learn/tilemaps/tiles.visual.7.png" /></p>
+<p>Selecting our new image and painting with it will allow us to treat the image like a tile.</p>
+<p><img alt="" src="../../images/learn/tilemaps/tiles.visual.8.png" /></p>
+<p>Selecting an existing tile that was painted on the tile map will allow you to customize the individually painted tiles. You can make one bigger or smaller, different colors, offsets and so on at the tile level.</p>
+<p><img alt="" src="../../images/learn/tilemaps/tiles.visual.9.png" /></p>
+<h3 id="adding-tile-sheets">adding tile sheets<a class="headerlink" href="#adding-tile-sheets" title="Permanent link">&para;</a></h3>
+<p>The process for adding a tile sheet with mutliple tiles is very similar, all the filtering and selecting is the same, the important thing is what happens in the customize page. </p>
+<p>First choose add tile sheets (pixel this time!):</p>
+<p><img alt="" src="../../images/learn/tilemaps/tiles.sheets.0.png" /></p>
+<p>We'll go pick our tiles image by searching for it, then hitting <code>continue &gt;</code></p>
+<div class="admonition bug">
+<p class="admonition-title">Ignore the weird sorting for now when searching!</p>
+</div>
+<p><img alt="" src="../../images/learn/tilemaps/tiles.sheets.1.png" /></p>
+<p>The customize page shows our tiles image with a small grid overlayed on top. </p>
+<p><img alt="" src="../../images/learn/tilemaps/tiles.sheets.2.png" /></p>
+<p>Since we know our tilemap has <code>8</code> tiles across, and <code>11</code> tiles down, we can enter this. If you're not sure, you can see a realtime preview of the grid as you change these:</p>
+<p><img alt="" src="../../images/learn/tilemaps/tiles.sheets.3.png" /></p>
+<p>If you only know the tile size in pixels, you can change the <code>input</code> to <code>as_size</code>, which will let you input pixel size for the tiles. Our are 8x8 which was calculated automatically by the grid, and the grid would be auto calculated if we input a size.</p>
+<p><img alt="" src="../../images/learn/tilemaps/tiles.sheets.4.png" /></p>
+<p>If we hover an individual tile on the grid we can see a preview of that tile:</p>
+<p><img alt="" src="../../images/learn/tilemaps/tiles.sheets.6.png" /></p>
+<p>And finally, the advanced section has settings for if your tiles have padding, or a margin on the image. We don't need this here, but it is there:</p>
+<p><img alt="" src="../../images/learn/tilemaps/tiles.sheets.5.png" /></p>
+<p>Once we select <code>done &gt;</code> we will see all the individual tiles added to our tile palette, allowing us to paint with them.</p>
+<p><img alt="" src="../../images/learn/tilemaps/tiles.sheets.7.png" /></p>
+<h2 id="tile-grid-size">Tile grid size<a class="headerlink" href="#tile-grid-size" title="Permanent link">&para;</a></h2>
+<p>If we paint a tile we should notice that it doesn't fit as expected!</p>
+<p><img alt="" src="../../images/learn/tilemaps/tiles.grid.0.png" /></p>
+<p>If you select the tilemap itself, instead of a layer to paint on, you can configure the grid size of the tile map as well as the background color. Our grid should be 16x16 for this one, and immediately it updates to look correct:</p>
+<p><img alt="" src="../../images/learn/tilemaps/tiles.grid.1.png" /></p>
+<h2 id="brushes">Brushes<a class="headerlink" href="#brushes" title="Permanent link">&para;</a></h2>
+<p>The benefit of tile maps, is that painting tiles is all about the sum of parts. We combine small repetitive pieces into much larger images.</p>
+<p>This is very often a recursive process. We combine 4 tiles to make a window. We combine 2 windows and a door to make a house. We combine many houses to make a city and so on. </p>
+<p>To facilitate this workflow, luxe tiles work based on combining tiles into brushes. This doesn't just apply when you make a brush manually, it actually applies to every operation. Painting is brush based, copy takes the selection and makes a brush, cut creates a brush and so on.</p>
+<h3 id="brush-history">brush history<a class="headerlink" href="#brush-history" title="Permanent link">&para;</a></h3>
+<p>Any time you do an operation that creates a brush, the brush history panel will remember it, so you can return to it and use it to build more elaborate things:</p>
+<p><img alt="" src="../../images/learn/tilemaps/tiles.brush.6.png" /></p>
+<p>You'll also be able to save that brush into an asset, so that it's reusable across tile maps + sessions using the save icon. After that it'll exist in the brush tab instead of brush history! Making brushes reusable is important, but a significant amount of the brushes can be temporary because you can always select and copy them.</p>
+<p>This is also true while painting, using a corner of the tilemap to compose a complex brush, then copying it out, optionally saving it is a very important part of the workflow!</p>
+<h3 id="making-a-brush">making a brush<a class="headerlink" href="#making-a-brush" title="Permanent link">&para;</a></h3>
+<p>We'll start by painting a window. For this we used flip (<span class="keys"><kbd class="key-f">F</kbd></span> or <span class="keys"><kbd class="key-v">V</kbd></span> key by default) and rotate (<span class="keys"><kbd class="key-r">R</kbd></span>) to reuse the same tile in different ways.</p>
+<p><img alt="" src="../../images/learn/tilemaps/tiles.brush.0.png" /></p>
+<p>We switch to the select tool by pressing <span class="keys"><kbd class="key-q">Q</kbd></span> or using the select tool icon.</p>
+<p><img alt="" src="../../images/learn/tilemaps/tiles.brush.1.png" /></p>
+<p>We can drag a rectangle in order to select the region of tiles we care about:</p>
+<p><img alt="" src="../../images/learn/tilemaps/tiles.brush.2.png" /></p>
+<p>When we release the rectangle each tile will show as selected:</p>
+<p><img alt="" src="../../images/learn/tilemaps/tiles.brush.3.png" /></p>
+<p>When we press copy (<span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-c">C</kbd></span>) it will copy our selection into a brush, and we can now paint with the whole window as a brush!</p>
+<p><img alt="" src="../../images/learn/tilemaps/tiles.brush.4.png" /></p>
+<p>If we draw with the brush around on the tile map you'll notice that the brush will be treated as a whole unit, it won't paint over itself, so we can lay down windows side by side easily:</p>
+<p><img alt="" src="../../images/learn/tilemaps/tiles.brush.5.png" /></p>
+<p>You can control this behaviour from the top toolbar, there's a few modes. Selecting the icon will cycle through modes for painting.</p>
+<p><img alt="" src="../../images/learn/tilemaps/tiles.brush.7.png" /></p>
+<p>And as mentioned, we created a brush by copying, so it shows in the brush history.</p>
+<p><img alt="" src="../../images/learn/tilemaps/tiles.brush.6.png" /></p>
+<h2 id="the-tiles-modifier">The tiles modifier<a class="headerlink" href="#the-tiles-modifier" title="Permanent link">&para;</a></h2>
+<p>To use the tile map we just created, we use the typical workflow using modifiers in the world editor. </p>
+<p>Create an entity, attach the <code>Tiles</code> modifier, and select the tiles asset you created.</p>
+<div class="admonition bug">
+<p class="admonition-title">Automatic updates/hot updating of the tiles assets in the world are still being finalized, you might need to reload the editor to see the latest version of your tilemap.</p>
+</div>
+<p>To demonstrate, here's a painted tilemap:</p>
+<p><img alt="" src="../../images/learn/tilemaps/tiles.world.0.png" /></p>
+<p>Once we attach them to an entity, we can see and use them in the world:</p>
+<p><img alt="" src="../../images/learn/tilemaps/tiles.world.1.png" /></p>
+<p>And since they're an entity with a modifier, we can duplicate, scale, transform them as usual using <code>Transform</code>.</p>
+<p><img alt="" src="../../images/learn/tilemaps/tiles.world.2.png" /></p>
+<h2 id="tile-collision-with-arcade">Tile collision with Arcade<a class="headerlink" href="#tile-collision-with-arcade" title="Permanent link">&para;</a></h2>
+<p>If you're using the arcade collision module, it provides a modifier that can convert tiles into solid shapes.
+This combines nearby tiles into rectangles to make the least amount of rectangles.</p>
+<p><img alt="" src="../../images/learn/tilemaps/tiles.arcade.2.png" /></p>
+<h3 id="tile-tags">tile tags<a class="headerlink" href="#tile-tags" title="Permanent link">&para;</a></h3>
+<p>To start, we have to tag our tiles with a tag. The default one the arcade tiles collision uses is <code>solid</code>. 
+We select the tiles we want to be solid collision, and edit the tags to include <code>solid</code>.</p>
+<p><img alt="" src="../../images/learn/tilemaps/tiles.arcade.3.png" /></p>
+<h3 id="arcade-collision">arcade collision<a class="headerlink" href="#arcade-collision" title="Permanent link">&para;</a></h3>
+<p>In the world editor, you attach the <code>Arcade: Tile collision</code> modifier it to the entity with the <code>Tiles</code> on:</p>
+<p><img alt="" src="../../images/learn/tilemaps/tiles.arcade.0.png" /></p>
+<p>Once you have, you can match the tag so that the collision is automatically generated!</p>
+<p><img alt="" src="../../images/learn/tilemaps/tiles.arcade.1.png" /></p>
+<h2 id="new-tile-editor">New tile editor<a class="headerlink" href="#new-tile-editor" title="Permanent link">&para;</a></h2>
+<p>Note that this iteration of the tile editor is brand new, please report any issues, workflow quirks and so on. We'll be polishing it up as we go! </p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 3, 2025 06:41:06 UTC">September 3, 2025</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="footer.title">
+      
+        <a href="../overview/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+                 
+                  <span class="md-footer-nav__parent">learn ...</span> 
+                
+              </span>
+              overview
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../drawing-2d/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+                 
+                  <span class="md-footer-nav__parent">learn ...</span> 
+                
+              </span>
+              2D drawing
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/luxeengine" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 0c4.42 0 8 3.58 8 8a8.01 8.01 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27s-1.36.09-2 .27c-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8"/></svg>
+    </a>
+  
+</div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["instant", "navigation.prune"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>

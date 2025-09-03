@@ -1,0 +1,1564 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../../../images/luxe-favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Block - luxe engine</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../css/extra.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="luxe engine" class="md-header__button md-logo" aria-label="luxe engine" data-md-component="logo">
+      
+  <img src="../../../../../images/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            luxe engine
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Block
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="pink" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="luxe engine" class="md-nav__button md-logo" aria-label="luxe engine" data-md-component="logo">
+      
+  <img src="../../../../../images/logo.svg" alt="logo">
+
+    </a>
+    luxe engine
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    about
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../get/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    install
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    guide
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../tutorials/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    tutorials
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../learn/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    learn ...
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../manual/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    manual
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1"><img alt="" src="../../../../../../images/luxe-dark.svg" width="96em" /><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h1 id="luxe-api-202512"><code>luxe</code> API (<code>2025.1.2</code>)<a class="headerlink" href="#luxe-api-202512" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="luxe-uiblock-module"><code>luxe: ui/block</code> module<a class="headerlink" href="#luxe-uiblock-module" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#blocklistener">BlockListener</a>   </li>
+<li><a href="#modifiedpip">ModifiedPip</a>   </li>
+<li><a href="#uiblock">UIBlock</a>   </li>
+<li><a href="#uiblockassetevent">UIBlockAssetEvent</a>   </li>
+<li><a href="#uiblockchange">UIBlockChange</a>   </li>
+<li><a href="#uiblockchangetype">UIBlockChangeType</a>   </li>
+<li><a href="#uiblockeventtype">UIBlockEventType</a>   </li>
+<li><a href="#uiblocklinkevent">UIBlockLinkEvent</a>   </li>
+<li><a href="#uiblockstate">UIBlockState</a>   </li>
+</ul>
+<hr />
+<h3 id="blocklistener">BlockListener<a class="headerlink" href="#blocklistener" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: ui/block&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">BlockListener</span></code></p>
+<blockquote>
+<p>no docs found</p>
+</blockquote>
+<ul>
+<li><a href="#BlockListener.block">block</a></li>
+<li><a href="#BlockListener.handle">handle</a></li>
+<li><a href="#BlockListener.new+2">new</a>(<strong>block</strong>: <code>Block</code>, <strong>handle</strong>: <code>Handle</code>)</li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: ui/block" class="BlockListener" signature="block"></endpoint>
+<signature id="BlockListener.block">BlockListener.block
+<a class="headerlink" href="#BlockListener.block" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Block</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="BlockListener" signature="handle"></endpoint>
+<signature id="BlockListener.handle">BlockListener.handle
+<a class="headerlink" href="#BlockListener.handle" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Handle</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="BlockListener" signature="new(block : Block, handle : Handle)"></endpoint>
+<signature id="BlockListener.new+2">BlockListener.new(<strong>block</strong>: <code>Block</code>, <strong>handle</strong>: <code>Handle</code>)
+<a class="headerlink" href="#BlockListener.new+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">BlockListener</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<h3 id="modifiedpip">ModifiedPip<a class="headerlink" href="#modifiedpip" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: ui/block&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">ModifiedPip</span></code></p>
+<blockquote>
+<p>no docs found</p>
+</blockquote>
+<ul>
+<li><a href="#ModifiedPip.control">control</a></li>
+<li><a href="#ModifiedPip.kind">kind</a></li>
+<li><a href="#ModifiedPip.kind=">kind</a>=(value : BlockFieldModified)</li>
+<li><a href="#ModifiedPip.color">color</a></li>
+<li><a href="#ModifiedPip.new+2">new</a>(<strong>ui</strong>: <code>UI</code>, <strong>kind</strong>: <code>BlockFieldModified</code>)</li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: ui/block" class="ModifiedPip" signature="control"></endpoint>
+<signature id="ModifiedPip.control">ModifiedPip.control
+<a class="headerlink" href="#ModifiedPip.control" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Control</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="ModifiedPip" signature="kind"></endpoint>
+<signature id="ModifiedPip.kind">ModifiedPip.kind
+<a class="headerlink" href="#ModifiedPip.kind" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">BlockFieldModified</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="ModifiedPip" signature="kind=(value : BlockFieldModified)"></endpoint>
+<signature id="ModifiedPip.kind=">ModifiedPip.kind=(value : BlockFieldModified)
+<a class="headerlink" href="#ModifiedPip.kind=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="ModifiedPip" signature="color"></endpoint>
+<signature id="ModifiedPip.color">ModifiedPip.color
+<a class="headerlink" href="#ModifiedPip.color" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="ModifiedPip" signature="new(ui : UI, kind : BlockFieldModified)"></endpoint>
+<signature id="ModifiedPip.new+2">ModifiedPip.new(<strong>ui</strong>: <code>UI</code>, <strong>kind</strong>: <code>BlockFieldModified</code>)
+<a class="headerlink" href="#ModifiedPip.new+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">ModifiedPip</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<h3 id="uiblock">UIBlock<a class="headerlink" href="#uiblock" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: ui/block&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">UIBlock</span></code></p>
+<blockquote>
+<p>no docs found</p>
+</blockquote>
+<ul>
+<li><a href="#UIBlock.create">create</a>(<strong>ui</strong>: <code>Entity</code>)</li>
+<li><a href="#UIBlock.set_block_instance+3">set_block_instance</a>(<strong>control</strong>: <code>Control</code>, <strong>block</strong>: <code>Block</code>, <strong>instance</strong>: <code>BlockInstance</code>)</li>
+<li><a href="#UIBlock.set_block_instances+3">set_block_instances</a>(<strong>control</strong>: <code>Control</code>, <strong>block</strong>: <code>Block</code>, <strong>instances</strong>: <code>List</code>)</li>
+<li><a href="#UIBlock.set_blocks_instances+3">set_blocks_instances</a>(<strong>control</strong>: <code>Control</code>, <strong>blocks</strong>: <code>List</code>, <strong>instances</strong>: <code>List</code>)</li>
+<li><a href="#UIBlock.set_sizes+4">set_sizes</a>(<strong>control</strong>: <code>Control</code>, <strong>label_width</strong>: <code>Num</code>, <strong>label_size</strong>: <code>Num</code>, <strong>field_height</strong>: <code>Num</code>)</li>
+<li><a href="#UIBlock.refresh">refresh</a>(<strong>control</strong>: <code>Control</code>)</li>
+<li><a href="#UIBlock.get_handle_assets">get_handle_assets</a>(<strong>control</strong>: <code>Control</code>)</li>
+<li><a href="#UIBlock.set_handle_assets+2">set_handle_assets</a>(<strong>control</strong>: <code>Control</code>, <strong>yes</strong>: <code>Bool</code>)</li>
+<li><a href="#UIBlock.set_show_defaults+2">set_show_defaults</a>(<strong>control</strong>: <code>Control</code>, <strong>yes</strong>: <code>Bool</code>)</li>
+<li><a href="#UIBlock.get_block_fields">get_block_fields</a>(<strong>control</strong>: <code>Any</code>)</li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: ui/block" class="UIBlock" signature="create(ui : Entity)"></endpoint>
+<signature id="UIBlock.create">UIBlock.create(<strong>ui</strong>: <code>Entity</code>)
+<a class="headerlink" href="#UIBlock.create" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlock" signature="set_block_instance(control : Control, block : Block, instance : BlockInstance)"></endpoint>
+<signature id="UIBlock.set_block_instance+3">UIBlock.set_block_instance(<strong>control</strong>: <code>Control</code>, <strong>block</strong>: <code>Block</code>, <strong>instance</strong>: <code>BlockInstance</code>)
+<a class="headerlink" href="#UIBlock.set_block_instance+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlock" signature="set_block_instances(control : Control, block : Block, instances : List)"></endpoint>
+<signature id="UIBlock.set_block_instances+3">UIBlock.set_block_instances(<strong>control</strong>: <code>Control</code>, <strong>block</strong>: <code>Block</code>, <strong>instances</strong>: <code>List</code>)
+<a class="headerlink" href="#UIBlock.set_block_instances+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlock" signature="set_blocks_instances(control : Control, blocks : List, instances : List)"></endpoint>
+<signature id="UIBlock.set_blocks_instances+3">UIBlock.set_blocks_instances(<strong>control</strong>: <code>Control</code>, <strong>blocks</strong>: <code>List</code>, <strong>instances</strong>: <code>List</code>)
+<a class="headerlink" href="#UIBlock.set_blocks_instances+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlock" signature="set_sizes(control : Control, label_width : Num, label_size : Num, field_height : Num)"></endpoint>
+<signature id="UIBlock.set_sizes+4">UIBlock.set_sizes(<strong>control</strong>: <code>Control</code>, <strong>label_width</strong>: <code>Num</code>, <strong>label_size</strong>: <code>Num</code>, <strong>field_height</strong>: <code>Num</code>)
+<a class="headerlink" href="#UIBlock.set_sizes+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlock" signature="refresh(control : Control)"></endpoint>
+<signature id="UIBlock.refresh">UIBlock.refresh(<strong>control</strong>: <code>Control</code>)
+<a class="headerlink" href="#UIBlock.refresh" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlock" signature="get_handle_assets(control : Control)"></endpoint>
+<signature id="UIBlock.get_handle_assets">UIBlock.get_handle_assets(<strong>control</strong>: <code>Control</code>)
+<a class="headerlink" href="#UIBlock.get_handle_assets" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Bool</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlock" signature="set_handle_assets(control : Control, yes : Bool)"></endpoint>
+<signature id="UIBlock.set_handle_assets+2">UIBlock.set_handle_assets(<strong>control</strong>: <code>Control</code>, <strong>yes</strong>: <code>Bool</code>)
+<a class="headerlink" href="#UIBlock.set_handle_assets+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlock" signature="set_show_defaults(control : Control, yes : Bool)"></endpoint>
+<signature id="UIBlock.set_show_defaults+2">UIBlock.set_show_defaults(<strong>control</strong>: <code>Control</code>, <strong>yes</strong>: <code>Bool</code>)
+<a class="headerlink" href="#UIBlock.set_show_defaults+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlock" signature="get_block_fields(control : Any)"></endpoint>
+<signature id="UIBlock.get_block_fields">UIBlock.get_block_fields(<strong>control</strong>: <code>Any</code>)
+<a class="headerlink" href="#UIBlock.get_block_fields" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">Map</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<h3 id="uiblockassetevent">UIBlockAssetEvent<a class="headerlink" href="#uiblockassetevent" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: ui/block&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">UIBlockAssetEvent</span></code></p>
+<blockquote>
+<p>no docs found</p>
+</blockquote>
+<ul>
+<li><a href="#UIBlockAssetEvent.tags">tags</a></li>
+<li><a href="#UIBlockAssetEvent.original">original</a></li>
+<li><a href="#UIBlockAssetEvent.new+3">new</a>(<strong>tags_in</strong>: <code>List</code>, <strong>original_in</strong>: <code>String</code>, <strong>fn</strong>: <code>Fn</code>)</li>
+<li><a href="#UIBlockAssetEvent.done">done</a>(<strong>value</strong>: <code>String</code>)</li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: ui/block" class="UIBlockAssetEvent" signature="tags"></endpoint>
+<signature id="UIBlockAssetEvent.tags">UIBlockAssetEvent.tags
+<a class="headerlink" href="#UIBlockAssetEvent.tags" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">List</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockAssetEvent" signature="original"></endpoint>
+<signature id="UIBlockAssetEvent.original">UIBlockAssetEvent.original
+<a class="headerlink" href="#UIBlockAssetEvent.original" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockAssetEvent" signature="new(tags_in : List, original_in : String, fn : Fn)"></endpoint>
+<signature id="UIBlockAssetEvent.new+3">UIBlockAssetEvent.new(<strong>tags_in</strong>: <code>List</code>, <strong>original_in</strong>: <code>String</code>, <strong>fn</strong>: <code>Fn</code>)
+<a class="headerlink" href="#UIBlockAssetEvent.new+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">UIBlockAssetEvent</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockAssetEvent" signature="done(value : String)"></endpoint>
+<signature id="UIBlockAssetEvent.done">UIBlockAssetEvent.done(<strong>value</strong>: <code>String</code>)
+<a class="headerlink" href="#UIBlockAssetEvent.done" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<h3 id="uiblockchange">UIBlockChange<a class="headerlink" href="#uiblockchange" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: ui/block&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">UIBlockChange</span></code></p>
+<blockquote>
+<p>A change in the block ui can inside a nested block, each
+with it's own individual instance, list of nested fields, and list of 
+nested array index values each step down. This tracks that for changes.</p>
+</blockquote>
+<ul>
+<li><code class="highlight"><span class="kd">var</span><span class="w"> </span><span class="nx">change_id</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">Any</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span></code></li>
+<li><a href="#UIBlockChange.new+8">new</a>(<strong>kind</strong>: <code>UIBlockChangeType</code>, <strong>root</strong>: <code>Block</code>, <strong>root_instance</strong>: <code>BlockInstance</code>, <strong>blocks</strong>: <code>List</code>, <strong>instances</strong>: <code>List</code>, <strong>fields</strong>: <code>List</code>, <strong>indices</strong>: <code>List</code>, <strong>edit_value</strong>: <code>Any</code>)</li>
+<li><a href="#UIBlockChange.refresh">refresh</a>()</li>
+<li><a href="#UIBlockChange.handle">handle</a>()</li>
+<li><a href="#UIBlockChange.set_refresh">set_refresh</a>(<strong>fn</strong>: <code>Fn</code>)</li>
+<li><a href="#UIBlockChange.set_handler">set_handler</a>(<strong>fn</strong>: <code>Fn</code>)</li>
+<li><a href="#UIBlockChange.kind">kind</a></li>
+<li><a href="#UIBlockChange.block">block</a></li>
+<li><a href="#UIBlockChange.instance">instance</a></li>
+<li><a href="#UIBlockChange.blocks">blocks</a></li>
+<li><a href="#UIBlockChange.instances">instances</a></li>
+<li><a href="#UIBlockChange.field">field</a></li>
+<li><a href="#UIBlockChange.array_indices">array_indices</a></li>
+<li><a href="#UIBlockChange.field_index">field_index</a>(<strong>idx</strong>: <code>Num</code>)</li>
+<li><a href="#UIBlockChange.default">default</a></li>
+<li><a href="#UIBlockChange.get_field_value">get_field_value</a>()</li>
+<li><a href="#UIBlockChange.get_leaf_value">get_leaf_value</a>()</li>
+<li><a href="#UIBlockChange.leaf_block">leaf_block</a></li>
+<li><a href="#UIBlockChange.leaf_instance">leaf_instance</a></li>
+<li><a href="#UIBlockChange.leaf_field_index">leaf_field_index</a></li>
+<li><a href="#UIBlockChange.leaf_array_index">leaf_array_index</a></li>
+<li><a href="#UIBlockChange.get_change_value">get_change_value</a>()</li>
+<li><a href="#UIBlockChange.field_is_array">field_is_array</a>()</li>
+<li><a href="#UIBlockChange.field_is_object">field_is_object</a>()</li>
+<li><a href="#UIBlockChange.value">value</a></li>
+<li><a href="#UIBlockChange.edit_value">edit_value</a></li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: ui/block" class="UIBlockChange" signature="new(kind : UIBlockChangeType, root : Block, root_instance : BlockInstance, blocks : List, instances : List, fields : List, indices : List, edit_value : Any)"></endpoint>
+<signature id="UIBlockChange.new+8">UIBlockChange.new(<strong>kind</strong>: <code>UIBlockChangeType</code>, <strong>root</strong>: <code>Block</code>, <strong>root_instance</strong>: <code>BlockInstance</code>, <strong>blocks</strong>: <code>List</code>, <strong>instances</strong>: <code>List</code>, <strong>fields</strong>: <code>List</code>, <strong>indices</strong>: <code>List</code>, <strong>edit_value</strong>: <code>Any</code>)
+<a class="headerlink" href="#UIBlockChange.new+8" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">UIBlockChange</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockChange" signature="refresh()"></endpoint>
+<signature id="UIBlockChange.refresh">UIBlockChange.refresh()
+<a class="headerlink" href="#UIBlockChange.refresh" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockChange" signature="handle()"></endpoint>
+<signature id="UIBlockChange.handle">UIBlockChange.handle()
+<a class="headerlink" href="#UIBlockChange.handle" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockChange" signature="set_refresh(fn : Fn)"></endpoint>
+<signature id="UIBlockChange.set_refresh">UIBlockChange.set_refresh(<strong>fn</strong>: <code>Fn</code>)
+<a class="headerlink" href="#UIBlockChange.set_refresh" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockChange" signature="set_handler(fn : Fn)"></endpoint>
+<signature id="UIBlockChange.set_handler">UIBlockChange.set_handler(<strong>fn</strong>: <code>Fn</code>)
+<a class="headerlink" href="#UIBlockChange.set_handler" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockChange" signature="kind"></endpoint>
+<signature id="UIBlockChange.kind">UIBlockChange.kind
+<a class="headerlink" href="#UIBlockChange.kind" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">UIBlockChangeType</span></code></p>
+<blockquote>
+<p>The type of change event   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockChange" signature="block"></endpoint>
+<signature id="UIBlockChange.block">UIBlockChange.block
+<a class="headerlink" href="#UIBlockChange.block" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Block</span></code></p>
+<blockquote>
+<p>The root block in which the change occurred   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockChange" signature="instance"></endpoint>
+<signature id="UIBlockChange.instance">UIBlockChange.instance
+<a class="headerlink" href="#UIBlockChange.instance" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>The instance of the root block   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockChange" signature="blocks"></endpoint>
+<signature id="UIBlockChange.blocks">UIBlockChange.blocks
+<a class="headerlink" href="#UIBlockChange.blocks" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">List</span></code></p>
+<blockquote>
+<p>The list of blocks down the chain e.g some.nested.field   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockChange" signature="instances"></endpoint>
+<signature id="UIBlockChange.instances">UIBlockChange.instances
+<a class="headerlink" href="#UIBlockChange.instances" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">List</span></code></p>
+<blockquote>
+<p>The list of instances for each block down the chain e.g some.nested.field   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockChange" signature="field"></endpoint>
+<signature id="UIBlockChange.field">UIBlockChange.field
+<a class="headerlink" href="#UIBlockChange.field" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">List</span></code></p>
+<blockquote>
+<p>The list of nested fields for each block, e.g some.nested.field -&gt; ["some", "nested", "field"]   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockChange" signature="array_indices"></endpoint>
+<signature id="UIBlockChange.array_indices">UIBlockChange.array_indices
+<a class="headerlink" href="#UIBlockChange.array_indices" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>The array index for each nested block. e.g some.nested[2].block[3] is [0, 2, 3]   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockChange" signature="field_index(idx : Num)"></endpoint>
+<signature id="UIBlockChange.field_index">UIBlockChange.field_index(<strong>idx</strong>: <code>Num</code>)
+<a class="headerlink" href="#UIBlockChange.field_index" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>The field index for the field in the fields list. 
+  e.g ["some", "nested", "field"] -&gt; field_index[1] returns the field index of nested in the second block down   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockChange" signature="default"></endpoint>
+<signature id="UIBlockChange.default">UIBlockChange.default
+<a class="headerlink" href="#UIBlockChange.default" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Any</span></code></p>
+<blockquote>
+<p>The default value in the leaf block for this field   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockChange" signature="get_field_value()"></endpoint>
+<signature id="UIBlockChange.get_field_value">UIBlockChange.get_field_value()
+<a class="headerlink" href="#UIBlockChange.get_field_value" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Any</span></code></p>
+<blockquote>
+<p>The current value in the leaf block for this field (e.g for an array, returns the contents of the array)   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockChange" signature="get_leaf_value()"></endpoint>
+<signature id="UIBlockChange.get_leaf_value">UIBlockChange.get_leaf_value()
+<a class="headerlink" href="#UIBlockChange.get_leaf_value" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Any</span></code></p>
+<blockquote>
+<p>The current value in the leaf for this block/field/array?   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockChange" signature="leaf_block"></endpoint>
+<signature id="UIBlockChange.leaf_block">UIBlockChange.leaf_block
+<a class="headerlink" href="#UIBlockChange.leaf_block" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Block</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockChange" signature="leaf_instance"></endpoint>
+<signature id="UIBlockChange.leaf_instance">UIBlockChange.leaf_instance
+<a class="headerlink" href="#UIBlockChange.leaf_instance" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">BlockInstance</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockChange" signature="leaf_field_index"></endpoint>
+<signature id="UIBlockChange.leaf_field_index">UIBlockChange.leaf_field_index
+<a class="headerlink" href="#UIBlockChange.leaf_field_index" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockChange" signature="leaf_array_index"></endpoint>
+<signature id="UIBlockChange.leaf_array_index">UIBlockChange.leaf_array_index
+<a class="headerlink" href="#UIBlockChange.leaf_array_index" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockChange" signature="get_change_value()"></endpoint>
+<signature id="UIBlockChange.get_change_value">UIBlockChange.get_change_value()
+<a class="headerlink" href="#UIBlockChange.get_change_value" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Any</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockChange" signature="field_is_array()"></endpoint>
+<signature id="UIBlockChange.field_is_array">UIBlockChange.field_is_array()
+<a class="headerlink" href="#UIBlockChange.field_is_array" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Bool</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockChange" signature="field_is_object()"></endpoint>
+<signature id="UIBlockChange.field_is_object">UIBlockChange.field_is_object()
+<a class="headerlink" href="#UIBlockChange.field_is_object" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Bool</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockChange" signature="value"></endpoint>
+<signature id="UIBlockChange.value">UIBlockChange.value
+<a class="headerlink" href="#UIBlockChange.value" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Any</span></code></p>
+<blockquote>
+<p>The intended change value based on type   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockChange" signature="edit_value"></endpoint>
+<signature id="UIBlockChange.edit_value">UIBlockChange.edit_value
+<a class="headerlink" href="#UIBlockChange.edit_value" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Any</span></code></p>
+<blockquote>
+<p>The value from the ui at the time of the change   </p>
+</blockquote>
+<h3 id="uiblockchangetype">UIBlockChangeType<a class="headerlink" href="#uiblockchangetype" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: ui/block&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">UIBlockChangeType</span></code></p>
+<blockquote>
+<p>no docs found</p>
+</blockquote>
+<ul>
+<li><a href="#UIBlockChangeType.NORMAL">NORMAL</a></li>
+<li><a href="#UIBlockChangeType.RESET">RESET</a></li>
+<li><a href="#UIBlockChangeType.ARRAY_ADD">ARRAY_ADD</a></li>
+<li><a href="#UIBlockChangeType.ARRAY_REMOVE">ARRAY_REMOVE</a></li>
+<li><a href="#UIBlockChangeType.ARRAY_CLEAR">ARRAY_CLEAR</a></li>
+<li><a href="#UIBlockChangeType.ARRAY_RESET">ARRAY_RESET</a></li>
+<li><a href="#UIBlockChangeType.ARRAY_ELEMENT_RESET">ARRAY_ELEMENT_RESET</a></li>
+<li><a href="#UIBlockChangeType.ARRAY_REORDER">ARRAY_REORDER</a></li>
+<li><a href="#UIBlockChangeType.BLOCK">BLOCK</a></li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: ui/block" class="UIBlockChangeType" signature="NORMAL"></endpoint>
+<signature id="UIBlockChangeType.NORMAL">UIBlockChangeType.NORMAL
+<a class="headerlink" href="#UIBlockChangeType.NORMAL" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockChangeType" signature="RESET"></endpoint>
+<signature id="UIBlockChangeType.RESET">UIBlockChangeType.RESET
+<a class="headerlink" href="#UIBlockChangeType.RESET" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockChangeType" signature="ARRAY_ADD"></endpoint>
+<signature id="UIBlockChangeType.ARRAY_ADD">UIBlockChangeType.ARRAY_ADD
+<a class="headerlink" href="#UIBlockChangeType.ARRAY_ADD" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockChangeType" signature="ARRAY_REMOVE"></endpoint>
+<signature id="UIBlockChangeType.ARRAY_REMOVE">UIBlockChangeType.ARRAY_REMOVE
+<a class="headerlink" href="#UIBlockChangeType.ARRAY_REMOVE" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockChangeType" signature="ARRAY_CLEAR"></endpoint>
+<signature id="UIBlockChangeType.ARRAY_CLEAR">UIBlockChangeType.ARRAY_CLEAR
+<a class="headerlink" href="#UIBlockChangeType.ARRAY_CLEAR" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockChangeType" signature="ARRAY_RESET"></endpoint>
+<signature id="UIBlockChangeType.ARRAY_RESET">UIBlockChangeType.ARRAY_RESET
+<a class="headerlink" href="#UIBlockChangeType.ARRAY_RESET" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockChangeType" signature="ARRAY_ELEMENT_RESET"></endpoint>
+<signature id="UIBlockChangeType.ARRAY_ELEMENT_RESET">UIBlockChangeType.ARRAY_ELEMENT_RESET
+<a class="headerlink" href="#UIBlockChangeType.ARRAY_ELEMENT_RESET" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockChangeType" signature="ARRAY_REORDER"></endpoint>
+<signature id="UIBlockChangeType.ARRAY_REORDER">UIBlockChangeType.ARRAY_REORDER
+<a class="headerlink" href="#UIBlockChangeType.ARRAY_REORDER" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockChangeType" signature="BLOCK"></endpoint>
+<signature id="UIBlockChangeType.BLOCK">UIBlockChangeType.BLOCK
+<a class="headerlink" href="#UIBlockChangeType.BLOCK" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<h3 id="uiblockeventtype">UIBlockEventType<a class="headerlink" href="#uiblockeventtype" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: ui/block&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">UIBlockEventType</span></code></p>
+<blockquote>
+<p>no docs found</p>
+</blockquote>
+<ul>
+<li><a href="#UIBlockEventType.asset">asset</a></li>
+<li><a href="#UIBlockEventType.link">link</a></li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: ui/block" class="UIBlockEventType" signature="asset"></endpoint>
+<signature id="UIBlockEventType.asset">UIBlockEventType.asset
+<a class="headerlink" href="#UIBlockEventType.asset" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockEventType" signature="link"></endpoint>
+<signature id="UIBlockEventType.link">UIBlockEventType.link
+<a class="headerlink" href="#UIBlockEventType.link" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<h3 id="uiblocklinkevent">UIBlockLinkEvent<a class="headerlink" href="#uiblocklinkevent" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: ui/block&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">UIBlockLinkEvent</span></code></p>
+<blockquote>
+<p>no docs found</p>
+</blockquote>
+<ul>
+<li><a href="#UIBlockLinkEvent.original">original</a></li>
+<li><a href="#UIBlockLinkEvent.tag">tag</a></li>
+<li><a href="#UIBlockLinkEvent.from_drop">from_drop</a></li>
+<li><a href="#UIBlockLinkEvent.drop_payload">drop_payload</a></li>
+<li><a href="#UIBlockLinkEvent.new+3">new</a>(<strong>original_in</strong>: <code>List</code>, <strong>tag</strong>: <code>ID32</code>, <strong>fn</strong>: <code>Fn</code>)</li>
+<li><a href="#UIBlockLinkEvent.new+4">new</a>(<strong>original_in</strong>: <code>List</code>, <strong>tag</strong>: <code>ID32</code>, <strong>drop_payload</strong>: <code>Handle</code>, <strong>fn</strong>: <code>Fn</code>)</li>
+<li><a href="#UIBlockLinkEvent.done">done</a>(<strong>value</strong>: <code>List</code>)</li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: ui/block" class="UIBlockLinkEvent" signature="original"></endpoint>
+<signature id="UIBlockLinkEvent.original">UIBlockLinkEvent.original
+<a class="headerlink" href="#UIBlockLinkEvent.original" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">List</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockLinkEvent" signature="tag"></endpoint>
+<signature id="UIBlockLinkEvent.tag">UIBlockLinkEvent.tag
+<a class="headerlink" href="#UIBlockLinkEvent.tag" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockLinkEvent" signature="from_drop"></endpoint>
+<signature id="UIBlockLinkEvent.from_drop">UIBlockLinkEvent.from_drop
+<a class="headerlink" href="#UIBlockLinkEvent.from_drop" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Bool</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockLinkEvent" signature="drop_payload"></endpoint>
+<signature id="UIBlockLinkEvent.drop_payload">UIBlockLinkEvent.drop_payload
+<a class="headerlink" href="#UIBlockLinkEvent.drop_payload" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Bool</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockLinkEvent" signature="new(original_in : List, tag : ID32, fn : Fn)"></endpoint>
+<signature id="UIBlockLinkEvent.new+3">UIBlockLinkEvent.new(<strong>original_in</strong>: <code>List</code>, <strong>tag</strong>: <code>ID32</code>, <strong>fn</strong>: <code>Fn</code>)
+<a class="headerlink" href="#UIBlockLinkEvent.new+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">UIBlockLinkEvent</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockLinkEvent" signature="new(original_in : List, tag : ID32, drop_payload : Handle, fn : Fn)"></endpoint>
+<signature id="UIBlockLinkEvent.new+4">UIBlockLinkEvent.new(<strong>original_in</strong>: <code>List</code>, <strong>tag</strong>: <code>ID32</code>, <strong>drop_payload</strong>: <code>Handle</code>, <strong>fn</strong>: <code>Fn</code>)
+<a class="headerlink" href="#UIBlockLinkEvent.new+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">UIBlockLinkEvent</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockLinkEvent" signature="done(value : List)"></endpoint>
+<signature id="UIBlockLinkEvent.done">UIBlockLinkEvent.done(<strong>value</strong>: <code>List</code>)
+<a class="headerlink" href="#UIBlockLinkEvent.done" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<h3 id="uiblockstate">UIBlockState<a class="headerlink" href="#uiblockstate" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: ui/block&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">UIBlockState</span></code></p>
+<blockquote>
+<p>no docs found</p>
+</blockquote>
+<ul>
+<li><a href="#UIBlockState.new+2">new</a>(<strong>ui</strong>: <code>Entity</code>, <strong>control</strong>: <code>Control</code>)</li>
+<li><a href="#UIBlockState.get_block_fields">get_block_fields</a>()</li>
+<li><a href="#UIBlockState.set_show_defaults">set_show_defaults</a>(<strong>show_defaults</strong>: <code>Any</code>)</li>
+<li><a href="#UIBlockState.clear_listeners">clear_listeners</a>()</li>
+<li><a href="#UIBlockState.handle_assets">handle_assets</a></li>
+<li><a href="#UIBlockState.handle_assets=">handle_assets</a>=(v : Bool)</li>
+<li><a href="#UIBlockState.field_h">field_h</a></li>
+<li><a href="#UIBlockState.label_w">label_w</a></li>
+<li><a href="#UIBlockState.set_sizes+3">set_sizes</a>(<strong>label_width</strong>: <code>Num</code>, <strong>label_size</strong>: <code>Num</code>, <strong>field_height</strong>: <code>Num</code>)</li>
+<li><a href="#UIBlockState.set_instance+2">set_instance</a>(<strong>block</strong>: <code>Block</code>, <strong>instance</strong>: <code>BlockInstance</code>)</li>
+<li><a href="#UIBlockState.set_instances+2">set_instances</a>(<strong>block</strong>: <code>Block</code>, <strong>instances</strong>: <code>List</code>)</li>
+<li><a href="#UIBlockState.set_blocks_instances+2">set_blocks_instances</a>(<strong>blocks</strong>: <code>List</code>, <strong>instances</strong>: <code>List</code>)</li>
+<li><a href="#UIBlockState.do_refresh">do_refresh</a>()</li>
+<li><a href="#UIBlockState.refresh">refresh</a>()</li>
+<li><a href="#UIBlockState.make_vec">make_vec</a>(<strong>view</strong>: <code>ValueView</code>)</li>
+<li><a href="#UIBlockState.make_color">make_color</a>(<strong>view</strong>: <code>ValueView</code>)</li>
+<li><a href="#UIBlockState.make_num">make_num</a>(<strong>view</strong>: <code>ValueView</code>)</li>
+<li><a href="#UIBlockState.make_text">make_text</a>(<strong>view</strong>: <code>ValueView</code>)</li>
+<li><a href="#UIBlockState.get_asset_picks">get_asset_picks</a>(<strong>types</strong>: <code>Any</code>)</li>
+<li><a href="#UIBlockState.make_asset">make_asset</a>(<strong>view</strong>: <code>ValueView</code>)</li>
+<li><a href="#UIBlockState.make_link">make_link</a>(<strong>view</strong>: <code>ValueView</code>)</li>
+<li><a href="#UIBlockState.make_path+2">make_path</a>(<strong>view</strong>: <code>ValueView</code>, <strong>tag</strong>: <code>Num</code>)</li>
+<li><a href="#UIBlockState.make_empty_object">make_empty_object</a>(<strong>name</strong>: <code>String</code>)</li>
+<li><a href="#UIBlockState.make_empty_object+2">make_empty_object</a>(<strong>name</strong>: <code>String</code>, <strong>display</strong>: <code>String</code>)</li>
+<li><a href="#UIBlockState.make_multiple_message">make_multiple_message</a>()</li>
+<li><a href="#UIBlockState.make_message">make_message</a>(<strong>display</strong>: <code>String</code>)</li>
+<li><a href="#UIBlockState.make_bool">make_bool</a>(<strong>default</strong>: <code>Bool</code>)</li>
+<li><a href="#UIBlockState.make_options+2">make_options</a>(<strong>options</strong>: <code>List</code>, <strong>default</strong>: <code>String</code>)</li>
+<li><a href="#UIBlockState.make_object_field+2">make_object_field</a>(<strong>name</strong>: <code>String</code>, <strong>view</strong>: <code>ValueView</code>)</li>
+<li><a href="#UIBlockState.make_options_field">make_options_field</a>(<strong>view</strong>: <code>ValueView</code>)</li>
+<li><a href="#UIBlockState.make_field+3">make_field</a>(<strong>name</strong>: <code>String</code>, <strong>type</strong>: <code>BlockFieldType</code>, <strong>view</strong>: <code>ValueView</code>)</li>
+<li><a href="#UIBlockState.make_object">make_object</a>(<strong>name</strong>: <code>String</code>)</li>
+<li><a href="#UIBlockState.make_object+2">make_object</a>(<strong>name</strong>: <code>String</code>, <strong>title_color</strong>: <code>Color</code>)</li>
+<li><a href="#UIBlockState.make_object+3">make_object</a>(<strong>name</strong>: <code>String</code>, <strong>details</strong>: <code>String</code>, <strong>title_color</strong>: <code>Color</code>)</li>
+<li><a href="#UIBlockState.make_label+2">make_label</a>(<strong>name</strong>: <code>String</code>, <strong>width</strong>: <code>Num</code>)</li>
+<li><a href="#UIBlockState.p+2">p</a>(<strong>depth</strong>: <code>Any</code>, <strong>value</strong>: <code>Any</code>)</li>
+<li><a href="#UIBlockState.dump_info+2">dump_info</a>(<strong>control</strong>: <code>Control</code>, <strong>d</strong>: <code>Num</code>)</li>
+<li><a href="#UIBlockState.make_mod_pip">make_mod_pip</a>(<strong>kind</strong>: <code>BlockFieldModified</code>)</li>
+<li><a href="#UIBlockState.get_changes+3">get_changes</a>(<strong>kind</strong>: <code>UIBlockChange</code>, <strong>value</strong>: <code>ValueView</code>, <strong>edit_value</strong>: <code>Any</code>)</li>
+<li><a href="#UIBlockState.get_changes+4">get_changes</a>(<strong>kind</strong>: <code>UIBlockChange</code>, <strong>value</strong>: <code>ValueView</code>, <strong>edit_value</strong>: <code>Any</code>, <strong>edit_value_fn</strong>: <code>Fn</code>)</li>
+<li><a href="#UIBlockState.get_changes+5">get_changes</a>(<strong>kind</strong>: <code>UIBlockChange</code>, <strong>value</strong>: <code>ValueView</code>, <strong>change_id</strong>: <code>String</code>, <strong>edit_value</strong>: <code>Any</code>, <strong>edit_value_fn</strong>: <code>Fn</code>)</li>
+<li><a href="#UIBlockState.make_block+2">make_block</a>(<strong>instance_view</strong>: <code>InstanceView</code>, <strong>into</strong>: <code>Control</code>)</li>
+<li><a href="#UIBlockState.make_block+3">make_block</a>(<strong>instance_view</strong>: <code>InstanceView</code>, <strong>into</strong>: <code>Control</code>, <strong>indent</strong>: <code>Num</code>)</li>
+<li><a href="#UIBlockState.hide_tip">hide_tip</a>(<strong>from</strong>: <code>Control</code>)</li>
+<li><a href="#UIBlockState.show_tip+2">show_tip</a>(<strong>tooltip</strong>: <code>String</code>, <strong>control</strong>: <code>Control</code>)</li>
+<li><a href="#UIBlockState.make_group">make_group</a>(<strong>name</strong>: <code>Any</code>)</li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="new(ui : Entity, control : Control)"></endpoint>
+<signature id="UIBlockState.new+2">UIBlockState.new(<strong>ui</strong>: <code>Entity</code>, <strong>control</strong>: <code>Control</code>)
+<a class="headerlink" href="#UIBlockState.new+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">UIBlockState</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="get_block_fields()"></endpoint>
+<signature id="UIBlockState.get_block_fields">UIBlockState.get_block_fields()
+<a class="headerlink" href="#UIBlockState.get_block_fields" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="set_show_defaults(show_defaults : Any)"></endpoint>
+<signature id="UIBlockState.set_show_defaults">UIBlockState.set_show_defaults(<strong>show_defaults</strong>: <code>Any</code>)
+<a class="headerlink" href="#UIBlockState.set_show_defaults" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="clear_listeners()"></endpoint>
+<signature id="UIBlockState.clear_listeners">UIBlockState.clear_listeners()
+<a class="headerlink" href="#UIBlockState.clear_listeners" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="handle_assets"></endpoint>
+<signature id="UIBlockState.handle_assets">UIBlockState.handle_assets
+<a class="headerlink" href="#UIBlockState.handle_assets" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Bool</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="handle_assets=(v : Bool)"></endpoint>
+<signature id="UIBlockState.handle_assets=">UIBlockState.handle_assets=(v : Bool)
+<a class="headerlink" href="#UIBlockState.handle_assets=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="field_h"></endpoint>
+<signature id="UIBlockState.field_h">UIBlockState.field_h
+<a class="headerlink" href="#UIBlockState.field_h" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="label_w"></endpoint>
+<signature id="UIBlockState.label_w">UIBlockState.label_w
+<a class="headerlink" href="#UIBlockState.label_w" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="set_sizes(label_width : Num, label_size : Num, field_height : Num)"></endpoint>
+<signature id="UIBlockState.set_sizes+3">UIBlockState.set_sizes(<strong>label_width</strong>: <code>Num</code>, <strong>label_size</strong>: <code>Num</code>, <strong>field_height</strong>: <code>Num</code>)
+<a class="headerlink" href="#UIBlockState.set_sizes+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="set_instance(block : Block, instance : BlockInstance)"></endpoint>
+<signature id="UIBlockState.set_instance+2">UIBlockState.set_instance(<strong>block</strong>: <code>Block</code>, <strong>instance</strong>: <code>BlockInstance</code>)
+<a class="headerlink" href="#UIBlockState.set_instance+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="set_instances(block : Block, instances : List)"></endpoint>
+<signature id="UIBlockState.set_instances+2">UIBlockState.set_instances(<strong>block</strong>: <code>Block</code>, <strong>instances</strong>: <code>List</code>)
+<a class="headerlink" href="#UIBlockState.set_instances+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="set_blocks_instances(blocks : List, instances : List)"></endpoint>
+<signature id="UIBlockState.set_blocks_instances+2">UIBlockState.set_blocks_instances(<strong>blocks</strong>: <code>List</code>, <strong>instances</strong>: <code>List</code>)
+<a class="headerlink" href="#UIBlockState.set_blocks_instances+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="do_refresh()"></endpoint>
+<signature id="UIBlockState.do_refresh">UIBlockState.do_refresh()
+<a class="headerlink" href="#UIBlockState.do_refresh" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="refresh()"></endpoint>
+<signature id="UIBlockState.refresh">UIBlockState.refresh()
+<a class="headerlink" href="#UIBlockState.refresh" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="make_vec(view : ValueView)"></endpoint>
+<signature id="UIBlockState.make_vec">UIBlockState.make_vec(<strong>view</strong>: <code>ValueView</code>)
+<a class="headerlink" href="#UIBlockState.make_vec" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Field</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="make_color(view : ValueView)"></endpoint>
+<signature id="UIBlockState.make_color">UIBlockState.make_color(<strong>view</strong>: <code>ValueView</code>)
+<a class="headerlink" href="#UIBlockState.make_color" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Field</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="make_num(view : ValueView)"></endpoint>
+<signature id="UIBlockState.make_num">UIBlockState.make_num(<strong>view</strong>: <code>ValueView</code>)
+<a class="headerlink" href="#UIBlockState.make_num" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Field</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="make_text(view : ValueView)"></endpoint>
+<signature id="UIBlockState.make_text">UIBlockState.make_text(<strong>view</strong>: <code>ValueView</code>)
+<a class="headerlink" href="#UIBlockState.make_text" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Field</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="get_asset_picks(types : Any)"></endpoint>
+<signature id="UIBlockState.get_asset_picks">UIBlockState.get_asset_picks(<strong>types</strong>: <code>Any</code>)
+<a class="headerlink" href="#UIBlockState.get_asset_picks" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="make_asset(view : ValueView)"></endpoint>
+<signature id="UIBlockState.make_asset">UIBlockState.make_asset(<strong>view</strong>: <code>ValueView</code>)
+<a class="headerlink" href="#UIBlockState.make_asset" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Field</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="make_link(view : ValueView)"></endpoint>
+<signature id="UIBlockState.make_link">UIBlockState.make_link(<strong>view</strong>: <code>ValueView</code>)
+<a class="headerlink" href="#UIBlockState.make_link" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Field</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="make_path(view : ValueView, tag : Num)"></endpoint>
+<signature id="UIBlockState.make_path+2">UIBlockState.make_path(<strong>view</strong>: <code>ValueView</code>, <strong>tag</strong>: <code>Num</code>)
+<a class="headerlink" href="#UIBlockState.make_path+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Field</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="make_empty_object(name : String)"></endpoint>
+<signature id="UIBlockState.make_empty_object">UIBlockState.make_empty_object(<strong>name</strong>: <code>String</code>)
+<a class="headerlink" href="#UIBlockState.make_empty_object" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Field</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="make_empty_object(name : String, display : String)"></endpoint>
+<signature id="UIBlockState.make_empty_object+2">UIBlockState.make_empty_object(<strong>name</strong>: <code>String</code>, <strong>display</strong>: <code>String</code>)
+<a class="headerlink" href="#UIBlockState.make_empty_object+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Field</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="make_multiple_message()"></endpoint>
+<signature id="UIBlockState.make_multiple_message">UIBlockState.make_multiple_message()
+<a class="headerlink" href="#UIBlockState.make_multiple_message" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="make_message(display : String)"></endpoint>
+<signature id="UIBlockState.make_message">UIBlockState.make_message(<strong>display</strong>: <code>String</code>)
+<a class="headerlink" href="#UIBlockState.make_message" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="make_bool(default : Bool)"></endpoint>
+<signature id="UIBlockState.make_bool">UIBlockState.make_bool(<strong>default</strong>: <code>Bool</code>)
+<a class="headerlink" href="#UIBlockState.make_bool" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Field</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="make_options(options : List, default : String)"></endpoint>
+<signature id="UIBlockState.make_options+2">UIBlockState.make_options(<strong>options</strong>: <code>List</code>, <strong>default</strong>: <code>String</code>)
+<a class="headerlink" href="#UIBlockState.make_options+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Field</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="make_object_field(name : String, view : ValueView)"></endpoint>
+<signature id="UIBlockState.make_object_field+2">UIBlockState.make_object_field(<strong>name</strong>: <code>String</code>, <strong>view</strong>: <code>ValueView</code>)
+<a class="headerlink" href="#UIBlockState.make_object_field+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="make_options_field(view : ValueView)"></endpoint>
+<signature id="UIBlockState.make_options_field">UIBlockState.make_options_field(<strong>view</strong>: <code>ValueView</code>)
+<a class="headerlink" href="#UIBlockState.make_options_field" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Field</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="make_field(name : String, type : BlockFieldType, view : ValueView)"></endpoint>
+<signature id="UIBlockState.make_field+3">UIBlockState.make_field(<strong>name</strong>: <code>String</code>, <strong>type</strong>: <code>BlockFieldType</code>, <strong>view</strong>: <code>ValueView</code>)
+<a class="headerlink" href="#UIBlockState.make_field+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Field</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="make_object(name : String)"></endpoint>
+<signature id="UIBlockState.make_object">UIBlockState.make_object(<strong>name</strong>: <code>String</code>)
+<a class="headerlink" href="#UIBlockState.make_object" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="make_object(name : String, title_color : Color)"></endpoint>
+<signature id="UIBlockState.make_object+2">UIBlockState.make_object(<strong>name</strong>: <code>String</code>, <strong>title_color</strong>: <code>Color</code>)
+<a class="headerlink" href="#UIBlockState.make_object+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="make_object(name : String, details : String, title_color : Color)"></endpoint>
+<signature id="UIBlockState.make_object+3">UIBlockState.make_object(<strong>name</strong>: <code>String</code>, <strong>details</strong>: <code>String</code>, <strong>title_color</strong>: <code>Color</code>)
+<a class="headerlink" href="#UIBlockState.make_object+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="make_label(name : String, width : Num)"></endpoint>
+<signature id="UIBlockState.make_label+2">UIBlockState.make_label(<strong>name</strong>: <code>String</code>, <strong>width</strong>: <code>Num</code>)
+<a class="headerlink" href="#UIBlockState.make_label+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="p(depth : Any, value : Any)"></endpoint>
+<signature id="UIBlockState.p+2">UIBlockState.p(<strong>depth</strong>: <code>Any</code>, <strong>value</strong>: <code>Any</code>)
+<a class="headerlink" href="#UIBlockState.p+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="dump_info(control : Control, d : Num)"></endpoint>
+<signature id="UIBlockState.dump_info+2">UIBlockState.dump_info(<strong>control</strong>: <code>Control</code>, <strong>d</strong>: <code>Num</code>)
+<a class="headerlink" href="#UIBlockState.dump_info+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="make_mod_pip(kind : BlockFieldModified)"></endpoint>
+<signature id="UIBlockState.make_mod_pip">UIBlockState.make_mod_pip(<strong>kind</strong>: <code>BlockFieldModified</code>)
+<a class="headerlink" href="#UIBlockState.make_mod_pip" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">ModifiedPip</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="get_changes(kind : UIBlockChange, value : ValueView, edit_value : Any)"></endpoint>
+<signature id="UIBlockState.get_changes+3">UIBlockState.get_changes(<strong>kind</strong>: <code>UIBlockChange</code>, <strong>value</strong>: <code>ValueView</code>, <strong>edit_value</strong>: <code>Any</code>)
+<a class="headerlink" href="#UIBlockState.get_changes+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">List</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="get_changes(kind : UIBlockChange, value : ValueView, edit_value : Any, edit_value_fn : Fn)"></endpoint>
+<signature id="UIBlockState.get_changes+4">UIBlockState.get_changes(<strong>kind</strong>: <code>UIBlockChange</code>, <strong>value</strong>: <code>ValueView</code>, <strong>edit_value</strong>: <code>Any</code>, <strong>edit_value_fn</strong>: <code>Fn</code>)
+<a class="headerlink" href="#UIBlockState.get_changes+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">List</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="get_changes(kind : UIBlockChange, value : ValueView, change_id : String, edit_value : Any, edit_value_fn : Fn)"></endpoint>
+<signature id="UIBlockState.get_changes+5">UIBlockState.get_changes(<strong>kind</strong>: <code>UIBlockChange</code>, <strong>value</strong>: <code>ValueView</code>, <strong>change_id</strong>: <code>String</code>, <strong>edit_value</strong>: <code>Any</code>, <strong>edit_value_fn</strong>: <code>Fn</code>)
+<a class="headerlink" href="#UIBlockState.get_changes+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">List</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="make_block(instance_view : InstanceView, into : Control)"></endpoint>
+<signature id="UIBlockState.make_block+2">UIBlockState.make_block(<strong>instance_view</strong>: <code>InstanceView</code>, <strong>into</strong>: <code>Control</code>)
+<a class="headerlink" href="#UIBlockState.make_block+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="make_block(instance_view : InstanceView, into : Control, indent : Num)"></endpoint>
+<signature id="UIBlockState.make_block+3">UIBlockState.make_block(<strong>instance_view</strong>: <code>InstanceView</code>, <strong>into</strong>: <code>Control</code>, <strong>indent</strong>: <code>Num</code>)
+<a class="headerlink" href="#UIBlockState.make_block+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="hide_tip(from : Control)"></endpoint>
+<signature id="UIBlockState.hide_tip">UIBlockState.hide_tip(<strong>from</strong>: <code>Control</code>)
+<a class="headerlink" href="#UIBlockState.hide_tip" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="show_tip(tooltip : String, control : Control)"></endpoint>
+<signature id="UIBlockState.show_tip+2">UIBlockState.show_tip(<strong>tooltip</strong>: <code>String</code>, <strong>control</strong>: <code>Control</code>)
+<a class="headerlink" href="#UIBlockState.show_tip+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/block" class="UIBlockState" signature="make_group(name : Any)"></endpoint>
+<signature id="UIBlockState.make_group">UIBlockState.make_group(<strong>name</strong>: <code>Any</code>)
+<a class="headerlink" href="#UIBlockState.make_group" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 3, 2025 06:41:06 UTC">September 3, 2025</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/luxeengine" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 0c4.42 0 8 3.58 8 8a8.01 8.01 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27s-1.36.09-2 .27c-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8"/></svg>
+    </a>
+  
+</div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../../..", "features": ["instant", "navigation.prune"], "search": "../../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>

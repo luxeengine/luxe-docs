@@ -1,0 +1,1073 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../../../images/luxe-favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Color picker - luxe engine</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../css/extra.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="luxe engine" class="md-header__button md-logo" aria-label="luxe engine" data-md-component="logo">
+      
+  <img src="../../../../../images/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            luxe engine
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Color picker
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="pink" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="luxe engine" class="md-nav__button md-logo" aria-label="luxe engine" data-md-component="logo">
+      
+  <img src="../../../../../images/logo.svg" alt="logo">
+
+    </a>
+    luxe engine
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    about
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../get/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    install
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    guide
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../tutorials/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    tutorials
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../learn/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    learn ...
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../manual/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    manual
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1"><img alt="" src="../../../../../../images/luxe-dark.svg" width="96em" /><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h1 id="luxe-api-202512"><code>luxe</code> API (<code>2025.1.2</code>)<a class="headerlink" href="#luxe-api-202512" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="luxe-uicolor_picker-module"><code>luxe: ui/color_picker</code> module<a class="headerlink" href="#luxe-uicolor_picker-module" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#colorpicker">ColorPicker</a>   </li>
+<li><a href="#colorpickerdata">ColorPickerData</a>   </li>
+</ul>
+<hr />
+<h3 id="colorpicker">ColorPicker<a class="headerlink" href="#colorpicker" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: ui/color_picker&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">ColorPicker</span></code></p>
+<blockquote>
+<p>no docs found</p>
+</blockquote>
+<ul>
+<li><a href="#ColorPicker.create">create</a>(<strong>ui</strong>: <code>Entity</code>)</li>
+<li><a href="#ColorPicker.set_color+2">set_color</a>(<strong>control</strong>: <code>Control</code>, <strong>color</strong>: <code>Color</code>)</li>
+<li><a href="#ColorPicker.get_color">get_color</a>(<strong>control</strong>: <code>Control</code>)</li>
+<li><a href="#ColorPicker.set_allow_hdr+2">set_allow_hdr</a>(<strong>control</strong>: <code>Control</code>, <strong>allow</strong>: <code>Bool</code>)</li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPicker" signature="create(ui : Entity)"></endpoint>
+<signature id="ColorPicker.create">ColorPicker.create(<strong>ui</strong>: <code>Entity</code>)
+<a class="headerlink" href="#ColorPicker.create" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Control</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPicker" signature="set_color(control : Control, color : Color)"></endpoint>
+<signature id="ColorPicker.set_color+2">ColorPicker.set_color(<strong>control</strong>: <code>Control</code>, <strong>color</strong>: <code>Color</code>)
+<a class="headerlink" href="#ColorPicker.set_color+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPicker" signature="get_color(control : Control)"></endpoint>
+<signature id="ColorPicker.get_color">ColorPicker.get_color(<strong>control</strong>: <code>Control</code>)
+<a class="headerlink" href="#ColorPicker.get_color" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Color</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPicker" signature="set_allow_hdr(control : Control, allow : Bool)"></endpoint>
+<signature id="ColorPicker.set_allow_hdr+2">ColorPicker.set_allow_hdr(<strong>control</strong>: <code>Control</code>, <strong>allow</strong>: <code>Bool</code>)
+<a class="headerlink" href="#ColorPicker.set_allow_hdr+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<h3 id="colorpickerdata">ColorPickerData<a class="headerlink" href="#colorpickerdata" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: ui/color_picker&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">ColorPickerData</span></code></p>
+<blockquote>
+<p>no docs found</p>
+</blockquote>
+<ul>
+<li><a href="#ColorPickerData.triangle_size">triangle_size</a></li>
+<li><a href="#ColorPickerData.outer_ring_size">outer_ring_size</a></li>
+<li><a href="#ColorPickerData.inner_ring_size">inner_ring_size</a></li>
+<li><a href="#ColorPickerData.r">r</a></li>
+<li><a href="#ColorPickerData.g">g</a></li>
+<li><a href="#ColorPickerData.b">b</a></li>
+<li><a href="#ColorPickerData.h">h</a></li>
+<li><a href="#ColorPickerData.s">s</a></li>
+<li><a href="#ColorPickerData.v">v</a></li>
+<li><a href="#ColorPickerData.a">a</a></li>
+<li><a href="#ColorPickerData.color_ldr">color_ldr</a></li>
+<li><a href="#ColorPickerData.color_hdr">color_hdr</a></li>
+<li><a href="#ColorPickerData.srgb">srgb</a></li>
+<li><a href="#ColorPickerData.srgb=">srgb</a>=(value : Bool)</li>
+<li><a href="#ColorPickerData.hdr_multiplier">hdr_multiplier</a></li>
+<li><a href="#ColorPickerData.hdr_multiplier=">hdr_multiplier</a>=(value : Num)</li>
+<li><a href="#ColorPickerData.allow_hdr">allow_hdr</a></li>
+<li><a href="#ColorPickerData.allow_hdr=">allow_hdr</a>=(v : Bool)</li>
+<li><a href="#ColorPickerData.show_hdr">show_hdr</a></li>
+<li><a href="#ColorPickerData.show_hdr=">show_hdr</a>=(v : Bool)</li>
+<li><a href="#ColorPickerData.show_components">show_components</a></li>
+<li><a href="#ColorPickerData.show_components">show_components</a>(<strong>v</strong>: <code>String</code>)</li>
+<li><a href="#ColorPickerData.debug=">debug</a>=(v : Any)</li>
+<li><a href="#ColorPickerData.new+2">new</a>(<strong>ui</strong>: <code>Control</code>, <strong>root</strong>: <code>Control</code>)</li>
+<li><a href="#ColorPickerData.set_allow_hdr">set_allow_hdr</a>(<strong>allow</strong>: <code>Bool</code>)</li>
+<li><a href="#ColorPickerData.set_color">set_color</a>(<strong>color</strong>: <code>Color</code>)</li>
+<li><a href="#ColorPickerData.get_rgba">get_rgba</a>()</li>
+<li><a href="#ColorPickerData.get_rgba+2">get_rgba</a>(<strong>srgb</strong>: <code>Bool</code>, <strong>hdr</strong>: <code>Bool</code>)</li>
+<li><a href="#ColorPickerData.get_hsva_component">get_hsva_component</a>()</li>
+<li><a href="#ColorPickerData.get_hsva">get_hsva</a>(<strong>srgb</strong>: <code>Bool</code>)</li>
+<li><a href="#ColorPickerData.set_rgba">set_rgba</a>(<strong>col</strong>: <code>Color</code>)</li>
+<li><a href="#ColorPickerData.set_rgba+2">set_rgba</a>(<strong>col</strong>: <code>Color</code>, <strong>srgb</strong>: <code>Bool</code>)</li>
+<li><a href="#ColorPickerData.set_rgba+3">set_rgba</a>(<strong>col</strong>: <code>Color</code>, <strong>srgb</strong>: <code>Bool</code>, <strong>update_spaces</strong>: <code>Bool</code>)</li>
+<li><a href="#ColorPickerData.set_hsva">set_hsva</a>(<strong>col</strong>: <code>Any</code>)</li>
+<li><a href="#ColorPickerData.set_hsva+2">set_hsva</a>(<strong>col</strong>: <code>Color</code>, <strong>srgb</strong>: <code>Bool</code>)</li>
+<li><a href="#ColorPickerData.set_hsva+3">set_hsva</a>(<strong>col</strong>: <code>Color</code>, <strong>srgb</strong>: <code>Bool</code>, <strong>update_spaces</strong>: <code>Bool</code>)</li>
+<li><a href="#ColorPickerData.set_rgba_component+2">set_rgba_component</a>(<strong>index</strong>: <code>Num</code>, <strong>value</strong>: <code>Num</code>)</li>
+<li><a href="#ColorPickerData.set_rgba_component+3">set_rgba_component</a>(<strong>index</strong>: <code>Num</code>, <strong>value</strong>: <code>Num</code>, <strong>srgb</strong>: <code>Bool</code>)</li>
+<li><a href="#ColorPickerData.get_rgba_component">get_rgba_component</a>(<strong>index</strong>: <code>Num</code>)</li>
+<li><a href="#ColorPickerData.get_rgba_component+2">get_rgba_component</a>(<strong>index</strong>: <code>Num</code>, <strong>srgb</strong>: <code>Bool</code>)</li>
+<li><a href="#ColorPickerData.get_rgba_component+3">get_rgba_component</a>(<strong>index</strong>: <code>Num</code>, <strong>srgb</strong>: <code>Bool</code>, <strong>hdr</strong>: <code>Bool</code>)</li>
+<li><a href="#ColorPickerData.set_hsva_component+2">set_hsva_component</a>(<strong>index</strong>: <code>Num</code>, <strong>value</strong>: <code>Num</code>)</li>
+<li><a href="#ColorPickerData.set_hsva_component+3">set_hsva_component</a>(<strong>index</strong>: <code>Num</code>, <strong>value</strong>: <code>Num</code>, <strong>srgb</strong>: <code>Bool</code>)</li>
+<li><a href="#ColorPickerData.get_hsva_component">get_hsva_component</a>(<strong>index</strong>: <code>Num</code>)</li>
+<li><a href="#ColorPickerData.get_hsva_component+2">get_hsva_component</a>(<strong>index</strong>: <code>Num</code>, <strong>srgb</strong>: <code>Bool</code>)</li>
+<li><a href="#ColorPickerData.create_colorpicker+2">create_colorpicker</a>(<strong>ui</strong>: <code>Entity</code>, <strong>color_view</strong>: <code>Control</code>)</li>
+<li><a href="#ColorPickerData.hdr_settings+2">hdr_settings</a>(<strong>ui</strong>: <code>UI</code>, <strong>data_control</strong>: <code>Control</code>)</li>
+<li><a href="#ColorPickerData.color_display+2">color_display</a>(<strong>ui</strong>: <code>UI</code>, <strong>data_control</strong>: <code>Control</code>)</li>
+<li><a href="#ColorPickerData.colorspace_choice+2">colorspace_choice</a>(<strong>ui</strong>: <code>Any</code>, <strong>data_control</strong>: <code>Any</code>)</li>
+<li><a href="#ColorPickerData.hex_input+2">hex_input</a>(<strong>ui</strong>: <code>UI</code>, <strong>data_control</strong>: <code>Control</code>)</li>
+<li><a href="#ColorPickerData.rgba_values+2">rgba_values</a>(<strong>ui</strong>: <code>UI</code>, <strong>color_view</strong>: <code>Control</code>)</li>
+<li><a href="#ColorPickerData.hsva_values+2">hsva_values</a>(<strong>ui</strong>: <code>UI</code>, <strong>color_view</strong>: <code>Control</code>)</li>
+<li><a href="#ColorPickerData.color_component+5">color_component</a>(<strong>ui</strong>: <code>Entity</code>, <strong>name</strong>: <code>String</code>, <strong>index</strong>: <code>Num</code>, <strong>color_view</strong>: <code>Control</code>, <strong>space</strong>: <code>String</code>)</li>
+<li><a href="#ColorPickerData.create_hsv_wheel+2">create_hsv_wheel</a>(<strong>ui</strong>: <code>Entity</code>, <strong>data_root</strong>: <code>Control</code>)</li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="triangle_size"></endpoint>
+<signature id="ColorPickerData.triangle_size">ColorPickerData.triangle_size
+<a class="headerlink" href="#ColorPickerData.triangle_size" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="outer_ring_size"></endpoint>
+<signature id="ColorPickerData.outer_ring_size">ColorPickerData.outer_ring_size
+<a class="headerlink" href="#ColorPickerData.outer_ring_size" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="inner_ring_size"></endpoint>
+<signature id="ColorPickerData.inner_ring_size">ColorPickerData.inner_ring_size
+<a class="headerlink" href="#ColorPickerData.inner_ring_size" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="r"></endpoint>
+<signature id="ColorPickerData.r">ColorPickerData.r
+<a class="headerlink" href="#ColorPickerData.r" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="g"></endpoint>
+<signature id="ColorPickerData.g">ColorPickerData.g
+<a class="headerlink" href="#ColorPickerData.g" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="b"></endpoint>
+<signature id="ColorPickerData.b">ColorPickerData.b
+<a class="headerlink" href="#ColorPickerData.b" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="h"></endpoint>
+<signature id="ColorPickerData.h">ColorPickerData.h
+<a class="headerlink" href="#ColorPickerData.h" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="s"></endpoint>
+<signature id="ColorPickerData.s">ColorPickerData.s
+<a class="headerlink" href="#ColorPickerData.s" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="v"></endpoint>
+<signature id="ColorPickerData.v">ColorPickerData.v
+<a class="headerlink" href="#ColorPickerData.v" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="a"></endpoint>
+<signature id="ColorPickerData.a">ColorPickerData.a
+<a class="headerlink" href="#ColorPickerData.a" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="color_ldr"></endpoint>
+<signature id="ColorPickerData.color_ldr">ColorPickerData.color_ldr
+<a class="headerlink" href="#ColorPickerData.color_ldr" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Color</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="color_hdr"></endpoint>
+<signature id="ColorPickerData.color_hdr">ColorPickerData.color_hdr
+<a class="headerlink" href="#ColorPickerData.color_hdr" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Color</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="srgb"></endpoint>
+<signature id="ColorPickerData.srgb">ColorPickerData.srgb
+<a class="headerlink" href="#ColorPickerData.srgb" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Bool</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="srgb=(value : Bool)"></endpoint>
+<signature id="ColorPickerData.srgb=">ColorPickerData.srgb=(value : Bool)
+<a class="headerlink" href="#ColorPickerData.srgb=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="hdr_multiplier"></endpoint>
+<signature id="ColorPickerData.hdr_multiplier">ColorPickerData.hdr_multiplier
+<a class="headerlink" href="#ColorPickerData.hdr_multiplier" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="hdr_multiplier=(value : Num)"></endpoint>
+<signature id="ColorPickerData.hdr_multiplier=">ColorPickerData.hdr_multiplier=(value : Num)
+<a class="headerlink" href="#ColorPickerData.hdr_multiplier=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="allow_hdr"></endpoint>
+<signature id="ColorPickerData.allow_hdr">ColorPickerData.allow_hdr
+<a class="headerlink" href="#ColorPickerData.allow_hdr" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Bool</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="allow_hdr=(v : Bool)"></endpoint>
+<signature id="ColorPickerData.allow_hdr=">ColorPickerData.allow_hdr=(v : Bool)
+<a class="headerlink" href="#ColorPickerData.allow_hdr=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="show_hdr"></endpoint>
+<signature id="ColorPickerData.show_hdr">ColorPickerData.show_hdr
+<a class="headerlink" href="#ColorPickerData.show_hdr" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Bool</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="show_hdr=(v : Bool)"></endpoint>
+<signature id="ColorPickerData.show_hdr=">ColorPickerData.show_hdr=(v : Bool)
+<a class="headerlink" href="#ColorPickerData.show_hdr=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="show_components"></endpoint>
+<signature id="ColorPickerData.show_components">ColorPickerData.show_components
+<a class="headerlink" href="#ColorPickerData.show_components" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="show_components(v : String)"></endpoint>
+<signature id="ColorPickerData.show_components">ColorPickerData.show_components(<strong>v</strong>: <code>String</code>)
+<a class="headerlink" href="#ColorPickerData.show_components" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="debug=(v : Any)"></endpoint>
+<signature id="ColorPickerData.debug=">ColorPickerData.debug=(v : Any)
+<a class="headerlink" href="#ColorPickerData.debug=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="new(ui : Control, root : Control)"></endpoint>
+<signature id="ColorPickerData.new+2">ColorPickerData.new(<strong>ui</strong>: <code>Control</code>, <strong>root</strong>: <code>Control</code>)
+<a class="headerlink" href="#ColorPickerData.new+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">ColorPickerData</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="set_allow_hdr(allow : Bool)"></endpoint>
+<signature id="ColorPickerData.set_allow_hdr">ColorPickerData.set_allow_hdr(<strong>allow</strong>: <code>Bool</code>)
+<a class="headerlink" href="#ColorPickerData.set_allow_hdr" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="set_color(color : Color)"></endpoint>
+<signature id="ColorPickerData.set_color">ColorPickerData.set_color(<strong>color</strong>: <code>Color</code>)
+<a class="headerlink" href="#ColorPickerData.set_color" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="get_rgba()"></endpoint>
+<signature id="ColorPickerData.get_rgba">ColorPickerData.get_rgba()
+<a class="headerlink" href="#ColorPickerData.get_rgba" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Color</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="get_rgba(srgb : Bool, hdr : Bool)"></endpoint>
+<signature id="ColorPickerData.get_rgba+2">ColorPickerData.get_rgba(<strong>srgb</strong>: <code>Bool</code>, <strong>hdr</strong>: <code>Bool</code>)
+<a class="headerlink" href="#ColorPickerData.get_rgba+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Color</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="get_hsva_component()"></endpoint>
+<signature id="ColorPickerData.get_hsva_component">ColorPickerData.get_hsva_component()
+<a class="headerlink" href="#ColorPickerData.get_hsva_component" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Color</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="get_hsva(srgb : Bool)"></endpoint>
+<signature id="ColorPickerData.get_hsva">ColorPickerData.get_hsva(<strong>srgb</strong>: <code>Bool</code>)
+<a class="headerlink" href="#ColorPickerData.get_hsva" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Color</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="set_rgba(col : Color)"></endpoint>
+<signature id="ColorPickerData.set_rgba">ColorPickerData.set_rgba(<strong>col</strong>: <code>Color</code>)
+<a class="headerlink" href="#ColorPickerData.set_rgba" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="set_rgba(col : Color, srgb : Bool)"></endpoint>
+<signature id="ColorPickerData.set_rgba+2">ColorPickerData.set_rgba(<strong>col</strong>: <code>Color</code>, <strong>srgb</strong>: <code>Bool</code>)
+<a class="headerlink" href="#ColorPickerData.set_rgba+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="set_rgba(col : Color, srgb : Bool, update_spaces : Bool)"></endpoint>
+<signature id="ColorPickerData.set_rgba+3">ColorPickerData.set_rgba(<strong>col</strong>: <code>Color</code>, <strong>srgb</strong>: <code>Bool</code>, <strong>update_spaces</strong>: <code>Bool</code>)
+<a class="headerlink" href="#ColorPickerData.set_rgba+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="set_hsva(col : Any)"></endpoint>
+<signature id="ColorPickerData.set_hsva">ColorPickerData.set_hsva(<strong>col</strong>: <code>Any</code>)
+<a class="headerlink" href="#ColorPickerData.set_hsva" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="set_hsva(col : Color, srgb : Bool)"></endpoint>
+<signature id="ColorPickerData.set_hsva+2">ColorPickerData.set_hsva(<strong>col</strong>: <code>Color</code>, <strong>srgb</strong>: <code>Bool</code>)
+<a class="headerlink" href="#ColorPickerData.set_hsva+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="set_hsva(col : Color, srgb : Bool, update_spaces : Bool)"></endpoint>
+<signature id="ColorPickerData.set_hsva+3">ColorPickerData.set_hsva(<strong>col</strong>: <code>Color</code>, <strong>srgb</strong>: <code>Bool</code>, <strong>update_spaces</strong>: <code>Bool</code>)
+<a class="headerlink" href="#ColorPickerData.set_hsva+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="set_rgba_component(index : Num, value : Num)"></endpoint>
+<signature id="ColorPickerData.set_rgba_component+2">ColorPickerData.set_rgba_component(<strong>index</strong>: <code>Num</code>, <strong>value</strong>: <code>Num</code>)
+<a class="headerlink" href="#ColorPickerData.set_rgba_component+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="set_rgba_component(index : Num, value : Num, srgb : Bool)"></endpoint>
+<signature id="ColorPickerData.set_rgba_component+3">ColorPickerData.set_rgba_component(<strong>index</strong>: <code>Num</code>, <strong>value</strong>: <code>Num</code>, <strong>srgb</strong>: <code>Bool</code>)
+<a class="headerlink" href="#ColorPickerData.set_rgba_component+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="get_rgba_component(index : Num)"></endpoint>
+<signature id="ColorPickerData.get_rgba_component">ColorPickerData.get_rgba_component(<strong>index</strong>: <code>Num</code>)
+<a class="headerlink" href="#ColorPickerData.get_rgba_component" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="get_rgba_component(index : Num, srgb : Bool)"></endpoint>
+<signature id="ColorPickerData.get_rgba_component+2">ColorPickerData.get_rgba_component(<strong>index</strong>: <code>Num</code>, <strong>srgb</strong>: <code>Bool</code>)
+<a class="headerlink" href="#ColorPickerData.get_rgba_component+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="get_rgba_component(index : Num, srgb : Bool, hdr : Bool)"></endpoint>
+<signature id="ColorPickerData.get_rgba_component+3">ColorPickerData.get_rgba_component(<strong>index</strong>: <code>Num</code>, <strong>srgb</strong>: <code>Bool</code>, <strong>hdr</strong>: <code>Bool</code>)
+<a class="headerlink" href="#ColorPickerData.get_rgba_component+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="set_hsva_component(index : Num, value : Num)"></endpoint>
+<signature id="ColorPickerData.set_hsva_component+2">ColorPickerData.set_hsva_component(<strong>index</strong>: <code>Num</code>, <strong>value</strong>: <code>Num</code>)
+<a class="headerlink" href="#ColorPickerData.set_hsva_component+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="set_hsva_component(index : Num, value : Num, srgb : Bool)"></endpoint>
+<signature id="ColorPickerData.set_hsva_component+3">ColorPickerData.set_hsva_component(<strong>index</strong>: <code>Num</code>, <strong>value</strong>: <code>Num</code>, <strong>srgb</strong>: <code>Bool</code>)
+<a class="headerlink" href="#ColorPickerData.set_hsva_component+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="get_hsva_component(index : Num)"></endpoint>
+<signature id="ColorPickerData.get_hsva_component">ColorPickerData.get_hsva_component(<strong>index</strong>: <code>Num</code>)
+<a class="headerlink" href="#ColorPickerData.get_hsva_component" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="get_hsva_component(index : Num, srgb : Bool)"></endpoint>
+<signature id="ColorPickerData.get_hsva_component+2">ColorPickerData.get_hsva_component(<strong>index</strong>: <code>Num</code>, <strong>srgb</strong>: <code>Bool</code>)
+<a class="headerlink" href="#ColorPickerData.get_hsva_component+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="create_colorpicker(ui : Entity, color_view : Control)"></endpoint>
+<signature id="ColorPickerData.create_colorpicker+2">ColorPickerData.create_colorpicker(<strong>ui</strong>: <code>Entity</code>, <strong>color_view</strong>: <code>Control</code>)
+<a class="headerlink" href="#ColorPickerData.create_colorpicker+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="hdr_settings(ui : UI, data_control : Control)"></endpoint>
+<signature id="ColorPickerData.hdr_settings+2">ColorPickerData.hdr_settings(<strong>ui</strong>: <code>UI</code>, <strong>data_control</strong>: <code>Control</code>)
+<a class="headerlink" href="#ColorPickerData.hdr_settings+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="color_display(ui : UI, data_control : Control)"></endpoint>
+<signature id="ColorPickerData.color_display+2">ColorPickerData.color_display(<strong>ui</strong>: <code>UI</code>, <strong>data_control</strong>: <code>Control</code>)
+<a class="headerlink" href="#ColorPickerData.color_display+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="colorspace_choice(ui : Any, data_control : Any)"></endpoint>
+<signature id="ColorPickerData.colorspace_choice+2">ColorPickerData.colorspace_choice(<strong>ui</strong>: <code>Any</code>, <strong>data_control</strong>: <code>Any</code>)
+<a class="headerlink" href="#ColorPickerData.colorspace_choice+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="hex_input(ui : UI, data_control : Control)"></endpoint>
+<signature id="ColorPickerData.hex_input+2">ColorPickerData.hex_input(<strong>ui</strong>: <code>UI</code>, <strong>data_control</strong>: <code>Control</code>)
+<a class="headerlink" href="#ColorPickerData.hex_input+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="rgba_values(ui : UI, color_view : Control)"></endpoint>
+<signature id="ColorPickerData.rgba_values+2">ColorPickerData.rgba_values(<strong>ui</strong>: <code>UI</code>, <strong>color_view</strong>: <code>Control</code>)
+<a class="headerlink" href="#ColorPickerData.rgba_values+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="hsva_values(ui : UI, color_view : Control)"></endpoint>
+<signature id="ColorPickerData.hsva_values+2">ColorPickerData.hsva_values(<strong>ui</strong>: <code>UI</code>, <strong>color_view</strong>: <code>Control</code>)
+<a class="headerlink" href="#ColorPickerData.hsva_values+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="color_component(ui : Entity, name : String, index : Num, color_view : Control, space : String)"></endpoint>
+<signature id="ColorPickerData.color_component+5">ColorPickerData.color_component(<strong>ui</strong>: <code>Entity</code>, <strong>name</strong>: <code>String</code>, <strong>index</strong>: <code>Num</code>, <strong>color_view</strong>: <code>Control</code>, <strong>space</strong>: <code>String</code>)
+<a class="headerlink" href="#ColorPickerData.color_component+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: ui/color_picker" class="ColorPickerData" signature="create_hsv_wheel(ui : Entity, data_root : Control)"></endpoint>
+<signature id="ColorPickerData.create_hsv_wheel+2">ColorPickerData.create_hsv_wheel(<strong>ui</strong>: <code>Entity</code>, <strong>data_root</strong>: <code>Control</code>)
+<a class="headerlink" href="#ColorPickerData.create_hsv_wheel+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Control</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 3, 2025 06:41:06 UTC">September 3, 2025</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/luxeengine" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 0c4.42 0 8 3.58 8 8a8.01 8.01 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27s-1.36.09-2 .27c-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8"/></svg>
+    </a>
+  
+</div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../../..", "features": ["instant", "navigation.prune"], "search": "../../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>

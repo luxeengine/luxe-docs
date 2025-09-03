@@ -1,0 +1,1182 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../../../images/luxe-favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>World - luxe engine</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../css/extra.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="luxe engine" class="md-header__button md-logo" aria-label="luxe engine" data-md-component="logo">
+      
+  <img src="../../../../../images/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            luxe engine
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              World
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="pink" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="luxe engine" class="md-nav__button md-logo" aria-label="luxe engine" data-md-component="logo">
+      
+  <img src="../../../../../images/logo.svg" alt="logo">
+
+    </a>
+    luxe engine
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    about
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../get/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    install
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    guide
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../tutorials/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    tutorials
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../learn/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    learn ...
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../manual/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    manual
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1"><img alt="" src="../../../../../../images/luxe-dark.svg" width="96em" /><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h1 id="luxe-api-202512"><code>luxe</code> API (<code>2025.1.2</code>)<a class="headerlink" href="#luxe-api-202512" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="luxe-worldworld-module"><code>luxe: world/world</code> module<a class="headerlink" href="#luxe-worldworld-module" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#oldevent">OldEvent</a>   </li>
+<li><a href="#wire">Wire</a>   </li>
+<li><a href="#world">World</a>   </li>
+</ul>
+<hr />
+<h3 id="oldevent">OldEvent<a class="headerlink" href="#oldevent" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: world/world&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">OldEvent</span></code></p>
+<blockquote>
+<p>no docs found</p>
+</blockquote>
+<ul>
+<li><a href="#OldEvent.destroy">destroy</a></li>
+<li><a href="#OldEvent.tick">tick</a></li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: world/world" class="OldEvent" signature="destroy"></endpoint>
+<signature id="OldEvent.destroy">OldEvent.destroy
+<a class="headerlink" href="#OldEvent.destroy" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="OldEvent" signature="tick"></endpoint>
+<signature id="OldEvent.tick">OldEvent.tick
+<a class="headerlink" href="#OldEvent.tick" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<h3 id="wire">Wire<a class="headerlink" href="#wire" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: world/world&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">Wire</span></code></p>
+<blockquote>
+<p>no docs found</p>
+</blockquote>
+<ul>
+<li><code class="highlight"><span class="kd">var</span><span class="w"> </span><span class="nx">id</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">Num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span></code></li>
+<li><code class="highlight"><span class="kd">var</span><span class="w"> </span><span class="nx">uuid</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span></code></li>
+<li><code class="highlight"><span class="kd">var</span><span class="w"> </span><span class="nx">type</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span></code></li>
+<li><code class="highlight"><span class="kd">var</span><span class="w"> </span><span class="nx">target</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span></code></li>
+<li><a href="#Wire.create">create</a>()</li>
+<li><a href="#Wire.send">send</a>(<strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Wire.send+2">send</a>(<strong>entity</strong>: <code>Entity</code>, <strong>data</strong>: <code>Any</code>)</li>
+<li><a href="#Wire.prepare">prepare</a>()</li>
+<li><a href="#Wire.connect+3">connect</a>(<strong>world</strong>: <code>World</code>, <strong>uuid</strong>: <code>String</code>, <strong>fn</strong>: <code>Fn</code>)</li>
+<li><a href="#Wire.send+3">send</a>(<strong>world</strong>: <code>World</code>, <strong>uuid</strong>: <code>String</code>, <strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Wire.send+4">send</a>(<strong>world</strong>: <code>World</code>, <strong>uuid</strong>: <code>String</code>, <strong>entity</strong>: <code>Entity</code>, <strong>args</strong>: <code>Any</code>)</li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: world/world" class="Wire" signature="create()"></endpoint>
+<signature id="Wire.create">Wire.create()
+<a class="headerlink" href="#Wire.create" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Wire</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="Wire" signature="send(entity : Entity)"></endpoint>
+<signature id="Wire.send">Wire.send(<strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Wire.send" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="Wire" signature="send(entity : Entity, data : Any)"></endpoint>
+<signature id="Wire.send+2">Wire.send(<strong>entity</strong>: <code>Entity</code>, <strong>data</strong>: <code>Any</code>)
+<a class="headerlink" href="#Wire.send+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="Wire" signature="prepare()"></endpoint>
+<signature id="Wire.prepare">Wire.prepare()
+<a class="headerlink" href="#Wire.prepare" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Any</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="Wire" signature="connect(world : World, uuid : String, fn : Fn)"></endpoint>
+<signature id="Wire.connect+3">Wire.connect(<strong>world</strong>: <code>World</code>, <strong>uuid</strong>: <code>String</code>, <strong>fn</strong>: <code>Fn</code>)
+<a class="headerlink" href="#Wire.connect+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="Wire" signature="send(world : World, uuid : String, entity : Entity)"></endpoint>
+<signature id="Wire.send+3">Wire.send(<strong>world</strong>: <code>World</code>, <strong>uuid</strong>: <code>String</code>, <strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Wire.send+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="Wire" signature="send(world : World, uuid : String, entity : Entity, args : Any)"></endpoint>
+<signature id="Wire.send+4">Wire.send(<strong>world</strong>: <code>World</code>, <strong>uuid</strong>: <code>String</code>, <strong>entity</strong>: <code>Entity</code>, <strong>args</strong>: <code>Any</code>)
+<a class="headerlink" href="#Wire.send+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<h3 id="world">World<a class="headerlink" href="#world" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: world/world&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">World</span></code></p>
+<blockquote>
+<p>no docs found</p>
+</blockquote>
+<ul>
+<li><a href="#World.get_system+2">get_system</a>(<strong>world</strong>: <code>World</code>, <strong>modifier_id</strong>: <code>String</code>)</li>
+<li><a href="#World.get_scene+2">get_scene</a>(<strong>world</strong>: <code>World</code>, <strong>scene_id</strong>: <code>String</code>)</li>
+<li><a href="#World.get_scene_for+2">get_scene_for</a>(<strong>world</strong>: <code>World</code>, <strong>scene</strong>: <code>Entity</code>)</li>
+<li><a href="#World.exists">exists</a>(<strong>id</strong>: <code>String</code>)</li>
+<li><a href="#World.valid">valid</a>(<strong>world</strong>: <code>World</code>)</li>
+<li><a href="#World.get">get</a>(<strong>id</strong>: <code>String</code>)</li>
+<li><a href="#World.get_id">get_id</a>(<strong>world</strong>: <code>World</code>)</li>
+<li><a href="#World.set_id+2">set_id</a>(<strong>world</strong>: <code>World</code>, <strong>id</strong>: <code>String</code>)</li>
+<li><a href="#World.get_default">get_default</a>()</li>
+<li><a href="#World.set_default">set_default</a>(<strong>world</strong>: <code>World</code>)</li>
+<li><a href="#World.list">list</a>(<strong>world</strong>: <code>World</code>)</li>
+<li><a href="#World.list_ids">list_ids</a>(<strong>world</strong>: <code>World</code>)</li>
+<li><a href="#World.clear">clear</a>(<strong>world</strong>: <code>World</code>)</li>
+<li><a href="#World.duplicate">duplicate</a>(<strong>world</strong>: <code>World</code>)</li>
+<li><a href="#World.tag_add+2">tag_add</a>(<strong>world</strong>: <code>Any</code>, <strong>tag</strong>: <code>Any</code>)</li>
+<li><a href="#World.tag_remove+2">tag_remove</a>(<strong>world</strong>: <code>Any</code>, <strong>tag</strong>: <code>Any</code>)</li>
+<li><a href="#World.tag_has+2">tag_has</a>(<strong>world</strong>: <code>Any</code>, <strong>tag</strong>: <code>Any</code>)</li>
+<li><a href="#World.get_scene_roots">get_scene_roots</a>(<strong>world</strong>: <code>World</code>)</li>
+<li><a href="#World.get_delta">get_delta</a>(<strong>world</strong>: <code>Any</code>)</li>
+<li><a href="#World.tick+4">tick</a>(<strong>world</strong>: <code>World</code>, <strong>when</strong>: <code>FrameWhen</code>, <strong>section</strong>: <code>FrameSection</code>, <strong>priority</strong>: <code>Num</code>)</li>
+<li><a href="#World.tick">tick</a>(<strong>world</strong>: <code>World</code>)</li>
+<li><a href="#World.tick+2">tick</a>(<strong>world</strong>: <code>World</code>, <strong>delta</strong>: <code>Num</code>)</li>
+<li><a href="#World.schedule+4">schedule</a>(<strong>world</strong>: <code>Any</code>, <strong>time</strong>: <code>Any</code>, <strong>count</strong>: <code>Any</code>, <strong>fn</strong>: <code>Any</code>)</li>
+<li><a href="#World.schedule+3">schedule</a>(<strong>world</strong>: <code>Any</code>, <strong>time</strong>: <code>Any</code>, <strong>fn</strong>: <code>Any</code>)</li>
+<li><a href="#World.unschedule+2">unschedule</a>(<strong>world</strong>: <code>Any</code>, <strong>handle</strong>: <code>Any</code>)</li>
+<li><a href="#World.render_with_set+4">render_with_set</a>(<strong>world</strong>: <code>Any</code>, <strong>camera</strong>: <code>Any</code>, <strong>set</strong>: <code>Any</code>, <strong>target_path</strong>: <code>Any</code>)</li>
+<li><a href="#World.render_with_set+5">render_with_set</a>(<strong>world</strong>: <code>Any</code>, <strong>camera</strong>: <code>Any</code>, <strong>set</strong>: <code>Any</code>, <strong>target_path</strong>: <code>Any</code>, <strong>settings</strong>: <code>Any</code>)</li>
+<li><a href="#World.render_with_set+7">render_with_set</a>(<strong>world</strong>: <code>Any</code>, <strong>camera</strong>: <code>Any</code>, <strong>set</strong>: <code>Any</code>, <strong>target_path</strong>: <code>Any</code>, <strong>target_resource</strong>: <code>Any</code>, <strong>target_region</strong>: <code>Any</code>, <strong>settings</strong>: <code>Any</code>)</li>
+<li><a href="#World.render+3">render</a>(<strong>world</strong>: <code>Any</code>, <strong>camera</strong>: <code>Any</code>, <strong>target_path</strong>: <code>Any</code>)</li>
+<li><a href="#World.render+4">render</a>(<strong>world</strong>: <code>Any</code>, <strong>camera</strong>: <code>Any</code>, <strong>target_path</strong>: <code>Any</code>, <strong>settings</strong>: <code>Any</code>)</li>
+<li><a href="#World.render+6">render</a>(<strong>world</strong>: <code>Any</code>, <strong>camera</strong>: <code>Any</code>, <strong>target_path</strong>: <code>Any</code>, <strong>target_resource</strong>: <code>Any</code>, <strong>target_region</strong>: <code>Any</code>, <strong>settings</strong>: <code>Any</code>)</li>
+<li><a href="#World.render+2">render</a>(<strong>world</strong>: <code>Any</code>, <strong>desc</strong>: <code>Any</code>)</li>
+<li><a href="#World.render_fn+6">render_fn</a>(<strong>world</strong>: <code>Any</code>, <strong>camera</strong>: <code>Any</code>, <strong>target_resource</strong>: <code>Any</code>, <strong>target_region</strong>: <code>Any</code>, <strong>settings</strong>: <code>Any</code>, <strong>fn</strong>: <code>Any</code>)</li>
+<li><a href="#World.get_phases">get_phases</a>(<strong>world</strong>: <code>World</code>)</li>
+<li><a href="#World.get_phase_modifiers+3">get_phase_modifiers</a>(<strong>world</strong>: <code>World</code>, <strong>phase</strong>: <code>Num</code>, <strong>stage</strong>: <code>Num</code>)</li>
+<li><a href="#World.get_modifier_block+2">get_modifier_block</a>(<strong>world</strong>: <code>World</code>, <strong>modifier_id</strong>: <code>String</code>)</li>
+<li><a href="#World.get_sorted_modifiers">get_sorted_modifiers</a>(<strong>world</strong>: <code>World</code>)</li>
+<li><a href="#World.get_rate">get_rate</a>(<strong>world</strong>: <code>Any</code>)</li>
+<li><a href="#World.set_rate+2">set_rate</a>(<strong>world</strong>: <code>Any</code>, <strong>rate</strong>: <code>Any</code>)</li>
+<li><a href="#World.set_time+2">set_time</a>(<strong>world</strong>: <code>Any</code>, <strong>time</strong>: <code>Any</code>)</li>
+<li><a href="#World.time">time</a>(<strong>world</strong>: <code>Any</code>)</li>
+<li><a href="#World.render_set">render_set</a>(<strong>world</strong>: <code>Any</code>)</li>
+<li><a href="#World.render_set_add+2">render_set_add</a>(<strong>world</strong>: <code>Any</code>, <strong>geometry</strong>: <code>Any</code>)</li>
+<li><a href="#World.render_set_add+3">render_set_add</a>(<strong>world</strong>: <code>Any</code>, <strong>geometry</strong>: <code>Any</code>, <strong>entity</strong>: <code>Any</code>)</li>
+<li><a href="#World.render_set_remove+2">render_set_remove</a>(<strong>world</strong>: <code>Any</code>, <strong>geometry</strong>: <code>Any</code>)</li>
+<li><a href="#World.render_set_remove+3">render_set_remove</a>(<strong>world</strong>: <code>Any</code>, <strong>geometry</strong>: <code>Any</code>, <strong>entity</strong>: <code>Any</code>)</li>
+<li><a href="#World.render_get_entity+2">render_get_entity</a>(<strong>world</strong>: <code>Any</code>, <strong>geometry</strong>: <code>Any</code>)</li>
+<li><a href="#World.render_get_entity_set">render_get_entity_set</a>(<strong>entity</strong>: <code>Any</code>)</li>
+<li><a href="#World.disable+3">disable</a>(<strong>world</strong>: <code>Any</code>, <strong>state</strong>: <code>Any</code>, <strong>entities</strong>: <code>Any</code>)</li>
+<li><a href="#World.disable+2">disable</a>(<strong>world</strong>: <code>Any</code>, <strong>state</strong>: <code>Any</code>)</li>
+<li><a href="#World.emit+2">emit</a>(<strong>world</strong>: <code>Any</code>, <strong>tags</strong>: <code>Any</code>)</li>
+<li><a href="#World.emit+3">emit</a>(<strong>world</strong>: <code>Any</code>, <strong>tags</strong>: <code>Any</code>, <strong>data</strong>: <code>Any</code>)</li>
+<li><a href="#World.listen+3">listen</a>(<strong>world</strong>: <code>Any</code>, <strong>tags</strong>: <code>Any</code>, <strong>fn</strong>: <code>Any</code>)</li>
+<li><a href="#World.unlisten+3">unlisten</a>(<strong>world</strong>: <code>Any</code>, <strong>tags</strong>: <code>Any</code>, <strong>fn</strong>: <code>Any</code>)</li>
+<li><a href="#World.create">create</a>()</li>
+<li><a href="#World.create">create</a>(<strong>id</strong>: <code>Any</code>)</li>
+<li><a href="#World.destroy">destroy</a>(<strong>world</strong>: <code>Any</code>)</li>
+<li><a href="#World.on_register_system+2">on_register_system</a>(<strong>world</strong>: <code>World</code>, <strong>fn</strong>: <code>Fn</code>)</li>
+<li><a href="#World.off_register_system+2">off_register_system</a>(<strong>world</strong>: <code>World</code>, <strong>listener</strong>: <code>Handle</code>)</li>
+<li><a href="#World.tick_now+2">tick_now</a>(<strong>world</strong>: <code>Any</code>, <strong>delta</strong>: <code>Any</code>)</li>
+<li><a href="#World.live_worlds">live_worlds</a></li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: world/world" class="World" signature="get_system(world : World, modifier_id : String)"></endpoint>
+<signature id="World.get_system+2">World.get_system(<strong>world</strong>: <code>World</code>, <strong>modifier_id</strong>: <code>String</code>)
+<a class="headerlink" href="#World.get_system+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="get_scene(world : World, scene_id : String)"></endpoint>
+<signature id="World.get_scene+2">World.get_scene(<strong>world</strong>: <code>World</code>, <strong>scene_id</strong>: <code>String</code>)
+<a class="headerlink" href="#World.get_scene+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="get_scene_for(world : World, scene : Entity)"></endpoint>
+<signature id="World.get_scene_for+2">World.get_scene_for(<strong>world</strong>: <code>World</code>, <strong>scene</strong>: <code>Entity</code>)
+<a class="headerlink" href="#World.get_scene_for+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="exists(id : String)"></endpoint>
+<signature id="World.exists">World.exists(<strong>id</strong>: <code>String</code>)
+<a class="headerlink" href="#World.exists" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Bool</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="valid(world : World)"></endpoint>
+<signature id="World.valid">World.valid(<strong>world</strong>: <code>World</code>)
+<a class="headerlink" href="#World.valid" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Bool</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="get(id : String)"></endpoint>
+<signature id="World.get">World.get(<strong>id</strong>: <code>String</code>)
+<a class="headerlink" href="#World.get" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">World</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="get_id(world : World)"></endpoint>
+<signature id="World.get_id">World.get_id(<strong>world</strong>: <code>World</code>)
+<a class="headerlink" href="#World.get_id" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">String</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="set_id(world : World, id : String)"></endpoint>
+<signature id="World.set_id+2">World.set_id(<strong>world</strong>: <code>World</code>, <strong>id</strong>: <code>String</code>)
+<a class="headerlink" href="#World.set_id+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="get_default()"></endpoint>
+<signature id="World.get_default">World.get_default()
+<a class="headerlink" href="#World.get_default" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">World</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="set_default(world : World)"></endpoint>
+<signature id="World.set_default">World.set_default(<strong>world</strong>: <code>World</code>)
+<a class="headerlink" href="#World.set_default" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="list(world : World)"></endpoint>
+<signature id="World.list">World.list(<strong>world</strong>: <code>World</code>)
+<a class="headerlink" href="#World.list" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">List</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="list_ids(world : World)"></endpoint>
+<signature id="World.list_ids">World.list_ids(<strong>world</strong>: <code>World</code>)
+<a class="headerlink" href="#World.list_ids" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">List</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="clear(world : World)"></endpoint>
+<signature id="World.clear">World.clear(<strong>world</strong>: <code>World</code>)
+<a class="headerlink" href="#World.clear" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="duplicate(world : World)"></endpoint>
+<signature id="World.duplicate">World.duplicate(<strong>world</strong>: <code>World</code>)
+<a class="headerlink" href="#World.duplicate" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">World</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="tag_add(world : Any, tag : Any)"></endpoint>
+<signature id="World.tag_add+2">World.tag_add(<strong>world</strong>: <code>Any</code>, <strong>tag</strong>: <code>Any</code>)
+<a class="headerlink" href="#World.tag_add+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="tag_remove(world : Any, tag : Any)"></endpoint>
+<signature id="World.tag_remove+2">World.tag_remove(<strong>world</strong>: <code>Any</code>, <strong>tag</strong>: <code>Any</code>)
+<a class="headerlink" href="#World.tag_remove+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="tag_has(world : Any, tag : Any)"></endpoint>
+<signature id="World.tag_has+2">World.tag_has(<strong>world</strong>: <code>Any</code>, <strong>tag</strong>: <code>Any</code>)
+<a class="headerlink" href="#World.tag_has+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="get_scene_roots(world : World)"></endpoint>
+<signature id="World.get_scene_roots">World.get_scene_roots(<strong>world</strong>: <code>World</code>)
+<a class="headerlink" href="#World.get_scene_roots" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Returns a Set of scene root entities in the given world   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="get_delta(world : Any)"></endpoint>
+<signature id="World.get_delta">World.get_delta(<strong>world</strong>: <code>Any</code>)
+<a class="headerlink" href="#World.get_delta" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="tick(world : World, when : FrameWhen, section : FrameSection, priority : Num)"></endpoint>
+<signature id="World.tick+4">World.tick(<strong>world</strong>: <code>World</code>, <strong>when</strong>: <code>FrameWhen</code>, <strong>section</strong>: <code>FrameSection</code>, <strong>priority</strong>: <code>Num</code>)
+<a class="headerlink" href="#World.tick+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="tick(world : World)"></endpoint>
+<signature id="World.tick">World.tick(<strong>world</strong>: <code>World</code>)
+<a class="headerlink" href="#World.tick" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="tick(world : World, delta : Num)"></endpoint>
+<signature id="World.tick+2">World.tick(<strong>world</strong>: <code>World</code>, <strong>delta</strong>: <code>Num</code>)
+<a class="headerlink" href="#World.tick+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="schedule(world : Any, time : Any, count : Any, fn : Any)"></endpoint>
+<signature id="World.schedule+4">World.schedule(<strong>world</strong>: <code>Any</code>, <strong>time</strong>: <code>Any</code>, <strong>count</strong>: <code>Any</code>, <strong>fn</strong>: <code>Any</code>)
+<a class="headerlink" href="#World.schedule+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="schedule(world : Any, time : Any, fn : Any)"></endpoint>
+<signature id="World.schedule+3">World.schedule(<strong>world</strong>: <code>Any</code>, <strong>time</strong>: <code>Any</code>, <strong>fn</strong>: <code>Any</code>)
+<a class="headerlink" href="#World.schedule+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="unschedule(world : Any, handle : Any)"></endpoint>
+<signature id="World.unschedule+2">World.unschedule(<strong>world</strong>: <code>Any</code>, <strong>handle</strong>: <code>Any</code>)
+<a class="headerlink" href="#World.unschedule+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="render_with_set(world : Any, camera : Any, set : Any, target_path : Any)"></endpoint>
+<signature id="World.render_with_set+4">World.render_with_set(<strong>world</strong>: <code>Any</code>, <strong>camera</strong>: <code>Any</code>, <strong>set</strong>: <code>Any</code>, <strong>target_path</strong>: <code>Any</code>)
+<a class="headerlink" href="#World.render_with_set+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="render_with_set(world : Any, camera : Any, set : Any, target_path : Any, settings : Any)"></endpoint>
+<signature id="World.render_with_set+5">World.render_with_set(<strong>world</strong>: <code>Any</code>, <strong>camera</strong>: <code>Any</code>, <strong>set</strong>: <code>Any</code>, <strong>target_path</strong>: <code>Any</code>, <strong>settings</strong>: <code>Any</code>)
+<a class="headerlink" href="#World.render_with_set+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="render_with_set(world : Any, camera : Any, set : Any, target_path : Any, target_resource : Any, target_region : Any, settings : Any)"></endpoint>
+<signature id="World.render_with_set+7">World.render_with_set(<strong>world</strong>: <code>Any</code>, <strong>camera</strong>: <code>Any</code>, <strong>set</strong>: <code>Any</code>, <strong>target_path</strong>: <code>Any</code>, <strong>target_resource</strong>: <code>Any</code>, <strong>target_region</strong>: <code>Any</code>, <strong>settings</strong>: <code>Any</code>)
+<a class="headerlink" href="#World.render_with_set+7" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="render(world : Any, camera : Any, target_path : Any)"></endpoint>
+<signature id="World.render+3">World.render(<strong>world</strong>: <code>Any</code>, <strong>camera</strong>: <code>Any</code>, <strong>target_path</strong>: <code>Any</code>)
+<a class="headerlink" href="#World.render+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="render(world : Any, camera : Any, target_path : Any, settings : Any)"></endpoint>
+<signature id="World.render+4">World.render(<strong>world</strong>: <code>Any</code>, <strong>camera</strong>: <code>Any</code>, <strong>target_path</strong>: <code>Any</code>, <strong>settings</strong>: <code>Any</code>)
+<a class="headerlink" href="#World.render+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="render(world : Any, camera : Any, target_path : Any, target_resource : Any, target_region : Any, settings : Any)"></endpoint>
+<signature id="World.render+6">World.render(<strong>world</strong>: <code>Any</code>, <strong>camera</strong>: <code>Any</code>, <strong>target_path</strong>: <code>Any</code>, <strong>target_resource</strong>: <code>Any</code>, <strong>target_region</strong>: <code>Any</code>, <strong>settings</strong>: <code>Any</code>)
+<a class="headerlink" href="#World.render+6" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="render(world : Any, desc : Any)"></endpoint>
+<signature id="World.render+2">World.render(<strong>world</strong>: <code>Any</code>, <strong>desc</strong>: <code>Any</code>)
+<a class="headerlink" href="#World.render+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="render_fn(world : Any, camera : Any, target_resource : Any, target_region : Any, settings : Any, fn : Any)"></endpoint>
+<signature id="World.render_fn+6">World.render_fn(<strong>world</strong>: <code>Any</code>, <strong>camera</strong>: <code>Any</code>, <strong>target_resource</strong>: <code>Any</code>, <strong>target_region</strong>: <code>Any</code>, <strong>settings</strong>: <code>Any</code>, <strong>fn</strong>: <code>Any</code>)
+<a class="headerlink" href="#World.render_fn+6" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="get_phases(world : World)"></endpoint>
+<signature id="World.get_phases">World.get_phases(<strong>world</strong>: <code>World</code>)
+<a class="headerlink" href="#World.get_phases" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">Set</span></code></p>
+<blockquote>
+<p>Return the set of phases in the world, in order   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="get_phase_modifiers(world : World, phase : Num, stage : Num)"></endpoint>
+<signature id="World.get_phase_modifiers+3">World.get_phase_modifiers(<strong>world</strong>: <code>World</code>, <strong>phase</strong>: <code>Num</code>, <strong>stage</strong>: <code>Num</code>)
+<a class="headerlink" href="#World.get_phase_modifiers+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">Set</span></code></p>
+<blockquote>
+<p>Return a set of modifier ids in the phase/stage   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="get_modifier_block(world : World, modifier_id : String)"></endpoint>
+<signature id="World.get_modifier_block+2">World.get_modifier_block(<strong>world</strong>: <code>World</code>, <strong>modifier_id</strong>: <code>String</code>)
+<a class="headerlink" href="#World.get_modifier_block+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Block</span></code></p>
+<blockquote>
+<p>Get the block for the given modifier <code>modifier_id</code> in <code>world</code>   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="get_sorted_modifiers(world : World)"></endpoint>
+<signature id="World.get_sorted_modifiers">World.get_sorted_modifiers(<strong>world</strong>: <code>World</code>)
+<a class="headerlink" href="#World.get_sorted_modifiers" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nb">Set</span></code></p>
+<blockquote>
+<p>Get the list of modifiers in <code>world</code> (sorted by their order)   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="get_rate(world : Any)"></endpoint>
+<signature id="World.get_rate">World.get_rate(<strong>world</strong>: <code>Any</code>)
+<a class="headerlink" href="#World.get_rate" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="set_rate(world : Any, rate : Any)"></endpoint>
+<signature id="World.set_rate+2">World.set_rate(<strong>world</strong>: <code>Any</code>, <strong>rate</strong>: <code>Any</code>)
+<a class="headerlink" href="#World.set_rate+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="set_time(world : Any, time : Any)"></endpoint>
+<signature id="World.set_time+2">World.set_time(<strong>world</strong>: <code>Any</code>, <strong>time</strong>: <code>Any</code>)
+<a class="headerlink" href="#World.set_time+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="time(world : Any)"></endpoint>
+<signature id="World.time">World.time(<strong>world</strong>: <code>Any</code>)
+<a class="headerlink" href="#World.time" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="render_set(world : Any)"></endpoint>
+<signature id="World.render_set">World.render_set(<strong>world</strong>: <code>Any</code>)
+<a class="headerlink" href="#World.render_set" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="render_set_add(world : Any, geometry : Any)"></endpoint>
+<signature id="World.render_set_add+2">World.render_set_add(<strong>world</strong>: <code>Any</code>, <strong>geometry</strong>: <code>Any</code>)
+<a class="headerlink" href="#World.render_set_add+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="render_set_add(world : Any, geometry : Any, entity : Any)"></endpoint>
+<signature id="World.render_set_add+3">World.render_set_add(<strong>world</strong>: <code>Any</code>, <strong>geometry</strong>: <code>Any</code>, <strong>entity</strong>: <code>Any</code>)
+<a class="headerlink" href="#World.render_set_add+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="render_set_remove(world : Any, geometry : Any)"></endpoint>
+<signature id="World.render_set_remove+2">World.render_set_remove(<strong>world</strong>: <code>Any</code>, <strong>geometry</strong>: <code>Any</code>)
+<a class="headerlink" href="#World.render_set_remove+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="render_set_remove(world : Any, geometry : Any, entity : Any)"></endpoint>
+<signature id="World.render_set_remove+3">World.render_set_remove(<strong>world</strong>: <code>Any</code>, <strong>geometry</strong>: <code>Any</code>, <strong>entity</strong>: <code>Any</code>)
+<a class="headerlink" href="#World.render_set_remove+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="render_get_entity(world : Any, geometry : Any)"></endpoint>
+<signature id="World.render_get_entity+2">World.render_get_entity(<strong>world</strong>: <code>Any</code>, <strong>geometry</strong>: <code>Any</code>)
+<a class="headerlink" href="#World.render_get_entity+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="render_get_entity_set(entity : Any)"></endpoint>
+<signature id="World.render_get_entity_set">World.render_get_entity_set(<strong>entity</strong>: <code>Any</code>)
+<a class="headerlink" href="#World.render_get_entity_set" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="disable(world : Any, state : Any, entities : Any)"></endpoint>
+<signature id="World.disable+3">World.disable(<strong>world</strong>: <code>Any</code>, <strong>state</strong>: <code>Any</code>, <strong>entities</strong>: <code>Any</code>)
+<a class="headerlink" href="#World.disable+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="disable(world : Any, state : Any)"></endpoint>
+<signature id="World.disable+2">World.disable(<strong>world</strong>: <code>Any</code>, <strong>state</strong>: <code>Any</code>)
+<a class="headerlink" href="#World.disable+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="emit(world : Any, tags : Any)"></endpoint>
+<signature id="World.emit+2">World.emit(<strong>world</strong>: <code>Any</code>, <strong>tags</strong>: <code>Any</code>)
+<a class="headerlink" href="#World.emit+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="emit(world : Any, tags : Any, data : Any)"></endpoint>
+<signature id="World.emit+3">World.emit(<strong>world</strong>: <code>Any</code>, <strong>tags</strong>: <code>Any</code>, <strong>data</strong>: <code>Any</code>)
+<a class="headerlink" href="#World.emit+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="listen(world : Any, tags : Any, fn : Any)"></endpoint>
+<signature id="World.listen+3">World.listen(<strong>world</strong>: <code>Any</code>, <strong>tags</strong>: <code>Any</code>, <strong>fn</strong>: <code>Any</code>)
+<a class="headerlink" href="#World.listen+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="unlisten(world : Any, tags : Any, fn : Any)"></endpoint>
+<signature id="World.unlisten+3">World.unlisten(<strong>world</strong>: <code>Any</code>, <strong>tags</strong>: <code>Any</code>, <strong>fn</strong>: <code>Any</code>)
+<a class="headerlink" href="#World.unlisten+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="create()"></endpoint>
+<signature id="World.create">World.create()
+<a class="headerlink" href="#World.create" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="create(id : Any)"></endpoint>
+<signature id="World.create">World.create(<strong>id</strong>: <code>Any</code>)
+<a class="headerlink" href="#World.create" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="destroy(world : Any)"></endpoint>
+<signature id="World.destroy">World.destroy(<strong>world</strong>: <code>Any</code>)
+<a class="headerlink" href="#World.destroy" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="on_register_system(world : World, fn : Fn)"></endpoint>
+<signature id="World.on_register_system+2">World.on_register_system(<strong>world</strong>: <code>World</code>, <strong>fn</strong>: <code>Fn</code>)
+<a class="headerlink" href="#World.on_register_system+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Handle</span></code></p>
+<blockquote>
+<p>Add a function to be called when a new modifier system is added to a world.   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="off_register_system(world : World, listener : Handle)"></endpoint>
+<signature id="World.off_register_system+2">World.off_register_system(<strong>world</strong>: <code>World</code>, <strong>listener</strong>: <code>Handle</code>)
+<a class="headerlink" href="#World.off_register_system+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Unsubscribe a listener from the creation of new modifier systems.   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="tick_now(world : Any, delta : Any)"></endpoint>
+<signature id="World.tick_now+2">World.tick_now(<strong>world</strong>: <code>Any</code>, <strong>delta</strong>: <code>Any</code>)
+<a class="headerlink" href="#World.tick_now+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: world/world" class="World" signature="live_worlds"></endpoint>
+<signature id="World.live_worlds">World.live_worlds
+<a class="headerlink" href="#World.live_worlds" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 3, 2025 06:41:06 UTC">September 3, 2025</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/luxeengine" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 0c4.42 0 8 3.58 8 8a8.01 8.01 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27s-1.36.09-2 .27c-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8"/></svg>
+    </a>
+  
+</div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../../..", "features": ["instant", "navigation.prune"], "search": "../../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>

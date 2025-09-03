@@ -1,0 +1,1277 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../concepts/">
+      
+      
+      <link rel="icon" href="../../images/luxe-favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>workflow - luxe engine</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="luxe engine" class="md-header__button md-logo" aria-label="luxe engine" data-md-component="logo">
+      
+  <img src="../../images/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            luxe engine
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              workflow
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="pink" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="luxe engine" class="md-nav__button md-logo" aria-label="luxe engine" data-md-component="logo">
+      
+  <img src="../../images/logo.svg" alt="logo">
+
+    </a>
+    luxe engine
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    about
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../get/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    install
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    guide
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    intro
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    workflow
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    workflow
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#luxe-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      luxe workflow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scripting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scripting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scripting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#this-wren-primer-is-a-quick-introduction-if-youre-familiar-with-other-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      This Wren primer is a quick introduction if you're familiar with other languages.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-completion" class="md-nav__link">
+    <span class="md-ellipsis">
+      code completion
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#game-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Game lifecycle
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Game lifecycle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gamewren" class="md-nav__link">
+    <span class="md-ellipsis">
+      game.wren
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asset-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Asset workflow
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Asset workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#an-asset-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      an asset is...
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#source-assets" class="md-nav__link">
+    <span class="md-ellipsis">
+      source assets
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#luxe-assets" class="md-nav__link">
+    <span class="md-ellipsis">
+      luxe assets
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-compiling" class="md-nav__link">
+    <span class="md-ellipsis">
+      data compiling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asset-parcels" class="md-nav__link">
+    <span class="md-ellipsis">
+      asset parcels
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-entry-parcel" class="md-nav__link">
+    <span class="md-ellipsis">
+      The entry parcel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ignoring-assets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ignoring assets
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      project workflow
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="project workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#project-outlines" class="md-nav__link">
+    <span class="md-ellipsis">
+      project outlines
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-empty-outline" class="md-nav__link">
+    <span class="md-ellipsis">
+      The empty outline
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-tutorial-outline" class="md-nav__link">
+    <span class="md-ellipsis">
+      The tutorial outline
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-pixel-art-outline" class="md-nav__link">
+    <span class="md-ellipsis">
+      The pixel art outline
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wren-primer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    wren primer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../tutorials/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    tutorials
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learn/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    learn ...
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../manual/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    manual
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#luxe-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      luxe workflow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scripting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scripting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scripting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#this-wren-primer-is-a-quick-introduction-if-youre-familiar-with-other-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      This Wren primer is a quick introduction if you're familiar with other languages.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-completion" class="md-nav__link">
+    <span class="md-ellipsis">
+      code completion
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#game-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Game lifecycle
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Game lifecycle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gamewren" class="md-nav__link">
+    <span class="md-ellipsis">
+      game.wren
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asset-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Asset workflow
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Asset workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#an-asset-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      an asset is...
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#source-assets" class="md-nav__link">
+    <span class="md-ellipsis">
+      source assets
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#luxe-assets" class="md-nav__link">
+    <span class="md-ellipsis">
+      luxe assets
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-compiling" class="md-nav__link">
+    <span class="md-ellipsis">
+      data compiling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asset-parcels" class="md-nav__link">
+    <span class="md-ellipsis">
+      asset parcels
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-entry-parcel" class="md-nav__link">
+    <span class="md-ellipsis">
+      The entry parcel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ignoring-assets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ignoring assets
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      project workflow
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="project workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#project-outlines" class="md-nav__link">
+    <span class="md-ellipsis">
+      project outlines
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-empty-outline" class="md-nav__link">
+    <span class="md-ellipsis">
+      The empty outline
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-tutorial-outline" class="md-nav__link">
+    <span class="md-ellipsis">
+      The tutorial outline
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-pixel-art-outline" class="md-nav__link">
+    <span class="md-ellipsis">
+      The pixel art outline
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1"><img alt="" src="../../images/luxe-dark.svg" width="96em" /><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="luxe-workflow">luxe workflow<a class="headerlink" href="#luxe-workflow" title="Permanent link">&para;</a></h2>
+<p>This guide will briefly cover the workflow involved in a typical luxe project, 
+like where to put things and how a project functions.</p>
+<h2 id="scripting">Scripting<a class="headerlink" href="#scripting" title="Permanent link">&para;</a></h2>
+<p>When making a game in luxe, you'll typically be writing your game in a programming language called Wren.
+Wren is very easy to learn, and is familiar if you're used to C#, lua or js.</p>
+<h4 id="this-wren-primer-is-a-quick-introduction-if-youre-familiar-with-other-languages">This <a href="../wren-primer/">Wren primer</a> is a quick introduction if you're familiar with other languages.<a class="headerlink" href="#this-wren-primer-is-a-quick-introduction-if-youre-familiar-with-other-languages" title="Permanent link">&para;</a></h4>
+<h4>You can <a target="_blank" href="http://wren.io">Read the Wren documentation</a> for more details.</h4>
+
+<div class="admonition note">
+<p>We'll have our own version of the Wren docs soon as luxe has customized Wren</p>
+</div>
+<h3 id="code-completion">code completion<a class="headerlink" href="#code-completion" title="Permanent link">&para;</a></h3>
+<p>luxe supports code completion and other IDE features through Visual Studio Code (<a href="../../get/#installing-ide-support">instructions here</a>).</p>
+<div class="admonition tip">
+<p>The implementation is a work in progress. Some APIs don't complete (<code>Input</code> + <code>IO</code>).
+Not all classes have documentation yet. As time goes on more and more stuff will have docs
+and type annotations.</p>
+</div>
+<p>The completion works when the <strong>luxe agent</strong> module is installed and running. 
+<strong>The agent is automatically installed and Visual Studio Code automatically runs the agent</strong>.
+Below you can see it in action (exact specifics might have changed over time, it is frequently improving).</p>
+<video preload="auto" autoplay controls="" loop="loop" style="max-width:100%; width:auto; margin:auto; display:block;">  
+  <source src="../../images/guide/completion.mp4" type="video/mp4"></source>
+</video>
+
+<hr />
+<h2 id="game-lifecycle">Game lifecycle<a class="headerlink" href="#game-lifecycle" title="Permanent link">&para;</a></h2>
+<p>When you run your project, there are a few quick steps that prepare the game to run, and then control is handed over to you. Before the game runs, any outdated assets are <em>compiled</em> and then when the game starts, the project settings are applied, then it's your turn.</p>
+<h3 id="gamewren"><code>game.wren</code><a class="headerlink" href="#gamewren" title="Permanent link">&para;</a></h3>
+<p>Control is handed over to you inside your <code>game.wren</code> file. This is your <strong>entry script</strong>, and inside it you will typically have a <code>ready</code>, <code>tick</code>  function. </p>
+<p>Your <code>ready</code> function is where you start making your game. From here you can load some levels, create some entities, and populate a world. </p>
+<p>When that's done, your <code>tick</code> function is called once every frame as the game runs. Inside this function things can be updated (for example, things are moved around, or the HUD is updated). </p>
+<p><strong>outline data</strong> <br />
+Since it is likely you created a project from an outline, 
+your game code is often adjusted to include helper methods and to set up the project for you.
+For example the empty template creates a world, which is accessible via the <code>world</code> getter e.g 
+<div class="highlight"><pre><span></span><code><span class="k">var</span><span class="w"> </span><span class="n">player</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Entity</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">world</span><span class="p">)</span>
+</code></pre></div></p>
+<h2 id="asset-workflow">Asset workflow<a class="headerlink" href="#asset-workflow" title="Permanent link">&para;</a></h2>
+<h3 id="an-asset-is">an asset is...<a class="headerlink" href="#an-asset-is" title="Permanent link">&para;</a></h3>
+<p>In luxe an asset refers to content files in your project folder. </p>
+<p>There are many different types of assets in luxe that you use to create your game, like animations, materials, fonts, meshes and more.</p>
+<h3 id="source-assets">source assets<a class="headerlink" href="#source-assets" title="Permanent link">&para;</a></h3>
+<p>Your project will likely have a number of <em>source assets</em> like images, fonts and audio files, <strong>these can all go in your project folder</strong>. </p>
+<p>Source assets are <em>referenced</em> by luxe <em>assets</em>, in order to tell luxe what you want from them, and are only used when your project data is compiled. </p>
+<h3 id="luxe-assets">luxe assets<a class="headerlink" href="#luxe-assets" title="Permanent link">&para;</a></h3>
+<p>Then there are the assets themselves, which can refer to source assets and other luxe asset files. These often have settings and information about the source asset, but most of them will actually be the content for your game.</p>
+<p><strong>luxe assets are named <code>example.type.lx</code></strong>. For instance, an image would be <code>image/player.image.lx</code>. Both the type and the lx extension are needed.</p>
+<p>If you were making a level for example, you would have an asset to describe it. You would also probably have assets describing all the types of pre-composed entities for your game with all their modifiers set up, all the materials describing how things should be drawn, what input mappings you have, animation curves and more.</p>
+<p>While these files are easy to create, read and edit by hand, most of these will be created and edited using the editor tools instead.</p>
+<div class="admonition note">
+<p>In luxe, you can do basically everything via assets. You can also do the same via code - which means assets complement a code based workflow, they don't often replace it.</p>
+</div>
+<h3 id="data-compiling">data compiling<a class="headerlink" href="#data-compiling" title="Permanent link">&para;</a></h3>
+<p>Now that we have all our source assets, and all the assets describing them and describing our game content, it gets converted into a format luxe can efficiently use when the game runs. This makes it possible to load everything quickly when the game is running.</p>
+<p>The compilation step is quick and keeps track of things that have changed, so that iterating on your game is fast and easy.</p>
+<div class="admonition note">
+<p>There is a new asset system since 2023.11.0 that co-exists with the old asset system.
+Note that there's a transition period where both are active but soon only the new one will be.
+This can add a little extra time on the compiling step but usually not noticeably slower.</p>
+</div>
+<h3 id="asset-parcels">asset parcels<a class="headerlink" href="#asset-parcels" title="Permanent link">&para;</a></h3>
+<p>The final piece of the asset puzzle is how assets actually get loaded in luxe.</p>
+<p>With luxe, you typically don't load assets one at a time. Instead they are grouped together into what we call a <strong>parcel</strong>. A parcel is an asset that lists a bunch of other assets that are related, and should be loaded together.</p>
+<p>When a parcel is loaded all of it's assets become available to the game. When the parcel is unloaded, they are cleaned up and removed (unless multiple parcels list the same asset, in which case it stays until it's not needed).</p>
+<p>Using parcels gives you a lot of control but with a very simple workflow, and serves many important purposes in luxe. Some examples of using parcels include a level specific parcel, an area specific parcel (like streaming in and out sections of a world), and they're useful for modding and add-on/DLC content.</p>
+<div class="admonition quote">
+<p>A parcels is usually compiled into a single data file, making it easier to distribute your game content with the game.</p>
+</div>
+<h3 id="the-entry-parcel">The entry parcel<a class="headerlink" href="#the-entry-parcel" title="Permanent link">&para;</a></h3>
+<p>The default behaviour in luxe is that <strong>the entry parcel is automatic</strong>. You don't have to do anything for it to work, it will load all of the assets inside of your project folder for you. This allows you to focus on making your game without worrying about it.</p>
+<p><strong>For most small to medium games all of your content can be loaded this even when shipped</strong>.
+For larger projects, you'll probably end up with several parcels, but this is in progress, see below.</p>
+<div class="admonition summary">
+<p class="admonition-title">Manually controlled parcels</p>
+<p>At the moment, you can't load parcels manually.</p>
+<p>For bigger games, the entry parcel is typically where you'd store a splash screen and any essentials before the game loads the rest itself. Your project has a <code>parcel</code> setting, which is specifically for when the game starts up. This parcel is loaded first, before you get control, and means that any assets in this parcel are ready when your game starts. </p>
+<p>From there, the game can load other parcels and assets as it needs.</p>
+</div>
+<h3 id="ignoring-assets">Ignoring assets<a class="headerlink" href="#ignoring-assets" title="Permanent link">&para;</a></h3>
+<p>Your project config folder can have a file named <code>ignore</code> in it, so that you can ignore folders and files inside your project. This will also control what ends up in the automatic entry parcel. Put one path per line inside the luxe ignore file. An example is given below where no markdown files and <code>some_folder/</code> won't end up in loaded in game.</p>
+<div class="highlight"><pre><span></span><code>*.md
+some_folder/
+</code></pre></div>
+<hr />
+<h2 id="project-workflow">project workflow<a class="headerlink" href="#project-workflow" title="Permanent link">&para;</a></h2>
+<h3 id="project-outlines">project outlines<a class="headerlink" href="#project-outlines" title="Permanent link">&para;</a></h3>
+<p>Most projects are created from an outline, which is responsible for making it easier to get started making a game. As there are many types of projects that you can make with luxe, each of these have specific needs and defaults. As an example, a 3D project and a 2D only project may have very different defaults.</p>
+<p>With luxe this happens in the project outline, which is set up based on the type of project. The outline configures the basic skeleton, making your project ready to use. For example, in a pixel art outline, the worlds, cameras and settings would be configured for what pixel art needs.</p>
+<p>You can freely modify your outline as it belongs to your project.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Changing the template may require manually updating it, <br />
+if the base template changes and you want those changes in your project.</p>
+</div>
+<h3 id="the-empty-outline">The <code>empty</code> outline<a class="headerlink" href="#the-empty-outline" title="Permanent link">&para;</a></h3>
+<p>This outline is for a basic 2D game and is a good starting point to tinker with luxe!</p>
+<p><strong>worlds</strong> <br />
+It creates two worlds for you, one called <code>world</code> and <code>ui</code>. <br />
+You can put UI entities in the <code>ui</code> world, and game entities in the <code>game</code> world. <br />
+The worlds are automatically updated and drawn when the game updates.</p>
+<p><strong>cameras</strong> <br />
+The UI is drawn after the game, and each world also has it's own camera, so moving the game camera won't affect the UI. A camera is an entity with a <code>Transform</code> and a <code>Camera</code> attached. To control the game camera use <code>camera</code> and for the UI camera use <code>ui_camera</code>. e.g <code>Transform.set_pos(camera, 10, 10)</code></p>
+<p>Both cameras are set up as the size of the window, which makes 1 <em>window pixel</em> = 1 world unit. This handles high DPI screens automatically, keeping your world units the same. It does however mean that changing the window size changes how much of your world you can see, which you may want to configure yourself. <small><em>todo: link to guide on how</em></small></p>
+<p>For convenience you can get the window size from <code>width</code> and <code>height</code> and if needed the device pixel ratio as <code>scale</code>. You can also access the mouse position in world space using <code>mouse</code>, e.g <code>mouse.x</code> or <code>mouse.y</code>.</p>
+<h3 id="the-tutorial-outline">The <code>tutorial</code> outline<a class="headerlink" href="#the-tutorial-outline" title="Permanent link">&para;</a></h3>
+<p>Immediate term this template matches the old workflows and is being updated. It has some useful info but a lot of stuff has changed since and it is being updated. </p>
+<h3 id="the-pixel-art-outline">The <code>pixel art</code> outline<a class="headerlink" href="#the-pixel-art-outline" title="Permanent link">&para;</a></h3>
+<p>This outline includes automatic pixel art scaling and a fixed world size, and handles converting the mouse coordinates for you via <code>mouse.x</code>/<code>mouse.y</code>.  It includes a UI world and game world as well.</p>
+<hr />
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 3, 2025 06:41:06 UTC">September 3, 2025</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="footer.title">
+      
+        <a href="../" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+                 
+                  <span class="md-footer-nav__parent">guide</span> 
+                
+              </span>
+              intro
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../concepts/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+                 
+                  <span class="md-footer-nav__parent">guide</span> 
+                
+              </span>
+              concepts
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/luxeengine" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 0c4.42 0 8 3.58 8 8a8.01 8.01 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27s-1.36.09-2 .27c-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8"/></svg>
+    </a>
+  
+</div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["instant", "navigation.prune"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>

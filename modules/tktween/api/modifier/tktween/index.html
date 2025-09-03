@@ -1,0 +1,1225 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../../../images/luxe-favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Tktween - luxe engine</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../css/extra.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="luxe engine" class="md-header__button md-logo" aria-label="luxe engine" data-md-component="logo">
+      
+  <img src="../../../../../images/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            luxe engine
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tktween
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="pink" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="luxe engine" class="md-nav__button md-logo" aria-label="luxe engine" data-md-component="logo">
+      
+  <img src="../../../../../images/logo.svg" alt="logo">
+
+    </a>
+    luxe engine
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    about
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../get/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    install
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    guide
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../tutorials/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    tutorials
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../learn/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    learn ...
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../manual/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    manual
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1"><img alt="" src="../../../images/luxe-dark.svg" width="96em" /><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h1 id="tktween-api-002"><code>tktween</code> API (<code>0.0.2</code>)<a class="headerlink" href="#tktween-api-002" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="tktween-modifiertktween-module"><code>tktween: modifier/tktween</code> module<a class="headerlink" href="#tktween-modifiertktween-module" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#tktween-api-002"><code>tktween</code> API (<code>0.0.2</code>)</a></li>
+<li><a href="#tktween-modifiertktween-module"><code>tktween: modifier/tktween</code> module</a><ul>
+<li><a href="#easing">Easing</a></li>
+<li><a href="#tktween">TKTween</a></li>
+<li><a href="#tweencontrol">TweenControl</a></li>
+<li><a href="#tweensprite">TweenSprite</a></li>
+<li><a href="#tweenstep">TweenStep</a></li>
+<li><a href="#tweentransform">TweenTransform</a></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="easing">Easing<a class="headerlink" href="#easing" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;tktween: modifier/tktween&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">Easing</span></code></p>
+<blockquote>
+<p>See <a href="https://easings.net/">https://easings.net/</a> or the Easings sample app for a visual description of 
+these easing functions.</p>
+</blockquote>
+<ul>
+<li><a href="#Easing.linear">linear</a></li>
+<li><a href="#Easing.smoothstep">smoothstep</a></li>
+<li><a href="#Easing.in_quad">in_quad</a></li>
+<li><a href="#Easing.out_quad">out_quad</a></li>
+<li><a href="#Easing.inout_quad">inout_quad</a></li>
+<li><a href="#Easing.in_cubic">in_cubic</a></li>
+<li><a href="#Easing.out_cubic">out_cubic</a></li>
+<li><a href="#Easing.inout_cubic">inout_cubic</a></li>
+<li><a href="#Easing.in_quartic">in_quartic</a></li>
+<li><a href="#Easing.out_quartic">out_quartic</a></li>
+<li><a href="#Easing.inout_quartic">inout_quartic</a></li>
+<li><a href="#Easing.in_quintic">in_quintic</a></li>
+<li><a href="#Easing.out_quintic">out_quintic</a></li>
+<li><a href="#Easing.inout_quintic">inout_quintic</a></li>
+<li><a href="#Easing.sqrt_s">sqrt_s</a>(<strong>t</strong>: <code>Any</code>)</li>
+<li><a href="#Easing.in_circ">in_circ</a></li>
+<li><a href="#Easing.out_circ">out_circ</a></li>
+<li><a href="#Easing.inout_circ">inout_circ</a></li>
+<li><a href="#Easing.in_expo">in_expo</a></li>
+<li><a href="#Easing.out_expo">out_expo</a></li>
+<li><a href="#Easing.inout_expo">inout_expo</a></li>
+<li><a href="#Easing.in_back">in_back</a></li>
+<li><a href="#Easing.out_back">out_back</a></li>
+<li><a href="#Easing.inout_back">inout_back</a></li>
+<li><a href="#Easing.in_elastic">in_elastic</a></li>
+<li><a href="#Easing.out_elastic">out_elastic</a></li>
+<li><a href="#Easing.inout_elastic">inout_elastic</a></li>
+<li><a href="#Easing.in_bounce">in_bounce</a></li>
+<li><a href="#Easing.out_bounce">out_bounce</a></li>
+<li><a href="#Easing.inout_bounce">inout_bounce</a></li>
+</ul>
+<hr/>
+<p><endpoint module="tktween: modifier/tktween" class="Easing" signature="linear"></endpoint>
+<signature id="Easing.linear">Easing.linear
+<a class="headerlink" href="#Easing.linear" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="Easing" signature="smoothstep"></endpoint>
+<signature id="Easing.smoothstep">Easing.smoothstep
+<a class="headerlink" href="#Easing.smoothstep" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="Easing" signature="in_quad"></endpoint>
+<signature id="Easing.in_quad">Easing.in_quad
+<a class="headerlink" href="#Easing.in_quad" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="Easing" signature="out_quad"></endpoint>
+<signature id="Easing.out_quad">Easing.out_quad
+<a class="headerlink" href="#Easing.out_quad" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="Easing" signature="inout_quad"></endpoint>
+<signature id="Easing.inout_quad">Easing.inout_quad
+<a class="headerlink" href="#Easing.inout_quad" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="Easing" signature="in_cubic"></endpoint>
+<signature id="Easing.in_cubic">Easing.in_cubic
+<a class="headerlink" href="#Easing.in_cubic" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="Easing" signature="out_cubic"></endpoint>
+<signature id="Easing.out_cubic">Easing.out_cubic
+<a class="headerlink" href="#Easing.out_cubic" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="Easing" signature="inout_cubic"></endpoint>
+<signature id="Easing.inout_cubic">Easing.inout_cubic
+<a class="headerlink" href="#Easing.inout_cubic" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="Easing" signature="in_quartic"></endpoint>
+<signature id="Easing.in_quartic">Easing.in_quartic
+<a class="headerlink" href="#Easing.in_quartic" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="Easing" signature="out_quartic"></endpoint>
+<signature id="Easing.out_quartic">Easing.out_quartic
+<a class="headerlink" href="#Easing.out_quartic" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="Easing" signature="inout_quartic"></endpoint>
+<signature id="Easing.inout_quartic">Easing.inout_quartic
+<a class="headerlink" href="#Easing.inout_quartic" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="Easing" signature="in_quintic"></endpoint>
+<signature id="Easing.in_quintic">Easing.in_quintic
+<a class="headerlink" href="#Easing.in_quintic" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="Easing" signature="out_quintic"></endpoint>
+<signature id="Easing.out_quintic">Easing.out_quintic
+<a class="headerlink" href="#Easing.out_quintic" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="Easing" signature="inout_quintic"></endpoint>
+<signature id="Easing.inout_quintic">Easing.inout_quintic
+<a class="headerlink" href="#Easing.inout_quintic" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="Easing" signature="sqrt_s(t : Any)"></endpoint>
+<signature id="Easing.sqrt_s">Easing.sqrt_s(<strong>t</strong>: <code>Any</code>)
+<a class="headerlink" href="#Easing.sqrt_s" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="Easing" signature="in_circ"></endpoint>
+<signature id="Easing.in_circ">Easing.in_circ
+<a class="headerlink" href="#Easing.in_circ" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="Easing" signature="out_circ"></endpoint>
+<signature id="Easing.out_circ">Easing.out_circ
+<a class="headerlink" href="#Easing.out_circ" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="Easing" signature="inout_circ"></endpoint>
+<signature id="Easing.inout_circ">Easing.inout_circ
+<a class="headerlink" href="#Easing.inout_circ" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="Easing" signature="in_expo"></endpoint>
+<signature id="Easing.in_expo">Easing.in_expo
+<a class="headerlink" href="#Easing.in_expo" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="Easing" signature="out_expo"></endpoint>
+<signature id="Easing.out_expo">Easing.out_expo
+<a class="headerlink" href="#Easing.out_expo" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="Easing" signature="inout_expo"></endpoint>
+<signature id="Easing.inout_expo">Easing.inout_expo
+<a class="headerlink" href="#Easing.inout_expo" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="Easing" signature="in_back"></endpoint>
+<signature id="Easing.in_back">Easing.in_back
+<a class="headerlink" href="#Easing.in_back" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="Easing" signature="out_back"></endpoint>
+<signature id="Easing.out_back">Easing.out_back
+<a class="headerlink" href="#Easing.out_back" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="Easing" signature="inout_back"></endpoint>
+<signature id="Easing.inout_back">Easing.inout_back
+<a class="headerlink" href="#Easing.inout_back" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="Easing" signature="in_elastic"></endpoint>
+<signature id="Easing.in_elastic">Easing.in_elastic
+<a class="headerlink" href="#Easing.in_elastic" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="Easing" signature="out_elastic"></endpoint>
+<signature id="Easing.out_elastic">Easing.out_elastic
+<a class="headerlink" href="#Easing.out_elastic" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="Easing" signature="inout_elastic"></endpoint>
+<signature id="Easing.inout_elastic">Easing.inout_elastic
+<a class="headerlink" href="#Easing.inout_elastic" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="Easing" signature="in_bounce"></endpoint>
+<signature id="Easing.in_bounce">Easing.in_bounce
+<a class="headerlink" href="#Easing.in_bounce" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="Easing" signature="out_bounce"></endpoint>
+<signature id="Easing.out_bounce">Easing.out_bounce
+<a class="headerlink" href="#Easing.out_bounce" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="Easing" signature="inout_bounce"></endpoint>
+<signature id="Easing.inout_bounce">Easing.inout_bounce
+<a class="headerlink" href="#Easing.inout_bounce" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<h3 id="tktween">TKTween<a class="headerlink" href="#tktween" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;tktween: modifier/tktween&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">TKTween</span></code></p>
+<blockquote>
+<p>The modifier to attach to an entity to control tweening.</p>
+</blockquote>
+<ul>
+<li><a href="#TKTween.create">create</a>(<strong>entity</strong>: <code>Any</code>)</li>
+<li><a href="#TKTween.destroy">destroy</a>(<strong>entity</strong>: <code>Any</code>)</li>
+<li><a href="#TKTween.has">has</a>(<strong>entity</strong>: <code>Any</code>)</li>
+<li><a href="#TKTween.tween+2">tween</a>(<strong>entity</strong>: <code>Any</code>, <strong>fn</strong>: <code>Any</code>)</li>
+<li><a href="#TKTween.make_tween+2">make_tween</a>(<strong>entity</strong>: <code>Any</code>, <strong>duration</strong>: <code>Any</code>)</li>
+<li><a href="#TKTween.cancel_all">cancel_all</a>(<strong>entity</strong>: <code>Any</code>)</li>
+<li><a href="#TKTween.cancel+2">cancel</a>(<strong>entity</strong>: <code>Any</code>, <strong>tween_id</strong>: <code>Any</code>)</li>
+<li><a href="#TKTween.InvalidID">InvalidID</a></li>
+</ul>
+<hr/>
+<p><endpoint module="tktween: modifier/tktween" class="TKTween" signature="create(entity : Any)"></endpoint>
+<signature id="TKTween.create">TKTween.create(<strong>entity</strong>: <code>Any</code>)
+<a class="headerlink" href="#TKTween.create" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="TKTween" signature="destroy(entity : Any)"></endpoint>
+<signature id="TKTween.destroy">TKTween.destroy(<strong>entity</strong>: <code>Any</code>)
+<a class="headerlink" href="#TKTween.destroy" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="TKTween" signature="has(entity : Any)"></endpoint>
+<signature id="TKTween.has">TKTween.has(<strong>entity</strong>: <code>Any</code>)
+<a class="headerlink" href="#TKTween.has" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="TKTween" signature="tween(entity : Any, fn : Any)"></endpoint>
+<signature id="TKTween.tween+2">TKTween.tween(<strong>entity</strong>: <code>Any</code>, <strong>fn</strong>: <code>Any</code>)
+<a class="headerlink" href="#TKTween.tween+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Starts a potentially multi-step tween. Pass a function with no parameters 
+that starts at least one TweenStep for this to do anything useful.
+<code>entity</code> - The entity that owns this tween. When the entity is destroyed, the tween will be destroyed. Note
+that the tween may operate on other entities besides the owner, but just be careful to cancel the tween before
+they are removed.
+  <div class="highlight"><pre><span></span><code><span class="w">    </span>
+<span class="c1">// Multi step tween: will first fade in while rising up from 100 to 200 over 3 seconds, </span>
+<span class="c1">// then play a sound, then cycle through all the hues over 5 seconds.</span>
+<span class="nx">TKTween</span><span class="p">.</span><span class="nx">tween</span><span class="p">(</span><span class="w"> </span><span class="nx">_logo</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">  </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s2">&quot;Starting tween...&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="nx">TweenStep</span><span class="p">.</span><span class="nx">duration</span><span class="p">(</span><span class="w"> </span><span class="mf">3.0</span><span class="w"> </span><span class="p">).</span><span class="nx">easing</span><span class="p">(</span><span class="w"> </span><span class="nx">Easing</span><span class="p">.</span><span class="nx">cubic</span><span class="w"> </span><span class="p">).</span><span class="nx">start</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">|</span><span class="nx">tval</span><span class="o">|</span><span class="w"> </span>
+<span class="w">    </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s2">&quot;First tween step, tval is %(tval)&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">Sprite</span><span class="p">.</span><span class="nx">set_alpha</span><span class="p">(</span><span class="w"> </span><span class="nx">_logo</span><span class="p">,</span><span class="w"> </span><span class="nx">tval</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="nx">Transform</span><span class="p">.</span><span class="nx">set_pos_y</span><span class="p">(</span><span class="w"> </span><span class="nx">_logo</span><span class="p">,</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">lerp</span><span class="p">(</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="nx">tval</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="nx">Audio</span><span class="p">.</span><span class="nx">play</span><span class="p">(</span><span class="s2">&quot;tada&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// you can do side effects between tween steps!</span>
+<span class="w">  </span><span class="nx">TweenStep</span><span class="p">.</span><span class="nx">duration</span><span class="p">(</span><span class="w"> </span><span class="mf">5.0</span><span class="w"> </span><span class="p">).</span><span class="nx">easing</span><span class="p">(</span><span class="w"> </span><span class="nx">Easing</span><span class="p">.</span><span class="nx">cubic</span><span class="w"> </span><span class="p">).</span><span class="nx">start</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">|</span><span class="nx">tval</span><span class="o">|</span><span class="w"> </span>
+<span class="w">    </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s2">&quot;Second tween step, tval is %(tval)&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Color</span><span class="p">.</span><span class="nx">color_from_hue</span><span class="p">(</span><span class="w">  </span><span class="nx">tval</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="nx">Sprite</span><span class="p">.</span><span class="nx">set_color</span><span class="p">(</span><span class="w"> </span><span class="nx">_logo</span><span class="p">,</span><span class="w"> </span><span class="nx">c</span><span class="p">.</span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="nx">c</span><span class="p">.</span><span class="nx">g</span><span class="p">,</span><span class="w"> </span><span class="nx">c</span><span class="p">.</span><span class="nx">b</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s2">&quot;Tween is finished.&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="nx">Sprite</span><span class="p">.</span><span class="nx">set_color</span><span class="p">(</span><span class="w"> </span><span class="nx">_logo</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="w">  </span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="TKTween" signature="make_tween(entity : Any, duration : Any)"></endpoint>
+<signature id="TKTween.make_tween+2">TKTween.make_tween(<strong>entity</strong>: <code>Any</code>, <strong>duration</strong>: <code>Any</code>)
+<a class="headerlink" href="#TKTween.make_tween+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Makes a one-step function tween but doesn't start it yet.
+<code>entity</code> - The entity that owns this tween.
+<code>duration</code> - Duration of the tween in seconds.
+Returns a <code>TweenStep</code>, you can chain effects onto it and call start() on this with the tween function you want.
+  <div class="highlight"><pre><span></span><code><span class="c1">// Fades in _ent over 5 seconds</span>
+<span class="nx">TKTween</span><span class="p">.</span><span class="nx">make_tween</span><span class="p">(</span><span class="w"> </span><span class="nx">_ent</span><span class="p">,</span><span class="w"> </span><span class="mf">5.0</span><span class="w"> </span><span class="p">).</span><span class="nx">easing</span><span class="p">(</span><span class="w"> </span><span class="nx">Easing</span><span class="p">.</span><span class="nx">cubic</span><span class="w"> </span><span class="p">).</span><span class="nx">start</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">|</span><span class="nx">tval</span><span class="o">|</span>
+<span class="w">  </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s2">&quot;Tval is %(tval)&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="nx">Sprite</span><span class="p">.</span><span class="nx">set_opacity</span><span class="p">(</span><span class="w"> </span><span class="nx">_ent</span><span class="p">,</span><span class="w"> </span><span class="nx">tval</span><span class="w"> </span><span class="p">)</span>
+<span class="p">}</span><span class="w">      </span>
+</code></pre></div></p>
+<p>There is also a version of start that will take in two values and blend between them so you
+  don't need to do the lerp yourself. This works on Sequences like vec2 and vec3 as well.
+  <div class="highlight"><pre><span></span><code><span class="nx">TKTween</span><span class="p">.</span><span class="nx">make_tween</span><span class="p">(</span><span class="w"> </span><span class="nx">_logo</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="p">).</span><span class="nx">repeatForever</span><span class="p">().</span><span class="nx">start</span><span class="p">(</span><span class="w"> </span><span class="p">[</span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="mf">100</span><span class="p">],</span><span class="w"> </span><span class="nx">pos</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">|</span><span class="nx">p</span><span class="o">|</span><span class="w">      </span>
+<span class="w">  </span><span class="nx">Transform</span><span class="p">.</span><span class="nx">set_pos</span><span class="p">(</span><span class="w"> </span><span class="nx">_logo</span><span class="p">,</span><span class="w"> </span><span class="nx">p</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">p</span><span class="p">.</span><span class="nx">y</span><span class="w"> </span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="TKTween" signature="cancel_all(entity : Any)"></endpoint>
+<signature id="TKTween.cancel_all">TKTween.cancel_all(<strong>entity</strong>: <code>Any</code>)
+<a class="headerlink" href="#TKTween.cancel_all" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="TKTween" signature="cancel(entity : Any, tween_id : Any)"></endpoint>
+<signature id="TKTween.cancel+2">TKTween.cancel(<strong>entity</strong>: <code>Any</code>, <strong>tween_id</strong>: <code>Any</code>)
+<a class="headerlink" href="#TKTween.cancel+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="TKTween" signature="InvalidID"></endpoint>
+<signature id="TKTween.InvalidID">TKTween.InvalidID
+<a class="headerlink" href="#TKTween.InvalidID" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<h3 id="tweencontrol">TweenControl<a class="headerlink" href="#tweencontrol" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;tktween: modifier/tktween&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">TweenControl</span></code></p>
+<blockquote>
+<p>Helpers for a UI Control instance, so you don't need to manually tween commonly used effects.</p>
+</blockquote>
+<ul>
+<li><a href="#TweenControl.bounds+5">bounds</a>(<strong>ui</strong>: <code>Any</code>, <strong>control</strong>: <code>Any</code>, <strong>duration</strong>: <code>Any</code>, <strong>rect_a</strong>: <code>Any</code>, <strong>rect_b</strong>: <code>Any</code>)</li>
+</ul>
+<hr/>
+<p><endpoint module="tktween: modifier/tktween" class="TweenControl" signature="bounds(ui : Any, control : Any, duration : Any, rect_a : Any, rect_b : Any)"></endpoint>
+<signature id="TweenControl.bounds+5">TweenControl.bounds(<strong>ui</strong>: <code>Any</code>, <strong>control</strong>: <code>Any</code>, <strong>duration</strong>: <code>Any</code>, <strong>rect_a</strong>: <code>Any</code>, <strong>rect_b</strong>: <code>Any</code>)
+<a class="headerlink" href="#TweenControl.bounds+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<h3 id="tweensprite">TweenSprite<a class="headerlink" href="#tweensprite" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;tktween: modifier/tktween&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">TweenSprite</span></code></p>
+<blockquote>
+<p>Helpers for the Sprite modifier, so you don't need to manually tween commonly used effects for an entity.</p>
+</blockquote>
+<ul>
+<li><a href="#TweenSprite.alpha+4">alpha</a>(<strong>ent</strong>: <code>Any</code>, <strong>duration</strong>: <code>Any</code>, <strong>alpha_a</strong>: <code>Any</code>, <strong>alpha_b</strong>: <code>Any</code>)</li>
+<li><a href="#TweenSprite.color+4">color</a>(<strong>ent</strong>: <code>Any</code>, <strong>duration</strong>: <code>Any</code>, <strong>color_a</strong>: <code>Any</code>, <strong>color_b</strong>: <code>Any</code>)</li>
+<li><a href="#TweenSprite.color_hsv+4">color_hsv</a>(<strong>ent</strong>: <code>Any</code>, <strong>duration</strong>: <code>Any</code>, <strong>hsv_a</strong>: <code>Any</code>, <strong>hsv_b</strong>: <code>Any</code>)</li>
+</ul>
+<hr/>
+<p><endpoint module="tktween: modifier/tktween" class="TweenSprite" signature="alpha(ent : Any, duration : Any, alpha_a : Any, alpha_b : Any)"></endpoint>
+<signature id="TweenSprite.alpha+4">TweenSprite.alpha(<strong>ent</strong>: <code>Any</code>, <strong>duration</strong>: <code>Any</code>, <strong>alpha_a</strong>: <code>Any</code>, <strong>alpha_b</strong>: <code>Any</code>)
+<a class="headerlink" href="#TweenSprite.alpha+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="TweenSprite" signature="color(ent : Any, duration : Any, color_a : Any, color_b : Any)"></endpoint>
+<signature id="TweenSprite.color+4">TweenSprite.color(<strong>ent</strong>: <code>Any</code>, <strong>duration</strong>: <code>Any</code>, <strong>color_a</strong>: <code>Any</code>, <strong>color_b</strong>: <code>Any</code>)
+<a class="headerlink" href="#TweenSprite.color+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="TweenSprite" signature="color_hsv(ent : Any, duration : Any, hsv_a : Any, hsv_b : Any)"></endpoint>
+<signature id="TweenSprite.color_hsv+4">TweenSprite.color_hsv(<strong>ent</strong>: <code>Any</code>, <strong>duration</strong>: <code>Any</code>, <strong>hsv_a</strong>: <code>Any</code>, <strong>hsv_b</strong>: <code>Any</code>)
+<a class="headerlink" href="#TweenSprite.color_hsv+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<h3 id="tweenstep">TweenStep<a class="headerlink" href="#tweenstep" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;tktween: modifier/tktween&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">TweenStep</span></code></p>
+<blockquote>
+<p>no docs found</p>
+</blockquote>
+<ul>
+<li><a href="#TweenStep.duration">duration</a>(<strong>duration</strong>: <code>Any</code>)</li>
+<li><a href="#TweenStep.fn=">fn</a>=(value : Any)</li>
+<li><a href="#TweenStep.sys=">sys</a>=(value : Any)</li>
+<li><a href="#TweenStep.tween_id=">tween_id</a>=(value : Any)</li>
+<li><a href="#TweenStep.effect">effect</a>(<strong>fn</strong>: <code>Any</code>)</li>
+<li><a href="#TweenStep.easing">easing</a>(<strong>easing_fn</strong>: <code>Any</code>)</li>
+<li><a href="#TweenStep.repeat">repeat</a>(<strong>num</strong>: <code>Any</code>)</li>
+<li><a href="#TweenStep.repeatForever">repeatForever</a>()</li>
+<li><a href="#TweenStep.invert">invert</a>()</li>
+<li><a href="#TweenStep.clamp">clamp</a>()</li>
+<li><a href="#TweenStep.start">start</a>(<strong>fn</strong>: <code>Any</code>)</li>
+<li><a href="#TweenStep.start+3">start</a>(<strong>value_a</strong>: <code>Any</code>, <strong>value_b</strong>: <code>Any</code>, <strong>fn</strong>: <code>Any</code>)</li>
+<li><a href="#TweenStep.start">start</a>()</li>
+<li><a href="#TweenStep.real_start">real_start</a>(<strong>fn</strong>: <code>Any</code>)</li>
+<li><a href="#TweenStep.wait">wait</a>()</li>
+</ul>
+<hr/>
+<p><endpoint module="tktween: modifier/tktween" class="TweenStep" signature="duration(duration : Any)"></endpoint>
+<signature id="TweenStep.duration">TweenStep.duration(<strong>duration</strong>: <code>Any</code>)
+<a class="headerlink" href="#TweenStep.duration" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">TweenStep</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="TweenStep" signature="fn=(value : Any)"></endpoint>
+<signature id="TweenStep.fn=">TweenStep.fn=(value : Any)
+<a class="headerlink" href="#TweenStep.fn=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="TweenStep" signature="sys=(value : Any)"></endpoint>
+<signature id="TweenStep.sys=">TweenStep.sys=(value : Any)
+<a class="headerlink" href="#TweenStep.sys=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="TweenStep" signature="tween_id=(value : Any)"></endpoint>
+<signature id="TweenStep.tween_id=">TweenStep.tween_id=(value : Any)
+<a class="headerlink" href="#TweenStep.tween_id=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="TweenStep" signature="effect(fn : Any)"></endpoint>
+<signature id="TweenStep.effect">TweenStep.effect(<strong>fn</strong>: <code>Any</code>)
+<a class="headerlink" href="#TweenStep.effect" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="TweenStep" signature="easing(easing_fn : Any)"></endpoint>
+<signature id="TweenStep.easing">TweenStep.easing(<strong>easing_fn</strong>: <code>Any</code>)
+<a class="headerlink" href="#TweenStep.easing" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="TweenStep" signature="repeat(num : Any)"></endpoint>
+<signature id="TweenStep.repeat">TweenStep.repeat(<strong>num</strong>: <code>Any</code>)
+<a class="headerlink" href="#TweenStep.repeat" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="TweenStep" signature="repeatForever()"></endpoint>
+<signature id="TweenStep.repeatForever">TweenStep.repeatForever()
+<a class="headerlink" href="#TweenStep.repeatForever" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="TweenStep" signature="invert()"></endpoint>
+<signature id="TweenStep.invert">TweenStep.invert()
+<a class="headerlink" href="#TweenStep.invert" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="TweenStep" signature="clamp()"></endpoint>
+<signature id="TweenStep.clamp">TweenStep.clamp()
+<a class="headerlink" href="#TweenStep.clamp" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="TweenStep" signature="start(fn : Any)"></endpoint>
+<signature id="TweenStep.start">TweenStep.start(<strong>fn</strong>: <code>Any</code>)
+<a class="headerlink" href="#TweenStep.start" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="TweenStep" signature="start(value_a : Any, value_b : Any, fn : Any)"></endpoint>
+<signature id="TweenStep.start+3">TweenStep.start(<strong>value_a</strong>: <code>Any</code>, <strong>value_b</strong>: <code>Any</code>, <strong>fn</strong>: <code>Any</code>)
+<a class="headerlink" href="#TweenStep.start+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="TweenStep" signature="start()"></endpoint>
+<signature id="TweenStep.start">TweenStep.start()
+<a class="headerlink" href="#TweenStep.start" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="TweenStep" signature="real_start(fn : Any)"></endpoint>
+<signature id="TweenStep.real_start">TweenStep.real_start(<strong>fn</strong>: <code>Any</code>)
+<a class="headerlink" href="#TweenStep.real_start" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="TweenStep" signature="wait()"></endpoint>
+<signature id="TweenStep.wait">TweenStep.wait()
+<a class="headerlink" href="#TweenStep.wait" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<h3 id="tweentransform">TweenTransform<a class="headerlink" href="#tweentransform" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;tktween: modifier/tktween&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">TweenTransform</span></code></p>
+<blockquote>
+<p>Helpers for the Transform modifier, so you don't need to manually tween commonly used effects for an entity.</p>
+</blockquote>
+<ul>
+<li><a href="#TweenTransform.move+4">move</a>(<strong>ent</strong>: <code>Any</code>, <strong>duration</strong>: <code>Any</code>, <strong>pos_a</strong>: <code>Any</code>, <strong>pos_b</strong>: <code>Any</code>)</li>
+<li><a href="#TweenTransform.move_to+3">move_to</a>(<strong>ent</strong>: <code>Any</code>, <strong>duration</strong>: <code>Any</code>, <strong>pos_dest</strong>: <code>Any</code>)</li>
+<li><a href="#TweenTransform.scale+4">scale</a>(<strong>ent</strong>: <code>Any</code>, <strong>duration</strong>: <code>Any</code>, <strong>scale_a</strong>: <code>Any</code>, <strong>scale_b</strong>: <code>Any</code>)</li>
+<li><a href="#TweenTransform.angle2D+4">angle2D</a>(<strong>ent</strong>: <code>Any</code>, <strong>duration</strong>: <code>Any</code>, <strong>degrees_a</strong>: <code>Any</code>, <strong>degrees_b</strong>: <code>Any</code>)</li>
+<li><a href="#TweenTransform.rotate_around_axis+5">rotate_around_axis</a>(<strong>ent</strong>: <code>Any</code>, <strong>duration</strong>: <code>Any</code>, <strong>axis</strong>: <code>Any</code>, <strong>degrees_a</strong>: <code>Any</code>, <strong>degrees_b</strong>: <code>Any</code>)</li>
+</ul>
+<hr/>
+<p><endpoint module="tktween: modifier/tktween" class="TweenTransform" signature="move(ent : Any, duration : Any, pos_a : Any, pos_b : Any)"></endpoint>
+<signature id="TweenTransform.move+4">TweenTransform.move(<strong>ent</strong>: <code>Any</code>, <strong>duration</strong>: <code>Any</code>, <strong>pos_a</strong>: <code>Any</code>, <strong>pos_b</strong>: <code>Any</code>)
+<a class="headerlink" href="#TweenTransform.move+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Tweens from <code>pos_a</code> to <code>pos_b</code> over <code>duration</code> seconds. Equivalent to:
+  <div class="highlight"><pre><span></span><code><span class="nx">TKTween</span><span class="p">.</span><span class="nx">make_tween</span><span class="p">(</span><span class="w"> </span><span class="nx">ent</span><span class="p">,</span><span class="w"> </span><span class="nx">duration</span><span class="w"> </span><span class="p">).</span><span class="nx">start</span><span class="p">(</span><span class="w"> </span><span class="nx">pos_a</span><span class="p">,</span><span class="w"> </span><span class="nx">pos_b</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">|</span><span class="nx">p</span><span class="o">|</span><span class="w">      </span>
+<span class="w">  </span><span class="nx">Transform</span><span class="p">.</span><span class="nx">set_pos</span><span class="p">(</span><span class="w"> </span><span class="nx">ent</span><span class="p">,</span><span class="w"> </span><span class="nx">p</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">p</span><span class="p">.</span><span class="nx">y</span><span class="w"> </span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+  Example:
+  <div class="highlight"><pre><span></span><code><span class="nx">TweenTransform</span><span class="p">.</span><span class="nx">move</span><span class="p">(</span><span class="w"> </span><span class="nx">_logo</span><span class="p">,</span><span class="w"> </span><span class="mf">1.3</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="mf">500</span><span class="p">],</span><span class="w"> </span><span class="nx">pos</span><span class="w"> </span><span class="p">)</span>
+<span class="w">              </span><span class="p">.</span><span class="nx">repeat</span><span class="p">(</span><span class="mf">2</span><span class="p">)</span>
+<span class="w">              </span><span class="p">.</span><span class="nx">easing</span><span class="p">(</span><span class="w"> </span><span class="nx">Easing</span><span class="p">.</span><span class="nx">cubic</span><span class="w"> </span><span class="p">)</span>
+<span class="w">              </span><span class="p">.</span><span class="nx">start</span><span class="p">()</span>
+</code></pre></div></p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="TweenTransform" signature="move_to(ent : Any, duration : Any, pos_dest : Any)"></endpoint>
+<signature id="TweenTransform.move_to+3">TweenTransform.move_to(<strong>ent</strong>: <code>Any</code>, <strong>duration</strong>: <code>Any</code>, <strong>pos_dest</strong>: <code>Any</code>)
+<a class="headerlink" href="#TweenTransform.move_to+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Tweens from current position to <code>pos_dest</code> over <code>duration</code> seconds.
+Example:
+<div class="highlight"><pre><span></span><code><span class="nx">TweenTransform</span><span class="p">.</span><span class="nx">move_to</span><span class="p">(</span><span class="w"> </span><span class="nx">_logo</span><span class="p">,</span><span class="w"> </span><span class="mf">1.3</span><span class="p">,</span><span class="w"> </span><span class="nx">pos</span><span class="w"> </span><span class="p">)</span>
+<span class="w">              </span><span class="p">.</span><span class="nx">repeat</span><span class="p">(</span><span class="mf">2</span><span class="p">)</span>
+<span class="w">              </span><span class="p">.</span><span class="nx">easing</span><span class="p">(</span><span class="w"> </span><span class="nx">Easing</span><span class="p">.</span><span class="nx">cubic</span><span class="w"> </span><span class="p">)</span>
+<span class="w">              </span><span class="p">.</span><span class="nx">start</span><span class="p">()</span>
+</code></pre></div></p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="TweenTransform" signature="scale(ent : Any, duration : Any, scale_a : Any, scale_b : Any)"></endpoint>
+<signature id="TweenTransform.scale+4">TweenTransform.scale(<strong>ent</strong>: <code>Any</code>, <strong>duration</strong>: <code>Any</code>, <strong>scale_a</strong>: <code>Any</code>, <strong>scale_b</strong>: <code>Any</code>)
+<a class="headerlink" href="#TweenTransform.scale+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Tweens scale beteen two values. Values given can be <code>Num</code>s for a uniform scale, or
+vecs for a non-uniform scale.
+Example:
+<div class="highlight"><pre><span></span><code><span class="c1">// Make the logo appear with a bouncy pop-in effect</span>
+<span class="nx">TweenTransform</span><span class="p">.</span><span class="nx">scale</span><span class="p">(</span><span class="w"> </span><span class="nx">_logo</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.01</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="p">)</span>
+<span class="w">              </span><span class="p">.</span><span class="nx">easing</span><span class="p">(</span><span class="w"> </span><span class="nx">Easing</span><span class="p">.</span><span class="nx">out_elastic</span><span class="w"> </span><span class="p">)</span>
+<span class="w">              </span><span class="p">.</span><span class="nx">start</span><span class="p">()</span>
+</code></pre></div>
+Or non-uniform scale:
+<div class="highlight"><pre><span></span><code><span class="c1">// Squash and stretch -- bounce from flat and wide to tall and skinny</span>
+<span class="nx">TweenTransform</span><span class="p">.</span><span class="nx">scale</span><span class="p">(</span><span class="w"> </span><span class="nx">_logo</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mf">2.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="mf">1.5</span><span class="p">]</span><span class="w"> </span><span class="p">)</span>
+<span class="w">              </span><span class="p">.</span><span class="nx">easing</span><span class="p">(</span><span class="w"> </span><span class="nx">Easing</span><span class="p">.</span><span class="nx">inout_bounce</span><span class="w"> </span><span class="p">)</span>
+<span class="w">              </span><span class="p">.</span><span class="nx">start</span><span class="p">()</span>
+</code></pre></div></p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="TweenTransform" signature="angle2D(ent : Any, duration : Any, degrees_a : Any, degrees_b : Any)"></endpoint>
+<signature id="TweenTransform.angle2D+4">TweenTransform.angle2D(<strong>ent</strong>: <code>Any</code>, <strong>duration</strong>: <code>Any</code>, <strong>degrees_a</strong>: <code>Any</code>, <strong>degrees_b</strong>: <code>Any</code>)
+<a class="headerlink" href="#TweenTransform.angle2D+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Tweens 2D rotation from <code>angle_a</code> to <code>angle_b</code>.
+Example:
+<div class="highlight"><pre><span></span><code><span class="nx">TweenTransform</span><span class="p">.</span><span class="nx">angle2D</span><span class="p">(</span><span class="w"> </span><span class="nx">_arrow</span><span class="p">,</span><span class="w"> </span><span class="mf">3.0</span><span class="p">,</span><span class="w"> </span><span class="mf">90.0</span><span class="p">,</span><span class="w"> </span><span class="mf">270.0</span><span class="w"> </span><span class="p">)</span>
+<span class="w">              </span><span class="p">.</span><span class="nx">easing</span><span class="p">(</span><span class="w"> </span><span class="nx">Easing</span><span class="p">.</span><span class="nx">inout_bounce</span><span class="w"> </span><span class="p">)</span>
+<span class="w">              </span><span class="p">.</span><span class="nx">start</span><span class="p">()</span>
+</code></pre></div></p>
+</blockquote>
+<p><endpoint module="tktween: modifier/tktween" class="TweenTransform" signature="rotate_around_axis(ent : Any, duration : Any, axis : Any, degrees_a : Any, degrees_b : Any)"></endpoint>
+<signature id="TweenTransform.rotate_around_axis+5">TweenTransform.rotate_around_axis(<strong>ent</strong>: <code>Any</code>, <strong>duration</strong>: <code>Any</code>, <strong>axis</strong>: <code>Any</code>, <strong>degrees_a</strong>: <code>Any</code>, <strong>degrees_b</strong>: <code>Any</code>)
+<a class="headerlink" href="#TweenTransform.rotate_around_axis+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Tweens rotation around <code>axis</code> from <code>angle_a</code> to <code>angle_b</code>
+Example:
+<div class="highlight"><pre><span></span><code><span class="c1">// flip over</span>
+<span class="nx">TweenTransform</span><span class="p">.</span><span class="nx">rotate_around_axis</span><span class="p">(</span><span class="w"> </span><span class="nx">_logo</span><span class="p">,</span><span class="w"> </span><span class="mf">1.4</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">],</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">180</span><span class="w"> </span><span class="p">)</span>
+<span class="w">              </span><span class="p">.</span><span class="nx">easing</span><span class="p">(</span><span class="w"> </span><span class="nx">Easing</span><span class="p">.</span><span class="nx">inout_quartic</span><span class="w"> </span><span class="p">)</span>
+<span class="w">              </span><span class="p">.</span><span class="nx">start</span><span class="p">()</span>
+</code></pre></div></p>
+</blockquote>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 3, 2025 06:41:06 UTC">September 3, 2025</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/luxeengine" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 0c4.42 0 8 3.58 8 8a8.01 8.01 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27s-1.36.09-2 .27c-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8"/></svg>
+    </a>
+  
+</div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../../..", "features": ["instant", "navigation.prune"], "search": "../../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>

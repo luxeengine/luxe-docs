@@ -1,0 +1,1675 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../../../images/luxe-favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Transform.modifier - luxe engine</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../css/extra.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="luxe engine" class="md-header__button md-logo" aria-label="luxe engine" data-md-component="logo">
+      
+  <img src="../../../../../images/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            luxe engine
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Transform.modifier
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="pink" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="luxe engine" class="md-nav__button md-logo" aria-label="luxe engine" data-md-component="logo">
+      
+  <img src="../../../../../images/logo.svg" alt="logo">
+
+    </a>
+    luxe engine
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    about
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../get/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    install
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    guide
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../tutorials/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    tutorials
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../learn/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    learn ...
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../manual/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    manual
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1"><img alt="" src="../../../../../../images/luxe-dark.svg" width="96em" /><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h1 id="luxe-api-202511"><code>luxe</code> API (<code>2025.1.1</code>)<a class="headerlink" href="#luxe-api-202511" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="luxe-systemtransformmodifier-module"><code>luxe: system/transform.modifier</code> module<a class="headerlink" href="#luxe-systemtransformmodifier-module" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#data">Data</a>   </li>
+<li><a href="#system">System</a>   </li>
+<li><a href="#transform">Transform</a>   </li>
+<li><a href="#transformapplymask">TransformApplyMask</a>   </li>
+</ul>
+<hr />
+<h3 id="data">Data<a class="headerlink" href="#data" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: system/transform.modifier&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">Data</span></code></p>
+<blockquote>
+<p>no docs found</p>
+</blockquote>
+<ul>
+<li><code class="highlight"><span class="kd">var</span><span class="w"> </span><span class="nx">pos</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">Double3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">]</span></code></li>
+<li><code class="highlight"><span class="kd">var</span><span class="w"> </span><span class="nx">rotation</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">Float3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">]</span></code></li>
+<li><code class="highlight"><span class="kd">var</span><span class="w"> </span><span class="nx">scale</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">Float3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">]</span></code></li>
+<li><code class="highlight"><span class="kd">var</span><span class="w"> </span><span class="nx">link</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">Link</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span></code></li>
+</ul>
+<hr/>
+<h3 id="system">System<a class="headerlink" href="#system" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: system/transform.modifier&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">System</span></code></p>
+<blockquote>
+<p>no docs found</p>
+</blockquote>
+<ul>
+<li><a href="#System.new">new</a>(<strong>world</strong>: <code>World</code>)</li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: system/transform.modifier" class="System" signature="new(world : World)"></endpoint>
+<signature id="System.new">System.new(<strong>world</strong>: <code>World</code>)
+<a class="headerlink" href="#System.new" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">System</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<h3 id="transform">Transform<a class="headerlink" href="#transform" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: system/transform.modifier&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">Transform</span></code></p>
+<blockquote>
+<p>A transform modifier defines where a entity is.
+That includes position, rotation and scale.
+A <code>Transform</code> can also be linked to another <code>Transform</code>, in which case its values are relative to their link target.</p>
+<p>While not all entities need to be "somewhere" locally, a lot of them do, which is when this modifier is used.
+Other modifiers on the same entity aren't required to read and react to the <code>Transform</code>, but most do, allowing you to use this to move things (like Sprites, Meshes, Physics shapes, etc...).</p>
+</blockquote>
+<ul>
+<li><a href="#Transform.id">id</a></li>
+<li><a href="#Transform.create+3">create</a>(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.create+4">create</a>(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.create">create</a>(<strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.destroy">destroy</a>(<strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.has">has</a>(<strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.get_link">get_link</a>(<strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.get_linked">get_linked</a>(<strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.link+3">link</a>(<strong>entity</strong>: <code>Entity</code>, <strong>target_entity</strong>: <code>Entity</code>, <strong>reset_local</strong>: <code>Bool</code>)</li>
+<li><a href="#Transform.link+2">link</a>(<strong>entity</strong>: <code>Entity</code>, <strong>target_entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.unlink+2">unlink</a>(<strong>entity</strong>: <code>Entity</code>, <strong>reset_local</strong>: <code>Bool</code>)</li>
+<li><a href="#Transform.unlink">unlink</a>(<strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.look_at_and_move+5">look_at_and_move</a>(<strong>entity</strong>: <code>Entity</code>, <strong>pos</strong>: <code>Vec</code>, <strong>target</strong>: <code>Vec</code>, <strong>up</strong>: <code>Vec</code>, <strong>invert</strong>: <code>Bool</code>)</li>
+<li><a href="#Transform.look_at_and_move+4">look_at_and_move</a>(<strong>entity</strong>: <code>Entity</code>, <strong>pos</strong>: <code>Vec</code>, <strong>target</strong>: <code>Vec</code>, <strong>up</strong>: <code>Vec</code>)</li>
+<li><a href="#Transform.look_at_and_move+3">look_at_and_move</a>(<strong>entity</strong>: <code>Entity</code>, <strong>pos</strong>: <code>Vec</code>, <strong>target</strong>: <code>Vec</code>)</li>
+<li><a href="#Transform.look_at+4">look_at</a>(<strong>entity</strong>: <code>Entity</code>, <strong>target</strong>: <code>Vec</code>, <strong>up</strong>: <code>Vec</code>, <strong>invert</strong>: <code>Bool</code>)</li>
+<li><a href="#Transform.look_at+3">look_at</a>(<strong>entity</strong>: <code>Entity</code>, <strong>target</strong>: <code>Vec</code>, <strong>up</strong>: <code>Vec</code>)</li>
+<li><a href="#Transform.look_at+2">look_at</a>(<strong>entity</strong>: <code>Entity</code>, <strong>target</strong>: <code>Vec</code>)</li>
+<li><a href="#Transform.set_snap+4">set_snap</a>(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.set_snap+3">set_snap</a>(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.set_pos+4">set_pos</a>(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.set_pos+3">set_pos</a>(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.set_pos_world+4">set_pos_world</a>(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.set_pos_world+3">set_pos_world</a>(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.set_pos_x+2">set_pos_x</a>(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.set_pos_y+2">set_pos_y</a>(<strong>entity</strong>: <code>Entity</code>, <strong>y</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.set_pos_z+2">set_pos_z</a>(<strong>entity</strong>: <code>Entity</code>, <strong>z</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.set_pos_x_world+2">set_pos_x_world</a>(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.set_pos_y_world+2">set_pos_y_world</a>(<strong>entity</strong>: <code>Entity</code>, <strong>y</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.set_pos_z_world+2">set_pos_z_world</a>(<strong>entity</strong>: <code>Entity</code>, <strong>z</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.set_scale+3">set_scale</a>(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.set_scale+4">set_scale</a>(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.set_rotation_slerp_angle_axis+5">set_rotation_slerp_angle_axis</a>(<strong>entity</strong>: <code>Entity</code>, <strong>axis</strong>: <code>Vec</code>, <strong>from</strong>: <code>Num</code>, <strong>to</strong>: <code>Num</code>, <strong>t</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.set_rotation_slerp_angle_axis_world+5">set_rotation_slerp_angle_axis_world</a>(<strong>entity</strong>: <code>Entity</code>, <strong>axis</strong>: <code>Vec</code>, <strong>from</strong>: <code>Num</code>, <strong>to</strong>: <code>Num</code>, <strong>t</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.set_rotation_slerp+4">set_rotation_slerp</a>(<strong>entity</strong>: <code>Entity</code>, <strong>from</strong>: <code>Vec</code>, <strong>to</strong>: <code>Vec</code>, <strong>t</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.set_rotation_slerp_world+4">set_rotation_slerp_world</a>(<strong>entity</strong>: <code>Entity</code>, <strong>from</strong>: <code>Vec</code>, <strong>to</strong>: <code>Vec</code>, <strong>t</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.set_rotation+5">set_rotation</a>(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>, <strong>w</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.set_rotation_world+5">set_rotation_world</a>(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>, <strong>w</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.set_angle_axis+5">set_angle_axis</a>(<strong>entity</strong>: <code>Entity</code>, <strong>degrees</strong>: <code>Any</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.set_angle_axis_world+5">set_angle_axis_world</a>(<strong>entity</strong>: <code>Entity</code>, <strong>degrees</strong>: <code>Any</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.set_euler+4">set_euler</a>(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.set_euler_world+4">set_euler_world</a>(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.set_euler_x+2">set_euler_x</a>(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.set_euler_y+2">set_euler_y</a>(<strong>entity</strong>: <code>Entity</code>, <strong>y</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.set_euler_z+2">set_euler_z</a>(<strong>entity</strong>: <code>Entity</code>, <strong>z</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.set_euler_x_world+2">set_euler_x_world</a>(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.set_euler_y_world+2">set_euler_y_world</a>(<strong>entity</strong>: <code>Entity</code>, <strong>y</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.set_euler_z_world+2">set_euler_z_world</a>(<strong>entity</strong>: <code>Entity</code>, <strong>z</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.rotate_angle_axis_slerp+3">rotate_angle_axis_slerp</a>(<strong>entity</strong>: <code>Entity</code>, <strong>axis</strong>: <code>Vec</code>, <strong>angle_amount</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.rotate_angle_axis_slerp_world+3">rotate_angle_axis_slerp_world</a>(<strong>entity</strong>: <code>Entity</code>, <strong>axis</strong>: <code>Vec</code>, <strong>angle_amount</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.rotate_around_world+8">rotate_around_world</a>(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>, <strong>axis_x</strong>: <code>Num</code>, <strong>axis_y</strong>: <code>Num</code>, <strong>axis_z</strong>: <code>Num</code>, <strong>degrees</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.rotate_around+8">rotate_around</a>(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>, <strong>axis_x</strong>: <code>Num</code>, <strong>axis_y</strong>: <code>Num</code>, <strong>axis_z</strong>: <code>Num</code>, <strong>degrees</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.rotate_angle_axis+5">rotate_angle_axis</a>(<strong>entity</strong>: <code>Entity</code>, <strong>degrees</strong>: <code>Any</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.rotate_angle_axis_world+5">rotate_angle_axis_world</a>(<strong>entity</strong>: <code>Entity</code>, <strong>degrees</strong>: <code>Any</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.rotate_euler+4">rotate_euler</a>(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.rotate_euler_world+4">rotate_euler_world</a>(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.translate+4">translate</a>(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.translate+3">translate</a>(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.get_pos">get_pos</a>(<strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.get_pos_x">get_pos_x</a>(<strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.get_pos_y">get_pos_y</a>(<strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.get_pos_z">get_pos_z</a>(<strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.get_pos_world">get_pos_world</a>(<strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.get_pos_world_unsnapped">get_pos_world_unsnapped</a>(<strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.get_pos_x_world">get_pos_x_world</a>(<strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.get_pos_y_world">get_pos_y_world</a>(<strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.get_pos_z_world">get_pos_z_world</a>(<strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.rotate2D+2">rotate2D</a>(<strong>entity</strong>: <code>Entity</code>, <strong>degrees</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.set_angle2D+2">set_angle2D</a>(<strong>entity</strong>: <code>Entity</code>, <strong>degrees</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.set_angle2D_world+2">set_angle2D_world</a>(<strong>entity</strong>: <code>Entity</code>, <strong>degrees</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.get_angle2D">get_angle2D</a>(<strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.get_angle2D_world">get_angle2D_world</a>(<strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.set_depth2D+2">set_depth2D</a>(<strong>entity</strong>: <code>Entity</code>, <strong>depth</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.get_depth2D">get_depth2D</a>(<strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.set_depth2D_world+2">set_depth2D_world</a>(<strong>entity</strong>: <code>Entity</code>, <strong>depth</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.get_depth2D_world">get_depth2D_world</a>(<strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.get_world_matrix+2">get_world_matrix</a>(<strong>entity</strong>: <code>Entity</code>, <strong>into_matrix</strong>: <code>Floats</code>)</li>
+<li><a href="#Transform.get_rotation">get_rotation</a>(<strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.get_rotation_world">get_rotation_world</a>(<strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.get_rotation_matrix+2">get_rotation_matrix</a>(<strong>entity</strong>: <code>Entity</code>, <strong>into_matrix</strong>: <code>Floats</code>)</li>
+<li><a href="#Transform.get_euler">get_euler</a>(<strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.get_euler_x">get_euler_x</a>(<strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.get_euler_y">get_euler_y</a>(<strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.get_euler_z">get_euler_z</a>(<strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.get_euler_world">get_euler_world</a>(<strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.get_euler_x_world">get_euler_x_world</a>(<strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.get_euler_y_world">get_euler_y_world</a>(<strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.get_euler_z_world">get_euler_z_world</a>(<strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.get_scale">get_scale</a>(<strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.get_scale_x">get_scale_x</a>(<strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.get_scale_y">get_scale_y</a>(<strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.get_scale_z">get_scale_z</a>(<strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.get_scale_world">get_scale_world</a>(<strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.get_scale_x_world">get_scale_x_world</a>(<strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.get_scale_y_world">get_scale_y_world</a>(<strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.get_scale_z_world">get_scale_z_world</a>(<strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.get_right">get_right</a>(<strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.get_forward">get_forward</a>(<strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.get_up">get_up</a>(<strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.sync">sync</a>(<strong>entity</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.sync_block+2">sync_block</a>(<strong>entity</strong>: <code>Entity</code>, <strong>mask</strong>: <code>TransformApplyMask</code>)</li>
+<li><a href="#Transform.sync_world">sync_world</a>(<strong>world</strong>: <code>World</code>)</li>
+<li><a href="#Transform.transform_by+2">transform_by</a>(<strong>entity</strong>: <code>Entity</code>, <strong>other</strong>: <code>Entity</code>)</li>
+<li><a href="#Transform.scale_by+3">scale_by</a>(<strong>entity</strong>: <code>Entity</code>, <strong>scale</strong>: <code>Float3</code>, <strong>origin</strong>: <code>Float3</code>)</li>
+<li><a href="#Transform.rotate_euler_by+3">rotate_euler_by</a>(<strong>entity</strong>: <code>Entity</code>, <strong>euler</strong>: <code>Float3</code>, <strong>origin</strong>: <code>Float3</code>)</li>
+<li><a href="#Transform.local_vector_to_world+4">local_vector_to_world</a>(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.world_vector_to_local+4">world_vector_to_local</a>(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.local_dir_to_world+4">local_dir_to_world</a>(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.world_dir_to_local+4">world_dir_to_local</a>(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.local_point_to_world+4">local_point_to_world</a>(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.local_point_to_world+5">local_point_to_world</a>(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>, <strong>scaled</strong>: <code>Bool</code>)</li>
+<li><a href="#Transform.world_point_to_local+4">world_point_to_local</a>(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)</li>
+<li><a href="#Transform.world_point_to_local+5">world_point_to_local</a>(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>, <strong>scaled</strong>: <code>Bool</code>)</li>
+<li><a href="#Transform.listen_all+2">listen_all</a>(<strong>world</strong>: <code>World</code>, <strong>fn</strong>: <code>Fn</code>)</li>
+<li><a href="#Transform.unlisten_all+2">unlisten_all</a>(<strong>world</strong>: <code>World</code>, <strong>handle</strong>: <code>Handle</code>)</li>
+<li><a href="#Transform.listen+2">listen</a>(<strong>entity</strong>: <code>Entity</code>, <strong>fn</strong>: <code>Fn</code>)</li>
+<li><a href="#Transform.unlisten+2">unlisten</a>(<strong>entity</strong>: <code>Entity</code>, <strong>handle</strong>: <code>Handle</code>)</li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="id"></endpoint>
+<signature id="Transform.id">Transform.id
+<a class="headerlink" href="#Transform.id" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="create(entity : Entity, x : Num, y : Num)"></endpoint>
+<signature id="Transform.create+3">Transform.create(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.create+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Attach a <code>Transform</code> modifier to an entity with the given <code>x</code> and <code>y</code> position (with a z of 0)   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="create(entity : Entity, x : Num, y : Num, z : Num)"></endpoint>
+<signature id="Transform.create+4">Transform.create(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.create+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Attach a <code>Transform</code> modifier to an entity with the given <code>x</code>, <code>y</code> and <code>z</code> position   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="create(entity : Entity)"></endpoint>
+<signature id="Transform.create">Transform.create(<strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.create" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Attach a <code>Transform</code> modifier to an entity.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="destroy(entity : Entity)"></endpoint>
+<signature id="Transform.destroy">Transform.destroy(<strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.destroy" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Detatch a <code>Transform</code> modifier from an entity.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="has(entity : Entity)"></endpoint>
+<signature id="Transform.has">Transform.has(<strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.has" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Bool</span></code></p>
+<blockquote>
+<p>get whether an entity has an attached <code>Transform</code>.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="get_link(entity : Entity)"></endpoint>
+<signature id="Transform.get_link">Transform.get_link(<strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.get_link" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Entity</span></code></p>
+<blockquote>
+<p>Get what entity this entity is linked to. So what entity the position/rotation/scale of this transform are relative to.
+Linked to entity always has a <code>Transform</code> of its own.
+In case <code>Transform</code> isn't linked to anything, returns <code>null</code> and transformations are global.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="get_linked(entity : Entity)"></endpoint>
+<signature id="Transform.get_linked">Transform.get_linked(<strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.get_linked" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">List</span></code></p>
+<blockquote>
+<p>Get what entities are linked to this entity (opposite relationship as <code>get_link</code>).
+Transformation values of linked entities are relative to this entity.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="link(entity : Entity, target_entity : Entity, reset_local : Bool)"></endpoint>
+<signature id="Transform.link+3">Transform.link(<strong>entity</strong>: <code>Entity</code>, <strong>target_entity</strong>: <code>Entity</code>, <strong>reset_local</strong>: <code>Bool</code>)
+<a class="headerlink" href="#Transform.link+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Link one <code>Transform</code> to another.
+The <code>Transform</code> values will now be be relative to the link target, meaning the link target <code>Transform</code> position, rotation and scale all apply to the local position, rotation, scale of this <code>Transform</code>.
+When using non-uniform scales somewhere in your transform link hierarchy you can get transform deformations that would not be possible with just a single transform.</p>
+<p>In other environments, this transform link is often part of the object hierarchy, but here it's specific to transforms and other hierarchies aren't bound to follow the same links.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="link(entity : Entity, target_entity : Entity)"></endpoint>
+<signature id="Transform.link+2">Transform.link(<strong>entity</strong>: <code>Entity</code>, <strong>target_entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.link+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Link one <code>Transform</code> to another.
+The <code>Transform</code> values will now be be relative to the link target, meaning the link target <code>Transform</code> position, rotation and scale all apply to the local position, rotation, scale of this <code>Transform</code>.
+When using non-uniform scales somewhere in your transform link hierarchy you can get transform deformations that would not be possible with just a single transform.</p>
+<p>In other environments, this transform link is often part of the object hierarchy, but here it's specific to transforms and other hierarchies aren't bound to follow the same links.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="unlink(entity : Entity, reset_local : Bool)"></endpoint>
+<signature id="Transform.unlink+2">Transform.unlink(<strong>entity</strong>: <code>Entity</code>, <strong>reset_local</strong>: <code>Bool</code>)
+<a class="headerlink" href="#Transform.unlink+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Unlink a <code>Transform</code>. Local position will be kept (unless reset), so if your parent isnt at the origin, expect the transform to move, or save and reapply the world position.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="unlink(entity : Entity)"></endpoint>
+<signature id="Transform.unlink">Transform.unlink(<strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.unlink" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Unlink a <code>Transform</code>. Local position will be kept, so if your parent isnt at the origin, expect the transform to move, or save and reapply the world position.</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="c1">//get the current jar position</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Transform</span><span class="p">.</span><span class="nx">get_pos_world</span><span class="p">(</span><span class="nx">_jar</span><span class="p">)</span>
+<span class="w">  </span><span class="c1">//unlink the jar from the player first</span>
+<span class="w">  </span><span class="nx">Transform</span><span class="p">.</span><span class="nx">unlink</span><span class="p">(</span><span class="nx">_jar</span><span class="p">)</span>
+<span class="w">  </span><span class="c1">//set the position for the jar, which now refers </span>
+<span class="w">  </span><span class="c1">//to world space since the jar has no parent</span>
+<span class="w">  </span><span class="c1">//this makes the jar stay in the same place</span>
+<span class="w">  </span><span class="nx">Transform</span><span class="p">.</span><span class="nx">set_pos</span><span class="p">(</span><span class="nx">_jar</span><span class="p">,</span><span class="w"> </span><span class="nx">pos</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">pos</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span><span class="w"> </span><span class="nx">pos</span><span class="p">.</span><span class="nx">z</span><span class="p">)</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="look_at_and_move(entity : Entity, pos : Vec, target : Vec, up : Vec, invert : Bool)"></endpoint>
+<signature id="Transform.look_at_and_move+5">Transform.look_at_and_move(<strong>entity</strong>: <code>Entity</code>, <strong>pos</strong>: <code>Vec</code>, <strong>target</strong>: <code>Vec</code>, <strong>up</strong>: <code>Vec</code>, <strong>invert</strong>: <code>Bool</code>)
+<a class="headerlink" href="#Transform.look_at_and_move+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Move <code>Transform</code> somewhere else, then look towards target position.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="look_at_and_move(entity : Entity, pos : Vec, target : Vec, up : Vec)"></endpoint>
+<signature id="Transform.look_at_and_move+4">Transform.look_at_and_move(<strong>entity</strong>: <code>Entity</code>, <strong>pos</strong>: <code>Vec</code>, <strong>target</strong>: <code>Vec</code>, <strong>up</strong>: <code>Vec</code>)
+<a class="headerlink" href="#Transform.look_at_and_move+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Move <code>Transform</code> somewhere else, then look towards target position.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="look_at_and_move(entity : Entity, pos : Vec, target : Vec)"></endpoint>
+<signature id="Transform.look_at_and_move+3">Transform.look_at_and_move(<strong>entity</strong>: <code>Entity</code>, <strong>pos</strong>: <code>Vec</code>, <strong>target</strong>: <code>Vec</code>)
+<a class="headerlink" href="#Transform.look_at_and_move+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Move <code>Transform</code> somewhere else, then look towards target position.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="look_at(entity : Entity, target : Vec, up : Vec, invert : Bool)"></endpoint>
+<signature id="Transform.look_at+4">Transform.look_at(<strong>entity</strong>: <code>Entity</code>, <strong>target</strong>: <code>Vec</code>, <strong>up</strong>: <code>Vec</code>, <strong>invert</strong>: <code>Bool</code>)
+<a class="headerlink" href="#Transform.look_at+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Rotate <code>Transform</code> to look at a position in worldspace, 
+      rotated around that new view axis so the <code>Transform</code> 'up' aligns with the <code>up</code> input as closely as possible.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="look_at(entity : Entity, target : Vec, up : Vec)"></endpoint>
+<signature id="Transform.look_at+3">Transform.look_at(<strong>entity</strong>: <code>Entity</code>, <strong>target</strong>: <code>Vec</code>, <strong>up</strong>: <code>Vec</code>)
+<a class="headerlink" href="#Transform.look_at+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Rotate <code>Transform</code> to look at a position in worldspace, 
+      rotated around that new view axis so the <code>Transform</code> 'up' aligns with the <code>up</code> input as closely as possible.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="look_at(entity : Entity, target : Vec)"></endpoint>
+<signature id="Transform.look_at+2">Transform.look_at(<strong>entity</strong>: <code>Entity</code>, <strong>target</strong>: <code>Vec</code>)
+<a class="headerlink" href="#Transform.look_at+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Rotate <code>Transform</code> to look at a position in worldspace.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="set_snap(entity : Entity, x : Num, y : Num, z : Num)"></endpoint>
+<signature id="Transform.set_snap+4">Transform.set_snap(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.set_snap+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Set <code>Transform</code> position to snap at specific intervals. (midpoints round away from 0)</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">entity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Entity</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">world</span><span class="p">)</span>
+<span class="w">  </span><span class="nx">Transform</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">entity</span><span class="p">)</span>
+<span class="w">  </span><span class="nx">Transform</span><span class="p">.</span><span class="nx">set_snap</span><span class="p">(</span><span class="nx">entity</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">)</span>
+<span class="w">  </span><span class="nx">Transform</span><span class="p">.</span><span class="nx">set_pos</span><span class="p">(</span><span class="nx">entity</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="mf">1.5</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">3</span><span class="p">)</span>
+<span class="w">  </span><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">Transform</span><span class="p">.</span><span class="nx">get_pos</span><span class="p">(</span><span class="nx">entity</span><span class="p">))</span><span class="w"> </span><span class="c1">//[0, 2, -4]</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="set_snap(entity : Entity, x : Num, y : Num)"></endpoint>
+<signature id="Transform.set_snap+3">Transform.set_snap(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.set_snap+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Set <code>Transform</code> position to snap at specific intervals.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="set_pos(entity : Entity, x : Num, y : Num, z : Num)"></endpoint>
+<signature id="Transform.set_pos+4">Transform.set_pos(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.set_pos+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Set local position of a <code>Transform</code>.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="set_pos(entity : Entity, x : Num, y : Num)"></endpoint>
+<signature id="Transform.set_pos+3">Transform.set_pos(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.set_pos+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Set local position of a <code>Transform</code>.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="set_pos_world(entity : Entity, x : Num, y : Num, z : Num)"></endpoint>
+<signature id="Transform.set_pos_world+4">Transform.set_pos_world(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.set_pos_world+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Set global position of a <code>Transform</code>.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="set_pos_world(entity : Entity, x : Num, y : Num)"></endpoint>
+<signature id="Transform.set_pos_world+3">Transform.set_pos_world(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.set_pos_world+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Set global position of a <code>Transform</code>.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="set_pos_x(entity : Entity, x : Num)"></endpoint>
+<signature id="Transform.set_pos_x+2">Transform.set_pos_x(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.set_pos_x+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Set <code>x</code> component of local <code>Transform</code> pos.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="set_pos_y(entity : Entity, y : Num)"></endpoint>
+<signature id="Transform.set_pos_y+2">Transform.set_pos_y(<strong>entity</strong>: <code>Entity</code>, <strong>y</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.set_pos_y+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Set <code>y</code> component of local <code>Transform</code> pos.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="set_pos_z(entity : Entity, z : Num)"></endpoint>
+<signature id="Transform.set_pos_z+2">Transform.set_pos_z(<strong>entity</strong>: <code>Entity</code>, <strong>z</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.set_pos_z+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Set <code>z</code> component of local <code>Transform</code> pos.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="set_pos_x_world(entity : Entity, x : Num)"></endpoint>
+<signature id="Transform.set_pos_x_world+2">Transform.set_pos_x_world(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.set_pos_x_world+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Set <code>x</code> component of global <code>Transform</code> pos.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="set_pos_y_world(entity : Entity, y : Num)"></endpoint>
+<signature id="Transform.set_pos_y_world+2">Transform.set_pos_y_world(<strong>entity</strong>: <code>Entity</code>, <strong>y</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.set_pos_y_world+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Set <code>y</code> component of global <code>Transform</code> pos.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="set_pos_z_world(entity : Entity, z : Num)"></endpoint>
+<signature id="Transform.set_pos_z_world+2">Transform.set_pos_z_world(<strong>entity</strong>: <code>Entity</code>, <strong>z</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.set_pos_z_world+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Set <code>z</code> component of global <code>Transform</code> pos.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="set_scale(entity : Entity, x : Num, y : Num)"></endpoint>
+<signature id="Transform.set_scale+3">Transform.set_scale(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.set_scale+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Set x and y scale of a <code>Transform</code>, keeping z scale unchanged.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="set_scale(entity : Entity, x : Num, y : Num, z : Num)"></endpoint>
+<signature id="Transform.set_scale+4">Transform.set_scale(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.set_scale+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Set local scale of a <code>Transform</code>.
+Setting the scale in a global context isnt available, as link hierarchies with rotations and nonuniform scalings can lead to weird and hard to predict states for that.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="set_rotation_slerp_angle_axis(entity : Entity, axis : Vec, from : Num, to : Num, t : Num)"></endpoint>
+<signature id="Transform.set_rotation_slerp_angle_axis+5">Transform.set_rotation_slerp_angle_axis(<strong>entity</strong>: <code>Entity</code>, <strong>axis</strong>: <code>Vec</code>, <strong>from</strong>: <code>Num</code>, <strong>to</strong>: <code>Num</code>, <strong>t</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.set_rotation_slerp_angle_axis+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="set_rotation_slerp_angle_axis_world(entity : Entity, axis : Vec, from : Num, to : Num, t : Num)"></endpoint>
+<signature id="Transform.set_rotation_slerp_angle_axis_world+5">Transform.set_rotation_slerp_angle_axis_world(<strong>entity</strong>: <code>Entity</code>, <strong>axis</strong>: <code>Vec</code>, <strong>from</strong>: <code>Num</code>, <strong>to</strong>: <code>Num</code>, <strong>t</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.set_rotation_slerp_angle_axis_world+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="set_rotation_slerp(entity : Entity, from : Vec, to : Vec, t : Num)"></endpoint>
+<signature id="Transform.set_rotation_slerp+4">Transform.set_rotation_slerp(<strong>entity</strong>: <code>Entity</code>, <strong>from</strong>: <code>Vec</code>, <strong>to</strong>: <code>Vec</code>, <strong>t</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.set_rotation_slerp+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="set_rotation_slerp_world(entity : Entity, from : Vec, to : Vec, t : Num)"></endpoint>
+<signature id="Transform.set_rotation_slerp_world+4">Transform.set_rotation_slerp_world(<strong>entity</strong>: <code>Entity</code>, <strong>from</strong>: <code>Vec</code>, <strong>to</strong>: <code>Vec</code>, <strong>t</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.set_rotation_slerp_world+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="set_rotation(entity : Entity, x : Num, y : Num, z : Num, w : Num)"></endpoint>
+<signature id="Transform.set_rotation+5">Transform.set_rotation(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>, <strong>w</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.set_rotation+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Set local rotation in quaternions.</p>
+<p>(Quaternions are how rotations are handled by the engine internally, though it can be hard to understand how to manipulate them, so feel free to stick to euler angles using <code>set_euler(entity, x, y, z)</code>.)   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="set_rotation_world(entity : Entity, x : Num, y : Num, z : Num, w : Num)"></endpoint>
+<signature id="Transform.set_rotation_world+5">Transform.set_rotation_world(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>, <strong>w</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.set_rotation_world+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Set global rotation in quaternions.</p>
+<p>(Quaternions are how rotations are handled by the engine internally, though it can be hard to understand how to manipulate them, so feel free to stick to euler angles using <code>set_euler_world(entity, x, y, z)</code>.)   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="set_angle_axis(entity : Entity, degrees : Any, x : Num, y : Num, z : Num)"></endpoint>
+<signature id="Transform.set_angle_axis+5">Transform.set_angle_axis(<strong>entity</strong>: <code>Entity</code>, <strong>degrees</strong>: <code>Any</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.set_angle_axis+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Set local rotation as a rotation around an axis.</p>
+<p>Rotation direction is left-handed (counter-clockwise when looking in the direction of the axis.)   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="set_angle_axis_world(entity : Entity, degrees : Any, x : Num, y : Num, z : Num)"></endpoint>
+<signature id="Transform.set_angle_axis_world+5">Transform.set_angle_axis_world(<strong>entity</strong>: <code>Entity</code>, <strong>degrees</strong>: <code>Any</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.set_angle_axis_world+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Set global rotation as a rotation around an axis.</p>
+<p>Rotation direction is left-handed (counter-clockwise when looking in the direction of the axis.)   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="set_euler(entity : Entity, x : Num, y : Num, z : Num)"></endpoint>
+<signature id="Transform.set_euler+4">Transform.set_euler(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.set_euler+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Set local rotation as xyz euler angles.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="set_euler_world(entity : Entity, x : Num, y : Num, z : Num)"></endpoint>
+<signature id="Transform.set_euler_world+4">Transform.set_euler_world(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.set_euler_world+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Set global rotation as xyz euler angles.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="set_euler_x(entity : Entity, x : Num)"></endpoint>
+<signature id="Transform.set_euler_x+2">Transform.set_euler_x(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.set_euler_x+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="set_euler_y(entity : Entity, y : Num)"></endpoint>
+<signature id="Transform.set_euler_y+2">Transform.set_euler_y(<strong>entity</strong>: <code>Entity</code>, <strong>y</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.set_euler_y+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="set_euler_z(entity : Entity, z : Num)"></endpoint>
+<signature id="Transform.set_euler_z+2">Transform.set_euler_z(<strong>entity</strong>: <code>Entity</code>, <strong>z</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.set_euler_z+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="set_euler_x_world(entity : Entity, x : Num)"></endpoint>
+<signature id="Transform.set_euler_x_world+2">Transform.set_euler_x_world(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.set_euler_x_world+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="set_euler_y_world(entity : Entity, y : Num)"></endpoint>
+<signature id="Transform.set_euler_y_world+2">Transform.set_euler_y_world(<strong>entity</strong>: <code>Entity</code>, <strong>y</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.set_euler_y_world+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="set_euler_z_world(entity : Entity, z : Num)"></endpoint>
+<signature id="Transform.set_euler_z_world+2">Transform.set_euler_z_world(<strong>entity</strong>: <code>Entity</code>, <strong>z</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.set_euler_z_world+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="rotate_angle_axis_slerp(entity : Entity, axis : Vec, angle_amount : Num)"></endpoint>
+<signature id="Transform.rotate_angle_axis_slerp+3">Transform.rotate_angle_axis_slerp(<strong>entity</strong>: <code>Entity</code>, <strong>axis</strong>: <code>Vec</code>, <strong>angle_amount</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.rotate_angle_axis_slerp+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="rotate_angle_axis_slerp_world(entity : Entity, axis : Vec, angle_amount : Num)"></endpoint>
+<signature id="Transform.rotate_angle_axis_slerp_world+3">Transform.rotate_angle_axis_slerp_world(<strong>entity</strong>: <code>Entity</code>, <strong>axis</strong>: <code>Vec</code>, <strong>angle_amount</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.rotate_angle_axis_slerp_world+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="rotate_around_world(entity : Entity, x : Num, y : Num, z : Num, axis_x : Num, axis_y : Num, axis_z : Num, degrees : Num)"></endpoint>
+<signature id="Transform.rotate_around_world+8">Transform.rotate_around_world(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>, <strong>axis_x</strong>: <code>Num</code>, <strong>axis_y</strong>: <code>Num</code>, <strong>axis_z</strong>: <code>Num</code>, <strong>degrees</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.rotate_around_world+8" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Rotate around an axis in world space.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="rotate_around(entity : Entity, x : Num, y : Num, z : Num, axis_x : Num, axis_y : Num, axis_z : Num, degrees : Num)"></endpoint>
+<signature id="Transform.rotate_around+8">Transform.rotate_around(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>, <strong>axis_x</strong>: <code>Num</code>, <strong>axis_y</strong>: <code>Num</code>, <strong>axis_z</strong>: <code>Num</code>, <strong>degrees</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.rotate_around+8" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Rotate around an axis in local space.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="rotate_angle_axis(entity : Entity, degrees : Any, x : Num, y : Num, z : Num)"></endpoint>
+<signature id="Transform.rotate_angle_axis+5">Transform.rotate_angle_axis(<strong>entity</strong>: <code>Entity</code>, <strong>degrees</strong>: <code>Any</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.rotate_angle_axis+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Rotate on the spot around an axis in local coordinates.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="rotate_angle_axis_world(entity : Entity, degrees : Any, x : Num, y : Num, z : Num)"></endpoint>
+<signature id="Transform.rotate_angle_axis_world+5">Transform.rotate_angle_axis_world(<strong>entity</strong>: <code>Entity</code>, <strong>degrees</strong>: <code>Any</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.rotate_angle_axis_world+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Rotate on the spot around an axis in global coordinates.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="rotate_euler(entity : Entity, x : Num, y : Num, z : Num)"></endpoint>
+<signature id="Transform.rotate_euler+4">Transform.rotate_euler(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.rotate_euler+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Rotate by euler angles in local space.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="rotate_euler_world(entity : Entity, x : Num, y : Num, z : Num)"></endpoint>
+<signature id="Transform.rotate_euler_world+4">Transform.rotate_euler_world(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.rotate_euler_world+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Rotate by euler angles in global space.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="translate(entity : Entity, x : Num, y : Num, z : Num)"></endpoint>
+<signature id="Transform.translate+4">Transform.translate(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.translate+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Move <code>Transform</code> in local space.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="translate(entity : Entity, x : Num, y : Num)"></endpoint>
+<signature id="Transform.translate+3">Transform.translate(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.translate+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Move <code>Transform</code> in local space.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="get_pos(entity : Entity)"></endpoint>
+<signature id="Transform.get_pos">Transform.get_pos(<strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.get_pos" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Vec</span></code></p>
+<blockquote>
+<p>Get position local space (relative to link <code>Transform</code>).   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="get_pos_x(entity : Entity)"></endpoint>
+<signature id="Transform.get_pos_x">Transform.get_pos_x(<strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.get_pos_x" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="get_pos_y(entity : Entity)"></endpoint>
+<signature id="Transform.get_pos_y">Transform.get_pos_y(<strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.get_pos_y" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="get_pos_z(entity : Entity)"></endpoint>
+<signature id="Transform.get_pos_z">Transform.get_pos_z(<strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.get_pos_z" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="get_pos_world(entity : Entity)"></endpoint>
+<signature id="Transform.get_pos_world">Transform.get_pos_world(<strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.get_pos_world" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Get position global space.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="get_pos_world_unsnapped(entity : Entity)"></endpoint>
+<signature id="Transform.get_pos_world_unsnapped">Transform.get_pos_world_unsnapped(<strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.get_pos_world_unsnapped" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Vec</span></code></p>
+<blockquote>
+<p>Get position global space independently of <code>set_snap</code> settings.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="get_pos_x_world(entity : Entity)"></endpoint>
+<signature id="Transform.get_pos_x_world">Transform.get_pos_x_world(<strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.get_pos_x_world" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="get_pos_y_world(entity : Entity)"></endpoint>
+<signature id="Transform.get_pos_y_world">Transform.get_pos_y_world(<strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.get_pos_y_world" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="get_pos_z_world(entity : Entity)"></endpoint>
+<signature id="Transform.get_pos_z_world">Transform.get_pos_z_world(<strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.get_pos_z_world" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="rotate2D(entity : Entity, degrees : Num)"></endpoint>
+<signature id="Transform.rotate2D+2">Transform.rotate2D(<strong>entity</strong>: <code>Entity</code>, <strong>degrees</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.rotate2D+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Rotate the <code>Transform</code> in local space.</p>
+<p>This technically rotates around the z axis, since thats the only axis we care about in 2d contexts.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="set_angle2D(entity : Entity, degrees : Num)"></endpoint>
+<signature id="Transform.set_angle2D+2">Transform.set_angle2D(<strong>entity</strong>: <code>Entity</code>, <strong>degrees</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.set_angle2D+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Set the 2d angle in local space.</p>
+<p>This is technically the same as <code>set_euler_z</code>(doesnt touch x or y), since thats the only axis we care about in 2d contexts.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="set_angle2D_world(entity : Entity, degrees : Num)"></endpoint>
+<signature id="Transform.set_angle2D_world+2">Transform.set_angle2D_world(<strong>entity</strong>: <code>Entity</code>, <strong>degrees</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.set_angle2D_world+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Set the 2d angle in global space.</p>
+<p>This is technically the same as <code>set_euler_z</code>(doesnt touch x or y), since thats the only axis we care about in 2d contexts.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="get_angle2D(entity : Entity)"></endpoint>
+<signature id="Transform.get_angle2D">Transform.get_angle2D(<strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.get_angle2D" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Get the 2d angle in local space.</p>
+<p>This is technically the same as <code>get_euler_z</code>, since thats the only axis we care about in 2d contexts.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="get_angle2D_world(entity : Entity)"></endpoint>
+<signature id="Transform.get_angle2D_world">Transform.get_angle2D_world(<strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.get_angle2D_world" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Get the 2d angle in global space.</p>
+<p>This is technically the same as <code>get_euler_z_world</code>, since thats the only axis we care about in 2d contexts.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="set_depth2D(entity : Entity, depth : Num)"></endpoint>
+<signature id="Transform.set_depth2D+2">Transform.set_depth2D(<strong>entity</strong>: <code>Entity</code>, <strong>depth</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.set_depth2D+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Set the local depth (relative to link <code>Transform</code>).</p>
+<p>This is technically the same as <code>set_pos_z</code>.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="get_depth2D(entity : Entity)"></endpoint>
+<signature id="Transform.get_depth2D">Transform.get_depth2D(<strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.get_depth2D" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Get the local depth (relative to link <code>Transform</code>).</p>
+<p>This is technically the same as <code>get_pos_z</code>.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="set_depth2D_world(entity : Entity, depth : Num)"></endpoint>
+<signature id="Transform.set_depth2D_world+2">Transform.set_depth2D_world(<strong>entity</strong>: <code>Entity</code>, <strong>depth</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.set_depth2D_world+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Set the global depth.</p>
+<p>This is technically the same as <code>set_pos_z_world</code>.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="get_depth2D_world(entity : Entity)"></endpoint>
+<signature id="Transform.get_depth2D_world">Transform.get_depth2D_world(<strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.get_depth2D_world" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>Get the global depth.</p>
+<p>This is technically the same as <code>get_pos_z_world</code>.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="get_world_matrix(entity : Entity, into_matrix : Floats)"></endpoint>
+<signature id="Transform.get_world_matrix+2">Transform.get_world_matrix(<strong>entity</strong>: <code>Entity</code>, <strong>into_matrix</strong>: <code>Floats</code>)
+<a class="headerlink" href="#Transform.get_world_matrix+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Get 4x4 world transform matrix (column major array).</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">ent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Entity</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">app</span><span class="p">.</span><span class="nx">world</span><span class="p">)</span>
+<span class="w">  </span><span class="nx">Transform</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">ent</span><span class="p">)</span>
+<span class="w">  </span><span class="nx">Transform</span><span class="p">.</span><span class="nx">set_pos</span><span class="p">(</span><span class="nx">ent</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">matrix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Floats</span><span class="p">.</span><span class="ow">new</span><span class="p">(</span><span class="mf">16</span><span class="p">)</span>
+<span class="w">  </span><span class="nx">Transform</span><span class="p">.</span><span class="nx">get_world_matrix</span><span class="p">(</span><span class="nx">ent</span><span class="p">,</span><span class="w"> </span><span class="nx">matrix</span><span class="p">)</span>
+<span class="w">  </span><span class="c1">//matrix is now [1,0,0,0, 0,1,0,0, 0,0,1,0, 2,3,4,1]</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="get_rotation(entity : Entity)"></endpoint>
+<signature id="Transform.get_rotation">Transform.get_rotation(<strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.get_rotation" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Quat</span></code></p>
+<blockquote>
+<p>Get local quaternion rotation.</p>
+<p>(Note that quaternions can be unfamiliar and hard to manipulate, so if you're not familiar with them you might want to use <code>get_euler</code> instead)   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="get_rotation_world(entity : Entity)"></endpoint>
+<signature id="Transform.get_rotation_world">Transform.get_rotation_world(<strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.get_rotation_world" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Quat</span></code></p>
+<blockquote>
+<p>Get global quaternion rotation.</p>
+<p>(Note that quaternions can be unfamiliar and hard to manipulate, so if you're not familiar with them you might want to use <code>get_euler_world</code> instead)   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="get_rotation_matrix(entity : Entity, into_matrix : Floats)"></endpoint>
+<signature id="Transform.get_rotation_matrix+2">Transform.get_rotation_matrix(<strong>entity</strong>: <code>Entity</code>, <strong>into_matrix</strong>: <code>Floats</code>)
+<a class="headerlink" href="#Transform.get_rotation_matrix+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Get 4x4 world rotation matrix (column major array).   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="get_euler(entity : Entity)"></endpoint>
+<signature id="Transform.get_euler">Transform.get_euler(<strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.get_euler" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Vec</span></code></p>
+<blockquote>
+<p>Get local euler angles.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="get_euler_x(entity : Entity)"></endpoint>
+<signature id="Transform.get_euler_x">Transform.get_euler_x(<strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.get_euler_x" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="get_euler_y(entity : Entity)"></endpoint>
+<signature id="Transform.get_euler_y">Transform.get_euler_y(<strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.get_euler_y" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="get_euler_z(entity : Entity)"></endpoint>
+<signature id="Transform.get_euler_z">Transform.get_euler_z(<strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.get_euler_z" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="get_euler_world(entity : Entity)"></endpoint>
+<signature id="Transform.get_euler_world">Transform.get_euler_world(<strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.get_euler_world" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Vec</span></code></p>
+<blockquote>
+<p>Get global euler angles.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="get_euler_x_world(entity : Entity)"></endpoint>
+<signature id="Transform.get_euler_x_world">Transform.get_euler_x_world(<strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.get_euler_x_world" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="get_euler_y_world(entity : Entity)"></endpoint>
+<signature id="Transform.get_euler_y_world">Transform.get_euler_y_world(<strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.get_euler_y_world" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="get_euler_z_world(entity : Entity)"></endpoint>
+<signature id="Transform.get_euler_z_world">Transform.get_euler_z_world(<strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.get_euler_z_world" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="get_scale(entity : Entity)"></endpoint>
+<signature id="Transform.get_scale">Transform.get_scale(<strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.get_scale" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Vec</span></code></p>
+<blockquote>
+<p>Get local scale.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="get_scale_x(entity : Entity)"></endpoint>
+<signature id="Transform.get_scale_x">Transform.get_scale_x(<strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.get_scale_x" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="get_scale_y(entity : Entity)"></endpoint>
+<signature id="Transform.get_scale_y">Transform.get_scale_y(<strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.get_scale_y" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="get_scale_z(entity : Entity)"></endpoint>
+<signature id="Transform.get_scale_z">Transform.get_scale_z(<strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.get_scale_z" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="get_scale_world(entity : Entity)"></endpoint>
+<signature id="Transform.get_scale_world">Transform.get_scale_world(<strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.get_scale_world" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Vec</span></code></p>
+<blockquote>
+<p>Get global scale.
+Note that through rotations and non-uniform scale in the transform link hierarchy, getting an accurate world scale might be impossible, making this lossy.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="get_scale_x_world(entity : Entity)"></endpoint>
+<signature id="Transform.get_scale_x_world">Transform.get_scale_x_world(<strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.get_scale_x_world" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="get_scale_y_world(entity : Entity)"></endpoint>
+<signature id="Transform.get_scale_y_world">Transform.get_scale_y_world(<strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.get_scale_y_world" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="get_scale_z_world(entity : Entity)"></endpoint>
+<signature id="Transform.get_scale_z_world">Transform.get_scale_z_world(<strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.get_scale_z_world" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Num</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="get_right(entity : Entity)"></endpoint>
+<signature id="Transform.get_right">Transform.get_right(<strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.get_right" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Vec</span></code></p>
+<blockquote>
+<p>Get the "right" direction of the <code>Transform</code>.
+Same direction as the red arrow in the translation gizmo in the editor.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="get_forward(entity : Entity)"></endpoint>
+<signature id="Transform.get_forward">Transform.get_forward(<strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.get_forward" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Vec</span></code></p>
+<blockquote>
+<p>Get the "forward" direction of the <code>Transform</code>.
+Same direction as the green arrow in the translation gizmo in the editor.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="get_up(entity : Entity)"></endpoint>
+<signature id="Transform.get_up">Transform.get_up(<strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.get_up" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Vec</span></code></p>
+<blockquote>
+<p>Get the "up" direction of the <code>Transform</code>.
+Same direction as the blue arrow in the translation gizmo in the editor.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="sync(entity : Entity)"></endpoint>
+<signature id="Transform.sync">Transform.sync(<strong>entity</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.sync" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Forces a sync of the <code>Transform</code>. Will trigger listen functions.
+This usually shouldn't be needed as <code>Transform</code> sync automatically when updated.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="sync_block(entity : Entity, mask : TransformApplyMask)"></endpoint>
+<signature id="Transform.sync_block+2">Transform.sync_block(<strong>entity</strong>: <code>Entity</code>, <strong>mask</strong>: <code>TransformApplyMask</code>)
+<a class="headerlink" href="#Transform.sync_block+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Forces a sync of the <code>Transform</code> block data. Will trigger block listener functions.
+This usually shouldn't be needed as <code>Transform</code> sync automatically when updated.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="sync_world(world : World)"></endpoint>
+<signature id="Transform.sync_world">Transform.sync_world(<strong>world</strong>: <code>World</code>)
+<a class="headerlink" href="#Transform.sync_world" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Forces a sync of all <code>Transform</code> in a world. Will trigger listen functions.
+This usually shouldn't be needed as <code>Transform</code> sync automatically when updated.   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="transform_by(entity : Entity, other : Entity)"></endpoint>
+<signature id="Transform.transform_by+2">Transform.transform_by(<strong>entity</strong>: <code>Entity</code>, <strong>other</strong>: <code>Entity</code>)
+<a class="headerlink" href="#Transform.transform_by+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Transform the given entity by another entities transform. e.g set world using the other as a parent   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="scale_by(entity : Entity, scale : Float3, origin : Float3)"></endpoint>
+<signature id="Transform.scale_by+3">Transform.scale_by(<strong>entity</strong>: <code>Entity</code>, <strong>scale</strong>: <code>Float3</code>, <strong>origin</strong>: <code>Float3</code>)
+<a class="headerlink" href="#Transform.scale_by+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Transform the given entity scale by the value around the given origin   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="rotate_euler_by(entity : Entity, euler : Float3, origin : Float3)"></endpoint>
+<signature id="Transform.rotate_euler_by+3">Transform.rotate_euler_by(<strong>entity</strong>: <code>Entity</code>, <strong>euler</strong>: <code>Float3</code>, <strong>origin</strong>: <code>Float3</code>)
+<a class="headerlink" href="#Transform.rotate_euler_by+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>Transform the given entity rotation around the origin, by euler amount (radians)   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="local_vector_to_world(entity : Entity, x : Num, y : Num, z : Num)"></endpoint>
+<signature id="Transform.local_vector_to_world+4">Transform.local_vector_to_world(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.local_vector_to_world+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Vec</span></code></p>
+<blockquote>
+<p>Convert a vector from local space to world space. (applies scale and rotation, but not translation)   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="world_vector_to_local(entity : Entity, x : Num, y : Num, z : Num)"></endpoint>
+<signature id="Transform.world_vector_to_local+4">Transform.world_vector_to_local(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.world_vector_to_local+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Vec</span></code></p>
+<blockquote>
+<p>Convert a vector from world space to local space. (applies scale and rotation, but not translation)   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="local_dir_to_world(entity : Entity, x : Num, y : Num, z : Num)"></endpoint>
+<signature id="Transform.local_dir_to_world+4">Transform.local_dir_to_world(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.local_dir_to_world+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Vec</span></code></p>
+<blockquote>
+<p>Convert a direction from local space to world space. (applies only rotation, not rotation or translation)   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="world_dir_to_local(entity : Entity, x : Num, y : Num, z : Num)"></endpoint>
+<signature id="Transform.world_dir_to_local+4">Transform.world_dir_to_local(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.world_dir_to_local+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Vec</span></code></p>
+<blockquote>
+<p>Convert a direction from world space to local space. (applies only rotation, not rotation or translation)   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="local_point_to_world(entity : Entity, x : Num, y : Num, z : Num)"></endpoint>
+<signature id="Transform.local_point_to_world+4">Transform.local_point_to_world(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.local_point_to_world+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Vec</span></code></p>
+<blockquote>
+<p>Convert a point from local space to world space. (applies translation, rotation and scale)   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="local_point_to_world(entity : Entity, x : Num, y : Num, z : Num, scaled : Bool)"></endpoint>
+<signature id="Transform.local_point_to_world+5">Transform.local_point_to_world(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>, <strong>scaled</strong>: <code>Bool</code>)
+<a class="headerlink" href="#Transform.local_point_to_world+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Vec</span></code></p>
+<blockquote>
+<p>Convert a point from local space to world space. (applies translation, rotation and optionally, scale)   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="world_point_to_local(entity : Entity, x : Num, y : Num, z : Num)"></endpoint>
+<signature id="Transform.world_point_to_local+4">Transform.world_point_to_local(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>)
+<a class="headerlink" href="#Transform.world_point_to_local+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Vec</span></code></p>
+<blockquote>
+<p>Convert a point from world space to local space. (applies translation, rotation and scale)   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="world_point_to_local(entity : Entity, x : Num, y : Num, z : Num, scaled : Bool)"></endpoint>
+<signature id="Transform.world_point_to_local+5">Transform.world_point_to_local(<strong>entity</strong>: <code>Entity</code>, <strong>x</strong>: <code>Num</code>, <strong>y</strong>: <code>Num</code>, <strong>z</strong>: <code>Num</code>, <strong>scaled</strong>: <code>Bool</code>)
+<a class="headerlink" href="#Transform.world_point_to_local+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Vec</span></code></p>
+<blockquote>
+<p>Convert a point from world space to local space. (applies translation, rotation and optionally, scale)   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="listen_all(world : World, fn : Fn)"></endpoint>
+<signature id="Transform.listen_all+2">Transform.listen_all(<strong>world</strong>: <code>World</code>, <strong>fn</strong>: <code>Fn</code>)
+<a class="headerlink" href="#Transform.listen_all+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Handle</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="unlisten_all(world : World, handle : Handle)"></endpoint>
+<signature id="Transform.unlisten_all+2">Transform.unlisten_all(<strong>world</strong>: <code>World</code>, <strong>handle</strong>: <code>Handle</code>)
+<a class="headerlink" href="#Transform.unlisten_all+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="listen(entity : Entity, fn : Fn)"></endpoint>
+<signature id="Transform.listen+2">Transform.listen(<strong>entity</strong>: <code>Entity</code>, <strong>fn</strong>: <code>Fn</code>)
+<a class="headerlink" href="#Transform.listen+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">Handle</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="Transform" signature="unlisten(entity : Entity, handle : Handle)"></endpoint>
+<signature id="Transform.unlisten+2">Transform.unlisten(<strong>entity</strong>: <code>Entity</code>, <strong>handle</strong>: <code>Handle</code>)
+<a class="headerlink" href="#Transform.unlisten+2" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">None</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<h3 id="transformapplymask">TransformApplyMask<a class="headerlink" href="#transformapplymask" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: system/transform.modifier&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">TransformApplyMask</span></code></p>
+<blockquote>
+<p>no docs found</p>
+</blockquote>
+<ul>
+<li><a href="#TransformApplyMask.pos">pos</a></li>
+<li><a href="#TransformApplyMask.scale">scale</a></li>
+<li><a href="#TransformApplyMask.rotation">rotation</a></li>
+<li><a href="#TransformApplyMask.modified">modified</a></li>
+<li><a href="#TransformApplyMask.all_modified">all_modified</a></li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: system/transform.modifier" class="TransformApplyMask" signature="pos"></endpoint>
+<signature id="TransformApplyMask.pos">TransformApplyMask.pos
+<a class="headerlink" href="#TransformApplyMask.pos" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="TransformApplyMask" signature="scale"></endpoint>
+<signature id="TransformApplyMask.scale">TransformApplyMask.scale
+<a class="headerlink" href="#TransformApplyMask.scale" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="TransformApplyMask" signature="rotation"></endpoint>
+<signature id="TransformApplyMask.rotation">TransformApplyMask.rotation
+<a class="headerlink" href="#TransformApplyMask.rotation" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="TransformApplyMask" signature="modified"></endpoint>
+<signature id="TransformApplyMask.modified">TransformApplyMask.modified
+<a class="headerlink" href="#TransformApplyMask.modified" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: system/transform.modifier" class="TransformApplyMask" signature="all_modified"></endpoint>
+<signature id="TransformApplyMask.all_modified">TransformApplyMask.all_modified
+<a class="headerlink" href="#TransformApplyMask.all_modified" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 3, 2025 06:41:06 UTC">September 3, 2025</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/luxeengine" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 0c4.42 0 8 3.58 8 8a8.01 8.01 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27s-1.36.09-2 .27c-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8"/></svg>
+    </a>
+  
+</div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../../..", "features": ["instant", "navigation.prune"], "search": "../../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1443 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../../images/luxe-favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Draw - luxe engine</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../css/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="luxe engine" class="md-header__button md-logo" aria-label="luxe engine" data-md-component="logo">
+      
+  <img src="../../../../images/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            luxe engine
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Draw
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="pink" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="luxe engine" class="md-nav__button md-logo" aria-label="luxe engine" data-md-component="logo">
+      
+  <img src="../../../../images/logo.svg" alt="logo">
+
+    </a>
+    luxe engine
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    about
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../get/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    install
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    guide
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../tutorials/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    tutorials
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../learn/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    learn ...
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../manual/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    manual
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1"><img alt="" src="../../../../images/luxe-dark.svg" width="96em" /><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h1 id="luxe-api-202511"><code>luxe</code> API (<code>2025.1.1</code>)<a class="headerlink" href="#luxe-api-202511" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="luxe-draw-module"><code>luxe: draw</code> module<a class="headerlink" href="#luxe-draw-module" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#draw">Draw</a>   </li>
+<li><a href="#linecap">LineCap</a>   </li>
+<li><a href="#linejoin">LineJoin</a>   </li>
+<li><a href="#pathstyle">PathStyle</a>   </li>
+</ul>
+<hr />
+<h3 id="draw">Draw<a class="headerlink" href="#draw" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: draw&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">Draw</span></code></p>
+<blockquote>
+<p>Draw is a service API that offers drawing to a context (canvas) in an efficient way.
+Things like lines, circles, paths and so on are what it provides. <em>The terms canvas and context
+will be used interchangeably.</em> </p>
+<p>It is important to note that
+<code>Draw</code> is a <a href="../../guide/concepts#commit">commit</a> based API. A brief tutorial 
+on using it can be found here: <a href="../../tutorial/basics/drawing-2d">2D drawing tutorial</a>.</p>
+<p><code>Draw</code> can be used to draw game content with, but is also a great tool for debug visualization.
+Many problems are a lot clearer when their details are drawn in the world, which Draw is very useful for.</p>
+<p>The context can be drawn to once or updated frequently. For example you might draw a grid to the context,
+and then leave it there which is a very efficient way to draw many lines.</p>
+</blockquote>
+<ul>
+<li><a href="#Draw.create">create</a>(<strong>set</strong>: <code>Any</code>)</li>
+<li><a href="#Draw.create+4">create</a>(<strong>set</strong>: <code>RenderSet</code>, <strong>tri_basis</strong>: <code>String</code>, <strong>text_basis</strong>: <code>String</code>, <strong>line_basis</strong>: <code>String</code>)</li>
+<li><a href="#Draw.destroy">destroy</a>(<strong>context</strong>: <code>Any</code>)</li>
+<li><a href="#Draw.valid">valid</a>(<strong>context</strong>: <code>Any</code>)</li>
+<li><a href="#Draw.clear">clear</a>(<strong>context</strong>: <code>Any</code>)</li>
+<li><a href="#Draw.commit">commit</a>(<strong>context</strong>: <code>Any</code>)</li>
+<li><a href="#Draw.rect+8">rect</a>(<strong>context</strong>: <code>Any</code>, <strong>x</strong>: <code>Any</code>, <strong>y</strong>: <code>Any</code>, <strong>z</strong>: <code>Any</code>, <strong>w</strong>: <code>Any</code>, <strong>h</strong>: <code>Any</code>, <strong>angle</strong>: <code>Any</code>, <strong>style</strong>: <code>Any</code>)</li>
+<li><a href="#Draw.rect_detailed+10">rect_detailed</a>(<strong>context</strong>: <code>Any</code>, <strong>x</strong>: <code>Any</code>, <strong>y</strong>: <code>Any</code>, <strong>z</strong>: <code>Any</code>, <strong>w</strong>: <code>Any</code>, <strong>h</strong>: <code>Any</code>, <strong>angle</strong>: <code>Any</code>, <strong>radius</strong>: <code>Any</code>, <strong>smoothness</strong>: <code>Any</code>, <strong>style</strong>: <code>Any</code>)</li>
+<li><a href="#Draw.quad_detailed+10">quad_detailed</a>(<strong>context</strong>: <code>Any</code>, <strong>x</strong>: <code>Any</code>, <strong>y</strong>: <code>Any</code>, <strong>z</strong>: <code>Any</code>, <strong>w</strong>: <code>Any</code>, <strong>h</strong>: <code>Any</code>, <strong>angle</strong>: <code>Any</code>, <strong>radius</strong>: <code>Any</code>, <strong>smoothness</strong>: <code>Any</code>, <strong>color</strong>: <code>Any</code>)</li>
+<li><a href="#Draw.quad+8">quad</a>(<strong>context</strong>: <code>Any</code>, <strong>x</strong>: <code>Any</code>, <strong>y</strong>: <code>Any</code>, <strong>z</strong>: <code>Any</code>, <strong>w</strong>: <code>Any</code>, <strong>h</strong>: <code>Any</code>, <strong>angle</strong>: <code>Any</code>, <strong>color</strong>: <code>Any</code>)</li>
+<li><a href="#Draw.ngon+9">ngon</a>(<strong>context</strong>: <code>Any</code>, <strong>ox</strong>: <code>Any</code>, <strong>oy</strong>: <code>Any</code>, <strong>oz</strong>: <code>Any</code>, <strong>rx</strong>: <code>Any</code>, <strong>ry</strong>: <code>Any</code>, <strong>sides</strong>: <code>Any</code>, <strong>angle</strong>: <code>Any</code>, <strong>style</strong>: <code>Any</code>)</li>
+<li><a href="#Draw.ngon_solid+9">ngon_solid</a>(<strong>context</strong>: <code>Any</code>, <strong>ox</strong>: <code>Any</code>, <strong>oy</strong>: <code>Any</code>, <strong>oz</strong>: <code>Any</code>, <strong>rx</strong>: <code>Any</code>, <strong>ry</strong>: <code>Any</code>, <strong>sides</strong>: <code>Any</code>, <strong>angle</strong>: <code>Any</code>, <strong>color</strong>: <code>Any</code>)</li>
+<li><a href="#Draw.ring+10">ring</a>(<strong>context</strong>: <code>Any</code>, <strong>ox</strong>: <code>Any</code>, <strong>oy</strong>: <code>Any</code>, <strong>oz</strong>: <code>Any</code>, <strong>rx</strong>: <code>Any</code>, <strong>ry</strong>: <code>Any</code>, <strong>start_angle</strong>: <code>Any</code>, <strong>end_angle</strong>: <code>Any</code>, <strong>smoothness</strong>: <code>Any</code>, <strong>style</strong>: <code>Any</code>)</li>
+<li><a href="#Draw.ring+7">ring</a>(<strong>context</strong>: <code>Any</code>, <strong>ox</strong>: <code>Any</code>, <strong>oy</strong>: <code>Any</code>, <strong>oz</strong>: <code>Any</code>, <strong>radius</strong>: <code>Any</code>, <strong>smoothness</strong>: <code>Any</code>, <strong>style</strong>: <code>Any</code>)</li>
+<li><a href="#Draw.circle+7">circle</a>(<strong>context</strong>: <code>Any</code>, <strong>ox</strong>: <code>Any</code>, <strong>oy</strong>: <code>Any</code>, <strong>oz</strong>: <code>Any</code>, <strong>radius</strong>: <code>Any</code>, <strong>smoothness</strong>: <code>Any</code>, <strong>color</strong>: <code>Any</code>)</li>
+<li><a href="#Draw.circle+10">circle</a>(<strong>context</strong>: <code>Any</code>, <strong>ox</strong>: <code>Any</code>, <strong>oy</strong>: <code>Any</code>, <strong>oz</strong>: <code>Any</code>, <strong>rx</strong>: <code>Any</code>, <strong>ry</strong>: <code>Any</code>, <strong>start_angle</strong>: <code>Any</code>, <strong>end_angle</strong>: <code>Any</code>, <strong>smoothness</strong>: <code>Any</code>, <strong>color</strong>: <code>Any</code>)</li>
+<li><a href="#Draw.line+7">line</a>(<strong>context</strong>: <code>Any</code>, <strong>x1</strong>: <code>Any</code>, <strong>y1</strong>: <code>Any</code>, <strong>x2</strong>: <code>Any</code>, <strong>y2</strong>: <code>Any</code>, <strong>z</strong>: <code>Any</code>, <strong>style</strong>: <code>Any</code>)</li>
+<li><a href="#Draw.path+4">path</a>(<strong>context</strong>: <code>Any</code>, <strong>points</strong>: <code>Any</code>, <strong>style</strong>: <code>Any</code>, <strong>closed</strong>: <code>Any</code>)</li>
+<li><a href="#Draw.path3D+4">path3D</a>(<strong>context</strong>: <code>Any</code>, <strong>points</strong>: <code>Any</code>, <strong>style</strong>: <code>Any</code>, <strong>closed</strong>: <code>Any</code>)</li>
+<li><a href="#Draw.line3D+4">line3D</a>(<strong>context</strong>: <code>Draw</code>, <strong>start</strong>: <code>Vec</code>, <strong>end</strong>: <code>Vec</code>, <strong>style</strong>: <code>PathStyle</code>)</li>
+<li><a href="#Draw.bounds3D+3">bounds3D</a>(<strong>context</strong>: <code>Any</code>, <strong>geometry</strong>: <code>Any</code>, <strong>style</strong>: <code>Any</code>)</li>
+<li><a href="#Draw.aabb3D+4">aabb3D</a>(<strong>context</strong>: <code>Any</code>, <strong>center</strong>: <code>Any</code>, <strong>radius</strong>: <code>Any</code>, <strong>style</strong>: <code>Any</code>)</li>
+<li><a href="#Draw.plane3D+5">plane3D</a>(<strong>context</strong>: <code>Draw</code>, <strong>pos</strong>: <code>Vec</code>, <strong>normal</strong>: <code>Vec</code>, <strong>radius</strong>: <code>Num</code>, <strong>style</strong>: <code>PathStyle</code>)</li>
+<li><a href="#Draw.plus3D+4">plus3D</a>(<strong>context</strong>: <code>Draw</code>, <strong>pos</strong>: <code>Vec</code>, <strong>radius</strong>: <code>Num</code>, <strong>style</strong>: <code>PathStyle</code>)</li>
+<li><a href="#Draw.ring3D+7">ring3D</a>(<strong>context</strong>: <code>Draw</code>, <strong>pos</strong>: <code>Vec3</code>, <strong>radius</strong>: <code>Vec2</code>, <strong>start_angle</strong>: <code>Num</code>, <strong>end_angle</strong>: <code>Num</code>, <strong>smoothness</strong>: <code>Num</code>, <strong>style</strong>: <code>PathStyle</code>)</li>
+<li><a href="#Draw.plus+4">plus</a>(<strong>context</strong>: <code>Draw</code>, <strong>pos</strong>: <code>Vec</code>, <strong>radius</strong>: <code>Num</code>, <strong>style</strong>: <code>PathStyle</code>)</li>
+<li><a href="#Draw.camera+3">camera</a>(<strong>context</strong>: <code>Draw</code>, <strong>camera</strong>: <code>Entity</code>, <strong>style</strong>: <code>PathStyle</code>)</li>
+<li><a href="#Draw.frustum+3">frustum</a>(<strong>context</strong>: <code>Draw</code>, <strong>corners</strong>: <code>List</code>, <strong>style</strong>: <code>PathStyle</code>)</li>
+<li><a href="#Draw.text+12">text</a>(<strong>context</strong>: <code>Any</code>, <strong>x</strong>: <code>Any</code>, <strong>y</strong>: <code>Any</code>, <strong>z</strong>: <code>Any</code>, <strong>w</strong>: <code>Any</code>, <strong>h</strong>: <code>Any</code>, <strong>string</strong>: <code>Any</code>, <strong>size</strong>: <code>Any</code>, <strong>font</strong>: <code>Any</code>, <strong>color</strong>: <code>Any</code>, <strong>align</strong>: <code>Any</code>, <strong>align_vertical</strong>: <code>Any</code>)</li>
+<li><a href="#Draw.text+10">text</a>(<strong>context</strong>: <code>Any</code>, <strong>x</strong>: <code>Any</code>, <strong>y</strong>: <code>Any</code>, <strong>z</strong>: <code>Any</code>, <strong>string</strong>: <code>Any</code>, <strong>size</strong>: <code>Any</code>, <strong>font</strong>: <code>Any</code>, <strong>color</strong>: <code>Any</code>, <strong>align</strong>: <code>Any</code>, <strong>align_vertical</strong>: <code>Any</code>)</li>
+<li><a href="#Draw.text+7">text</a>(<strong>context</strong>: <code>Any</code>, <strong>x</strong>: <code>Any</code>, <strong>y</strong>: <code>Any</code>, <strong>z</strong>: <code>Any</code>, <strong>string</strong>: <code>Any</code>, <strong>size</strong>: <code>Any</code>, <strong>color</strong>: <code>Any</code>)</li>
+<li><a href="#Draw.image+8">image</a>(<strong>context</strong>: <code>Any</code>, <strong>x</strong>: <code>Any</code>, <strong>y</strong>: <code>Any</code>, <strong>z</strong>: <code>Any</code>, <strong>w</strong>: <code>Any</code>, <strong>h</strong>: <code>Any</code>, <strong>angle</strong>: <code>Any</code>, <strong>material</strong>: <code>Any</code>)</li>
+<li><a href="#Draw.image+10">image</a>(<strong>context</strong>: <code>Any</code>, <strong>x</strong>: <code>Any</code>, <strong>y</strong>: <code>Any</code>, <strong>z</strong>: <code>Any</code>, <strong>w</strong>: <code>Any</code>, <strong>h</strong>: <code>Any</code>, <strong>angle</strong>: <code>Any</code>, <strong>color</strong>: <code>Any</code>, <strong>uv</strong>: <code>Any</code>, <strong>material</strong>: <code>Any</code>)</li>
+<li><a href="#Draw.cross+7">cross</a>(<strong>context</strong>: <code>Any</code>, <strong>x</strong>: <code>Any</code>, <strong>y</strong>: <code>Any</code>, <strong>z</strong>: <code>Any</code>, <strong>radius</strong>: <code>Any</code>, <strong>angle</strong>: <code>Any</code>, <strong>style</strong>: <code>Any</code>)</li>
+<li><a href="#Draw.sphere3D_slice+7">sphere3D_slice</a>(<strong>context</strong>: <code>Draw</code>, <strong>pos</strong>: <code>Vec3</code>, <strong>radius</strong>: <code>Vec2</code>, <strong>start_angle</strong>: <code>Num</code>, <strong>end_angle</strong>: <code>Num</code>, <strong>layers</strong>: <code>Num</code>, <strong>style</strong>: <code>PathStyle</code>)</li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: draw" class="Draw" signature="create(set : Any)"></endpoint>
+<signature id="Draw.create">Draw.create(<strong>set</strong>: <code>Any</code>)
+<a class="headerlink" href="#Draw.create" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Creates a new drawing context to draw with.
+The <code>set</code> passed in is a <code>RenderSet</code>, which you normally get from a <code>World</code> via <code>World.render_set(world)</code>.
+This would place the canvas in the world to be rendered at the same time, as part of the world.</p>
+<div class="highlight"><pre><span></span><code>var canvas = Draw.create(World.render_set(app.world))
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="Draw" signature="create(set : RenderSet, tri_basis : String, text_basis : String, line_basis : String)"></endpoint>
+<signature id="Draw.create+4">Draw.create(<strong>set</strong>: <code>RenderSet</code>, <strong>tri_basis</strong>: <code>String</code>, <strong>text_basis</strong>: <code>String</code>, <strong>line_basis</strong>: <code>String</code>)
+<a class="headerlink" href="#Draw.create+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Creates a new drawing context to draw with.
+The <code>set</code> passed in is a <code>RenderSet</code>, which you normally get from a <code>World</code> via <code>World.render_set(world)</code>.
+This would place the canvas in the world to be rendered at the same time, as part of the world.</p>
+<ul>
+<li><code>tri_basis</code></li>
+<li>Triangle Material Basis for the geometry</li>
+<li>default <code>luxe: material_basis/solid</code></li>
+<li><code>text_basis</code></li>
+<li>Text Material Basis</li>
+<li>default <code>luxe: material_basis/font</code></li>
+<li><code>line_basis</code></li>
+<li>Line Material Basis for 3D line geometry</li>
+<li>
+<p>default <code>luxe: material_basis/debug_line3d</code></p>
+<p>var canvas = Draw.create(World.render_set(app.world), 
+                         "luxe: material_basis/solid", 
+                         "luxe: material_basis/font",
+                         "luxe: material_basis/debug_line3d")   </p>
+</li>
+</ul>
+</blockquote>
+<p><endpoint module="luxe: draw" class="Draw" signature="destroy(context : Any)"></endpoint>
+<signature id="Draw.destroy">Draw.destroy(<strong>context</strong>: <code>Any</code>)
+<a class="headerlink" href="#Draw.destroy" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Destroy a previously created context.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">canvas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Draw</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">World</span><span class="p">.</span><span class="nx">render_set</span><span class="p">(</span><span class="nx">app</span><span class="p">.</span><span class="nx">world</span><span class="p">))</span>
+<span class="p">...</span>
+<span class="nx">Draw</span><span class="p">.</span><span class="nx">destroy</span><span class="p">(</span><span class="nx">canvas</span><span class="p">)</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="Draw" signature="valid(context : Any)"></endpoint>
+<signature id="Draw.valid">Draw.valid(<strong>context</strong>: <code>Any</code>)
+<a class="headerlink" href="#Draw.valid" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Returns true if the context is valid (and hasn't been destroyed).</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">canvas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Draw</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">World</span><span class="p">.</span><span class="nx">render_set</span><span class="p">(</span><span class="nx">app</span><span class="p">.</span><span class="nx">world</span><span class="p">))</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">canvas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Draw</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">World</span><span class="p">.</span><span class="nx">render_set</span><span class="p">(</span><span class="nx">app</span><span class="p">.</span><span class="nx">world</span><span class="p">))</span>
+<span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">Draw</span><span class="p">.</span><span class="nx">valid</span><span class="p">(</span><span class="nx">canvas</span><span class="p">))</span><span class="w"> </span><span class="c1">//true</span>
+<span class="nx">Draw</span><span class="p">.</span><span class="nx">destroy</span><span class="p">(</span><span class="nx">canvas</span><span class="p">)</span>
+<span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">Draw</span><span class="p">.</span><span class="nx">valid</span><span class="p">(</span><span class="nx">canvas</span><span class="p">))</span><span class="w"> </span><span class="c1">//false</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="Draw" signature="clear(context : Any)"></endpoint>
+<signature id="Draw.clear">Draw.clear(<strong>context</strong>: <code>Any</code>)
+<a class="headerlink" href="#Draw.clear" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Clears the context of any drawn content.
+This clears both committed and uncommitted data.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">Draw</span><span class="p">.</span><span class="nx">clear</span><span class="p">(</span><span class="nx">draw</span><span class="p">)</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="Draw" signature="commit(context : Any)"></endpoint>
+<signature id="Draw.commit">Draw.commit(<strong>context</strong>: <code>Any</code>)
+<a class="headerlink" href="#Draw.commit" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Commit the content that has been drawn to the context.</p>
+<p>When using the Draw API, you can submit a bunch of drawing to happen,
+but it won't show up until it is committed. </p>
+<p>You can think of the draw calls as a queue, commit will process 
+that queue, and the canvas contents will be updated. The content
+will stay there until commit is called again. </p>
+<p>Calling commit with nothing in the queue will clear the contents (see also <code>Draw.clear</code>).</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">canvas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Draw</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">World</span><span class="p">.</span><span class="nx">render_set</span><span class="p">(</span><span class="nx">app</span><span class="p">.</span><span class="nx">world</span><span class="p">))</span>
+<span class="c1">//draw a red box rotated 45 degrees</span>
+<span class="nx">Draw</span><span class="p">.</span><span class="nx">quad</span><span class="p">(</span><span class="nx">canvas</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="mf">45</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">])</span>
+<span class="nx">Draw</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="nx">canvas</span><span class="p">)</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="Draw" signature="rect(context : Any, x : Any, y : Any, z : Any, w : Any, h : Any, angle : Any, style : Any)"></endpoint>
+<signature id="Draw.rect+8">Draw.rect(<strong>context</strong>: <code>Any</code>, <strong>x</strong>: <code>Any</code>, <strong>y</strong>: <code>Any</code>, <strong>z</strong>: <code>Any</code>, <strong>w</strong>: <code>Any</code>, <strong>h</strong>: <code>Any</code>, <strong>angle</strong>: <code>Any</code>, <strong>style</strong>: <code>Any</code>)
+<a class="headerlink" href="#Draw.rect+8" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Draws a rectangle <strong>outline</strong> using <code>style</code> (<code>PathStyle</code>) at <code>x</code>,<code>y</code>, with depth <code>z</code>, with width of <code>w</code> and height of <code>h</code>.
+The rectangle will be rotated <code>angle</code> degrees.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">depth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">45</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">PathStyle</span><span class="p">.</span><span class="ow">new</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">style</span><span class="p">.</span><span class="nx">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="mf">0</span><span class="p">,</span><span class="mf">0</span><span class="p">,</span><span class="mf">1</span><span class="p">]</span>
+<span class="w">    </span><span class="nx">style</span><span class="p">.</span><span class="nx">thickness</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2</span>
+<span class="nx">Draw</span><span class="p">.</span><span class="nx">rect</span><span class="p">(</span><span class="nx">canvas</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">depth</span><span class="p">,</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="nx">angle</span><span class="p">,</span><span class="w"> </span><span class="nx">style</span><span class="p">)</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="Draw" signature="rect_detailed(context : Any, x : Any, y : Any, z : Any, w : Any, h : Any, angle : Any, radius : Any, smoothness : Any, style : Any)"></endpoint>
+<signature id="Draw.rect_detailed+10">Draw.rect_detailed(<strong>context</strong>: <code>Any</code>, <strong>x</strong>: <code>Any</code>, <strong>y</strong>: <code>Any</code>, <strong>z</strong>: <code>Any</code>, <strong>w</strong>: <code>Any</code>, <strong>h</strong>: <code>Any</code>, <strong>angle</strong>: <code>Any</code>, <strong>radius</strong>: <code>Any</code>, <strong>smoothness</strong>: <code>Any</code>, <strong>style</strong>: <code>Any</code>)
+<a class="headerlink" href="#Draw.rect_detailed+10" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Draws a detailed rectangle <strong>outline</strong> using <code>style</code> (<code>PathStyle</code>) at <code>x</code>,<code>y</code>, with depth <code>z</code>, with width of <code>w</code> and height of <code>h</code>.
+The rectangle will be rotated <code>angle</code> degrees. </p>
+<p>"Detailed" means that the corners can be configured using the <code>radius</code> and <code>smoothness</code> values.
+This allows drawing rounded rectangles, rectangles with inverted rounded corners, and with flat corners.
+The radius controls the amount inset from the edges. With a smoothness of 0, the corners will be angled/flat.</p>
+<p>The order is <code>[bottom left, bottom right, top right, top left]</code> for radius + smoothness.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">depth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">PathStyle</span><span class="p">.</span><span class="ow">new</span><span class="p">()</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">radius</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">16</span><span class="p">,</span><span class="w"> </span><span class="mf">16</span><span class="p">,</span><span class="w"> </span><span class="mf">16</span><span class="p">,</span><span class="w"> </span><span class="mf">16</span><span class="p">]</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">smoothness</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">]</span>
+<span class="nx">Draw</span><span class="p">.</span><span class="nx">rect_detailed</span><span class="p">(</span><span class="nx">_ctx</span><span class="p">,</span><span class="w"> </span><span class="mf">64</span><span class="p">,</span><span class="w"> </span><span class="mf">64</span><span class="p">,</span><span class="w"> </span><span class="nx">depth</span><span class="p">,</span><span class="w"> </span><span class="mf">256</span><span class="p">,</span><span class="w"> </span><span class="mf">128</span><span class="p">,</span><span class="w"> </span><span class="nx">angle</span><span class="p">,</span><span class="w"> </span><span class="nx">radius</span><span class="p">,</span><span class="w"> </span><span class="nx">smoothness</span><span class="p">,</span><span class="w"> </span><span class="nx">style</span><span class="p">)</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="Draw" signature="quad_detailed(context : Any, x : Any, y : Any, z : Any, w : Any, h : Any, angle : Any, radius : Any, smoothness : Any, color : Any)"></endpoint>
+<signature id="Draw.quad_detailed+10">Draw.quad_detailed(<strong>context</strong>: <code>Any</code>, <strong>x</strong>: <code>Any</code>, <strong>y</strong>: <code>Any</code>, <strong>z</strong>: <code>Any</code>, <strong>w</strong>: <code>Any</code>, <strong>h</strong>: <code>Any</code>, <strong>angle</strong>: <code>Any</code>, <strong>radius</strong>: <code>Any</code>, <strong>smoothness</strong>: <code>Any</code>, <strong>color</strong>: <code>Any</code>)
+<a class="headerlink" href="#Draw.quad_detailed+10" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Draws a detailed rectangle using <code>color</code> at <code>x</code>,<code>y</code>, with depth <code>z</code>, with width of <code>w</code> and height of <code>h</code>.
+The rectangle will be rotated <code>angle</code> degrees. </p>
+<p>"Detailed" means that the corners can be configured using the <code>radius</code> and <code>smoothness</code> values.
+This allows drawing rounded rectangles, rectangles with inverted rounded corners, and with flat corners.
+The radius controls the amount inset from the edges. With a smoothness of 0, the corners will be angled/flat.</p>
+<p>The order is <code>[bottom left, bottom right, top right, top left]</code> for radius + smoothness.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">depth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">0</span><span class="p">,</span><span class="mf">0</span><span class="p">,</span><span class="mf">0</span><span class="p">,</span><span class="mf">1</span><span class="p">]</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">radius</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">16</span><span class="p">,</span><span class="w"> </span><span class="mf">16</span><span class="p">,</span><span class="w"> </span><span class="mf">16</span><span class="p">,</span><span class="w"> </span><span class="mf">16</span><span class="p">]</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">smoothness</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">]</span>
+<span class="nx">Draw</span><span class="p">.</span><span class="nx">quad_detailed</span><span class="p">(</span><span class="nx">_ctx</span><span class="p">,</span><span class="w"> </span><span class="mf">64</span><span class="p">,</span><span class="w"> </span><span class="mf">64</span><span class="p">,</span><span class="w"> </span><span class="nx">depth</span><span class="p">,</span><span class="w"> </span><span class="mf">256</span><span class="p">,</span><span class="w"> </span><span class="mf">128</span><span class="p">,</span><span class="w"> </span><span class="nx">angle</span><span class="p">,</span><span class="w"> </span><span class="nx">radius</span><span class="p">,</span><span class="w"> </span><span class="nx">smoothness</span><span class="p">,</span><span class="w"> </span><span class="nx">color</span><span class="p">)</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="Draw" signature="quad(context : Any, x : Any, y : Any, z : Any, w : Any, h : Any, angle : Any, color : Any)"></endpoint>
+<signature id="Draw.quad+8">Draw.quad(<strong>context</strong>: <code>Any</code>, <strong>x</strong>: <code>Any</code>, <strong>y</strong>: <code>Any</code>, <strong>z</strong>: <code>Any</code>, <strong>w</strong>: <code>Any</code>, <strong>h</strong>: <code>Any</code>, <strong>angle</strong>: <code>Any</code>, <strong>color</strong>: <code>Any</code>)
+<a class="headerlink" href="#Draw.quad+8" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Draws a <strong>solid</strong> rectangle using <code>color</code> at <code>x</code>,<code>y</code>, with depth <code>z</code>, with width of <code>w</code> and height of <code>h</code>.
+The rectangle will be rotated <code>angle</code> degrees.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">//draw a black solid rectangle</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">depth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">45</span>
+<span class="nx">Draw</span><span class="p">.</span><span class="nx">quad</span><span class="p">(</span><span class="nx">canvas</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">depth</span><span class="p">,</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="nx">angle</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mf">0</span><span class="p">,</span><span class="mf">0</span><span class="p">,</span><span class="mf">0</span><span class="p">,</span><span class="mf">1</span><span class="p">])</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="Draw" signature="ngon(context : Any, ox : Any, oy : Any, oz : Any, rx : Any, ry : Any, sides : Any, angle : Any, style : Any)"></endpoint>
+<signature id="Draw.ngon+9">Draw.ngon(<strong>context</strong>: <code>Any</code>, <strong>ox</strong>: <code>Any</code>, <strong>oy</strong>: <code>Any</code>, <strong>oz</strong>: <code>Any</code>, <strong>rx</strong>: <code>Any</code>, <strong>ry</strong>: <code>Any</code>, <strong>sides</strong>: <code>Any</code>, <strong>angle</strong>: <code>Any</code>, <strong>style</strong>: <code>Any</code>)
+<a class="headerlink" href="#Draw.ngon+9" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Draw an ngon (like a triangle, hexagon, pentagon etc) <strong>outline</strong> at <code>ox</code>,<code>oy</code> at depth <code>oz</code>. 
+The <code>rx</code> and <code>ry</code> radius values control the size of the shape around its origin.
+The number of <code>sides</code> controls how many sides the polygon will have (3 for a triangle, 6 for a hexagon).
+<code>sides</code> must be bigger than <code>3</code> to make sense for this function, it will be clamped to 3.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">depth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">sides</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">radius</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">32</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">45</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">PathStyle</span><span class="p">.</span><span class="ow">new</span><span class="p">()</span>
+<span class="nx">Draw</span><span class="p">.</span><span class="nx">ngon</span><span class="p">(</span><span class="nx">canvas</span><span class="p">,</span><span class="w"> </span><span class="mf">128</span><span class="p">,</span><span class="w"> </span><span class="mf">128</span><span class="p">,</span><span class="w"> </span><span class="nx">depth</span><span class="p">,</span><span class="w"> </span><span class="nx">radius</span><span class="p">,</span><span class="w"> </span><span class="nx">radius</span><span class="p">,</span><span class="w"> </span><span class="nx">sides</span><span class="p">,</span><span class="w"> </span><span class="nx">angle</span><span class="p">,</span><span class="w"> </span><span class="nx">style</span><span class="p">)</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="Draw" signature="ngon_solid(context : Any, ox : Any, oy : Any, oz : Any, rx : Any, ry : Any, sides : Any, angle : Any, color : Any)"></endpoint>
+<signature id="Draw.ngon_solid+9">Draw.ngon_solid(<strong>context</strong>: <code>Any</code>, <strong>ox</strong>: <code>Any</code>, <strong>oy</strong>: <code>Any</code>, <strong>oz</strong>: <code>Any</code>, <strong>rx</strong>: <code>Any</code>, <strong>ry</strong>: <code>Any</code>, <strong>sides</strong>: <code>Any</code>, <strong>angle</strong>: <code>Any</code>, <strong>color</strong>: <code>Any</code>)
+<a class="headerlink" href="#Draw.ngon_solid+9" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Draw a <strong>solid</strong> ngon (like a triangle, hexagon, pentagon etc)  at <code>ox</code>,<code>oy</code> at depth <code>oz</code>. 
+The <code>rx</code> and <code>ry</code> radius values control the size of the shape around its origin.
+The number of <code>sides</code> controls how many sides the polygon will have (3 for a triangle, 6 for a hexagon).
+<code>sides</code> must be bigger than <code>3</code> to make sense for this function.</p>
+<p>:todo: this naming will change soon to be consistent across all draw APIs.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">depth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">sides</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">radius</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">32</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">45</span>
+<span class="nx">Draw</span><span class="p">.</span><span class="nx">ngon_solid</span><span class="p">(</span><span class="nx">canvas</span><span class="p">,</span><span class="w"> </span><span class="mf">128</span><span class="p">,</span><span class="w"> </span><span class="mf">128</span><span class="p">,</span><span class="w"> </span><span class="nx">depth</span><span class="p">,</span><span class="w"> </span><span class="nx">radius</span><span class="p">,</span><span class="w"> </span><span class="nx">radius</span><span class="p">,</span><span class="w"> </span><span class="nx">sides</span><span class="p">,</span><span class="w"> </span><span class="nx">angle</span><span class="p">,</span><span class="w"> </span><span class="nx">Color</span><span class="p">.</span><span class="nx">pink</span><span class="p">)</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="Draw" signature="ring(context : Any, ox : Any, oy : Any, oz : Any, rx : Any, ry : Any, start_angle : Any, end_angle : Any, smoothness : Any, style : Any)"></endpoint>
+<signature id="Draw.ring+10">Draw.ring(<strong>context</strong>: <code>Any</code>, <strong>ox</strong>: <code>Any</code>, <strong>oy</strong>: <code>Any</code>, <strong>oz</strong>: <code>Any</code>, <strong>rx</strong>: <code>Any</code>, <strong>ry</strong>: <code>Any</code>, <strong>start_angle</strong>: <code>Any</code>, <strong>end_angle</strong>: <code>Any</code>, <strong>smoothness</strong>: <code>Any</code>, <strong>style</strong>: <code>Any</code>)
+<a class="headerlink" href="#Draw.ring+10" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Draw a circle <strong>outline</strong> at <code>ox</code>,<code>oy</code> at depth <code>oz</code>. <code>rx</code> and <code>ry</code> control separate radius values
+for x and y axis, to draw an ellipse.</p>
+<p><code>start_angle</code> and <code>end_angle</code> specify in degrees allow drawing
+an open arc, instead of a closed circle. A closed circle has <code>start_angle</code> as <code>0</code> and <code>end_angle</code> as <code>360</code>.
+These angles match "the unit circle" in mathematics, where 0 is to the right, and 90 is pointing up.</p>
+<p>:todo: <code>smoothness</code> controls how smooth the circle will be.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">depth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">start_angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">end_angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">270</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">smoothness</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">PathStyle</span><span class="p">.</span><span class="ow">new</span><span class="p">()</span>
+<span class="nx">Draw</span><span class="p">.</span><span class="nx">ring</span><span class="p">(</span><span class="nx">canvas</span><span class="p">,</span><span class="w"> </span><span class="mf">128</span><span class="p">,</span><span class="w"> </span><span class="mf">128</span><span class="p">,</span><span class="w"> </span><span class="nx">depth</span><span class="p">,</span><span class="w"> </span><span class="mf">32</span><span class="p">,</span><span class="w"> </span><span class="mf">16</span><span class="p">,</span><span class="w"> </span><span class="nx">start_angle</span><span class="p">,</span><span class="w"> </span><span class="nx">end_angle</span><span class="p">,</span><span class="w"> </span><span class="nx">smoothness</span><span class="p">,</span><span class="w"> </span><span class="nx">style</span><span class="p">)</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="Draw" signature="ring(context : Any, ox : Any, oy : Any, oz : Any, radius : Any, smoothness : Any, style : Any)"></endpoint>
+<signature id="Draw.ring+7">Draw.ring(<strong>context</strong>: <code>Any</code>, <strong>ox</strong>: <code>Any</code>, <strong>oy</strong>: <code>Any</code>, <strong>oz</strong>: <code>Any</code>, <strong>radius</strong>: <code>Any</code>, <strong>smoothness</strong>: <code>Any</code>, <strong>style</strong>: <code>Any</code>)
+<a class="headerlink" href="#Draw.ring+7" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Similar to <code>ring</code> with a single radius for both <code>x</code> and <code>y</code>.   </p>
+</blockquote>
+<p><endpoint module="luxe: draw" class="Draw" signature="circle(context : Any, ox : Any, oy : Any, oz : Any, radius : Any, smoothness : Any, color : Any)"></endpoint>
+<signature id="Draw.circle+7">Draw.circle(<strong>context</strong>: <code>Any</code>, <strong>ox</strong>: <code>Any</code>, <strong>oy</strong>: <code>Any</code>, <strong>oz</strong>: <code>Any</code>, <strong>radius</strong>: <code>Any</code>, <strong>smoothness</strong>: <code>Any</code>, <strong>color</strong>: <code>Any</code>)
+<a class="headerlink" href="#Draw.circle+7" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Draw a <strong>solid</strong> circle at <code>ox</code>,<code>oy</code> at depth <code>oz</code>, using <code>color</code> and <code>radius</code> in size.
+:todo: <code>smoothness</code> controls how smooth the circle will be.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">depth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">smoothness</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2</span>
+<span class="nx">Draw</span><span class="p">.</span><span class="nx">circle</span><span class="p">(</span><span class="nx">canvas</span><span class="p">,</span><span class="w"> </span><span class="mf">128</span><span class="p">,</span><span class="w"> </span><span class="mf">128</span><span class="p">,</span><span class="w"> </span><span class="nx">depth</span><span class="p">,</span><span class="w"> </span><span class="mf">32</span><span class="p">,</span><span class="w"> </span><span class="nx">smoothness</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="mf">0</span><span class="p">,</span><span class="mf">0</span><span class="p">,</span><span class="mf">1</span><span class="p">])</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="Draw" signature="circle(context : Any, ox : Any, oy : Any, oz : Any, rx : Any, ry : Any, start_angle : Any, end_angle : Any, smoothness : Any, color : Any)"></endpoint>
+<signature id="Draw.circle+10">Draw.circle(<strong>context</strong>: <code>Any</code>, <strong>ox</strong>: <code>Any</code>, <strong>oy</strong>: <code>Any</code>, <strong>oz</strong>: <code>Any</code>, <strong>rx</strong>: <code>Any</code>, <strong>ry</strong>: <code>Any</code>, <strong>start_angle</strong>: <code>Any</code>, <strong>end_angle</strong>: <code>Any</code>, <strong>smoothness</strong>: <code>Any</code>, <strong>color</strong>: <code>Any</code>)
+<a class="headerlink" href="#Draw.circle+10" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Draw a <strong>solid</strong> circle at <code>ox</code>,<code>oy</code> at depth <code>oz</code>. <code>rx</code> and <code>ry</code> control separate radius values
+for x and y axis, to draw an ellipse.</p>
+<p><code>start_angle</code> and <code>end_angle</code> specify in degrees allow drawing
+an open area, like a pie chart (or pacman) instead of a closed circle. A closed circle has <code>start_angle</code> as <code>0</code> and <code>end_angle</code> as <code>360</code>.
+These angles match "the unit circle" in mathematics, where 0 is to the right, and 90 is pointing up.</p>
+<p>:todo: <code>smoothness</code> controls how smooth the circle will be.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">depth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">start_angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">end_angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">270</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">smoothness</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2</span>
+<span class="nx">Draw</span><span class="p">.</span><span class="nx">circle</span><span class="p">(</span><span class="nx">canvas</span><span class="p">,</span><span class="w"> </span><span class="mf">128</span><span class="p">,</span><span class="w"> </span><span class="mf">128</span><span class="p">,</span><span class="w"> </span><span class="nx">depth</span><span class="p">,</span><span class="w"> </span><span class="mf">32</span><span class="p">,</span><span class="w"> </span><span class="mf">16</span><span class="p">,</span><span class="w"> </span><span class="nx">start_angle</span><span class="p">,</span><span class="w"> </span><span class="nx">end_angle</span><span class="p">,</span><span class="w"> </span><span class="nx">smoothness</span><span class="p">,</span><span class="w"> </span><span class="nx">Color</span><span class="p">.</span><span class="nx">black</span><span class="p">)</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="Draw" signature="line(context : Any, x1 : Any, y1 : Any, x2 : Any, y2 : Any, z : Any, style : Any)"></endpoint>
+<signature id="Draw.line+7">Draw.line(<strong>context</strong>: <code>Any</code>, <strong>x1</strong>: <code>Any</code>, <strong>y1</strong>: <code>Any</code>, <strong>x2</strong>: <code>Any</code>, <strong>y2</strong>: <code>Any</code>, <strong>z</strong>: <code>Any</code>, <strong>style</strong>: <code>Any</code>)
+<a class="headerlink" href="#Draw.line+7" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Draw a line from <code>x1</code>,<code>y1</code> to <code>x2</code>,<code>y2</code> at depth <code>z</code> using <code>style</code> (<code>PathStyle</code>).</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">depth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">PathStyle</span><span class="p">.</span><span class="ow">new</span><span class="p">()</span>
+<span class="nx">Draw</span><span class="p">.</span><span class="nx">line</span><span class="p">(</span><span class="nx">canvas</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="nx">depth</span><span class="p">,</span><span class="w"> </span><span class="nx">style</span><span class="p">)</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="Draw" signature="path(context : Any, points : Any, style : Any, closed : Any)"></endpoint>
+<signature id="Draw.path+4">Draw.path(<strong>context</strong>: <code>Any</code>, <strong>points</strong>: <code>Any</code>, <strong>style</strong>: <code>Any</code>, <strong>closed</strong>: <code>Any</code>)
+<a class="headerlink" href="#Draw.path+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Draw a path consisting of a list of points. </p>
+<p>If <code>closed</code> is true it is expected that the first and last point in <code>points</code>
+have the same positions. </p>
+<p><code>points</code> is a <code>List</code> of <code>[x, y]</code> or <code>[x,y,z]</code> points. 
+If <code>z</code> is not specified for a point it will be 0. 
+Note that this is a 2D drawing function atm, so different z values may not be what you expect.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">PathStyle</span><span class="p">.</span><span class="ow">new</span><span class="p">()</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">points</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="p">[</span><span class="mf">0</span><span class="p">,</span><span class="mf">0</span><span class="p">],</span>
+<span class="w">  </span><span class="p">[</span><span class="mf">100</span><span class="p">,</span><span class="mf">100</span><span class="p">],</span>
+<span class="w">  </span><span class="p">[</span><span class="mf">120</span><span class="p">,</span><span class="mf">50</span><span class="p">],</span>
+<span class="w">  </span><span class="p">[</span><span class="mf">0</span><span class="p">,</span><span class="mf">0</span><span class="p">]</span>
+<span class="p">]</span>
+<span class="nx">Draw</span><span class="p">.</span><span class="nx">path</span><span class="p">(</span><span class="nx">canvas</span><span class="p">,</span><span class="w"> </span><span class="nx">points</span><span class="p">,</span><span class="w"> </span><span class="nx">style</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="Draw" signature="path3D(context : Any, points : Any, style : Any, closed : Any)"></endpoint>
+<signature id="Draw.path3D+4">Draw.path3D(<strong>context</strong>: <code>Any</code>, <strong>points</strong>: <code>Any</code>, <strong>style</strong>: <code>Any</code>, <strong>closed</strong>: <code>Any</code>)
+<a class="headerlink" href="#Draw.path3D+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Draw a 3D path consisting of a list of points. </p>
+<p>If <code>closed</code> is true it is expected that the first and last point in <code>points</code>
+have the same positions. </p>
+<p><code>points</code> is a <code>List</code> of <code>[x,y,z]</code> points. </p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">PathStyle</span><span class="p">.</span><span class="ow">new</span><span class="p">()</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">points</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="p">[</span><span class="mf">0</span><span class="p">,</span><span class="mf">0</span><span class="p">,</span><span class="mf">0</span><span class="p">],</span>
+<span class="w">  </span><span class="p">[</span><span class="mf">100</span><span class="p">,</span><span class="mf">100</span><span class="p">,</span><span class="mf">100</span><span class="p">],</span>
+<span class="w">  </span><span class="p">[</span><span class="mf">120</span><span class="p">,</span><span class="mf">50</span><span class="p">,</span><span class="mf">100</span><span class="p">],</span>
+<span class="w">  </span><span class="p">[</span><span class="mf">0</span><span class="p">,</span><span class="mf">0</span><span class="p">,</span><span class="mf">0</span><span class="p">]</span>
+<span class="p">]</span>
+<span class="nx">Draw</span><span class="p">.</span><span class="nx">path3D</span><span class="p">(</span><span class="nx">canvas</span><span class="p">,</span><span class="w"> </span><span class="nx">points</span><span class="p">,</span><span class="w"> </span><span class="nx">style</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="Draw" signature="line3D(context : Draw, start : Vec, end : Vec, style : PathStyle)"></endpoint>
+<signature id="Draw.line3D+4">Draw.line3D(<strong>context</strong>: <code>Draw</code>, <strong>start</strong>: <code>Vec</code>, <strong>end</strong>: <code>Vec</code>, <strong>style</strong>: <code>PathStyle</code>)
+<a class="headerlink" href="#Draw.line3D+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Draw a 3D line from <code>start</code> to <code>end</code> using <code>style</code>. </p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">PathStyle</span><span class="p">.</span><span class="ow">new</span><span class="p">()</span>
+<span class="nx">Draw</span><span class="p">.</span><span class="nx">line3D</span><span class="p">(</span><span class="nx">canvas</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mf">100</span><span class="p">,</span><span class="mf">100</span><span class="p">,</span><span class="mf">100</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mf">120</span><span class="p">,</span><span class="mf">50</span><span class="p">,</span><span class="mf">100</span><span class="p">],</span><span class="w"> </span><span class="nx">style</span><span class="p">)</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="Draw" signature="bounds3D(context : Any, geometry : Any, style : Any)"></endpoint>
+<signature id="Draw.bounds3D+3">Draw.bounds3D(<strong>context</strong>: <code>Any</code>, <strong>geometry</strong>: <code>Any</code>, <strong>style</strong>: <code>Any</code>)
+<a class="headerlink" href="#Draw.bounds3D+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: draw" class="Draw" signature="aabb3D(context : Any, center : Any, radius : Any, style : Any)"></endpoint>
+<signature id="Draw.aabb3D+4">Draw.aabb3D(<strong>context</strong>: <code>Any</code>, <strong>center</strong>: <code>Any</code>, <strong>radius</strong>: <code>Any</code>, <strong>style</strong>: <code>Any</code>)
+<a class="headerlink" href="#Draw.aabb3D+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: draw" class="Draw" signature="plane3D(context : Draw, pos : Vec, normal : Vec, radius : Num, style : PathStyle)"></endpoint>
+<signature id="Draw.plane3D+5">Draw.plane3D(<strong>context</strong>: <code>Draw</code>, <strong>pos</strong>: <code>Vec</code>, <strong>normal</strong>: <code>Vec</code>, <strong>radius</strong>: <code>Num</code>, <strong>style</strong>: <code>PathStyle</code>)
+<a class="headerlink" href="#Draw.plane3D+5" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: draw" class="Draw" signature="plus3D(context : Draw, pos : Vec, radius : Num, style : PathStyle)"></endpoint>
+<signature id="Draw.plus3D+4">Draw.plus3D(<strong>context</strong>: <code>Draw</code>, <strong>pos</strong>: <code>Vec</code>, <strong>radius</strong>: <code>Num</code>, <strong>style</strong>: <code>PathStyle</code>)
+<a class="headerlink" href="#Draw.plus3D+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Draw a 3D plus at <code>pos</code> with size <code>radius</code> using <code>style</code>. </p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">PathStyle</span><span class="p">.</span><span class="ow">new</span><span class="p">()</span>
+<span class="nx">Draw</span><span class="p">.</span><span class="nx">plus3D</span><span class="p">(</span><span class="nx">canvas</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mf">100</span><span class="p">,</span><span class="mf">100</span><span class="p">,</span><span class="mf">100</span><span class="p">],</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="nx">style</span><span class="p">)</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="Draw" signature="ring3D(context : Draw, pos : Vec3, radius : Vec2, start_angle : Num, end_angle : Num, smoothness : Num, style : PathStyle)"></endpoint>
+<signature id="Draw.ring3D+7">Draw.ring3D(<strong>context</strong>: <code>Draw</code>, <strong>pos</strong>: <code>Vec3</code>, <strong>radius</strong>: <code>Vec2</code>, <strong>start_angle</strong>: <code>Num</code>, <strong>end_angle</strong>: <code>Num</code>, <strong>smoothness</strong>: <code>Num</code>, <strong>style</strong>: <code>PathStyle</code>)
+<a class="headerlink" href="#Draw.ring3D+7" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Draw a 3D ring at <code>pos</code> with radius <code>[radius_x, radius_y]</code> using <code>style</code>. </p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">PathStyle</span><span class="p">.</span><span class="ow">new</span><span class="p">()</span>
+<span class="nx">Draw</span><span class="p">.</span><span class="nx">ring3D</span><span class="p">(</span><span class="nx">canvas</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mf">100</span><span class="p">,</span><span class="mf">100</span><span class="p">,</span><span class="mf">100</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">],</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">360</span><span class="p">,</span><span class="w"> </span><span class="nx">smoothness</span><span class="p">,</span><span class="w"> </span><span class="nx">style</span><span class="p">)</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="Draw" signature="plus(context : Draw, pos : Vec, radius : Num, style : PathStyle)"></endpoint>
+<signature id="Draw.plus+4">Draw.plus(<strong>context</strong>: <code>Draw</code>, <strong>pos</strong>: <code>Vec</code>, <strong>radius</strong>: <code>Num</code>, <strong>style</strong>: <code>PathStyle</code>)
+<a class="headerlink" href="#Draw.plus+4" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Draw a 2D plus at <code>pos</code> with size <code>radius</code> using <code>style</code>. </p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">PathStyle</span><span class="p">.</span><span class="ow">new</span><span class="p">()</span>
+<span class="nx">Draw</span><span class="p">.</span><span class="nx">plus</span><span class="p">(</span><span class="nx">canvas</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mf">100</span><span class="p">,</span><span class="mf">100</span><span class="p">],</span><span class="w"> </span><span class="mf">20</span><span class="p">,</span><span class="w"> </span><span class="nx">style</span><span class="p">)</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="Draw" signature="camera(context : Draw, camera : Entity, style : PathStyle)"></endpoint>
+<signature id="Draw.camera+3">Draw.camera(<strong>context</strong>: <code>Draw</code>, <strong>camera</strong>: <code>Entity</code>, <strong>style</strong>: <code>PathStyle</code>)
+<a class="headerlink" href="#Draw.camera+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Draw a 3D camera frustum for the given camera entity using <code>style</code>. </p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">PathStyle</span><span class="p">.</span><span class="ow">new</span><span class="p">()</span>
+<span class="nx">Draw</span><span class="p">.</span><span class="nx">camera</span><span class="p">(</span><span class="nx">canvas</span><span class="p">,</span><span class="w"> </span><span class="nx">camera</span><span class="p">,</span><span class="w"> </span><span class="nx">style</span><span class="p">)</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="Draw" signature="frustum(context : Draw, corners : List, style : PathStyle)"></endpoint>
+<signature id="Draw.frustum+3">Draw.frustum(<strong>context</strong>: <code>Draw</code>, <strong>corners</strong>: <code>List</code>, <strong>style</strong>: <code>PathStyle</code>)
+<a class="headerlink" href="#Draw.frustum+3" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Draw a 3D camera frustum for the given 8 corner points using <code>style</code>.
+(You can get one from Camera.get_frustum(entity) for example, but can use Draw.camera as well).</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">PathStyle</span><span class="p">.</span><span class="ow">new</span><span class="p">()</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">corners</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="nx">near_top_left</span><span class="p">,</span><span class="w"> </span>
+<span class="w">  </span><span class="nx">near_top_right</span><span class="p">,</span><span class="w"> </span>
+<span class="w">  </span><span class="nx">near_bottom_left</span><span class="p">,</span><span class="w"> </span>
+<span class="w">  </span><span class="nx">near_bottom_right</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">far_top_left</span><span class="p">,</span><span class="w"> </span>
+<span class="w">  </span><span class="nx">far_top_right</span><span class="p">,</span><span class="w"> </span>
+<span class="w">  </span><span class="nx">far_bottom_left</span><span class="p">,</span><span class="w"> </span>
+<span class="w">  </span><span class="nx">far_bottom_right</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="nx">Draw</span><span class="p">.</span><span class="nx">frustum</span><span class="p">(</span><span class="nx">canvas</span><span class="p">,</span><span class="w"> </span><span class="nx">corners</span><span class="p">,</span><span class="w"> </span><span class="nx">style</span><span class="p">)</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="Draw" signature="text(context : Any, x : Any, y : Any, z : Any, w : Any, h : Any, string : Any, size : Any, font : Any, color : Any, align : Any, align_vertical : Any)"></endpoint>
+<signature id="Draw.text+12">Draw.text(<strong>context</strong>: <code>Any</code>, <strong>x</strong>: <code>Any</code>, <strong>y</strong>: <code>Any</code>, <strong>z</strong>: <code>Any</code>, <strong>w</strong>: <code>Any</code>, <strong>h</strong>: <code>Any</code>, <strong>string</strong>: <code>Any</code>, <strong>size</strong>: <code>Any</code>, <strong>font</strong>: <code>Any</code>, <strong>color</strong>: <code>Any</code>, <strong>align</strong>: <code>Any</code>, <strong>align_vertical</strong>: <code>Any</code>)
+<a class="headerlink" href="#Draw.text+12" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Draw the specified <code>string</code> at <code>x</code>,<code>y</code> and depth <code>z</code>. <code>w</code> and <code>h</code> specify the bounds for the text, bottom left origin, y going up. 
+The <code>size</code> specifies the text size, and <code>color</code> the color. <code>font</code> is a font asset, e.g Asset.font("luxe: font/lato"). 
+<code>align</code> and <code>align_vertical</code> control alignment within the bounds, 
+using the <code>TextAlign</code> enums such as <code>TextAlign.left</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">depth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">24</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">red</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="mf">0</span><span class="p">,</span><span class="mf">0</span><span class="p">,</span><span class="mf">1</span><span class="p">]</span>
+<span class="nx">Draw</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="nx">canvas</span><span class="p">,</span><span class="w"> </span><span class="mf">32</span><span class="p">,</span><span class="w"> </span><span class="mf">32</span><span class="p">,</span><span class="w"> </span><span class="nx">depth</span><span class="p">,</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="mf">32</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;hello&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">size</span><span class="p">,</span><span class="w"> </span><span class="nx">Asset</span><span class="p">.</span><span class="nx">font</span><span class="p">(</span><span class="s2">&quot;luxe: font/lato&quot;</span><span class="p">),</span><span class="w"> </span><span class="nx">red</span><span class="p">,</span><span class="w"> </span><span class="nx">TextAlign</span><span class="p">.</span><span class="nx">center</span><span class="p">,</span><span class="w"> </span><span class="nx">TextAlign</span><span class="p">.</span><span class="nx">bottom</span><span class="p">)</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="Draw" signature="text(context : Any, x : Any, y : Any, z : Any, string : Any, size : Any, font : Any, color : Any, align : Any, align_vertical : Any)"></endpoint>
+<signature id="Draw.text+10">Draw.text(<strong>context</strong>: <code>Any</code>, <strong>x</strong>: <code>Any</code>, <strong>y</strong>: <code>Any</code>, <strong>z</strong>: <code>Any</code>, <strong>string</strong>: <code>Any</code>, <strong>size</strong>: <code>Any</code>, <strong>font</strong>: <code>Any</code>, <strong>color</strong>: <code>Any</code>, <strong>align</strong>: <code>Any</code>, <strong>align_vertical</strong>: <code>Any</code>)
+<a class="headerlink" href="#Draw.text+10" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Draw the specified <code>string</code> at <code>x</code>,<code>y</code> and depth <code>z</code>. 
+The <code>size</code> specifies the text size, and <code>color</code> the color.  <code>font</code> is a font asset, e.g Asset.font("luxe: font/lato"). 
+<code>align</code> and <code>align_vertical</code> control alignment relative to the specified position, 
+using the <code>TextAlign</code> enums such as <code>TextAlign.left</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">depth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">24</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">red</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="mf">0</span><span class="p">,</span><span class="mf">0</span><span class="p">,</span><span class="mf">1</span><span class="p">]</span>
+<span class="nx">Draw</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="nx">canvas</span><span class="p">,</span><span class="w"> </span><span class="mf">32</span><span class="p">,</span><span class="w"> </span><span class="mf">32</span><span class="p">,</span><span class="w"> </span><span class="nx">depth</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;hello&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">size</span><span class="p">,</span><span class="w"> </span><span class="nx">Asset</span><span class="p">.</span><span class="nx">font</span><span class="p">(</span><span class="s2">&quot;luxe: font/lato&quot;</span><span class="p">),</span><span class="w"> </span><span class="nx">red</span><span class="p">,</span><span class="w"> </span><span class="nx">TextAlign</span><span class="p">.</span><span class="nx">center</span><span class="p">,</span><span class="w"> </span><span class="nx">TextAlign</span><span class="p">.</span><span class="nx">bottom</span><span class="p">)</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="Draw" signature="text(context : Any, x : Any, y : Any, z : Any, string : Any, size : Any, color : Any)"></endpoint>
+<signature id="Draw.text+7">Draw.text(<strong>context</strong>: <code>Any</code>, <strong>x</strong>: <code>Any</code>, <strong>y</strong>: <code>Any</code>, <strong>z</strong>: <code>Any</code>, <strong>string</strong>: <code>Any</code>, <strong>size</strong>: <code>Any</code>, <strong>color</strong>: <code>Any</code>)
+<a class="headerlink" href="#Draw.text+7" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Draw the specified <code>string</code> at <code>x</code>,<code>y</code>, <code>z</code>.
+The <code>size</code> specifies the text size, and <code>color</code> the color. </p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">depth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">24</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">red</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="mf">0</span><span class="p">,</span><span class="mf">0</span><span class="p">,</span><span class="mf">1</span><span class="p">]</span>
+<span class="nx">Draw</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="nx">canvas</span><span class="p">,</span><span class="w"> </span><span class="mf">32</span><span class="p">,</span><span class="w"> </span><span class="mf">32</span><span class="p">,</span><span class="w"> </span><span class="nx">depth</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;hello&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">size</span><span class="p">,</span><span class="w"> </span><span class="nx">red</span><span class="p">)</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="Draw" signature="image(context : Any, x : Any, y : Any, z : Any, w : Any, h : Any, angle : Any, material : Any)"></endpoint>
+<signature id="Draw.image+8">Draw.image(<strong>context</strong>: <code>Any</code>, <strong>x</strong>: <code>Any</code>, <strong>y</strong>: <code>Any</code>, <strong>z</strong>: <code>Any</code>, <strong>w</strong>: <code>Any</code>, <strong>h</strong>: <code>Any</code>, <strong>angle</strong>: <code>Any</code>, <strong>material</strong>: <code>Any</code>)
+<a class="headerlink" href="#Draw.image+8" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Draw an image with the specified <code>material</code> at <code>x</code>,<code>y</code> and depth <code>z</code>. 
+The image will be rotated by <code>angle</code> degrees.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">depth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">30</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">material</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Assets</span><span class="p">.</span><span class="nx">material</span><span class="p">(</span><span class="s2">&quot;luxe: material/logo.sprite&quot;</span><span class="p">)</span>
+<span class="nx">Draw</span><span class="p">.</span><span class="nx">image</span><span class="p">(</span><span class="nx">canvas</span><span class="p">,</span><span class="w"> </span><span class="mf">128</span><span class="p">,</span><span class="w"> </span><span class="mf">128</span><span class="p">,</span><span class="w"> </span><span class="nx">depth</span><span class="p">,</span><span class="w"> </span><span class="mf">64</span><span class="p">,</span><span class="w"> </span><span class="mf">64</span><span class="p">,</span><span class="w"> </span><span class="nx">angle</span><span class="p">,</span><span class="w"> </span><span class="nx">material</span><span class="p">)</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="Draw" signature="image(context : Any, x : Any, y : Any, z : Any, w : Any, h : Any, angle : Any, color : Any, uv : Any, material : Any)"></endpoint>
+<signature id="Draw.image+10">Draw.image(<strong>context</strong>: <code>Any</code>, <strong>x</strong>: <code>Any</code>, <strong>y</strong>: <code>Any</code>, <strong>z</strong>: <code>Any</code>, <strong>w</strong>: <code>Any</code>, <strong>h</strong>: <code>Any</code>, <strong>angle</strong>: <code>Any</code>, <strong>color</strong>: <code>Any</code>, <strong>uv</strong>: <code>Any</code>, <strong>material</strong>: <code>Any</code>)
+<a class="headerlink" href="#Draw.image+10" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Draw an image with the specified <code>material</code> at <code>x</code>,<code>y</code> and depth <code>z</code>. 
+The image will be rotated by <code>angle</code> degrees. </p>
+<p>The <code>uv</code> value specifies a fixed rectangle like <code>[left, top, right, bottom]</code> in the <code>0..1</code> range,
+where <code>[0,0,1,1]</code> is the default and displays the full image. 
+A <code>uv</code> value of <code>[0.5, 0, 1, 0.5]</code> would draw the top right corner of the image only.
+A <code>uv</code> value of <code>[0, 0, 4, 4]</code> would tile the image 4 times <em>(as long as the material has a repeat mode for the image).</em></p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">depth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">30</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">material</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Assets</span><span class="p">.</span><span class="nx">material</span><span class="p">(</span><span class="s2">&quot;luxe: material/logo.sprite&quot;</span><span class="p">)</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">uv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">]</span><span class="w"> </span><span class="c1">//bottom right</span>
+<span class="nx">Draw</span><span class="p">.</span><span class="nx">image</span><span class="p">(</span><span class="nx">canvas</span><span class="p">,</span><span class="w"> </span><span class="mf">128</span><span class="p">,</span><span class="w"> </span><span class="mf">128</span><span class="p">,</span><span class="w"> </span><span class="nx">depth</span><span class="p">,</span><span class="w"> </span><span class="mf">64</span><span class="p">,</span><span class="w"> </span><span class="mf">64</span><span class="p">,</span><span class="w"> </span><span class="nx">angle</span><span class="p">,</span><span class="w"> </span><span class="nx">uv</span><span class="p">,</span><span class="w"> </span><span class="nx">material</span><span class="p">)</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="Draw" signature="cross(context : Any, x : Any, y : Any, z : Any, radius : Any, angle : Any, style : Any)"></endpoint>
+<signature id="Draw.cross+7">Draw.cross(<strong>context</strong>: <code>Any</code>, <strong>x</strong>: <code>Any</code>, <strong>y</strong>: <code>Any</code>, <strong>z</strong>: <code>Any</code>, <strong>radius</strong>: <code>Any</code>, <strong>angle</strong>: <code>Any</code>, <strong>style</strong>: <code>Any</code>)
+<a class="headerlink" href="#Draw.cross+7" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Draws a cross, an x shape   </p>
+</blockquote>
+<p><endpoint module="luxe: draw" class="Draw" signature="sphere3D_slice(context : Draw, pos : Vec3, radius : Vec2, start_angle : Num, end_angle : Num, layers : Num, style : PathStyle)"></endpoint>
+<signature id="Draw.sphere3D_slice+7">Draw.sphere3D_slice(<strong>context</strong>: <code>Draw</code>, <strong>pos</strong>: <code>Vec3</code>, <strong>radius</strong>: <code>Vec2</code>, <strong>start_angle</strong>: <code>Num</code>, <strong>end_angle</strong>: <code>Num</code>, <strong>layers</strong>: <code>Num</code>, <strong>style</strong>: <code>PathStyle</code>)
+<a class="headerlink" href="#Draw.sphere3D_slice+7" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Draw a 3D sphere made from layered circles with <code>layers</code> number of circles and <code>radius</code> radius. Make the <code>start_angle</code> 0 and the <code>end_angle</code> 360 to make a full sphere, or 0/180 for a half sphere.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">Draw</span><span class="p">.</span><span class="nx">sphere3D_slice</span><span class="p">(</span><span class="nx">canvas</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">],</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">360</span><span class="p">,</span><span class="w"> </span><span class="mf">16</span><span class="p">,</span><span class="w"> </span><span class="nx">PathStyle</span><span class="p">.</span><span class="ow">new</span><span class="p">())</span>
+</code></pre></div>
+</blockquote>
+<h3 id="linecap">LineCap<a class="headerlink" href="#linecap" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: draw&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">LineCap</span></code></p>
+<blockquote>
+<p>The end of a line is called a "cap", when drawing paths, this determines the type of cap that a line will have. :todo: images</p>
+</blockquote>
+<ul>
+<li><a href="#LineCap.butt">butt</a></li>
+<li><a href="#LineCap.round">round</a></li>
+<li><a href="#LineCap.square">square</a></li>
+<li><a href="#LineCap.from_string">from_string</a>(<strong>value</strong>: <code>Any</code>)</li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: draw" class="LineCap" signature="butt"></endpoint>
+<signature id="LineCap.butt">LineCap.butt
+<a class="headerlink" href="#LineCap.butt" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>This cap is as if there was no cap, the line is just ended. The default.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">PathStyle</span><span class="p">.</span><span class="ow">new</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">style</span><span class="p">.</span><span class="nx">cap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">LineCap</span><span class="p">.</span><span class="nx">butt</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="LineCap" signature="round"></endpoint>
+<signature id="LineCap.round">LineCap.round
+<a class="headerlink" href="#LineCap.round" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>A round cap is a half circle at the end of the line.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">PathStyle</span><span class="p">.</span><span class="ow">new</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">style</span><span class="p">.</span><span class="nx">cap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">LineCap</span><span class="p">.</span><span class="nx">round</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="LineCap" signature="square"></endpoint>
+<signature id="LineCap.square">LineCap.square
+<a class="headerlink" href="#LineCap.square" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>A square cap is a square at the end of the line.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">PathStyle</span><span class="p">.</span><span class="ow">new</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">style</span><span class="p">.</span><span class="nx">cap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">LineCap</span><span class="p">.</span><span class="nx">square</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="LineCap" signature="from_string(value : Any)"></endpoint>
+<signature id="LineCap.from_string">LineCap.from_string(<strong>value</strong>: <code>Any</code>)
+<a class="headerlink" href="#LineCap.from_string" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Convert a string to a LineCap value.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">LineCap</span><span class="p">.</span><span class="nx">round</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">LineCap</span><span class="p">.</span><span class="nx">from_string</span><span class="p">(</span><span class="s2">&quot;round&quot;</span><span class="p">))</span><span class="w"> </span><span class="c1">//true</span>
+</code></pre></div>
+</blockquote>
+<h3 id="linejoin">LineJoin<a class="headerlink" href="#linejoin" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: draw&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">LineJoin</span></code></p>
+<blockquote>
+<p>When drawing a path, a series of lines will be drawn and joined together.
+The join of each connection can be configured when drawing paths using <code>LineJoin</code>.
+:todo: images</p>
+</blockquote>
+<ul>
+<li><a href="#LineJoin.bevel">bevel</a></li>
+<li><a href="#LineJoin.round">round</a></li>
+<li><a href="#LineJoin.miter">miter</a></li>
+<li><a href="#LineJoin.from_string">from_string</a>(<strong>value</strong>: <code>Any</code>)</li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: draw" class="LineJoin" signature="bevel"></endpoint>
+<signature id="LineJoin.bevel">LineJoin.bevel
+<a class="headerlink" href="#LineJoin.bevel" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>The default join is a bevel, which is a flat join.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">PathStyle</span><span class="p">.</span><span class="ow">new</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">style</span><span class="p">.</span><span class="nx">join</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">LineJoin</span><span class="p">.</span><span class="nx">bevel</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="LineJoin" signature="round"></endpoint>
+<signature id="LineJoin.round">LineJoin.round
+<a class="headerlink" href="#LineJoin.round" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>A round join is a semi circle that makes the corner rounded.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">PathStyle</span><span class="p">.</span><span class="ow">new</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">style</span><span class="p">.</span><span class="nx">join</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">LineJoin</span><span class="p">.</span><span class="nx">round</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="LineJoin" signature="miter"></endpoint>
+<signature id="LineJoin.miter">LineJoin.miter
+<a class="headerlink" href="#LineJoin.miter" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>A miter join is a sharp triangle join that has a limit value (which falls back to bevel).</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">PathStyle</span><span class="p">.</span><span class="ow">new</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">style</span><span class="p">.</span><span class="nx">join</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">LineJoin</span><span class="p">.</span><span class="nx">miter</span>
+<span class="w">    </span><span class="nx">style</span><span class="p">.</span><span class="nx">miter_limit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">8</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="LineJoin" signature="from_string(value : Any)"></endpoint>
+<signature id="LineJoin.from_string">LineJoin.from_string(<strong>value</strong>: <code>Any</code>)
+<a class="headerlink" href="#LineJoin.from_string" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Convert a string to a LineJoin value.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">LineJoin</span><span class="p">.</span><span class="nx">round</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">LineJoin</span><span class="p">.</span><span class="nx">from_string</span><span class="p">(</span><span class="s2">&quot;round&quot;</span><span class="p">))</span><span class="w"> </span><span class="c1">//true</span>
+</code></pre></div>
+</blockquote>
+<h3 id="pathstyle">PathStyle<a class="headerlink" href="#pathstyle" title="Permanent link">&para;</a></h3>
+<p><code class="highlight"><span class="k">import</span><span class="w"> </span><span class="s2">&quot;luxe: draw&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">PathStyle</span></code></p>
+<blockquote></blockquote>
+<ul>
+<li><a href="#PathStyle.array">array</a></li>
+<li><a href="#PathStyle.color">color</a></li>
+<li><a href="#PathStyle.alpha">alpha</a>(<strong>value</strong>: <code>Any</code>)</li>
+<li><a href="#PathStyle.color">color</a>(<strong>value</strong>: <code>Any</code>)</li>
+<li><a href="#PathStyle.thickness">thickness</a>(<strong>value</strong>: <code>Any</code>)</li>
+<li><a href="#PathStyle.color=">color</a>=(value : Any)</li>
+<li><a href="#PathStyle.alpha">alpha</a></li>
+<li><a href="#PathStyle.alpha=">alpha</a>=(value : Any)</li>
+<li><a href="#PathStyle.thickness">thickness</a></li>
+<li><a href="#PathStyle.thickness=">thickness</a>=(value : Any)</li>
+<li><a href="#PathStyle.feather">feather</a></li>
+<li><a href="#PathStyle.feather=">feather</a>=(value : Any)</li>
+<li><a href="#PathStyle.cap">cap</a></li>
+<li><a href="#PathStyle.cap=">cap</a>=(value : Any)</li>
+<li><a href="#PathStyle.join">join</a></li>
+<li><a href="#PathStyle.join=">join</a>=(value : Any)</li>
+<li><a href="#PathStyle.miter_limit">miter_limit</a></li>
+<li><a href="#PathStyle.miter_limit=">miter_limit</a>=(value : Any)</li>
+<li><a href="#PathStyle.new">new</a>()</li>
+</ul>
+<hr/>
+<p><endpoint module="luxe: draw" class="PathStyle" signature="array"></endpoint>
+<signature id="PathStyle.array">PathStyle.array
+<a class="headerlink" href="#PathStyle.array" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: draw" class="PathStyle" signature="color"></endpoint>
+<signature id="PathStyle.color">PathStyle.color
+<a class="headerlink" href="#PathStyle.color" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Returns the color of the path style.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">PathStyle</span><span class="p">.</span><span class="ow">new</span><span class="p">()</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">style</span><span class="p">.</span><span class="nx">color</span><span class="w"> </span><span class="c1">//the default color</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="PathStyle" signature="alpha(value : Any)"></endpoint>
+<signature id="PathStyle.alpha">PathStyle.alpha(<strong>value</strong>: <code>Any</code>)
+<a class="headerlink" href="#PathStyle.alpha" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: draw" class="PathStyle" signature="color(value : Any)"></endpoint>
+<signature id="PathStyle.color">PathStyle.color(<strong>value</strong>: <code>Any</code>)
+<a class="headerlink" href="#PathStyle.color" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: draw" class="PathStyle" signature="thickness(value : Any)"></endpoint>
+<signature id="PathStyle.thickness">PathStyle.thickness(<strong>value</strong>: <code>Any</code>)
+<a class="headerlink" href="#PathStyle.thickness" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>no docs found   </p>
+</blockquote>
+<p><endpoint module="luxe: draw" class="PathStyle" signature="color=(value : Any)"></endpoint>
+<signature id="PathStyle.color=">PathStyle.color=(value : Any)
+<a class="headerlink" href="#PathStyle.color=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Set the color for the style.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">PathStyle</span><span class="p">.</span><span class="ow">new</span><span class="p">()</span>
+<span class="nx">style</span><span class="p">.</span><span class="nx">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">]</span><span class="w"> </span><span class="c1">//black</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="PathStyle" signature="alpha"></endpoint>
+<signature id="PathStyle.alpha">PathStyle.alpha
+<a class="headerlink" href="#PathStyle.alpha" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Returns the alpha from the color of the path style.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">PathStyle</span><span class="p">.</span><span class="ow">new</span><span class="p">()</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">style</span><span class="p">.</span><span class="nx">alpha</span><span class="w"> </span><span class="c1">//the alpha value of the default color</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="PathStyle" signature="alpha=(value : Any)"></endpoint>
+<signature id="PathStyle.alpha=">PathStyle.alpha=(value : Any)
+<a class="headerlink" href="#PathStyle.alpha=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Set the alpha of the color for the style.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">PathStyle</span><span class="p">.</span><span class="ow">new</span><span class="p">()</span>
+<span class="nx">style</span><span class="p">.</span><span class="nx">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.5</span><span class="w"> </span><span class="c1">//half alpha</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="PathStyle" signature="thickness"></endpoint>
+<signature id="PathStyle.thickness">PathStyle.thickness
+<a class="headerlink" href="#PathStyle.thickness" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Returns the thickness of the path style.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">PathStyle</span><span class="p">.</span><span class="ow">new</span><span class="p">()</span>
+<span class="nx">Log</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">style</span><span class="p">.</span><span class="nx">thickness</span><span class="p">)</span><span class="w"> </span><span class="c1">//1</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="PathStyle" signature="thickness=(value : Any)"></endpoint>
+<signature id="PathStyle.thickness=">PathStyle.thickness=(value : Any)
+<a class="headerlink" href="#PathStyle.thickness=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Set the thickness of the path style.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">PathStyle</span><span class="p">.</span><span class="ow">new</span><span class="p">()</span>
+<span class="nx">style</span><span class="p">.</span><span class="nx">thickness</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">4</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="PathStyle" signature="feather"></endpoint>
+<signature id="PathStyle.feather">PathStyle.feather
+<a class="headerlink" href="#PathStyle.feather" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Returns the feather value for the path style. 
+Note: not used much at the moment.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">PathStyle</span><span class="p">.</span><span class="ow">new</span><span class="p">()</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">feather</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">style</span><span class="p">.</span><span class="nx">feather</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="PathStyle" signature="feather=(value : Any)"></endpoint>
+<signature id="PathStyle.feather=">PathStyle.feather=(value : Any)
+<a class="headerlink" href="#PathStyle.feather=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Set the feather value for the path style. 
+Note: not used much at the moment.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">PathStyle</span><span class="p">.</span><span class="ow">new</span><span class="p">()</span>
+<span class="nx">style</span><span class="p">.</span><span class="nx">feather</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="PathStyle" signature="cap"></endpoint>
+<signature id="PathStyle.cap">PathStyle.cap
+<a class="headerlink" href="#PathStyle.cap" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Returns the <code>LineCap</code> type for the path style.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">PathStyle</span><span class="p">.</span><span class="ow">new</span><span class="p">()</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">cap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">style</span><span class="p">.</span><span class="nx">cap</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="PathStyle" signature="cap=(value : Any)"></endpoint>
+<signature id="PathStyle.cap=">PathStyle.cap=(value : Any)
+<a class="headerlink" href="#PathStyle.cap=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Set the <code>LineCap</code> type for the path style.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">PathStyle</span><span class="p">.</span><span class="ow">new</span><span class="p">()</span>
+<span class="nx">style</span><span class="p">.</span><span class="nx">cap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">LineCap</span><span class="p">.</span><span class="nx">round</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="PathStyle" signature="join"></endpoint>
+<signature id="PathStyle.join">PathStyle.join
+<a class="headerlink" href="#PathStyle.join" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Returns the <code>LineJoin</code> type for the path style.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">PathStyle</span><span class="p">.</span><span class="ow">new</span><span class="p">()</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">join</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">style</span><span class="p">.</span><span class="nx">join</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="PathStyle" signature="join=(value : Any)"></endpoint>
+<signature id="PathStyle.join=">PathStyle.join=(value : Any)
+<a class="headerlink" href="#PathStyle.join=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Set the <code>LineJoin</code> type for the path style.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">PathStyle</span><span class="p">.</span><span class="ow">new</span><span class="p">()</span>
+<span class="nx">style</span><span class="p">.</span><span class="nx">cap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">LineJoin</span><span class="p">.</span><span class="nx">round</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="PathStyle" signature="miter_limit"></endpoint>
+<signature id="PathStyle.miter_limit">PathStyle.miter_limit
+<a class="headerlink" href="#PathStyle.miter_limit" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Returns the miter limit for the path style.
+Only relevant if the <code>join</code> type is <code>LineJoin.miter</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">PathStyle</span><span class="p">.</span><span class="ow">new</span><span class="p">()</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">limit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">style</span><span class="p">.</span><span class="nx">miter_limit</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="PathStyle" signature="miter_limit=(value : Any)"></endpoint>
+<signature id="PathStyle.miter_limit=">PathStyle.miter_limit=(value : Any)
+<a class="headerlink" href="#PathStyle.miter_limit=" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">unknown</span></code></p>
+<blockquote>
+<p>Set the miter limit for the path style.
+Only relevant if the <code>join</code> type is <code>LineJoin.miter</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">PathStyle</span><span class="p">.</span><span class="ow">new</span><span class="p">()</span>
+<span class="nx">style</span><span class="p">.</span><span class="nx">miter_limit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">8</span>
+</code></pre></div>
+</blockquote>
+<p><endpoint module="luxe: draw" class="PathStyle" signature="new()"></endpoint>
+<signature id="PathStyle.new">PathStyle.new()
+<a class="headerlink" href="#PathStyle.new" title="Permanent link">¶</a></signature>
+<span class='api_ret'>returns</span> <code class="highlight"><span class="nx">PathStyle</span></code></p>
+<blockquote>
+<p>Create a new <code>PathStyle</code> instance.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">PathStyle</span><span class="p">.</span><span class="ow">new</span><span class="p">()</span>
+<span class="nx">style</span><span class="p">.</span><span class="nx">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="mf">0</span><span class="p">,</span><span class="mf">0</span><span class="p">,</span><span class="mf">1</span><span class="p">]</span>
+<span class="nx">style</span><span class="p">.</span><span class="nx">thickness</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2</span>
+<span class="nx">style</span><span class="p">.</span><span class="nx">join</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">LineJoin</span><span class="p">.</span><span class="nx">round</span>
+<span class="c1">//use style</span>
+<span class="c1">//...</span>
+<span class="nx">style</span><span class="p">.</span><span class="nx">thickness</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span>
+<span class="c1">//use style again...</span>
+</code></pre></div>
+</blockquote>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 3, 2025 06:41:06 UTC">September 3, 2025</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/luxeengine" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 0c4.42 0 8 3.58 8 8a8.01 8.01 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27s-1.36.09-2 .27c-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8"/></svg>
+    </a>
+  
+</div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["instant", "navigation.prune"], "search": "../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>

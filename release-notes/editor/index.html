@@ -1,0 +1,1939 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../images/luxe-favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>luxe editor release notes - luxe engine</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#luxe-editor-release-notes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="luxe engine" class="md-header__button md-logo" aria-label="luxe engine" data-md-component="logo">
+      
+  <img src="../../images/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            luxe engine
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              luxe editor release notes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="pink" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="luxe engine" class="md-nav__button md-logo" aria-label="luxe engine" data-md-component="logo">
+      
+  <img src="../../images/logo.svg" alt="logo">
+
+    </a>
+    luxe engine
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    about
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../get/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    install
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    guide
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../tutorials/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    tutorials
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learn/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    learn ...
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../manual/overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    manual
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#202423" class="md-nav__link">
+    <span class="md-ellipsis">
+      2024.2.3
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202422" class="md-nav__link">
+    <span class="md-ellipsis">
+      2024.2.2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202421" class="md-nav__link">
+    <span class="md-ellipsis">
+      2024.2.1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2023112" class="md-nav__link">
+    <span class="md-ellipsis">
+      2023.11.2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2023111" class="md-nav__link">
+    <span class="md-ellipsis">
+      2023.11.1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2023110" class="md-nav__link">
+    <span class="md-ellipsis">
+      2023.11.0
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202205" class="md-nav__link">
+    <span class="md-ellipsis">
+      2022.0.5
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202204" class="md-nav__link">
+    <span class="md-ellipsis">
+      2022.0.4
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202203" class="md-nav__link">
+    <span class="md-ellipsis">
+      2022.0.3
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202202" class="md-nav__link">
+    <span class="md-ellipsis">
+      2022.0.2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202201" class="md-nav__link">
+    <span class="md-ellipsis">
+      2022.0.1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2021010" class="md-nav__link">
+    <span class="md-ellipsis">
+      2021.0.10
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2021.0.10">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#new-stuff" class="md-nav__link">
+    <span class="md-ellipsis">
+      new stuff
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resilience" class="md-nav__link">
+    <span class="md-ellipsis">
+      resilience
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      workflow issues
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202109" class="md-nav__link">
+    <span class="md-ellipsis">
+      2021.0.9
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202108" class="md-nav__link">
+    <span class="md-ellipsis">
+      2021.0.8
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202107" class="md-nav__link">
+    <span class="md-ellipsis">
+      2021.0.7
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202106" class="md-nav__link">
+    <span class="md-ellipsis">
+      2021.0.6
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202105" class="md-nav__link">
+    <span class="md-ellipsis">
+      2021.0.5
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202104" class="md-nav__link">
+    <span class="md-ellipsis">
+      2021.0.4
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202103" class="md-nav__link">
+    <span class="md-ellipsis">
+      2021.0.3
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202102" class="md-nav__link">
+    <span class="md-ellipsis">
+      2021.0.2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202101" class="md-nav__link">
+    <span class="md-ellipsis">
+      2021.0.1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202100" class="md-nav__link">
+    <span class="md-ellipsis">
+      2021.0.0
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202035" class="md-nav__link">
+    <span class="md-ellipsis">
+      2020.3.5
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202034" class="md-nav__link">
+    <span class="md-ellipsis">
+      2020.3.4
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202033" class="md-nav__link">
+    <span class="md-ellipsis">
+      2020.3.3
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202032" class="md-nav__link">
+    <span class="md-ellipsis">
+      2020.3.2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202031" class="md-nav__link">
+    <span class="md-ellipsis">
+      2020.3.1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202030" class="md-nav__link">
+    <span class="md-ellipsis">
+      2020.3.0
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202020" class="md-nav__link">
+    <span class="md-ellipsis">
+      2020.2.0
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202012" class="md-nav__link">
+    <span class="md-ellipsis">
+      2020.1.2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202011" class="md-nav__link">
+    <span class="md-ellipsis">
+      2020.1.1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202010" class="md-nav__link">
+    <span class="md-ellipsis">
+      2020.1.0
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2020.1.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#editor" class="md-nav__link">
+    <span class="md-ellipsis">
+      editor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#world" class="md-nav__link">
+    <span class="md-ellipsis">
+      world
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      tiles
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0031" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.0.31
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0.0.31">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#editor_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      editor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tiles_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      tiles
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#world_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      world
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0030" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.0.30
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0.0.30">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#omni" class="md-nav__link">
+    <span class="md-ellipsis">
+      omni
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#editor_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      editor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project" class="md-nav__link">
+    <span class="md-ellipsis">
+      project
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#world_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      world
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0029" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.0.29
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0.0.29">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#editor_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      editor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#world_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      world
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tiles_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      tiles
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0028" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.0.28
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0027" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.0.27
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0.0.27">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#editor_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      editor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tiles_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      tiles
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0026" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.0.26
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0.0.26">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#editor_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      editor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tiles_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      tiles
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#camera" class="md-nav__link">
+    <span class="md-ellipsis">
+      camera
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anim" class="md-nav__link">
+    <span class="md-ellipsis">
+      anim
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#world_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      world
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0025" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.0.25
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0024" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.0.24
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0023" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.0.23
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0022" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.0.22
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0021" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.0.21
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0020" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.0.20
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0019" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.0.19
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0018" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.0.18
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0017" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.0.17
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0016" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.0.16
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0015" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.0.15
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0014" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.0.14
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0013" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.0.13
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0012" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.0.12
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0011" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.0.11
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="luxe-editor-release-notes">luxe editor release notes<a class="headerlink" href="#luxe-editor-release-notes" title="Permanent link">&para;</a></h1>
+<h2 id="202423">2024.2.3<a class="headerlink" href="#202423" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Camera; fix scroll wheel being weird</li>
+<li>Fix inspector showing up if omni is never opened (Izzy)</li>
+<li>Double click outline to focus selected (Ronja)</li>
+<li>Rename on F2 (Ronja)</li>
+</ul>
+<h2 id="202422">2024.2.2<a class="headerlink" href="#202422" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Add fit bounds for ortho camera (Ronja)</li>
+<li>Double click to focus (in view) (Ronja)</li>
+<li>Remove debug cubes  :'( </li>
+</ul>
+<h2 id="202421">2024.2.1<a class="headerlink" href="#202421" title="Permanent link">&para;</a></h2>
+<ul>
+<li>World 2.0; several fixes</li>
+<li>World 2.0; add delete/duplicate button to UI</li>
+<li>World 2.0; fix issues with duplicate and delete </li>
+<li>World 2.0; clean up visual glitchyness </li>
+<li>World 2.0; create undo (entity)  </li>
+<li>World 2.0; attach undo </li>
+<li>World 2.0; select created</li>
+<li>World; fix anim track crashes in old editor</li>
+<li>World; fix keyframe window being bugged in anim track</li>
+</ul>
+<h2 id="2023112">2023.11.2<a class="headerlink" href="#2023112" title="Permanent link">&para;</a></h2>
+<ul>
+<li>prevent crash from noodles on first launch of a new project</li>
+</ul>
+<h2 id="2023111">2023.11.1<a class="headerlink" href="#2023111" title="Permanent link">&para;</a></h2>
+<ul>
+<li>World 2.0; Select created items</li>
+<li>World 2.0; use built in color picker</li>
+<li>World 2.0; Vector fields tab properly</li>
+<li>World 2.0; Color fields have color + show color picker now</li>
+</ul>
+<h2 id="2023110">2023.11.0<a class="headerlink" href="#2023110" title="Permanent link">&para;</a></h2>
+<p>Big long list coming soon.</p>
+<h2 id="202205">2022.0.5<a class="headerlink" href="#202205" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Hopefully have that UI clipping fixed </li>
+<li>Hopefully have that memory explosion fixed on mac/linux</li>
+<li>Disable debug ui as it's causing trouble</li>
+<li>World; Add convert to prototype (ronja)</li>
+<li>World; Add layer delete button (ronja)</li>
+<li>World; Add undo for prototype spawn (ronja)</li>
+<li>World; fix transform links with undo (ronja)</li>
+<li>World; fix error on same names bug in multiple layers (ronja)</li>
+<li>World; disallow renaming prototype members for now (ronja)</li>
+<li>Transform; prevent cyclic links (ronja)</li>
+</ul>
+<h2 id="202204">2022.0.4<a class="headerlink" href="#202204" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Allow modifier options to use number type for numeric enums</li>
+<li>Project; fix path display and cropping of info text</li>
+<li>World; fix selection showing up incorrectly when switching worlds</li>
+</ul>
+<h2 id="202203">2022.0.3<a class="headerlink" href="#202203" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Fix duplicate extensions on bulk sprite import (2022.0.2 hotfix)</li>
+<li>add <code>luxe.editor.debug.enabled</code> to disable debug console (2022.0.2 hotfix)</li>
+<li>Assets; lists of assets can be filtered (e.g by custom modifiers)</li>
+<li>Editor; check right alt key as well in a dozen places</li>
+</ul>
+<h2 id="202202">2022.0.2<a class="headerlink" href="#202202" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Editor; fix tooltips outside of parent clip showing up (ronja)</li>
+<li>World; fix selection outline for render module, make more consistent</li>
+<li>Tiles; perf; with many visuals in palette, only render visible ones</li>
+<li>Tiles; sheet; add spacing and margin for tiles on add</li>
+<li>Tiles; sheet; add display size input option for scaling on add</li>
+<li>Tiles; sheet; change to use a tile size and calculate rows/cols</li>
+<li>Modules; fix weird slowdown on refresh</li>
+</ul>
+<h2 id="202201">2022.0.1<a class="headerlink" href="#202201" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Play Standalone; Fixed 2 crashes there, playing should be reliable</li>
+<li>Play Standalone; now shows playing/running state (as a quick solution) </li>
+<li>Color Picker now changes on click as well not just drag (jonathan)</li>
+<li>Tiles; add tile size setting for atlas imports, quicker than counting tiles</li>
+<li>Import; Fix import dialogs hanging on macOS</li>
+<li>Import; add multiple sprite import from a folder</li>
+<li>UI; fix weird clipping issue on resizing the editor</li>
+</ul>
+<h2 id="2021010">2021.0.10<a class="headerlink" href="#2021010" title="Permanent link">&para;</a></h2>
+<h4 id="new-stuff">new stuff<a class="headerlink" href="#new-stuff" title="Permanent link">&para;</a></h4>
+<p><strong>multi-select</strong> <br />
+When multiple entities are under the mouse in the world editor, you can now hold <code>ctrl</code> and click to show a list.
+This list has a filter and will stay open while you select entities from it. Hold shift and click the entities in the
+list to select multiple, as you'd expect. To dismiss the list, right click. The list is also dismissed when there's nothing to select, 
+so clicking empty space will dismiss it (this is a wip but still plenty useful already).</p>
+<p><strong>color-picker</strong> <br />
+There's a new color picker (finally) that Ronja implemented! All (almost) color fields have been replaced with it.
+If you have issues let us know.</p>
+<p><strong>color-picker</strong>   </p>
+<h4 id="resilience">resilience<a class="headerlink" href="#resilience" title="Permanent link">&para;</a></h4>
+<p>The editor will crash a lot less when you have invalid code in a modifier. It used to crash on attach for example, 
+but now it will check for errors during attach and display them. </p>
+<p>It also does this on project load now, so you're unable to open a project that has script errors (for now!).
+This is still better than crashing.</p>
+<h4 id="workflow-issues">workflow issues<a class="headerlink" href="#workflow-issues" title="Permanent link">&para;</a></h4>
+<p>Many of the major workflow issues reported during closed beta have been addressed, like <strong>Omni stealing shortcut keys</strong>, 
+and the ability to <strong>view the log while running the game</strong> from the editor. <strong>To view the log/debug panel, press <code>alt + backtick</code></strong>.</p>
+<p>Another big workflow issue was the camera in the world editor losing focus while rotating in 3D mode. The camera now holds focus
+and doesn't get interrupted by the UI at all, as intended.</p>
+<ul>
+<li>Editor; context switcher now looks interactable</li>
+<li>Editor; add initial debug view (shows log). <code>alt + backtick</code></li>
+<li>Editor; replace all file save/open dialogs with a consistent UIPath field</li>
+<li>Editor; replace most color pickers with a color picker control</li>
+<li>Camera; fix focus issues with camera, fix wasd mouse wheel speed</li>
+<li>Project; when loading, show error/don't crash if project is missing dependencies </li>
+<li>Project; when loading, show errors if code has an error, don't crash </li>
+<li>Tiles; fix shortcuts being consumed by omni </li>
+<li>World; add multi-select list (hold ctrl + click) for selection</li>
+<li>World; add delete section button to omni </li>
+<li>World; anim; display save notifications for animations </li>
+<li>World; anim; delete track/s button inside track settings</li>
+<li>World; fix shortcuts being consumed by omni </li>
+<li>World; fix 3d camera being miles away from origin, now fits 1 unit</li>
+<li>World; fix 3d camera losing control when entering omni</li>
+<li>World; Anim; don't take focus when other UI has UI focus</li>
+<li>World; don't crash when modifiers cause errors, display a message instead</li>
+<li>Camera; when modifiers are held (alt/ctrl/shift) wheel doesn't zoom</li>
+<li>World; Camera; add back F for "fit to view", very rough/wip</li>
+<li>Tiles; fix <code>shift+mouse wheel</code> scroll changing paint depth</li>
+<li>UI; use flex layout mode for UI going forward</li>
+<li>UI; checkbox style refactored across the editor</li>
+<li>UI; fix glitching controls bug</li>
+<li>Add first pass of hex grid shader (ronja)</li>
+<li>Add color picker (ronja)</li>
+</ul>
+<h2 id="202109">2021.0.9<a class="headerlink" href="#202109" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Fix crash from previewing an animation (Dolichomps)</li>
+<li>Fix preview camera being upside down in 2D (voidberg)</li>
+</ul>
+<h2 id="202108">2021.0.8<a class="headerlink" href="#202108" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Open Prototype will switch to already open prototypes</li>
+<li>Fix anim crashes when creating anims in a prototype world</li>
+<li>Fix wacky enter/exit outline expansion behaviour</li>
+<li>World; hold shift while hovered in outline to expand</li>
+<li>Fix crashes from changing values on spawned prototypes</li>
+<li>Fix crash when cancelling several actions in omni</li>
+<li>Fix ui focus not working when omni is closed</li>
+<li>Fix "add track" repeatedly adding options to omni</li>
+<li>Fix crash on clicking cancel on the asset import view</li>
+<li>World; camera; some fixes to capture behaviour</li>
+</ul>
+<h2 id="202107">2021.0.7<a class="headerlink" href="#202107" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Fix regression from imports added in 2021.0.6, paths should work as intended</li>
+<li>Fix duplicate options added when clicking import repeatedly #52</li>
+<li>Fix anim view stealing focus when switching contexts #48</li>
+<li>Fix path lowercase behaviour in more places e.g #53</li>
+<li>UI; double click setting added <code>engine.runtime.input.rapid_press_interval</code></li>
+<li>UI; double click time default increased to 0.45s (was 0.2s)</li>
+<li>Anim; Sprite Value Track now exposes uv.horizontal/uv.vertical</li>
+<li>Anim; Sprite Value Track now exposes uv.left/uv.right/uv.top/uv.bottom</li>
+<li>Material previews for sprite based materials render as 2D images</li>
+</ul>
+<h2 id="202106">2021.0.6<a class="headerlink" href="#202106" title="Permanent link">&para;</a></h2>
+<ul>
+<li>remove Str.lower on paths removing cross platform behaviour</li>
+<li>remove create asset options from asset lists (use import menu)</li>
+<li>fix tab behaviours for several things</li>
+</ul>
+<h2 id="202105">2021.0.5<a class="headerlink" href="#202105" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Values / Tags - fix enter key being stolen </li>
+<li>Anim - fix loading creating duplicate tracks</li>
+<li>Anim - add transform track settings to editor</li>
+<li>Anim - add sprite value track settings</li>
+<li>World - fix assumptions of project-local paths in world editor, so scenes in modules can be edited</li>
+</ul>
+<h2 id="202104">2021.0.4<a class="headerlink" href="#202104" title="Permanent link">&para;</a></h2>
+<ul>
+<li>luxe 2021.0.4 compatability</li>
+<li>rename default scene folder to <code>scene/</code> instead of <code>scenes/</code> for consistency</li>
+<li>bunches of work on the animation editor</li>
+<li>fix escape key taking action when text fields are focused</li>
+<li>fix omni key taking action when text fields are focused</li>
+<li>custom modifiers - show validation errors properly on vec fields</li>
+<li>scene outline - fix renaming scenes to be consistent with layers</li>
+<li>scene outline - add several tooltips to things</li>
+</ul>
+<h2 id="202103">2021.0.3<a class="headerlink" href="#202103" title="Permanent link">&para;</a></h2>
+<ul>
+<li>luxe 2021.0.3 compatability</li>
+<li>Editor - Fix several places where Str.fixed is used to display nicer numbers</li>
+<li>Editor - Fix notifications blocking input to the top bar</li>
+<li>Editor - Added toggle grid via <code>ctrl-G</code>/<code>cmd-G</code></li>
+<li>Editor - Show a message in asset lists when there are no assets of that type</li>
+<li>Editor - Add tooltip to asset lists so you can see long names</li>
+<li>Editor - Fixed material/image previews from sometimes not showing up</li>
+<li>World - Text - update material properly when changing it</li>
+<li>World - Text - fix crash when text is saved without a default, or by duplicate</li>
+<li>World - Transform - link disallows + shows "can't link to self" and "no transform attached"</li>
+<li>World - Anim - anim view is now per world</li>
+<li>World - Anim - Fix mouse issues with animation views</li>
+<li>World - Anim - used shared doc context with world, now undoable/redoable</li>
+<li>World - Anim - allowing editing properties without stealing focus</li>
+<li>World - fix a crash when an error happens and invalid code was called</li>
+<li>World - gizmo now remembers world/local toggle</li>
+<li>World - transform gizmo (T) now shows a snap toggle for translation on space as well</li>
+<li>World - guard accessing invalid entities in highlights + outline, to prevent crashes</li>
+<li>World - fix crash from deleting a prototype where it deselected after destroy</li>
+<li>World - fix spawn prototype button being sneaky and sometimes not showing up</li>
+<li>World - fix open/create scene options showing in prototype worlds</li>
+<li>World - prototype or preview worlds now respect the default 2d/3d setting</li>
+<li>Tiles - when refreshing, don't access invalid entities to prevent crashes</li>
+<li>Tiles - fix painting brushes without overlap while dragging</li>
+<li>Tiles - show image/atlas source add panels separately for clarity</li>
+<li>Tiles - add tooltips to visual source add panels</li>
+<li>Tiles - display notifications for key events</li>
+</ul>
+<h2 id="202102">2021.0.2<a class="headerlink" href="#202102" title="Permanent link">&para;</a></h2>
+<ul>
+<li>luxe 2021.0.2 compatability</li>
+<li>fix some issues with luxe dev mode</li>
+<li>fix deploy only deploying host target</li>
+<li>world - anim preview exploration</li>
+<li>world - anim fix doc updates on track properties changing</li>
+<li>world - anim fix track open not updating settings</li>
+<li>world - fix mouse staying connected on world destroy</li>
+<li>fix crash when asset reloading fails to compile</li>
+</ul>
+<h2 id="202101">2021.0.1<a class="headerlink" href="#202101" title="Permanent link">&para;</a></h2>
+<ul>
+<li>luxe 2021.0.1 compatability</li>
+<li>UI - fix lists with filters, fixes annoying mouse snapping bug on click</li>
+<li>Animation editor continued work (sprites, etc)</li>
+<li>Remove old anim context, rename materials to reduce confusion</li>
+<li>block in assets context</li>
+</ul>
+<h2 id="202100">2021.0.0<a class="headerlink" href="#202100" title="Permanent link">&para;</a></h2>
+<ul>
+<li>luxe 2021.0.0 compatability</li>
+<li>Project - add hot reload for meshes, images and shaders (only)</li>
+<li>Project - clean up landing page + recent projects and such</li>
+<li>UI - add notifier for important actions</li>
+<li>UI - add "open folder" when a project is open</li>
+<li>UI - added tooltips to a lot of things to test the tooltip stuff</li>
+<li>UI - visual polish for several things</li>
+<li>Noodles - fix for y+ up</li>
+<li>World - allow closing a prototype world</li>
+<li>World - add <code>editor="options"</code> so enums act like selectable lists in editor</li>
+<li>World - fix selection of prototype entities via the icon</li>
+<li>World - highlight all children of a prototype when selected</li>
+<li>World - wip - scene outline expands on mouse enter. if you see weirdness, move the mouse out of omni</li>
+<li>World - add link to <code>Transform</code> for connecting entities in editor</li>
+<li>World - add initial sort option for scene outline, default to alphabetical</li>
+<li>World - change how active layer works. clicking a layer now activates it. use edit to rename</li>
+<li>World - fix bug when saving would save invisible internal scenes into the project</li>
+<li>World - selecting a child of a prototype selects the root, hold alt to select child</li>
+<li>World - clicking multiple times to select things behind the first one</li>
+<li>World - Anim - clean up on closing a project</li>
+<li>World - Anim - lots of UI work and fixes toward a usable editor. It can load/save basics.</li>
+</ul>
+<h2 id="202035">2020.3.5<a class="headerlink" href="#202035" title="Permanent link">&para;</a></h2>
+<ul>
+<li>luxe 2020.3.5 compatability</li>
+<li>world - gizmo adapts to the scale of the world (tilman)</li>
+<li>world - fix selection rendering in custom rendering</li>
+<li>world - fix axes and grid rendering in custom rendering</li>
+<li>world - gizmos persist snap settings when editing</li>
+<li>world - gizmo snap settings select all on focus</li>
+</ul>
+<h2 id="202034">2020.3.4<a class="headerlink" href="#202034" title="Permanent link">&para;</a></h2>
+<ul>
+<li>luxe 2020.3.4 compatability</li>
+<li>load project strings up front</li>
+<li>fix loading prototypes (tilman) </li>
+<li>fix preview in world editor using old data (tilman) </li>
+<li>fix obscure case in scene outline displaying prototype entities loose</li>
+<li>when selecting part of a prototype in view, select the root instead (tilman)</li>
+<li>show errors when duplicating/deleting parts of a prototype</li>
+<li>redo duplicating, now anything i.e prototype instances can be duplicated</li>
+<li>initial support for deleting prototype roots (not undoable, but saveable)</li>
+</ul>
+<h2 id="202033">2020.3.3<a class="headerlink" href="#202033" title="Permanent link">&para;</a></h2>
+<ul>
+<li>luxe 2020.3.3 compatability</li>
+<li>Fix some crashes in tiles and filtered lists</li>
+<li>Update create material tool to latest material format </li>
+<li>Add tag to preview world so it can be identified (tilman)</li>
+<li>Swap Q/E controls on camera as they were inverted (tilman)</li>
+</ul>
+<h2 id="202032">2020.3.2<a class="headerlink" href="#202032" title="Permanent link">&para;</a></h2>
+<ul>
+<li>luxe 2020.3.2 compatability</li>
+<li>Fix crash when closing a project and some other places</li>
+<li>World - prevent naming two entities the same thing to avoid bugs atm (eva)</li>
+</ul>
+<h2 id="202031">2020.3.1<a class="headerlink" href="#202031" title="Permanent link">&para;</a></h2>
+<ul>
+<li>luxe 2020.3.1 compatability</li>
+<li>fix a crash when closing a scene sometimes</li>
+<li>set default world and camera for reaching</li>
+<li>use project compiler for project assets (not editor compiler)</li>
+</ul>
+<h2 id="202030">2020.3.0<a class="headerlink" href="#202030" title="Permanent link">&para;</a></h2>
+<ul>
+<li>luxe 2020.3.0 compatability</li>
+<li>editor - load input entry setting so game input bindings exist</li>
+<li>editor - choosing file paths on windows was broken, all fixed now</li>
+<li>editor - make keymap UI slightly taller for legibility</li>
+<li>world - fix bug in scene preview where old scenes could linger (fixed by tilman)</li>
+<li>world - don't allow selecting prototype entities for entity reference atm</li>
+<li>world - add shift-B to display bounds of world contents</li>
+<li>world - fix crash with new modifier block format (ronja)</li>
+<li>tiles - add 45 degree snap when rotating (hold shift) (eduardo)</li>
+<li>tiles - add material input name to sources</li>
+<li>tiles - store a pixelated flag for sources</li>
+<li>tiles - can now set color on tiles via the editor</li>
+<li>tiles - fix gaps when painting fast (eduardo)</li>
+</ul>
+<h2 id="202020">2020.2.0<a class="headerlink" href="#202020" title="Permanent link">&para;</a></h2>
+<ul>
+<li>luxe 2020.2.0 compatability</li>
+</ul>
+<h2 id="202012">2020.1.2<a class="headerlink" href="#202012" title="Permanent link">&para;</a></h2>
+<ul>
+<li>doc - context concept for plural doc editing + undo</li>
+<li>world - add <code>luxe.editor.world.camera.default</code> setting, "2D"/"3D"</li>
+<li>world - fix prototype scenes showing up in preview mode (tilman)</li>
+<li>world - hide ui for scenes inside prototype worlds</li>
+<li>world - more wip animation editing, not usable yet (though saving works)</li>
+<li>project - handle errors when loading projects gracefully, not aborts</li>
+<li>project - fix a few crashes when closing/opening projects in a row</li>
+</ul>
+<h2 id="202011">2020.1.1<a class="headerlink" href="#202011" title="Permanent link">&para;</a></h2>
+<ul>
+<li>latest luxe path support</li>
+<li>fix intro tooltip location</li>
+<li>fix text wrapping in various places</li>
+<li>more work on new animation views (not done)</li>
+</ul>
+<h2 id="202010">2020.1.0<a class="headerlink" href="#202010" title="Permanent link">&para;</a></h2>
+<h4 id="editor">editor<a class="headerlink" href="#editor" title="Permanent link">&para;</a></h4>
+<ul>
+<li>new versioning</li>
+<li>fix projects that use dev versions by version number</li>
+<li>make sure project settings are loaded for use</li>
+<li>make sure project dependencies are loaded as well</li>
+<li>lx parsing now labels all sources for better errors</li>
+<li>fix doc handling keys with dots inside. entities etc can be named whatever</li>
+<li>doc now has transient docs for handling behind the scenes change</li>
+<li>editor handles cancel (esc), commit (enter), and tab for custom modifiers</li>
+<li>recent projects shown by order of access, shared with launcher</li>
+<li>now handles project path from command line</li>
+<li>expose access to editor contexts for modifiers</li>
+<li>fix direction of zoom with mouse wheel in 3d spaces</li>
+</ul>
+<h4 id="world">world<a class="headerlink" href="#world" title="Permanent link">&para;</a></h4>
+<ul>
+<li>fix renaming layers being broken in some cases</li>
+<li>don't allow unselectable things to be selected from scene view</li>
+<li>active worlds concept for prototype + animation editing</li>
+<li>prototypes now openable, editable, creatable</li>
+<li>prototypes overrides can now be edited</li>
+<li>prototypes can now accept modifiers on their root entity</li>
+<li>fix active layer in various cases, like load/close/new/etc</li>
+<li>handle many errors more gracefully as messages, not aborts</li>
+<li>game rendering is now handled, so in editor looks like the game</li>
+<li>fix duplicating entities handling dependency ordering right</li>
+<li>fix custom modifiers vector fields using last selected values</li>
+<li>Shift P shows physics debug (if available)</li>
+<li>fix crash on entities without an ID</li>
+<li>gizmos now can snap (press space bar with gizmo active)</li>
+</ul>
+<h4 id="tiles">tiles<a class="headerlink" href="#tiles" title="Permanent link">&para;</a></h4>
+<ul>
+<li>flip keys will now flip selected tiles (if select tool is on)</li>
+<li>drawing ui in world space for consistency</li>
+<li>fix rotation in some cases</li>
+<li>fix clearing tags</li>
+<li>tags + offset are now painted correctly</li>
+<li>displays dimensions of select rect, useful for measuring</li>
+<li>highlight + select all with visuals (ctrl click, alt click)</li>
+</ul>
+<h2 id="0031">0.0.31<a class="headerlink" href="#0031" title="Permanent link">&para;</a></h2>
+<h4 id="editor_1">editor<a class="headerlink" href="#editor_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>fix same source/dest image import zeroing file (jonathan)</li>
+<li>fix context switcher ui location on resize</li>
+<li>fix loading projects with dependencies, again</li>
+<li>when deploying, the folder now opens on complete</li>
+<li>anim - don't show buttons with no project (that crash on click)</li>
+</ul>
+<h4 id="tiles_1">tiles<a class="headerlink" href="#tiles_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>fix crash sometimes on <code>viaul</code></li>
+<li>try different logic for half texels</li>
+<li>fixed crash on removing tiles modifier</li>
+</ul>
+<h4 id="world_1">world<a class="headerlink" href="#world_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>modifiers now add their dependencies first if missing</li>
+<li>modifiers now get notified when in editor for events</li>
+<li>attach list for modifiers cleaned up and sorted nicely</li>
+<li>fix missing strings on modifier asset select</li>
+<li>log attach errors to log as well in case of crashes</li>
+<li>fix ui world camera on window resize </li>
+</ul>
+<h2 id="0030">0.0.30<a class="headerlink" href="#0030" title="Permanent link">&para;</a></h2>
+<h4 id="omni">omni<a class="headerlink" href="#omni" title="Permanent link">&para;</a></h4>
+<ul>
+<li>fix fast switch not resetting on esc (tilman)</li>
+<li>fix context changes cancelling pages. fixes 'attach' (tilman)</li>
+<li>fixed scroll jumping to be more consistent again</li>
+</ul>
+<h4 id="editor_2">editor<a class="headerlink" href="#editor_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li>cleaned up project intro flow</li>
+<li>omni now uses the luxe logo as intended (not a weird symbol)</li>
+<li>fixed material/image create outside <code>world</code> (jonathan)</li>
+<li>create material/images ensure path exists (jonathan)</li>
+<li>improved material/image create workflow (added file select)</li>
+</ul>
+<h4 id="project">project<a class="headerlink" href="#project" title="Permanent link">&para;</a></h4>
+<ul>
+<li>added deploy panel for making builds</li>
+<li>make it possible to load projects with dependencies!</li>
+</ul>
+<h4 id="world_2">world<a class="headerlink" href="#world_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li>fix state of collapsed scene view selected entities (tilman)</li>
+<li>fix missing strings on id32/id64 field types</li>
+<li>fixed ui for id32/id64 field types</li>
+<li>add entity select for custom modifiers</li>
+<li>tags - fixed crashes when adding sometimes</li>
+</ul>
+<h2 id="0029">0.0.29<a class="headerlink" href="#0029" title="Permanent link">&para;</a></h2>
+<h4 id="editor_3">editor<a class="headerlink" href="#editor_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li>added keymaps to tiles, world</li>
+<li>added readme to tiles, world</li>
+<li>fixed omni snapping awkwardly in most cases</li>
+<li>fixed omni filtering being case sensitive</li>
+<li>bring back fast switcher UI immediate term</li>
+<li>context switcher closes when clicking outside of</li>
+<li>add 'create material...' in material select</li>
+<li>add 'create image...' in image select</li>
+<li>add hover previews for materials/images</li>
+<li>anim - removed crashing logic, can now play with it</li>
+</ul>
+<h4 id="world_3">world<a class="headerlink" href="#world_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li>custom modifiers now display id32/id64 correctly</li>
+<li>clean up attach modifiers UI a bit</li>
+</ul>
+<h4 id="tiles_2">tiles<a class="headerlink" href="#tiles_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li>added size operations to tiles</li>
+<li>properties panel can edit selected tiles</li>
+<li>"add visual source" now has an image source</li>
+</ul>
+<h2 id="0028">0.0.28<a class="headerlink" href="#0028" title="Permanent link">&para;</a></h2>
+<ul>
+<li>editor - fixed an issue with project upgrades</li>
+</ul>
+<h2 id="0027">0.0.27<a class="headerlink" href="#0027" title="Permanent link">&para;</a></h2>
+<h4 id="editor_4">editor<a class="headerlink" href="#editor_4" title="Permanent link">&para;</a></h4>
+<ul>
+<li>resizable window</li>
+<li>added several wip tooltips</li>
+<li>context switcher usability improved</li>
+<li>play button is now global (not world only)</li>
+<li>project - 'update bin' is now dev toggle</li>
+<li>modules - 'view update' link fixed on updates</li>
+</ul>
+<h4 id="tiles_3">tiles<a class="headerlink" href="#tiles_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li>rectangle selection (cmd/ctrl drag with select tool)</li>
+<li>fixed rogue rendering with no project open</li>
+</ul>
+<h2 id="0026">0.0.26<a class="headerlink" href="#0026" title="Permanent link">&para;</a></h2>
+<h4 id="editor_5">editor<a class="headerlink" href="#editor_5" title="Permanent link">&para;</a></h4>
+<ul>
+<li>added log.txt so errors can be relayed</li>
+<li>more game level rendering integration</li>
+<li>omni now has placeholder text and cancel button (sg)</li>
+<li>omni has initial version of mini (tooltips), more in .27</li>
+<li>new project displays latest outlines better (Jonathan)</li>
+</ul>
+<h4 id="tiles_4">tiles<a class="headerlink" href="#tiles_4" title="Permanent link">&para;</a></h4>
+<ul>
+<li>fixed bugs in painting not applying (by Tilman)</li>
+<li>fixed stack view getting clipped text (by Tilman)</li>
+<li>brushes with rotation paste incorrectly (by Tilman)</li>
+<li>fixed file name issues on saving tiles (Tilman)</li>
+<li>visuals now use texel center, fixes bleeding (Tilman)</li>
+</ul>
+<h4 id="camera">camera<a class="headerlink" href="#camera" title="Permanent link">&para;</a></h4>
+<ul>
+<li>fixed zoom speed, adding setting (everyone)</li>
+<li>add space key to drag as alternate (01010111/Eduardo)</li>
+<li>mouse wheel changes speed in free fly mode</li>
+</ul>
+<h4 id="anim">anim<a class="headerlink" href="#anim" title="Permanent link">&para;</a></h4>
+<ul>
+<li>initial work in progress anim editor. not usable yet.</li>
+</ul>
+<h4 id="world_4">world<a class="headerlink" href="#world_4" title="Permanent link">&para;</a></h4>
+<ul>
+<li>fixed play in editor, works well now</li>
+<li>fix crash on renaming a layer (everyone)</li>
+<li>custom modifiers can be removed now (Noel)</li>
+<li>added animation modifier, to attach anims</li>
+<li>blank scenes default to scenes/ folder</li>
+</ul>
+<h2 id="0025">0.0.25<a class="headerlink" href="#0025" title="Permanent link">&para;</a></h2>
+<ul>
+<li>select drag while holding alt now works </li>
+<li>tiles - add basic tagging support</li>
+<li>tiles - display tile stack better</li>
+<li>world - add duplicate (cmd/ctrl D)</li>
+<li>omni - don't take focus on context switching</li>
+<li>project - add modules button for consistency</li>
+<li>update sublime/vscode support with new errors</li>
+</ul>
+<h2 id="0024">0.0.24<a class="headerlink" href="#0024" title="Permanent link">&para;</a></h2>
+<ul>
+<li>fix settings.lx not loading correctly (Tilman/sponge)</li>
+</ul>
+<h2 id="0023">0.0.23<a class="headerlink" href="#0023" title="Permanent link">&para;</a></h2>
+<ul>
+<li>added settings.lx for tweaking window size</li>
+<li>added tiles reset rotation key (Eduardo)</li>
+<li>fixed world selection state on switching back (Tilman)</li>
+<li>fixed world uuid bugs causing delete to crash</li>
+<li>fixed world bug in not removing entities from list</li>
+<li>fixed horizontal scroll inverted (Tilman)</li>
+<li>fixed escape = quit, use cmd+Q/alt+F4/close window (La)</li>
+<li>fixed tiles context clean up on closing project (Tilman)</li>
+<li>fixed tiles bug on certain actions (cut/palette)</li>
+<li>fixed tiles aspect visual bug (fixed source previously)</li>
+<li>fixed windows install not creating the link (sponge/torcado)</li>
+</ul>
+<h2 id="0022">0.0.22<a class="headerlink" href="#0022" title="Permanent link">&para;</a></h2>
+<ul>
+<li>added tiles background color setting</li>
+<li>added tiles toggle grid key (<code>G</code>)</li>
+</ul>
+<h2 id="0021">0.0.21<a class="headerlink" href="#0021" title="Permanent link">&para;</a></h2>
+<ul>
+<li>fixed readme from project displaying everywhere (Jonathan)</li>
+</ul>
+<h2 id="0020">0.0.20<a class="headerlink" href="#0020" title="Permanent link">&para;</a></h2>
+<ul>
+<li>added <strong>uninstall</strong> module version button</li>
+<li>added <strong>getting started</strong> to view readme in project view</li>
+<li>added <strong>sample browser</strong> in modules/installed/module/version</li>
+<li>added <strong>update project</strong> prompt for convenience</li>
+<li>added resilience when attaching modifiers (Jonathan)</li>
+<li>fixed modifiers list mismatch on project change (Jonathan)</li>
+<li>fixed tiles sources with wider ratio display bug (Jonathan)</li>
+</ul>
+<h2 id="0019">0.0.19<a class="headerlink" href="#0019" title="Permanent link">&para;</a></h2>
+<ul>
+<li>fixed play standalone not working via assumptions</li>
+</ul>
+<h2 id="0018">0.0.18<a class="headerlink" href="#0018" title="Permanent link">&para;</a></h2>
+<ul>
+<li>fixed custom modifiers in world/runtime (dev.78)</li>
+<li>world - added play standalone (cmd/ctrl P or Play icon)</li>
+<li>world - added single click to rename (torcado)</li>
+<li>world - fixed enter key commits name (Brody)</li>
+<li>tiles - added tool display hints/icons</li>
+<li>tiles - display open asset name</li>
+<li>tiles - added save as...</li>
+<li>fixed input bindings in world feeling off (Jonathan)</li>
+<li>fixed cancel save crashing</li>
+<li>fixed saving invalid tiles from clear/paint (Brody)</li>
+<li>fixed crash placing tile after clearing map (torcado)</li>
+<li>various minor bugs and improvements!</li>
+</ul>
+<h2 id="0017">0.0.17<a class="headerlink" href="#0017" title="Permanent link">&para;</a></h2>
+<ul>
+<li>fixed tiles refresh on save also when loaded via scene (Jonathan)</li>
+</ul>
+<h2 id="0016">0.0.16<a class="headerlink" href="#0016" title="Permanent link">&para;</a></h2>
+<ul>
+<li>tiles automatically refresh in world on save (Jonathan)</li>
+<li>added header in subsection of attach for clarity (torcado)</li>
+<li>fixed crash: adding visual modifers when gizmo shown</li>
+<li>fixed camera input being linked in diff contexts (Jonathan)</li>
+<li>fixed T (transform gizmo) crash in world editor (torcado)</li>
+<li>display modules in sorted order for consistency (Jonathan)</li>
+</ul>
+<h2 id="0015">0.0.15<a class="headerlink" href="#0015" title="Permanent link">&para;</a></h2>
+<ul>
+<li>include windows build</li>
+</ul>
+<h2 id="0014">0.0.14<a class="headerlink" href="#0014" title="Permanent link">&para;</a></h2>
+<ul>
+<li>display readme clearer, and scrolling</li>
+<li>when not focused, make app use much less cpu/energy</li>
+</ul>
+<h2 id="0013">0.0.13<a class="headerlink" href="#0013" title="Permanent link">&para;</a></h2>
+<ul>
+<li>fixed tiles being available when no project is open</li>
+<li>fixed tiles grid setting being stored wrong (Jonathan)</li>
+<li>fixed newly created tiles breaking in world (Jonathan)</li>
+</ul>
+<h2 id="0012">0.0.12<a class="headerlink" href="#0012" title="Permanent link">&para;</a></h2>
+<ul>
+<li>added version display to status bar</li>
+<li>fixed <code>remove missing project</code> lingering (Jonathan)</li>
+<li>fixed <code>transform</code> crashing on selection (Jonathan)</li>
+<li>added better error messages on <code>transform</code> misuse (Jonathan)</li>
+</ul>
+<h2 id="0011">0.0.11<a class="headerlink" href="#0011" title="Permanent link">&para;</a></h2>
+<ul>
+<li>fixed entities not getting their uuid saved (Jonathan)</li>
+<li>fixed scrollwheel direction again (Jim/Jonathan)</li>
+<li>fixed ID panel floating around when it shouldn't</li>
+</ul>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 3, 2025 06:41:06 UTC">September 3, 2025</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/luxeengine" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 0c4.42 0 8 3.58 8 8a8.01 8.01 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27s-1.36.09-2 .27c-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8"/></svg>
+    </a>
+  
+</div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["instant", "navigation.prune"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>
